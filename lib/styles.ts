@@ -19,6 +19,8 @@ export interface WallStyle {
   image?: string;
   /** CSS gradient classes used as fallback / placeholder artwork. */
   gradient: string;
+  /** Style descriptor appended to the user prompt for real AI generation. */
+  promptTemplate: string;
 }
 
 /**
@@ -41,6 +43,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
       PORTRAIT
     ),
     gradient: "from-fuchsia-600 via-purple-800 to-slate-950",
+    promptTemplate:
+      "anime style illustration, clean line art, vibrant cel shading, expressive mood, studio quality, high-resolution wallpaper, sharp detail",
   },
   {
     id: "cyberpunk",
@@ -50,6 +54,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
       PORTRAIT
     ),
     gradient: "from-cyan-500 via-indigo-800 to-black",
+    promptTemplate:
+      "cyberpunk aesthetic, neon lights, futuristic city at night, rain reflections, cinematic glow, high-resolution wallpaper, sharp detail",
   },
   {
     id: "fantasy",
@@ -59,6 +65,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
       PORTRAIT
     ),
     gradient: "from-violet-500 via-purple-900 to-slate-950",
+    promptTemplate:
+      "epic fantasy art, magical atmosphere, painterly detail, dramatic lighting, high-resolution wallpaper, sharp detail",
   },
   {
     id: "nature",
@@ -68,6 +76,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
       PORTRAIT
     ),
     gradient: "from-teal-500 via-indigo-900 to-black",
+    promptTemplate:
+      "photorealistic nature landscape, natural light, serene composition, rich color, high-resolution wallpaper, sharp detail",
   },
   {
     id: "minimalist",
@@ -77,6 +87,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
       PORTRAIT
     ),
     gradient: "from-zinc-600 via-zinc-900 to-black",
+    promptTemplate:
+      "minimalist design, clean composition, generous negative space, subtle gradients, elegant simplicity, high-resolution wallpaper",
   },
   {
     id: "surreal",
@@ -86,13 +98,15 @@ export const WALLPAPER_STYLES: WallStyle[] = [
       PORTRAIT
     ),
     gradient: "from-pink-500 via-violet-800 to-slate-950",
+    promptTemplate:
+      "surreal dreamscape, imaginative composition, dreamlike atmosphere, fine art quality, high-resolution wallpaper, sharp detail",
   },
-  { id: "abstract", label: "Abstract", gradient: "from-fuchsia-500 via-violet-700 to-indigo-950" },
-  { id: "dark", label: "Dark", gradient: "from-slate-700 via-slate-900 to-black" },
-  { id: "3d-art", label: "3D Art", gradient: "from-blue-500 via-violet-800 to-slate-950" },
-  { id: "dreamcore", label: "Dreamcore", gradient: "from-pink-400 via-fuchsia-700 to-indigo-900" },
-  { id: "sci-fi", label: "Sci-Fi", gradient: "from-sky-500 via-blue-800 to-slate-950" },
-  { id: "photography", label: "Photography", gradient: "from-stone-500 via-stone-800 to-black" },
+  { id: "abstract", label: "Abstract", gradient: "from-fuchsia-500 via-violet-700 to-indigo-950", promptTemplate: "abstract art, bold shapes, fluid color gradients, modern composition, high-resolution wallpaper" },
+  { id: "dark", label: "Dark", gradient: "from-slate-700 via-slate-900 to-black", promptTemplate: "dark moody aesthetic, deep shadows, low-key lighting, mysterious atmosphere, high-resolution wallpaper" },
+  { id: "3d-art", label: "3D Art", gradient: "from-blue-500 via-violet-800 to-slate-950", promptTemplate: "polished 3D render, soft studio lighting, glossy materials, high detail, high-resolution wallpaper" },
+  { id: "dreamcore", label: "Dreamcore", gradient: "from-pink-400 via-fuchsia-700 to-indigo-900", promptTemplate: "dreamcore aesthetic, ethereal pastel haze, nostalgic surreal atmosphere, soft focus, high-resolution wallpaper" },
+  { id: "sci-fi", label: "Sci-Fi", gradient: "from-sky-500 via-blue-800 to-slate-950", promptTemplate: "sci-fi concept art, futuristic technology, epic scale, volumetric lighting, high-resolution wallpaper, sharp detail" },
+  { id: "photography", label: "Photography", gradient: "from-stone-500 via-stone-800 to-black", promptTemplate: "professional photography, sharp focus, natural bokeh, high dynamic range, high-resolution wallpaper" },
 ];
 
 /** The six styles showcased in the gallery section. */

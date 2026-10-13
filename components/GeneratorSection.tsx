@@ -90,7 +90,32 @@ const PREVIEW_FRAME: Record<DeviceId, string> = {
 
 interface RefImage {
   name: string;
+  /** Base64 data URI — sent to /api/generate for image-to-image editing. */
   url: string;
+}
+
+interface GeneratedImage {
+  url: string;
+  width: number | null;
+  height: number | null;
+}
+
+type GenerationStatus = "idle" | "generating" | "success" | "error";
+
+const REF_ALLOWED_TYPES = ["image/png", "image/jpeg", "image/webp"];
+const REF_MAX_BYTES = 5 * 1024 * 1024;
+
+function refFileError(file: File): string | null {
+  if (!REF_ALLOWED_TYPES.includes(file.type)) {
+    return "Unsupported format — please use PNG, JPEG or WebP.";
+  }
+  if (file.size === 0) {
+    return "That file is empty — please choose a valid image.";
+  }
+  if (file.size > REF_MAX_BYTES) {
+    return "Image is too large — please keep it under 5 MB.";
+  }
+  return null;
 }
 
 export default function GeneratorSection() {
@@ -98,20 +123,13 @@ export default function GeneratorSection() {
   const [device, setDevice] = useState<DeviceId>("phone");
   const [prompt, setPrompt] = useState("");
   const [refImage, setRefImage] = useState<RefImage | null>(null);
+  const [refError, setRefError] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
-  const [noticeVisible, setNoticeVisible] = useState(false);
+  const [status, setStatus] = useState<GenerationStatus>("idle");
+  const [resultImage, setResultImage] = useState<GeneratedImage | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const noticeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const refImageUrl = refImage?.url;
-
-  // Revoke the object URL whenever it is replaced or the component unmounts.
-  useEffect(() => {
-    if (!refImageUrl) return;
-    const url = refImageUrl;
-    return () => URL.revokeObjectURL(url);
-  }, [refImageUrl]);
 
   // Style cards in the gallery dispatch this event to preselect a style here.
   useEffect(() => {
@@ -123,21 +141,34 @@ export default function GeneratorSection() {
     return () => window.removeEventListener(STYLE_SELECT_EVENT, onStyleSelect);
   }, []);
 
-  useEffect(() => {
-    return () => {
-      if (noticeTimer.current) clearTimeout(noticeTimer.current);
-    };
-  }, []);
-
   const selectedStyle = styleId ? findStyle(styleId) : undefined;
   const selectedDevice = DEVICES.find((item) => item.id === device);
-  const previewSrc = selectedStyle?.image ?? DEMO_SAMPLE_IMAGE;
+  const previewSrc =
+    resultImage?.url ?? selectedStyle?.image ?? DEMO_SAMPLE_IMAGE;
   const previewGradient =
     selectedStyle?.gradient ?? "from-violet-600 via-purple-950 to-black";
 
   const handleFile = (file: File | null | undefined) => {
     if (!file) return;
-    setRefImage({ name: file.name, url: URL.createObjectURL(file) });
+    const problem = refFileError(file);
+    if (problem) {
+      setRefError(problem);
+      setRefImage(null);
+      return;
+    }
+    // Read as a data URI so it can be posted to /api/generate directly.
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") {
+        setRefImage({ name: file.name, url: reader.result });
+        setRefError(null);
+      } else {
+        setRefError("That image could not be read. Please try another file.");
+      }
+    };
+    reader.onerror = () =>
+      setRefError("That image could not be read. Please try another file.");
+    reader.readAsDataURL(file);
   };
 
   const handleDrop = (event: React.DragEvent<HTMLButtonElement>) => {
@@ -146,10 +177,70 @@ export default function GeneratorSection() {
     handleFile(event.dataTransfer.files?.[0]);
   };
 
-  const handleGenerate = () => {
-    setNoticeVisible(true);
-    if (noticeTimer.current) clearTimeout(noticeTimer.current);
-    noticeTimer.current = setTimeout(() => setNoticeVisible(false), 6000);
+  const handleGenerate = async () => {
+    if (status === "generating") return;
+    setStatus("generating");
+    setErrorMessage(null);
+    try {
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // refImage is omitted entirely in text-only mode (undefined drops
+        // from JSON), which switches the server back to text-to-image.
+        body: JSON.stringify({
+          prompt,
+          styleId,
+          device,
+          refImage: refImage?.url,
+        }),
+      });
+      const data = (await response.json()) as {
+        imageUrl?: string;
+        width?: number | null;
+        height?: number | null;
+        error?: string;
+      };
+      if (!response.ok || !data.imageUrl) {
+        setErrorMessage(
+          data.error ?? "Image generation failed. Please try again."
+        );
+        setStatus("error");
+        return;
+      }
+      setResultImage({
+        url: data.imageUrl,
+        width: data.width ?? null,
+        height: data.height ?? null,
+      });
+      setStatus("success");
+    } catch {
+      setErrorMessage(
+        "Network error — could not start generation. Please try again."
+      );
+      setStatus("error");
+    }
+  };
+
+  const handleDownload = async () => {
+    if (!resultImage) return;
+    try {
+      const response = await fetch(resultImage.url);
+      if (!response.ok) throw new Error("download failed");
+      const blob = await response.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = objectUrl;
+      anchor.download = `wallhaze-wallpaper-${Date.now()}.png`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      // Revoke on a delay — revoking synchronously can cancel the download in
+      // Firefox/Safari before it reaches the download manager.
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 1_000);
+    } catch {
+      // Cross-origin download may be blocked — fall back to opening the image.
+      window.open(resultImage.url, "_blank", "noopener");
+    }
   };
 
   return (
@@ -253,16 +344,24 @@ export default function GeneratorSection() {
               <input
                 ref={fileInputRef}
                 type="file"
-                accept="image/*"
+                accept="image/png,image/jpeg,image/webp"
                 className="hidden"
                 onChange={(event) => {
                   handleFile(event.target.files?.[0]);
                   event.target.value = "";
                 }}
               />
+              {refError && (
+                <p
+                  role="alert"
+                  className="mb-2 text-xs font-medium text-red-300"
+                >
+                  {refError}
+                </p>
+              )}
               {refImage ? (
                 <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-black/40 p-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- local blob preview */}
+                  {/* eslint-disable-next-line @next/next/no-img-element -- local data URI preview */}
                   <img
                     src={refImage.url}
                     alt="Reference image preview"
@@ -270,11 +369,16 @@ export default function GeneratorSection() {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm text-zinc-200">{refImage.name}</p>
-                    <p className="text-xs text-zinc-500">Ready as reference</p>
+                    <p className="text-xs text-zinc-500">
+                      Will be used as the base for your generation
+                    </p>
                   </div>
                   <button
                     type="button"
-                    onClick={() => setRefImage(null)}
+                    onClick={() => {
+                      setRefImage(null);
+                      setRefError(null);
+                    }}
                     className="shrink-0 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-zinc-400 transition hover:border-white/25 hover:text-zinc-100"
                   >
                     Remove
@@ -301,7 +405,10 @@ export default function GeneratorSection() {
                     Upload a reference image
                   </span>
                   <span className="text-xs text-zinc-500">
-                    PNG or JPG — drag &amp; drop or click to browse
+                    PNG, JPG or WebP — up to 5 MB
+                  </span>
+                  <span className="text-xs text-zinc-600">
+                    Used as the base for your generation
                   </span>
                 </button>
               )}
@@ -310,24 +417,27 @@ export default function GeneratorSection() {
             <button
               type="button"
               onClick={handleGenerate}
-              className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.99]"
+              disabled={status === "generating"}
+              className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:brightness-100"
             >
-              <SparklesIcon className="h-5 w-5" />
-              Generate Wallpaper
+              {status === "generating" ? (
+                <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 animate-spin">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
+                  <path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <SparklesIcon className="h-5 w-5" />
+              )}
+              {status === "generating" ? "Generating…" : "Generate Wallpaper"}
             </button>
 
-            {noticeVisible && (
+            {status === "error" && errorMessage && (
               <div
-                role="status"
-                className="animate-rise-in mt-4 flex items-start gap-3 rounded-xl border border-violet-400/30 bg-violet-500/10 px-4 py-3 text-sm text-violet-100"
+                role="alert"
+                className="animate-rise-in mt-4 flex items-start gap-3 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-100"
               >
                 <InfoIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                <p>
-                  <span className="font-semibold">
-                    AI generation will be available soon.
-                  </span>{" "}
-                  WallHaze is in early preview — your settings are saved for launch.
-                </p>
+                <p>{errorMessage}</p>
               </div>
             )}
           </div>
@@ -340,7 +450,11 @@ export default function GeneratorSection() {
               <div className="relative h-full w-full overflow-hidden rounded-[1.45rem]">
                 <WallpaperImage
                   src={previewSrc}
-                  alt={`Sample ${selectedStyle?.label ?? "default"} artwork preview`}
+                  alt={
+                    resultImage
+                      ? "Your generated wallpaper"
+                      : `Sample ${selectedStyle?.label ?? "default"} artwork preview`
+                  }
                   gradient={previewGradient}
                   className="h-full w-full object-cover"
                 />
@@ -350,9 +464,31 @@ export default function GeneratorSection() {
               </div>
             </div>
             <p className="mt-5 max-w-[16rem] text-center text-xs leading-relaxed text-zinc-500">
-              Demo preview — sample artwork for illustration, not a generated
-              result.
+              {status === "generating"
+                ? "Generating your wallpaper — this usually takes a few seconds…"
+                : resultImage
+                  ? "Your generated wallpaper — fresh from the AI studio."
+                  : "Demo preview — sample artwork for illustration, not a generated result."}
             </p>
+            {resultImage && status !== "generating" && (
+              <div className="mt-3 flex gap-2">
+                <a
+                  href={resultImage.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-white/15 px-4 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-white/35 hover:text-white"
+                >
+                  Open image
+                </a>
+                <button
+                  type="button"
+                  onClick={handleDownload}
+                  className="rounded-full border border-violet-400/40 bg-violet-500/15 px-4 py-1.5 text-xs font-medium text-violet-200 transition hover:bg-violet-500/25"
+                >
+                  Download
+                </button>
+              </div>
+            )}
             {selectedStyle && selectedDevice && (
               <p className="mt-1 text-center text-xs font-medium text-violet-300">
                 {selectedStyle.label} · {selectedDevice.label}
