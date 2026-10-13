@@ -1,0 +1,48 @@
+"use client";
+
+import { useState } from "react";
+
+interface WallpaperImageProps {
+  src?: string;
+  alt: string;
+  /** Gradient rendered when the image is missing or fails to load. */
+  gradient: string;
+  className?: string;
+  eager?: boolean;
+}
+
+/**
+ * Remote artwork with graceful degradation: if the image cannot load,
+ * a gradient placeholder with the same footprint is rendered instead.
+ */
+export default function WallpaperImage({
+  src,
+  alt,
+  gradient,
+  className = "",
+  eager = false,
+}: WallpaperImageProps) {
+  const [failed, setFailed] = useState(false);
+
+  if (!src || failed) {
+    return (
+      <div
+        role="img"
+        aria-label={alt}
+        className={`bg-gradient-to-br ${gradient} ${className}`}
+      />
+    );
+  }
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element -- remote artwork URLs, next/image domain config intentionally avoided
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  );
+}
