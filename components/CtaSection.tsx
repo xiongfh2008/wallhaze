@@ -1,4 +1,8 @@
+import { useTranslations } from "next-intl";
+
 export default function CtaSection() {
+  const t = useTranslations("cta");
+
   return (
     <section className="relative pb-24 pt-4 md:pb-32">
       <div className="mx-auto max-w-6xl px-6">
@@ -9,17 +13,16 @@ export default function CtaSection() {
           />
           <div className="relative">
             <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl">
-              Ready to transform your screen?
+              {t("title")}
             </h2>
             <p className="mx-auto mt-4 max-w-xl leading-relaxed text-zinc-400">
-              Pick a style, choose your device and create a wallpaper that’s
-              unmistakably yours.
+              {t("body")}
             </p>
             <a
               href="#generator"
               className="mt-10 inline-flex rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-9 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.98]"
             >
-              Start Creating
+              {t("button")}
             </a>
           </div>
         </div>

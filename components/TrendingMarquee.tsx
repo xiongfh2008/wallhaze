@@ -1,33 +1,38 @@
+import { useTranslations } from "next-intl";
 import { DEMO_SAMPLE_IMAGE, HERO_IMAGE, POPULAR_STYLES } from "@/lib/styles";
 import WallpaperImage from "./WallpaperImage";
 
-const ITEMS = [
-  ...POPULAR_STYLES.map((style) => ({
-    src: style.image,
-    gradient: style.gradient,
-    label: style.label,
-  })),
-  {
-    src: DEMO_SAMPLE_IMAGE,
-    gradient: "from-violet-500 via-purple-900 to-black",
-    label: "Nebula",
-  },
-  {
-    src: HERO_IMAGE,
-    gradient: "from-violet-950 via-purple-950 to-black",
-    label: "Haze",
-  },
-];
-
 export default function TrendingMarquee() {
+  const t = useTranslations("trending");
+  const tStyles = useTranslations("styleLabels");
+
+  const ITEMS = [
+    ...POPULAR_STYLES.map((style) => ({
+      src: style.image,
+      gradient: style.gradient,
+      // Brand/art names stay untranslated ("Nebula", "Haze"); style labels
+      // resolve through the styleLabels dictionary.
+      label: tStyles(style.id),
+    })),
+    {
+      src: DEMO_SAMPLE_IMAGE,
+      gradient: "from-violet-500 via-purple-900 to-black",
+      label: "Nebula",
+    },
+    {
+      src: HERO_IMAGE,
+      gradient: "from-violet-950 via-purple-950 to-black",
+      label: "Haze",
+    },
+  ];
+
   return (
     <section
-      id="explore"
-      aria-label="Trending wallpapers"
+      aria-label={t("aria")}
       className="relative border-y border-white/5 bg-white/[0.02] py-10 md:py-12"
     >
       <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
-        Trending this week
+        {t("title")}
       </p>
 
       <div className="group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
@@ -45,7 +50,7 @@ export default function TrendingMarquee() {
                 >
                   <WallpaperImage
                     src={item.src}
-                    alt={`${item.label} wallpaper preview`}
+                    alt={t("previewAlt", { label: item.label })}
                     gradient={item.gradient}
                     className="h-full w-full object-cover transition duration-500 group-hover/figure:scale-105"
                   />

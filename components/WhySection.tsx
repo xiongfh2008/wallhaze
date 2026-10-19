@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 function DeviceIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -27,34 +29,36 @@ function QualityIcon({ className = "" }: { className?: string }) {
   );
 }
 
-const REASONS = [
-  {
-    Icon: DeviceIcon,
-    title: "Made for Your Device",
-    body: "Every wallpaper is crafted to fit phones, tablets and desktops — sharp edge to edge on any screen.",
-  },
-  {
-    Icon: StylesIcon,
-    title: "Explore Unique Styles",
-    body: "From anime to surreal dreamscapes, discover looks you won’t find in any stock library.",
-  },
-  {
-    Icon: QualityIcon,
-    title: "High-Quality Wallpapers",
-    body: "High-resolution renders with rich color and detail, tuned to make every pixel count.",
-  },
-];
-
 export default function WhySection() {
+  const t = useTranslations("why");
+
+  const REASONS = [
+    {
+      Icon: DeviceIcon,
+      title: t("deviceTitle"),
+      body: t("deviceBody"),
+    },
+    {
+      Icon: StylesIcon,
+      title: t("stylesTitle"),
+      body: t("stylesBody"),
+    },
+    {
+      Icon: QualityIcon,
+      title: t("qualityTitle"),
+      body: t("qualityBody"),
+    },
+  ];
+
   return (
     <section id="why" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-14 max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-violet-300">
-            Why WallHaze
+            {t("eyebrow")}
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Built for beautiful screens
+            {t("title")}
           </h2>
         </div>
 

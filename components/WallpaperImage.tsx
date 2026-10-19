@@ -9,6 +9,8 @@ interface WallpaperImageProps {
   gradient: string;
   className?: string;
   eager?: boolean;
+  /** Optional callback fired when the image fails to load. */
+  onError?: () => void;
 }
 
 /**
@@ -21,6 +23,7 @@ export default function WallpaperImage({
   gradient,
   className = "",
   eager = false,
+  onError,
 }: WallpaperImageProps) {
   const [failed, setFailed] = useState(false);
 
@@ -39,10 +42,15 @@ export default function WallpaperImage({
     <img
       src={src}
       alt={alt}
-      className={className}
+      // The gradient doubles as an in-loading backdrop: until the bitmap is
+      // decoded the box shows the style gradient instead of raw black.
+      className={`bg-gradient-to-br ${gradient} ${className}`}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
-      onError={() => setFailed(true)}
+      onError={() => {
+        setFailed(true);
+        onError?.();
+      }}
     />
   );
 }

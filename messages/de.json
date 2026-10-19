@@ -1,0 +1,500 @@
+{
+  "meta": {
+    "homeTitle": "WallHaze — KI-Hintergrundbilder für jeden Bildschirm",
+    "homeDescription": "Erstelle beeindruckende KI-Hintergrundbilder, gemacht für dein Gerät. Entdecke einzigartige Stile – Anime, Cyberpunk, Fantasy und mehr – in hoher Qualität für Smartphone, Tablet und Desktop.",
+    "studioTitle": "Studio — KI-Hintergrundbilder erstellen",
+    "studioDescription": "Das WallHaze-Studio: Beschreibe dein Hintergrundbild, wähle einen Stil, lege Gerät und Seitenverhältnis fest, füge ein Referenzbild hinzu und generiere hochwertige KI-Hintergrundbilder für Smartphone, Tablet und Desktop."
+  },
+  "nav": {
+    "mainAria": "Hauptnavigation",
+    "mobileAria": "Mobil",
+    "studio": "Studio",
+    "explore": "Entdecken",
+    "generator": "KI-Generator",
+    "styles": "Stile",
+    "signIn": "Anmelden",
+    "getStarted": "Loslegen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  },
+  "hero": {
+    "eyebrow": "Studio für KI-Hintergrundbilder",
+    "titleLine1": "Dein Bildschirm.",
+    "titleLine2": "Deine Welt.",
+    "subtitle": "Erstelle beeindruckende KI-Hintergrundbilder, gemacht für dein Gerät.",
+    "ctaCreate": "Hintergrundbild erstellen",
+    "ctaExplore": "Galerie entdecken",
+    "ctaStudio": "Studio öffnen",
+    "footnote": "Kostenlos in der Early-Preview · Keine Registrierung nötig · Smartphone, Tablet & Desktop"
+  },
+  "trending": {
+    "aria": "Beliebte Hintergrundbilder",
+    "title": "Diese Woche im Trend",
+    "previewAlt": "Vorschau des Hintergrundbilds {label}"
+  },
+  "gallery": {
+    "eyebrow": "Hintergrundbild-Galerie",
+    "title": "Fertige Hintergrundbilder entdecken",
+    "subtitle": "Stöbere in kuratierten Demo-Hintergrundbildern nach Kategorie – tippe auf ein Werk, um seinen Look in den Generator zu laden. Selbst erstellte Hintergrundbilder landen in deiner Bibliothek und werden hier nie angezeigt.",
+    "searchAria": "Hintergrundbilder durchsuchen",
+    "searchPlaceholder": "Nach Name, Stil oder Stimmung suchen…",
+    "clearSearchAria": "Suche löschen",
+    "sortAria": "Hintergrundbilder sortieren",
+    "sortLabel": "Sortieren",
+    "sortDefault": "Standard",
+    "sortName": "Name A–Z",
+    "categoryGroupAria": "Hintergrundbilder nach Kategorie filtern",
+    "styleGroupAria": "Hintergrundbilder in {category} nach Stil filtern",
+    "allCategory": "Alle",
+    "allStyles": "Alle Stile",
+    "emptyTitle": "Keine Hintergrundbilder entsprechen deinen Filtern.",
+    "emptyBody": "Versuche eine andere Suche oder eine andere Kategorie.",
+    "clearFilters": "Suche & Filter zurücksetzen",
+    "useInGenerator": "Im Generator verwenden →",
+    "cardUseAria": "{title} im Generator verwenden",
+    "cardDownloadAria": "{title} herunterladen",
+    "cardViewAria": "{title} in voller Größe ansehen",
+    "cardFavoriteAria": "{title} zu Favoriten hinzufügen",
+    "cardUnfavoriteAria": "{title} aus Favoriten entfernen",
+    "detailMeta": "{group} · {style} · Kuratiertes Demo-Kunstwerk",
+    "createSimilar": "Ähnliches erstellen",
+    "downloadSaved": "„{title}“ wurde in deinen Downloads gespeichert.",
+    "filterFallbackGroup": "Galerie",
+    "filterFallbackStyle": "Ohne Stil"
+  },
+  "generator": {
+    "homeEyebrow": "KI-Generator",
+    "homeTitle": "Gestalte dein Hintergrundbild in Sekunden",
+    "homeSubtitle": "Wähle einen Stil und dein Gerät – Prompt und Referenzbild sind optional.",
+    "styleLegend": "Stil",
+    "styleCategoriesAria": "Stilkategorien",
+    "selected": "ausgewählt",
+    "deviceGroupLabel": "Gerät & Auflösung",
+    "deviceLegend": "Gerät",
+    "ratioLegend": "Seitenverhältnis",
+    "resolutionLegend": "Auflösung",
+    "modelDefault": "Modell-Standard",
+    "presetSizeLine": "{label} — {width} × {height} Pixel",
+    "modelDefaultHint": "Modell-Standardgröße – wähle eine Voreinstellung für eine exakte Auflösung.",
+    "screenRecommendTitle": "Empfohlen für deinen aktuellen Bildschirm",
+    "screenRecommendFor": "— für das von dir gewählte Gerät: {device}",
+    "screenRecommendNoExact": "Keine exakte Übereinstimmung mit dem Seitenverhältnis deines Bildschirms – eine allgemeine Größe wird vorgeschlagen.",
+    "useThisSize": "Diese Größe verwenden",
+    "promptLabel": "Prompt",
+    "optional": "(optional)",
+    "promptPlaceholder": "Beschreibe dein Hintergrundbild – eine Neonskyline, eine verträumte Wiese, was immer du dir vorstellst…",
+    "inspiration": "Inspiration",
+    "inspirationFor": "für {style}",
+    "randomInspiration": "Zufällige Inspiration",
+    "useExampleConfirm": "Dieses Beispiel für deinen Prompt verwenden?",
+    "promptChangedNotice": "Du hast deinen Prompt seit der Auswahl geändert – „Anhängen“ fügt ihn an den aktuellen Text an.",
+    "appendExceedsLimit": "Das Anhängen würde das Limit von {limit} Zeichen überschreiten – kürze zuerst deinen Prompt.",
+    "replace": "Ersetzen",
+    "append": "Anhängen",
+    "cancel": "Abbrechen",
+    "referenceLegend": "Referenzbild",
+    "refNoImage": "Noch kein Bild",
+    "refPreviewAlt": "Vorschau des Referenzbilds",
+    "refWillBeUsed": "Wird als Grundlage für deine Generierung verwendet",
+    "remove": "Entfernen",
+    "uploadTitle": "Referenzbild hochladen",
+    "uploadFormats": "PNG, JPG oder WebP – bis zu 5 MB",
+    "uploadHint": "Wird als Grundlage für deine Generierung verwendet",
+    "generate": "Hintergrundbild generieren",
+    "generating": "Wird generiert…",
+    "tryAgain": "Erneut versuchen",
+    "refUnsupportedFormat": "Nicht unterstütztes Format – bitte PNG, JPEG oder WebP verwenden.",
+    "refEmptyFile": "Diese Datei ist leer – bitte wähle ein gültiges Bild.",
+    "refTooLarge": "Das Bild ist zu groß – bitte unter 5 MB halten.",
+    "refReadFailed": "Dieses Bild konnte nicht gelesen werden. Bitte versuche eine andere Datei.",
+    "promptTooLong": "Dein Prompt ist zu lang – bitte halte ihn unter {limit} Zeichen.",
+    "generateFailed": "Die Bilderzeugung ist fehlgeschlagen. Bitte versuche es erneut.",
+    "invalidResponse": "Der Bilddienst hat eine ungültige Antwort zurückgegeben. Bitte versuche es erneut.",
+    "networkError": "Netzwerkfehler – die Generierung konnte nicht gestartet werden. Bitte versuche es erneut.",
+    "previewAltGenerated": "Dein generiertes Hintergrundbild",
+    "previewAltSample": "Vorschau eines Beispiel-Kunstwerks im Stil {style}",
+    "statusGenerating": "Dein Hintergrundbild wird generiert – das dauert meist nur ein paar Sekunden…",
+    "statusLongWait": "Läuft noch – detaillierte Prompts und Referenzbilder können bis zu einer Minute dauern.",
+    "statusErrorKept": "Generierung fehlgeschlagen – dein vorheriges Ergebnis wird angezeigt.",
+    "statusSuccess": "Dein generiertes Hintergrundbild – frisch aus dem KI-Studio.",
+    "statusDemo": "Demo-Vorschau – Beispiel-Kunstwerk zur Veranschaulichung, kein generiertes Ergebnis.",
+    "imageGoneNotice": "Dieses Bild ist an seiner ursprünglichen URL nicht mehr verfügbar – dein Prompt, dein Stil und dein Gerät bleiben erhalten, du kannst also erneut generieren.",
+    "viewFullSizeAria": "Hintergrundbild in voller Größe ansehen",
+    "addFavoriteAria": "Dieses Hintergrundbild zu Favoriten hinzufügen",
+    "removeFavoriteAria": "Dieses Hintergrundbild aus Favoriten entfernen",
+    "openImage": "Bild öffnen",
+    "download": "Herunterladen",
+    "downloading": "Wird heruntergeladen…",
+    "downloadSaved": "Hintergrundbild in deinen Downloads gespeichert.",
+    "restoreConfirm": "Diese Einstellungen wiederverwenden? Dein aktueller Prompt wird ersetzt.",
+    "clearHistoryConfirm": "Den gesamten Generierungsverlauf löschen? Das kann nicht rückgängig gemacht werden.",
+    "libraryTitle": "Meine Bibliothek",
+    "libraryTabsAria": "Bibliotheksbereiche",
+    "tabFavorites": "Favoriten",
+    "tabHistory": "Verlauf",
+    "clearHistory": "Verlauf löschen",
+    "favoritesEmpty": "Noch keine Favoriten – tippe auf das Herz bei einem Galerie-Hintergrundbild oder einem Generierungsergebnis, um es hier zu speichern.",
+    "historyEmpty": "Hier ist noch nichts – Hintergrundbilder, die du generierst, werden nur auf diesem Gerät gespeichert.",
+    "imageUnavailable": "Bild nicht verfügbar",
+    "downloadEntryAria": "{title} herunterladen",
+    "removeEntryFavoriteAria": "{title} aus Favoriten entfernen",
+    "entryFavoriteAlt": "Favoriten-Hintergrundbild: {title}",
+    "entryFavoriteAltPlain": "Favoriten-Hintergrundbild",
+    "untitled": "Ohne Titel",
+    "noStyle": "Ohne Stil",
+    "sourceGallery": "Galerie",
+    "sourceGenerated": "Generiert",
+    "noPrompt": "Ohne Prompt",
+    "reuse": "Wiederverwenden",
+    "reuseAria": "Diese Einstellungen wiederverwenden: {prompt}",
+    "reuseAriaPlain": "Diese Einstellungen wiederverwenden",
+    "historyThumbAlt": "Generiertes Hintergrundbild: {prompt}",
+    "historyThumbAltPlain": "Zuvor generiertes Hintergrundbild",
+    "fullSizeAlt": "Dein generiertes Hintergrundbild in voller Größe",
+    "generatedFallbackTitle": "Generiertes Hintergrundbild"
+  },
+  "studio": {
+    "brand": "WallHaze",
+    "accent": "Studio",
+    "eyebrow": "KI-Arbeitsbereich",
+    "subtitle": "Alles, was du zum Gestalten, Generieren und Sammeln von Hintergrundbildern brauchst – Prompt schreiben, Stil wählen, Format einstellen und Lieblingsstücke speichern.",
+    "backHome": "← Zurück zur Startseite",
+    "browseGallery": "Galerie durchstöbern"
+  },
+  "popular": {
+    "eyebrow": "Beliebte Stile",
+    "title": "Finde den Look, den du liebst",
+    "subtitle": "Sechs Signature-Stile, handverfeinert von unserem Studio. Tippe auf einen, um ihn in den Generator zu laden.",
+    "tryInGenerator": "Im Generator ausprobieren →",
+    "sampleAlt": "Beispiel-Hintergrundbild im Stil {style}"
+  },
+  "why": {
+    "eyebrow": "Warum WallHaze",
+    "title": "Gemacht für schöne Bildschirme",
+    "deviceTitle": "Gemacht für dein Gerät",
+    "deviceBody": "Jedes Hintergrundbild ist auf Smartphones, Tablets und Desktops abgestimmt – von Kante zu Kante scharf auf jedem Bildschirm.",
+    "stylesTitle": "Einzigartige Stile entdecken",
+    "stylesBody": "Von Anime bis zu surrealen Traumlandschaften: Entdecke Looks, die es in keiner Stock-Bibliothek gibt.",
+    "qualityTitle": "Hochwertige Hintergrundbilder",
+    "qualityBody": "Hochauflösende Renderings mit satten Farben und Details – abgestimmt, damit jedes Pixel zählt."
+  },
+  "cta": {
+    "title": "Bereit, deinen Bildschirm zu verwandeln?",
+    "body": "Wähle einen Stil, lege dein Gerät fest und erstelle ein Hintergrundbild, das eindeutig deins ist.",
+    "button": "Jetzt erstellen"
+  },
+  "footer": {
+    "tagline": "KI-Hintergrundbilder für dein Gerät – erstellen, entdecken und jeden Bildschirm zu deinem machen.",
+    "explore": "Entdecken",
+    "generator": "Generator",
+    "company": "Unternehmen",
+    "trending": "Trends",
+    "popularStyles": "Beliebte Stile",
+    "why": "Warum WallHaze",
+    "aiGenerator": "KI-Generator",
+    "allStyles": "Alle Stile",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "contact": "Kontakt",
+    "socialX": "X (Twitter)",
+    "socialInstagram": "Instagram",
+    "socialYoutube": "YouTube",
+    "socialComingSoon": "{label} — kommt bald",
+    "rights": "WallHaze. Alle Rechte vorbehalten.",
+    "madeFor": "Gemacht für jeden Bildschirm."
+  },
+  "lightbox": {
+    "closeAria": "Vollbild-Vorschau schließen",
+    "imageUnavailable": "Dieses Bild ist an seiner ursprünglichen URL nicht mehr verfügbar.",
+    "hint": "Klicke neben das Bild, um es zu schließen",
+    "hintDesktop": " · oder drücke Esc"
+  },
+  "languageSwitcher": {
+    "aria": "Sprache ändern",
+    "label": "Sprache",
+    "en": "English",
+    "zh": "简体中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "common": {
+    "comingSoon": "Kommt bald",
+    "favoriteLimit": "Deine Bibliothek ist voll – entferne ein paar Favoriten, um mehr zu speichern.",
+    "favoritesUnavailable": "Favoriten sind in diesem Browser nicht verfügbar.",
+    "downloadOpened": "Der direkte Download wurde blockiert – das Bild wurde in einem neuen Tab geöffnet, speichere es von dort.",
+    "downloadFailed": "Download fehlgeschlagen – bitte prüfe deine Verbindung und versuche es erneut.",
+    "thisWallpaper": "dieses Hintergrundbild"
+  },
+  "devices": {
+    "phone": "Smartphone",
+    "tablet": "Tablet",
+    "desktop": "Desktop"
+  },
+  "sizePresetLabels": {
+    "phonePortraitHd": "Smartphone Hochformat HD",
+    "portraitHd": "Hochformat HD",
+    "portraitClassic": "Hochformat Klassik",
+    "landscapeHd": "Querformat HD",
+    "landscapeClassic": "Querformat Klassik",
+    "landscapeCompact": "Querformat Kompakt",
+    "square": "Quadratisch",
+    "desktopFullHd": "Desktop Full HD"
+  },
+  "styleLabels": {
+    "anime": "Anime",
+    "cyberpunk": "Cyberpunk",
+    "fantasy": "Fantasy",
+    "nature": "Natur",
+    "minimalist": "Minimalistisch",
+    "surreal": "Surreal",
+    "abstract": "Abstrakt",
+    "dark": "Dunkel",
+    "3d-art": "3D-Kunst",
+    "dreamcore": "Dreamcore",
+    "sci-fi": "Sci-Fi",
+    "photography": "Fotografie",
+    "pencil-sketch": "Bleistiftskizze",
+    "charcoal-drawing": "Kohlezeichnung",
+    "ink-drawing": "Tuschezeichnung",
+    "watercolor": "Aquarell",
+    "oil-painting": "Ölmalerei",
+    "pixel-art": "Pixel-Art",
+    "cinematic": "Filmisch",
+    "gothic-horror": "Gothic-Horror",
+    "supernatural-horror": "Übernatürlicher Horror",
+    "cosmic-horror": "Kosmischer Horror",
+    "analog-horror": "Analog-Horror",
+    "psychological-horror": "Psychologischer Horror",
+    "nightmare-surrealism": "Alptraum-Surrealismus",
+    "dark-fantasy": "Dark Fantasy",
+    "post-apocalyptic": "Postapokalyptischer Horror",
+    "horror-anime": "Horror-Anime",
+    "occult-ritual": "Okkultes & Rituale",
+    "retro-cel": "Retro-Cel-Anime",
+    "shoujo": "Shōjo",
+    "shonen": "Shonen-Action",
+    "chibi": "Chibi",
+    "manga": "Manga",
+    "mecha": "Mecha",
+    "ukiyo-e-anime": "Ukiyo-e-Anime",
+    "cozy-anime": "Gemütlicher Anime"
+  },
+  "styleDescriptions": {
+    "anime": "Saubere Lineart und kräftiges Cel Shading",
+    "cyberpunk": "Neongetränkte Nächte futuristischer Städte",
+    "fantasy": "Epische Magiewelten und leuchtende Reiche",
+    "nature": "Ruhige, fotorealistische Landschaften",
+    "minimalist": "Ruhige Kompositionen mit viel Leerraum",
+    "surreal": "Traumhafte Kunst, getragen von Fantasie",
+    "abstract": "Kühne Formen und fließende Farbverläufe",
+    "dark": "Düstere Schatten und gedämpfte Atmosphäre",
+    "3d-art": "Polierte Renderings mit weichem Studiolicht",
+    "dreamcore": "Ätherischer Pastellnebel und Nostalgie",
+    "sci-fi": "Futuristische Technik in epischem Maßstab",
+    "photography": "Scharfe, natürliche Foto-Optik",
+    "pencil-sketch": "Graphitlinien auf strukturiertem Papier",
+    "charcoal-drawing": "Kühne, verwischte Striche und sattes Schwarz",
+    "ink-drawing": "Souveräne schwarze Tinte und Kreuzschraffuren",
+    "watercolor": "Transparente Lasuren und Papiertextur",
+    "oil-painting": "Kräftige Impasto-Textur und Hell-Dunkel-Licht",
+    "pixel-art": "Knackige Retro-Pixel in limitierter Palette",
+    "cinematic": "Filmbild-Farbkorrektur und dramatisches Licht",
+    "gothic-horror": "Gespenstische Schlösser in Schwarz und Karminrot",
+    "supernatural-horror": "Geister und unheimliche, verlassene Orte",
+    "cosmic-horror": "Unbegreifliche Wesen in der tiefen Leere",
+    "analog-horror": "VHS-Rauschen und verzerrte Überwachungsbilder",
+    "psychological-horror": "Leere Räume und verzerrte Perspektiven",
+    "nightmare-surrealism": "Verdrehte Traumlogik und düstere Träumerei",
+    "dark-fantasy": "Verfluchte Ruinen und Schattenkreaturen",
+    "post-apocalyptic": "Vom Nebel verschluckte Ruinen nach dem Ende",
+    "horror-anime": "Schatten und Silhouetten des japanischen Horrors",
+    "occult-ritual": "Im Kerzenlicht leuchtende Sigille und uralte Riten",
+    "retro-cel": "Retro-Nostalgie der 90er im Cel-Look",
+    "shoujo": "Zarte Pastellromantik und Glitzer",
+    "shonen": "Kühne Action mit Speedlines",
+    "chibi": "Kawaii-Zauber im Super-Deformed-Stil",
+    "manga": "Schwarz-weiße Tuscheart mit Rasterpunkten",
+    "mecha": "Kolossale Roboter in epischem Maschinenmaßstab",
+    "ukiyo-e-anime": "Wenn die Eleganz des Holzschnitts auf Anime trifft",
+    "cozy-anime": "Wohltuende Wärme des Alltags"
+  },
+  "groupLabels": {
+    "digital": "Digitale Kunst",
+    "abstract": "Abstrakt & Minimal",
+    "sketch": "Skizze & Zeichnung",
+    "painting": "Malerei",
+    "photography": "Fotografie",
+    "nature": "Natur & Landschaft",
+    "horror": "Horror & Dark"
+  },
+  "groupDescriptions": {
+    "digital": "Anime, 3D-Renderings, Pixel-Art und Konzeptstile",
+    "abstract": "Verläufe, Formen, Träume und surreale Szenen",
+    "sketch": "Handgezeichnete Graphit-, Tinten- und Kohleoptik",
+    "painting": "Aquarell, Öl und malerische Texturen",
+    "photography": "Realistische, filmische und stimmungsvolle Foto-Optik",
+    "nature": "Berge, Wälder, Seen und offener Himmel",
+    "horror": "Gotische Schlösser, kosmische Angst, verfluchte Ruinen und unheimliche Atmosphären"
+  },
+  "galleryWallpapers": {
+    "sakura-nights": {
+      "title": "Kirschblütennächte",
+      "alt": "Anime-Hintergrundbild eines Mädchens nachts unter leuchtenden Kirschblüten"
+    },
+    "neon-rain": {
+      "title": "Neonregen",
+      "alt": "Cyberpunk-Hintergrundbild einer neonbeleuchteten Stadtstraße im Regen"
+    },
+    "floating-isles": {
+      "title": "Schwebende Inseln",
+      "alt": "Fantasy-Hintergrundbild von schwebenden Inseln mit leuchtenden Wasserfällen"
+    },
+    "twilight-peaks": {
+      "title": "Dämmerungsgipfel",
+      "alt": "Natur-Hintergrundbild von nebligen Berggipfeln in der Dämmerung"
+    },
+    "violet-orb": {
+      "title": "Violette Kugel",
+      "alt": "Minimalistisches Hintergrundbild einer leuchtenden violetten Kugel vor dunklem Hintergrund"
+    },
+    "mirror-desert": {
+      "title": "Spiegelwüste",
+      "alt": "Surreales Hintergrundbild eines riesigen Mondes über einer spiegelglatten Wüste"
+    },
+    "nebula-city": {
+      "title": "Sternennebelstadt",
+      "alt": "Sci-Fi-Hintergrundbild eines Himmels aus violettem Sternennebel über einer futuristischen Stadt mit leuchtend purpurnen Lichtern"
+    },
+    "astral-drift": {
+      "title": "Astrale Drift",
+      "alt": "Sci-Fi-Hintergrundbild eines Astronauten, der in einem leuchtend violetten, von Sternen umgebenen Sternennebel schwebt"
+    },
+    "liquid-ribbons": {
+      "title": "Flüssige Bänder",
+      "alt": "Abstraktes Hintergrundbild von fließenden Bändern in Violett- und Magentaverläufen im dunklen Weltraum"
+    },
+    "storm-ridge": {
+      "title": "Sturmgrat",
+      "alt": "Dunkles Hintergrundbild einer einsamen Silhouette auf einem nebligen Grat unter Gewitterwolken"
+    },
+    "chrome-orbit": {
+      "title": "Chrom-Orbit",
+      "alt": "3D-Hintergrundbild eines irisierenden Chrom-Torus mit Kugeln vor violettem Hintergrund"
+    },
+    "haze-room": {
+      "title": "Nebelzimmer",
+      "alt": "Dreamcore-Hintergrundbild eines Pastellschlafzimmers voller rosa Nebel und Wolken"
+    },
+    "ring-station": {
+      "title": "Ringstation",
+      "alt": "Sci-Fi-Hintergrundbild einer Ringraumstation in der Umlaufbahn um einen violetten Nebelplaneten"
+    },
+    "dawn-lake": {
+      "title": "Morgensee",
+      "alt": "Fotografie-Hintergrundbild eines spiegelglatten Bergsees in der Morgendämmerung"
+    },
+    "graphite-valley": {
+      "title": "Graphittal",
+      "alt": "Bleistiftskizzen-Hintergrundbild eines nebligen Waldtals mit einem Hirsch"
+    },
+    "charcoal-sea": {
+      "title": "Kohlemeer",
+      "alt": "Kohle-Hintergrundbild einer stürmischen See in kühnen, verwischten Strichen"
+    },
+    "crane-pine": {
+      "title": "Kranich & Kiefer",
+      "alt": "Tusche-Hintergrundbild eines Kranichs über Kiefernzweigen im Sumi-e-Stil"
+    },
+    "bloom-wash": {
+      "title": "Blühende Lasuren",
+      "alt": "Aquarell-Hintergrundbild von violetten Bergen und blühenden Blumen in transparenten Lasuren"
+    },
+    "impasto-night": {
+      "title": "Impasto-Nacht",
+      "alt": "Ölgemälde-Hintergrundbild einer wirbelnden Sternennacht über einem violetten Tal"
+    },
+    "pixel-skyline": {
+      "title": "Pixel-Skyline",
+      "alt": "Pixel-Art-Hintergrundbild einer Retro-Nachtstadtskyline unter violettem Himmel"
+    },
+    "neon-alley": {
+      "title": "Neongasse",
+      "alt": "Filmisches Hintergrundbild einer regennassen Neongasse in Türkis und Orange"
+    },
+    "crimson-keep": {
+      "title": "Karminburg",
+      "alt": "Gothic-Horror-Hintergrundbild eines gespenstischen Schlosses unter einem blutroten Mond"
+    },
+    "the-drifter": {
+      "title": "Der Wanderer",
+      "alt": "Übernatürliches Horror-Hintergrundbild eines Geistes, der durch den Korridor einer verlassenen Anstalt treibt"
+    },
+    "the-unseen": {
+      "title": "Das Ungesehene",
+      "alt": "Kosmisches Horror-Hintergrundbild einer kolossalen Erscheinung, die sich hinter einem violetten Sternennebel abzeichnet"
+    },
+    "tape-07": {
+      "title": "Band 07",
+      "alt": "Analog-Horror-Hintergrundbild eines körnigen VHS-Überwachungsbilds mit einer verzerrten Gestalt"
+    },
+    "wrong-room": {
+      "title": "Falsches Zimmer",
+      "alt": "Psychologisches Horror-Hintergrundbild eines endlos leeren Raums mit unmöglichen Winkeln"
+    },
+    "melting-hour": {
+      "title": "Schmelzende Stunde",
+      "alt": "Alptraum-Surrealismus-Hintergrundbild einer schmelzenden Treppe in einer karminroten Traumlandschaft"
+    },
+    "cursed-grove": {
+      "title": "Verfluchter Hain",
+      "alt": "Dark-Fantasy-Hintergrundbild von verfluchten Ruinen, die von einer Kreatur mit leuchtenden Augen in einem schattigen Wald bewacht werden"
+    },
+    "ash-highway": {
+      "title": "Ascheautobahn",
+      "alt": "Postapokalyptisches Hintergrundbild von vom Nebel verschluckten Ruinen entlang einer rissigen Autobahn"
+    },
+    "after-class": {
+      "title": "Nach dem Unterricht",
+      "alt": "Horror-Anime-Hintergrundbild eines blassen Mädchens in einem dunklen Schulkorridor"
+    },
+    "the-circle": {
+      "title": "Der Kreis",
+      "alt": "Okkultes Hintergrundbild eines leuchtenden Ritualkreises, umringt von Kerzen in einer Steinkrypta"
+    },
+    "last-train": {
+      "title": "Letzter Zug",
+      "alt": "Retro-Anime-Hintergrundbild der 90er mit einem Mädchen in einem Zug in der Abenddämmerung, im Vintage-Cel-Shading"
+    },
+    "petal-bloom": {
+      "title": "Blütenpracht",
+      "alt": "Shōjo-Anime-Hintergrundbild eines Mädchens zwischen pastellfarbenen Rosenblütenblättern und Glitzer"
+    },
+    "ignition": {
+      "title": "Zündung",
+      "alt": "Shonen-Anime-Hintergrundbild eines Helden mitten im Sprung mit glühender Energiespur"
+    },
+    "cloud-friends": {
+      "title": "Wolkenfreunde",
+      "alt": "Chibi-Anime-Hintergrundbild mit niedlichen Super-Deformed-Figuren auf Pastellwolken"
+    },
+    "rooftop-duel": {
+      "title": "Duell auf dem Dach",
+      "alt": "Manga-Hintergrundbild eines Schwarz-Weiß-Schwertduells mit Rasterschattierung"
+    },
+    "hangar-rain": {
+      "title": "Hangarregen",
+      "alt": "Mecha-Hintergrundbild eines kolossalen Kampfroboters in einem verregneten Starthangar"
+    },
+    "great-wave": {
+      "title": "Die große Welle",
+      "alt": "Ukiyo-e-Anime-Hintergrundbild eines Mädchens im Kimono unter einer indigofarbenen Welle und dem Mount Fuji"
+    },
+    "sunset-cafe": {
+      "title": "Sonnenuntergangs-Café",
+      "alt": "Gemütliches Anime-Hintergrundbild eines Cafés auf dem Land in warmem Abendlicht"
+    }
+  }
+}

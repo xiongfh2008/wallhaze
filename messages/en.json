@@ -1,0 +1,500 @@
+{
+  "meta": {
+    "homeTitle": "WallHaze — AI Wallpapers for Every Screen",
+    "homeDescription": "Create stunning AI wallpapers made for your device. Explore unique styles — anime, cyberpunk, fantasy and more — in high quality for phone, tablet and desktop.",
+    "studioTitle": "Studio — Create AI Wallpapers",
+    "studioDescription": "The WallHaze studio: describe your wallpaper, pick a style, choose your device and aspect ratio, add a reference image and generate high-quality AI wallpapers for phone, tablet and desktop."
+  },
+  "nav": {
+    "mainAria": "Main",
+    "mobileAria": "Mobile",
+    "studio": "Studio",
+    "explore": "Explore",
+    "generator": "AI Generator",
+    "styles": "Styles",
+    "signIn": "Sign in",
+    "getStarted": "Get Started",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "eyebrow": "AI Wallpaper Studio",
+    "titleLine1": "Your Screen.",
+    "titleLine2": "Your World.",
+    "subtitle": "Create stunning AI wallpapers made for your device.",
+    "ctaCreate": "Create Wallpaper",
+    "ctaExplore": "Explore Gallery",
+    "ctaStudio": "Open Studio",
+    "footnote": "Free during early preview · No sign-up required · Phone, tablet & desktop"
+  },
+  "trending": {
+    "aria": "Trending wallpapers",
+    "title": "Trending this week",
+    "previewAlt": "{label} wallpaper preview"
+  },
+  "gallery": {
+    "eyebrow": "Wallpaper Gallery",
+    "title": "Explore ready-made wallpapers",
+    "subtitle": "Browse curated demo wallpapers by category — tap any piece to load its look into the generator. Wallpapers you generate are kept in your library, never mixed in here.",
+    "searchAria": "Search wallpapers",
+    "searchPlaceholder": "Search by name, style or mood…",
+    "clearSearchAria": "Clear search",
+    "sortAria": "Sort wallpapers",
+    "sortLabel": "Sort",
+    "sortDefault": "Default",
+    "sortName": "Name A–Z",
+    "categoryGroupAria": "Filter wallpapers by category",
+    "styleGroupAria": "Filter {category} wallpapers by style",
+    "allCategory": "All",
+    "allStyles": "All styles",
+    "emptyTitle": "No wallpapers match your filters.",
+    "emptyBody": "Try a different search or another category.",
+    "clearFilters": "Clear search & filters",
+    "useInGenerator": "Use in generator →",
+    "cardUseAria": "Use {title} in the generator",
+    "cardDownloadAria": "Download {title}",
+    "cardViewAria": "View {title} at full size",
+    "cardFavoriteAria": "Add {title} to favorites",
+    "cardUnfavoriteAria": "Remove {title} from favorites",
+    "detailMeta": "{group} · {style} · Curated demo artwork",
+    "createSimilar": "Create similar",
+    "downloadSaved": "Saved “{title}” to your downloads.",
+    "filterFallbackGroup": "Gallery",
+    "filterFallbackStyle": "No style"
+  },
+  "generator": {
+    "homeEyebrow": "AI Generator",
+    "homeTitle": "Design your wallpaper in seconds",
+    "homeSubtitle": "Pick a style, choose your device — prompts and reference images are optional.",
+    "styleLegend": "Style",
+    "styleCategoriesAria": "Style categories",
+    "selected": "selected",
+    "deviceGroupLabel": "Device & resolution",
+    "deviceLegend": "Device",
+    "ratioLegend": "Aspect ratio",
+    "resolutionLegend": "Resolution",
+    "modelDefault": "Model default",
+    "presetSizeLine": "{label} — {width} × {height} pixels",
+    "modelDefaultHint": "Model default size — pick a preset for an exact resolution.",
+    "screenRecommendTitle": "Recommended for your current screen",
+    "screenRecommendFor": "— for the {device} you selected",
+    "screenRecommendNoExact": "No exact match for your screen’s aspect ratio — a general-purpose size is suggested.",
+    "useThisSize": "Use this size",
+    "promptLabel": "Prompt",
+    "optional": "(optional)",
+    "promptPlaceholder": "Describe your wallpaper — a neon skyline, a dreamy meadow, anything you imagine…",
+    "inspiration": "Inspiration",
+    "inspirationFor": "for {style}",
+    "randomInspiration": "Random inspiration",
+    "useExampleConfirm": "Use this example for your prompt?",
+    "promptChangedNotice": "Your prompt changed since you picked this — Append will add it to the current text.",
+    "appendExceedsLimit": "Appending would exceed the {limit}-character limit — shorten your prompt first.",
+    "replace": "Replace",
+    "append": "Append",
+    "cancel": "Cancel",
+    "referenceLegend": "Reference image",
+    "refNoImage": "No image yet",
+    "refPreviewAlt": "Reference image preview",
+    "refWillBeUsed": "Will be used as the base for your generation",
+    "remove": "Remove",
+    "uploadTitle": "Upload a reference image",
+    "uploadFormats": "PNG, JPG or WebP — up to 5 MB",
+    "uploadHint": "Used as the base for your generation",
+    "generate": "Generate Wallpaper",
+    "generating": "Generating…",
+    "tryAgain": "Try again",
+    "refUnsupportedFormat": "Unsupported format — please use PNG, JPEG or WebP.",
+    "refEmptyFile": "That file is empty — please choose a valid image.",
+    "refTooLarge": "Image is too large — please keep it under 5 MB.",
+    "refReadFailed": "That image could not be read. Please try another file.",
+    "promptTooLong": "Your prompt is too long — please keep it under {limit} characters.",
+    "generateFailed": "Image generation failed. Please try again.",
+    "invalidResponse": "The image service returned an invalid response. Please try again.",
+    "networkError": "Network error — could not start generation. Please try again.",
+    "previewAltGenerated": "Your generated wallpaper",
+    "previewAltSample": "Sample {style} artwork preview",
+    "statusGenerating": "Generating your wallpaper — this usually takes a few seconds…",
+    "statusLongWait": "Still working — detailed prompts and reference images can take up to a minute.",
+    "statusErrorKept": "Generation failed — showing your previous result.",
+    "statusSuccess": "Your generated wallpaper — fresh from the AI studio.",
+    "statusDemo": "Demo preview — sample artwork for illustration, not a generated result.",
+    "imageGoneNotice": "This image is no longer available at its original URL — your prompt, style and device are preserved, so you can generate again.",
+    "viewFullSizeAria": "View wallpaper at full size",
+    "addFavoriteAria": "Add this wallpaper to favorites",
+    "removeFavoriteAria": "Remove this wallpaper from favorites",
+    "openImage": "Open image",
+    "download": "Download",
+    "downloading": "Downloading…",
+    "downloadSaved": "Wallpaper saved to your downloads.",
+    "restoreConfirm": "Reuse these settings? Your current prompt will be replaced.",
+    "clearHistoryConfirm": "Clear all generation history? This cannot be undone.",
+    "libraryTitle": "My Library",
+    "libraryTabsAria": "Library sections",
+    "tabFavorites": "Favorites",
+    "tabHistory": "History",
+    "clearHistory": "Clear history",
+    "favoritesEmpty": "No favorites yet — tap the heart on any gallery wallpaper or generation result to keep it here.",
+    "historyEmpty": "Nothing here yet — wallpapers you generate are saved on this device only.",
+    "imageUnavailable": "Image unavailable",
+    "downloadEntryAria": "Download {title}",
+    "removeEntryFavoriteAria": "Remove {title} from favorites",
+    "entryFavoriteAlt": "Favorite wallpaper: {title}",
+    "entryFavoriteAltPlain": "Favorite wallpaper",
+    "untitled": "Untitled",
+    "noStyle": "No style",
+    "sourceGallery": "Gallery",
+    "sourceGenerated": "Generated",
+    "noPrompt": "No prompt",
+    "reuse": "Reuse",
+    "reuseAria": "Reuse these settings: {prompt}",
+    "reuseAriaPlain": "Reuse these settings",
+    "historyThumbAlt": "Generated wallpaper: {prompt}",
+    "historyThumbAltPlain": "Previously generated wallpaper",
+    "fullSizeAlt": "Your generated wallpaper, full size",
+    "generatedFallbackTitle": "Generated wallpaper"
+  },
+  "studio": {
+    "brand": "WallHaze",
+    "accent": "Studio",
+    "eyebrow": "AI Workspace",
+    "subtitle": "Everything you need to design, generate and collect wallpapers — prompt it, pick a style, dial in the ratio, and save what you love.",
+    "backHome": "← Back to Home",
+    "browseGallery": "Browse the gallery"
+  },
+  "popular": {
+    "eyebrow": "Popular Styles",
+    "title": "Find a look you love",
+    "subtitle": "Six signature styles, hand-tuned by our studio. Tap one to load it into the generator.",
+    "tryInGenerator": "Try in generator →",
+    "sampleAlt": "{style} style wallpaper sample"
+  },
+  "why": {
+    "eyebrow": "Why WallHaze",
+    "title": "Built for beautiful screens",
+    "deviceTitle": "Made for Your Device",
+    "deviceBody": "Every wallpaper is crafted to fit phones, tablets and desktops — sharp edge to edge on any screen.",
+    "stylesTitle": "Explore Unique Styles",
+    "stylesBody": "From anime to surreal dreamscapes, discover looks you won’t find in any stock library.",
+    "qualityTitle": "High-Quality Wallpapers",
+    "qualityBody": "High-resolution renders with rich color and detail, tuned to make every pixel count."
+  },
+  "cta": {
+    "title": "Ready to transform your screen?",
+    "body": "Pick a style, choose your device and create a wallpaper that’s unmistakably yours.",
+    "button": "Start Creating"
+  },
+  "footer": {
+    "tagline": "AI wallpapers made for your device — create, explore and make every screen yours.",
+    "explore": "Explore",
+    "generator": "Generator",
+    "company": "Company",
+    "trending": "Trending",
+    "popularStyles": "Popular Styles",
+    "why": "Why WallHaze",
+    "aiGenerator": "AI Generator",
+    "allStyles": "All Styles",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "socialX": "X (Twitter)",
+    "socialInstagram": "Instagram",
+    "socialYoutube": "YouTube",
+    "socialComingSoon": "{label} — coming soon",
+    "rights": "WallHaze. All rights reserved.",
+    "madeFor": "Made for every screen."
+  },
+  "lightbox": {
+    "closeAria": "Close full-size preview",
+    "imageUnavailable": "This image is no longer available at its original URL.",
+    "hint": "Click outside the image to close",
+    "hintDesktop": " · or press Esc"
+  },
+  "languageSwitcher": {
+    "aria": "Change language",
+    "label": "Language",
+    "en": "English",
+    "zh": "简体中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "common": {
+    "comingSoon": "Coming soon",
+    "favoriteLimit": "Your library is full — remove a few favorites to save more.",
+    "favoritesUnavailable": "Favorites are unavailable in this browser.",
+    "downloadOpened": "Direct download was blocked — the image opened in a new tab, save it from there.",
+    "downloadFailed": "Download failed — please check your connection and try again.",
+    "thisWallpaper": "this wallpaper"
+  },
+  "devices": {
+    "phone": "Phone",
+    "tablet": "Tablet",
+    "desktop": "Desktop"
+  },
+  "sizePresetLabels": {
+    "phonePortraitHd": "Phone Portrait HD",
+    "portraitHd": "Portrait HD",
+    "portraitClassic": "Portrait Classic",
+    "landscapeHd": "Landscape HD",
+    "landscapeClassic": "Landscape Classic",
+    "landscapeCompact": "Landscape Compact",
+    "square": "Square",
+    "desktopFullHd": "Desktop Full HD"
+  },
+  "styleLabels": {
+    "anime": "Anime",
+    "cyberpunk": "Cyberpunk",
+    "fantasy": "Fantasy",
+    "nature": "Nature",
+    "minimalist": "Minimalist",
+    "surreal": "Surreal",
+    "abstract": "Abstract",
+    "dark": "Dark",
+    "3d-art": "3D Art",
+    "dreamcore": "Dreamcore",
+    "sci-fi": "Sci-Fi",
+    "photography": "Photography",
+    "pencil-sketch": "Pencil Sketch",
+    "charcoal-drawing": "Charcoal Drawing",
+    "ink-drawing": "Ink Drawing",
+    "watercolor": "Watercolor",
+    "oil-painting": "Oil Painting",
+    "pixel-art": "Pixel Art",
+    "cinematic": "Cinematic",
+    "gothic-horror": "Gothic Horror",
+    "supernatural-horror": "Supernatural Horror",
+    "cosmic-horror": "Cosmic Horror",
+    "analog-horror": "Analog Horror",
+    "psychological-horror": "Psychological Horror",
+    "nightmare-surrealism": "Nightmare Surrealism",
+    "dark-fantasy": "Dark Fantasy",
+    "post-apocalyptic": "Post-Apocalyptic Horror",
+    "horror-anime": "Horror Anime",
+    "occult-ritual": "Occult & Ritual",
+    "retro-cel": "Retro Cel Anime",
+    "shoujo": "Shoujo",
+    "shonen": "Shonen Action",
+    "chibi": "Chibi",
+    "manga": "Manga",
+    "mecha": "Mecha",
+    "ukiyo-e-anime": "Ukiyo-e Anime",
+    "cozy-anime": "Cozy Anime"
+  },
+  "styleDescriptions": {
+    "anime": "Clean line art and vibrant cel shading",
+    "cyberpunk": "Neon-soaked futuristic city nights",
+    "fantasy": "Epic magical worlds and glowing realms",
+    "nature": "Serene photorealistic landscapes",
+    "minimalist": "Calm compositions with generous negative space",
+    "surreal": "Dreamlike, imagination-first fine art",
+    "abstract": "Bold shapes and fluid color gradients",
+    "dark": "Moody shadows and low-key atmosphere",
+    "3d-art": "Polished renders with soft studio light",
+    "dreamcore": "Ethereal pastel haze and nostalgia",
+    "sci-fi": "Futuristic tech at epic scale",
+    "photography": "Sharp, natural photographic looks",
+    "pencil-sketch": "Graphite linework on textured paper",
+    "charcoal-drawing": "Bold smudged strokes and deep blacks",
+    "ink-drawing": "Confident black ink and cross-hatching",
+    "watercolor": "Translucent washes and paper texture",
+    "oil-painting": "Rich impasto and chiaroscuro light",
+    "pixel-art": "Crisp limited-palette retro pixels",
+    "cinematic": "Film-still grading and dramatic light",
+    "gothic-horror": "Haunted castles in black and crimson",
+    "supernatural-horror": "Ghosts and eerie abandoned places",
+    "cosmic-horror": "Unknowable entities in the deep void",
+    "analog-horror": "VHS noise and distorted surveillance",
+    "psychological-horror": "Empty rooms and warped perspective",
+    "nightmare-surrealism": "Twisted dream logic and dark reverie",
+    "dark-fantasy": "Cursed ruins and shadowy creatures",
+    "post-apocalyptic": "Fog-choked ruins after the end",
+    "horror-anime": "Japanese horror shadows and silhouettes",
+    "occult-ritual": "Candlelit sigils and ancient rites",
+    "retro-cel": "Vintage 90s cel-shaded nostalgia",
+    "shoujo": "Soft pastel romance and sparkles",
+    "shonen": "Bold action with speed lines",
+    "chibi": "Kawaii super-deformed cuteness",
+    "manga": "Black-and-white screentone ink art",
+    "mecha": "Colossal robots and mechanical epic scale",
+    "ukiyo-e-anime": "Woodblock print elegance meets anime",
+    "cozy-anime": "Soothing slice-of-life warmth"
+  },
+  "groupLabels": {
+    "digital": "Digital Art",
+    "abstract": "Abstract & Minimal",
+    "sketch": "Sketch & Drawing",
+    "painting": "Painting",
+    "photography": "Photography",
+    "nature": "Nature & Landscape",
+    "horror": "Horror & Dark"
+  },
+  "groupDescriptions": {
+    "digital": "Anime, 3D renders, pixel art and concept styles",
+    "abstract": "Gradients, shapes, dreams and surreal scenes",
+    "sketch": "Hand-drawn graphite, ink and charcoal looks",
+    "painting": "Watercolor, oil and painterly textures",
+    "photography": "Realistic, cinematic and moody photographic looks",
+    "nature": "Mountains, forests, lakes and open skies",
+    "horror": "Gothic castles, cosmic dread, cursed ruins and haunting atmospheres"
+  },
+  "galleryWallpapers": {
+    "sakura-nights": {
+      "title": "Sakura Nights",
+      "alt": "Anime wallpaper of a girl beneath glowing cherry blossoms at night"
+    },
+    "neon-rain": {
+      "title": "Neon Rain",
+      "alt": "Cyberpunk wallpaper of a neon-lit city street in the rain"
+    },
+    "floating-isles": {
+      "title": "Floating Isles",
+      "alt": "Fantasy wallpaper of floating islands with glowing waterfalls"
+    },
+    "twilight-peaks": {
+      "title": "Twilight Peaks",
+      "alt": "Nature wallpaper of misty mountain peaks at twilight"
+    },
+    "violet-orb": {
+      "title": "Violet Orb",
+      "alt": "Minimalist wallpaper of a glowing violet orb on a dark background"
+    },
+    "mirror-desert": {
+      "title": "Mirror Desert",
+      "alt": "Surreal wallpaper of a giant moon above a mirror-like desert"
+    },
+    "nebula-city": {
+      "title": "Nebula City",
+      "alt": "Sci-fi wallpaper of a violet nebula sky above a futuristic city with glowing purple lights"
+    },
+    "astral-drift": {
+      "title": "Astral Drift",
+      "alt": "Sci-fi wallpaper of an astronaut floating in a glowing purple nebula surrounded by stars"
+    },
+    "liquid-ribbons": {
+      "title": "Liquid Ribbons",
+      "alt": "Abstract wallpaper of flowing violet and magenta gradient ribbons in dark space"
+    },
+    "storm-ridge": {
+      "title": "Storm Ridge",
+      "alt": "Dark wallpaper of a lone silhouette on a foggy ridge under storm clouds"
+    },
+    "chrome-orbit": {
+      "title": "Chrome Orbit",
+      "alt": "3D wallpaper of an iridescent chrome torus and spheres on a violet backdrop"
+    },
+    "haze-room": {
+      "title": "Haze Room",
+      "alt": "Dreamcore wallpaper of a pastel bedroom filled with pink haze and clouds"
+    },
+    "ring-station": {
+      "title": "Ring Station",
+      "alt": "Sci-fi wallpaper of a ringed space station orbiting a violet nebula planet"
+    },
+    "dawn-lake": {
+      "title": "Dawn Lake",
+      "alt": "Photography wallpaper of a mirror-calm alpine lake at dawn"
+    },
+    "graphite-valley": {
+      "title": "Graphite Valley",
+      "alt": "Pencil sketch wallpaper of a misty forest valley with a deer"
+    },
+    "charcoal-sea": {
+      "title": "Charcoal Sea",
+      "alt": "Charcoal wallpaper of a stormy seascape in bold smudged strokes"
+    },
+    "crane-pine": {
+      "title": "Crane & Pine",
+      "alt": "Ink wallpaper of a crane flying over pine branches in sumi-e style"
+    },
+    "bloom-wash": {
+      "title": "Bloom Wash",
+      "alt": "Watercolor wallpaper of violet mountains and blooming flowers in translucent washes"
+    },
+    "impasto-night": {
+      "title": "Impasto Night",
+      "alt": "Oil painting wallpaper of a swirling starry night over a violet valley"
+    },
+    "pixel-skyline": {
+      "title": "Pixel Skyline",
+      "alt": "Pixel art wallpaper of a retro night city skyline under a purple sky"
+    },
+    "neon-alley": {
+      "title": "Neon Alley",
+      "alt": "Cinematic wallpaper of a rain-soaked neon alley in teal and orange"
+    },
+    "crimson-keep": {
+      "title": "Crimson Keep",
+      "alt": "Gothic horror wallpaper of a haunted castle under a blood-red moon"
+    },
+    "the-drifter": {
+      "title": "The Drifter",
+      "alt": "Supernatural horror wallpaper of a ghost drifting through an abandoned asylum corridor"
+    },
+    "the-unseen": {
+      "title": "The Unseen",
+      "alt": "Cosmic horror wallpaper of a colossal entity looming behind a purple nebula"
+    },
+    "tape-07": {
+      "title": "Tape 07",
+      "alt": "Analog horror wallpaper of a grainy VHS security frame with a distorted figure"
+    },
+    "wrong-room": {
+      "title": "Wrong Room",
+      "alt": "Psychological horror wallpaper of an endless empty room with impossible angles"
+    },
+    "melting-hour": {
+      "title": "Melting Hour",
+      "alt": "Nightmare surrealism wallpaper of a melting staircase in a crimson dreamscape"
+    },
+    "cursed-grove": {
+      "title": "Cursed Grove",
+      "alt": "Dark fantasy wallpaper of cursed ruins watched by a glowing-eyed creature in a shadowy forest"
+    },
+    "ash-highway": {
+      "title": "Ash Highway",
+      "alt": "Post-apocalyptic wallpaper of fog-swallowed ruins along a cracked highway"
+    },
+    "after-class": {
+      "title": "After Class",
+      "alt": "Horror anime wallpaper of a pale girl in a dark school corridor"
+    },
+    "the-circle": {
+      "title": "The Circle",
+      "alt": "Occult wallpaper of a glowing ritual circle ringed by candles in a stone crypt"
+    },
+    "last-train": {
+      "title": "Last Train",
+      "alt": "Retro 90s anime wallpaper of a girl on a dusk train in vintage cel shading"
+    },
+    "petal-bloom": {
+      "title": "Petal Bloom",
+      "alt": "Shoujo anime wallpaper of a girl among pastel rose petals and sparkles"
+    },
+    "ignition": {
+      "title": "Ignition",
+      "alt": "Shonen anime wallpaper of a hero mid-leap with a blazing energy trail"
+    },
+    "cloud-friends": {
+      "title": "Cloud Friends",
+      "alt": "Chibi anime wallpaper of cute super-deformed characters on pastel clouds"
+    },
+    "rooftop-duel": {
+      "title": "Rooftop Duel",
+      "alt": "Manga wallpaper of a black-and-white sword duel with screentone shading"
+    },
+    "hangar-rain": {
+      "title": "Hangar Rain",
+      "alt": "Mecha wallpaper of a colossal battle robot in a rainy launch hangar"
+    },
+    "great-wave": {
+      "title": "Great Wave",
+      "alt": "Ukiyo-e anime wallpaper of a kimono girl beneath an indigo wave and mount fuji"
+    },
+    "sunset-cafe": {
+      "title": "Sunset Cafe",
+      "alt": "Cozy anime wallpaper of a countryside cafe in warm sunset light"
+    }
+  }
+}

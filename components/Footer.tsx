@@ -1,31 +1,6 @@
+import { useTranslations } from "next-intl";
 import FooterYear from "./FooterYear";
 import PlaceholderLink from "./PlaceholderLink";
-
-const COLUMNS = [
-  {
-    title: "Explore",
-    links: [
-      { label: "Trending", href: "#explore" },
-      { label: "Popular Styles", href: "#styles" },
-      { label: "Why WallHaze", href: "#why" },
-    ],
-  },
-  {
-    title: "Generator",
-    links: [
-      { label: "AI Generator", href: "#generator" },
-      { label: "All Styles", href: "#generator" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "Privacy Policy", href: null },
-      { label: "Terms of Service", href: null },
-      { label: "Contact", href: null },
-    ],
-  },
-];
 
 function XIcon({ className = "" }: { className?: string }) {
   return (
@@ -57,13 +32,42 @@ function YoutubeIcon({ className = "" }: { className?: string }) {
   );
 }
 
-const SOCIALS = [
-  { label: "X (Twitter)", Icon: XIcon },
-  { label: "Instagram", Icon: InstagramIcon },
-  { label: "YouTube", Icon: YoutubeIcon },
-];
-
 export default function Footer() {
+  const t = useTranslations("footer");
+  const tCommon = useTranslations("common");
+
+  const COLUMNS = [
+    {
+      title: t("explore"),
+      links: [
+        { label: t("trending"), href: "#explore" },
+        { label: t("popularStyles"), href: "#styles" },
+        { label: t("why"), href: "#why" },
+      ],
+    },
+    {
+      title: t("generator"),
+      links: [
+        { label: t("aiGenerator"), href: "#generator" },
+        { label: t("allStyles"), href: "#generator" },
+      ],
+    },
+    {
+      title: t("company"),
+      links: [
+        { label: t("privacy"), href: null },
+        { label: t("terms"), href: null },
+        { label: t("contact"), href: null },
+      ],
+    },
+  ];
+
+  const SOCIALS = [
+    { label: t("socialX"), Icon: XIcon },
+    { label: t("socialInstagram"), Icon: InstagramIcon },
+    { label: t("socialYoutube"), Icon: YoutubeIcon },
+  ];
+
   return (
     <footer className="border-t border-white/10 bg-black/60">
       <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
@@ -76,14 +80,13 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
-              AI wallpapers made for your device — create, explore and make
-              every screen yours.
+              {t("tagline")}
             </p>
             <div className="mt-6 flex gap-3">
               {SOCIALS.map(({ label, Icon }) => (
                 <PlaceholderLink
                   key={label}
-                  title={`${label} — coming soon`}
+                  title={t("socialComingSoon", { label })}
                   className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-zinc-400 transition hover:border-white/25 hover:text-white"
                 >
                   <span className="sr-only">{label}</span>
@@ -109,7 +112,10 @@ export default function Footer() {
                         {link.label}
                       </a>
                     ) : (
-                      <PlaceholderLink className="text-sm text-zinc-400 transition-colors hover:text-white">
+                      <PlaceholderLink
+                        className="text-sm text-zinc-400 transition-colors hover:text-white"
+                        title={tCommon("comingSoon")}
+                      >
                         {link.label}
                       </PlaceholderLink>
                     )}
@@ -122,9 +128,9 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-zinc-600 md:flex-row">
           <p>
-            © <FooterYear /> WallHaze. All rights reserved.
+            © <FooterYear /> {t("rights")}
           </p>
-          <p>Made for every screen.</p>
+          <p>{t("madeFor")}</p>
         </div>
       </div>
     </footer>

@@ -1,9 +1,13 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { POPULAR_STYLES, STYLE_SELECT_EVENT } from "@/lib/styles";
 import WallpaperImage from "./WallpaperImage";
 
 export default function PopularStyles() {
+  const t = useTranslations("popular");
+  const tStyles = useTranslations("styleLabels");
+
   // Clicking a card preselects that style in the generator and scrolls to it.
   const handleSelect = (id: string) => {
     window.dispatchEvent(new CustomEvent(STYLE_SELECT_EVENT, { detail: id }));
@@ -15,14 +19,13 @@ export default function PopularStyles() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 max-w-2xl md:mb-14">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-violet-300">
-            Popular Styles
+            {t("eyebrow")}
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
-            Find a look you love
+            {t("title")}
           </h2>
           <p className="mt-4 leading-relaxed text-zinc-400">
-            Six signature styles, hand-tuned by our studio. Tap one to load it
-            into the generator.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -37,7 +40,7 @@ export default function PopularStyles() {
               <div className="aspect-[3/4] w-full overflow-hidden">
                 <WallpaperImage
                   src={style.image}
-                  alt={`${style.label} style wallpaper sample`}
+                  alt={t("sampleAlt", { style: tStyles(style.id) })}
                   gradient={style.gradient}
                   className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
                 />
@@ -46,10 +49,10 @@ export default function PopularStyles() {
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-4 md:p-5">
                 <div>
                   <h3 className="text-base font-semibold text-white md:text-lg">
-                    {style.label}
+                    {tStyles(style.id)}
                   </h3>
                   <p className="mt-0.5 text-xs text-zinc-400 opacity-0 transition duration-300 group-hover:opacity-100">
-                    Try in generator →
+                    {t("tryInGenerator")}
                   </p>
                 </div>
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 opacity-0 backdrop-blur transition duration-300 group-hover:bg-violet-500/50 group-hover:opacity-100">

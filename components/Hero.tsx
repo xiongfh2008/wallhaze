@@ -1,7 +1,11 @@
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { HERO_IMAGE } from "@/lib/styles";
 import WallpaperImage from "./WallpaperImage";
 
 export default function Hero() {
+  const t = useTranslations("hero");
+
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
       <div className="absolute inset-0">
@@ -23,17 +27,17 @@ export default function Hero() {
           style={{ animationDelay: "100ms" }}
         >
           <span className="h-px w-8 bg-gradient-to-r from-violet-400 to-transparent" />
-          AI Wallpaper Studio
+          {t("eyebrow")}
         </p>
 
         <h1
           className="animate-fade-up max-w-3xl text-5xl font-semibold leading-[1.04] tracking-tight md:text-7xl"
           style={{ animationDelay: "220ms" }}
         >
-          Your Screen.
+          {t("titleLine1")}
           <br />
           <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-violet-300 bg-clip-text text-transparent">
-            Your World.
+            {t("titleLine2")}
           </span>
         </h1>
 
@@ -41,7 +45,7 @@ export default function Hero() {
           className="animate-fade-up mt-6 max-w-xl text-lg leading-relaxed text-zinc-300"
           style={{ animationDelay: "360ms" }}
         >
-          Create stunning AI wallpapers made for your device.
+          {t("subtitle")}
         </p>
 
         <div
@@ -52,21 +56,33 @@ export default function Hero() {
             href="#generator"
             className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-3.5 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.98]"
           >
-            Create Wallpaper
+            {t("ctaCreate")}
           </a>
           <a
-            href="#styles"
+            href="#explore"
             className="rounded-full border border-white/20 bg-white/5 px-8 py-3.5 text-sm font-medium text-zinc-100 backdrop-blur transition hover:border-white/35 hover:bg-white/10 active:scale-[0.98]"
           >
-            Explore Gallery
+            {t("ctaExplore")}
           </a>
+          <Link
+            href="/studio"
+            className="group inline-flex items-center gap-1.5 px-2 py-3.5 text-sm font-medium text-violet-300 transition hover:text-violet-200"
+          >
+            {t("ctaStudio")}
+            <span
+              aria-hidden
+              className="transition-transform group-hover:translate-x-0.5"
+            >
+              &rarr;
+            </span>
+          </Link>
         </div>
 
         <p
           className="animate-fade-up mt-10 text-sm text-zinc-500"
           style={{ animationDelay: "640ms" }}
         >
-          Free during early preview · No sign-up required · Phone, tablet &amp; desktop
+          {t("footnote")}
         </p>
       </div>
     </section>
