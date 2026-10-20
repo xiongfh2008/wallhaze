@@ -1,0 +1,533 @@
+{
+  "meta": {
+    "homeTitle": "WallHaze — あらゆる画面のためのAI壁紙",
+    "homeDescription": "お使いのデバイスに合わせた美しいAI壁紙を作成。アニメ、サイバーパンク、ファンタジーなど、ユニークなスタイルをスマホ・タブレット・デスクトップ向けに高品質で提供します。",
+    "studioTitle": "スタジオ — AI壁紙を作成",
+    "studioDescription": "WallHazeスタジオ：壁紙を描写し、スタイルを選び、デバイスとアスペクト比を指定して参照画像を追加。スマホ・タブレット・デスクトップ向けの高品質AI壁紙を生成できます。",
+    "wallpapersTitle": "壁紙ギャラリー — 無料のAI壁紙",
+    "wallpapersDescription": "スマホ・タブレット・デスクトップ向けの無料AI壁紙を閲覧・ダウンロード——アニメ、サイバーパンク、ファンタジー、自然など。すべての壁紙に専用の詳細ページがあります。"
+  },
+  "nav": {
+    "mainAria": "メインナビゲーション",
+    "mobileAria": "モバイルナビゲーション",
+    "studio": "AIスタジオ",
+    "explore": "見つける",
+    "myCreations": "マイ作品",
+    "credits": "クレジット",
+    "signIn": "ログイン",
+    "getStarted": "始める",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる"
+  },
+  "hero": {
+    "eyebrow": "AI壁紙スタジオ",
+    "titleLine1": "あなたの画面に、",
+    "titleLine2": "あなたの世界を。",
+    "subtitle": "お使いのデバイスに合わせた、美しいAI壁紙を作成できます。",
+    "ctaCreate": "AIで作成",
+    "ctaExplore": "壁紙を見つける",
+    "footnote": "ギャラリーは無料ダウンロード · AI生成はスタジオで · スマホ・タブレット・デスクトップ対応"
+  },
+  "featured": {
+    "eyebrow": "注目",
+    "title": "注目の壁紙",
+    "subtitle": "ギャラリーから厳選した作品——どの壁紙にも専用ページがあり、無料でダウンロードできます。",
+    "viewAll": "すべての壁紙を見る",
+    "cardAria": "「{title}」を見る"
+  },
+  "howItWorks": {
+    "eyebrow": "使い方",
+    "title": "3ステップで新しい壁紙を",
+    "step1Title": "ギャラリーを見る",
+    "step1Body": "無料コレクションを探索して、気に入った壁紙をダウンロード——アカウント登録は不要です。",
+    "step2Title": "スタジオで自分だけの壁紙を",
+    "step2Body": "アイデアを描写し、スタイルとデバイスを選べば、AIスタジオが仕上げます。",
+    "step3Title": "保存して設定",
+    "step3Body": "お気に入りをひとつの場所にまとめて、あなただけの画面を楽しんでください。"
+  },
+  "trending": {
+    "aria": "人気の壁紙",
+    "title": "今週の人気壁紙",
+    "previewAlt": "{label}の壁紙プレビュー"
+  },
+  "gallery": {
+    "eyebrow": "壁紙ギャラリー",
+    "title": "すぐに使える壁紙を探す",
+    "pageSubtitle": "閲覧もダウンロードも無料——すべての壁紙がここに。",
+    "searchAria": "壁紙を検索",
+    "searchPlaceholder": "名前・スタイル・雰囲気で検索…",
+    "clearSearchAria": "検索をクリア",
+    "sortAria": "壁紙を並べ替え",
+    "sortLabel": "並べ替え",
+    "sortDefault": "デフォルト",
+    "sortName": "名前順 A–Z",
+    "categoryGroupAria": "カテゴリで壁紙を絞り込む",
+    "styleGroupAria": "{category}の壁紙をスタイルで絞り込む",
+    "allCategory": "すべて",
+    "allStyles": "すべてのスタイル",
+    "emptyTitle": "条件に一致する壁紙がありません。",
+    "emptyBody": "キーワードを変えるか、別のカテゴリをお試しください。",
+    "clearFilters": "検索と絞り込みをクリア",
+    "viewDetail": "詳細を見る",
+    "cardDownloadAria": "「{title}」をダウンロード",
+    "cardViewAria": "「{title}」を見る",
+    "cardFavoriteAria": "「{title}」をお気に入りに追加",
+    "cardUnfavoriteAria": "「{title}」をお気に入りから削除",
+    "downloadSaved": "「{title}」をダウンロードに保存しました。"
+  },
+  "detail": {
+    "backToGallery": "ギャラリーに戻る",
+    "download": "ダウンロード",
+    "downloading": "ダウンロード中…",
+    "downloadSaved": "「{title}」をダウンロードに保存しました。",
+    "styleLabel": "スタイル",
+    "familyLabel": "カテゴリ",
+    "categoryFallback": "壁紙",
+    "licenseBadge": "ライセンス審査中",
+    "licenseNotice": "この作品はまだ個別のライセンス審査が完了していません。現時点では現状有姿で無料の個人利用ダウンロードを提供しています。審査が完了するまで、商用利用は確認されません。",
+    "licenseVerified": "ライセンス確認済み",
+    "createSimilar": "似た作品を作成",
+    "relatedTitle": "関連する壁紙",
+    "relatedCardAria": "「{title}」を見る"
+  },
+  "generator": {
+    "homeEyebrow": "AIジェネレーター",
+    "homeTitle": "数秒で壁紙をデザイン",
+    "homeSubtitle": "スタイルを選び、デバイスを指定——プロンプトと参照画像は任意です。",
+    "styleLegend": "スタイル",
+    "styleCategoriesAria": "スタイルカテゴリ",
+    "selected": "選択済み",
+    "deviceGroupLabel": "デバイスと解像度",
+    "deviceLegend": "デバイス",
+    "ratioLegend": "アスペクト比",
+    "resolutionLegend": "解像度",
+    "modelDefault": "モデルのデフォルト",
+    "presetSizeLine": "{label} — {width} × {height} ピクセル",
+    "modelDefaultHint": "モデルのデフォルトサイズ——正確な解像度が必要な場合はプリセットを選択してください。",
+    "screenRecommendTitle": "現在の画面におすすめ",
+    "screenRecommendFor": "——選択した{device}向け",
+    "screenRecommendNoExact": "画面のアスペクト比に完全一致するサイズはありません——汎用的なサイズをおすすめします。",
+    "useThisSize": "このサイズを使う",
+    "promptLabel": "プロンプト",
+    "optional": "（任意）",
+    "promptPlaceholder": "壁紙を描写してください——ネオンの夜景、幻想的な草原、思い浮かべたものなら何でも…",
+    "inspiration": "インスピレーション",
+    "inspirationFor": "{style}向け",
+    "randomInspiration": "ランダムなインスピレーション",
+    "useExampleConfirm": "このサンプルをプロンプトに使いますか？",
+    "promptChangedNotice": "このサンプルを選んだ後にプロンプトが変更されています——「追加」を選ぶと現在のテキストに追記されます。",
+    "appendExceedsLimit": "追加すると{limit}文字の上限を超えます——先にプロンプトを短くしてください。",
+    "replace": "置き換え",
+    "append": "追加",
+    "cancel": "キャンセル",
+    "referenceLegend": "参照画像",
+    "refNoImage": "画像はまだありません",
+    "refPreviewAlt": "参照画像のプレビュー",
+    "refWillBeUsed": "生成のベースとして使用されます",
+    "remove": "削除",
+    "uploadTitle": "参照画像をアップロード",
+    "uploadFormats": "PNG・JPG・WebP——最大5 MB",
+    "uploadHint": "生成のベースとして使用されます",
+    "generate": "壁紙を生成",
+    "generating": "生成中…",
+    "tryAgain": "再試行",
+    "refUnsupportedFormat": "対応していない形式です——PNG・JPEG・WebPをご利用ください。",
+    "refEmptyFile": "ファイルが空です——有効な画像を選んでください。",
+    "refTooLarge": "画像が大きすぎます——5 MB未満にしてください。",
+    "refReadFailed": "その画像は読み込めませんでした。別のファイルをお試しください。",
+    "promptTooLong": "プロンプトが長すぎます——{limit}文字以内にしてください。",
+    "generateFailed": "画像の生成に失敗しました。もう一度お試しください。",
+    "invalidResponse": "画像サービスから無効な応答が返されました。もう一度お試しください。",
+    "networkError": "ネットワークエラー——生成を開始できませんでした。もう一度お試しください。",
+    "apiUnavailable": "生成サービスに未接続です——このビルドでは AI 生成を利用できません。",
+    "previewAltGenerated": "生成された壁紙",
+    "previewAltSample": "{style}スタイルのサンプル作品プレビュー",
+    "statusGenerating": "壁紙を生成中——通常は数秒で完了します…",
+    "statusLongWait": "まだ生成中です——詳細なプロンプトや参照画像があると1分ほどかかることがあります。",
+    "statusErrorKept": "生成に失敗しました——前回の結果を表示しています。",
+    "statusSuccess": "あなたの壁紙——AIスタジオで生成されたばかりです。",
+    "statusDemo": "デモプレビュー——イメージ用のサンプル作品であり、生成結果ではありません。",
+    "imageGoneNotice": "この画像は元のURLで利用できなくなりました——プロンプト・スタイル・デバイスの設定は保持されているので、再度生成できます。",
+    "viewFullSizeAria": "壁紙を全画面で表示",
+    "addFavoriteAria": "この壁紙をお気に入りに追加",
+    "removeFavoriteAria": "この壁紙をお気に入りから削除",
+    "openImage": "画像を開く",
+    "download": "ダウンロード",
+    "downloading": "ダウンロード中…",
+    "downloadSaved": "壁紙をダウンロードに保存しました。",
+    "restoreConfirm": "これらの設定を再利用しますか？現在のプロンプトは置き換えられます。",
+    "clearHistoryConfirm": "生成履歴をすべて消去しますか？この操作は元に戻せません。",
+    "restoreTitle": "設定を再利用",
+    "clearHistoryTitle": "履歴を消去",
+    "libraryTitle": "マイライブラリ",
+    "libraryTabsAria": "ライブラリのセクション",
+    "tabFavorites": "お気に入り",
+    "tabHistory": "履歴",
+    "clearHistory": "履歴を消去",
+    "favoritesEmpty": "お気に入りはまだありません——ギャラリーの壁紙や生成結果のハートをタップすると、ここに保存されます。",
+    "historyEmpty": "まだ何もありません——生成した壁紙はこのデバイスにのみ保存されます。",
+    "imageUnavailable": "画像を利用できません",
+    "downloadEntryAria": "「{title}」をダウンロード",
+    "removeEntryFavoriteAria": "「{title}」をお気に入りから削除",
+    "entryFavoriteAlt": "お気に入りの壁紙：{title}",
+    "entryFavoriteAltPlain": "お気に入りの壁紙",
+    "untitled": "タイトルなし",
+    "noStyle": "スタイルなし",
+    "sourceGallery": "ギャラリー",
+    "sourceGenerated": "生成",
+    "noPrompt": "プロンプトなし",
+    "reuse": "再利用",
+    "reuseAria": "これらの設定を再利用：{prompt}",
+    "reuseAriaPlain": "これらの設定を再利用",
+    "historyThumbAlt": "生成された壁紙：{prompt}",
+    "historyThumbAltPlain": "以前生成した壁紙",
+    "fullSizeAlt": "生成した壁紙のフルサイズ",
+    "generatedFallbackTitle": "生成された壁紙"
+  },
+  "studio": {
+    "brand": "WallHaze",
+    "accent": "スタジオ",
+    "eyebrow": "AIワークスペース",
+    "subtitle": "壁紙のデザイン、生成、コレクションに必要なすべてがここに——プロンプトを書き、スタイルを選び、比率を調整して、お気に入りを保存しましょう。",
+    "backHome": "← ホームに戻る",
+    "browseGallery": "ギャラリーを見る"
+  },
+  "popular": {
+    "eyebrow": "人気のスタイル",
+    "title": "お気に入りのスタイルを見つける",
+    "subtitle": "スタジオが丁寧に調整した6つの看板スタイル。タップするとAIスタジオで試せます。",
+    "tryInStudio": "スタジオで試す →",
+    "sampleAlt": "{style}スタイルの壁紙サンプル"
+  },
+  "cta": {
+    "title": "画面を一新する準備はできましたか？",
+    "body": "スタイルを選び、デバイスを指定して、あなただけの壁紙を作りましょう。",
+    "button": "作成を始める"
+  },
+  "footer": {
+    "tagline": "あなたのデバイスのためのAI壁紙——作って、見つけて、画面をあなた色に。",
+    "product": "製品",
+    "exploreGallery": "ギャラリーを見る",
+    "aiStudio": "AIスタジオ",
+    "popularStyles": "人気のスタイル",
+    "howItWorks": "使い方",
+    "company": "運営情報",
+    "faq": "よくある質問",
+    "about": "WallHazeについて",
+    "contact": "お問い合わせ",
+    "legal": "法的情報",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "socialX": "X (Twitter)",
+    "socialInstagram": "Instagram",
+    "socialYoutube": "YouTube",
+    "socialComingSoon": "{label} ——近日公開",
+    "rights": "WallHaze. 全著作権所有。",
+    "madeFor": "すべての画面のために。"
+  },
+  "ui": {
+    "dismiss": "閉じる",
+    "confirm": "確認",
+    "cancel": "キャンセル"
+  },
+  "pagination": {
+    "loadMore": "もっと見る",
+    "showing": "{total}件中 {shown}件を表示",
+    "end": "すべて表示しました"
+  },
+  "lightbox": {
+    "closeAria": "全画面プレビューを閉じる",
+    "imageUnavailable": "この画像は元のURLで利用できなくなりました。",
+    "hint": "画像の外側をクリックすると閉じます",
+    "hintDesktop": " · または Esc キー",
+    "retry": "再試行"
+  },
+  "languageSwitcher": {
+    "aria": "言語を変更",
+    "label": "言語",
+    "en": "English",
+    "zh": "简体中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "common": {
+    "comingSoon": "近日公開",
+    "favoriteLimit": "ライブラリがいっぱいです——追加するには、まずお気に入りをいくつか削除してください。",
+    "favoritesUnavailable": "このブラウザではお気に入り機能を利用できません。",
+    "downloadOpened": "直接ダウンロードがブロックされました——画像が新しいタブで開いているので、そこから保存してください。",
+    "downloadFailed": "ダウンロードに失敗しました——接続を確認してもう一度お試しください。",
+    "thisWallpaper": "この壁紙"
+  },
+  "devices": {
+    "phone": "スマホ",
+    "tablet": "タブレット",
+    "desktop": "デスクトップ"
+  },
+  "sizePresetLabels": {
+    "phonePortraitHd": "スマホ縦向きHD",
+    "portraitHd": "縦向きHD",
+    "portraitClassic": "縦向きクラシック",
+    "landscapeHd": "横向きHD",
+    "landscapeClassic": "横向きクラシック",
+    "landscapeCompact": "横向きコンパクト",
+    "square": "正方形",
+    "desktopFullHd": "デスクトップフルHD"
+  },
+  "styleLabels": {
+    "anime": "アニメ",
+    "cyberpunk": "サイバーパンク",
+    "fantasy": "ファンタジー",
+    "nature": "自然",
+    "minimalist": "ミニマリスト",
+    "surreal": "シュール",
+    "abstract": "抽象",
+    "dark": "ダーク",
+    "3d-art": "3Dアート",
+    "dreamcore": "ドリームコア",
+    "sci-fi": "SF",
+    "photography": "写真",
+    "pencil-sketch": "鉛筆スケッチ",
+    "charcoal-drawing": "木炭画",
+    "ink-drawing": "インク画",
+    "watercolor": "水彩",
+    "oil-painting": "油絵",
+    "pixel-art": "ピクセルアート",
+    "cinematic": "シネマティック",
+    "gothic-horror": "ゴシックホラー",
+    "supernatural-horror": "超常現象ホラー",
+    "cosmic-horror": "コズミックホラー",
+    "analog-horror": "アナログホラー",
+    "psychological-horror": "サイコホラー",
+    "nightmare-surrealism": "ナイトメア・シュルレアリスム",
+    "dark-fantasy": "ダークファンタジー",
+    "post-apocalyptic": "終末ホラー",
+    "horror-anime": "ホラーアニメ",
+    "occult-ritual": "オカルトと儀式",
+    "retro-cel": "レトロセルアニメ",
+    "shoujo": "少女マンガ",
+    "shonen": "少年アクション",
+    "chibi": "ちびキャラ",
+    "manga": "マンガ",
+    "mecha": "メカ",
+    "ukiyo-e-anime": "浮世絵アニメ",
+    "cozy-anime": "癒し系アニメ"
+  },
+  "styleDescriptions": {
+    "anime": "クリーンな線画と鮮やかなセルシェーディング",
+    "cyberpunk": "ネオンに染まる未来都市の夜",
+    "fantasy": "壮大な魔法世界と光輝く秘境",
+    "nature": "穏やかで写実的な自然風景",
+    "minimalist": "余白を活かした落ち着いた構図",
+    "surreal": "夢のような想像力の芸術",
+    "abstract": "大胆なかたちと流れるカラーグラデーション",
+    "dark": "メランコリックな影とローキーな雰囲気",
+    "3d-art": "柔らかなスタジオ光の洗練されたレンダリング",
+    "dreamcore": "幻想的なパステルの霞とノスタルジー",
+    "sci-fi": "壮大なスケールの未来テクノロジー",
+    "photography": "シャープで自然な写真の質感",
+    "pencil-sketch": "ざらついた紙に描かれた鉛筆の線画",
+    "charcoal-drawing": "大胆にぼかした筆致と深い黒",
+    "ink-drawing": "力強い墨線と交差するハッチング",
+    "watercolor": "透明感のある滲みと紙の質感",
+    "oil-painting": "厚塗りの質感と明暗対比の光",
+    "pixel-art": "引き締まった限定色のレトロピクセル",
+    "cinematic": "映画ワンシーンのようなグレーディングとドラマチックな光",
+    "gothic-horror": "黒と緋色に浮かぶ幽霊城",
+    "supernatural-horror": "幽霊と不気味な廃墟",
+    "cosmic-horror": "深淵に潜む計り知れない存在",
+    "analog-horror": "VHSノイズと歪んだ監視映像",
+    "psychological-horror": "空っぽの部屋と歪んだ遠近感",
+    "nightmare-surrealism": "ねじれた夢の論理と暗い幻想",
+    "dark-fantasy": "呪われた廃墟と影の生物",
+    "post-apocalyptic": "終末のあと、霧に包まれた廃墟",
+    "horror-anime": "和風ホラーの影とシルエット",
+    "occult-ritual": "蝋燭の灯る魔法陣と古の儀式",
+    "retro-cel": "90年代セルアニメのレトロな郷愁",
+    "shoujo": "淡いパステルのロマンスときらめき",
+    "shonen": "スピード線を伴う大胆なアクション",
+    "chibi": "カワイイちびキャラの魅力",
+    "manga": "白黒スクリーントーンのインクアート",
+    "mecha": "巨大ロボットのスケール感あふれる描写",
+    "ukiyo-e-anime": "木版画の趣とアニメの出会い",
+    "cozy-anime": "ほっとする日常の温もり"
+  },
+  "groupLabels": {
+    "digital": "デジタルアート",
+    "abstract": "抽象・ミニマル",
+    "sketch": "スケッチ＆ドローイング",
+    "painting": "絵画",
+    "photography": "写真",
+    "nature": "自然・風景",
+    "horror": "ホラー・ダーク"
+  },
+  "groupDescriptions": {
+    "digital": "アニメ、3Dレンダリング、ピクセルアート、コンセプトスタイル",
+    "abstract": "グラデーション、かたち、夢、シュールなシーン",
+    "sketch": "手描きの鉛筆、インク、木炭の質感",
+    "painting": "水彩、油絵、絵画的な質感",
+    "photography": "写実的・映画的・ムーディーな写真スタイル",
+    "nature": "山、森、湖、広々とした空",
+    "horror": "ゴシックの城、宇宙的恐怖、呪われた廃墟、不気味な雰囲気"
+  },
+  "galleryWallpapers": {
+    "sakura-nights": {
+      "title": "夜桜",
+      "alt": "夜の桜の下に立つ少女のアニメ壁紙"
+    },
+    "neon-rain": {
+      "title": "ネオンの雨",
+      "alt": "雨に濡れたネオン輝く街路のサイバーパンク壁紙"
+    },
+    "floating-isles": {
+      "title": "浮遊島",
+      "alt": "光る滝をもつ浮遊島のファンタジー壁紙"
+    },
+    "twilight-peaks": {
+      "title": "薄暮の峰",
+      "alt": "夕暮れに霧のかかる山頂の自然壁紙"
+    },
+    "violet-orb": {
+      "title": "紫の光球",
+      "alt": "暗い背景に浮かぶ光る紫の球体のミニマル壁紙"
+    },
+    "mirror-desert": {
+      "title": "鏡の砂漠",
+      "alt": "鏡のような砂漠の上に浮かぶ巨大な月のシュール壁紙"
+    },
+    "nebula-city": {
+      "title": "星雲の都",
+      "alt": "未来都市の上空に広がる紫色の星雲と光る街のSF壁紙"
+    },
+    "astral-drift": {
+      "title": "星間漂流",
+      "alt": "星に囲まれた光る紫の星雲の中を漂う宇宙飛行士のSF壁紙"
+    },
+    "liquid-ribbons": {
+      "title": "液体のリボン",
+      "alt": "暗い空間を流れる紫とマゼンタのグラデーションリボンの抽象壁紙"
+    },
+    "storm-ridge": {
+      "title": "嵐の尾根",
+      "alt": "嵐の雲の下、霧の尾根に立つ孤独なシルエットのダーク壁紙"
+    },
+    "chrome-orbit": {
+      "title": "クロームの軌道",
+      "alt": "紫の背景に浮かぶ虹色クロームのトーラスと球体の3D壁紙"
+    },
+    "haze-room": {
+      "title": "霞の部屋",
+      "alt": "ピンクの霞と雲で満たされたパステルの寝室のドリームコア壁紙"
+    },
+    "ring-station": {
+      "title": "リング基地",
+      "alt": "紫の星雲の惑星を周回するリング型宇宙ステーションのSF壁紙"
+    },
+    "dawn-lake": {
+      "title": "暁の湖",
+      "alt": "夜明け、鏡のように穏やかな高山湖の写真壁紙"
+    },
+    "graphite-valley": {
+      "title": "黒鉛の谷",
+      "alt": "霧の森の谷と鹿を描いた鉛筆スケッチ壁紙"
+    },
+    "charcoal-sea": {
+      "title": "炭筆の海",
+      "alt": "大胆にぼかした筆致で描かれた嵐の海の木炭壁紙"
+    },
+    "crane-pine": {
+      "title": "鶴と松",
+      "alt": "水墨画の様式で松の枝の上を飛ぶ鶴を描いたインク壁紙"
+    },
+    "bloom-wash": {
+      "title": "花の水彩",
+      "alt": "透明な滲みで描かれた紫の山々と咲く花の水彩壁紙"
+    },
+    "impasto-night": {
+      "title": "厚塗りの夜",
+      "alt": "紫の谷の上に渦巻く星月夜の油絵壁紙"
+    },
+    "pixel-skyline": {
+      "title": "ピクセルのスカイライン",
+      "alt": "紫の空の下、レトロな夜の都市スカイラインのピクセルアート壁紙"
+    },
+    "neon-alley": {
+      "title": "ネオンの路地",
+      "alt": "ティールとオレンジの色調、雨に濡れたネオン路地のシネマティック壁紙"
+    },
+    "crimson-keep": {
+      "title": "紅の城",
+      "alt": "血のような赤い月の下に立つ幽霊城のゴシックホラー壁紙"
+    },
+    "the-drifter": {
+      "title": "さまよう者",
+      "alt": "廃病院の廊下を漂う幽霊の超常現象ホラー壁紙"
+    },
+    "the-unseen": {
+      "title": "見えざるもの",
+      "alt": "紫の星雲の背後に迫る巨大な存在のコズミックホラー壁紙"
+    },
+    "tape-07": {
+      "title": "テープ07",
+      "alt": "ノイズだらけのVHS監視映像に写る歪んだ姿のアナログホラー壁紙"
+    },
+    "wrong-room": {
+      "title": "まちがえた部屋",
+      "alt": "果てしない空の部屋とありえない角度のサイコホラー壁紙"
+    },
+    "melting-hour": {
+      "title": "融ける刻",
+      "alt": "紅の夢世界で溶ける階段のナイトメア・シュルレアリスム壁紙"
+    },
+    "cursed-grove": {
+      "title": "呪いの杜",
+      "alt": "影の森で光る眼の生き物に見つめられた呪われた廃墟のダークファンタジー壁紙"
+    },
+    "ash-highway": {
+      "title": "灰のハイウェイ",
+      "alt": "ひび割れたハイウェイ沿い、霧に飲まれた廃墟の終末ホラー壁紙"
+    },
+    "after-class": {
+      "title": "放課後",
+      "alt": "暗い学校の廊下に立つ青白い少女のホラーアニメ壁紙"
+    },
+    "the-circle": {
+      "title": "儀式の陣",
+      "alt": "石造りの地下納骨堂で蝋燭に囲まれた光る魔法陣のオカルト壁紙"
+    },
+    "last-train": {
+      "title": "終電",
+      "alt": "夕暮れの列車に乗る少女、レトロなセルシェーディングの90年代風アニメ壁紙"
+    },
+    "petal-bloom": {
+      "title": "舞う花びら",
+      "alt": "パステルの薔薇の花びらときらめきに囲まれた少女の少女マンガ壁紙"
+    },
+    "ignition": {
+      "title": "点火",
+      "alt": "灼熱のエネルギーの軌跡を引いて跳ぶヒーローの少年アクション壁紙"
+    },
+    "cloud-friends": {
+      "title": "雲のなかまたち",
+      "alt": "パステルカラーの雲の上のかわいいちびキャラのちびアニメ壁紙"
+    },
+    "rooftop-duel": {
+      "title": "屋上の決闘",
+      "alt": "スクリーントーンの陰影による白黒の剣術決闘のマンガ壁紙"
+    },
+    "hangar-rain": {
+      "title": "格納庫の雨",
+      "alt": "雨の発射格納庫に立つ巨大な戦闘ロボットのメカ壁紙"
+    },
+    "great-wave": {
+      "title": "大波",
+      "alt": "藍色の大波と富士山の下の着物姿の少女の浮世絵アニメ壁紙"
+    },
+    "sunset-cafe": {
+      "title": "夕暮れのカフェ",
+      "alt": "温かな夕日に照らされた田舎のカフェの癒し系アニメ壁紙"
+    }
+  }
+}

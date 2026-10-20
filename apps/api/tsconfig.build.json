@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist"
+    // NOTE: no "rootDir". The type-only @wallhaze/contracts source lives
+    // outside apps/api/src, so a rootDir of "src" fails emission (TS6059).
+    // Without rootDir tsc emits to dist/apps/api/src/** (common root).
+  },
+  "include": ["src/**/*.ts"]
+}
+

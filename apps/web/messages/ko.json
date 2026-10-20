@@ -1,0 +1,533 @@
+{
+  "meta": {
+    "homeTitle": "WallHaze — 모든 화면을 위한 AI 배경화면",
+    "homeDescription": "사용 중인 기기에 딱 맞는 아름다운 AI 배경화면을 만들어 보세요. 애니메이션, 사이버펑크, 판타지 등 독특한 스타일을 폰·태블릿·데스크톱용으로 고화질로 제공합니다.",
+    "studioTitle": "스튜디오 — AI 배경화면 만들기",
+    "studioDescription": "WallHaze 스튜디오: 배경화면을 묘사하고 스타일을 고르고 기기와 화면 비율을 선택한 뒤, 레퍼런스 이미지를 추가해 폰·태블릿·데스크톱용 고화질 AI 배경화면을 생성하세요.",
+    "wallpapersTitle": "배경화면 갤러리 — 무료 AI 배경화면",
+    "wallpapersDescription": "폰·태블릿·데스크톱용 무료 AI 배경화면을 둘러보고 다운로드하세요 — 애니메이션, 사이버펑크, 판타지, 자연 등. 모든 배경화면에 전용 상세 페이지가 있습니다."
+  },
+  "nav": {
+    "mainAria": "메인 내비게이션",
+    "mobileAria": "모바일 내비게이션",
+    "studio": "AI 스튜디오",
+    "explore": "둘러보기",
+    "myCreations": "내 작품",
+    "credits": "크레딧",
+    "signIn": "로그인",
+    "getStarted": "시작하기",
+    "openMenu": "메뉴 열기",
+    "closeMenu": "메뉴 닫기"
+  },
+  "hero": {
+    "eyebrow": "AI 배경화면 스튜디오",
+    "titleLine1": "당신의 화면에,",
+    "titleLine2": "당신의 세상을.",
+    "subtitle": "사용 중인 기기에 딱 맞는 아름다운 AI 배경화면을 만들어 보세요.",
+    "ctaCreate": "AI로 만들기",
+    "ctaExplore": "배경화면 둘러보기",
+    "footnote": "갤러리 무료 다운로드 · AI 생성은 스튜디오에서 · 폰·태블릿·데스크톱 지원"
+  },
+  "featured": {
+    "eyebrow": "추천",
+    "title": "추천 배경화면",
+    "subtitle": "갤러리에서 엄선한 작품들 — 모든 배경화면에 전용 페이지가 있으며 무료로 다운로드할 수 있습니다.",
+    "viewAll": "모든 배경화면 보기",
+    "cardAria": "“{title}” 보기"
+  },
+  "howItWorks": {
+    "eyebrow": "이용 방법",
+    "title": "3단계로 새 배경화면을",
+    "step1Title": "갤러리 둘러보기",
+    "step1Body": "무료 컬렉션을 탐색하고 마음에 드는 배경화면을 다운로드하세요 — 계정 가입이 필요 없습니다.",
+    "step2Title": "스튜디오에서 직접 만들기",
+    "step2Body": "아이디어를 묘사하고 스타일과 기기를 고르면 AI 스튜디오가 완성합니다.",
+    "step3Title": "저장하고 설정",
+    "step3Body": "즐겨찾기를 한곳에 모아 당신만의 화면을 즐겨보세요."
+  },
+  "trending": {
+    "aria": "인기 배경화면",
+    "title": "이번 주 인기",
+    "previewAlt": "{label} 배경화면 미리보기"
+  },
+  "gallery": {
+    "eyebrow": "배경화면 갤러리",
+    "title": "바로 쓸 수 있는 배경화면 둘러보기",
+    "pageSubtitle": "둘러보기도 다운로드도 무료 — 모든 배경화면이 한곳에.",
+    "searchAria": "배경화면 검색",
+    "searchPlaceholder": "이름·스타일·분위기로 검색…",
+    "clearSearchAria": "검색 지우기",
+    "sortAria": "배경화면 정렬",
+    "sortLabel": "정렬",
+    "sortDefault": "기본",
+    "sortName": "이름 A–Z",
+    "categoryGroupAria": "카테고리로 배경화면 필터링",
+    "styleGroupAria": "{category} 배경화면을 스타일로 필터링",
+    "allCategory": "전체",
+    "allStyles": "모든 스타일",
+    "emptyTitle": "필터에 맞는 배경화면이 없습니다.",
+    "emptyBody": "다른 검색어나 다른 카테고리를 시도해 보세요.",
+    "clearFilters": "검색 및 필터 지우기",
+    "viewDetail": "상세 보기",
+    "cardDownloadAria": "“{title}” 다운로드",
+    "cardViewAria": "“{title}” 보기",
+    "cardFavoriteAria": "“{title}” 즐겨찾기에 추가",
+    "cardUnfavoriteAria": "“{title}” 즐겨찾기에서 제거",
+    "downloadSaved": "“{title}”을(를) 다운로드에 저장했습니다."
+  },
+  "detail": {
+    "backToGallery": "갤러리로 돌아가기",
+    "download": "다운로드",
+    "downloading": "다운로드 중…",
+    "downloadSaved": "“{title}”을(를) 다운로드에 저장했습니다.",
+    "styleLabel": "스타일",
+    "familyLabel": "카테고리",
+    "categoryFallback": "배경화면",
+    "licenseBadge": "라이선스 검토 진행 중",
+    "licenseNotice": "이 작품은 아직 개별 라이선스 검토가 완료되지 않았습니다. 현재는 있는 그대로 무료 개인용 다운로드를 제공하며, 검토가 완료될 때까지 상업적 이용은 확인되지 않습니다.",
+    "licenseVerified": "라이선스 확인 완료",
+    "createSimilar": "비슷한 작품 만들기",
+    "relatedTitle": "비슷한 배경화면",
+    "relatedCardAria": "“{title}” 보기"
+  },
+  "generator": {
+    "homeEyebrow": "AI 제너레이터",
+    "homeTitle": "몇 초 만에 배경화면 디자인",
+    "homeSubtitle": "스타일을 고르고 기기를 선택하세요 — 프롬프트와 레퍼런스 이미지는 선택 사항입니다.",
+    "styleLegend": "스타일",
+    "styleCategoriesAria": "스타일 카테고리",
+    "selected": "선택됨",
+    "deviceGroupLabel": "기기 및 해상도",
+    "deviceLegend": "기기",
+    "ratioLegend": "화면 비율",
+    "resolutionLegend": "해상도",
+    "modelDefault": "모델 기본값",
+    "presetSizeLine": "{label} — {width} × {height} 픽셀",
+    "modelDefaultHint": "모델 기본 크기입니다 — 정확한 해상도가 필요하면 프리셋을 선택하세요.",
+    "screenRecommendTitle": "현재 화면에 추천",
+    "screenRecommendFor": "— 선택한 {device}용",
+    "screenRecommendNoExact": "화면 비율과 정확히 일치하는 크기가 없습니다 — 범용 크기를 추천합니다.",
+    "useThisSize": "이 크기 사용",
+    "promptLabel": "프롬프트",
+    "optional": "(선택 사항)",
+    "promptPlaceholder": "원하는 배경화면을 묘사해 보세요 — 네온이 빛나는 도심, 몽환적인 초원, 상상하는 무엇이든…",
+    "inspiration": "영감",
+    "inspirationFor": "{style}용",
+    "randomInspiration": "랜덤 영감",
+    "useExampleConfirm": "이 예시를 프롬프트로 사용할까요?",
+    "promptChangedNotice": "이 예시를 고른 뒤 프롬프트를 변경했습니다 — '추가'를 선택하면 현재 텍스트 뒤에 붙습니다.",
+    "appendExceedsLimit": "추가하면 {limit}자 제한을 초과합니다 — 먼저 프롬프트를 줄여 주세요.",
+    "replace": "바꾸기",
+    "append": "추가",
+    "cancel": "취소",
+    "referenceLegend": "레퍼런스 이미지",
+    "refNoImage": "아직 이미지 없음",
+    "refPreviewAlt": "레퍼런스 이미지 미리보기",
+    "refWillBeUsed": "생성의 베이스로 사용됩니다",
+    "remove": "제거",
+    "uploadTitle": "레퍼런스 이미지 업로드",
+    "uploadFormats": "PNG, JPG 또는 WebP — 최대 5 MB",
+    "uploadHint": "생성의 베이스로 사용됩니다",
+    "generate": "배경화면 생성",
+    "generating": "생성 중…",
+    "tryAgain": "다시 시도",
+    "refUnsupportedFormat": "지원하지 않는 형식입니다 — PNG, JPEG 또는 WebP를 사용해 주세요.",
+    "refEmptyFile": "파일이 비어 있습니다 — 유효한 이미지를 선택해 주세요.",
+    "refTooLarge": "이미지가 너무 큽니다 — 5 MB 미만으로 유지해 주세요.",
+    "refReadFailed": "이미지를 읽을 수 없습니다. 다른 파일로 시도해 주세요.",
+    "promptTooLong": "프롬프트가 너무 깁니다 — {limit}자 이내로 작성해 주세요.",
+    "generateFailed": "이미지 생성에 실패했습니다. 다시 시도해 주세요.",
+    "invalidResponse": "이미지 서비스에서 잘못된 응답을 받았습니다. 다시 시도해 주세요.",
+    "networkError": "네트워크 오류 — 생성을 시작할 수 없습니다. 다시 시도해 주세요.",
+    "apiUnavailable": "생성 서비스가 아직 연결되지 않았습니다 — 이 빌드에서는 AI 생성을 사용할 수 없습니다.",
+    "previewAltGenerated": "생성한 배경화면",
+    "previewAltSample": "{style} 스타일 샘플 작품 미리보기",
+    "statusGenerating": "배경화면을 생성하는 중입니다 — 보통 몇 초가 걸립니다…",
+    "statusLongWait": "아직 진행 중입니다 — 상세한 프롬프트나 레퍼런스 이미지는 최대 1분까지 걸릴 수 있습니다.",
+    "statusErrorKept": "생성에 실패했습니다 — 이전 결과를 표시하는 중입니다.",
+    "statusSuccess": "당신만의 배경화면 — AI 스튜디오에서 방금 탄생했습니다.",
+    "statusDemo": "데모 미리보기 — 실제 생성 결과가 아닌 예시용 샘플 작품입니다.",
+    "imageGoneNotice": "이 이미지는 원본 URL에서 더 이상 사용할 수 없습니다 — 프롬프트·스타일·기기 설정은 그대로 유지되므로 다시 생성할 수 있습니다.",
+    "viewFullSizeAria": "배경화면 전체 화면으로 보기",
+    "addFavoriteAria": "이 배경화면을 즐겨찾기에 추가",
+    "removeFavoriteAria": "이 배경화면을 즐겨찾기에서 제거",
+    "openImage": "이미지 열기",
+    "download": "다운로드",
+    "downloading": "다운로드 중…",
+    "downloadSaved": "배경화면을 다운로드에 저장했습니다.",
+    "restoreConfirm": "이 설정을 다시 사용할까요? 현재 프롬프트가 대체됩니다.",
+    "clearHistoryConfirm": "모든 생성 기록을 지울까요? 이 작업은 되돌릴 수 없습니다.",
+    "restoreTitle": "설정 다시 사용",
+    "clearHistoryTitle": "기록 지우기",
+    "libraryTitle": "내 라이브러리",
+    "libraryTabsAria": "라이브러리 섹션",
+    "tabFavorites": "즐겨찾기",
+    "tabHistory": "기록",
+    "clearHistory": "기록 지우기",
+    "favoritesEmpty": "아직 즐겨찾기가 없습니다 — 갤러리 배경화면이나 생성 결과의 하트를 탭하면 여기에 저장됩니다.",
+    "historyEmpty": "아직 아무것도 없습니다 — 생성한 배경화면은 이 기기에만 저장됩니다.",
+    "imageUnavailable": "이미지를 사용할 수 없음",
+    "downloadEntryAria": "“{title}” 다운로드",
+    "removeEntryFavoriteAria": "“{title}” 즐겨찾기에서 제거",
+    "entryFavoriteAlt": "즐겨찾기한 배경화면: {title}",
+    "entryFavoriteAltPlain": "즐겨찾기한 배경화면",
+    "untitled": "제목 없음",
+    "noStyle": "스타일 없음",
+    "sourceGallery": "갤러리",
+    "sourceGenerated": "생성",
+    "noPrompt": "프롬프트 없음",
+    "reuse": "다시 사용",
+    "reuseAria": "이 설정 다시 사용: {prompt}",
+    "reuseAriaPlain": "이 설정 다시 사용",
+    "historyThumbAlt": "생성된 배경화면: {prompt}",
+    "historyThumbAltPlain": "이전에 생성한 배경화면",
+    "fullSizeAlt": "생성한 배경화면, 전체 크기",
+    "generatedFallbackTitle": "생성된 배경화면"
+  },
+  "studio": {
+    "brand": "WallHaze",
+    "accent": "스튜디오",
+    "eyebrow": "AI 워크스페이스",
+    "subtitle": "배경화면을 디자인하고 생성하고 모으는 데 필요한 모든 것 — 프롬프트를 쓰고, 스타일을 고르고, 비율을 맞추고, 마음에 드는 작품을 저장하세요.",
+    "backHome": "← 홈으로 돌아가기",
+    "browseGallery": "갤러리 둘러보기"
+  },
+  "popular": {
+    "eyebrow": "인기 스타일",
+    "title": "마음에 드는 룩 찾기",
+    "subtitle": "스튜디오가 세심하게 다듬은 6가지 시그니처 스타일. 탭하면 AI 스튜디오에서 써볼 수 있습니다.",
+    "tryInStudio": "스튜디오에서 써보기 →",
+    "sampleAlt": "{style} 스타일 배경화면 샘플"
+  },
+  "cta": {
+    "title": "화면을 새로 꾸밀 준비가 되셨나요?",
+    "body": "스타일을 고르고 기기를 선택해 당신만의 배경화면을 만들어 보세요.",
+    "button": "만들기 시작"
+  },
+  "footer": {
+    "tagline": "당신의 기기를 위한 AI 배경화면 — 만들고, 탐색하고, 모든 화면을 당신의 것으로.",
+    "product": "제품",
+    "exploreGallery": "갤러리 둘러보기",
+    "aiStudio": "AI 스튜디오",
+    "popularStyles": "인기 스타일",
+    "howItWorks": "이용 방법",
+    "company": "회사",
+    "faq": "자주 묻는 질문",
+    "about": "소개",
+    "contact": "문의하기",
+    "legal": "법적 고지",
+    "privacy": "개인정보 처리방침",
+    "terms": "서비스 약관",
+    "socialX": "X (Twitter)",
+    "socialInstagram": "Instagram",
+    "socialYoutube": "YouTube",
+    "socialComingSoon": "{label} — 곧 공개",
+    "rights": "WallHaze. 모든 권리 보유.",
+    "madeFor": "모든 화면을 위해."
+  },
+  "ui": {
+    "dismiss": "닫기",
+    "confirm": "확인",
+    "cancel": "취소"
+  },
+  "pagination": {
+    "loadMore": "더 보기",
+    "showing": "{total}개 중 {shown}개 표시",
+    "end": "모두 확인했습니다"
+  },
+  "lightbox": {
+    "closeAria": "전체 화면 미리보기 닫기",
+    "imageUnavailable": "이 이미지는 원본 URL에서 더 이상 사용할 수 없습니다.",
+    "hint": "이미지 바깥쪽을 클릭하면 닫힙니다",
+    "hintDesktop": " · 또는 Esc 키",
+    "retry": "다시 시도"
+  },
+  "languageSwitcher": {
+    "aria": "언어 변경",
+    "label": "언어",
+    "en": "English",
+    "zh": "简体中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "common": {
+    "comingSoon": "곧 공개",
+    "favoriteLimit": "라이브러리가 가득 찼습니다 — 더 저장하려면 즐겨찾기를 몇 개 제거해 주세요.",
+    "favoritesUnavailable": "이 브라우저에서는 즐겨찾기를 사용할 수 없습니다.",
+    "downloadOpened": "직접 다운로드가 차단되었습니다 — 이미지가 새 탭에서 열렸으니 그곳에서 저장해 주세요.",
+    "downloadFailed": "다운로드에 실패했습니다 — 연결 상태를 확인하고 다시 시도해 주세요.",
+    "thisWallpaper": "이 배경화면"
+  },
+  "devices": {
+    "phone": "휴대폰",
+    "tablet": "태블릿",
+    "desktop": "데스크톱"
+  },
+  "sizePresetLabels": {
+    "phonePortraitHd": "휴대폰 세로 HD",
+    "portraitHd": "세로 HD",
+    "portraitClassic": "세로 클래식",
+    "landscapeHd": "가로 HD",
+    "landscapeClassic": "가로 클래식",
+    "landscapeCompact": "가로 컴팩트",
+    "square": "정사각형",
+    "desktopFullHd": "데스크톱 풀HD"
+  },
+  "styleLabels": {
+    "anime": "애니메이션",
+    "cyberpunk": "사이버펑크",
+    "fantasy": "판타지",
+    "nature": "자연",
+    "minimalist": "미니멀리스트",
+    "surreal": "초현실",
+    "abstract": "추상",
+    "dark": "다크",
+    "3d-art": "3D 아트",
+    "dreamcore": "드림코어",
+    "sci-fi": "SF",
+    "photography": "포토그래피",
+    "pencil-sketch": "연필 스케치",
+    "charcoal-drawing": "차콜 드로잉",
+    "ink-drawing": "잉크 드로잉",
+    "watercolor": "수채화",
+    "oil-painting": "유화",
+    "pixel-art": "픽셀 아트",
+    "cinematic": "시네마틱",
+    "gothic-horror": "고딕 호러",
+    "supernatural-horror": "초자연 호러",
+    "cosmic-horror": "코즈믹 호러",
+    "analog-horror": "아날로그 호러",
+    "psychological-horror": "심리 호러",
+    "nightmare-surrealism": "악몽 초현실주의",
+    "dark-fantasy": "다크 판타지",
+    "post-apocalyptic": "포스트 아포칼립스 호러",
+    "horror-anime": "호러 애니메",
+    "occult-ritual": "오컬트와 의식",
+    "retro-cel": "레트로 셀 애니메",
+    "shoujo": "소녀 만화",
+    "shonen": "소년 액션",
+    "chibi": "치비",
+    "manga": "만화",
+    "mecha": "메카",
+    "ukiyo-e-anime": "우키요에 애니메",
+    "cozy-anime": "힐링 애니메"
+  },
+  "styleDescriptions": {
+    "anime": "깔끔한 선화와 선명한 셀 셰이딩",
+    "cyberpunk": "네온에 절어든 미래 도시의 밤",
+    "fantasy": "웅장한 마법 세계와 빛나는 비경",
+    "nature": "고요하고 사실적인 자연 풍경",
+    "minimalist": "넉넉한 여백의 차분한 구도",
+    "surreal": "꿈결 같은 상상력의 아트",
+    "abstract": "대담한 형태와 흐르는 색 그라데이션",
+    "dark": "우울한 그림자와 로우키 분위기",
+    "3d-art": "부드러운 스튜디오 조명의 세련된 렌더링",
+    "dreamcore": "몽환적인 파스텔 안개와 노스탤지어",
+    "sci-fi": "장대한 스케일의 미래 기술",
+    "photography": "선명하고 자연스러운 사진 질감",
+    "pencil-sketch": "질감 있는 종이 위의 흑연 선화",
+    "charcoal-drawing": "대담하게 번진 붓터치와 짙은 검정",
+    "ink-drawing": "힘찬 먹선과 교차 해칭",
+    "watercolor": "투명한 번짐과 종이 질감",
+    "oil-painting": "두터운 임파스토와 명암 대비의 빛",
+    "pixel-art": "선명한 제한 팔레트의 레트로 픽셀",
+    "cinematic": "영화 정지 화면 같은 색보정과 드라마틱한 빛",
+    "gothic-horror": "검정과 진홍빛의 유령 저택",
+    "supernatural-horror": "유령과 으스스한 폐가",
+    "cosmic-horror": "심연 속 알 수 없는 존재",
+    "analog-horror": "VHS 노이즈와 왜곡된 감시 영상",
+    "psychological-horror": "텅 빈 방과 뒤틀린 원근",
+    "nightmare-surrealism": "뒤틀린 꿈의 논리와 어두운 몽환",
+    "dark-fantasy": "저주받은 폐허와 그림자 속 생물",
+    "post-apocalyptic": "종말 이후 안개에 잠긴 폐허",
+    "horror-anime": "일본 호러의 그림자와 실루엣",
+    "occult-ritual": "촛불에 밝힌 인장과 고대 의식",
+    "retro-cel": "90년대 셀 애니메의 레트로 정서",
+    "shoujo": "부드러운 파스텔 로맨스와 반짝임",
+    "shonen": "속도선이 살아 움직이는 대담한 액션",
+    "chibi": "카와이한 치비 캐릭터의 매력",
+    "manga": "흑백 스크린톤 잉크 아트",
+    "mecha": "거대 로봇의 장대한 스케일",
+    "ukiyo-e-anime": "목판화의 우아함과 애니메이션의 만남",
+    "cozy-anime": "포근한 일상의 온기"
+  },
+  "groupLabels": {
+    "digital": "디지털 아트",
+    "abstract": "추상·미니멀",
+    "sketch": "스케치·드로잉",
+    "painting": "회화",
+    "photography": "포토그래피",
+    "nature": "자연·풍경",
+    "horror": "호러·다크"
+  },
+  "groupDescriptions": {
+    "digital": "애니메이션, 3D 렌더링, 픽셀 아트, 컨셉 스타일",
+    "abstract": "그라데이션, 형태, 꿈, 초현실 장면",
+    "sketch": "손으로 그린 흑연·잉크·차콜 룩",
+    "painting": "수채화, 유화, 회화적 질감",
+    "photography": "사실적·영화적·무디한 포토 룩",
+    "nature": "산, 숲, 호수, 탁 트인 하늘",
+    "horror": "고딕 성, 우주적 공포, 저주받은 폐허, 섬뜩한 분위기"
+  },
+  "galleryWallpapers": {
+    "sakura-nights": {
+      "title": "벚꽃의 밤",
+      "alt": "밤에 빛나는 벚꽃 아래 서 있는 소녀의 애니메이션 배경화면"
+    },
+    "neon-rain": {
+      "title": "네온 비",
+      "alt": "비 내리는 네온 가득한 도심 거리의 사이버펑크 배경화면"
+    },
+    "floating-isles": {
+      "title": "떠 있는 섬",
+      "alt": "빛나는 폭포가 있는 떠 있는 섬의 판타지 배경화면"
+    },
+    "twilight-peaks": {
+      "title": "황혼의 봉우리",
+      "alt": "황혼에 안개 낀 산봉우리의 자연 배경화면"
+    },
+    "violet-orb": {
+      "title": "바이올렛 구체",
+      "alt": "어두운 배경 위 빛나는 보라빛 구체의 미니멀 배경화면"
+    },
+    "mirror-desert": {
+      "title": "거울 사막",
+      "alt": "거울 같은 사막 위 떠 있는 거대한 달의 초현실 배경화면"
+    },
+    "nebula-city": {
+      "title": "성운 도시",
+      "alt": "미래 도시 위 펼쳐진 보라빛 성운과 빛나는 조명의 SF 배경화면"
+    },
+    "astral-drift": {
+      "title": "성간 표류",
+      "alt": "별에 둘러싸인 빛나는 보라빛 성운 속을 떠다니는 우주 비행사의 SF 배경화면"
+    },
+    "liquid-ribbons": {
+      "title": "액체 리본",
+      "alt": "어두운 공간을 흐르는 보라빛과 마젠타 그라데이션 리본의 추상 배경화면"
+    },
+    "storm-ridge": {
+      "title": "폭풍의 능선",
+      "alt": "폭풍 구름 아래 안개 낀 능선 위 홀로 선 실루엣의 다크 배경화면"
+    },
+    "chrome-orbit": {
+      "title": "크롬 궤도",
+      "alt": "보라빛 배경 위 무지갯빛 크롬 토러스와 구체의 3D 배경화면"
+    },
+    "haze-room": {
+      "title": "안개 방",
+      "alt": "분홍빛 안개와 구름으로 가득한 파스텔 침실의 드림코어 배경화면"
+    },
+    "ring-station": {
+      "title": "링 스테이션",
+      "alt": "보라빛 성운 행성을 도는 링형 우주 정거장의 SF 배경화면"
+    },
+    "dawn-lake": {
+      "title": "새벽의 호수",
+      "alt": "새벽, 거울처럼 잔잔한 고산 호수의 포토그래피 배경화면"
+    },
+    "graphite-valley": {
+      "title": "흑연 골짜기",
+      "alt": "안개 낀 숲 골짜기와 사슴을 그린 연필 스케치 배경화면"
+    },
+    "charcoal-sea": {
+      "title": "차콜 바다",
+      "alt": "대담하게 번진 붓터치로 그린 폭풍우 치는 바다의 차콜 배경화면"
+    },
+    "crane-pine": {
+      "title": "학과 소나무",
+      "alt": "수묵화 스타일로 소나무 가지 위를 나는 학을 그린 잉크 배경화면"
+    },
+    "bloom-wash": {
+      "title": "꽃 수채",
+      "alt": "투명한 번짐으로 그린 보라빛 산과 피어난 꽃의 수채화 배경화면"
+    },
+    "impasto-night": {
+      "title": "임파스토의 밤",
+      "alt": "보라빛 골짜기 위 소용돌이치는 별밤의 유화 배경화면"
+    },
+    "pixel-skyline": {
+      "title": "픽셀 스카이라인",
+      "alt": "보라빛 하늘 아래 레트로 감성의 밤 도시 스카이라인 픽셀 아트 배경화면"
+    },
+    "neon-alley": {
+      "title": "네온 골목",
+      "alt": "틸과 오렌지 톤, 비에 젖은 네온 골목의 시네마틱 배경화면"
+    },
+    "crimson-keep": {
+      "title": "진홍의 성",
+      "alt": "핏빛 달 아래 서 있는 유령 저택의 고딕 호러 배경화면"
+    },
+    "the-drifter": {
+      "title": "떠돌이",
+      "alt": "버려진 정신병원 복도를 떠도는 유령의 초자연 호러 배경화면"
+    },
+    "the-unseen": {
+      "title": "보이지 않는 것",
+      "alt": "보라빛 성운 뒤에서 드러나는 거대한 존재의 코즈믹 호러 배경화면"
+    },
+    "tape-07": {
+      "title": "테이프 07",
+      "alt": "노이즈 가득한 VHS 감시 화면에 찍힌 왜곡된 그림자의 아날로그 호러 배경화면"
+    },
+    "wrong-room": {
+      "title": "잘못된 방",
+      "alt": "끝없이 이어진 텅 빈 방과 불가능한 각도의 심리 호러 배경화면"
+    },
+    "melting-hour": {
+      "title": "녹아내리는 시각",
+      "alt": "진홍빛 꿈의 세계에서 녹아내리는 계단의 악몽 초현실주의 배경화면"
+    },
+    "cursed-grove": {
+      "title": "저주받은 숲",
+      "alt": "그늘진 숲에서 빛나는 눈의 생물에게 지켜지는 저주받은 폐허의 다크 판타지 배경화면"
+    },
+    "ash-highway": {
+      "title": "재의 고속도로",
+      "alt": "갈라진 고속도로 옆 안개에 삼켜진 폐허의 포스트 아포칼립스 배경화면"
+    },
+    "after-class": {
+      "title": "방과 후",
+      "alt": "어두운 학교 복도에 선 창백한 소녀의 호러 애니메 배경화면"
+    },
+    "the-circle": {
+      "title": "의식의 원",
+      "alt": "석재 지하 납골당에서 촛불로 둘러싸인 빛나는 의식진의 오컬트 배경화면"
+    },
+    "last-train": {
+      "title": "막차",
+      "alt": "황혼의 기차 위 소녀, 레트로 셀 셰이딩의 90년대풍 애니메 배경화면"
+    },
+    "petal-bloom": {
+      "title": "꽃잎 피어나다",
+      "alt": "파스텔 장미 꽃잎과 반짝임에 둘러싸인 소녀의 소녀 만화 배경화면"
+    },
+    "ignition": {
+      "title": "점화",
+      "alt": "이글거리는 에너지 궤적을 그리며 도약하는 히어로의 소년 액션 배경화면"
+    },
+    "cloud-friends": {
+      "title": "구름 친구들",
+      "alt": "파스텔 구름 위 귀여운 치비 캐릭터의 치비 애니메 배경화면"
+    },
+    "rooftop-duel": {
+      "title": "옥상 결투",
+      "alt": "스크린톤 음영의 흑백 검술 결투 만화 배경화면"
+    },
+    "hangar-rain": {
+      "title": "격납고의 비",
+      "alt": "비 내리는 발사 격납고 속 거대한 전투 로봇의 메카 배경화면"
+    },
+    "great-wave": {
+      "title": "대파도",
+      "alt": "쪽빛 대파도와 후지산 아래 기모노를 입은 소녀의 우키요에 애니메 배경화면"
+    },
+    "sunset-cafe": {
+      "title": "노을 카페",
+      "alt": "따뜻한 노을빛이 스민 시골 카페의 힐링 애니메 배경화면"
+    }
+  }
+}

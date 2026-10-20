@@ -1,0 +1,533 @@
+{
+  "meta": {
+    "homeTitle": "WallHaze — Fondos de IA para cada pantalla",
+    "homeDescription": "Crea fondos de pantalla impresionantes con IA, hechos para tu dispositivo. Explora estilos únicos —anime, ciberpunk, fantasía y más— en alta calidad para teléfono, tableta y escritorio.",
+    "studioTitle": "Estudio — Crea fondos de IA",
+    "studioDescription": "El estudio de WallHaze: describe tu fondo, elige un estilo, selecciona tu dispositivo y su relación de aspecto, añade una imagen de referencia y genera fondos de pantalla con IA de alta calidad para teléfono, tableta y escritorio.",
+    "wallpapersTitle": "Galería de fondos — Fondos de IA gratis",
+    "wallpapersDescription": "Explora y descarga gratis fondos de IA para teléfono, tableta y escritorio — anime, ciberpunk, fantasía, naturaleza y más. Cada fondo tiene su propia página de detalle."
+  },
+  "nav": {
+    "mainAria": "Principal",
+    "mobileAria": "Móvil",
+    "studio": "Estudio de IA",
+    "explore": "Explorar",
+    "myCreations": "Mis creaciones",
+    "credits": "Créditos",
+    "signIn": "Iniciar sesión",
+    "getStarted": "Comenzar",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "hero": {
+    "eyebrow": "Estudio de fondos con IA",
+    "titleLine1": "Tu pantalla.",
+    "titleLine2": "Tu mundo.",
+    "subtitle": "Crea fondos de pantalla impresionantes, hechos para tu dispositivo.",
+    "ctaCreate": "Crear con IA",
+    "ctaExplore": "Explorar fondos",
+    "footnote": "Descargas gratis en la galería · Generación con IA en el estudio · Teléfono, tableta y escritorio"
+  },
+  "featured": {
+    "eyebrow": "Destacados",
+    "title": "Fondos destacados",
+    "subtitle": "Una selección escogida a mano de la galería — cada obra tiene su propia página con descarga gratuita.",
+    "viewAll": "Ver todos los fondos",
+    "cardAria": "Ver {title}"
+  },
+  "howItWorks": {
+    "eyebrow": "Cómo funciona",
+    "title": "Tres pasos para un fondo nuevo",
+    "step1Title": "Explora la galería",
+    "step1Body": "Descubre la colección gratuita y descarga el fondo que te guste — sin necesidad de cuenta.",
+    "step2Title": "Crea el tuyo en el estudio",
+    "step2Body": "Describe tu idea, elige un estilo y un dispositivo, y deja que el estudio de IA lo cree por ti.",
+    "step3Title": "Guarda y aplica",
+    "step3Body": "Conserva tus favoritos en un solo lugar y disfruta de una pantalla que es inequívocamente tuya."
+  },
+  "trending": {
+    "aria": "Fondos en tendencia",
+    "title": "En tendencia esta semana",
+    "previewAlt": "Vista previa del fondo {label}"
+  },
+  "gallery": {
+    "eyebrow": "Galería de fondos",
+    "title": "Explora fondos listos para usar",
+    "pageSubtitle": "Gratis para explorar, gratis para descargar — todos los fondos en un solo lugar.",
+    "searchAria": "Buscar fondos",
+    "searchPlaceholder": "Busca por nombre, estilo o ambiente…",
+    "clearSearchAria": "Borrar búsqueda",
+    "sortAria": "Ordenar fondos",
+    "sortLabel": "Ordenar",
+    "sortDefault": "Predeterminado",
+    "sortName": "Nombre A–Z",
+    "categoryGroupAria": "Filtrar fondos por categoría",
+    "styleGroupAria": "Filtrar fondos de {category} por estilo",
+    "allCategory": "Todos",
+    "allStyles": "Todos los estilos",
+    "emptyTitle": "Ningún fondo coincide con tus filtros.",
+    "emptyBody": "Prueba otra búsqueda o explora otra categoría.",
+    "clearFilters": "Borrar búsqueda y filtros",
+    "viewDetail": "Ver detalles",
+    "cardDownloadAria": "Descargar {title}",
+    "cardViewAria": "Ver {title}",
+    "cardFavoriteAria": "Añadir {title} a favoritos",
+    "cardUnfavoriteAria": "Quitar {title} de favoritos",
+    "downloadSaved": "“{title}” se guardó en tus descargas."
+  },
+  "detail": {
+    "backToGallery": "Volver a la galería",
+    "download": "Descargar",
+    "downloading": "Descargando…",
+    "downloadSaved": "“{title}” se guardó en tus descargas.",
+    "styleLabel": "Estilo",
+    "familyLabel": "Categoría",
+    "categoryFallback": "Fondo",
+    "licenseBadge": "Revisión de licencia pendiente",
+    "licenseNotice": "Esta obra aún no ha sido revisada individualmente para su licencia. Se ofrece la descarga gratuita para uso personal tal cual; el uso comercial no queda confirmado hasta que finalice su revisión.",
+    "licenseVerified": "Licencia verificada",
+    "createSimilar": "Crear algo similar",
+    "relatedTitle": "Más como este",
+    "relatedCardAria": "Ver {title}"
+  },
+  "generator": {
+    "homeEyebrow": "Generador con IA",
+    "homeTitle": "Diseña tu fondo en segundos",
+    "homeSubtitle": "Elige un estilo y tu dispositivo — el prompt y la imagen de referencia son opcionales.",
+    "styleLegend": "Estilo",
+    "styleCategoriesAria": "Categorías de estilo",
+    "selected": "seleccionado",
+    "deviceGroupLabel": "Dispositivo y resolución",
+    "deviceLegend": "Dispositivo",
+    "ratioLegend": "Relación de aspecto",
+    "resolutionLegend": "Resolución",
+    "modelDefault": "Predeterminado del modelo",
+    "presetSizeLine": "{label} — {width} × {height} píxeles",
+    "modelDefaultHint": "Tamaño predeterminado del modelo — elige un preajuste para obtener una resolución exacta.",
+    "screenRecommendTitle": "Recomendado para tu pantalla actual",
+    "screenRecommendFor": "— para tu {device} elegido",
+    "screenRecommendNoExact": "No hay coincidencia exacta con la relación de aspecto de tu pantalla — se sugiere un tamaño de uso general.",
+    "useThisSize": "Usar este tamaño",
+    "promptLabel": "Prompt",
+    "optional": "(opcional)",
+    "promptPlaceholder": "Describe tu fondo — un horizonte de neón, una pradera onírica, lo que sea que imagines…",
+    "inspiration": "Inspiración",
+    "inspirationFor": "para {style}",
+    "randomInspiration": "Inspiración aleatoria",
+    "useExampleConfirm": "¿Usar este ejemplo como tu prompt?",
+    "promptChangedNotice": "Tu prompt cambió desde que elegiste este ejemplo — “Añadir” lo añadirá al texto actual.",
+    "appendExceedsLimit": "Añadir superaría el límite de {limit} caracteres — acorta antes tu prompt.",
+    "replace": "Reemplazar",
+    "append": "Añadir",
+    "cancel": "Cancelar",
+    "referenceLegend": "Imagen de referencia",
+    "refNoImage": "Aún no hay imagen",
+    "refPreviewAlt": "Vista previa de la imagen de referencia",
+    "refWillBeUsed": "Se usará como base de tu generación",
+    "remove": "Quitar",
+    "uploadTitle": "Sube una imagen de referencia",
+    "uploadFormats": "PNG, JPG o WebP — hasta 5 MB",
+    "uploadHint": "Se usa como base de tu generación",
+    "generate": "Generar fondo",
+    "generating": "Generando…",
+    "tryAgain": "Reintentar",
+    "refUnsupportedFormat": "Formato no compatible — usa PNG, JPEG o WebP.",
+    "refEmptyFile": "Ese archivo está vacío — elige una imagen válida.",
+    "refTooLarge": "La imagen es demasiado grande — mantenla por debajo de 5 MB.",
+    "refReadFailed": "No se pudo leer esa imagen. Prueba con otro archivo.",
+    "promptTooLong": "Tu prompt es demasiado largo — mantenlo por debajo de {limit} caracteres.",
+    "generateFailed": "La generación de la imagen falló. Inténtalo de nuevo.",
+    "invalidResponse": "El servicio de imágenes devolvió una respuesta no válida. Inténtalo de nuevo.",
+    "networkError": "Error de red — no se pudo iniciar la generación. Inténtalo de nuevo.",
+    "apiUnavailable": "El servicio de generación aún no está conectado — la generación con IA no está disponible en esta versión.",
+    "previewAltGenerated": "Tu fondo generado",
+    "previewAltSample": "Vista previa de una obra de ejemplo del estilo {style}",
+    "statusGenerating": "Generando tu fondo — normalmente tarda unos segundos…",
+    "statusLongWait": "Sigue trabajando — los prompts detallados y las imágenes de referencia pueden tardar hasta un minuto.",
+    "statusErrorKept": "La generación falló — se muestra tu resultado anterior.",
+    "statusSuccess": "Tu fondo generado — recién salido del estudio de IA.",
+    "statusDemo": "Vista previa de demostración — obra de ejemplo ilustrativa, no un resultado generado.",
+    "imageGoneNotice": "Esta imagen ya no está disponible en su URL original — tu prompt, estilo y dispositivo se conservan, así que puedes generar de nuevo.",
+    "viewFullSizeAria": "Ver el fondo a tamaño completo",
+    "addFavoriteAria": "Añadir este fondo a favoritos",
+    "removeFavoriteAria": "Quitar este fondo de favoritos",
+    "openImage": "Abrir imagen",
+    "download": "Descargar",
+    "downloading": "Descargando…",
+    "downloadSaved": "Fondo guardado en tus descargas.",
+    "restoreConfirm": "¿Reutilizar esta configuración? Tu prompt actual se reemplazará.",
+    "clearHistoryConfirm": "¿Borrar todo el historial de generaciones? Esta acción no se puede deshacer.",
+    "restoreTitle": "Reutilizar esta configuración",
+    "clearHistoryTitle": "Borrar historial",
+    "libraryTitle": "Mi biblioteca",
+    "libraryTabsAria": "Secciones de la biblioteca",
+    "tabFavorites": "Favoritos",
+    "tabHistory": "Historial",
+    "clearHistory": "Borrar historial",
+    "favoritesEmpty": "Aún no tienes favoritos — toca el corazón en cualquier fondo de la galería o en un resultado generado para guardarlo aquí.",
+    "historyEmpty": "Aquí aún no hay nada — los fondos que generes se guardan solo en este dispositivo.",
+    "imageUnavailable": "Imagen no disponible",
+    "downloadEntryAria": "Descargar {title}",
+    "removeEntryFavoriteAria": "Quitar {title} de favoritos",
+    "entryFavoriteAlt": "Fondo favorito: {title}",
+    "entryFavoriteAltPlain": "Fondo favorito",
+    "untitled": "Sin título",
+    "noStyle": "Sin estilo",
+    "sourceGallery": "Galería",
+    "sourceGenerated": "Generado",
+    "noPrompt": "Sin prompt",
+    "reuse": "Reutilizar",
+    "reuseAria": "Reutilizar esta configuración: {prompt}",
+    "reuseAriaPlain": "Reutilizar esta configuración",
+    "historyThumbAlt": "Fondo generado: {prompt}",
+    "historyThumbAltPlain": "Fondo generado anteriormente",
+    "fullSizeAlt": "Tu fondo generado, a tamaño completo",
+    "generatedFallbackTitle": "Fondo generado"
+  },
+  "studio": {
+    "brand": "WallHaze",
+    "accent": "Estudio",
+    "eyebrow": "Espacio de trabajo con IA",
+    "subtitle": "Todo lo que necesitas para diseñar, generar y coleccionar fondos: escribe el prompt, elige un estilo, ajusta la proporción y guarda lo que te encante.",
+    "backHome": "← Volver al inicio",
+    "browseGallery": "Explorar la galería"
+  },
+  "popular": {
+    "eyebrow": "Estilos populares",
+    "title": "Encuentra un estilo que te encante",
+    "subtitle": "Seis estilos insignia, afinados a mano por nuestro estudio. Toca uno para probarlo en el estudio de IA.",
+    "tryInStudio": "Probar en el estudio →",
+    "sampleAlt": "Muestra de fondo del estilo {style}"
+  },
+  "cta": {
+    "title": "¿Listo para transformar tu pantalla?",
+    "body": "Elige un estilo, selecciona tu dispositivo y crea un fondo que sea inequívocamente tuyo.",
+    "button": "Empezar a crear"
+  },
+  "footer": {
+    "tagline": "Fondos con IA hechos para tu dispositivo — crea, explora y haz tuya cada pantalla.",
+    "product": "Producto",
+    "exploreGallery": "Explorar la galería",
+    "aiStudio": "Estudio de IA",
+    "popularStyles": "Estilos populares",
+    "howItWorks": "Cómo funciona",
+    "company": "Empresa",
+    "faq": "Preguntas frecuentes",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "legal": "Legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos del servicio",
+    "socialX": "X (Twitter)",
+    "socialInstagram": "Instagram",
+    "socialYoutube": "YouTube",
+    "socialComingSoon": "{label} — próximamente",
+    "rights": "WallHaze. Todos los derechos reservados.",
+    "madeFor": "Hecho para cada pantalla."
+  },
+  "ui": {
+    "dismiss": "Descartar",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar"
+  },
+  "pagination": {
+    "loadMore": "Cargar más",
+    "showing": "Mostrando {shown} de {total}",
+    "end": "Has llegado al final"
+  },
+  "lightbox": {
+    "closeAria": "Cerrar vista previa a tamaño completo",
+    "imageUnavailable": "Esta imagen ya no está disponible en su URL original.",
+    "hint": "Haz clic fuera de la imagen para cerrar",
+    "hintDesktop": " · o pulsa Esc",
+    "retry": "Reintentar"
+  },
+  "languageSwitcher": {
+    "aria": "Cambiar idioma",
+    "label": "Idioma",
+    "en": "English",
+    "zh": "简体中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch"
+  },
+  "common": {
+    "comingSoon": "Próximamente",
+    "favoriteLimit": "Tu biblioteca está llena — quita algunos favoritos para guardar más.",
+    "favoritesUnavailable": "Los favoritos no están disponibles en este navegador.",
+    "downloadOpened": "La descarga directa fue bloqueada — la imagen se abrió en una pestaña nueva, guárdala desde allí.",
+    "downloadFailed": "La descarga falló — revisa tu conexión e inténtalo de nuevo.",
+    "thisWallpaper": "este fondo"
+  },
+  "devices": {
+    "phone": "Teléfono",
+    "tablet": "Tableta",
+    "desktop": "Escritorio"
+  },
+  "sizePresetLabels": {
+    "phonePortraitHd": "Teléfono vertical HD",
+    "portraitHd": "Vertical HD",
+    "portraitClassic": "Vertical clásico",
+    "landscapeHd": "Horizontal HD",
+    "landscapeClassic": "Horizontal clásico",
+    "landscapeCompact": "Horizontal compacto",
+    "square": "Cuadrado",
+    "desktopFullHd": "Escritorio Full HD"
+  },
+  "styleLabels": {
+    "anime": "Anime",
+    "cyberpunk": "Ciberpunk",
+    "fantasy": "Fantasía",
+    "nature": "Naturaleza",
+    "minimalist": "Minimalista",
+    "surreal": "Surrealista",
+    "abstract": "Abstracto",
+    "dark": "Oscuro",
+    "3d-art": "Arte 3D",
+    "dreamcore": "Dreamcore",
+    "sci-fi": "Ciencia ficción",
+    "photography": "Fotografía",
+    "pencil-sketch": "Dibujo a lápiz",
+    "charcoal-drawing": "Dibujo al carbón",
+    "ink-drawing": "Dibujo a tinta",
+    "watercolor": "Acuarela",
+    "oil-painting": "Pintura al óleo",
+    "pixel-art": "Pixel art",
+    "cinematic": "Cinematográfico",
+    "gothic-horror": "Terror gótico",
+    "supernatural-horror": "Terror sobrenatural",
+    "cosmic-horror": "Terror cósmico",
+    "analog-horror": "Terror analógico",
+    "psychological-horror": "Terror psicológico",
+    "nightmare-surrealism": "Surrealismo de pesadilla",
+    "dark-fantasy": "Fantasía oscura",
+    "post-apocalyptic": "Terror postapocalíptico",
+    "horror-anime": "Anime de terror",
+    "occult-ritual": "Ocultismo y rituales",
+    "retro-cel": "Anime retro de cel",
+    "shoujo": "Shōjo",
+    "shonen": "Acción shōnen",
+    "chibi": "Chibi",
+    "manga": "Manga",
+    "mecha": "Mecha",
+    "ukiyo-e-anime": "Anime ukiyo-e",
+    "cozy-anime": "Anime acogedor"
+  },
+  "styleDescriptions": {
+    "anime": "Trazo limpio y sombreado cel vibrante",
+    "cyberpunk": "Noches futuristas empapadas de neón",
+    "fantasy": "Mundos mágicos épicos y reinos luminosos",
+    "nature": "Paisajes fotorrealistas y serenos",
+    "minimalist": "Composiciones serenas con amplio espacio negativo",
+    "surreal": "Bellas artes oníricas, donde manda la imaginación",
+    "abstract": "Formas audaces y degradados de color fluidos",
+    "dark": "Sombras melancólicas y atmósfera en clave baja",
+    "3d-art": "Renderizados pulidos con luz de estudio suave",
+    "dreamcore": "Bruma pastel etérea y nostalgia",
+    "sci-fi": "Tecnología futurista en escala épica",
+    "photography": "Estética fotográfica nítida y natural",
+    "pencil-sketch": "Trazos de grafito sobre papel con textura",
+    "charcoal-drawing": "Trazos difuminados y audaces, con negros profundos",
+    "ink-drawing": "Tinta negra segura y tramados cruzados",
+    "watercolor": "Veladuras translúcidas y textura de papel",
+    "oil-painting": "Empaste generoso y luz de claroscuro",
+    "pixel-art": "Píxeles retro nítidos con paleta limitada",
+    "cinematic": "Etalonaje de fotograma y luz dramática",
+    "gothic-horror": "Castillos encantados en negro y carmesí",
+    "supernatural-horror": "Fantasmas y lugares abandonados escalofriantes",
+    "cosmic-horror": "Entidades incomprensibles en el vacío profundo",
+    "analog-horror": "Ruido de VHS y vigilancia distorsionada",
+    "psychological-horror": "Habitaciones vacías y perspectiva deformada",
+    "nightmare-surrealism": "Lógica de sueño retorcida y ensueño oscuro",
+    "dark-fantasy": "Ruinas malditas y criaturas de las sombras",
+    "post-apocalyptic": "Ruinas ahogadas en niebla tras el fin",
+    "horror-anime": "Sombras y siluetas del terror japonés",
+    "occult-ritual": "Sigilos a la luz de las velas y ritos antiguos",
+    "retro-cel": "Nostalgia vintage de la celulación de los 90",
+    "shoujo": "Romance pastel y suave, con destellos",
+    "shonen": "Acción audaz con líneas de velocidad",
+    "chibi": "Adorable ternura súper deformada",
+    "manga": "Arte a tinta en blanco y negro con tramas",
+    "mecha": "Robots colosales en escala mecánica épica",
+    "ukiyo-e-anime": "Elegancia del grabado en madera al encuentro del anime",
+    "cozy-anime": "Calidez reconfortante del día a día"
+  },
+  "groupLabels": {
+    "digital": "Arte digital",
+    "abstract": "Abstracto y minimalismo",
+    "sketch": "Boceto y dibujo",
+    "painting": "Pintura",
+    "photography": "Fotografía",
+    "nature": "Naturaleza y paisaje",
+    "horror": "Terror y oscuridad"
+  },
+  "groupDescriptions": {
+    "digital": "Anime, renders 3D, pixel art y estilos conceptuales",
+    "abstract": "Degradados, formas, sueños y escenas surrealistas",
+    "sketch": "Grafito, tinta y carbón con aspecto dibujado a mano",
+    "painting": "Acuarela, óleo y texturas pictóricas",
+    "photography": "Estéticas fotográficas realistas, cinematográficas y melancólicas",
+    "nature": "Montañas, bosques, lagos y cielos abiertos",
+    "horror": "Castillos góticos, pavor cósmico, ruinas malditas y atmósferas inquietantes"
+  },
+  "galleryWallpapers": {
+    "sakura-nights": {
+      "title": "Noches de sakura",
+      "alt": "Fondo de anime de una chica bajo cerezos en flor luminosos por la noche"
+    },
+    "neon-rain": {
+      "title": "Lluvia de neón",
+      "alt": "Fondo ciberpunk de una calle urbana iluminada con neón bajo la lluvia"
+    },
+    "floating-isles": {
+      "title": "Islas flotantes",
+      "alt": "Fondo de fantasía de islas flotantes con cascadas luminosas"
+    },
+    "twilight-peaks": {
+      "title": "Cumbres del crepúsculo",
+      "alt": "Fondo de naturaleza de picos montañosos entre brumas al crepúsculo"
+    },
+    "violet-orb": {
+      "title": "Orbe violeta",
+      "alt": "Fondo minimalista de un orbe violeta luminoso sobre un fondo oscuro"
+    },
+    "mirror-desert": {
+      "title": "Desierto espejo",
+      "alt": "Fondo surrealista de una luna gigante sobre un desierto de espejo"
+    },
+    "nebula-city": {
+      "title": "Ciudad nebulosa",
+      "alt": "Fondo de ciencia ficción de un cielo de nebulosa violeta sobre una ciudad futurista con luces púrpura"
+    },
+    "astral-drift": {
+      "title": "Deriva astral",
+      "alt": "Fondo de ciencia ficción de un astronauta flotando en una nebulosa violeta luminosa rodeado de estrellas"
+    },
+    "liquid-ribbons": {
+      "title": "Cintas líquidas",
+      "alt": "Fondo abstracto de cintas fluidas en degradado violeta y magenta en el espacio oscuro"
+    },
+    "storm-ridge": {
+      "title": "Cresta de tormenta",
+      "alt": "Fondo oscuro de una silueta solitaria en una cresta brumosa bajo nubes de tormenta"
+    },
+    "chrome-orbit": {
+      "title": "Órbita de cromo",
+      "alt": "Fondo 3D de un toroide de cromo iridiscente y esferas sobre un fondo violeta"
+    },
+    "haze-room": {
+      "title": "Habitación de bruma",
+      "alt": "Fondo dreamcore de un dormitorio pastel lleno de bruma y nubes rosadas"
+    },
+    "ring-station": {
+      "title": "Estación anular",
+      "alt": "Fondo de ciencia ficción de una estación espacial anular orbitando un planeta violeta"
+    },
+    "dawn-lake": {
+      "title": "Lago del alba",
+      "alt": "Fondo fotográfico de un lago alpino tan calmado como un espejo al amanecer"
+    },
+    "graphite-valley": {
+      "title": "Valle de grafito",
+      "alt": "Fondo a lápiz de un valle boscoso entre brumas con un ciervo"
+    },
+    "charcoal-sea": {
+      "title": "Mar al carbón",
+      "alt": "Fondo al carbón de un mar tormentoso en trazos audaces y difuminados"
+    },
+    "crane-pine": {
+      "title": "Grulla y pino",
+      "alt": "Fondo a tinta de una grulla volando sobre pinos al estilo sumi-e"
+    },
+    "bloom-wash": {
+      "title": "Veladuras en flor",
+      "alt": "Fondo a la acuarela de montañas violetas y flores en floración en veladuras translúcidas"
+    },
+    "impasto-night": {
+      "title": "Noche de empaste",
+      "alt": "Fondo al óleo de una noche estrellada en espiral sobre un valle violeta"
+    },
+    "pixel-skyline": {
+      "title": "Horizonte en píxeles",
+      "alt": "Fondo de pixel art de una silueta urbana nocturna retro bajo un cielo púrpura"
+    },
+    "neon-alley": {
+      "title": "Callejón de neón",
+      "alt": "Fondo cinematográfico de un callejón de neón empapado por la lluvia en tonos turquesa y naranja"
+    },
+    "crimson-keep": {
+      "title": "Fortaleza carmesí",
+      "alt": "Fondo de terror gótico de un castillo encantado bajo una luna roja sangre"
+    },
+    "the-drifter": {
+      "title": "El errante",
+      "alt": "Fondo de terror sobrenatural de un fantasma que flota por el pasillo de un asilo abandonado"
+    },
+    "the-unseen": {
+      "title": "Lo invisible",
+      "alt": "Fondo de terror cósmico de una entidad colosal que se cierne tras una nebulosa púrpura"
+    },
+    "tape-07": {
+      "title": "Cinta 07",
+      "alt": "Fondo de terror analógico de una imagen de seguridad VHS granulada con una figura distorsionada"
+    },
+    "wrong-room": {
+      "title": "El cuarto equivocado",
+      "alt": "Fondo de terror psicológico de una habitación vacía e infinita con ángulos imposibles"
+    },
+    "melting-hour": {
+      "title": "La hora derretida",
+      "alt": "Fondo de surrealismo de pesadilla de una escalera que se derrite en un paisaje onírico carmesí"
+    },
+    "cursed-grove": {
+      "title": "Arboleda maldita",
+      "alt": "Fondo de fantasía oscura de ruinas malditas vigiladas por una criatura de ojos luminosos en un bosque de sombras"
+    },
+    "ash-highway": {
+      "title": "Autopista de ceniza",
+      "alt": "Fondo postapocalíptico de ruinas tragadas por la niebla junto a una autopista agrietada"
+    },
+    "after-class": {
+      "title": "Después de clase",
+      "alt": "Fondo de anime de terror de una chica pálida en un pasillo escolar oscuro"
+    },
+    "the-circle": {
+      "title": "El círculo",
+      "alt": "Fondo ocultista de un círculo ritual luminoso rodeado de velas en una cripta de piedra"
+    },
+    "last-train": {
+      "title": "Último tren",
+      "alt": "Fondo de anime retro de los 90 de una chica en un tren al atardecer con sombreado cel vintage"
+    },
+    "petal-bloom": {
+      "title": "Pétalos en flor",
+      "alt": "Fondo de anime shōjo de una chica entre pétalos de rosa pastel y destellos"
+    },
+    "ignition": {
+      "title": "Ignición",
+      "alt": "Fondo de anime shōnen de un héroe en pleno salto con una estela de energía ardiente"
+    },
+    "cloud-friends": {
+      "title": "Amigos de las nubes",
+      "alt": "Fondo de anime chibi de personajes adorables súper deformados sobre nubes pastel"
+    },
+    "rooftop-duel": {
+      "title": "Duelo en la azotea",
+      "alt": "Fondo de manga de un duelo de espadas en blanco y negro con sombreado de trama"
+    },
+    "hangar-rain": {
+      "title": "Lluvia en el hangar",
+      "alt": "Fondo mecha de un robot de batalla colosal en un hangar de lanzamiento bajo la lluvia"
+    },
+    "great-wave": {
+      "title": "La gran ola",
+      "alt": "Fondo de anime ukiyo-e de una chica con kimono bajo una ola índigo y el monte Fuji"
+    },
+    "sunset-cafe": {
+      "title": "Café al atardecer",
+      "alt": "Fondo de anime acogedor de un café rural con cálida luz de atardecer"
+    }
+  }
+}

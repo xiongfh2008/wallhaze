@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# build output
+/dist
+
+# env files — real environment files are never committed
+.env*
+!.env.example
+
+# logs / debug
+npm-debug.log*
+*.log
+
+# typescript
+*.tsbuildinfo

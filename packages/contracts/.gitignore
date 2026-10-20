@@ -1,0 +1,5 @@
+# Shared contracts between apps/web and apps/api.
+
+Type-only package: importing it from server or client code must never pull
+runtime behavior or secrets. See src/index.ts for the public surface and
+openapi.yaml for the HTTP-level specification.
