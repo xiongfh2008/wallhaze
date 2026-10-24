@@ -7,12 +7,17 @@ import WallpaperImage from "../WallpaperImage";
 import Skeleton from "./Skeleton";
 import { HeartIcon } from "../icons";
 import { DownloadIconButton } from "../DownloadIconButton";
+import WallpaperDeviceBadge from "../media/WallpaperDeviceBadge";
+import type { DeviceCategory } from "@/lib/media";
 
 interface ImageCardProps {
   /** Detail-page destination for the card's main link. */
   href: string;
-  image: string;
+  /** Publicly displayable image URL; absent while rights review is pending. */
+  image?: string;
   gradient: string;
+  /** Shown instead of the artwork when no cleared image is available. */
+  reviewLabel?: string;
   alt: string;
   title: string;
   styleLabel: string;
@@ -29,6 +34,13 @@ interface ImageCardProps {
   onToggleFavorite?: () => void;
   /** Fixed aspect box class — defaults to the portrait gallery ratio. */
   aspectClassName?: string;
+  /** Actual width / height ratio; overrides the fixed aspect class when set. */
+  aspectRatio?: number;
+  /** Native device class derived from actual pixels (not a claim beyond it). */
+  devices?: readonly DeviceCategory[];
+  ratioLabel?: string;
+  width?: number;
+  height?: number;
   /** Above-the-fold images skip lazy loading (first cards only). */
   priority?: boolean;
 }
@@ -43,6 +55,7 @@ export default function ImageCard({
   href,
   image,
   gradient,
+  reviewLabel,
   alt,
   title,
   styleLabel,
@@ -55,6 +68,11 @@ export default function ImageCard({
   favorited = false,
   onToggleFavorite,
   aspectClassName = "aspect-[3/4]",
+  aspectRatio,
+  devices,
+  ratioLabel,
+  width,
+  height,
   priority = false,
 }: ImageCardProps) {
   const tGallery = useTranslations("gallery");
@@ -69,20 +87,40 @@ export default function ImageCard({
         aria-label={viewLabel}
         className="block w-full outline-none"
       >
-        <div className={`relative w-full overflow-hidden ${aspectClassName}`}>
-          {!loaded && (
-            <Skeleton className={`absolute inset-0 rounded-none bg-gradient-to-br ${gradient}`} />
+        <div
+          className={`relative w-full overflow-hidden ${
+            aspectRatio ? "" : aspectClassName
+          }`}
+          style={aspectRatio ? { aspectRatio: String(aspectRatio) } : undefined}
+        >
+          {image ? (
+            <>
+              {!loaded && (
+                <Skeleton className={`absolute inset-0 rounded-none bg-gradient-to-br ${gradient}`} />
+              )}
+              <WallpaperImage
+                src={image}
+                alt={alt}
+                gradient={gradient}
+                eager={priority}
+                className={`h-full w-full object-cover transition duration-700 group-hover:scale-[1.06] ${
+                  loaded ? "opacity-100" : "opacity-0"
+                }`}
+                onLoaded={() => setLoaded(true)}
+              />
+            </>
+          ) : (
+            <>
+              <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+              {reviewLabel ? (
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <span className="rounded-full border border-amber-300/30 bg-black/55 px-3 py-1.5 text-center text-[11px] font-medium leading-snug text-amber-100 backdrop-blur">
+                    {reviewLabel}
+                  </span>
+                </div>
+              ) : null}
+            </>
           )}
-          <WallpaperImage
-            src={image}
-            alt={alt}
-            gradient={gradient}
-            eager={priority}
-            className={`h-full w-full object-cover transition duration-700 group-hover:scale-[1.06] ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
-            onLoaded={() => setLoaded(true)}
-          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
         </div>
         <div className="absolute inset-x-0 bottom-0 p-4">
@@ -98,6 +136,19 @@ export default function ImageCard({
               {tGallery("viewDetail")}
             </span>
           </div>
+          {devices && ratioLabel ? (
+            <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+              <span className="rounded-full border border-white/10 bg-black/45 px-2 py-0.5 text-[10px] text-zinc-400">
+                {tGallery("staticMedia")}
+              </span>
+              <WallpaperDeviceBadge
+                devices={devices}
+                ratio={ratioLabel}
+                width={width}
+                height={height}
+              />
+            </div>
+          ) : null}
         </div>
       </Link>
 

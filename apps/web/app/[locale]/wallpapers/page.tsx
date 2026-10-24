@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import WallpaperBrowser from "@/components/WallpaperBrowser";
+import GalleryExperience from "@/components/gallery/GalleryExperience";
 
 /**
  * /wallpapers — the full, filterable gallery over the static preset list.
@@ -79,7 +79,7 @@ export default async function WallpapersPage({
             {tGallery("pageSubtitle")}
           </p>
         </div>
-        <WallpaperBrowser />
+        <GalleryExperience />
       </main>
       <Footer />
     </div>

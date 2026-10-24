@@ -2,6 +2,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { FEATURED_WALLPAPERS, type PresetWallpaper } from "@/lib/wallpapers";
 import WallpaperImage from "./WallpaperImage";
+import WallpaperDeviceBadge from "./media/WallpaperDeviceBadge";
+import { formatAspectRatio } from "@/lib/media";
 
 interface WallpaperLinkCardProps {
   wallpaper: PresetWallpaper;
@@ -12,6 +14,8 @@ interface WallpaperLinkCardProps {
   styleLabel: string;
   /** Accessible link name. */
   viewLabel: string;
+  /** Shown when the artwork is withheld during rights review. */
+  reviewLabel?: string;
   /** Above-the-fold images skip lazy loading. */
   priority?: boolean;
 }
@@ -28,6 +32,7 @@ export function WallpaperLinkCard({
   alt,
   styleLabel,
   viewLabel,
+  reviewLabel,
   priority = false,
 }: WallpaperLinkCardProps) {
   return (
@@ -36,14 +41,32 @@ export function WallpaperLinkCard({
       aria-label={viewLabel}
       className="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/40 outline-none transition hover:border-violet-400/40 focus-visible:ring-2 focus-visible:ring-violet-400/60"
     >
-      <div className="aspect-[3/4] w-full overflow-hidden">
-        <WallpaperImage
-          src={wallpaper.image}
-          alt={alt}
-          gradient={wallpaper.gradient}
-          eager={priority}
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
-        />
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ aspectRatio: String(wallpaper.aspectRatio) }}
+      >
+        {wallpaper.image ? (
+          <WallpaperImage
+            src={wallpaper.image}
+            alt={alt}
+            gradient={wallpaper.gradient}
+            eager={priority}
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
+          />
+        ) : (
+          <>
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${wallpaper.gradient}`}
+            />
+            {reviewLabel ? (
+              <div className="absolute inset-0 flex items-center justify-center p-4">
+                <span className="rounded-full border border-amber-300/30 bg-black/55 px-3 py-1.5 text-center text-[11px] font-medium leading-snug text-amber-100 backdrop-blur">
+                  {reviewLabel}
+                </span>
+              </div>
+            ) : null}
+          </>
+        )}
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-4">
@@ -52,6 +75,11 @@ export function WallpaperLinkCard({
             {title}
           </h3>
           <p className="truncate text-xs text-zinc-400">{styleLabel}</p>
+          <WallpaperDeviceBadge
+            devices={wallpaper.nativeDevices}
+            ratio={formatAspectRatio(wallpaper.width, wallpaper.height)}
+            className="mt-1.5"
+          />
         </div>
         <span
           aria-hidden
@@ -75,17 +103,17 @@ export default function FeaturedWallpapers() {
   const tStyles = useTranslations("styleLabels");
 
   return (
-    <section id="featured" className="relative py-24 md:py-32">
+    <section id="featured" className="relative py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-5 md:mb-10 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-violet-300">
               {t("eyebrow")}
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
               {t("title")}
             </h2>
-            <p className="mt-4 leading-relaxed text-zinc-400">
+            <p className="mt-3 text-base leading-relaxed text-zinc-400">
               {t("subtitle")}
             </p>
           </div>
@@ -103,21 +131,29 @@ export default function FeaturedWallpapers() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {FEATURED_WALLPAPERS.map((wallpaper, index) => (
-            <WallpaperLinkCard
+        {/* Mobile: a compact horizontal strip; md+ a 3/4-column grid. All
+            featured images are below the fold, so they stay lazy. */}
+        <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+          {FEATURED_WALLPAPERS.map((wallpaper) => (
+            <div
               key={wallpaper.id}
-              wallpaper={wallpaper}
-              title={tWallpapers(`${wallpaper.id}.title`)}
-              alt={tWallpapers(`${wallpaper.id}.alt`)}
-              styleLabel={tStyles(wallpaper.styleId)}
-              viewLabel={t("cardAria", {
-                title: tWallpapers(`${wallpaper.id}.title`),
-              })}
-              priority={index < 4}
-            />
+              className="w-[68vw] max-w-[240px] shrink-0 snap-start md:w-auto md:max-w-none"
+            >
+              <WallpaperLinkCard
+                wallpaper={wallpaper}
+                title={tWallpapers(`${wallpaper.id}.title`)}
+                alt={tWallpapers(`${wallpaper.id}.alt`)}
+                styleLabel={tStyles(wallpaper.styleId)}
+                viewLabel={t("cardAria", {
+                  title: tWallpapers(`${wallpaper.id}.title`),
+                })}
+              />
+            </div>
           ))}
         </div>
+        <p className="mt-4 text-xs leading-relaxed text-zinc-500">
+          {t("licenseNote")}
+        </p>
       </div>
     </section>
   );

@@ -62,10 +62,32 @@ describe("CORS origin whitelist", () => {
       headers: {
         origin: ALLOWED,
         "access-control-request-method": "POST",
+        "access-control-request-headers": "content-type, x-wallhaze-client",
       },
     });
     expect(res.statusCode).toBe(204);
     expect(res.headers["access-control-allow-origin"]).toBe(ALLOWED);
+    await app.close();
+  });
+
+  it("allows credentialed requests and the headers the web client sends", async () => {
+    const { app } = await buildApp({ env: TEST_ENV });
+    const res = await app.inject({
+      method: "OPTIONS",
+      url: "/v1/auth/login",
+      headers: {
+        origin: ALLOWED,
+        "access-control-request-method": "POST",
+        "access-control-request-headers":
+          "content-type, x-wallhaze-client, idempotency-key",
+      },
+    });
+    expect(res.headers["access-control-allow-credentials"]).toBe("true");
+    const allowedHeaders = String(
+      res.headers["access-control-allow-headers"] ?? ""
+    ).toLowerCase();
+    expect(allowedHeaders).toContain("x-wallhaze-client");
+    expect(allowedHeaders).toContain("idempotency-key");
     await app.close();
   });
 

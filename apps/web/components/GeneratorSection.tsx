@@ -1,19 +1,9 @@
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from "react";
-import { useTranslations } from "next-intl";
-import {
-  DEMO_SAMPLE_IMAGE,
-  STYLE_SELECT_EVENT,
-  findStyle,
-  type WallStyle,
-} from "@/lib/styles";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { STYLE_SELECT_EVENT, findStyle, type WallStyle } from "@/lib/styles";
 import {
   GENERAL_PROMPT_EXAMPLES,
   getExamplesForStyle,
@@ -49,7 +39,10 @@ import {
 } from "@/lib/download";
 import { DownloadIconButton } from "./DownloadIconButton";
 import { LANGUAGE_SWITCH_FLAG } from "@/lib/language-bridge";
-import { generateWallpaper } from "@/lib/api/generation";
+import {
+  STUDIO_RESTORE_EVENT,
+  type StudioRestoreRequest,
+} from "@/lib/studio/restore";
 import {
   ASPECT_RATIOS,
   DEVICE_ALLOWED_RATIOS,
@@ -58,18 +51,62 @@ import {
   getDefaultSizePresetForRatio,
   getSizePresetsForRatio,
   isAspectRatioId,
-  recommendPresetForScreen,
   type AspectRatioId,
   type HistoryDevice,
-  type ScreenPresetRecommendation,
   type SizePreset,
 } from "@/lib/sizes";
+import {
+  autoSelectSize,
+  clearSizePreference,
+  readScreenInfo as readDeviceScreenInfo,
+  readSizePreference,
+  saveSizePreference,
+  type SizeRecommendation,
+} from "@/lib/studio/device";
+import { parseCustomSize, swapSizeText } from "@/lib/studio/custom-size";
+import { buildGenerationRequest } from "@/lib/studio/request";
+import {
+  CUSTOM_DIMENSION_STEP,
+  MAX_CUSTOM_DIMENSION,
+  MIN_CUSTOM_DIMENSION,
+  PROMPT_MAX_LENGTH,
+  type GenerationRequest,
+} from "@wallhaze/contracts";
+import { apiRequest } from "@/lib/api/client";
+import { authAdapter } from "@/lib/api/auth";
+import { creditsAdapter } from "@/lib/api/credits";
+import { createAsyncJobExecutor } from "@/lib/studio/executor";
+import {
+  resolveCreditsGate,
+  type CreditsGateInput,
+} from "@/lib/studio/pricing";
+import { generationErrorKey } from "@/lib/studio/generation-error";
+import {
+  classifyReferenceFile,
+  mimeMatchesHeader,
+  readFileHeader,
+  type ReferenceFileError,
+} from "@/lib/studio/reference";
+import { validatePromptPair } from "@/lib/studio/form";
+import { saveStudioDraft } from "@/lib/studio/draft";
+import { STUDIO_DEFAULT_STYLE_ID } from "@/lib/studio/defaults";
+import { getWallpaperBySlug, isDownloadAllowed } from "@/lib/wallpapers";
+import CreditsNotice from "./studio/CreditsNotice";
+import GenerationConfirmDialog from "./studio/GenerationConfirmDialog";
+import type { ConfirmationSummary } from "./studio/GenerationConfirmDialog";
 
 /* ---- Icons ---- */
 
 function PhoneIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      className={className}
+    >
       <rect x="7" y="2.5" width="10" height="19" rx="2.5" />
       <path d="M11 18.5h2" />
     </svg>
@@ -78,7 +115,14 @@ function PhoneIcon({ className = "" }: { className?: string }) {
 
 function TabletIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      className={className}
+    >
       <rect x="4.5" y="3" width="15" height="18" rx="2.5" />
       <path d="M11 17.5h2" />
     </svg>
@@ -87,7 +131,14 @@ function TabletIcon({ className = "" }: { className?: string }) {
 
 function DesktopIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      className={className}
+    >
       <rect x="2.5" y="4" width="19" height="13" rx="2" />
       <path d="M12 17v4M9 21h6" />
     </svg>
@@ -96,7 +147,15 @@ function DesktopIcon({ className = "" }: { className?: string }) {
 
 function UploadIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
       <path d="M12 15.5V4m0 0L8 8m4-4 4 4" />
       <path d="M4 16.5V19a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 20 19v-2.5" />
     </svg>
@@ -105,7 +164,16 @@ function UploadIcon({ className = "" }: { className?: string }) {
 
 function ChevronDownIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
       <path d="m6 9 6 6 6-6" />
     </svg>
   );
@@ -128,7 +196,14 @@ function SparklesIcon({ className = "" }: { className?: string }) {
 
 function InfoIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      className={className}
+    >
       <circle cx="12" cy="12" r="9" />
       <path d="M12 8v.01M12 11.5V16" />
     </svg>
@@ -147,9 +222,9 @@ const DEVICES = [
  * selected ratio (RATIO_ASPECT below), so the preview always matches the
  * real output shape. */
 const DEVICE_WIDTH: Record<HistoryDevice, string> = {
-  phone: "w-44 md:w-52",
-  tablet: "w-60 md:w-72",
-  desktop: "w-full max-w-sm",
+  phone: "w-full max-w-[260px]",
+  tablet: "w-full max-w-[420px]",
+  desktop: "w-full max-w-[720px]",
 };
 
 /** Tailwind aspect class per ratio — literal strings so the compiler sees them. */
@@ -165,40 +240,6 @@ const RATIO_ASPECT: Record<AspectRatioId, string> = {
    Used purely to suggest a size preset — never sent to the server, never
    applied automatically. Read after mount so SSR/hydration render without
    it and no hydration mismatch can occur. */
-
-interface ScreenInfo {
-  width: number;
-  height: number;
-  pixelRatio?: number;
-}
-
-function readScreenInfo(): ScreenInfo | null {
-  if (typeof window === "undefined" || !window.screen) return null;
-  const { width, height } = window.screen;
-  // Guard against zero/nonsense values some embedded browsers report.
-  if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
-    return null;
-  }
-  const pixelRatio = window.devicePixelRatio;
-  return {
-    width,
-    height,
-    pixelRatio:
-      Number.isFinite(pixelRatio) && pixelRatio > 0 ? pixelRatio : undefined,
-  };
-}
-
-/** Current screen info, null until mounted (or when the screen is unreadable). */
-function useScreenInfo(): ScreenInfo | null {
-  const [info, setInfo] = useState<ScreenInfo | null>(null);
-  useEffect(() => {
-    const update = () => setInfo(readScreenInfo());
-    update();
-    window.addEventListener("resize", update, { passive: true });
-    return () => window.removeEventListener("resize", update);
-  }, []);
-  return info;
-}
 
 interface RefImage {
   name: string;
@@ -235,16 +276,8 @@ interface ResultInfo {
 
 type GenerationStatus = "idle" | "generating" | "success" | "error";
 
-const REF_ALLOWED_TYPES = ["image/png", "image/jpeg", "image/webp"];
-const REF_MAX_BYTES = 5 * 1024 * 1024;
-/** Mirrors the server-side user-prompt limit (style templates excluded). */
-const PROMPT_MAX_LENGTH = 800;
-
 /** Tabs inside the My Library panel below the generator. */
-const LIBRARY_TABS = [
-  { id: "favorites" },
-  { id: "history" },
-] as const;
+const LIBRARY_TABS = [{ id: "favorites" }, { id: "history" }] as const;
 
 type LibraryTab = (typeof LIBRARY_TABS)[number]["id"];
 
@@ -278,20 +311,7 @@ interface GeneratorHandoff {
 }
 
 /** File-validation failures as codes — the component maps them to i18n text. */
-type RefErrorCode = "format" | "empty" | "too-large";
-
-function refFileError(file: File): RefErrorCode | null {
-  if (!REF_ALLOWED_TYPES.includes(file.type)) {
-    return "format";
-  }
-  if (file.size === 0) {
-    return "empty";
-  }
-  if (file.size > REF_MAX_BYTES) {
-    return "too-large";
-  }
-  return null;
-}
+type RefErrorCode = ReferenceFileError;
 
 function formatHistoryTime(createdAt: number): string {
   return new Date(createdAt).toLocaleString(undefined, {
@@ -345,17 +365,37 @@ export default function GeneratorSection({
 }) {
   const isStudio = variant === "studio";
   const t = useTranslations("generator");
+  const tDetail = useTranslations("detail");
+  const locale = useLocale();
   const tCommon = useTranslations("common");
   const tDevices = useTranslations("devices");
   const tStyles = useTranslations("styleLabels");
   const tPresets = useTranslations("sizePresetLabels");
-  const [styleId, setStyleId] = useState<WallStyle["id"] | null>(null);
+  const [styleId, setStyleId] = useState<WallStyle["id"] | null>(
+    isStudio ? STUDIO_DEFAULT_STYLE_ID : null
+  );
   const [device, setDevice] = useState<HistoryDevice>("phone");
   const [ratio, setRatio] = useState<AspectRatioId>(DEVICE_PRESET_RATIO.phone);
   // Resolution preset selection. null = "model default" (the official fal
   // enum size — the exact behavior from before presets existed). Any preset
   // click switches to an exact custom {width,height} size from lib/sizes.ts.
   const [presetId, setPresetId] = useState<string | null>(null);
+  // Auto vs manual size selection. Auto re-detects only on mount and on an
+  // explicit "Auto" click — never on resize, so a manual choice is stable.
+  const [sizeMode, setSizeMode] = useState<"auto" | "manual">("auto");
+  const [sizeDetecting, setSizeDetecting] = useState(true);
+  const [autoSelection, setAutoSelection] = useState<SizeRecommendation | null>(
+    null,
+  );
+  const [customSize, setCustomSize] = useState<{
+    width: number;
+    height: number;
+  } | null>(null);
+  const [customWidth, setCustomWidth] = useState("");
+  const [customHeight, setCustomHeight] = useState("");
+  const [customOpen, setCustomOpen] = useState(false);
+  const [customError, setCustomError] = useState<string | null>(null);
+  const [sizeNotice, setSizeNotice] = useState<string | null>(null);
   // Inspiration: an example staged behind the Replace/Append/Cancel confirm
   // row. pendingBase snapshots the prompt at pick time so the row can warn
   // when the text has changed since. Nothing is applied without a click.
@@ -370,13 +410,35 @@ export default function GeneratorSection({
   // the reference image collapse by default, always showing the current choice
   // in their headers. All values live in the parent state, so collapsing
   // never loses a selection.
-  const [deviceOpen, setDeviceOpen] = useState(false);
+  const [deviceOpen, setDeviceOpen] = useState(true);
   const [refOpen, setRefOpen] = useState(false);
+  // Studio primary flow: only type, style, optional description, the
+  // automatic device fit and Generate stay visible. Everything technical or
+  // secondary lives in one collapsed Advanced group, whose state is kept.
+  const [advancedOpen, setAdvancedOpen] = useState(false);
   const [status, setStatus] = useState<GenerationStatus>("idle");
   const [resultImage, setResultImage] = useState<GeneratedImage | null>(null);
+  // Live service availability for the paid submit path (R07). Loaded once on
+  // mount from the backend — never inferred from UI state. Null while the
+  // first probe is in flight; the gate treats that as unavailable.
+  const [gateInput, setGateInput] = useState<CreditsGateInput | null>(null);
+  // Server-returned price in Credits; null until verified by the backend.
+  const [priceCredits, setPriceCredits] = useState<number | null>(null);
+  const [walletCredits, setWalletCredits] = useState<number | null>(null);
+  // Runtime provider mode from the pricing probe: mock / live / disabled.
+  // Never inferred from a build-time flag.
+  const [generationMode, setGenerationMode] = useState<
+    "mock" | "live" | "disabled" | null
+  >(null);
+  const [accountState, setAccountState] = useState<
+    "loading" | "unavailable" | "signed-out" | "ready"
+  >("loading");
+  const [submitting, setSubmitting] = useState(false);
   // Set together with resultImage on success and on history restore; see
   // the ResultInfo interface for why the form state must not be used here.
   const [resultInfo, setResultInfo] = useState<ResultInfo | null>(null);
+  // Development mock result: placeholder image, no AI call, no charge.
+  const [resultIsMock, setResultIsMock] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   // In-app confirmation state (replaces window.confirm): the exact action
   // awaiting user confirmation is parked here and executed by the Dialog.
@@ -385,6 +447,12 @@ export default function GeneratorSection({
     | { kind: "clear-history" }
     | null
   >(null);
+  // FE04-A pre-submission review: what WOULD be generated. With no pricing
+  // or wallet backend the dialog carries no submission control, so opening
+  // it never leads to a request.
+  const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+  const [confirmSummary, setConfirmSummary] =
+    useState<ConfirmationSummary | null>(null);
   // History lives in localStorage (an external system) and is read through
   // useSyncExternalStore: SSR/hydration render the empty snapshot first, then
   // React re-renders with the client snapshot — no hydration mismatch and no
@@ -396,27 +464,24 @@ export default function GeneratorSection({
   // Escalating wait state for the generating caption — an honest "still
   // working" line after ~15s, never a fabricated progress value.
   const [longWait, setLongWait] = useState(false);
-  // Bumped on every new generation request; the wait-timer effect re-arms
-  // whenever it changes. (A plain counter keeps the purity rule happy —
-  // no Date.now() in the component body.)
-  const [generationSeq, setGenerationSeq] = useState(0);
   // "Image failed" marks shared by both library lists (favorites + history).
   const [failedThumbIds, setFailedThumbIds] = useState<ReadonlySet<string>>(
-    new Set()
+    new Set(),
   );
   const history = useSyncExternalStore(
     subscribeToHistory,
     getHistorySnapshot,
-    getServerHistorySnapshot
+    getServerHistorySnapshot,
   );
   // Favorites live in the same kind of external localStorage store as
   // history and are shared with the gallery, so every heart stays in sync.
   const favorites = useSyncExternalStore(
     subscribeFavorites,
     getFavoritesSnapshot,
-    getServerFavoritesSnapshot
+    getServerFavoritesSnapshot,
   );
   const [libraryTab, setLibraryTab] = useState<LibraryTab>("favorites");
+  const [showAllInspiration, setShowAllInspiration] = useState(false);
   const [favoriteNotice, setFavoriteNotice] = useState<string | null>(null);
   // Download UX: single-flight guard plus a tone-tagged feedback message.
   const [downloading, setDownloading] = useState(false);
@@ -427,7 +492,7 @@ export default function GeneratorSection({
   // Per-entry download state for the Favorites list — downloading one entry
   // never disables the others.
   const [downloadingIds, setDownloadingIds] = useState<ReadonlySet<string>>(
-    new Set()
+    new Set(),
   );
   const [libraryNotice, setLibraryNotice] = useState<{
     message: string;
@@ -438,6 +503,124 @@ export default function GeneratorSection({
   // Frame around the current preview — scrolled into view on small screens
   // after a successful generation (see revealResultOnMobile).
   const previewFrameRef = useRef<HTMLDivElement>(null);
+
+  // Share the editable draft when the user flips to Live Wallpaper; the
+  // static form itself keeps its own state and remains mounted.
+  useEffect(() => {
+    if (!isStudio) return;
+    saveStudioDraft({ styleId, prompt, device, ratio });
+  }, [isStudio, styleId, prompt, device, ratio]);
+
+  // Live paid-service probe (R07): one request for the session, then the
+  // wallet and the server price when signed in. Any failure leaves the gate
+  // closed — the UI must never assume a service it could not verify.
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      const session = await authAdapter.getSession();
+      if (cancelled) return;
+      if (!session.ok) {
+        setAccountState("unavailable");
+        setGateInput({
+          authAvailable: false,
+          pricingAvailable: false,
+          walletAvailable: false,
+        });
+        return;
+      }
+      if (session.data === null) {
+        // Signed out is still a KNOWN state: auth works, we just lack a user.
+        const pricing = await apiRequest<{
+          creditsPerGeneration: number;
+          generationMode?: "mock" | "live" | "disabled";
+          paused?: boolean;
+        }>("/v1/credits/pricing");
+        if (cancelled) return;
+        setPriceCredits(pricing.ok ? pricing.data.creditsPerGeneration : null);
+        setGenerationMode(
+          pricing.ok ? (pricing.data.generationMode ?? null) : null,
+        );
+        setAccountState("signed-out");
+        setGateInput({
+          authAvailable: false,
+          pricingAvailable:
+            pricing.ok &&
+            pricing.data.generationMode !== "disabled" &&
+            pricing.data.paused !== true,
+          walletAvailable: false,
+        });
+        return;
+      }
+      const [pricing, wallet] = await Promise.all([
+        apiRequest<{
+          creditsPerGeneration: number;
+          generationMode?: "mock" | "live" | "disabled";
+          paused?: boolean;
+        }>("/v1/credits/pricing"),
+        creditsAdapter.getWallet(),
+      ]);
+      if (cancelled) return;
+      const price = pricing.ok ? pricing.data.creditsPerGeneration : null;
+      setPriceCredits(price);
+      setGenerationMode(
+        pricing.ok ? (pricing.data.generationMode ?? null) : null,
+      );
+      setWalletCredits(
+        wallet.ok
+          ? Math.max(0, wallet.data.credits - (wallet.data.reserved ?? 0))
+          : null,
+      );
+      setAccountState("ready");
+      setGateInput({
+        authAvailable: true,
+        pricingAvailable:
+          pricing.ok &&
+          price !== null &&
+          pricing.data.generationMode !== "disabled" &&
+          pricing.data.paused !== true,
+        walletAvailable: wallet.ok,
+      });
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /* eslint-disable react-hooks/set-state-in-effect -- one-shot client bootstrap:
+     reads localStorage / screen facts after hydration, which cannot run during
+     render (SSR has neither) and must not be a resize listener. */
+  // Size bootstrapping (client only): a saved manual choice wins; otherwise
+  // detect this screen once and apply the recommended preset. The form keeps
+  // rendering default values until this effect runs, and the Device & Size
+  // header shows "Detecting…" instead of a wrong size.
+  useEffect(() => {
+    const saved = readSizePreference();
+    if (saved) {
+      setDevice(saved.device);
+      setRatio(saved.ratio);
+      setPresetId(saved.presetId);
+      if (saved.custom) {
+        setCustomSize(saved.custom);
+        setCustomWidth(String(saved.custom.width));
+        setCustomHeight(String(saved.custom.height));
+        setCustomOpen(true);
+      }
+      setSizeMode("manual");
+      setSizeDetecting(false);
+      return;
+    }
+    const info = readDeviceScreenInfo();
+    const recommendation = info ? autoSelectSize(info) : null;
+    if (recommendation) {
+      setDevice(recommendation.device);
+      setRatio(recommendation.ratio);
+      setPresetId(recommendation.preset.id);
+      setAutoSelection(recommendation);
+    }
+    setSizeMode("auto");
+    setSizeDetecting(false);
+  }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Style cards in the gallery dispatch this event to preselect a style here.
   useEffect(() => {
@@ -452,6 +635,32 @@ export default function GeneratorSection({
     };
     window.addEventListener(STYLE_SELECT_EVENT, onStyleSelect);
     return () => window.removeEventListener(STYLE_SELECT_EVENT, onStyleSelect);
+  }, []);
+
+  // "Create again" handoff from My Creations (audit P2): one-shot restore of
+  // prompt/device/ratio/preset. Values were validated before dispatch; each
+  // is applied defensively so a stale link cannot create an invalid combo.
+  useEffect(() => {
+    const onRestore = (event: Event) => {
+      const request = (event as CustomEvent<StudioRestoreRequest>).detail;
+      if (!request) return;
+      if (request.prompt) setPrompt(request.prompt);
+      if (request.device) setDevice(request.device);
+      if (request.ratio) {
+        setRatio(request.ratio);
+        setPresetId(null);
+      }
+      if (request.presetId) {
+        const preset = findSizePreset(request.presetId);
+        if (preset) {
+          setPresetId(preset.id);
+          setRatio(preset.ratio);
+          setDevice(preset.device);
+        }
+      }
+    };
+    window.addEventListener(STUDIO_RESTORE_EVENT, onRestore);
+    return () => window.removeEventListener(STUDIO_RESTORE_EVENT, onRestore);
   }, []);
 
   /* ---- Language-switch handoff ----
@@ -486,7 +695,7 @@ export default function GeneratorSection({
         setPresetId(
           saved.presetId && findSizePreset(saved.presetId)
             ? saved.presetId
-            : null
+            : null,
         );
       }
       if (saved.hasResult && saved.resultImage?.url) {
@@ -525,49 +734,89 @@ export default function GeneratorSection({
         };
         window.sessionStorage.setItem(
           LANGUAGE_SWITCH_FLAG,
-          JSON.stringify(handoff)
+          JSON.stringify(handoff),
         );
       } catch {
         // Storage unavailable — the switch proceeds without state handoff.
       }
     };
-  }, [prompt, styleId, device, ratio, presetId, resultImage, resultInfo, status]);
+  }, [
+    prompt,
+    styleId,
+    device,
+    ratio,
+    presetId,
+    resultImage,
+    resultInfo,
+    status,
+  ]);
 
   // Escalating wait notice: after ~15s of "generating" the caption switches
   // to an honest "still working" line (the sync fal endpoint exposes no real
   // stages, so nothing fancier is claimed). setState only ever happens in
   // the timeout callback — never during the effect body. The timer is
-  // cleared when the status leaves "generating" and on unmount; every new
-  // request bumps generationSeq, which re-arms it.
+  // cleared when the status leaves "generating" and on unmount. Wiring the
+  // generating phase back in is part of the future FE05/FE06 integration
+  // (lib/studio/flow.ts drives the status then).
   useEffect(() => {
     if (status !== "generating") return;
     const timer = window.setTimeout(() => setLongWait(true), 15_000);
     return () => window.clearTimeout(timer);
-  }, [status, generationSeq]);
+  }, [status]);
 
   const selectedStyle = styleId ? findStyle(styleId) : undefined;
+  // Style-specific examples are English prompt text. Other locales get
+  // localized general inspirations so the UI never shows truncated English.
+  const inspirationExamples =
+    locale === "en"
+      ? styleId
+        ? getExamplesForStyle(styleId)
+        : GENERAL_PROMPT_EXAMPLES
+      : [1, 2, 3, 4].map((n) => t(`inspiration${n}` as never));
   const selectedPreset = presetId ? findSizePreset(presetId) : null;
   // Screen info arrives only after mount; the recommendation is derived
   // from the currently selected target device. It is display-only — the
   // user applies it explicitly, so updates never override manual choices.
-  const screenInfo = useScreenInfo();
-  const screenRecommendation = useMemo(
-    () =>
-      screenInfo
-        ? recommendPresetForScreen(
-            screenInfo.width,
-            screenInfo.height,
-            device,
-            screenInfo.pixelRatio
-          )
-        : null,
-    [screenInfo, device]
-  );
   // While a generation is in flight, every input that composes the request is
   // locked so the incoming result always matches what the user sees selected.
   const busy = status === "generating";
-  const previewSrc =
-    resultImage?.url ?? selectedStyle?.image ?? DEMO_SAMPLE_IMAGE;
+  // Services available AND enough Credits — the only state allowed to submit.
+  const canAfford =
+    priceCredits !== null &&
+    walletCredits !== null &&
+    walletCredits >= priceCredits;
+  const creditsGate = gateInput ? resolveCreditsGate(gateInput) : null;
+  const canSubmit = Boolean(creditsGate?.canSubmit) && canAfford;
+  const creditsBlockedMessage = !canSubmit
+    ? accountState === "unavailable"
+      ? t("errorServiceUnavailable")
+      : accountState !== "ready" || !gateInput?.authAvailable
+        ? t("errorUnauthenticated")
+        : gateInput?.pricingAvailable === false
+          ? t("errorServiceUnavailable")
+          : !canAfford
+            ? t("errorInsufficientCredits")
+            : null
+    : null;
+  // Credits notice mirrors the real gate instead of showing a static
+  // "Credits required" line while a generation is already running.
+  const creditsNoticeState =
+    status === "generating" || submitting
+      ? "in-flight"
+      : accountState === "loading" || gateInput === null
+        ? "loading"
+        : accountState === "unavailable"
+          ? "unavailable"
+          : accountState === "signed-out"
+            ? "signed-out"
+            : gateInput?.pricingAvailable === false
+              ? "unavailable"
+              : priceCredits !== null &&
+                  walletCredits !== null &&
+                  walletCredits < priceCredits
+                ? "insufficient"
+                : "ready";
+  const previewIsResult = Boolean(resultImage);
   const previewGradient =
     selectedStyle?.gradient ?? "from-violet-600 via-purple-950 to-black";
   // The visible generation result maps to one stable favorite key, so
@@ -576,7 +825,7 @@ export default function GeneratorSection({
     ? favoriteKeyOf("generated", null, resultImage.url)
     : null;
   const resultIsFavorite = favorites.some(
-    (favorite) => favorite.key === resultFavoriteKey
+    (favorite) => favorite.key === resultFavoriteKey,
   );
   // Output size shown next to the result: the real dimensions fal returned
   // win over the requested preset's dimensions (the model can slightly
@@ -584,7 +833,7 @@ export default function GeneratorSection({
   const resultSizeLabel = resultImage
     ? resultImage.width != null && resultImage.height != null
       ? `${resultImage.width} × ${resultImage.height}`
-      : resultInfo?.requestedSizeLabel ?? null
+      : (resultInfo?.requestedSizeLabel ?? null)
     : null;
   // Preview meta line: with a result on screen it describes THAT result's
   // captured parameters (resolved through i18n from the snapshot ids);
@@ -612,36 +861,50 @@ export default function GeneratorSection({
 
   // One-line summary for the collapsed device/resolution group header —
   // the current choice stays visible without expanding the panel.
-  const deviceSummary = `${selectedDeviceLabel} · ${ratio} · ${
-    selectedPreset ? presetLabel(selectedPreset) : t("modelDefault")
-  }`;
+  const deviceSummary = customSize
+    ? `${selectedDeviceLabel} · ${customSize.width} × ${customSize.height} px`
+    : `${selectedDeviceLabel} · ${ratio} · ${
+        selectedPreset ? presetLabel(selectedPreset) : t("modelDefault")
+      }`;
+
+  const refErrorMessage = (problem: RefErrorCode) =>
+    problem === "format"
+      ? t("refUnsupportedFormat")
+      : problem === "empty"
+        ? t("refEmptyFile")
+        : t("refTooLarge");
 
   const handleFile = (file: File | null | undefined) => {
     if (busy || !file) return;
-    const problem = refFileError(file);
+    const problem = classifyReferenceFile(file);
     if (problem) {
-      setRefError(
-        problem === "format"
-          ? t("refUnsupportedFormat")
-          : problem === "empty"
-            ? t("refEmptyFile")
-            : t("refTooLarge")
-      );
+      setRefError(refErrorMessage(problem));
       setRefImage(null);
       return;
     }
-    // Read as a data URI so it can be posted to the generation API directly.
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (typeof reader.result === "string") {
-        setRefImage({ name: file.name, url: reader.result });
-        setRefError(null);
-      } else {
-        setRefError(t("refReadFailed"));
+    // Byte-level sniff before the base64 round-trip: a MIME string is
+    // client-controlled, so a ".png" text file is caught here. An
+    // unreadable header (null) defers to the server's own magic-byte
+    // verification — inspection failure never rejects an acceptable file.
+    readFileHeader(file).then((header) => {
+      if (header && !mimeMatchesHeader(file.type, header)) {
+        setRefError(t("refUnsupportedFormat"));
+        setRefImage(null);
+        return;
       }
-    };
-    reader.onerror = () => setRefError(t("refReadFailed"));
-    reader.readAsDataURL(file);
+      // Read as a data URI so it can be posted to the generation API directly.
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === "string") {
+          setRefImage({ name: file.name, url: reader.result });
+          setRefError(null);
+        } else {
+          setRefError(t("refReadFailed"));
+        }
+      };
+      reader.onerror = () => setRefError(t("refReadFailed"));
+      reader.readAsDataURL(file);
+    });
   };
 
   const handleDrop = (event: React.DragEvent<HTMLButtonElement>) => {
@@ -660,7 +923,7 @@ export default function GeneratorSection({
     if (typeof window === "undefined") return;
     if (!window.matchMedia("(max-width: 1023px)").matches) return;
     const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     previewFrameRef.current?.scrollIntoView({
       behavior: reducedMotion ? "auto" : "smooth",
@@ -668,97 +931,128 @@ export default function GeneratorSection({
     });
   };
 
-  const handleGenerate = async () => {
-    if (status === "generating") return;
+  // Paid submission path (R07). The dialog opens for every valid form; its
+  // Confirm control appears only when the backend verified auth, pricing and
+  // the wallet. Submission creates an async job and polls it — credits are
+  // reserved and settled server-side, never by this component.
+  const handleGenerate = () => {
+    if (status === "generating" || submitting) return;
     cancelPendingExample();
-    if (prompt.length > PROMPT_MAX_LENGTH) {
-      setErrorMessage(t("promptTooLong", { limit: PROMPT_MAX_LENGTH }));
+    const validation = validatePromptPair(prompt, styleId);
+    if (!validation.ok) {
+      setErrorMessage(
+        validation.code === "too-long"
+          ? t("promptTooLong", { limit: validation.limit })
+          : t("promptEmpty"),
+      );
       setStatus("error");
       return;
     }
-    setStatus("generating");
+    setConfirmSummary({
+      prompt,
+      styleLabel: selectedStyle ? tStyles(selectedStyle.id) : null,
+      deviceLabel: selectedDeviceLabel,
+      selection: { device, ratio, presetId },
+      presetLabel: selectedPreset ? presetLabel(selectedPreset) : null,
+    });
+    setConfirmDialogOpen(true);
+  };
+
+  /** Confirms the reviewed request: creates the job and polls to completion. */
+  const submitGeneration = async () => {
+    if (submitting) return;
+    if (!canSubmit || priceCredits === null) {
+      setConfirmDialogOpen(false);
+      setErrorMessage(creditsBlockedMessage ?? t("errorUnauthenticated"));
+      setStatus("error");
+      return;
+    }
+    setSubmitting(true);
+    setConfirmDialogOpen(false);
     setErrorMessage(null);
-    // (Re)arm the wait-escalation timer for this request.
-    setGenerationSeq((seq) => seq + 1);
-    setLongWait(false);
+    setStatus("generating");
+    setResultInfo(null);
     try {
-      // T04-S1: generation goes through the standalone API client instead of
-      // a legacy same-origin route. With no NEXT_PUBLIC_API_BASE_URL set the
-      // call resolves to an explicit "unavailable" outcome — no request ever
-      // reaches a real AI provider in this phase.
-      const outcome = await generateWallpaper({
+      const request: GenerationRequest = buildGenerationRequest({
         prompt,
-        // StyleId | null → string | undefined: the contract has no null, and
-        // the backend degrades a missing styleId to "no style template".
-        styleId: styleId ?? undefined,
+        styleId,
         device,
-        aspectRatio: ratio,
-        sizePresetId: presetId,
-        // refImage is omitted entirely in text-only mode (undefined drops
-        // from JSON), which switches the API back to text-to-image.
-        refImage: refImage?.url,
+        ratio,
+        presetId,
+        customSize,
+        refImageUrl: refImage?.url ?? null,
+      });
+      const outcome = await createAsyncJobExecutor()(request, {
+        signal: new AbortController().signal,
       });
       if (!outcome.ok) {
+        // Job failures carry either a stable API code or a worker error code
+        // (UPSTREAM_ERROR / UPSTREAM_TIMEOUT / STORAGE_FAILED). The pure
+        // mapping keeps those distinctions testable and visible.
         setErrorMessage(
-          outcome.reason === "unavailable"
-            ? t("apiUnavailable")
-            : outcome.message ??
-                (outcome.reason === "network"
-                  ? t("networkError")
-                  : outcome.reason === "invalid"
-                    ? t("invalidResponse")
-                    : t("generateFailed"))
+          t(
+            generationErrorKey(
+              outcome.code as string | null | undefined,
+              outcome.reason,
+            ),
+          ),
         );
         setStatus("error");
         return;
       }
-      const data = outcome;
+      const dims = customSize
+        ? { width: customSize.width, height: customSize.height }
+        : selectedPreset
+          ? { width: selectedPreset.width, height: selectedPreset.height }
+          : { width: null, height: null };
       setResultImage({
-        url: data.imageUrl,
-        width: data.width ?? null,
-        height: data.height ?? null,
-        contentType: data.contentType ?? null,
+        url: outcome.imageUrl,
+        width: dims.width,
+        height: dims.height,
+        contentType: outcome.contentType,
       });
-      setDownloadNotice(null);
-      // Persist the successful generation locally. Storage failures must
-      // never turn a successful generation into an error —
-      // addGenerationHistory returns null instead of throwing.
-      const historyEntry = addGenerationHistory({
-        prompt: prompt.trim(),
-        styleId,
-        device,
-        ratio,
-        sizePresetId: presetId,
-        imageUrl: data.imageUrl,
-        width: data.width ?? null,
-        height: data.height ?? null,
-        hasReferenceImage: refImage !== null,
-      });
-      if (historyEntry) {
-        notifyHistoryChanged();
-      }
-      setPreviewImageFailed(false);
-      // Freeze this result's origin: the form may change for the next run,
-      // but preview meta and the favorite title must keep describing THIS
-      // image (see ResultInfo).
       setResultInfo({
-        styleId: styleId,
+        styleId,
         styleLabel: selectedStyle?.label ?? null,
         deviceId: device,
-        requestedSizeLabel: selectedPreset
-          ? `${selectedPreset.width} × ${selectedPreset.height}`
-          : null,
-        prompt: prompt.trim(),
+        requestedSizeLabel: customSize
+          ? `${customSize.width} × ${customSize.height}`
+          : selectedPreset
+            ? `${selectedPreset.width} × ${selectedPreset.height}`
+            : null,
+        prompt,
       });
+      setPreviewImageFailed(false);
+      setDownloadNotice(null);
+      setResultIsMock(outcome.mock === true);
       setStatus("success");
-      // Small screens only: bring the finished result into view. Errors
-      // never scroll — the banner sits right under the Generate button
-      // where the user already is.
+      // Cloud-backed job: the history entry stays device-local metadata only.
+      // Mock placeholders are not saved as user creations.
+      const saved = outcome.mock
+        ? null
+        : addGenerationHistory({
+            prompt,
+            styleId,
+            device,
+            ratio,
+            sizePresetId: presetId,
+            imageUrl: outcome.imageUrl,
+            width: customSize?.width ?? dims.width,
+            height: customSize?.height ?? dims.height,
+            hasReferenceImage: refImage !== null,
+          });
+      if (!outcome.mock) {
+        notifyHistoryChanged();
+      }
+      if (!outcome.mock && saved === null) {
+        setDownloadNotice({
+          message: t("historyUnavailable"),
+          tone: "warning",
+        });
+      }
       revealResultOnMobile();
-    } catch {
-      // Only genuine request failures (offline, aborted) land here.
-      setErrorMessage(t("networkError"));
-      setStatus("error");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -802,11 +1096,24 @@ export default function GeneratorSection({
     }
   };
 
+  // Gallery favorites inherit the preset's license status. review-pending
+  // artwork stays viewable/favoritable but cannot be downloaded from the app.
+  const favoriteDownloadRestricted = (entry: FavoriteEntry): boolean => {
+    if (entry.source !== "gallery") return false;
+    if (!entry.sourceId) return true;
+    const wallpaper = getWallpaperBySlug(entry.sourceId);
+    return !wallpaper || !isDownloadAllowed(wallpaper.license);
+  };
+
   // Downloads a favorite's stored image URL (gallery or generated). Only
   // touches the download helper — never favorites, history or generation.
   // The file name is source + timestamp: never the title/prompt (user
   // input) and never the remote URL.
   const handleDownloadFavorite = async (entry: FavoriteEntry) => {
+    if (favoriteDownloadRestricted(entry)) {
+      setLibraryNotice({ message: tDetail("downloadRestricted"), tone: "warning" });
+      return;
+    }
     if (downloadingIds.has(entry.id)) return;
     setDownloadingIds((current) => markDownloading(current, entry.id));
     setLibraryNotice(null);
@@ -881,8 +1188,18 @@ export default function GeneratorSection({
         restoredPreset.device === entry.device &&
         restoredPreset.ratio === restoredRatio
         ? restoredPreset.id
-        : null
+        : null,
     );
+    if (!entry.sizePresetId && entry.width !== null && entry.height !== null) {
+      setCustomSize({ width: entry.width, height: entry.height });
+      setCustomWidth(String(entry.width));
+      setCustomHeight(String(entry.height));
+      setCustomOpen(true);
+      setSizeMode("manual");
+    } else {
+      setCustomSize(null);
+      setCustomOpen(false);
+    }
     setResultImage({
       url: entry.imageUrl,
       width: entry.width,
@@ -910,6 +1227,7 @@ export default function GeneratorSection({
     setPreviewImageFailed(false);
     setDownloadNotice(null);
     setStatus("success");
+    revealResultOnMobile();
   };
 
   const handleClearHistory = () => {
@@ -941,19 +1259,42 @@ export default function GeneratorSection({
     });
   };
 
-  // Switching devices keeps the selected ratio when the new device allows
-  // it, and falls back to the new device's preset ratio otherwise — users
-  // never see (or get stuck on) a ratio their device cannot use. Presets
-  // are device-scoped, so the selection falls back to the new device's
-  // default preset for the kept ratio (or the model default when it has
-  // none).
+  const rememberSize = (next: {
+    device: HistoryDevice;
+    ratio: AspectRatioId;
+    presetId: string | null;
+    custom: { width: number; height: number } | null;
+  }) => {
+    saveSizePreference(next);
+  };
+
+  // Device switch. With a custom size the dimensions are KEPT (the user
+  // chose them explicitly); otherwise the ratio is kept when the new device
+  // allows it and the device's default preset is applied.
   const handleDeviceChange = (next: HistoryDevice) => {
+    setSizeMode("manual");
+    setAutoSelection(null);
+    if (customSize) {
+      setDevice(next);
+      setSizeNotice(t("manualKept"));
+      rememberSize({ device: next, ratio, presetId: null, custom: customSize });
+      return;
+    }
     const nextRatio = DEVICE_ALLOWED_RATIOS[next].includes(ratio)
       ? ratio
       : DEVICE_PRESET_RATIO[next];
+    const nextPreset =
+      getDefaultSizePresetForRatio(next, nextRatio)?.id ?? null;
     setDevice(next);
     setRatio(nextRatio);
-    setPresetId(getDefaultSizePresetForRatio(next, nextRatio)?.id ?? null);
+    setPresetId(nextPreset);
+    setSizeNotice(null);
+    rememberSize({
+      device: next,
+      ratio: nextRatio,
+      presetId: nextPreset,
+      custom: null,
+    });
   };
 
   // Picking a ratio clears any preset: the model default for the new shape
@@ -961,24 +1302,127 @@ export default function GeneratorSection({
   const handleRatioChange = (next: AspectRatioId) => {
     setRatio(next);
     setPresetId(null);
+    setCustomSize(null);
+    setSizeMode("manual");
+    setAutoSelection(null);
+    setSizeNotice(null);
+    rememberSize({ device, ratio: next, presetId: null, custom: null });
   };
 
-  // Selecting a resolution preset also syncs its (exactly matching) ratio,
-  // keeping the preview frame and the request payload in step.
+  // Selecting a resolution preset also syncs its (exactly matching) ratio.
   const handlePresetSelect = (preset: SizePreset) => {
     setPresetId(preset.id);
     setRatio(preset.ratio);
+    setCustomSize(null);
+    setSizeMode("manual");
+    setAutoSelection(null);
+    setSizeNotice(null);
+    rememberSize({
+      device: preset.device,
+      ratio: preset.ratio,
+      presetId: preset.id,
+      custom: null,
+    });
   };
 
-  // Applies the screen-based suggestion on an explicit click — device,
-  // ratio and preset move together. Never invoked automatically.
-  const applyScreenRecommendation = (
-    recommendation: ScreenPresetRecommendation
-  ) => {
+  // Explicit "Auto": recompute for the CURRENT screen and drop any manual
+  // override (including a persisted one).
+  const handleAutoSize = () => {
     if (busy) return;
-    setDevice(recommendation.preset.device);
-    setRatio(recommendation.preset.ratio);
+    const info = readDeviceScreenInfo();
+    const recommendation = info ? autoSelectSize(info) : null;
+    setCustomSize(null);
+    setCustomOpen(false);
+    setCustomError(null);
+    setSizeMode("auto");
+    setSizeNotice(t("autoApplied"));
+    clearSizePreference();
+    if (!recommendation) return;
+    setAutoSelection(recommendation);
+    setDevice(recommendation.device);
+    setRatio(recommendation.ratio);
     setPresetId(recommendation.preset.id);
+  };
+
+  // Restore the recommended device/size while keeping the user's creative
+  // choices (style, prompt). The reference image is not part of a screen
+  // recommendation, so it is cleared explicitly.
+  const resetAdvancedSettings = () => {
+    if (busy) return;
+    setRefImage(null);
+    setRefError(null);
+    setPendingExample(null);
+    setPromptNotice(null);
+    handleAutoSize();
+  };
+
+  const openCustomSize = () => {
+    setCustomOpen(true);
+    setCustomError(null);
+    if (!customWidth || !customHeight) {
+      const basis = customSize ?? selectedPreset ?? autoSelection?.preset;
+      if (basis) {
+        setCustomWidth(String(basis.width));
+        setCustomHeight(String(basis.height));
+      }
+    }
+  };
+
+  const applyCustomSize = () => {
+    if (busy) return;
+    const parsed = parseCustomSize(customWidth, customHeight);
+    if (!parsed.ok) {
+      setCustomError(
+        parsed.error === "required"
+          ? t("customInvalidRequired")
+          : parsed.error === "invalid"
+            ? t("customInvalidNumber")
+            : parsed.error === "range"
+              ? t("customInvalidRange")
+              : parsed.error === "step"
+                ? t("customInvalidStep")
+                : t("customInvalidArea"),
+      );
+      return;
+    }
+    setCustomError(null);
+    setCustomSize({ width: parsed.width, height: parsed.height });
+    setPresetId(null);
+    setSizeMode("manual");
+    setAutoSelection(null);
+    setSizeNotice(null);
+    rememberSize({
+      device,
+      ratio,
+      presetId: null,
+      custom: { width: parsed.width, height: parsed.height },
+    });
+  };
+
+  const resetCustomSize = () => {
+    setCustomSize(null);
+    setCustomOpen(false);
+    setCustomError(null);
+    setSizeNotice(null);
+    clearSizePreference();
+    const recommendation = autoSelection;
+    if (recommendation) {
+      setSizeMode("auto");
+      setDevice(recommendation.device);
+      setRatio(recommendation.ratio);
+      setPresetId(recommendation.preset.id);
+      return;
+    }
+    const fallback = getDefaultSizePresetForRatio(device, ratio);
+    setPresetId(fallback?.id ?? null);
+    setSizeMode("manual");
+  };
+
+  const swapCustomDimensions = () => {
+    const swapped = swapSizeText(customWidth, customHeight);
+    setCustomWidth(swapped.widthText);
+    setCustomHeight(swapped.heightText);
+    setCustomError(null);
   };
 
   /* ---- Inspiration examples ---- */
@@ -1027,6 +1471,7 @@ export default function GeneratorSection({
   // context just changed. The user's own prompt is never modified here.
   const handleStyleSelect = (id: WallStyle["id"] | null) => {
     setStyleId(id);
+    setShowAllInspiration(false);
     cancelPendingExample();
   };
 
@@ -1041,9 +1486,7 @@ export default function GeneratorSection({
       // The favorite describes the image on screen — its generation-time
       // prompt, never whatever text the form holds right now.
       title:
-        resultInfo?.prompt ||
-        metaStyleLabel ||
-        t("generatedFallbackTitle"),
+        resultInfo?.prompt || metaStyleLabel || t("generatedFallbackTitle"),
       imageUrl: resultImage.url,
       // Snapshot values: the style the image was generated with, not the
       // current picker state.
@@ -1068,11 +1511,16 @@ export default function GeneratorSection({
       id="generator"
       className={`relative ${isStudio ? "pb-24 md:pb-32" : "py-24 md:py-32"}`}
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
         <div className="animate-pulse-glow absolute left-1/2 top-0 h-[420px] w-[680px] max-w-full -translate-x-1/2 rounded-full bg-violet-700/20 blur-[140px]" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6">
+      <div
+        className={`relative mx-auto px-6 ${isStudio ? "max-w-[1320px]" : "max-w-6xl"}`}
+      >
         {!isStudio && (
           <div className="mb-12 max-w-2xl md:mb-14">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-violet-300">
@@ -1090,202 +1538,34 @@ export default function GeneratorSection({
         {/* items-start (not items-center) pins the preview column to the top
             of the row, so it is visible without scrolling on desktop and the
             lg:sticky offset engages immediately. */}
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-14">
+        <div
+          className={`grid items-start gap-10 ${
+            isStudio
+              ? "lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12"
+              : "lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-14"
+          }`}
+        >
           {/* Generator panel */}
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-2xl shadow-black/50 backdrop-blur md:p-8">
-            <StylePicker
-              styleId={styleId}
-              onSelect={handleStyleSelect}
-              disabled={busy}
-            />
-
-            {/* Device & resolution: collapsible group. The header always
-                shows the current device · ratio · size choice, so the state
-                stays readable while collapsed. */}
-            <div className="mt-8 rounded-xl border border-white/10 bg-black/30">
-              <button
-                type="button"
-                aria-expanded={deviceOpen}
-                aria-controls="generator-device-options"
-                onClick={() => setDeviceOpen((value) => !value)}
-                className="flex w-full items-center justify-between gap-3 rounded-xl px-4 py-3 text-left outline-none transition hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-violet-400/60"
-              >
-                <span className="flex min-w-0 flex-col gap-0.5">
-                  <span className="text-sm font-medium text-zinc-300">
-                    {t("deviceGroupLabel")}
-                  </span>
-                  <span className="truncate text-xs text-zinc-500">
-                    {deviceSummary}
-                  </span>
-                </span>
-                <ChevronDownIcon
-                  className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
-                    deviceOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {deviceOpen && (
-                <div
-                  id="generator-device-options"
-                  className="border-t border-white/10 px-4 pb-5 pt-5"
-                >
-                  <fieldset>
-                    <legend className="mb-3 text-sm font-medium text-zinc-300">
-                      {t("deviceLegend")}
-                    </legend>
-                    <div className="grid grid-cols-3 gap-1 rounded-xl border border-white/10 bg-black/40 p-1">
-                      {DEVICES.map(({ id, Icon }) => {
-                        const active = device === id;
-                        return (
-                          <button
-                            key={id}
-                            type="button"
-                            aria-pressed={active}
-                            disabled={busy}
-                            onClick={() => handleDeviceChange(id)}
-                            className={`flex items-center justify-center gap-2 rounded-lg px-3 py-2.5 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                              active
-                                ? "bg-violet-500/25 text-white ring-1 ring-violet-400/50"
-                                : "text-zinc-400 hover:bg-white/5 hover:text-zinc-200"
-                            }`}
-                          >
-                            <Icon className="h-4 w-4" />
-                            {tDevices(id)}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </fieldset>
-
-                  <fieldset className="mt-8">
-                    <legend className="mb-3 text-sm font-medium text-zinc-300">
-                      {t("ratioLegend")}
-                    </legend>
-                    <div className="flex flex-wrap gap-2">
-                      {ASPECT_RATIOS.filter(({ id }) =>
-                        DEVICE_ALLOWED_RATIOS[device].includes(id)
-                      ).map(({ id, label }) => {
-                        const active = ratio === id;
-                        return (
-                          <button
-                            key={id}
-                            type="button"
-                            aria-pressed={active}
-                            disabled={busy}
-                            onClick={() => handleRatioChange(id)}
-                            className={`rounded-full border px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                              active
-                                ? "border-violet-400/70 bg-violet-500/20 text-white shadow-[0_0_18px_rgba(139,92,246,0.35)]"
-                                : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/25 hover:text-zinc-100"
-                            }`}
-                          >
-                            {label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </fieldset>
-
-                  <fieldset className="mt-8">
-                    <legend className="mb-3 text-sm font-medium text-zinc-300">
-                      {t("resolutionLegend")}
-                    </legend>
-                    <div className="flex flex-wrap gap-2">
-                      {/* "Model default" = the official fal enum size — the
-                          exact behavior presets existed. Always available. */}
-                      <button
-                        type="button"
-                        aria-pressed={presetId === null}
-                        disabled={busy}
-                        onClick={() => setPresetId(null)}
-                        className={`rounded-full border px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                          presetId === null
-                            ? "border-violet-400/70 bg-violet-500/20 text-white shadow-[0_0_18px_rgba(139,92,246,0.35)]"
-                            : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/25 hover:text-zinc-100"
-                        }`}
-                      >
-                        {t("modelDefault")}
-                      </button>
-                      {getSizePresetsForRatio(device, ratio).map((preset) => {
-                        const active = presetId === preset.id;
-                        return (
-                          <button
-                            key={preset.id}
-                            type="button"
-                            aria-pressed={active}
-                            disabled={busy}
-                            onClick={() => handlePresetSelect(preset)}
-                            className={`rounded-full border px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                              active
-                                ? "border-violet-400/70 bg-violet-500/20 text-white shadow-[0_0_18px_rgba(139,92,246,0.35)]"
-                                : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/25 hover:text-zinc-100"
-                            }`}
-                          >
-                            {presetLabel(preset)}
-                          </button>
-                        );
-                      })}
-                    </div>
-                    <p className="mt-2 text-xs text-zinc-500">
-                      {selectedPreset
-                        ? t("presetSizeLine", {
-                            label: presetLabel(selectedPreset),
-                            width: selectedPreset.width,
-                            height: selectedPreset.height,
-                          })
-                        : t("modelDefaultHint")}
-                    </p>
-                  </fieldset>
-
-                  {/* Screen-based suggestion. Rendered only after mount (never
-                      on the server), display-only until the user clicks —
-                      resize updates the suggestion but never overrides a
-                      manual choice. */}
-                  {screenRecommendation && (
-                    <div className="mt-4 rounded-xl border border-violet-400/30 bg-violet-500/[0.07] px-4 py-3">
-                      <p className="text-xs font-medium uppercase tracking-wide text-violet-200">
-                        {t("screenRecommendTitle")}
-                      </p>
-                      <p className="mt-1.5 text-xs leading-relaxed text-zinc-400">
-                        {presetLabel(screenRecommendation.preset)} ·{" "}
-                        {screenRecommendation.preset.ratio} ·{" "}
-                        {screenRecommendation.preset.width} ×{" "}
-                        {screenRecommendation.preset.height} px
-                        <span className="text-zinc-600">
-                          {" "}
-                          {t("screenRecommendFor", {
-                            device: selectedDeviceLabel,
-                          })}
-                        </span>
-                      </p>
-                      {!screenRecommendation.exactMatch && (
-                        <p className="mt-1 text-xs text-amber-300/90">
-                          {t("screenRecommendNoExact")}
-                        </p>
-                      )}
-                      <button
-                        type="button"
-                        disabled={busy}
-                        onClick={() =>
-                          applyScreenRecommendation(screenRecommendation)
-                        }
-                        className="mt-2.5 rounded-full border border-violet-400/40 bg-violet-500/15 px-4 py-1.5 text-xs font-medium text-violet-200 transition enabled:hover:bg-violet-500/25 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        {t("useThisSize")}
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
+          <div className="flex min-w-0 flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-2xl shadow-black/50 backdrop-blur md:p-8">
+            <div className="order-1">
+              <StylePicker
+                styleId={styleId}
+                onSelect={handleStyleSelect}
+                disabled={busy}
+              />
             </div>
 
-            <div className="mt-8">
+            {/* Primary flow step 3: the description is optional. With the
+                Studio's default style, an empty prompt is valid. */}
+            <div className="order-2 mt-8">
               <label
                 htmlFor="wallpaper-prompt"
                 className="mb-3 block text-sm font-medium text-zinc-300"
               >
                 {t("promptLabel")}{" "}
-                <span className="font-normal text-zinc-500">{t("optional")}</span>
+                <span className="font-normal text-zinc-500">
+                  {t("optional")}
+                </span>
               </label>
               <textarea
                 id="wallpaper-prompt"
@@ -1299,292 +1579,736 @@ export default function GeneratorSection({
                   busy ? "cursor-not-allowed opacity-70" : ""
                 }`}
               />
-              <p className="mt-1.5 text-right text-xs text-zinc-600">
+              <p
+                className={`mt-1.5 text-right text-xs ${
+                  prompt.length > PROMPT_MAX_LENGTH
+                    ? "font-medium text-red-400"
+                    : "text-zinc-600"
+                }`}
+                aria-live="polite"
+              >
                 {prompt.length} / {PROMPT_MAX_LENGTH}
               </p>
+              {isStudio ? (
+                <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
+                  {t("autoSceneHint")}
+                </p>
+              ) : null}
+            </div>
 
-              {/* Inspiration: static local examples. With a style selected it
-                  shows that style's two prompts, otherwise general ideas. */}
-              <div className="mt-4 rounded-xl border border-white/10 bg-black/30 p-3">
-                <div className="flex items-center justify-between gap-3">
+            {/* Primary flow: the current device fit stays visible, while all
+                technical controls live in one collapsed Advanced group. */}
+            <div className="order-3 mt-6 rounded-2xl border border-violet-400/20 bg-violet-500/[0.06] p-4">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-zinc-100">
+                    {t("autoFitTitle")}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                    {sizeDetecting ? t("detectingDevice") : deviceSummary}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  aria-expanded={advancedOpen}
+                  aria-controls="generator-advanced-settings"
+                  onClick={() => setAdvancedOpen((value) => !value)}
+                  className="flex min-h-9 shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-black/30 px-3 py-1.5 text-xs font-medium text-zinc-300 outline-none transition hover:border-violet-400/40 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400/60"
+                >
+                  {t("advancedSettings")}
+                  <span className="text-zinc-500">{t("advancedOptional")}</span>
+                  <ChevronDownIcon
+                    className={`h-3.5 w-3.5 transition-transform ${
+                      advancedOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+
+              <div
+                id="generator-advanced-settings"
+                hidden={!advancedOpen}
+                className="mt-4 border-t border-white/10 pt-4"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
-                    {t("inspiration")}
-                    {selectedStyle && (
-                      <span className="ml-2 normal-case tracking-normal text-zinc-600">
-                        {t("inspirationFor", { style: tStyles(selectedStyle.id) })}
-                      </span>
-                    )}
+                    {t("advancedSettings")}
                   </p>
                   <button
                     type="button"
                     disabled={busy}
-                    onClick={() =>
-                      handleExamplePick(getRandomExample(styleId))
-                    }
-                    className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-violet-300 transition enabled:hover:border-violet-400/40 enabled:hover:text-violet-200 disabled:cursor-not-allowed disabled:opacity-50"
+                    onClick={resetAdvancedSettings}
+                    className="text-xs font-medium text-violet-300 underline-offset-4 transition enabled:hover:text-violet-200 enabled:hover:underline disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {t("randomInspiration")}
+                    {t("advancedReset")}
                   </button>
                 </div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {(styleId
-                    ? getExamplesForStyle(styleId)
-                    : GENERAL_PROMPT_EXAMPLES
-                  ).map((text) => (
-                    <button
-                      key={text}
-                      type="button"
-                      disabled={busy}
-                      onClick={() => handleExamplePick(text)}
-                      title={text}
-                      className={`max-w-full truncate rounded-lg border px-3 py-1.5 text-left text-xs transition disabled:cursor-not-allowed disabled:opacity-50 ${
-                        pendingExample === text
-                          ? "border-violet-400/70 bg-violet-500/20 text-violet-100"
-                          : "border-white/10 bg-white/[0.03] text-zinc-400 hover:border-white/25 hover:text-zinc-100"
-                      }`}
-                    >
-                      {text}
-                    </button>
-                  ))}
-                </div>
-
-                {/* Confirm row: the user's current prompt is untouched until
-                    an explicit action. Append always builds on the current
-                    text; a stale pick just gets a heads-up. */}
-                {pendingExample && (
-                  <div className="mt-3 rounded-lg border border-violet-400/30 bg-violet-500/[0.07] px-3 py-2.5">
-                    <p className="text-xs text-zinc-300">
-                      {t("useExampleConfirm")}
-                    </p>
-                    {prompt !== pendingBase && (
-                      <p className="mt-1 text-xs text-amber-300/90">
-                        {t("promptChangedNotice")}
+                <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+                  {t("advancedHint")}
+                </p>
+                <div className="mt-4 space-y-4">
+                  {/* Inspiration: static local examples. With a style selected it
+                      shows that style's two prompts, otherwise general ideas. */}
+                  <div className="mt-4 rounded-xl border border-white/10 bg-black/30 p-3">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-xs font-medium uppercase tracking-wide text-zinc-500">
+                        {t("inspiration")}
+                        {selectedStyle && locale === "en" && (
+                          <span className="ml-2 normal-case tracking-normal text-zinc-600">
+                            {t("inspirationFor", {
+                              style: tStyles(selectedStyle.id),
+                            })}
+                          </span>
+                        )}
                       </p>
-                    )}
-                    {promptNotice && (
-                      <p
-                        role="alert"
-                        className="mt-1 text-xs font-medium text-red-300"
-                      >
-                        {promptNotice}
-                      </p>
-                    )}
-                    <div className="mt-2 flex flex-wrap gap-2">
                       <button
                         type="button"
                         disabled={busy}
-                        onClick={applyExampleReplace}
-                        className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-3.5 py-1.5 text-xs font-semibold transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                        onClick={() =>
+                          handleExamplePick(
+                            locale === "en"
+                              ? getRandomExample(styleId)
+                              : inspirationExamples[
+                                  Math.floor(
+                                    Math.random() * inspirationExamples.length,
+                                  )
+                                ],
+                          )
+                        }
+                        className="shrink-0 rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-violet-300 transition enabled:hover:border-violet-400/40 enabled:hover:text-violet-200 disabled:cursor-not-allowed disabled:opacity-50"
                       >
-                        {t("replace")}
-                      </button>
-                      <button
-                        type="button"
-                        disabled={busy}
-                        onClick={applyExampleAppend}
-                        className="rounded-full border border-violet-400/40 bg-violet-500/15 px-3.5 py-1.5 text-xs font-medium text-violet-200 transition enabled:hover:bg-violet-500/25 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        {t("append")}
-                      </button>
-                      <button
-                        type="button"
-                        disabled={busy}
-                        onClick={cancelPendingExample}
-                        className="rounded-full border border-white/10 px-3.5 py-1.5 text-xs text-zinc-400 transition enabled:hover:border-white/25 enabled:hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        {t("cancel")}
+                        {t("randomInspiration")}
                       </button>
                     </div>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {inspirationExamples
+                        .slice(
+                          0,
+                          showAllInspiration ? inspirationExamples.length : 2,
+                        )
+                        .map((text) => (
+                          <button
+                            key={text}
+                            type="button"
+                            disabled={busy}
+                            onClick={() => handleExamplePick(text)}
+                            title={text}
+                            className={`line-clamp-2 max-w-full rounded-lg border px-3 py-1.5 text-left text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                              pendingExample === text
+                                ? "border-violet-400/70 bg-violet-500/20 text-violet-100"
+                                : "border-white/10 bg-white/[0.03] text-zinc-400 hover:border-white/25 hover:text-zinc-100"
+                            }`}
+                          >
+                            {text}
+                          </button>
+                        ))}
+                      {inspirationExamples.length > 2 ? (
+                        <button
+                          type="button"
+                          disabled={busy}
+                          aria-expanded={showAllInspiration}
+                          onClick={() =>
+                            setShowAllInspiration((value) => !value)
+                          }
+                          className="rounded-lg border border-white/10 bg-transparent px-3 py-1.5 text-left text-sm text-violet-300 transition enabled:hover:border-violet-400/40 enabled:hover:text-violet-200 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          {showAllInspiration
+                            ? t("showLessInspiration")
+                            : t("showMoreInspiration", {
+                                count: inspirationExamples.length - 2,
+                              })}
+                        </button>
+                      ) : null}
+                    </div>
+
+                    {/* Confirm row: the user's current prompt is untouched until
+                        an explicit action. Append always builds on the current
+                        text; a stale pick just gets a heads-up. */}
+                    {pendingExample && (
+                      <div className="mt-3 rounded-lg border border-violet-400/30 bg-violet-500/[0.07] px-3 py-2.5">
+                        <p className="text-xs text-zinc-300">
+                          {t("useExampleConfirm")}
+                        </p>
+                        {prompt !== pendingBase && (
+                          <p className="mt-1 text-xs text-amber-300/90">
+                            {t("promptChangedNotice")}
+                          </p>
+                        )}
+                        {promptNotice && (
+                          <p
+                            role="alert"
+                            className="mt-1 text-xs font-medium text-red-300"
+                          >
+                            {promptNotice}
+                          </p>
+                        )}
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          <button
+                            type="button"
+                            disabled={busy}
+                            onClick={applyExampleReplace}
+                            className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-3.5 py-1.5 text-xs font-semibold transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            {t("replace")}
+                          </button>
+                          <button
+                            type="button"
+                            disabled={busy}
+                            onClick={applyExampleAppend}
+                            className="rounded-full border border-violet-400/40 bg-violet-500/15 px-3.5 py-1.5 text-xs font-medium text-violet-200 transition enabled:hover:bg-violet-500/25 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            {t("append")}
+                          </button>
+                          <button
+                            type="button"
+                            disabled={busy}
+                            onClick={cancelPendingExample}
+                            className="rounded-full border border-white/10 px-3.5 py-1.5 text-xs text-zinc-400 transition enabled:hover:border-white/25 enabled:hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50"
+                          >
+                            {t("cancel")}
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
+
+                  {/* Device & Size: unified device, ratio, resolution and custom size.
+                The header summarizes the current choice; auto detection runs
+                once and is re-applied only when the user clicks Auto. */}
+                  <div className="rounded-xl border border-white/10 bg-black/30">
+                    <button
+                      type="button"
+                      aria-expanded={deviceOpen}
+                      aria-controls="generator-device-options"
+                      onClick={() => setDeviceOpen((value) => !value)}
+                      className="flex w-full items-center justify-between gap-3 rounded-xl px-4 py-3 text-left outline-none transition hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-violet-400/60"
+                    >
+                      <span className="flex min-w-0 flex-col gap-0.5">
+                        <span className="text-sm font-semibold text-zinc-100">
+                          {t("deviceSizeGroupLabel")}
+                        </span>
+                        <span className="truncate text-xs text-zinc-400">
+                          {sizeDetecting ? t("detectingDevice") : deviceSummary}
+                        </span>
+                      </span>
+                      <span className="flex shrink-0 items-center gap-2">
+                        <span className="hidden text-[11px] text-violet-300/80 sm:inline">
+                          {t("changeDeviceSize")}
+                        </span>
+                        <ChevronDownIcon
+                          className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
+                            deviceOpen ? "rotate-180" : ""
+                          }`}
+                        />
+                      </span>
+                    </button>
+                    {deviceOpen && (
+                      <div
+                        id="generator-device-options"
+                        className="border-t border-white/10 px-4 pb-5 pt-5"
+                      >
+                        <fieldset>
+                          <legend className="mb-3 text-sm font-medium text-zinc-300">
+                            {t("deviceLegend")}
+                          </legend>
+                          <div className="grid grid-cols-4 gap-1 rounded-xl border border-white/10 bg-black/40 p-1">
+                            <button
+                              type="button"
+                              aria-pressed={sizeMode === "auto" && !customSize}
+                              disabled={busy}
+                              onClick={handleAutoSize}
+                              title={t("autoDeviceHint")}
+                              className={`flex items-center justify-center gap-1.5 rounded-lg px-2 py-2.5 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                                sizeMode === "auto" && !customSize
+                                  ? "bg-violet-500/25 text-white ring-1 ring-violet-400/50"
+                                  : "text-zinc-400 hover:bg-white/5 hover:text-zinc-200"
+                              }`}
+                            >
+                              <SparklesIcon className="h-4 w-4" />
+                              {t("autoDevice")}
+                            </button>
+                            {DEVICES.map(({ id, Icon }) => {
+                              const active = device === id;
+                              return (
+                                <button
+                                  key={id}
+                                  type="button"
+                                  aria-pressed={active}
+                                  disabled={busy}
+                                  onClick={() => handleDeviceChange(id)}
+                                  className={`flex items-center justify-center gap-1.5 rounded-lg px-2 py-2.5 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                                    active
+                                      ? "bg-violet-500/25 text-white ring-1 ring-violet-400/50"
+                                      : "text-zinc-400 hover:bg-white/5 hover:text-zinc-200"
+                                  }`}
+                                >
+                                  <Icon className="h-4 w-4" />
+                                  {tDevices(id)}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </fieldset>
+
+                        <p
+                          className="mt-2.5 text-xs leading-relaxed text-zinc-400"
+                          aria-live="polite"
+                        >
+                          {sizeDetecting
+                            ? t("detectingDevice")
+                            : customSize
+                              ? `${t("customSize")} · ${customSize.width} × ${customSize.height} px`
+                              : sizeMode === "auto" && autoSelection
+                                ? `${t("recommendedForScreen")} · ${autoSelection.preset.width} × ${autoSelection.preset.height} px${
+                                    autoSelection.exactMatch
+                                      ? ""
+                                      : ` — ${t("approximateMatch")}`
+                                  }`
+                                : t("autoDeviceHint")}
+                        </p>
+                        {sizeNotice ? (
+                          <p className="mt-1 text-xs text-violet-300">
+                            {sizeNotice}
+                          </p>
+                        ) : null}
+
+                        {!customSize ? (
+                          <>
+                            <fieldset className="mt-5">
+                              <legend className="mb-3 text-sm font-medium text-zinc-300">
+                                {t("ratioLegend")}
+                              </legend>
+                              <div className="flex flex-wrap gap-2">
+                                {ASPECT_RATIOS.filter(({ id }) =>
+                                  DEVICE_ALLOWED_RATIOS[device].includes(id),
+                                ).map(({ id, label }) => {
+                                  const active = ratio === id;
+                                  return (
+                                    <button
+                                      key={id}
+                                      type="button"
+                                      aria-pressed={active}
+                                      disabled={busy}
+                                      onClick={() => handleRatioChange(id)}
+                                      className={`rounded-full border px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                                        active
+                                          ? "border-violet-400/70 bg-violet-500/20 text-white shadow-[0_0_18px_rgba(139,92,246,0.35)]"
+                                          : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/25 hover:text-zinc-100"
+                                      }`}
+                                    >
+                                      {label}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </fieldset>
+
+                            <fieldset className="mt-5">
+                              <legend className="mb-3 text-sm font-medium text-zinc-300">
+                                {t("resolutionLegend")}
+                              </legend>
+                              <div className="flex flex-wrap gap-2">
+                                <button
+                                  type="button"
+                                  aria-pressed={presetId === null}
+                                  disabled={busy}
+                                  onClick={() => setPresetId(null)}
+                                  className={`rounded-full border px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                                    presetId === null
+                                      ? "border-violet-400/70 bg-violet-500/20 text-white shadow-[0_0_18px_rgba(139,92,246,0.35)]"
+                                      : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/25 hover:text-zinc-100"
+                                  }`}
+                                >
+                                  {t("modelDefault")}
+                                </button>
+                                {getSizePresetsForRatio(device, ratio).map(
+                                  (preset) => {
+                                    const active = presetId === preset.id;
+                                    return (
+                                      <button
+                                        key={preset.id}
+                                        type="button"
+                                        aria-pressed={active}
+                                        disabled={busy}
+                                        onClick={() =>
+                                          handlePresetSelect(preset)
+                                        }
+                                        className={`rounded-full border px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 ${
+                                          active
+                                            ? "border-violet-400/70 bg-violet-500/20 text-white shadow-[0_0_18px_rgba(139,92,246,0.35)]"
+                                            : "border-white/10 bg-white/5 text-zinc-400 hover:border-white/25 hover:text-zinc-100"
+                                        }`}
+                                      >
+                                        {presetLabel(preset)}
+                                      </button>
+                                    );
+                                  },
+                                )}
+                              </div>
+                              <p className="mt-2 text-xs text-zinc-500">
+                                {selectedPreset
+                                  ? t("presetSizeLine", {
+                                      label: presetLabel(selectedPreset),
+                                      width: selectedPreset.width,
+                                      height: selectedPreset.height,
+                                    })
+                                  : t("modelDefaultHint")}
+                              </p>
+                              <button
+                                type="button"
+                                disabled={busy}
+                                onClick={openCustomSize}
+                                className="mt-2 text-xs font-medium text-violet-300 underline-offset-4 transition enabled:hover:text-violet-200 enabled:hover:underline disabled:cursor-not-allowed disabled:opacity-50"
+                              >
+                                {t("customSize")}
+                              </button>
+                            </fieldset>
+                          </>
+                        ) : null}
+
+                        {customOpen || customSize ? (
+                          <fieldset className="mt-5 rounded-xl border border-white/10 bg-black/40 p-3.5">
+                            <legend className="px-1 text-sm font-medium text-zinc-300">
+                              {t("customSize")}
+                            </legend>
+                            <div className="mt-2 grid grid-cols-2 gap-2">
+                              <label className="block text-xs text-zinc-400">
+                                <span className="mb-1 block">
+                                  {t("customWidth")}
+                                </span>
+                                <input
+                                  type="number"
+                                  inputMode="numeric"
+                                  min={MIN_CUSTOM_DIMENSION}
+                                  max={MAX_CUSTOM_DIMENSION}
+                                  step={CUSTOM_DIMENSION_STEP}
+                                  value={customWidth}
+                                  disabled={busy}
+                                  onChange={(event) => {
+                                    setCustomWidth(event.target.value);
+                                    setCustomError(null);
+                                  }}
+                                  className="w-full rounded-lg border border-white/10 bg-black/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 disabled:opacity-60"
+                                />
+                              </label>
+                              <label className="block text-xs text-zinc-400">
+                                <span className="mb-1 block">
+                                  {t("customHeight")}
+                                </span>
+                                <input
+                                  type="number"
+                                  inputMode="numeric"
+                                  min={MIN_CUSTOM_DIMENSION}
+                                  max={MAX_CUSTOM_DIMENSION}
+                                  step={CUSTOM_DIMENSION_STEP}
+                                  value={customHeight}
+                                  disabled={busy}
+                                  onChange={(event) => {
+                                    setCustomHeight(event.target.value);
+                                    setCustomError(null);
+                                  }}
+                                  className="w-full rounded-lg border border-white/10 bg-black/50 px-3 py-2 text-sm text-zinc-100 outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 disabled:opacity-60"
+                                />
+                              </label>
+                            </div>
+                            <div className="mt-2 flex flex-wrap items-center gap-3 text-xs text-zinc-400">
+                              <span>
+                                {customWidth && customHeight
+                                  ? `${customWidth} × ${customHeight} px`
+                                  : "—"}
+                              </span>
+                              <button
+                                type="button"
+                                disabled={busy}
+                                onClick={swapCustomDimensions}
+                                className="text-violet-300 underline-offset-4 enabled:hover:underline disabled:opacity-50"
+                              >
+                                {t("customSwap")}
+                              </button>
+                            </div>
+                            <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+                              {t("customSizeHint")}
+                            </p>
+                            {customError ? (
+                              <p
+                                role="alert"
+                                className="mt-2 text-xs font-medium text-red-300"
+                              >
+                                {customError}
+                              </p>
+                            ) : null}
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              <button
+                                type="button"
+                                disabled={busy}
+                                onClick={applyCustomSize}
+                                className="rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-1.5 text-xs font-semibold text-white transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                              >
+                                {t("customApply")}
+                              </button>
+                              <button
+                                type="button"
+                                disabled={busy}
+                                onClick={resetCustomSize}
+                                className="rounded-full border border-white/10 px-4 py-1.5 text-xs text-zinc-300 transition enabled:hover:border-white/25 enabled:hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+                              >
+                                {t("customReset")}
+                              </button>
+                            </div>
+                          </fieldset>
+                        ) : null}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Reference image: collapsible group. The header shows whether
+                    an image is attached (filename) or that none is set yet. */}
+                  <div className="rounded-xl border border-white/10 bg-black/30">
+                    <button
+                      type="button"
+                      aria-expanded={refOpen}
+                      aria-controls="generator-reference-options"
+                      onClick={() => setRefOpen((value) => !value)}
+                      className="flex w-full items-center justify-between gap-3 rounded-xl px-4 py-3 text-left outline-none transition hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-violet-400/60"
+                    >
+                      <span className="flex min-w-0 flex-col gap-0.5">
+                        <span className="text-sm font-medium text-zinc-300">
+                          {t("referenceLegend")}{" "}
+                          <span className="font-normal text-zinc-500">
+                            {t("optional")}
+                          </span>
+                        </span>
+                        <span
+                          className={`truncate text-xs ${
+                            refImage ? "text-violet-300/90" : "text-zinc-500"
+                          }`}
+                        >
+                          {refImage ? refImage.name : t("refNoImage")}
+                        </span>
+                      </span>
+                      <ChevronDownIcon
+                        className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
+                          refOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {refOpen && (
+                      <div
+                        id="generator-reference-options"
+                        className="border-t border-white/10 px-4 pb-4 pt-4"
+                      >
+                        <p className="mb-3 rounded-lg border border-violet-400/20 bg-violet-500/[0.06] px-3 py-2 text-xs leading-relaxed text-violet-100/80">
+                          {t("subjectSceneHint")}
+                        </p>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/png,image/jpeg,image/webp"
+                          className="hidden"
+                          disabled={busy}
+                          onChange={(event) => {
+                            handleFile(event.target.files?.[0]);
+                            event.target.value = "";
+                          }}
+                        />
+                        {refError && (
+                          <p
+                            role="alert"
+                            className="mb-2 text-xs font-medium text-red-300"
+                          >
+                            {refError}
+                          </p>
+                        )}
+                        {refImage ? (
+                          <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-black/40 p-3">
+                            {/* eslint-disable-next-line @next/next/no-img-element -- local data URI preview */}
+                            <img
+                              src={refImage.url}
+                              alt={t("refPreviewAlt")}
+                              className="h-14 w-14 shrink-0 rounded-lg object-cover"
+                            />
+                            <div className="min-w-0 flex-1">
+                              <p className="truncate text-sm text-zinc-200">
+                                {refImage.name}
+                              </p>
+                              <p className="text-xs text-zinc-500">
+                                {t("refWillBeUsed")}
+                              </p>
+                            </div>
+                            <button
+                              type="button"
+                              disabled={busy}
+                              onClick={() => {
+                                setRefImage(null);
+                                setRefError(null);
+                              }}
+                              className="shrink-0 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-zinc-400 transition hover:border-white/25 hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50"
+                            >
+                              {t("remove")}
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => fileInputRef.current?.click()}
+                            onDragOver={(event) => {
+                              event.preventDefault();
+                              if (busy) return;
+                              setDragging(true);
+                            }}
+                            onDragLeave={() => setDragging(false)}
+                            onDrop={handleDrop}
+                            disabled={busy}
+                            className={`flex w-full flex-col items-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center transition disabled:cursor-not-allowed disabled:opacity-60 ${
+                              dragging
+                                ? "border-violet-400/70 bg-violet-500/10"
+                                : "border-white/15 bg-black/30 hover:border-white/30 hover:bg-white/[0.04]"
+                            }`}
+                          >
+                            <UploadIcon className="h-6 w-6 text-zinc-400" />
+                            <span className="text-sm font-medium text-zinc-200">
+                              {t("uploadTitle")}
+                            </span>
+                            <span className="text-xs text-zinc-500">
+                              {t("uploadFormats")}
+                            </span>
+                            <span className="text-xs text-zinc-600">
+                              {t("uploadHint")}
+                            </span>
+                          </button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Reference image: collapsible group. The header shows whether
-                an image is attached (filename) or that none is set yet. */}
-            <div className="mt-6 rounded-xl border border-white/10 bg-black/30">
+            <div className="order-5">
+              {/* FE04-A: paid feature without a wallet yet — the honest notice
+                    stands between the form and the trigger. No fake balance, no
+                    invented per-run price, no "free" promise. */}
+              {/* Runtime mode disclosure: mock results are never presented as
+                    model-generated artwork. Hidden once the result's own mock
+                    notice is visible. */}
+              {generationMode === "mock" && status !== "success" ? (
+                <p className="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-2.5 text-xs leading-relaxed text-amber-200">
+                  {t("mockModeNotice")}
+                </p>
+              ) : null}
+
+              <CreditsNotice
+                className="mt-6"
+                state={creditsNoticeState}
+                priceCredits={priceCredits}
+                balance={walletCredits}
+              />
+
               <button
                 type="button"
-                aria-expanded={refOpen}
-                aria-controls="generator-reference-options"
-                onClick={() => setRefOpen((value) => !value)}
-                className="flex w-full items-center justify-between gap-3 rounded-xl px-4 py-3 text-left outline-none transition hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-violet-400/60"
+                onClick={handleGenerate}
+                disabled={busy}
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:brightness-100"
               >
-                <span className="flex min-w-0 flex-col gap-0.5">
-                  <span className="text-sm font-medium text-zinc-300">
-                    {t("referenceLegend")}{" "}
-                    <span className="font-normal text-zinc-500">
-                      {t("optional")}
-                    </span>
-                  </span>
-                  <span
-                    className={`truncate text-xs ${
-                      refImage ? "text-violet-300/90" : "text-zinc-500"
-                    }`}
+                {status === "generating" ? (
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-5 w-5 animate-spin"
                   >
-                    {refImage ? refImage.name : t("refNoImage")}
-                  </span>
-                </span>
-                <ChevronDownIcon
-                  className={`h-4 w-4 shrink-0 text-zinc-500 transition-transform ${
-                    refOpen ? "rotate-180" : ""
-                  }`}
-                />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      className="opacity-25"
+                    />
+                    <path
+                      d="M22 12a10 10 0 0 0-10-10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                ) : (
+                  <SparklesIcon className="h-5 w-5" />
+                )}
+                {status === "generating" ? t("generating") : t("generate")}
               </button>
-              {refOpen && (
+
+              {status === "error" && errorMessage && (
                 <div
-                  id="generator-reference-options"
-                  className="border-t border-white/10 px-4 pb-4 pt-4"
+                  role="alert"
+                  className="animate-rise-in mt-4 flex items-start gap-3 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-100"
                 >
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/png,image/jpeg,image/webp"
-                    className="hidden"
-                    disabled={busy}
-                    onChange={(event) => {
-                      handleFile(event.target.files?.[0]);
-                      event.target.value = "";
-                    }}
-                  />
-                  {refError && (
-                    <p
-                      role="alert"
-                      className="mb-2 text-xs font-medium text-red-300"
-                    >
-                      {refError}
-                    </p>
-                  )}
-                  {refImage ? (
-                    <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-black/40 p-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element -- local data URI preview */}
-                      <img
-                        src={refImage.url}
-                        alt={t("refPreviewAlt")}
-                        className="h-14 w-14 shrink-0 rounded-lg object-cover"
-                      />
-                      <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm text-zinc-200">
-                          {refImage.name}
-                        </p>
-                        <p className="text-xs text-zinc-500">
-                          {t("refWillBeUsed")}
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        disabled={busy}
-                        onClick={() => {
-                          setRefImage(null);
-                          setRefError(null);
-                        }}
-                        className="shrink-0 rounded-lg border border-white/10 px-3 py-1.5 text-xs text-zinc-400 transition hover:border-white/25 hover:text-zinc-100 disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        {t("remove")}
-                      </button>
-                    </div>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => fileInputRef.current?.click()}
-                      onDragOver={(event) => {
-                        event.preventDefault();
-                        if (busy) return;
-                        setDragging(true);
-                      }}
-                      onDragLeave={() => setDragging(false)}
-                      onDrop={handleDrop}
-                      disabled={busy}
-                      className={`flex w-full flex-col items-center gap-2 rounded-xl border border-dashed px-4 py-8 text-center transition disabled:cursor-not-allowed disabled:opacity-60 ${
-                        dragging
-                          ? "border-violet-400/70 bg-violet-500/10"
-                          : "border-white/15 bg-black/30 hover:border-white/30 hover:bg-white/[0.04]"
-                      }`}
-                    >
-                      <UploadIcon className="h-6 w-6 text-zinc-400" />
-                      <span className="text-sm font-medium text-zinc-200">
-                        {t("uploadTitle")}
-                      </span>
-                      <span className="text-xs text-zinc-500">
-                        {t("uploadFormats")}
-                      </span>
-                      <span className="text-xs text-zinc-600">
-                        {t("uploadHint")}
-                      </span>
-                    </button>
-                  )}
+                  <InfoIcon className="mt-0.5 h-4 w-4 shrink-0" />
+                  {/* Retry starts a NEW generation request from the current
+                        form values — it never resumes the failed server-side
+                        attempt. handleGenerate's busy guard prevents double
+                        submits while a retry is in flight. */}
+                  <p className="min-w-0 flex-1">{errorMessage}</p>
+                  <button
+                    type="button"
+                    onClick={handleGenerate}
+                    className="shrink-0 rounded-full border border-red-400/40 bg-red-500/15 px-3 py-1 text-xs font-medium text-red-100 transition hover:bg-red-500/25"
+                  >
+                    {t("tryAgain")}
+                  </button>
                 </div>
               )}
             </div>
-
-            <button
-              type="button"
-              onClick={handleGenerate}
-              disabled={busy}
-              className="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:brightness-100"
-            >
-              {status === "generating" ? (
-                <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 animate-spin">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" className="opacity-25" />
-                  <path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                </svg>
-              ) : (
-                <SparklesIcon className="h-5 w-5" />
-              )}
-              {status === "generating" ? t("generating") : t("generate")}
-            </button>
-
-            {status === "error" && errorMessage && (
-              <div
-                role="alert"
-                className="animate-rise-in mt-4 flex items-start gap-3 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-100"
-              >
-                <InfoIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                {/* Retry starts a NEW generation request from the current
-                    form values — it never resumes the failed server-side
-                    attempt. handleGenerate's busy guard prevents double
-                    submits while a retry is in flight. */}
-                <p className="min-w-0 flex-1">{errorMessage}</p>
-                <button
-                  type="button"
-                  onClick={handleGenerate}
-                  className="shrink-0 rounded-full border border-red-400/40 bg-red-500/15 px-3 py-1 text-xs font-medium text-red-100 transition hover:bg-red-500/25"
-                >
-                  {t("tryAgain")}
-                </button>
-              </div>
-            )}
           </div>
 
           {/* Device preview */}
-          <div className="flex flex-col items-center lg:sticky lg:top-28">
+          <div className="flex w-full min-w-0 flex-col items-center lg:sticky lg:top-28">
             <div
               ref={previewFrameRef}
-              className={`relative rounded-[1.75rem] border border-white/15 bg-black p-1.5 shadow-2xl shadow-violet-950/40 transition-all duration-300 ${DEVICE_WIDTH[device]} ${RATIO_ASPECT[ratio]}`}
+              className={`relative rounded-[1.75rem] border border-white/15 bg-black p-1.5 shadow-2xl shadow-violet-950/40 transition-all duration-300 ${DEVICE_WIDTH[device]} ${
+                customSize ? "" : RATIO_ASPECT[ratio]
+              }`}
+              style={
+                customSize
+                  ? {
+                      aspectRatio: `${customSize.width} / ${customSize.height}`,
+                    }
+                  : undefined
+              }
             >
               <div className="relative h-full w-full overflow-hidden rounded-[1.45rem]">
-                <WallpaperImage
-                  key={previewSrc}
-                  src={previewSrc}
-                  alt={
-                    resultImage
-                      ? t("previewAltGenerated")
-                      : t("previewAltSample", {
-                          style: selectedStyle
-                            ? tStyles(selectedStyle.id)
-                            : t("noStyle"),
-                        })
-                  }
-                  gradient={previewGradient}
-                  className="h-full w-full object-cover"
-                  onError={() => setPreviewImageFailed(true)}
-                />
-                {device === "phone" && (
+                {previewIsResult && resultImage ? (
+                  <WallpaperImage
+                    key={resultImage.url}
+                    src={resultImage.url}
+                    alt={t("previewAltGenerated")}
+                    gradient={previewGradient}
+                    className="h-full w-full object-contain"
+                    onError={() => setPreviewImageFailed(true)}
+                  />
+                ) : (
+                  <div
+                    className={`flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br ${previewGradient} px-5 text-center`}
+                    aria-label={t("previewEmptyTitle")}
+                  >
+                    <SparklesIcon className="h-6 w-6 text-white/70" />
+                    <p className="max-w-[22rem] text-base font-medium text-white/90">
+                      {t("previewEmptyTitle")}
+                    </p>
+                    <p className="max-w-[22rem] text-sm leading-relaxed text-white/65">
+                      {t("previewEmptyBody", {
+                        ratio: customSize
+                          ? `${customSize.width}:${customSize.height}`
+                          : ratio,
+                      })}
+                    </p>
+                  </div>
+                )}
+                {device === "phone" && previewIsResult && (
                   <div className="absolute left-1/2 top-2.5 h-1.5 w-10 -translate-x-1/2 rounded-full bg-black/70" />
                 )}
                 {/* Click-to-zoom on a finished result. Hidden while the
-                    preview itself failed — the Lightbox would only show the
-                    same gradient fallback. */}
+                        preview itself failed — the Lightbox would only show the
+                        same gradient fallback. */}
                 {resultImage && !busy && !previewImageFailed && (
                   <button
                     type="button"
@@ -1596,13 +2320,13 @@ export default function GeneratorSection({
               </div>
             </div>
             {/* role="status": a polite live region so assistive tech hears
-                the generating → success/error transitions (failures are also
-                announced by the banner's role="alert"). Every branch is
-                honest about what is on screen — including the previous
-                result after a failed new request. */}
+                    the generating → success/error transitions (failures are also
+                    announced by the banner's role="alert"). Every branch is
+                    honest about what is on screen — including the previous
+                    result after a failed new request. */}
             <p
               role="status"
-              className="mt-5 max-w-[16rem] text-center text-xs leading-relaxed text-zinc-500"
+              className="mt-5 max-w-[32rem] text-center text-sm leading-relaxed text-zinc-400"
             >
               {status === "generating"
                 ? longWait
@@ -1614,8 +2338,29 @@ export default function GeneratorSection({
                     ? t("statusSuccess")
                     : t("statusDemo")}
             </p>
+            {resultImage && status === "success" ? (
+              <p className="mt-1 max-w-[32rem] text-center text-xs leading-relaxed text-zinc-500">
+                {t("retentionNotice")}
+              </p>
+            ) : null}
+            {resultIsMock ? (
+              <p
+                role="status"
+                className="mt-2 max-w-[32rem] text-center text-sm font-medium text-amber-300"
+              >
+                {t("mockResultNote")}
+              </p>
+            ) : null}
+            <p className="mt-1 text-sm text-zinc-400">
+              {t("targetSize")}:{" "}
+              {customSize
+                ? `${customSize.width} × ${customSize.height} px`
+                : selectedPreset
+                  ? `${selectedPreset.width} × ${selectedPreset.height} px`
+                  : t("modelDefault")}
+            </p>
             {resultImage && previewImageFailed && (
-              <p className="mt-2 max-w-[18rem] text-center text-xs text-amber-300/90">
+              <p className="mt-2 max-w-[32rem] text-center text-sm text-amber-300/90">
                 {t("imageGoneNotice")}
               </p>
             )}
@@ -1639,8 +2384,8 @@ export default function GeneratorSection({
                   <HeartIcon filled={resultIsFavorite} className="h-4 w-4" />
                 </button>
                 {/* Hidden alongside the disabled Download button and the
-                    zoom overlay when the image URL is dead — never offer a
-                    link that is known to be broken. */}
+                        zoom overlay when the image URL is dead — never offer a
+                        link that is known to be broken. */}
                 {!previewImageFailed && (
                   <a
                     href={resultImage.url}
@@ -1688,6 +2433,11 @@ export default function GeneratorSection({
                 {resultSizeLabel ? ` · ${resultSizeLabel}` : ""}
               </p>
             )}
+            <p className="mt-1 text-center text-xs text-zinc-500">
+              {refImage
+                ? t("subjectAttached", { name: refImage.name })
+                : t("noSubject")}
+            </p>
           </div>
         </div>
 
@@ -1695,7 +2445,9 @@ export default function GeneratorSection({
             device only and are stored / cleared independently of each other. */}
         <div className="mt-14 border-t border-white/5 pt-8">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
-            <h3 className="text-sm font-medium text-zinc-300">{t("libraryTitle")}</h3>
+            <h3 className="text-sm font-medium text-zinc-300">
+              {t("libraryTitle")}
+            </h3>
             <Tabs
               ariaLabel={t("libraryTabsAria")}
               value={libraryTab}
@@ -1706,21 +2458,31 @@ export default function GeneratorSection({
                   <>
                     {t(tab.id === "favorites" ? "tabFavorites" : "tabHistory")}
                     <span className="text-[11px] text-zinc-500">
-                      {tab.id === "favorites" ? favorites.length : history.length}
+                      {tab.id === "favorites"
+                        ? favorites.length
+                        : history.length}
                     </span>
                   </>
                 ),
               }))}
             />
-            {libraryTab === "history" && history.length > 0 && (
-              <button
-                type="button"
-                onClick={handleClearHistory}
-                className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-zinc-500 transition hover:border-red-400/40 hover:text-red-200"
+            <div className="flex items-center gap-3">
+              <Link
+                href="/my-creations"
+                className="text-xs font-medium text-violet-300 underline-offset-4 transition hover:text-violet-200 hover:underline"
               >
-                {t("clearHistory")}
-              </button>
-            )}
+                {t("viewAllCreations")}
+              </Link>
+              {libraryTab === "history" && history.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleClearHistory}
+                  className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-zinc-500 transition hover:border-red-400/40 hover:text-red-200"
+                >
+                  {t("clearHistory")}
+                </button>
+              )}
+            </div>
           </div>
 
           {libraryNotice && (
@@ -1738,10 +2500,13 @@ export default function GeneratorSection({
 
           {libraryTab === "favorites" ? (
             favorites.length === 0 ? (
-              <EmptyState title={t("tabFavorites")} body={t("favoritesEmpty")} />
+              <EmptyState
+                title={t("tabFavorites")}
+                body={t("favoritesEmpty")}
+              />
             ) : (
               <ul className="flex gap-3 overflow-x-auto pb-2">
-                {favorites.map((entry) => {
+                {favorites.slice(0, 8).map((entry) => {
                   const style = entry.styleId
                     ? findStyle(entry.styleId)
                     : undefined;
@@ -1751,8 +2516,8 @@ export default function GeneratorSection({
                   return (
                     <li key={entry.id} className="w-44 shrink-0">
                       {/* Non-interactive card: download and unfavorite are
-                          independent buttons — no nesting, no accidental
-                          clicks, failed downloads keep the record. */}
+                              independent buttons — no nesting, no accidental
+                              clicks, failed downloads keep the record. */}
                       <div
                         title={entry.title}
                         className="relative w-full overflow-hidden rounded-xl border border-white/10 bg-black/40"
@@ -1782,9 +2547,14 @@ export default function GeneratorSection({
                         </span>
                         <DownloadIconButton
                           busy={downloadingIds.has(entry.id)}
-                          label={t("downloadEntryAria", {
-                            title: entry.title || tCommon("thisWallpaper"),
-                          })}
+                          disabled={favoriteDownloadRestricted(entry)}
+                          label={
+                            favoriteDownloadRestricted(entry)
+                              ? tDetail("downloadRestricted")
+                              : t("downloadEntryAria", {
+                                  title: entry.title || tCommon("thisWallpaper"),
+                                })
+                          }
                           className="absolute left-2 top-2 h-7 w-7"
                           iconClassName="h-3.5 w-3.5"
                           onDownload={() => handleDownloadFavorite(entry)}
@@ -1827,7 +2597,7 @@ export default function GeneratorSection({
             <EmptyState title={t("tabHistory")} body={t("historyEmpty")} />
           ) : (
             <ul className="flex gap-3 overflow-x-auto pb-2">
-              {history.map((entry) => {
+              {history.slice(0, 8).map((entry) => {
                 const style = entry.styleId
                   ? findStyle(entry.styleId)
                   : undefined;
@@ -1841,7 +2611,9 @@ export default function GeneratorSection({
                       title={entry.prompt}
                       aria-label={
                         entry.prompt
-                          ? t("reuseAria", { prompt: entry.prompt.slice(0, 60) })
+                          ? t("reuseAria", {
+                              prompt: entry.prompt.slice(0, 60),
+                            })
                           : t("reuseAriaPlain")
                       }
                       className="w-full overflow-hidden rounded-xl border border-white/10 bg-black/40 text-left transition hover:border-violet-400/40 disabled:cursor-not-allowed disabled:opacity-50"
@@ -1864,7 +2636,7 @@ export default function GeneratorSection({
                           onError={() => markThumbImageFailed(entry.id)}
                         />
                         {/* Visible affordance: the whole card restores this
-                            entry's settings into the editor. */}
+                                entry's settings into the editor. */}
                         <span className="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-medium text-violet-200 backdrop-blur">
                           {t("reuse")}
                         </span>
@@ -1933,6 +2705,23 @@ export default function GeneratorSection({
             : t("restoreConfirm")
         }
         destructive={pendingConfirm?.kind === "clear-history"}
+      />
+
+      {/* Generation review: parameters the request uses plus the credits
+          state. Confirm appears only when the backend verified the price;
+          otherwise closing is the only action and no request can be sent. */}
+      <GenerationConfirmDialog
+        open={confirmDialogOpen}
+        onClose={() => {
+          setConfirmDialogOpen(false);
+          setConfirmSummary(null);
+        }}
+        summary={confirmSummary}
+        priceCredits={priceCredits}
+        canConfirm={canSubmit}
+        creditsMessage={creditsBlockedMessage}
+        onConfirm={() => void submitGeneration()}
+        submitting={submitting}
       />
     </section>
   );

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-24",
+  "budgetUsd": 3,
+  "imageJobs": [
+    {
+      "id": "img-tablet-1",
+      "slug": "demo-007",
+      "width": 1080,
+      "height": 1440,
+      "prompt": "healing anime scenery wallpaper, a cozy countryside bakery on a warm afternoon, laundry swaying on a line, cat sleeping in a window box, lush green hills, soft golden light, slice-of-life anime background art, 3:4 tablet composition, no text"
+    },
+    {
+      "id": "img-tablet-2",
+      "slug": "demo-008",
+      "width": 1080,
+      "height": 1440,
+      "prompt": "enchanted fairy-tale forest wallpaper, giant ancient trees with glowing fireflies, a mossy path leading to a hidden crystal stream, volumetric god rays through the canopy, magical emerald and gold palette, painterly fantasy illustration, 3:4 tablet composition, no text"
+    },
+    {
+      "id": "img-tablet-3",
+      "slug": "demo-009",
+      "width": 1080,
+      "height": 1440,
+      "prompt": "delicate watercolor landscape wallpaper, rolling lavender fields under a soft morning mist, distant church spire, translucent washes of violet and sage green, visible paper grain, airy artistic whitespace, 3:4 tablet composition, no text"
+    },
+    {
+      "id": "img-tablet-4",
+      "slug": "demo-010",
+      "width": 1080,
+      "height": 1440,
+      "prompt": "chinese ink landscape wallpaper for tablets, towering karst peaks emerging from a sea of clouds, a lone fisherman on a bamboo raft, elegant monochrome ink with a single red sun, misty layers of depth, vertical scroll painting composition, no text, no seal"
+    },
+    {
+      "id": "img-tablet-5",
+      "slug": "demo-011",
+      "width": 1080,
+      "height": 1440,
+      "prompt": "polished 3D render wallpaper, a dreamy miniature floating island with a tiny pastel house, waterfall pouring into clouds, soft studio lighting, clay-like rounded materials, playful pastel palette, 3:4 tablet composition, no text"
+    },
+    {
+      "id": "img-tablet-6",
+      "slug": "demo-012",
+      "width": 1080,
+      "height": 1440,
+      "prompt": "underwater fantasy wallpaper, a majestic whale gliding above a glowing coral canyon, rays of sunlight piercing turquoise water, tiny bubbles, serene dreamlike mood, rich teal and gold palette, 3:4 tablet composition, no text"
+    },
+    {
+      "id": "img-desktop-1",
+      "slug": "demo-013",
+      "width": 1536,
+      "height": 864,
+      "prompt": "epic fantasy landscape wallpaper, a vast valley with floating islands and cascading waterfalls, a distant castle on a cliff, dramatic sunset clouds, birds in flight, cinematic scale, rich painted detail, 16:9 desktop composition, no text, no watermark"
+    },
+    {
+      "id": "img-desktop-2",
+      "slug": "demo-014",
+      "width": 1536,
+      "height": 864,
+      "prompt": "futuristic sci-fi city skyline wallpaper at dusk, sleek arcologies with sky bridges, flying vehicles with light trails, a giant ringed planet on the horizon, cool blue and warm orange contrast, cinematic matte painting, 16:9 desktop composition, no text"
+    },
+    {
+      "id": "img-desktop-3",
+      "slug": "demo-015",
+      "width": 1536,
+      "height": 864,
+      "prompt": "deep space nebula wallpaper, towering pillars of interstellar gas in teal and magenta, dense star fields, a distant spiral galaxy, astrophotography realism with subtle volumetric glow, 16:9 desktop composition, no text"
+    },
+    {
+      "id": "img-desktop-4",
+      "slug": "demo-016",
+      "width": 1536,
+      "height": 864,
+      "prompt": "aurora over snowy mountain peaks wallpaper, vivid green and violet ribbons above jagged alpine ridges, moonlit snowfield, crisp starry sky, mirrored alpine lake, photorealistic wide landscape, 16:9 desktop composition, no text"
+    },
+    {
+      "id": "img-desktop-5",
+      "slug": "demo-017",
+      "width": 1536,
+      "height": 864,
+      "prompt": "minimalist architecture wallpaper, a single curved white building against a vast empty gradient sky, strong geometric shadows, soft morning light, restrained palette of white sand and pale blue, large negative space, 16:9 desktop composition, no text"
+    },
+    {
+      "id": "img-desktop-6",
+      "slug": "demo-018",
+      "width": 1536,
+      "height": 864,
+      "prompt": "cyberpunk megacity night wallpaper, endless neon skyline in rain, elevated highways with streaming light, giant holographic koi swimming between towers, reflective wet surfaces, cinematic wide shot, magenta and cyan palette, 16:9 desktop composition, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-1",
+      "slug": "demo-022",
+      "width": 768,
+      "height": 1344,
+      "prompt": "anime wallpaper art, a young woman in a flowing indigo kimono standing beneath a blooming cherry tree at night, glowing paper lanterns, starry sky with soft nebula, dreamy violet and pink palette, delicate cel shading, serene expression, full figure composition with clear space at the top for a phone clock, tall vertical phone wallpaper, 9:16 lock-screen aspect, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-2",
+      "slug": "demo-023",
+      "width": 768,
+      "height": 1344,
+      "prompt": "cyberpunk phone wallpaper, rain-soaked neon street at night, towering holographic signs in magenta and cyan, reflections on wet asphalt, a lone figure with an umbrella seen from behind, cinematic depth of field, moody atmosphere, vertical composition with dark sky at the top, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-3",
+      "slug": "demo-024",
+      "width": 768,
+      "height": 1344,
+      "prompt": "bioluminescent jellyfish drifting through a deep blue abyss, translucent tentacles glowing teal and violet, tiny particles of marine snow, dark background ideal for a phone lock screen, vertical wallpaper, high detail macro photography style, no text"
+    },
+    {
+      "id": "img-phone-fix-4",
+      "slug": "demo-025",
+      "width": 768,
+      "height": 1344,
+      "prompt": "dreamy flower meadow wallpaper, soft pink and white poppies swaying under a pastel sunset gradient sky, bokeh light particles, gentle wind, romantic pastel palette, vertical phone composition, anime-inspired painterly style, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-5",
+      "slug": "demo-026",
+      "width": 768,
+      "height": 1344,
+      "prompt": "aurora borealis above a silent pine forest, emerald and violet light curtains reflected in a still mountain lake, crisp winter air, star-filled sky, tall vertical phone wallpaper, 9:16 lock-screen aspect, photorealistic landscape photography, no text"
+    },
+    {
+      "id": "img-phone-fix-6",
+      "slug": "demo-027",
+      "width": 768,
+      "height": 1344,
+      "prompt": "chinese ink painting style wallpaper, misty mountains and a calm river with a small wooden pavilion, elegant negative space, subtle gold accents, soft ink washes on rice paper texture, vertical composition with generous empty sky at the top, no text, no seal"
+    }
+  ],
+  "videoJobs": [
+    {
+      "id": "vid-phone-1",
+      "slug": "demo-019",
+      "aspectRatio": "9:16",
+      "durationSeconds": 5,
+      "firstFrame": "public/community-demo/images/demo-001.jpg",
+      "posterSource": "public/community-demo/images/demo-001.jpg",
+      "prompt": "gentle cinematic motion: cherry blossom petals drift slowly through the air, lantern light flickers softly, subtle slow camera push-in, hair and fabric sway lightly in the breeze, stars twinkle faintly, the woman stays still and serene, wallpaper composition preserved, no sudden movement, no cuts"
+    },
+    {
+      "id": "vid-tablet-1",
+      "slug": "demo-020",
+      "aspectRatio": "9:16",
+      "durationSeconds": 5,
+      "firstFrame": "public/community-demo/images/demo-003.jpg",
+      "posterSource": "public/community-demo/images/demo-003.jpg",
+      "prompt": "slow underwater motion: the jellyfish pulses gently and drifts upward, tentacles trail and undulate softly, marine snow particles drift, light rays shimmer, calm dreamlike pace, the creature keeps its shape, wallpaper composition preserved, no cuts, no distortion"
+    },
+    {
+      "id": "vid-desktop-1",
+      "slug": "demo-021",
+      "aspectRatio": "16:9",
+      "durationSeconds": 5,
+      "firstFrame": "public/community-demo/images/demo-018.jpg",
+      "posterSource": "public/community-demo/images/demo-018.jpg",
+      "prompt": "slow cinematic motion: rain falls steadily through neon light, holographic koi glide between towers, flying vehicles streak with light trails, neon signs flicker, reflections shimmer on wet streets, slow steady camera drift forward, wallpaper composition preserved, no cuts"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import {
   PRESET_WALLPAPERS,
   getRelatedWallpapers,
   getWallpaperBySlug,
+  isDownloadAllowed,
   styleCategoryOf,
 } from "@/lib/wallpapers";
 import {
@@ -21,6 +22,9 @@ import Header from "@/components/Header";
 import WallpaperDownloadButton from "@/components/WallpaperDownloadButton";
 import { WallpaperLinkCard } from "@/components/FeaturedWallpapers";
 import WallpaperImage from "@/components/WallpaperImage";
+import WallpaperDeviceBadge from "@/components/media/WallpaperDeviceBadge";
+import WallpaperDevicePreview from "@/components/media/WallpaperDevicePreview";
+import { formatAspectRatio } from "@/lib/media";
 
 /**
  * /wallpapers/[slug] — static detail page for one preset wallpaper.
@@ -56,7 +60,7 @@ export async function generateMetadata({
   if (!wallpaper) return {};
 
   // English source strings are the fallback policy for per-wallpaper copy;
-  // translations exist for all 39 presets today and are used when present.
+  // translations exist for every preset today and are used when present.
   const tWallpapers = await getTranslations("galleryWallpapers");
   const titleKey = `${wallpaper.id}.title`;
   const altKey = `${wallpaper.id}.alt`;
@@ -66,13 +70,20 @@ export async function generateMetadata({
   const description = tWallpapers.has(altKey)
     ? tWallpapers(altKey)
     : wallpaper.alt;
-  const seoTitle = `${title} — Free AI Wallpaper`;
+  const pending = !wallpaper.canPubliclyDisplay;
+  const seoTitle = pending
+    ? `${title} — Wallpaper · License Review`
+    : `${title} — Free Wallpaper`;
 
   const path = `/wallpapers/${wallpaper.id}`;
+  const image = wallpaper.image;
 
   return {
     title: seoTitle,
     description,
+    // Pending artwork must not be indexed or exposed through social cards
+    // while its display rights are unresolved.
+    ...(pending ? { robots: { index: false, follow: false } } : {}),
     alternates: {
       canonical: absoluteLocaleUrl(locale, path),
       languages: languageAlternates(path),
@@ -84,13 +95,13 @@ export async function generateMetadata({
       siteName: "WallHaze",
       title: seoTitle,
       description,
-      images: [{ url: wallpaper.image, alt: description }],
+      ...(image ? { images: [{ url: image, alt: description }] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      card: image ? "summary_large_image" : "summary",
       title: seoTitle,
       description,
-      images: [{ url: wallpaper.image, alt: description }],
+      ...(image ? { images: [{ url: image, alt: description }] } : {}),
     },
   };
 }
@@ -126,24 +137,39 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
     ? tGroups(category)
     : t("categoryFallback");
   const styleLabel = tStyles(wallpaper.styleId);
+  const ratioLabel = formatAspectRatio(wallpaper.width, wallpaper.height);
+  const portrait = wallpaper.height > wallpaper.width;
 
   const related = getRelatedWallpapers(wallpaper.id, 8);
+  const licenseLabel =
+    wallpaper.license === "self-authored"
+      ? t("selfAuthored")
+      : wallpaper.license === "verified"
+        ? t("licenseVerified")
+        : t("licenseBadge");
 
-  // JSON-LD ImageObject — only factual fields; no license/dimensions claims
-  // while the per-wallpaper license review is still pending.
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ImageObject",
-    name: title,
-    description,
-    contentUrl: wallpaper.image.startsWith("http")
-      ? wallpaper.image
-      : `${SITE_URL}${wallpaper.image}`,
-    url: absoluteLocaleUrl(locale, `/wallpapers/${wallpaper.id}`),
-    creditText: "WallHaze",
-    creator: { "@type": "Organization", name: "WallHaze" },
-    isAccessibleForFree: true,
-  };
+  // JSON-LD ImageObject is emitted only for a cleared, publicly displayable
+  // image. Pending pages must not leak a contentUrl to crawlers.
+  const jsonLd = wallpaper.image
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        name: title,
+        description,
+        contentUrl: wallpaper.image.startsWith("http")
+          ? wallpaper.image
+          : `${SITE_URL}${wallpaper.image}`,
+        url: absoluteLocaleUrl(locale, `/wallpapers/${wallpaper.id}`),
+        width: { "@type": "QuantitativeValue", value: wallpaper.width, unitCode: "E37" },
+        height: { "@type": "QuantitativeValue", value: wallpaper.height, unitCode: "E37" },
+        ...(wallpaper.source
+          ? {
+              creditText: wallpaper.source.author,
+              license: wallpaper.source.licenseUrl ?? wallpaper.source.license,
+            }
+          : {}),
+      }
+    : null;
 
   return (
     <div className="relative flex-1 overflow-x-clip">
@@ -170,18 +196,33 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
         </Link>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-14">
-          {/* Large artwork — fixed aspect box prevents layout shift; the
-              image is contained, never cropped. */}
-          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br shadow-2xl shadow-black/50 lg:sticky lg:top-28 lg:self-start">
-            <div className={`absolute inset-0 bg-gradient-to-br ${wallpaper.gradient} opacity-40`} />
-            <WallpaperImage
-              src={wallpaper.image}
-              alt={description}
-              gradient={wallpaper.gradient}
-              eager
-              priority
-              className="h-full w-full object-contain"
-            />
+          {/* The stage uses the file's real width/height, so a portrait
+              artwork is genuinely portrait — no 3:4 box, bars or crop. */}
+          <div className="flex w-full justify-center lg:sticky lg:top-28 lg:self-start">
+            <div
+              className={`relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50 ${
+                portrait ? "max-w-[26rem]" : ""
+              }`}
+              style={{ aspectRatio: `${wallpaper.width} / ${wallpaper.height}` }}
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${wallpaper.gradient} opacity-30`} />
+              {wallpaper.image ? (
+                <WallpaperImage
+                  src={wallpaper.image}
+                  alt={description}
+                  gradient={wallpaper.gradient}
+                  eager
+                  priority
+                  className="relative h-full w-full object-contain"
+                />
+              ) : (
+                <div className="relative flex h-full w-full items-center justify-center p-8">
+                  <p className="max-w-[18rem] text-center text-sm font-medium leading-relaxed text-amber-100/90">
+                    {t("imageRestricted")}
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
 
           <div>
@@ -204,6 +245,25 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                 </dt>
                 <dd className="text-zinc-200">{categoryLabel}</dd>
               </div>
+              <div className="flex gap-2">
+                <dt className="shrink-0 font-medium text-zinc-500">
+                  {t("dimensionsLabel")}
+                </dt>
+                <dd className="text-zinc-200">
+                  {wallpaper.width} × {wallpaper.height} · {ratioLabel}
+                </dd>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <dt className="shrink-0 font-medium text-zinc-500">
+                  {t("nativeDeviceLabel")}
+                </dt>
+                <dd>
+                  <WallpaperDeviceBadge
+                    devices={wallpaper.nativeDevices}
+                    ratio={ratioLabel}
+                  />
+                </dd>
+              </div>
             </dl>
 
             <p className="mt-6 leading-relaxed text-zinc-400">
@@ -211,8 +271,24 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
             </p>
 
             {/* Licensing: honest per-wallpaper status, never auto-approved. */}
-            <div className="mt-8 rounded-2xl border border-amber-400/20 bg-amber-950/20 p-4">
-              <p className="flex items-center gap-2 text-sm font-medium text-amber-200">
+            <div
+              className={`mt-8 rounded-2xl border p-4 ${
+                wallpaper.license === "verified"
+                  ? "border-emerald-400/20 bg-emerald-950/10"
+                  : wallpaper.license === "self-authored"
+                    ? "border-violet-400/20 bg-violet-950/10"
+                    : "border-amber-400/20 bg-amber-950/20"
+              }`}
+            >
+              <p
+                className={`flex items-center gap-2 text-sm font-medium ${
+                  wallpaper.license === "verified"
+                    ? "text-emerald-200"
+                    : wallpaper.license === "self-authored"
+                      ? "text-violet-200"
+                      : "text-amber-200"
+                }`}
+              >
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -226,23 +302,50 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                   <circle cx="12" cy="12" r="9" />
                   <path d="M12 8v4M12 16h.01" />
                 </svg>
-                {wallpaper.license === "verified"
-                  ? t("licenseVerified")
-                  : t("licenseBadge")}
+                {licenseLabel}
               </p>
-              {wallpaper.license !== "verified" && (
+              {wallpaper.license === "review-pending" && (
                 <p className="mt-2 text-xs leading-relaxed text-amber-200/70">
                   {t("licenseNotice")}
                 </p>
               )}
+              {wallpaper.source ? (
+                <p className="mt-2 text-xs leading-relaxed text-zinc-400">
+                  {t("sourceLabel")}:{" "}
+                  <a
+                    href={wallpaper.source.pageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-white/25 underline-offset-2 hover:text-white"
+                  >
+                    {wallpaper.source.title}
+                  </a>{" "}
+                  · {wallpaper.source.author} · {wallpaper.source.license}
+                </p>
+              ) : null}
             </div>
 
+            {isDownloadAllowed(wallpaper.license) ? (
+              <p className="mt-3 text-xs leading-relaxed text-zinc-500">
+                {t("downloadOriginalNote", {
+                  width: wallpaper.width,
+                  height: wallpaper.height,
+                })}
+              </p>
+            ) : null}
+
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <WallpaperDownloadButton
-                wallpaperId={wallpaper.id}
-                title={title}
-                image={wallpaper.image}
-              />
+              {isDownloadAllowed(wallpaper.license) && wallpaper.image ? (
+                <WallpaperDownloadButton
+                  wallpaperId={wallpaper.id}
+                  title={title}
+                  image={wallpaper.image}
+                />
+              ) : (
+                <p className="max-w-xs text-xs leading-relaxed text-amber-200/80">
+                  {t("downloadRestricted")}
+                </p>
+              )}
               <Link
                 href={`/studio?style=${wallpaper.styleId}`}
                 className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-zinc-100 backdrop-blur transition hover:border-white/35 hover:bg-white/10"
@@ -252,6 +355,15 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
             </div>
           </div>
         </div>
+
+        {wallpaper.image ? (
+          <WallpaperDevicePreview
+            image={wallpaper.image}
+            alt={description}
+            gradient={wallpaper.gradient}
+            nativeDevices={wallpaper.nativeDevices}
+          />
+        ) : null}
 
         {related.length > 0 && (
           <section className="mt-20 md:mt-28" aria-labelledby="related-heading">
@@ -273,6 +385,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                     ? tWallpapers(`${item.id}.alt`)
                     : item.alt}
                   styleLabel={tStyles(item.styleId)}
+                  reviewLabel={t("imageRestrictedShort")}
                   viewLabel={t("relatedCardAria", {
                     title: tWallpapers.has(`${item.id}.title`)
                       ? tWallpapers(`${item.id}.title`)
@@ -285,11 +398,13 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
         )}
       </main>
       <Footer />
-      <script
-        type="application/ld+json"
-        // Static JSON derived from validated static data — no user input.
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {jsonLd ? (
+        <script
+          type="application/ld+json"
+          // Static JSON derived from validated static data — no user input.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      ) : null}
     </div>
   );
 }

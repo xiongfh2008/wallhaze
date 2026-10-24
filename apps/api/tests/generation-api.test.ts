@@ -587,10 +587,10 @@ describe("GEN 3x — guard integration (status + copy + log outcome)", () => {
 });
 
 describe("GEN 4x — reference image pipeline", () => {
-  it("GEN-19: a valid PNG data URI routes to the EDIT endpoint with image_urls and the edit base instruction", async () => {
+  it("GEN-19: a valid PNG data URI routes to the EDIT endpoint with image_urls and subject-preservation instructions", async () => {
     const provider = happyProvider();
     const { app } = await buildTestApp({ provider });
-    // Reference-only (no prompt, no style) → EDIT_BASE_INSTRUCTION composes.
+    // Reference-only (no prompt, no style) → a neutral scene + subject rules.
     const res = await postGeneration(app, {
       device: "phone",
       refImage: PNG_DATA_URI,
@@ -599,9 +599,11 @@ describe("GEN 4x — reference image pipeline", () => {
     expect(provider.calls[0].endpoint).toBe(FAL_EDIT_ENDPOINT);
     const sent = provider.calls[0].payload;
     expect(sent.image_urls).toEqual([PNG_DATA_URI]);
-    expect(String(sent.prompt)).toBe(
-      "Transform the reference image into a wallpaper"
-    );
+    const prompt = String(sent.prompt);
+    expect(prompt).toContain("newly imagined wallpaper scene");
+    expect(prompt).toContain("reference photo as the main subject");
+    expect(prompt).toContain("Preserve its distinctive appearance");
+    expect(prompt).toContain("Vertical phone wallpaper composition");
     await app.close();
   });
 
@@ -887,10 +889,13 @@ describe("GEN 6x — limiter integration through the real pipeline", () => {
 
 describe("GEN 7x — network guard self-verification", () => {
   it("GEN-28: with NO injected fetch, an outbound attempt is blocked by the deny-all guard, recorded as unexpected, and the route maps it to 502 — proving the guard actually intercepts", async () => {
-    // Real provider (FAL_KEY set) but NO upstreamFetch → the provider falls
-    // back to globalThis.fetch, which setup.ts replaced with the deny-all
-    // recorder. The route must translate the guard rejection into 502.
-    const { app } = await buildTestApp({ env: { FAL_KEY: DUMMY_KEY } });
+    // Real provider (explicit live opt-in + FAL_KEY) but NO upstreamFetch →
+    // the provider falls back to globalThis.fetch, which setup.ts replaced
+    // with the deny-all recorder. The route must translate the guard
+    // rejection into 502.
+    const { app } = await buildTestApp({
+      env: { FAL_KEY: DUMMY_KEY, FAL_LIVE_ENABLED: "1" },
+    });
     const res = await postGeneration(app, legalBody());
     expect(res.statusCode).toBe(502);
     expect(res.json().error.message).toBe(
@@ -942,6 +947,20 @@ describe("GEN-27 (SKIPPED by default) — real 120-second AbortSignal.timeout", 
     expect(
       capture.generateLines().some((l) => l.outcome === "upstream:timeout")
     ).toBe(true);
+    await app.close();
+  });
+});
+
+describe('sync image route media-type guard', () => {
+  it('rejects video payloads on the synchronous image route', async () => {
+    const { app } = await buildTestApp({ provider: createMockProvider() });
+    const response = await postGeneration(app, {
+      mediaType: 'video',
+      prompt: 'a dreamy star field',
+      device: 'phone',
+    });
+    expect(response.statusCode).toBe(400);
+    expect(response.body).toContain('async job endpoint');
     await app.close();
   });
 });

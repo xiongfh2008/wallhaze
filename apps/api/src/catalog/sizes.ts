@@ -360,3 +360,45 @@ export function recommendPresetForScreen(
   }
   return { preset: chosen, exactMatch: true, screenWidth, screenHeight };
 }
+
+/* ---- Custom output sizes ----
+   The model schema confirms custom {width,height} objects but does not
+   document its pixel limits. These conservative bounds are mirrored by the
+   web UI (packages/contracts) and re-checked here — the client is never the
+   safety net. Pricing is unchanged: one generation costs the same Credits. */
+
+export const MIN_CUSTOM_DIMENSION = 512;
+export const MAX_CUSTOM_DIMENSION = 2048;
+export const CUSTOM_DIMENSION_STEP = 4;
+export const MAX_CUSTOM_AREA = MAX_CUSTOM_DIMENSION * MAX_CUSTOM_DIMENSION;
+
+export type CustomSizeCheck =
+  | { ok: true; width: number; height: number }
+  | { ok: false; reason: "not-integer" | "out-of-range" | "step" | "area" };
+
+/** Validates a custom output size against the shared conservative bounds. */
+export function validateCustomSize(width: unknown, height: unknown): CustomSizeCheck {
+  if (
+    typeof width !== "number" ||
+    typeof height !== "number" ||
+    !Number.isInteger(width) ||
+    !Number.isInteger(height)
+  ) {
+    return { ok: false, reason: "not-integer" };
+  }
+  if (
+    width < MIN_CUSTOM_DIMENSION ||
+    height < MIN_CUSTOM_DIMENSION ||
+    width > MAX_CUSTOM_DIMENSION ||
+    height > MAX_CUSTOM_DIMENSION
+  ) {
+    return { ok: false, reason: "out-of-range" };
+  }
+  if (width % CUSTOM_DIMENSION_STEP !== 0 || height % CUSTOM_DIMENSION_STEP !== 0) {
+    return { ok: false, reason: "step" };
+  }
+  if (width * height > MAX_CUSTOM_AREA) {
+    return { ok: false, reason: "area" };
+  }
+  return { ok: true, width, height };
+}

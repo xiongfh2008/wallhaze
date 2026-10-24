@@ -18,9 +18,8 @@ export const TEST_ORIGIN = "https://test.wallhaze.example";
 export const DUMMY_KEY = "test-dummy-not-a-real-key";
 export const PROMPT_MARKER = "SECRETPROMPTMARKER42";
 
-/** Mirrored from src/modules/generation/fal.endpoints.ts (kept in sync). */
-export const FAL_ENDPOINT = "https://fal.run/fal-ai/flux-2/klein/4b";
-export const FAL_EDIT_ENDPOINT = `${FAL_ENDPOINT}/edit`;
+/** Re-exported from production so the tests cannot drift from the real paths. */
+export { FAL_ENDPOINT, FAL_EDIT_ENDPOINT } from "../src/modules/generation/fal.endpoints.js";
 
 /** PNG magic bytes — the exact signature the validators/proxy check. */
 export const PNG_HEADER = new Uint8Array([

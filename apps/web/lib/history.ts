@@ -128,7 +128,12 @@ function isHistoryEntry(value: unknown): value is GenerationHistoryEntry {
   }
 
   if (!DEVICES.includes(entry.device as HistoryDevice)) return false;
-  if (typeof entry.imageUrl !== "string" || !entry.imageUrl.startsWith("https://")) {
+  // Absolute http(s) URLs only. http is permitted for local/test backends;
+  // the browser itself blocks mixed content in production.
+  if (
+    typeof entry.imageUrl !== "string" ||
+    !/^https?:\/\//i.test(entry.imageUrl)
+  ) {
     return false;
   }
 
@@ -247,4 +252,18 @@ export function clearGenerationHistory(): void {
   } catch {
     // Storage unavailable — nothing to clear.
   }
+}
+
+/**
+ * Removes a single local record by id (FE07). Persists the remaining list
+ * without touching any other entries. Returns false when the id is unknown
+ * or storage is unavailable — the caller never claims a cloud deletion.
+ */
+export function removeGenerationHistoryEntry(id: string): boolean {
+  const storage = getStorage();
+  if (!storage) return false;
+  const entries = readEntries(storage);
+  const next = entries.filter((entry) => entry.id !== id);
+  if (next.length === entries.length) return false;
+  return writeEntries(storage, next);
 }

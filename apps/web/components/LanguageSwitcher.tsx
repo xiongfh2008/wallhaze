@@ -65,8 +65,14 @@ function CheckIcon({ className = "" }: { className?: string }) {
  */
 export default function LanguageSwitcher({
   className = "",
+  triggerClassName,
+  onSwitch,
 }: {
   className?: string;
+  /** Override the trigger padding when it needs a larger touch target. */
+  triggerClassName?: string;
+  /** Called before navigation (e.g. to close the mobile panel). */
+  onSwitch?: () => void;
 }) {
   const locale = useLocale();
   const pathname = usePathname();
@@ -84,6 +90,7 @@ export default function LanguageSwitcher({
         // Storage unavailable — the switch still happens, only the generator
         // state is not carried over.
       }
+      onSwitch?.();
       router.replace(pathname, { locale: next });
     }
   };
@@ -101,7 +108,9 @@ export default function LanguageSwitcher({
             <ChevronIcon className="h-3.5 w-3.5" />
           </span>
         }
-        triggerClassName="flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-xs font-medium text-zinc-300 transition hover:border-white/25 hover:text-white"
+        triggerClassName={`flex items-center gap-1.5 rounded-full border border-white/10 bg-black/30 font-medium text-zinc-300 transition hover:border-white/25 hover:text-white ${
+          triggerClassName ?? "px-3 py-1.5 text-xs"
+        }`}
       >
         {(close) => (
           <>
@@ -117,7 +126,7 @@ export default function LanguageSwitcher({
                     switchTo(id);
                     close();
                   }}
-                  className={`flex w-full items-center justify-between gap-2 px-4 py-2 text-left text-sm outline-none transition focus-visible:bg-white/10 ${
+                  className={`flex w-full items-center justify-between gap-2 px-4 py-3 text-left text-sm outline-none transition focus-visible:bg-white/10 ${
                     active
                       ? "bg-violet-500/15 text-white"
                       : "text-zinc-400 hover:bg-white/5 hover:text-white"

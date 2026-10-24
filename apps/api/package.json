@@ -8,17 +8,26 @@
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc -p tsconfig.build.json",
+    "worker": "node --import tsx src/worker.ts",
+    "ops": "node --import tsx src/ops.ts",
+    "stop": "node scripts/stop.mjs",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
     "start": "node --import tsx src/server.ts",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "waffo:check": "node --import tsx src/payments/waffo-setup.ts --check",
+    "waffo:setup": "node --import tsx src/payments/waffo-setup.ts"
   },
   "dependencies": {
+    "@electric-sql/pglite": "0.5.11",
+    "@waffo/pancake-ts": "^0.26.0",
     "fastify": "^5.6.0",
+    "pg": "8.23.1",
     "zod": "^4.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "8.23.1",
     "tsx": "^4.20.0",
     "typescript": "^5",
     "vitest": "4.1.12"

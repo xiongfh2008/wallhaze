@@ -1,0 +1,135 @@
+{
+  "startedAt": "2026-10-24T08:10:25.100Z",
+  "budgetUsd": 3,
+  "previousSpendUsd": 0.5668,
+  "plannedCostUsd": 0.030966,
+  "requests": [
+    {
+      "at": "2026-10-24T08:10:30.037Z",
+      "jobId": "img-phone-fix-1",
+      "kind": "image",
+      "endpoint": "/fal-ai/flux-2/klein/4b",
+      "falRequestId": "01a16cf6-0528-77b2-873c-9c19364e6e0a",
+      "estimatedCostUsd": 0.005161,
+      "spendAfterUsd": 0.571987
+    },
+    {
+      "at": "2026-10-24T08:10:34.246Z",
+      "jobId": "img-phone-fix-2",
+      "kind": "image",
+      "endpoint": "/fal-ai/flux-2/klein/4b",
+      "falRequestId": "01a16cf6-15dd-7523-99c4-542c0c8eec55",
+      "estimatedCostUsd": 0.005161,
+      "spendAfterUsd": 0.577148
+    },
+    {
+      "at": "2026-10-24T08:10:37.806Z",
+      "jobId": "img-phone-fix-3",
+      "kind": "image",
+      "endpoint": "/fal-ai/flux-2/klein/4b",
+      "falRequestId": "01a16cf6-263f-7bc0-9f56-37aa3ade7342",
+      "estimatedCostUsd": 0.005161,
+      "spendAfterUsd": 0.582309
+    },
+    {
+      "at": "2026-10-24T08:10:41.956Z",
+      "jobId": "img-phone-fix-4",
+      "kind": "image",
+      "endpoint": "/fal-ai/flux-2/klein/4b",
+      "falRequestId": "01a16cf6-3427-7ae1-b900-06749b68dddb",
+      "estimatedCostUsd": 0.005161,
+      "spendAfterUsd": 0.58747
+    },
+    {
+      "at": "2026-10-24T08:10:46.151Z",
+      "jobId": "img-phone-fix-5",
+      "kind": "image",
+      "endpoint": "/fal-ai/flux-2/klein/4b",
+      "falRequestId": "01a16cf6-4462-7c50-a8a6-633cd0e81acf",
+      "estimatedCostUsd": 0.005161,
+      "spendAfterUsd": 0.592631
+    },
+    {
+      "at": "2026-10-24T08:10:49.807Z",
+      "jobId": "img-phone-fix-6",
+      "kind": "image",
+      "endpoint": "/fal-ai/flux-2/klein/4b",
+      "falRequestId": "01a16cf6-54c0-70a0-b050-4b2545f13374",
+      "estimatedCostUsd": 0.005161,
+      "spendAfterUsd": 0.597792
+    }
+  ],
+  "outputs": [
+    {
+      "jobId": "img-phone-fix-1",
+      "kind": "image",
+      "publicPath": "/community-demo/images/demo-022.jpg",
+      "width": 768,
+      "height": 1344,
+      "bytes": 245316,
+      "sourceSha256": "88bbd0e998eab08e1fb88c95fea41ac3a5b92ca8bab263a80e478e5af1879ac3",
+      "falRequestId": "01a16cf6-0528-77b2-873c-9c19364e6e0a",
+      "prompt": "anime wallpaper art, a young woman in a flowing indigo kimono standing beneath a blooming cherry tree at night, glowing paper lanterns, starry sky with soft nebula, dreamy violet and pink palette, delicate cel shading, serene expression, full figure composition with clear space at the top for a phone clock, tall vertical phone wallpaper, 9:16 lock-screen aspect, no text, no watermark"
+    },
+    {
+      "jobId": "img-phone-fix-2",
+      "kind": "image",
+      "publicPath": "/community-demo/images/demo-023.jpg",
+      "width": 768,
+      "height": 1344,
+      "bytes": 265234,
+      "sourceSha256": "01fbe444c3527a870f43ed6f267791f5b8d8570aa413993044eb76e3736c28fd",
+      "falRequestId": "01a16cf6-15dd-7523-99c4-542c0c8eec55",
+      "prompt": "cyberpunk phone wallpaper, rain-soaked neon street at night, towering holographic signs in magenta and cyan, reflections on wet asphalt, a lone figure with an umbrella seen from behind, cinematic depth of field, moody atmosphere, vertical composition with dark sky at the top, no text, no watermark"
+    },
+    {
+      "jobId": "img-phone-fix-3",
+      "kind": "image",
+      "publicPath": "/community-demo/images/demo-024.jpg",
+      "width": 768,
+      "height": 1344,
+      "bytes": 97421,
+      "sourceSha256": "e201c4dffa582215a136f9609d7f65a860b8f5a31b68f1cefe28e54757e312a2",
+      "falRequestId": "01a16cf6-263f-7bc0-9f56-37aa3ade7342",
+      "prompt": "bioluminescent jellyfish drifting through a deep blue abyss, translucent tentacles glowing teal and violet, tiny particles of marine snow, dark background ideal for a phone lock screen, vertical wallpaper, high detail macro photography style, no text"
+    },
+    {
+      "jobId": "img-phone-fix-4",
+      "kind": "image",
+      "publicPath": "/community-demo/images/demo-025.jpg",
+      "width": 768,
+      "height": 1344,
+      "bytes": 120973,
+      "sourceSha256": "87c03ea1ae06c0be5cb277d9d540cd7d3df62c1be31d22073c48a7f99879ada4",
+      "falRequestId": "01a16cf6-3427-7ae1-b900-06749b68dddb",
+      "prompt": "dreamy flower meadow wallpaper, soft pink and white poppies swaying under a pastel sunset gradient sky, bokeh light particles, gentle wind, romantic pastel palette, vertical phone composition, anime-inspired painterly style, no text, no watermark"
+    },
+    {
+      "jobId": "img-phone-fix-5",
+      "kind": "image",
+      "publicPath": "/community-demo/images/demo-026.jpg",
+      "width": 768,
+      "height": 1344,
+      "bytes": 160206,
+      "sourceSha256": "86e3b32e1749b7b97090572c4a48e6fa9ceb2bc7dab91a2c4c4f0c2297e3274c",
+      "falRequestId": "01a16cf6-4462-7c50-a8a6-633cd0e81acf",
+      "prompt": "aurora borealis above a silent pine forest, emerald and violet light curtains reflected in a still mountain lake, crisp winter air, star-filled sky, tall vertical phone wallpaper, 9:16 lock-screen aspect, photorealistic landscape photography, no text"
+    },
+    {
+      "jobId": "img-phone-fix-6",
+      "kind": "image",
+      "publicPath": "/community-demo/images/demo-027.jpg",
+      "width": 768,
+      "height": 1344,
+      "bytes": 193823,
+      "sourceSha256": "d8155879735d54ab9047979f9af04bd7ebc4cae524d9e787ca1b7c7f806f8814",
+      "falRequestId": "01a16cf6-54c0-70a0-b050-4b2545f13374",
+      "prompt": "chinese ink painting style wallpaper, misty mountains and a calm river with a small wooden pavilion, elegant negative space, subtle gold accents, soft ink washes on rice paper texture, vertical composition with generous empty sky at the top, no text, no seal"
+    }
+  ],
+  "finishedAt": "2026-10-24T08:10:49.808Z",
+  "totalEstimatedSpendUsd": 0.5978,
+  "remainingBudgetUsd": 2.4022,
+  "completed": 6,
+  "failed": 0
+}

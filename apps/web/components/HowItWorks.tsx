@@ -26,22 +26,22 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="relative py-24 md:py-32">
+    <section id="how-it-works" className="relative py-12 md:py-14">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-14 max-w-2xl">
+        <div className="mb-10 max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-violet-300">
             {t("eyebrow")}
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
             {t("title")}
           </h2>
         </div>
 
-        <ol className="grid gap-10 md:grid-cols-3 md:gap-0 md:divide-x md:divide-white/10">
+        <ol className="grid gap-8 md:grid-cols-3 md:gap-0 md:divide-x md:divide-white/10">
           {STEPS.map(({ step, title, body }) => (
-            <li key={step} className="md:px-10 md:first:pl-0 md:last:pr-0">
+            <li key={step} className="md:px-8 md:first:pl-0 md:last:pr-0">
               <NumberBadge step={step} />
-              <h3 className="mt-5 text-lg font-semibold">{title}</h3>
+              <h3 className="mt-4 text-lg font-semibold">{title}</h3>
               <p className="mt-2 leading-relaxed text-zinc-400">{body}</p>
             </li>
           ))}

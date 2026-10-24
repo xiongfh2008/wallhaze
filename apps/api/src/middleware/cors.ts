@@ -27,8 +27,17 @@ export async function corsPlugin(
     if (!origin || !allowed.has(origin)) return;
     reply.header("Access-Control-Allow-Origin", origin);
     reply.header("Vary", "Origin");
+    // Session cookies travel with `credentials: "include"`; browsers reject
+    // the response without this header. Only exact allowlisted origins reach
+    // this branch — never a wildcard.
+    reply.header("Access-Control-Allow-Credentials", "true");
     reply.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    reply.header("Access-Control-Allow-Headers", "Content-Type, X-Request-Id");
+    // The web client sends the CSRF attestation and idempotency headers;
+    // omitting them makes every browser preflight fail.
+    reply.header(
+      "Access-Control-Allow-Headers",
+      "Content-Type, X-Request-Id, X-WallHaze-Client, Idempotency-Key"
+    );
     reply.header("Access-Control-Max-Age", "600");
   });
 

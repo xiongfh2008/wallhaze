@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "authors": [
+    {
+      "authorId": "demo-sample",
+      "name": "Demo Sample",
+      "nameKey": "community.demoAuthorName",
+      "bio": null,
+      "bioKey": null,
+      "avatarAsset": null,
+      "socialUrl": null,
+      "isDemo": true
+    }
+  ]
+}

@@ -35,10 +35,28 @@ export type StyleId =
   | "manga"
   | "mecha"
   | "ukiyo-e-anime"
-  | "cozy-anime";
+  | "cozy-anime"
+  | "anime-fantasy"
+  | "paper-cut"
+  | "clay-3d"
+  | "low-poly"
+  | "stained-glass"
+  | "vaporwave"
+  | "botanical-illustration"
+  | "chinese-ink"
+  | "starry-galaxy"
+  | "mountain-lake"
+  | "deep-ocean"
+  | "aurora-nights"
+  | "architecture-minimal"
+  | "macro-nature"
+  | "soft-gradient"
+  | "abstract-light"
+  | "3d-cartoon";
 
 /** Style family used for grouping (gallery filters, future browsing pages). */
 export type StyleCategory =
+  | "anime"
   | "sketch"
   | "painting"
   | "digital"
@@ -49,6 +67,18 @@ export type StyleCategory =
 
 export interface WallStyle {
   id: StyleId;
+  /** Stable URL-safe identifier (defaults to id). */
+  slug?: string;
+  /** Whether the style may be used for new generations. */
+  enabled?: boolean;
+  /** Template revision for reproducing a generated prompt. */
+  promptVersion?: number;
+  /** Optional explicit visual axes; resolved via style-meta defaults. */
+  palette?: string;
+  lighting?: string;
+  texture?: string;
+  composition?: string;
+  negativePrompt?: string;
   label: string;
   /** Optional style family for grouping (gallery filters, future pages). */
   category?: StyleCategory;
@@ -59,6 +89,13 @@ export interface WallStyle {
   gradient: string;
   /** Style descriptor appended to the user prompt for real AI generation. */
   promptTemplate: string;
+  /** Optional video-specific visual wording; motion guidance lives in
+   *  style-motion.ts so every style resolves safe, conservative movement. */
+  videoPromptTemplate?: string;
+  /** Explicit motion override for this style (optional). */
+  motionGuidance?: string;
+  /** Media kinds this style is offered for; omitted means both. */
+  supportedMediaTypes?: ("image" | "video")[];
 }
 
 /**
@@ -75,8 +112,8 @@ const PORTRAIT = "portrait_16_9";
 export const WALLPAPER_STYLES: WallStyle[] = [
   {
     id: "anime",
-    label: "Anime",
-    category: "digital",
+    label: "Anime Cinematic",
+    category: "anime",
     image: wallImage(
       "anime wallpaper art, girl in school uniform standing under glowing cherry blossoms at night, purple lantern light, dreamy violet sky, studio anime illustration, highly detailed",
       PORTRAIT
@@ -308,8 +345,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   /* ---- Anime sub-styles ---- */
   {
     id: "retro-cel",
-    label: "Retro Cel Anime",
-    category: "digital",
+    label: "Retro Anime",
+    category: "anime",
     image: "/images/styles/retro-cel.jpg",
     gradient: "from-orange-400 via-fuchsia-700 to-indigo-900",
     promptTemplate:
@@ -317,8 +354,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   },
   {
     id: "shoujo",
-    label: "Shoujo",
-    category: "digital",
+    label: "Shojo Romance",
+    category: "anime",
     image: "/images/styles/shoujo.jpg",
     gradient: "from-pink-400 via-rose-400 to-fuchsia-600",
     promptTemplate:
@@ -327,7 +364,7 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   {
     id: "shonen",
     label: "Shonen Action",
-    category: "digital",
+    category: "anime",
     image: "/images/styles/shonen.jpg",
     gradient: "from-orange-500 via-red-700 to-indigo-950",
     promptTemplate:
@@ -335,8 +372,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   },
   {
     id: "chibi",
-    label: "Chibi",
-    category: "digital",
+    label: "Chibi Kawaii",
+    category: "anime",
     image: "/images/styles/chibi.jpg",
     gradient: "from-sky-400 via-violet-500 to-fuchsia-600",
     promptTemplate:
@@ -345,7 +382,7 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   {
     id: "manga",
     label: "Manga",
-    category: "digital",
+    category: "anime",
     image: "/images/styles/manga.jpg",
     gradient: "from-zinc-300 via-zinc-600 to-zinc-900",
     promptTemplate:
@@ -353,8 +390,8 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   },
   {
     id: "mecha",
-    label: "Mecha",
-    category: "digital",
+    label: "Mecha Sci-Fi",
+    category: "anime",
     image: "/images/styles/mecha.jpg",
     gradient: "from-cyan-500 via-blue-800 to-slate-950",
     promptTemplate:
@@ -363,7 +400,7 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   {
     id: "ukiyo-e-anime",
     label: "Ukiyo-e Anime",
-    category: "digital",
+    category: "anime",
     image: "/images/styles/ukiyo-e-anime.jpg",
     gradient: "from-indigo-400 via-rose-500 to-stone-800",
     promptTemplate:
@@ -371,12 +408,156 @@ export const WALLPAPER_STYLES: WallStyle[] = [
   },
   {
     id: "cozy-anime",
-    label: "Cozy Anime",
-    category: "digital",
+    label: "Slice of Life",
+    category: "anime",
     image: "/images/styles/cozy-anime.jpg",
     gradient: "from-emerald-400 via-teal-500 to-sky-700",
     promptTemplate:
       "iyashikei cozy anime style, soothing slice-of-life scenery, warm gentle light, lush greenery, peaceful nostalgic atmosphere, soft colors, high-resolution wallpaper",
+  },
+  {
+    id: "anime-fantasy",
+    label: "Anime Fantasy",
+    category: "anime",
+    gradient: "from-sky-400 via-violet-600 to-fuchsia-950",
+    promptTemplate:
+      "anime fantasy adventure art, luminous magic, floating ruins and enchanted forests, expressive characters, painterly anime backgrounds, cinematic wonder, high-resolution wallpaper",
+  },
+  {
+    id: "paper-cut",
+    label: "Paper Cut Art",
+    category: "painting",
+    gradient: "from-amber-300 via-rose-400 to-stone-800",
+    promptTemplate:
+      "layered paper cut art, handcrafted paper textures, crisp cut edges, soft drop shadows, dimensional depth, high-resolution wallpaper",
+  },
+  {
+    id: "clay-3d",
+    label: "Clay 3D",
+    category: "digital",
+    gradient: "from-orange-300 via-pink-400 to-violet-700",
+    promptTemplate:
+      "soft clay 3D render, rounded handcrafted shapes, matte plasticine texture, gentle studio lighting, playful depth, high-resolution wallpaper",
+  },
+  {
+    id: "low-poly",
+    label: "Low Poly",
+    category: "digital",
+    gradient: "from-cyan-400 via-blue-600 to-slate-900",
+    promptTemplate:
+      "low poly 3D art, faceted geometric surfaces, flat-shaded polygons, minimalist composition, gradient lighting, high-resolution wallpaper",
+  },
+  {
+    id: "stained-glass",
+    label: "Stained Glass",
+    category: "painting",
+    gradient: "from-emerald-400 via-sky-600 to-indigo-900",
+    promptTemplate:
+      "stained glass window art, luminous colored glass panes, leaded outlines, cathedral light, rich jewel tones, high-resolution wallpaper",
+  },
+  {
+    id: "vaporwave",
+    label: "Vaporwave",
+    category: "digital",
+    gradient: "from-fuchsia-500 via-cyan-400 to-indigo-900",
+    promptTemplate:
+      "vaporwave aesthetic, neon pink and cyan gradients, retro grid horizon, chrome statues, 80s digital nostalgia, high-resolution wallpaper",
+  },
+  {
+    id: "botanical-illustration",
+    label: "Botanical Illustration",
+    category: "nature",
+    gradient: "from-lime-300 via-emerald-500 to-teal-800",
+    promptTemplate:
+      "vintage botanical illustration, precise ink linework, watercolor washes, herbarium plate composition, muted natural palette, high-resolution wallpaper",
+  },
+  {
+    id: "chinese-ink",
+    label: "Chinese Ink Painting",
+    category: "painting",
+    gradient: "from-stone-200 via-slate-500 to-slate-950",
+    promptTemplate:
+      "Chinese ink painting, flowing brushwork, misty mountains and water, elegant negative space, subtle ink washes on rice paper, poetic atmosphere, high-resolution wallpaper",
+  },
+  {
+    id: "3d-cartoon",
+    label: "3D Cartoon",
+    category: "digital",
+    gradient: "from-orange-300 via-pink-500 to-violet-800",
+    promptTemplate:
+      "stylized 3D cartoon art, appealing rounded character shapes, soft global illumination, playful proportions, clean studio render, expressive color, high-resolution wallpaper",
+  },
+  {
+    id: "starry-galaxy",
+    label: "Starry Galaxy",
+    category: "nature",
+    image: "/images/styles/starry-galaxy.jpg",
+    gradient: "from-indigo-700 via-blue-900 to-black",
+    promptTemplate:
+      "deep-space astrophotography, luminous nebula gas and dust lanes, dense star fields, cosmic scale, rich blue-green palette, high-resolution wallpaper",
+  },
+  {
+    id: "mountain-lake",
+    label: "Mountain Lake",
+    category: "nature",
+    image: "/images/styles/mountain-lake.jpg",
+    gradient: "from-slate-500 via-cyan-900 to-slate-950",
+    promptTemplate:
+      "photorealistic mountain lake at blue hour, mirror-calm reflection, dark forest ridge, moon glow, crisp air, layered atmospheric depth, high-resolution wallpaper",
+  },
+  {
+    id: "deep-ocean",
+    label: "Deep Ocean",
+    category: "nature",
+    image: "/images/styles/deep-ocean.jpg",
+    gradient: "from-cyan-700 via-blue-950 to-black",
+    promptTemplate:
+      "deep-sea photography, luminous jellyfish with translucent tentacles, drifting particles, soft volumetric light, abyssal blue water, high-resolution wallpaper",
+  },
+  {
+    id: "aurora-nights",
+    label: "Aurora Nights",
+    category: "nature",
+    image: "/images/styles/aurora-nights.jpg",
+    gradient: "from-emerald-500 via-teal-800 to-indigo-950",
+    promptTemplate:
+      "aurora borealis over a snow-covered arctic landscape, green and violet light curtains, star-filled sky, mirror water, crisp cold atmosphere, high-resolution wallpaper",
+  },
+  {
+    id: "architecture-minimal",
+    label: "Architecture Minimal",
+    category: "photography",
+    image: "/images/styles/architecture-minimal.jpg",
+    gradient: "from-stone-200 via-stone-500 to-stone-900",
+    promptTemplate:
+      "minimalist architecture and interior photography, clean geometric planes, soft daylight, matte surfaces, restrained palette, precise negative space, high-resolution wallpaper",
+  },
+  {
+    id: "macro-nature",
+    label: "Macro Nature",
+    category: "photography",
+    image: "/images/styles/macro-nature.jpg",
+    gradient: "from-lime-500 via-emerald-800 to-black",
+    promptTemplate:
+      "extreme macro nature photography, dew drops on a leaf, translucent highlights, shallow depth of field, fine organic detail, soft natural light, high-resolution wallpaper",
+  },
+  {
+    id: "soft-gradient",
+    label: "Soft Gradient",
+    category: "abstract",
+    image: "/images/styles/soft-gradient.jpg",
+    gradient: "from-pink-300 via-violet-500 to-indigo-900",
+    promptTemplate:
+      "soft gradient abstract wallpaper, layered translucent color fields, gentle glow, subtle film grain, calm minimal composition, high-resolution wallpaper",
+  },
+  {
+    id: "abstract-light",
+    label: "Abstract Light",
+    category: "digital",
+    image: "/images/styles/abstract-light.jpg",
+    gradient: "from-fuchsia-500 via-purple-700 to-cyan-800",
+    promptTemplate:
+      "abstract light art, flowing luminous ribbons on a deep dark background, prismatic color, soft bloom, fine grain, high-resolution wallpaper",
   },
 ];
 
@@ -428,7 +609,8 @@ export interface StyleGroup {
 }
 
 export const STYLE_GROUPS: readonly StyleGroup[] = [
-  { id: "digital", label: "Digital Art", description: "Anime, 3D renders, pixel art and concept styles" },
+  { id: "anime", label: "Anime & Manga", description: "Cinematic anime, shonen, shojo, chibi, mecha and more" },
+  { id: "digital", label: "Digital Art", description: "3D renders, pixel art and concept styles" },
   { id: "abstract", label: "Abstract & Minimal", description: "Gradients, shapes, dreams and surreal scenes" },
   { id: "sketch", label: "Sketch & Drawing", description: "Hand-drawn graphite, ink and charcoal looks" },
   { id: "painting", label: "Painting", description: "Watercolor, oil and painterly textures" },
@@ -444,7 +626,7 @@ export function getStylesByGroup(groupId: StyleCategory): WallStyle[] {
 
 /** One-line blurbs for the picker's preview card, keyed by style id. */
 export const STYLE_DESCRIPTIONS: Record<StyleId, string> = {
-  anime: "Clean line art and vibrant cel shading",
+  anime: "Cinematic anime framing and vibrant cel shading",
   cyberpunk: "Neon-soaked futuristic city nights",
   fantasy: "Epic magical worlds and glowing realms",
   nature: "Serene photorealistic landscapes",
@@ -481,4 +663,21 @@ export const STYLE_DESCRIPTIONS: Record<StyleId, string> = {
   mecha: "Colossal robots and mechanical epic scale",
   "ukiyo-e-anime": "Woodblock print elegance meets anime",
   "cozy-anime": "Soothing slice-of-life warmth",
+  "anime-fantasy": "Magical adventure with painterly anime worlds",
+  "paper-cut": "Layered paper textures with crisp cut edges",
+  "clay-3d": "Soft plasticine shapes and matte studio light",
+  "low-poly": "Faceted geometry and flat-shaded minimalism",
+  "stained-glass": "Luminous colored panes and leaded outlines",
+  "vaporwave": "Neon nostalgia and retro digital sunsets",
+  "botanical-illustration": "Precise ink and watercolor plant studies",
+  "chinese-ink": "Flowing brushwork, mist and poetic negative space",
+  "starry-galaxy": "Deep-space nebula and dense star fields",
+  "mountain-lake": "Mirror-calm mountain lake at blue hour",
+  "deep-ocean": "Luminous jellyfish in the abyssal dark",
+  "aurora-nights": "Green and violet aurora over arctic silence",
+  "architecture-minimal": "Quiet geometry in soft daylight",
+  "macro-nature": "Dew, veins and translucent macro detail",
+  "soft-gradient": "Layered color fields and gentle glow",
+  "abstract-light": "Flowing ribbons of prismatic light",
+  "3d-cartoon": "Rounded characterful 3D with soft studio light",
 };

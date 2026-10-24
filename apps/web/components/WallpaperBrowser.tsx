@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import {
   PRESET_WALLPAPERS,
+  isDownloadAllowed,
   styleCategoryOf,
   type PresetWallpaper,
 } from "@/lib/wallpapers";
@@ -35,6 +36,13 @@ import ToastStack, { type ToastItem } from "./ui/Toast";
 import Pagination from "./ui/Pagination";
 import ImageCard from "./ui/ImageCard";
 import { SearchIcon } from "./icons";
+import {
+  DEVICE_ORDER,
+  formatAspectRatio,
+  sortMediaForPreferredDevice,
+  type DeviceCategory,
+} from "@/lib/media";
+import { detectDeviceProfile, readScreenInfo } from "@/lib/studio/device";
 
 /* ---- Filter model ----
    One classification system, derived entirely from lib/styles.ts: the
@@ -46,7 +54,7 @@ type CategoryFilter = StyleCategory | "all";
 type SortId = "default" | "name";
 
 /** Cards revealed per "Load more" step. */
-const PAGE_SIZE = 12;
+const PAGE_SIZE = 60;
 
 /** Categories that actually contain presets, in STYLE_GROUPS order. */
 const CATEGORY_IDS: readonly CategoryFilter[] = [
@@ -79,7 +87,13 @@ const pushToast = (
  * category → style filtering, honest sort options, favorites and downloads
  — all over the static preset list, no backend and no AI calls.
  */
-export default function WallpaperBrowser() {
+export default function WallpaperBrowser({
+  deviceFilter,
+  onDeviceReset,
+}: {
+  deviceFilter: "all" | DeviceCategory;
+  onDeviceReset?: () => void;
+}) {
   const t = useTranslations("gallery");
   const tUi = useTranslations("ui");
   const tPagination = useTranslations("pagination");
@@ -87,10 +101,20 @@ export default function WallpaperBrowser() {
   const tWallpapers = useTranslations("galleryWallpapers");
   const tStyles = useTranslations("styleLabels");
   const tGroups = useTranslations("groupLabels");
+  const tDevices = useTranslations("devices");
 
   // Two-tier filter: category first, optional style refinement inside it.
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("all");
   const [activeStyle, setActiveStyle] = useState<StyleId | null>(null);
+  const [preferredDevice, setPreferredDevice] = useState<DeviceCategory | null>(null);
+  // Use the same viewport classification as the Studio; this only changes
+  // ordering when "All devices" is selected, never hides other work.
+  useEffect(() => {
+    const info = readScreenInfo();
+    const profile = info ? detectDeviceProfile(info) : null;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- browser facts after hydration
+    setPreferredDevice(profile?.device ?? null);
+  }, []);
   // Local search across title, style name and description. Purely client
   // side over the static preset list — no backend, no AI.
   const [query, setQuery] = useState("");
@@ -144,6 +168,12 @@ export default function WallpaperBrowser() {
       if (activeStyle && wallpaper.styleId !== activeStyle) {
         return false;
       }
+      if (
+        deviceFilter !== "all" &&
+        !wallpaper.nativeDevices.includes(deviceFilter)
+      ) {
+        return false;
+      }
       if (trimmed) {
         const haystack = [
           localizedTitle(wallpaper),
@@ -160,20 +190,44 @@ export default function WallpaperBrowser() {
       list = [...list].sort((a, b) =>
         localizedTitle(a).localeCompare(localizedTitle(b))
       );
+    } else if (deviceFilter === "all" && preferredDevice) {
+      list = sortMediaForPreferredDevice(list, preferredDevice);
     }
     return list;
     // eslint-disable-next-line react-hooks/exhaustive-deps -- localized* close over stable translation functions
-  }, [activeCategory, activeStyle, query, sort, tWallpapers, tStyles]);
+  }, [activeCategory, activeStyle, query, sort, deviceFilter, preferredDevice, tWallpapers, tStyles]);
 
   const shownWallpapers = visibleWallpapers.slice(0, visibleCount);
+  // Device sections use the file's primary native class. Groups are ordered so
+  // the current screen's format appears first, but every device stays visible.
+  const deviceOrder = preferredDevice
+    ? [preferredDevice, ...DEVICE_ORDER.filter((id) => id !== preferredDevice)]
+    : [...DEVICE_ORDER];
+  const deviceGroups = deviceOrder
+    .map((device) => ({
+      device,
+      items: shownWallpapers.filter(
+        (wallpaper) => wallpaper.nativeDevices[0] === device
+      ),
+    }))
+    .filter((group) => group.items.length > 0);
+  const gridClass: Record<DeviceCategory, string> = {
+    phone: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5",
+    tablet: "grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
+    desktop: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+  };
   const hasActiveFilters =
-    activeCategory !== "all" || activeStyle !== null || query.trim() !== "";
+    activeCategory !== "all" ||
+    activeStyle !== null ||
+    deviceFilter !== "all" ||
+    query.trim() !== "";
 
   const resetFilters = () => {
     setActiveCategory("all");
     setActiveStyle(null);
     setQuery("");
     setVisibleCount(PAGE_SIZE);
+    onDeviceReset?.();
   };
 
   const handleCategorySelect = (next: CategoryFilter) => {
@@ -188,11 +242,11 @@ export default function WallpaperBrowser() {
   // never the generator state and never an AI request.
   const handleToggleGalleryFavorite = (wallpaper: PresetWallpaper) => {
     const outcome = toggleFavorite({
-      key: favoriteKeyOf("gallery", wallpaper.id, wallpaper.image),
+      key: favoriteKeyOf("gallery", wallpaper.id, wallpaper.image ?? ""),
       source: "gallery",
       sourceId: wallpaper.id,
       title: localizedTitle(wallpaper),
-      imageUrl: wallpaper.image,
+      imageUrl: wallpaper.image ?? "",
       styleId: wallpaper.styleId,
       device: null,
     });
@@ -211,7 +265,7 @@ export default function WallpaperBrowser() {
   // the generator, favorites or navigation. The file name uses the preset's
   // internal id (URL-safe, stable), never the remote URL or its query string.
   const handleDownloadGalleryWallpaper = async (wallpaper: PresetWallpaper) => {
-    if (downloadingIds.has(wallpaper.id)) return;
+    if (!wallpaper.image || downloadingIds.has(wallpaper.id)) return;
     setDownloadingIds((current) => markDownloading(current, wallpaper.id));
     try {
       const outcome = await downloadImage({
@@ -400,8 +454,8 @@ export default function WallpaperBrowser() {
 
       {visibleWallpapers.length === 0 ? (
         <EmptyState
-          title={t("emptyTitle")}
-          body={t("emptyBody")}
+          title={deviceFilter === "all" ? t("emptyTitle") : t("noDeviceTitle")}
+          body={deviceFilter === "all" ? t("emptyBody") : t("noDeviceBody")}
           icon={<SearchIcon className="h-5 w-5" />}
           action={
             hasActiveFilters ? (
@@ -413,42 +467,80 @@ export default function WallpaperBrowser() {
         />
       ) : (
         <>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-            {shownWallpapers.map((wallpaper, index) => {
-              const favorited = favoriteKeys.has(
-                favoriteKeyOf("gallery", wallpaper.id, wallpaper.image)
-              );
-              return (
-                <ImageCard
-                  key={wallpaper.id}
-                  href={`/wallpapers/${wallpaper.id}`}
-                  image={wallpaper.image}
-                  gradient={wallpaper.gradient}
-                  alt={localizedAlt(wallpaper)}
-                  title={localizedTitle(wallpaper)}
-                  styleLabel={tStyles(wallpaper.styleId)}
-                  viewLabel={t("cardViewAria", {
-                    title: localizedTitle(wallpaper),
+          <div className="space-y-10">
+            {deviceGroups.map((group, groupIndex) => (
+              <section key={group.device} aria-labelledby={`device-${group.device}`}>
+                <div className="mb-3 flex items-baseline gap-2">
+                  <h3
+                    id={`device-${group.device}`}
+                    className="text-sm font-semibold text-zinc-200"
+                  >
+                    {tDevices(group.device)}
+                  </h3>
+                  <span className="text-xs text-zinc-500">
+                    {group.items.length}
+                  </span>
+                </div>
+                <div
+                  className={`grid items-start gap-4 md:gap-5 ${gridClass[group.device]}`}
+                >
+                  {group.items.map((wallpaper, index) => {
+                    const favorited = favoriteKeys.has(
+                      favoriteKeyOf(
+                        "gallery",
+                        wallpaper.id,
+                        wallpaper.image ?? ""
+                      )
+                    );
+                    return (
+                      <ImageCard
+                        key={wallpaper.id}
+                        href={`/wallpapers/${wallpaper.id}`}
+                        image={wallpaper.image ?? undefined}
+                        gradient={wallpaper.gradient}
+                        reviewLabel={t("reviewOnly")}
+                        alt={localizedAlt(wallpaper)}
+                        title={localizedTitle(wallpaper)}
+                        styleLabel={tStyles(wallpaper.styleId)}
+                        viewLabel={t("cardViewAria", {
+                          title: localizedTitle(wallpaper),
+                        })}
+                        downloadLabel={t("cardDownloadAria", {
+                          title: localizedTitle(wallpaper),
+                        })}
+                        downloading={downloadingIds.has(wallpaper.id)}
+                        onDownload={
+                          isDownloadAllowed(wallpaper.license)
+                            ? () => handleDownloadGalleryWallpaper(wallpaper)
+                            : undefined
+                        }
+                        favoriteLabel={t("cardFavoriteAria", {
+                          title: localizedTitle(wallpaper),
+                        })}
+                        unfavoriteLabel={t("cardUnfavoriteAria", {
+                          title: localizedTitle(wallpaper),
+                        })}
+                        favorited={favorited}
+                        onToggleFavorite={
+                          wallpaper.canPubliclyDisplay
+                            ? () => handleToggleGalleryFavorite(wallpaper)
+                            : undefined
+                        }
+                        priority={groupIndex === 0 && index < 4}
+                        aspectRatio={wallpaper.aspectRatio}
+                        devices={wallpaper.nativeDevices}
+                        ratioLabel={formatAspectRatio(
+                          wallpaper.width,
+                          wallpaper.height
+                        )}
+                        width={wallpaper.width}
+                        height={wallpaper.height}
+                      />
+                    );
                   })}
-                  downloadLabel={t("cardDownloadAria", {
-                    title: localizedTitle(wallpaper),
-                  })}
-                  downloading={downloadingIds.has(wallpaper.id)}
-                  onDownload={() => handleDownloadGalleryWallpaper(wallpaper)}
-                  favoriteLabel={t("cardFavoriteAria", {
-                    title: localizedTitle(wallpaper),
-                  })}
-                  unfavoriteLabel={t("cardUnfavoriteAria", {
-                    title: localizedTitle(wallpaper),
-                  })}
-                  favorited={favorited}
-                  onToggleFavorite={() =>
-                    handleToggleGalleryFavorite(wallpaper)
-                  }
-                  priority={index < 4}
-                />
-              );
-            })}
+                </div>
+              </section>
+            ))}
           </div>
 
           <Pagination

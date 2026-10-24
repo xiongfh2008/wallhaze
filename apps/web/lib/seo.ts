@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { routing, type Locale } from "@/i18n/routing";
 
 /**
@@ -52,4 +53,52 @@ export function languageAlternates(path: string): Record<string, string> {
   ]);
   entries.push(["x-default", absoluteLocaleUrl("en", path)]);
   return Object.fromEntries(entries);
+}
+
+interface PageMetadataOptions {
+  locale: string;
+  /** Locale-agnostic path, e.g. "/login". */
+  path: string;
+  title: string;
+  description: string;
+  /**
+   * True for account-private pages (login, account, credits…) and
+   * not-yet-reviewed legal drafts (privacy, terms): excluded from search
+   * indexes until they carry real, reviewable content.
+   */
+  noindex?: boolean;
+}
+
+/**
+ * Shared Metadata builder for the FE05+ pages — one place that keeps
+ * canonical/hreflang/OG consistent and applies noindex uniformly.
+ */
+export function pageMetadata({
+  locale,
+  path,
+  title,
+  description,
+  noindex = false,
+}: PageMetadataOptions): Metadata {
+  const canonical = absoluteLocaleUrl(
+    locale as Locale,
+    path
+  );
+  return {
+    title,
+    description,
+    ...(noindex ? { robots: { index: false, follow: false } } : {}),
+    alternates: {
+      canonical,
+      languages: languageAlternates(path),
+    },
+    openGraph: {
+      type: "website",
+      locale: OG_LOCALE[locale as Locale],
+      url: canonical,
+      siteName: "WallHaze",
+      title,
+      description,
+    },
+  };
 }

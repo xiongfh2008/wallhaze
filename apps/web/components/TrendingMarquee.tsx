@@ -1,35 +1,38 @@
 import { useTranslations } from "next-intl";
-import { DEMO_SAMPLE_IMAGE, HERO_IMAGE, POPULAR_STYLES } from "@/lib/styles";
+import { FEATURED_WALLPAPERS } from "@/lib/wallpapers";
+import { POPULAR_STYLES, WALLPAPER_STYLES } from "@/lib/styles";
 import WallpaperImage from "./WallpaperImage";
 
+/**
+ * A purely visual style band between the hero and the featured wallpapers.
+ * It only uses styles with a cleared preview image and avoids repeating an
+ * exact image used by the style navigation or featured grid. No
+ * "trending"/popularity claim is made.
+ */
 export default function TrendingMarquee() {
   const t = useTranslations("trending");
   const tStyles = useTranslations("styleLabels");
 
-  const ITEMS = [
-    ...POPULAR_STYLES.map((style) => ({
-      src: style.image,
+  const usedImages = new Set<string>(
+    [
+      ...POPULAR_STYLES.map((style) => style.image),
+      ...FEATURED_WALLPAPERS.map((wallpaper) => wallpaper.image),
+    ].filter((image): image is string => Boolean(image))
+  );
+  const ITEMS = WALLPAPER_STYLES.filter(
+    (style) => style.image && !usedImages.has(style.image)
+  )
+    .slice(0, 8)
+    .map((style) => ({
+      src: style.image as string,
       gradient: style.gradient,
-      // Brand/art names stay untranslated ("Nebula", "Haze"); style labels
-      // resolve through the styleLabels dictionary.
       label: tStyles(style.id),
-    })),
-    {
-      src: DEMO_SAMPLE_IMAGE,
-      gradient: "from-violet-500 via-purple-900 to-black",
-      label: "Nebula",
-    },
-    {
-      src: HERO_IMAGE,
-      gradient: "from-violet-950 via-purple-950 to-black",
-      label: "Haze",
-    },
-  ];
+    }));
 
   return (
     <section
       aria-label={t("aria")}
-      className="relative border-y border-white/5 bg-white/[0.02] py-10 md:py-12"
+      className="relative border-y border-white/5 bg-white/[0.02] py-8 md:py-10"
     >
       <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
         {t("title")}
@@ -43,10 +46,10 @@ export default function TrendingMarquee() {
               aria-hidden={copy === 1}
               className="flex gap-4 pr-4"
             >
-              {ITEMS.map((item, index) => (
+              {ITEMS.map((item) => (
                 <figure
-                  key={index}
-                  className="group/figure relative h-44 w-24 shrink-0 overflow-hidden rounded-xl border border-white/10 md:h-60 md:w-32"
+                  key={`${copy}-${item.label}`}
+                  className="group/figure relative h-40 w-24 shrink-0 overflow-hidden rounded-xl border border-white/10 md:h-56 md:w-32"
                 >
                   <WallpaperImage
                     src={item.src}

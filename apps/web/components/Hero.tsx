@@ -12,7 +12,7 @@ export default function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section id="top" className="relative flex min-h-[min(88svh,48rem)] items-center overflow-hidden">
       <div className="absolute inset-0">
         <WallpaperImage
           src={HERO_IMAGE}
@@ -23,11 +23,11 @@ export default function Hero() {
           className="animate-hero-zoom h-full w-full object-cover"
         />
         {/* Calm areas for text: darken left column and blend into the page below. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/25 to-[#050308]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#050308]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/35 to-transparent" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-24 pt-36 md:pb-32">
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-32 md:pb-24 md:pt-36">
         <p
           className="animate-fade-up mb-6 inline-flex items-center gap-3 text-xs font-medium uppercase tracking-[0.25em] text-violet-300"
           style={{ animationDelay: "100ms" }}
@@ -37,7 +37,7 @@ export default function Hero() {
         </p>
 
         <h1
-          className="animate-fade-up max-w-3xl text-5xl font-semibold leading-[1.04] tracking-tight md:text-7xl"
+          className="animate-fade-up max-w-3xl text-5xl font-semibold leading-[1.04] tracking-tight md:text-6xl lg:text-7xl"
           style={{ animationDelay: "220ms" }}
         >
           {t("titleLine1")}
@@ -48,14 +48,14 @@ export default function Hero() {
         </h1>
 
         <p
-          className="animate-fade-up mt-6 max-w-xl text-lg leading-relaxed text-zinc-300"
+          className="animate-fade-up mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300 md:text-xl"
           style={{ animationDelay: "360ms" }}
         >
           {t("subtitle")}
         </p>
 
         <div
-          className="animate-fade-up mt-10 flex flex-wrap items-center gap-4"
+          className="animate-fade-up mt-8 flex flex-wrap items-center gap-4"
           style={{ animationDelay: "500ms" }}
         >
           <Button href="/wallpapers" size="lg">
@@ -67,7 +67,7 @@ export default function Hero() {
         </div>
 
         <p
-          className="animate-fade-up mt-10 text-sm text-zinc-500"
+          className="animate-fade-up mt-8 text-sm text-zinc-400"
           style={{ animationDelay: "640ms" }}
         >
           {t("footnote")}

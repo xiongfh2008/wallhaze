@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import FooterYear from "./FooterYear";
 import PlaceholderLink from "./PlaceholderLink";
+import { submissionMailto } from "@/lib/community";
 
 function XIcon({ className = "" }: { className?: string }) {
   return (
@@ -41,8 +42,8 @@ interface FooterLink {
 
 /**
  * Global footer. Content-page destinations (FAQ, About, Contact, Privacy,
- * Terms) are implemented in a later phase — they render as restricted
- * entries that say so instead of dead links or fake pages.
+ * Terms) are real pages since FE09 — legal pages remain review drafts that
+ * are noindexed until effective.
  */
 export default function Footer() {
   const t = useTranslations("footer");
@@ -54,6 +55,8 @@ export default function Footer() {
       links: [
         { label: t("exploreGallery"), href: "/wallpapers" },
         { label: t("aiStudio"), href: "/studio" },
+        { label: t("community"), href: "/community" },
+        { label: t("submitWallpaper"), href: submissionMailto() },
         { label: t("popularStyles"), href: "/#styles" },
         { label: t("howItWorks"), href: "/#how-it-works" },
       ],
@@ -61,16 +64,16 @@ export default function Footer() {
     {
       title: t("company"),
       links: [
-        { label: t("faq"), href: null },
-        { label: t("about"), href: null },
-        { label: t("contact"), href: null },
+        { label: t("faq"), href: "/faq" },
+        { label: t("about"), href: "/about" },
+        { label: t("contact"), href: "/contact" },
       ],
     },
     {
       title: t("legal"),
       links: [
-        { label: t("privacy"), href: null },
-        { label: t("terms"), href: null },
+        { label: t("privacy"), href: "/privacy" },
+        { label: t("terms"), href: "/terms" },
       ],
     },
   ];
@@ -118,12 +121,21 @@ export default function Footer() {
                 {column.links.map((link) => (
                   <li key={link.label}>
                     {link.href ? (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-zinc-400 transition-colors hover:text-white"
-                      >
-                        {link.label}
-                      </Link>
+                      link.href.startsWith("mailto:") ? (
+                        <a
+                          href={link.href}
+                          className="text-sm text-zinc-400 transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-sm text-zinc-400 transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </Link>
+                      )
                     ) : (
                       <PlaceholderLink
                         className="text-sm text-zinc-400 transition-colors hover:text-white"

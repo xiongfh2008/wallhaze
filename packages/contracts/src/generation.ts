@@ -16,11 +16,88 @@
 
 export const PROMPT_MAX_LENGTH = 800;
 
+/** Custom output size bounds shared by the web UI and the API validator. */
+export const MIN_CUSTOM_DIMENSION = 512;
+export const MAX_CUSTOM_DIMENSION = 2048;
+/** Custom sides must be multiples of this (conservative model alignment). */
+export const CUSTOM_DIMENSION_STEP = 4;
+/** Hard cap on width x height for a custom size. */
+export const MAX_CUSTOM_AREA = MAX_CUSTOM_DIMENSION * MAX_CUSTOM_DIMENSION;
+
 export const DEVICE_IDS = ["phone", "tablet", "desktop"] as const;
 export type DeviceId = (typeof DEVICE_IDS)[number];
 
 export const ASPECT_RATIO_IDS = ["9:16", "3:4", "1:1", "4:3", "16:9"] as const;
 export type AspectRatioId = (typeof ASPECT_RATIO_IDS)[number];
+
+/** Media kinds supported by the unified generation job pipeline. */
+export const MEDIA_TYPES = ["image", "video"] as const;
+export type MediaType = (typeof MEDIA_TYPES)[number];
+
+/**
+ * Generation modes share one job/worker/wallet pipeline. `image_edit` is the
+ * existing reference-image image flow; the video modes are new.
+ */
+export const GENERATION_MODES = [
+  "text_to_image",
+  "image_edit",
+  "text_to_video",
+  "image_to_video",
+] as const;
+export type GenerationModeId = (typeof GENERATION_MODES)[number];
+
+/** Product video durations. A provider may expose a subset of these. */
+export const VIDEO_DURATION_SECONDS = [3, 4, 5] as const;
+export type VideoDurationSeconds = (typeof VIDEO_DURATION_SECONDS)[number];
+
+/** Video request for the async job endpoint (never the synchronous image route). */
+export interface VideoGenerationRequest {
+  mediaType: "video";
+  generationMode: "text_to_video" | "image_to_video";
+  /** Scene description for text-to-video, optional context for image-to-video. */
+  prompt?: string;
+  /** Motion instruction. The style's motion guidance is used when omitted. */
+  motionPrompt?: string;
+  styleId?: string;
+  device: DeviceId;
+  /**
+   * Video aspect ratios are limited by the provider. The backend rejects a
+   * ratio that is not in its advertised capability list.
+   */
+  aspectRatio?: AspectRatioId | null;
+  durationSeconds: VideoDurationSeconds;
+  /**
+   * Existing private image creation to animate (owned by the caller).
+   * Mutually exclusive with `refImage`.
+   */
+  sourceCreationId?: string;
+  /** Uploaded source image as a validated base64 data URI (image_to_video). */
+  refImage?: string;
+}
+
+/** Request accepted by POST /v1/generations/jobs. */
+export type GenerationJobRequest = GenerationRequest | VideoGenerationRequest;
+
+/** One video mode's live/mock capabilities, returned by /v1/credits/pricing. */
+export interface VideoModePricing {
+  durations: VideoDurationSeconds[];
+  aspectRatios: AspectRatioId[];
+  creditsByDuration: Partial<Record<VideoDurationSeconds, number>>;
+  costBoundMicrosByDuration: Partial<Record<VideoDurationSeconds, number>>;
+  resolution: string;
+  generateAudio: boolean;
+  provider: string;
+}
+
+export interface VideoPricing {
+  available: boolean;
+  mock: boolean;
+  modes: {
+    text_to_video: VideoModePricing;
+    image_to_video: VideoModePricing;
+  };
+}
+
 
 export interface GenerationRequest {
   /**
@@ -44,6 +121,13 @@ export interface GenerationRequest {
    * dimensions are never trusted.
    */
   sizePresetId?: string | null;
+  /**
+   * Optional custom output size in pixels. When both are set they override
+   * the preset/ratio mapping; the API enforces MIN/MAX, step alignment and
+   * MAX_CUSTOM_AREA. Mutually exclusive with sizePresetId.
+   */
+  width?: number;
+  height?: number;
   /**
    * Base64 data URI of the optional reference image (PNG/JPEG/WebP, ≤5 MB
    * decoded, magic bytes verified). Omitted entirely for text-to-image.

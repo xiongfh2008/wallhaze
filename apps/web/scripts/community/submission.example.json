@@ -1,0 +1,32 @@
+{
+  "slug": "example-work",
+  "title": "Example Work",
+  "description": "A short public description written by the creator or editor.",
+  "author": {
+    "authorId": "creator-example",
+    "name": "Creator Nickname",
+    "bio": "Optional public bio.",
+    "socialUrl": null,
+    "avatarFile": null
+  },
+  "mediaType": "image",
+  "styleId": "photography",
+  "deviceType": "tablet",
+  "sourceType": "original",
+  "sourceDescription": "Original photograph; no third-party characters or trademarks.",
+  "licenseType": "personal-use",
+  "licenseUrl": null,
+  "allowPublicDisplay": true,
+  "allowDownload": false,
+  "downloadLicense": "personal-use",
+  "downloadScope": "personal-use",
+  "downloadScopeNote": "Personal use only; no redistribution.",
+  "themeId": "dreamy-nightscapes",
+  "featured": false,
+  "contactEmail": "creator@example.com",
+  "licenseEvidenceReference": "Private evidence reference, stored outside public data.",
+  "mediaFile": "wallpaper.jpg",
+  "previewFile": null,
+  "posterFile": null,
+  "publishedAt": "2026-10-24T18:00:00.000Z"
+}

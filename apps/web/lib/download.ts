@@ -22,17 +22,18 @@
 export type DownloadResult = "downloaded" | "opened" | "failed";
 
 /** Whitelist — extensions are only ever derived from known image MIME types. */
-const KNOWN_IMAGE_EXTENSIONS: Record<string, string> = {
+const KNOWN_MEDIA_EXTENSIONS: Record<string, string> = {
   "image/png": "png",
   "image/jpeg": "jpg",
   "image/webp": "webp",
+  "video/mp4": "mp4",
 };
 
 /** Maps a MIME type to a safe file extension, or null when unknown. */
 function extensionForMime(mime: string | null | undefined): string | null {
   if (!mime) return null;
   const base = mime.split(";")[0].trim().toLowerCase();
-  return KNOWN_IMAGE_EXTENSIONS[base] ?? null;
+  return KNOWN_MEDIA_EXTENSIONS[base] ?? null;
 }
 
 /**

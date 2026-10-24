@@ -10,6 +10,7 @@
  */
 
 import type {
+  ApiErrorCode,
   GenerationRequest,
   GenerationResponse,
 } from "@wallhaze/contracts";
@@ -41,8 +42,24 @@ export type GenerateFailureReason =
   | "invalid";
 
 export type GenerateOutcome =
-  | ({ ok: true } & GenerationResponse)
-  | { ok: false; reason: GenerateFailureReason; message: string | null };
+  | ({ ok: true; mock?: boolean } & GenerationResponse)
+  | {
+      ok: false;
+      reason: GenerateFailureReason;
+      message: string | null;
+      /**
+       * Present on `http` failures: the backend's stable error code from
+       * the unified envelope — callers branch on this, never on message
+       * text. Null when the body was not parseable.
+       */
+      code?: ApiErrorCode | null;
+      /**
+       * Present on `http` failures: server-provided Retry-After in seconds
+       * (already ceil-rounded, null when absent). Display it verbatim —
+       * never invent a backoff value.
+       */
+      retryAfterSeconds?: number | null;
+    };
 
 /**
  * Requests one wallpaper generation from the standalone API. Resolves to a
@@ -65,7 +82,7 @@ export async function generateWallpaper(
     return {
       ok: false,
       // failure kinds map one-to-one onto GenerateFailureReason except
-      // "http", whose message (from the envelope) travels alongside.
+      // "http", whose envelope details travel alongside the message.
       reason:
         failure.kind === "http"
           ? "http"
@@ -74,6 +91,9 @@ export async function generateWallpaper(
               "http"
             >),
       message: failure.kind === "http" ? failure.message : null,
+      ...(failure.kind === "http"
+        ? { code: failure.code, retryAfterSeconds: failure.retryAfterSeconds }
+        : {}),
     };
   }
 

@@ -1,11 +1,14 @@
 import {
-  DEMO_SAMPLE_IMAGE,
-  HERO_IMAGE,
   WALLPAPER_STYLES,
   type StyleCategory,
   type StyleId,
   type WallStyle,
 } from "@/lib/styles";
+import {
+  aspectRatioValue,
+  nativeDevicesFor,
+  type DeviceCategory,
+} from "@/lib/media";
 
 /**
  * Static preset wallpapers for the Wallpaper Gallery.
@@ -24,13 +27,24 @@ import {
 /**
  * Licensing status of a static gallery wallpaper.
  *
- * NONE of the 39 preset artworks has had its copyright/commercial license
- * individually verified yet (recheck pending, 2026-10). Every entry therefore
- * defaults to "review-pending" and the UI must never present it as
- * "commercial-use allowed" or "reviewed" until a per-wallpaper audit flips
- * the flag explicitly.
+ * The original 39 preset artworks remain "review-pending" (no per-file
+ * license evidence). New additions are either "verified" CC0/public-domain
+ * photos with a traceable source, or explicitly "self-authored" procedural
+ * art. The UI must never present an unverified file as commercial-use ready.
  */
-export type WallpaperLicenseStatus = "review-pending" | "verified";
+export type WallpaperLicenseStatus =
+  | "review-pending"
+  | "verified"
+  | "self-authored";
+
+/** Traceable source for a licensed photo wallpaper. */
+export interface WallpaperSource {
+  title: string;
+  pageUrl: string;
+  author: string;
+  license: string;
+  licenseUrl: string | null;
+}
 
 /** A gallery entry as consumed by the UI — every field is resolved. */
 export interface PresetWallpaper {
@@ -39,12 +53,32 @@ export interface PresetWallpaper {
   title: string;
   /** References an existing entry of WALLPAPER_STYLES — never a new style. */
   styleId: StyleId;
-  image: string;
+  /**
+   * Public image URL, or null when the artwork is not cleared for public
+   * display. A null value is a hard UI signal: render a gradient placeholder,
+   * never fetch a hidden/legacy file.
+   */
+  image: string | null;
   /** Fallback gradient, taken from the linked style (single source of truth). */
   gradient: string;
   alt: string;
   /** Per-wallpaper licensing status. Defaults to "review-pending". */
   license: WallpaperLicenseStatus;
+  /** Server-publishable rights decision mirrored for the UI. */
+  reviewStatus: "pending" | "verified" | "restricted" | "rejected" | "removed";
+  /** True only when a cleared file may be shown publicly. */
+  canPubliclyDisplay: boolean;
+  /** True only when the cleared file may be offered as a download. */
+  canOfferDownload: boolean;
+  /** Present for licensed photo assets; absent for self-authored art. */
+  source?: WallpaperSource;
+  /** Static gallery media metadata, measured from the actual file. */
+  mediaType: "image";
+  width: number;
+  height: number;
+  aspectRatio: number;
+  /** Native device class derived from actual width/height; no fake variants. */
+  nativeDevices: DeviceCategory[];
 }
 
 /**
@@ -59,7 +93,68 @@ interface PresetWallpaperSeed {
   alt: string;
   imageOverride?: string;
   license?: WallpaperLicenseStatus;
+  source?: WallpaperSource;
 }
+
+const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "sakura-nights": { width: 768, height: 1368 },
+  "neon-rain": { width: 768, height: 1368 },
+  "floating-isles": { width: 768, height: 1368 },
+  "twilight-peaks": { width: 768, height: 1368 },
+  "violet-orb": { width: 768, height: 1368 },
+  "mirror-desert": { width: 768, height: 1368 },
+  "nebula-city": { width: 1368, height: 768 },
+  "astral-drift": { width: 768, height: 1368 },
+  "liquid-ribbons": { width: 576, height: 1024 },
+  "storm-ridge": { width: 576, height: 1024 },
+  "chrome-orbit": { width: 576, height: 1024 },
+  "haze-room": { width: 576, height: 1024 },
+  "ring-station": { width: 576, height: 1024 },
+  "dawn-lake": { width: 576, height: 1024 },
+  "graphite-valley": { width: 576, height: 1024 },
+  "charcoal-sea": { width: 576, height: 1024 },
+  "crane-pine": { width: 576, height: 1024 },
+  "bloom-wash": { width: 576, height: 1024 },
+  "impasto-night": { width: 576, height: 1024 },
+  "pixel-skyline": { width: 576, height: 1024 },
+  "neon-alley": { width: 576, height: 1024 },
+  "crimson-keep": { width: 576, height: 1024 },
+  "the-drifter": { width: 576, height: 1024 },
+  "the-unseen": { width: 576, height: 1024 },
+  "tape-07": { width: 576, height: 1024 },
+  "wrong-room": { width: 576, height: 1024 },
+  "melting-hour": { width: 576, height: 1024 },
+  "cursed-grove": { width: 576, height: 1024 },
+  "ash-highway": { width: 576, height: 1024 },
+  "after-class": { width: 576, height: 1024 },
+  "the-circle": { width: 576, height: 1024 },
+  "last-train": { width: 576, height: 1024 },
+  "petal-bloom": { width: 576, height: 1024 },
+  "ignition": { width: 576, height: 1024 },
+  "cloud-friends": { width: 576, height: 1024 },
+  "rooftop-duel": { width: 576, height: 1024 },
+  "hangar-rain": { width: 576, height: 1024 },
+  "great-wave": { width: 576, height: 1024 },
+  "sunset-cafe": { width: 576, height: 1024 },
+  "sakura-dream": { width: 1080, height: 1440 },
+  "galaxy-tide": { width: 1080, height: 1440 },
+  "stillwater-dawn": { width: 1080, height: 1440 },
+  "abyssal-bloom": { width: 1080, height: 1440 },
+  "aurora-veil": { width: 1080, height: 1440 },
+  "quiet-geometry": { width: 1080, height: 1440 },
+  "dewline": { width: 1080, height: 1440 },
+  "poppy-field": { width: 1080, height: 1440 },
+  "soft-horizon": { width: 1080, height: 1440 },
+  "nebula-drift": { width: 1920, height: 1080 },
+  "stillwater-night": { width: 1920, height: 1080 },
+  "hong-kong-rain": { width: 1920, height: 1080 },
+  "forest-rays": { width: 1920, height: 1080 },
+  "quiet-bridge": { width: 1920, height: 1080 },
+  "jellyfish-deep": { width: 1920, height: 1080 },
+  "sunset-platform": { width: 1920, height: 1080 },
+  "aurora-veil-wide": { width: 1920, height: 1080 },
+  "light-ribbons-wide": { width: 1920, height: 1080 },
+};
 
 const STYLE_BY_ID = new Map<StyleId, WallStyle>(
   WALLPAPER_STYLES.map((style): [StyleId, WallStyle] => [style.id, style])
@@ -67,13 +162,25 @@ const STYLE_BY_ID = new Map<StyleId, WallStyle>(
 
 function resolveWallpaper(seed: PresetWallpaperSeed): PresetWallpaper {
   const style = STYLE_BY_ID.get(seed.styleId);
-  const image = seed.imageOverride ?? style?.image;
-  if (!style || !image) {
-    // Fail fast at import time — styleId must exist in lib/styles.ts and the
-    // entry must resolve to a verified image (style artwork or an override).
+  if (!style) {
     throw new Error(
-      `[wallpapers] Seed "${seed.id}" has no resolvable verified image (styleId: ${seed.styleId}).`
+      `[wallpapers] Seed "${seed.id}" references unknown style "${seed.styleId}".`
     );
+  }
+  const license = seed.license ?? "review-pending";
+  const pending = license === "review-pending";
+  // A pending entry deliberately carries no image URL at all. That keeps
+  // legacy local paths and remote generator URLs out of the HTML/bundle even
+  // though the seed may still document them for the audit trail.
+  const image = pending ? null : (seed.imageOverride ?? style.image ?? null);
+  if (!pending && !image) {
+    throw new Error(
+      `[wallpapers] Seed "${seed.id}" has no resolvable cleared image (styleId: ${seed.styleId}).`
+    );
+  }
+  const dimensions = IMAGE_DIMENSIONS[seed.id];
+  if (!dimensions) {
+    throw new Error(`[wallpapers] Seed "${seed.id}" has no measured dimensions.`);
   }
   return {
     id: seed.id,
@@ -82,7 +189,16 @@ function resolveWallpaper(seed: PresetWallpaperSeed): PresetWallpaper {
     image,
     gradient: style.gradient,
     alt: seed.alt,
-    license: seed.license ?? "review-pending",
+    license,
+    reviewStatus: pending ? "pending" : "verified",
+    canPubliclyDisplay: !pending,
+    canOfferDownload: !pending,
+    ...(seed.source ? { source: seed.source } : {}),
+    mediaType: "image",
+    width: dimensions.width,
+    height: dimensions.height,
+    aspectRatio: aspectRatioValue(dimensions.width, dimensions.height),
+    nativeDevices: nativeDevicesFor(dimensions.width, dimensions.height),
   };
 }
 
@@ -128,14 +244,12 @@ const SEEDS = [
     title: "Nebula City",
     styleId: "sci-fi",
     alt: "Sci-fi wallpaper of a violet nebula sky above a futuristic city with glowing purple lights",
-    imageOverride: HERO_IMAGE,
   },
   {
     id: "astral-drift",
     title: "Astral Drift",
     styleId: "sci-fi",
     alt: "Sci-fi wallpaper of an astronaut floating in a glowing purple nebula surrounded by stars",
-    imageOverride: DEMO_SAMPLE_IMAGE,
   },
   {
     id: "liquid-ribbons",
@@ -323,6 +437,259 @@ const SEEDS = [
     styleId: "cozy-anime",
     alt: "Cozy anime wallpaper of a countryside cafe in warm sunset light",
   },
+  // Licensed/photographic tablet and desktop additions. Every source was
+  // checked as CC0 (or explicitly public domain) on Wikimedia Commons; the
+  // files are reproducible crops, never stretched variants.
+  {
+    id: "sakura-dream",
+    title: "Sakura Dream",
+    styleId: "cinematic",
+    alt: "Pink cherry blossoms against a soft blue sky",
+    imageOverride: "/images/wallpapers/sakura-dream.jpg",
+    license: "verified",
+    source: {
+          "title": "Cherry blossom against blue sky (Unsplash)",
+          "author": "indah nur indaheart",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Cherry_blossom_against_blue_sky_(Unsplash).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "galaxy-tide",
+    title: "Galaxy Tide",
+    styleId: "starry-galaxy",
+    alt: "Deep blue and green nebula clouds with dense star fields",
+    license: "verified",
+    source: {
+          "title": "Carina Nebula in Hubble Palette",
+          "author": "Dylan O'Donnell",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "stillwater-dawn",
+    title: "Stillwater Dawn",
+    styleId: "mountain-lake",
+    alt: "Moonlit mountain lake with mirrored reflections and a dark forest ridge",
+    license: "verified",
+    source: {
+          "title": "Mountain Lake at Night",
+          "author": "cweyant",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Mountain_Lake_at_Night_(30608832416).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "abyssal-bloom",
+    title: "Abyssal Bloom",
+    styleId: "deep-ocean",
+    alt: "Glowing orange lion's mane jellyfish drifting in deep blue water",
+    license: "verified",
+    source: {
+          "title": "Lion's mane jellyfish in Gullmarn fjord at Sämstad 3",
+          "author": "W.carter",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "aurora-veil",
+    title: "Aurora Veil",
+    styleId: "aurora-nights",
+    alt: "Green and pink aurora over a snowy mountain and calm fjord",
+    license: "verified",
+    source: {
+          "title": "Lofoten, Norway (Unsplash)",
+          "author": "Johannes Groll",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Lofoten,_Norway_(Unsplash).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "quiet-geometry",
+    title: "Quiet Geometry",
+    styleId: "architecture-minimal",
+    alt: "Minimal white interior with a black lamp, glass desk and architecture books",
+    license: "verified",
+    source: {
+          "title": "Minimalist office decor at 1540 7th St (Unsplash)",
+          "author": "Breather",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Minimalist_office_decor_at_1540_7th_St_(Unsplash).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "dewline",
+    title: "Dewline",
+    styleId: "macro-nature",
+    alt: "Macro photograph of dew drops beading along a bright green leaf",
+    license: "verified",
+    source: {
+          "title": "Dew on a thin leaf in macro (Unsplash)",
+          "author": "Jono Hislop",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Dew_on_a_thin_leaf_in_macro_(Unsplash).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "poppy-field",
+    title: "Poppy Field",
+    styleId: "photography",
+    alt: "Close-up of red poppies and white wildflowers in a summer meadow",
+    imageOverride: "/images/wallpapers/poppy-field.jpg",
+    license: "verified",
+    source: {
+          "title": "Poppy field, Oberauroff, detail",
+          "author": "Gerda Arendt",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Poppy_field,_Oberauroff,_detail.jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "soft-horizon",
+    title: "Soft Horizon",
+    styleId: "soft-gradient",
+    alt: "Soft violet and amber gradient horizon with a gentle glow",
+    license: "self-authored",
+  },
+  {
+    id: "nebula-drift",
+    title: "Nebula Drift",
+    styleId: "starry-galaxy",
+    imageOverride: "/images/wallpapers/nebula-drift.jpg",
+    alt: "Wide field of blue and emerald nebula clouds and stars in deep space",
+    license: "verified",
+    source: {
+          "title": "Carina Nebula in Hubble Palette",
+          "author": "Dylan O'Donnell",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "stillwater-night",
+    title: "Stillwater Night",
+    styleId: "mountain-lake",
+    imageOverride: "/images/wallpapers/stillwater-night.jpg",
+    alt: "Moonlit lake and forest silhouette under a deep blue night sky",
+    license: "verified",
+    source: {
+          "title": "Mountain Lake at Night",
+          "author": "cweyant",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Mountain_Lake_at_Night_(30557164961).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "hong-kong-rain",
+    title: "Neon District",
+    styleId: "cyberpunk",
+    imageOverride: "/images/wallpapers/hong-kong-rain.jpg",
+    alt: "Rainy Hong Kong street glowing with red, green and blue neon signs",
+    license: "verified",
+    source: {
+          "title": "Hong Kong in the night",
+          "author": "Wilfredor",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Hong_Kong_in_the_night.jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "forest-rays",
+    title: "Forest Cathedral",
+    styleId: "nature",
+    imageOverride: "/images/wallpapers/forest-rays.jpg",
+    alt: "Sun rays breaking through tall trees and morning mist",
+    license: "verified",
+    source: {
+          "title": "Sunrise breaking into the forest (Unsplash)",
+          "author": "Kristine Weilert",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunrise_breaking_into_the_forest_(Unsplash).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "quiet-bridge",
+    title: "Quiet Bridge",
+    styleId: "architecture-minimal",
+    imageOverride: "/images/wallpapers/quiet-bridge.jpg",
+    alt: "Illuminated pedestrian bridge reflected in dark water at night",
+    license: "verified",
+    source: {
+          "title": "Queens Bridge, Melbourne",
+          "author": "Bernard Spragg. NZ",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Queens_Bridge._Melbourne.Aust._(21793578980).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "jellyfish-deep",
+    title: "Jellyfish Deep",
+    styleId: "deep-ocean",
+    imageOverride: "/images/wallpapers/jellyfish-deep.jpg",
+    alt: "Lion's mane jellyfish trailing long tentacles in dark water",
+    license: "verified",
+    source: {
+          "title": "Lion's mane jellyfish in Gullmarn fjord at Sämstad 8",
+          "author": "W.carter",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_8.jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "sunset-platform",
+    title: "Sunset Platform",
+    styleId: "cinematic",
+    imageOverride: "/images/wallpapers/sunset-platform.jpg",
+    alt: "Empty railway platforms under a glowing orange sunset",
+    license: "verified",
+    source: {
+          "title": "Sunset Bruges station",
+          "author": "Antonio Borrillo",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Sunset_Bruges_station.JPG",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "aurora-veil-wide",
+    title: "Aurora Veil Wide",
+    styleId: "aurora-nights",
+    imageOverride: "/images/wallpapers/aurora-veil.jpg",
+    alt: "Green and purple aurora above a dark pine forest",
+    license: "verified",
+    source: {
+          "title": "Polar lights over dark trees (Unsplash)",
+          "author": "Vincent Guth",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Polar_lights_over_dark_trees_(Unsplash).jpg",
+          "license": "CC0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+  },
+  {
+    id: "light-ribbons-wide",
+    title: "Light Ribbons",
+    styleId: "abstract-light",
+    imageOverride: "/images/wallpapers/light-ribbons-wide.jpg",
+    alt: "Abstract ribbons of violet, cyan and amber light on a dark field",
+    license: "self-authored",
+  },
+
 ] satisfies readonly PresetWallpaperSeed[];
 
 export const PRESET_WALLPAPERS: PresetWallpaper[] = SEEDS.map(resolveWallpaper);
@@ -339,6 +706,11 @@ const STYLE_CATEGORY_OF = new Map<StyleId, StyleCategory>(
 /** Style family of a style id, or null for uncategorized styles. */
 export function styleCategoryOf(styleId: StyleId): StyleCategory | null {
   return STYLE_CATEGORY_OF.get(styleId) ?? null;
+}
+
+/** Only cleared/self-authored assets may be downloaded from the public UI. */
+export function isDownloadAllowed(license: WallpaperLicenseStatus): boolean {
+  return license !== "review-pending";
 }
 
 /** Detail-page lookup: stable slug === preset id. */
@@ -373,18 +745,18 @@ export function getRelatedWallpapers(
  * every style family, hand-picked for visual variety.
  */
 const FEATURED_WALLPAPER_IDS: readonly string[] = [
-  "sakura-nights",
-  "neon-rain",
-  "floating-isles",
-  "the-unseen",
-  "bloom-wash",
-  "chrome-orbit",
-  "last-train",
-  "dawn-lake",
-  "cursed-grove",
-  "violet-orb",
-  "hangar-rain",
-  "sunset-cafe",
+  // Only cleared CC0/self-authored artwork is featured. The previous editorial
+  // picks were all review-pending, which meant their images had to disappear
+  // from the public page; these picks keep the section complete without
+  // exposing restricted files.
+  "poppy-field",
+  "stillwater-night",
+  "hong-kong-rain",
+  "forest-rays",
+  "quiet-bridge",
+  "jellyfish-deep",
+  "sunset-platform",
+  "light-ribbons-wide",
 ];
 
 export const FEATURED_WALLPAPERS: PresetWallpaper[] =

@@ -9,7 +9,9 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import PopularStyles from "@/components/PopularStyles";
+import StudioIntro from "@/components/StudioIntro";
 import TrendingMarquee from "@/components/TrendingMarquee";
+import WhyWallHaze from "@/components/WhyWallHaze";
 
 /**
  * Homepage: hero with gallery/studio CTAs, a visual marquee, the featured
@@ -38,7 +40,9 @@ export default async function Home({
         <TrendingMarquee />
         <FeaturedWallpapers />
         <PopularStyles />
+        <StudioIntro />
         <HowItWorks />
+        <WhyWallHaze />
         <CtaSection />
       </main>
       <Footer />

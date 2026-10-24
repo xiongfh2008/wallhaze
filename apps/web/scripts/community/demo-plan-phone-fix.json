@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-24",
+  "imageJobs": [
+    {
+      "id": "img-phone-fix-1",
+      "slug": "demo-022",
+      "width": 768,
+      "height": 1344,
+      "prompt": "anime wallpaper art, a young woman in a flowing indigo kimono standing beneath a blooming cherry tree at night, glowing paper lanterns, starry sky with soft nebula, dreamy violet and pink palette, delicate cel shading, serene expression, full figure composition with clear space at the top for a phone clock, tall vertical phone wallpaper, 9:16 lock-screen aspect, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-2",
+      "slug": "demo-023",
+      "width": 768,
+      "height": 1344,
+      "prompt": "cyberpunk phone wallpaper, rain-soaked neon street at night, towering holographic signs in magenta and cyan, reflections on wet asphalt, a lone figure with an umbrella seen from behind, cinematic depth of field, moody atmosphere, vertical composition with dark sky at the top, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-3",
+      "slug": "demo-024",
+      "width": 768,
+      "height": 1344,
+      "prompt": "bioluminescent jellyfish drifting through a deep blue abyss, translucent tentacles glowing teal and violet, tiny particles of marine snow, dark background ideal for a phone lock screen, vertical wallpaper, high detail macro photography style, no text"
+    },
+    {
+      "id": "img-phone-fix-4",
+      "slug": "demo-025",
+      "width": 768,
+      "height": 1344,
+      "prompt": "dreamy flower meadow wallpaper, soft pink and white poppies swaying under a pastel sunset gradient sky, bokeh light particles, gentle wind, romantic pastel palette, vertical phone composition, anime-inspired painterly style, no text, no watermark"
+    },
+    {
+      "id": "img-phone-fix-5",
+      "slug": "demo-026",
+      "width": 768,
+      "height": 1344,
+      "prompt": "aurora borealis above a silent pine forest, emerald and violet light curtains reflected in a still mountain lake, crisp winter air, star-filled sky, tall vertical phone wallpaper, 9:16 lock-screen aspect, photorealistic landscape photography, no text"
+    },
+    {
+      "id": "img-phone-fix-6",
+      "slug": "demo-027",
+      "width": 768,
+      "height": 1344,
+      "prompt": "chinese ink painting style wallpaper, misty mountains and a calm river with a small wooden pavilion, elegant negative space, subtle gold accents, soft ink washes on rice paper texture, vertical composition with generous empty sky at the top, no text, no seal"
+    }
+  ],
+  "videoJobs": []
+}

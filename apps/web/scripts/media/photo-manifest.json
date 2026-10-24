@@ -1,0 +1,674 @@
+[
+  {
+    "key": "sakura2",
+    "role": "tablet",
+    "sourceTitle": "File:Cherry blossom against blue sky (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Cherry_blossom_against_blue_sky_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Cherry_blossom_against_blue_sky_%28Unsplash%29.jpg/1920px-Cherry_blossom_against_blue_sky_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "indah nur indaheart",
+    "originalWidth": 2448,
+    "originalHeight": 3264,
+    "output": "/images/wallpapers/sakura-dream.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.34,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "sakura2",
+    "role": "video",
+    "sourceTitle": "File:Cherry blossom against blue sky (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Cherry_blossom_against_blue_sky_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Cherry_blossom_against_blue_sky_%28Unsplash%29.jpg/1920px-Cherry_blossom_against_blue_sky_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "indah nur indaheart",
+    "originalWidth": 2448,
+    "originalHeight": 3264,
+    "output": "/videos/live-demos/night-sakura-frame.jpg",
+    "outputWidth": 720,
+    "outputHeight": 1280,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.32,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "carina",
+    "role": "style-tablet",
+    "sourceTitle": "File:Carina Nebula in Hubble Palette Rasa 8 ORIGINAL unsharpened.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg/1920px-Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Dylan O'Donnell, deography.com",
+    "originalWidth": 9231,
+    "originalHeight": 6892,
+    "output": "/images/styles/starry-galaxy.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "carina",
+    "role": "desktop",
+    "sourceTitle": "File:Carina Nebula in Hubble Palette Rasa 8 ORIGINAL unsharpened.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg/1920px-Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Dylan O'Donnell, deography.com",
+    "originalWidth": 9231,
+    "originalHeight": 6892,
+    "output": "/images/wallpapers/nebula-drift.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.35,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "carina",
+    "role": "video",
+    "sourceTitle": "File:Carina Nebula in Hubble Palette Rasa 8 ORIGINAL unsharpened.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg/1920px-Carina_Nebula_in_Hubble_Palette_Rasa_8_ORIGINAL_unsharpened.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Dylan O'Donnell, deography.com",
+    "originalWidth": 9231,
+    "originalHeight": 6892,
+    "output": "/videos/live-demos/star-drift-frame.jpg",
+    "outputWidth": 1280,
+    "outputHeight": 720,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "mountain1",
+    "role": "style-tablet",
+    "sourceTitle": "File:Mountain Lake at Night (30608832416).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Mountain_Lake_at_Night_(30608832416).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Mountain_Lake_at_Night_%2830608832416%29.jpg/1920px-Mountain_Lake_at_Night_%2830608832416%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "cweyant",
+    "originalWidth": 5312,
+    "originalHeight": 2988,
+    "output": "/images/styles/mountain-lake.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.55
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "mountain2",
+    "role": "desktop",
+    "sourceTitle": "File:Mountain Lake at Night (30557164961).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Mountain_Lake_at_Night_(30557164961).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Mountain_Lake_at_Night_%2830557164961%29.jpg/1920px-Mountain_Lake_at_Night_%2830557164961%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "cweyant",
+    "originalWidth": 5312,
+    "originalHeight": 2988,
+    "output": "/images/wallpapers/stillwater-night.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.55
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "jelly2",
+    "role": "style-tablet",
+    "sourceTitle": "File:Lion's mane jellyfish in Gullmarn fjord at Sämstad 3.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg/1920px-Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "W.carter",
+    "originalWidth": 5045,
+    "originalHeight": 3342,
+    "output": "/images/styles/deep-ocean.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.52,
+        0.48
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "jelly2",
+    "role": "video",
+    "sourceTitle": "File:Lion's mane jellyfish in Gullmarn fjord at Sämstad 3.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg/1920px-Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "W.carter",
+    "originalWidth": 5045,
+    "originalHeight": 3342,
+    "output": "/videos/live-demos/jellyfish-glow-frame.jpg",
+    "outputWidth": 1024,
+    "outputHeight": 1024,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.52,
+        0.48
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "jelly3",
+    "role": "desktop",
+    "sourceTitle": "File:Lion's mane jellyfish in Gullmarn fjord at Sämstad 8.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_8.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_8.jpg/1920px-Lion%27s_mane_jellyfish_in_Gullmarn_fjord_at_S%C3%A4mstad_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "W.carter",
+    "originalWidth": 5045,
+    "originalHeight": 3342,
+    "output": "/images/wallpapers/jellyfish-deep.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.48
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "aurora1",
+    "role": "style-tablet",
+    "sourceTitle": "File:Lofoten, Norway (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Lofoten,_Norway_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Lofoten%2C_Norway_%28Unsplash%29.jpg/1920px-Lofoten%2C_Norway_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Johannes Groll",
+    "originalWidth": 5059,
+    "originalHeight": 3373,
+    "output": "/images/styles/aurora-nights.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "aurora2",
+    "role": "desktop",
+    "sourceTitle": "File:Polar lights over dark trees (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Polar_lights_over_dark_trees_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Polar_lights_over_dark_trees_%28Unsplash%29.jpg/1920px-Polar_lights_over_dark_trees_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Vincent Guth",
+    "originalWidth": 7360,
+    "originalHeight": 4912,
+    "output": "/images/wallpapers/aurora-veil.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "aurora2",
+    "role": "video",
+    "sourceTitle": "File:Polar lights over dark trees (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Polar_lights_over_dark_trees_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Polar_lights_over_dark_trees_%28Unsplash%29.jpg/1920px-Polar_lights_over_dark_trees_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Vincent Guth",
+    "originalWidth": 7360,
+    "originalHeight": 4912,
+    "output": "/videos/live-demos/aurora-veil-frame.jpg",
+    "outputWidth": 1280,
+    "outputHeight": 720,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "arch_interior",
+    "role": "style-tablet",
+    "sourceTitle": "File:Minimalist office decor at 1540 7th St (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Minimalist_office_decor_at_1540_7th_St_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Minimalist_office_decor_at_1540_7th_St_%28Unsplash%29.jpg/1920px-Minimalist_office_decor_at_1540_7th_St_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Breather",
+    "originalWidth": 3600,
+    "originalHeight": 2400,
+    "output": "/images/styles/architecture-minimal.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.73,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "arch_bridge",
+    "role": "desktop",
+    "sourceTitle": "File:Queens Bridge. Melbourne.Aust. (21793578980).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Queens_Bridge._Melbourne.Aust._(21793578980).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Queens_Bridge._Melbourne.Aust._%2821793578980%29.jpg/1920px-Queens_Bridge._Melbourne.Aust._%2821793578980%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Bernard Spragg. NZ",
+    "originalWidth": 4000,
+    "originalHeight": 2248,
+    "output": "/images/wallpapers/quiet-bridge.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.55,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "macro3",
+    "role": "style-tablet",
+    "sourceTitle": "File:Dew on a thin leaf in macro (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Dew_on_a_thin_leaf_in_macro_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Dew_on_a_thin_leaf_in_macro_%28Unsplash%29.jpg/1920px-Dew_on_a_thin_leaf_in_macro_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Jono Hislop",
+    "originalWidth": 3375,
+    "originalHeight": 2250,
+    "output": "/images/styles/macro-nature.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "forest2",
+    "role": "desktop",
+    "sourceTitle": "File:Sunrise breaking into the forest (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Sunrise_breaking_into_the_forest_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Sunrise_breaking_into_the_forest_%28Unsplash%29.jpg/1920px-Sunrise_breaking_into_the_forest_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Kristine Weilert",
+    "originalWidth": 4794,
+    "originalHeight": 3196,
+    "output": "/images/wallpapers/forest-rays.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.45
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "forest2",
+    "role": "video",
+    "sourceTitle": "File:Sunrise breaking into the forest (Unsplash).jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Sunrise_breaking_into_the_forest_(Unsplash).jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Sunrise_breaking_into_the_forest_%28Unsplash%29.jpg/1920px-Sunrise_breaking_into_the_forest_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Kristine Weilert",
+    "originalWidth": 4794,
+    "originalHeight": 3196,
+    "output": "/videos/live-demos/forest-light-frame.jpg",
+    "outputWidth": 1280,
+    "outputHeight": 720,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.45
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "train1",
+    "role": "desktop",
+    "sourceTitle": "File:Sunset Bruges station.JPG",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Sunset_Bruges_station.JPG",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Sunset_Bruges_station.JPG/1920px-Sunset_Bruges_station.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Antonio Borrillo",
+    "originalWidth": 4272,
+    "originalHeight": 2848,
+    "output": "/images/wallpapers/sunset-platform.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.55
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "train1",
+    "role": "video",
+    "sourceTitle": "File:Sunset Bruges station.JPG",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Sunset_Bruges_station.JPG",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Sunset_Bruges_station.JPG/1920px-Sunset_Bruges_station.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Antonio Borrillo",
+    "originalWidth": 4272,
+    "originalHeight": 2848,
+    "output": "/videos/live-demos/sunset-station-frame.jpg",
+    "outputWidth": 1280,
+    "outputHeight": 720,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.55
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "poppy",
+    "role": "tablet",
+    "sourceTitle": "File:Poppy field, Oberauroff, detail.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Poppy_field,_Oberauroff,_detail.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Poppy_field%2C_Oberauroff%2C_detail.jpg/1920px-Poppy_field%2C_Oberauroff%2C_detail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Gerda Arendt",
+    "originalWidth": 3722,
+    "originalHeight": 2792,
+    "output": "/images/wallpapers/poppy-field.jpg",
+    "outputWidth": 1080,
+    "outputHeight": 1440,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.45
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "poppy",
+    "role": "video",
+    "sourceTitle": "File:Poppy field, Oberauroff, detail.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Poppy_field,_Oberauroff,_detail.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Poppy_field%2C_Oberauroff%2C_detail.jpg/1920px-Poppy_field%2C_Oberauroff%2C_detail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Gerda Arendt",
+    "originalWidth": 3722,
+    "originalHeight": 2792,
+    "output": "/videos/live-demos/flower-field-frame.jpg",
+    "outputWidth": 720,
+    "outputHeight": 1280,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.45
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "hongkong2",
+    "role": "desktop",
+    "sourceTitle": "File:Hong Kong in the night.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Hong_Kong_in_the_night.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Hong_Kong_in_the_night.jpg/1920px-Hong_Kong_in_the_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Wilfredor",
+    "originalWidth": 3521,
+    "originalHeight": 2037,
+    "output": "/images/wallpapers/hong-kong-rain.jpg",
+    "outputWidth": 1920,
+    "outputHeight": 1080,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.5,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  },
+  {
+    "key": "hongkong2",
+    "role": "video",
+    "sourceTitle": "File:Hong Kong in the night.jpg",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Hong_Kong_in_the_night.jpg",
+    "sourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Hong_Kong_in_the_night.jpg/1920px-Hong_Kong_in_the_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "author": "Wilfredor",
+    "originalWidth": 3521,
+    "originalHeight": 2037,
+    "output": "/videos/live-demos/neon-rain-frame.jpg",
+    "outputWidth": 720,
+    "outputHeight": 1280,
+    "crop": {
+      "method": "center-weighted cover crop, no stretch",
+      "centering": [
+        0.48,
+        0.5
+      ]
+    },
+    "modifications": "cover crop + slight saturation/contrast adjustment",
+    "aiGenerated": false,
+    "acquiredAt": "2026-10-24",
+    "licenseEvidence": "Wikimedia Commons extmetadata: LicenseShortName=CC0; LicenseUrl recorded in this manifest",
+    "distributionScope": "CC0 1.0 Universal: worldwide, irrevocable, commercial use permitted; attribution not required; no endorsement implied",
+    "thirdPartyRights": "No prominent identifiable person in this crop. Incidental people/signage may appear in the Hong Kong street scene; no model/property release is claimed. Architecture-book covers were cropped out of the minimal interior."
+  }
+]

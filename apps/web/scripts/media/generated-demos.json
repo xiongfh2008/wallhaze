@@ -1,0 +1,154 @@
+[
+  {
+    "id": "night-sakura",
+    "frame": "night-sakura-frame.jpg",
+    "width": 720,
+    "height": 1280,
+    "effect": "sakura",
+    "tint": [
+      "rgba(24,8,54,0.24)",
+      "rgba(75,24,72,0.08)",
+      "rgba(7,2,16,0.3)"
+    ],
+    "posterTime": 2.1,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\night-sakura.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\night-sakura.jpg",
+    "bytes": 2178315,
+    "posterBytes": 445432,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "neon-rain",
+    "frame": "neon-rain-frame.jpg",
+    "width": 720,
+    "height": 1280,
+    "effect": "neon",
+    "tint": [
+      "rgba(5,2,28,0.22)",
+      "rgba(25,5,50,0.06)",
+      "rgba(3,1,10,0.34)"
+    ],
+    "posterTime": 2.3,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\neon-rain.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\neon-rain.jpg",
+    "bytes": 2169791,
+    "posterBytes": 274934,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "star-drift",
+    "frame": "star-drift-frame.jpg",
+    "width": 1280,
+    "height": 720,
+    "effect": "stars",
+    "tint": [
+      "rgba(6,3,24,0.14)",
+      "rgba(0,0,0,0)",
+      "rgba(2,1,8,0.24)"
+    ],
+    "posterTime": 2.2,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\star-drift.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\star-drift.jpg",
+    "bytes": 2160634,
+    "posterBytes": 358883,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "jellyfish-glow",
+    "frame": "jellyfish-glow-frame.jpg",
+    "width": 1024,
+    "height": 1024,
+    "effect": "ocean",
+    "tint": [
+      "rgba(2,18,38,0.14)",
+      "rgba(0,0,0,0)",
+      "rgba(1,4,14,0.3)"
+    ],
+    "posterTime": 2.5,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\jellyfish-glow.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\jellyfish-glow.jpg",
+    "bytes": 2162177,
+    "posterBytes": 199818,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "aurora-veil",
+    "frame": "aurora-veil-frame.jpg",
+    "width": 1280,
+    "height": 720,
+    "effect": "aurora",
+    "tint": [
+      "rgba(5,16,36,0.12)",
+      "rgba(0,0,0,0)",
+      "rgba(2,5,14,0.26)"
+    ],
+    "posterTime": 2.3,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\aurora-veil.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\aurora-veil.jpg",
+    "bytes": 2171419,
+    "posterBytes": 283505,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "sunset-station",
+    "frame": "sunset-station-frame.jpg",
+    "width": 1280,
+    "height": 720,
+    "effect": "leaves",
+    "tint": [
+      "rgba(38,14,32,0.1)",
+      "rgba(255,170,100,0.03)",
+      "rgba(12,4,16,0.28)"
+    ],
+    "posterTime": 2.4,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\sunset-station.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\sunset-station.jpg",
+    "bytes": 2174507,
+    "posterBytes": 127272,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "forest-light",
+    "frame": "forest-light-frame.jpg",
+    "width": 1280,
+    "height": 720,
+    "effect": "forest",
+    "tint": [
+      "rgba(4,18,12,0.14)",
+      "rgba(30,60,30,0.02)",
+      "rgba(2,8,5,0.28)"
+    ],
+    "posterTime": 2.3,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\forest-light.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\forest-light.jpg",
+    "bytes": 2167085,
+    "posterBytes": 200856,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  },
+  {
+    "id": "flower-field",
+    "frame": "flower-field-frame.jpg",
+    "width": 720,
+    "height": 1280,
+    "effect": "flowers",
+    "tint": [
+      "rgba(32,10,36,0.16)",
+      "rgba(90,30,60,0.04)",
+      "rgba(10,3,14,0.28)"
+    ],
+    "posterTime": 2.2,
+    "videoPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\flower-field.mp4",
+    "posterPath": "D:\\Project\\wallhaze\\apps\\web\\public\\videos\\live-demos\\flower-field.jpg",
+    "bytes": 2158824,
+    "posterBytes": 400936,
+    "mime": "video/mp4",
+    "durationSeconds": 5
+  }
+]

@@ -172,7 +172,18 @@ export async function generationRoutes(
 
       // 5) Domain validation + prompt composition (order preserved exactly:
       //    device → preset → ratio → prompt → style → reference image →
-      //    composition). Messages and statuses are the legacy ones verbatim.
+      //    composition). The synchronous route is image-only; video always
+      //    goes through the async job endpoint.
+      const mediaType = (request.body as { mediaType?: unknown } | null)?.mediaType;
+      if (mediaType === "video") {
+        throw new AppError(
+          "VALIDATION_ERROR",
+          "Video generation uses the async job endpoint (POST /v1/generations/jobs)."
+        );
+      }
+      if (mediaType !== undefined && mediaType !== "image") {
+        throw new AppError("VALIDATION_ERROR", "Invalid mediaType");
+      }
       const validation = validateGenerateBody(request.body);
       if (!validation.ok) {
         logOutcome(validation.logOutcome, validation.status);

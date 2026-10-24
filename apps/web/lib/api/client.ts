@@ -33,6 +33,18 @@ export function resolveApiBaseUrl(explicit?: string): string | null {
   return raw.replace(/\/+$/, "");
 }
 
+/**
+ * Resolves a backend-relative path (e.g. a private image URL) against the
+ * configured API base. Returns null when no base URL is configured, so
+ * callers can render an honest unavailable state instead of a broken link.
+ */
+export function resolveApiUrl(path: string): string | null {
+  if (/^https?:\/\//i.test(path)) return path;
+  const base = resolveApiBaseUrl();
+  if (!base) return null;
+  return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export interface ApiRequestOptions {
   method?: "GET" | "POST";
   /** JSON body — serialized here; undefined omits both body and header. */
@@ -69,20 +81,21 @@ export async function apiRequest<T>(
 
   const fetchImpl = options.fetchImpl ?? fetch;
   const timeoutMs = options.timeoutMs ?? DEFAULT_REQUEST_TIMEOUT_MS;
-  const timeoutSignal = AbortSignal.timeout(timeoutMs);
-  const signal = options.signal
-    ? AbortSignal.any([options.signal, timeoutSignal])
-    : timeoutSignal;
-
   let response: Response;
   try {
+    const timeoutSignal = AbortSignal.timeout(timeoutMs);
+    const signal = options.signal
+      ? AbortSignal.any([options.signal, timeoutSignal])
+      : timeoutSignal;
     response = await fetchImpl(`${base}${path}`, {
       method: options.method ?? "GET",
+      credentials: "include",
       headers: {
         ...(options.body !== undefined
           ? { "Content-Type": "application/json" }
           : {}),
         ...options.headers,
+        ...(options.method === "POST" ? { "X-WallHaze-Client": "web" } : {}),
       },
       body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
       signal,
@@ -116,8 +129,10 @@ export async function apiRequest<T>(
 
   // 2xx — parse defensively: the payload must still satisfy the caller's
   // expected contract shape (checked by the caller via the data guards).
-  const data = (await response.json().catch(() => null)) as T | null;
-  if (data === null) {
+  let data: T;
+  try {
+    data = await response.json() as T;
+  } catch {
     return { ok: false, failure: { kind: "invalid" }, status: response.status };
   }
   return { ok: true, data };

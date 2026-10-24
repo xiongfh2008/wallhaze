@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import Footer from "@/components/Footer";
-import GeneratorSection from "@/components/GeneratorSection";
+import StudioExperience from "@/components/studio/StudioExperience";
 import Header from "@/components/Header";
 import StudioStylePreselect from "@/components/StudioStylePreselect";
 
@@ -66,9 +66,9 @@ export default async function StudioPage({
 
   return (
     <div className="relative flex-1 overflow-x-clip">
-      <Header />
+      <Header maxWidthClassName="max-w-[1320px]" />
       <main>
-        <section className="relative mx-auto w-full max-w-6xl px-6 pb-4 pt-32 md:pt-40">
+        <section className="relative mx-auto w-full max-w-[1320px] px-6 pb-2 pt-24 md:pt-28">
           <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
             <div className="animate-pulse-glow absolute left-1/2 top-0 h-[320px] w-[560px] max-w-full -translate-x-1/2 rounded-full bg-fuchsia-700/15 blur-[130px]" />
           </div>
@@ -78,17 +78,17 @@ export default async function StudioPage({
               <span className="h-px w-8 bg-gradient-to-r from-violet-400 to-transparent" />
               {t("eyebrow")}
             </p>
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">
               {t("brand")}{" "}
               <span className="bg-gradient-to-r from-violet-300 via-fuchsia-300 to-violet-300 bg-clip-text text-transparent">
                 {t("accent")}
               </span>
             </h1>
-            <p className="mt-4 max-w-2xl leading-relaxed text-zinc-400">
+            <p className="mt-3 max-w-2xl leading-relaxed text-zinc-400">
               {t("subtitle")}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-5 flex flex-wrap items-center gap-3">
               <Link
                 href="/"
                 className="rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-medium text-zinc-200 transition hover:border-white/35 hover:text-white"
@@ -112,7 +112,7 @@ export default async function StudioPage({
           <StudioStylePreselect />
         </Suspense>
 
-        <GeneratorSection variant="studio" />
+        <StudioExperience />
       </main>
       <Footer />
     </div>

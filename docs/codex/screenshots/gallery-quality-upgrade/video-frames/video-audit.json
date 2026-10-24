@@ -1,0 +1,106 @@
+[
+  {
+    "id": "night-sakura",
+    "width": 720,
+    "height": 1280,
+    "duration": 4.987133,
+    "frameFiles": [
+      "night-sakura-0.jpg",
+      "night-sakura-1.jpg",
+      "night-sakura-2.jpg",
+      "night-sakura-3.jpg",
+      "night-sakura-4.jpg"
+    ]
+  },
+  {
+    "id": "neon-rain",
+    "width": 720,
+    "height": 1280,
+    "duration": 4.9902,
+    "frameFiles": [
+      "neon-rain-0.jpg",
+      "neon-rain-1.jpg",
+      "neon-rain-2.jpg",
+      "neon-rain-3.jpg",
+      "neon-rain-4.jpg"
+    ]
+  },
+  {
+    "id": "star-drift",
+    "width": 1280,
+    "height": 720,
+    "duration": 4.998433,
+    "frameFiles": [
+      "star-drift-0.jpg",
+      "star-drift-1.jpg",
+      "star-drift-2.jpg",
+      "star-drift-3.jpg",
+      "star-drift-4.jpg"
+    ]
+  },
+  {
+    "id": "jellyfish-glow",
+    "width": 1024,
+    "height": 1024,
+    "duration": 4.992867,
+    "frameFiles": [
+      "jellyfish-glow-0.jpg",
+      "jellyfish-glow-1.jpg",
+      "jellyfish-glow-2.jpg",
+      "jellyfish-glow-3.jpg",
+      "jellyfish-glow-4.jpg"
+    ]
+  },
+  {
+    "id": "aurora-veil",
+    "width": 1280,
+    "height": 720,
+    "duration": 5.0051,
+    "frameFiles": [
+      "aurora-veil-0.jpg",
+      "aurora-veil-1.jpg",
+      "aurora-veil-2.jpg",
+      "aurora-veil-3.jpg",
+      "aurora-veil-4.jpg"
+    ]
+  },
+  {
+    "id": "sunset-station",
+    "width": 1280,
+    "height": 720,
+    "duration": 4.999533,
+    "frameFiles": [
+      "sunset-station-0.jpg",
+      "sunset-station-1.jpg",
+      "sunset-station-2.jpg",
+      "sunset-station-3.jpg",
+      "sunset-station-4.jpg"
+    ]
+  },
+  {
+    "id": "forest-light",
+    "width": 1280,
+    "height": 720,
+    "duration": 5.0013,
+    "frameFiles": [
+      "forest-light-0.jpg",
+      "forest-light-1.jpg",
+      "forest-light-2.jpg",
+      "forest-light-3.jpg",
+      "forest-light-4.jpg"
+    ]
+  },
+  {
+    "id": "flower-field",
+    "width": 720,
+    "height": 1280,
+    "duration": 5.003333,
+    "frameFiles": [
+      "flower-field-0.jpg",
+      "flower-field-1.jpg",
+      "flower-field-2.jpg",
+      "flower-field-3.jpg",
+      "flower-field-4.jpg"
+    ]
+  }
+]
