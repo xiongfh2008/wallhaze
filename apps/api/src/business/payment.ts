@@ -111,6 +111,31 @@ interface OrderRow {
   status: string;
 }
 
+/**
+ * "Purchases closed" adapter (PAYMENT_PROVIDER=disabled). Every entry point
+ * fails closed: checkout creation and webhook parsing always throw, so no
+ * order can be created or marked paid while payments are not launched.
+ */
+export class DisabledPaymentAdapter implements PaymentAdapter {
+  readonly provider = "disabled";
+  async createCheckout(): Promise<{
+    checkoutUrl: string;
+    providerCheckoutId: string;
+    expiresAt?: string;
+  }> {
+    throw new AppError(
+      "NOT_IMPLEMENTED",
+      "Credit purchases are not available yet."
+    );
+  }
+  async syncOrder(): Promise<NormalizedWebhookEvent | null> {
+    return null;
+  }
+  parseWebhook(): NormalizedWebhookEvent {
+    throw new AppError("FORBIDDEN", "Payments are not available yet.");
+  }
+}
+
 /** Deterministic HMAC-SHA256 hex signature — the mock provider's scheme. */
 export function signMockEvent(raw: string, secret: string): string {
   return createHmac("sha256", secret).update(raw, "utf8").digest("hex");

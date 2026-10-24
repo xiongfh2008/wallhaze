@@ -1,0 +1,46 @@
+# --- Build context: repository root (wallhaze/) ---
+# Keep secrets and local state out of images.
+**/node_modules
+**/.next
+**/dist
+!packages/contracts/dist
+**/.data
+**/private-media
+**/.env
+**/.env.local
+**/.env.*
+!**/.env.example
+!apps/web/.env.example
+!apps/api/.env.example
+
+# VCS and editor
+.git
+.github
+.vscode
+.idea
+
+# Docs and screenshots (not needed at runtime)
+docs
+*.md
+!packages/contracts/README.md
+
+# Tests
+**/tests
+**/coverage
+**/vitest.config.*
+
+# Local media pipelines and generated demo data
+apps/web/public/community-demo
+apps/web/scripts/media
+apps/web/scripts/community
+apps/web/data/community/demo-works.json
+apps/web/private-media
+
+# Local databases and backups
+*.sqlite
+*.db
+backups
+
+# OS noise
+.DS_Store
+Thumbs.db

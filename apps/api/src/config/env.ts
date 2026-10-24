@@ -96,10 +96,13 @@ export const envSchema = z.object({
   /** HMAC secret for the OAuth state cookie (falls back to IMAGE_URL_SECRET). */
   OAUTH_STATE_SECRET: z.string().optional(),
   /**
-   * Payment provider: "mock" (default in development/test) or "waffo".
-   * Production refuses the mock adapter.
+   * Payment provider:
+   *  - "waffo": live PSP (requires merchant credentials).
+   *  - "mock": dev/test only; production refuses it.
+   *  - "disabled": production-safe value for "purchases closed" — the API
+   *    boots, checkout reports unavailable, and no payment adapter is wired.
    */
-  PAYMENT_PROVIDER: z.enum(["mock", "waffo"]).default("mock"),
+  PAYMENT_PROVIDER: z.enum(["mock", "waffo", "disabled"]).default("mock"),
   /** Provider environment — selects test vs prod keys/behavior. */
   PAYMENT_ENVIRONMENT: z.enum(["test", "prod"]).default("test"),
   /** Waffo Pancake merchant id (MER_...). */

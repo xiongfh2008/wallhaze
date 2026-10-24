@@ -1,0 +1,73 @@
+# =============================================================================
+# WallHaze Caddy reverse proxy — same-origin deployment.
+#
+# The browser talks ONLY to https://$SITE_DOMAIN. Caddy terminates TLS (with
+# Let's Encrypt automatically) and forwards:
+#   /v1/*          -> api:4000   (Fastify business surface, incl. webhooks)
+#   /health        -> api:4000   (optional public API health)
+#   /*             -> web:3000   (Next.js, everything else)
+#
+# Same-origin is safe here and verified against the code:
+#  - The API is a strict-origin allowlist (CORS_ALLOWED_ORIGINS); adding the
+#    site origin covers same-origin calls, and cookies are issued for the
+#    site origin with HttpOnly (+ Secure once SITE_URL/CORS are https).
+#  - OAuth redirect URI can be https://$SITE_DOMAIN/... — set
+#    GOOGLE_OAUTH_REDIRECT_URI accordingly; no path rewriting is done, so
+#    payment webhook paths (Waffo) pass through untouched under /v1/.
+#
+# TLS between Cloudflare and this origin: keep Cloudflare SSL mode
+# "Full (strict)" — Caddy holds a real Let's Encrypt certificate, so the
+# origin presents a publicly trusted cert.
+# =============================================================================
+
+{$SITE_DOMAIN} {
+	encode zstd gzip
+
+	# --- Security headers (web + API responses) -----------------------------
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		# Caddy adds -Server automatically.
+	}
+
+	# --- Uploads / webhooks -------------------------------------------------
+	# Community is email-based (no uploads), Studio reference images are JSON
+	# data-URIs within BODY_LIMIT_BYTES (default 1 MiB). 25 MiB gives headroom
+	# for future multipart needs without becoming an abuse vector.
+	request_body {
+		max_size 25MB
+	}
+
+	# --- API ----------------------------------------------------------------
+	# No path rewriting: the Fastify routes are registered under /v1/ and
+	# /health. Payment provider webhooks (absolute URLs configured at the
+	# PSP) keep working unchanged.
+	handle /v1/* {
+		reverse_proxy {$API_UPSTREAM} {
+			# Media streaming (videos): allow long-lived responses.
+			transport http {
+				response_header_timeout 120s
+				dial_timeout 10s
+			}
+			header_up X-Real-IP {remote_host}
+			header_up X-Forwarded-Proto {scheme}
+		}
+	}
+
+	handle /health {
+		reverse_proxy {$API_UPSTREAM}
+	}
+
+	# --- Next.js ------------------------------------------------------------
+	handle {
+		reverse_proxy {$WEB_UPSTREAM} {
+			transport http {
+				response_header_timeout 60s
+				dial_timeout 10s
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-export type { ApiErrorCode, ApiErrorEnvelope } from "./errors";
+export type { ApiErrorCode, ApiErrorEnvelope } from "./errors.js";
 export type {
   AspectRatioId,
   DeviceId,
@@ -11,7 +11,7 @@ export type {
   VideoGenerationRequest,
   VideoModePricing,
   VideoPricing,
-} from "./generation";
+} from "./generation.js";
 export {
   ASPECT_RATIO_IDS,
   CUSTOM_DIMENSION_STEP,
@@ -23,8 +23,8 @@ export {
   MIN_CUSTOM_DIMENSION,
   PROMPT_MAX_LENGTH,
   VIDEO_DURATION_SECONDS,
-} from "./generation";
-export type { GalleryWallpaper } from "./gallery";
+} from "./generation.js";
+export type { GalleryWallpaper } from "./gallery.js";
 export {
   IMAGE_PROXY_ALLOWED_HOSTS,
   IMAGE_PROXY_ERRORS,
@@ -32,7 +32,7 @@ export {
   IMAGE_PROXY_PATH,
   IMAGE_PROXY_REDIRECT_HOSTS,
   type ImageProxyQuery,
-} from "./images";
+} from "./images.js";
 
 // Future business domains are intentionally placeholders only — they mark
 // planned contract surface and MUST NOT be treated as live APIs. See
@@ -42,4 +42,4 @@ export type {
   GenerationJobPlaceholder,
   PaymentOrderPlaceholder,
   UserAccountPlaceholder,
-} from "./placeholders";
+} from "./placeholders.js";

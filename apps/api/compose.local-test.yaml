@@ -1,0 +1,23 @@
+# =============================================================================
+# LOCAL compose test override — NEVER use on the VPS.
+#
+# Mirrors the backend-only production topology (api on loopback, postgres and
+# worker internal) while replacing /opt/wallhaze/secrets with local files.
+#
+# Usage (from apps/api):
+#   docker compose -f compose.production.yaml -f compose.local-test.yaml \
+#     --env-file .env.local-test up -d --build
+# =============================================================================
+
+services:
+  api:
+    env_file: !override
+      - .env.local-test.api
+
+  worker:
+    env_file: !override
+      - .env.local-test.api
+    environment:
+      NODE_ENV: production
+      EMBED_WORKER: "0"
+      FAL_MOCK: "1"

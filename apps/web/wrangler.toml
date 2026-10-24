@@ -1,0 +1,31 @@
+# =============================================================================
+# WallHaze web — Cloudflare Workers production config (vinext build output).
+#
+# The vinext build (npm run build:vinext) emits .cloudflare/output/v0 —
+# deploy with:  npx @vinext/cloudflare deploy
+# This file documents the intended production routes/vars for that deploy
+# (the vinext deploy tooling reads cloudflare.config.ts for the worker
+# definition; routes below are applied at deploy time).
+#
+# NEVER put secrets here: FAL_KEY / DATABASE_URL / GOOGLE_CLIENT_SECRET are
+# backend-only and live in /opt/wallhaze/secrets/api.env on the VPS.
+# =============================================================================
+
+name = "wallhaze-web"
+compatibility_date = "2026-10-24"
+compatibility_flags = ["nodejs_compat"]
+
+# Production routes — wallhaze.com apex serves the app; www redirects to apex
+# (redirect via a separate Worker/Bulk Redirect, see docs/deployment/
+# CLOUDFLARE-FRONTEND-DEPLOY.md §www).
+routes = [
+  { pattern = "wallhaze.com", custom_domain = true }
+]
+
+[vars]
+# Read at runtime as a fallback; the build-time value (baked into the client
+# chunk during `build:vinext`) is the primary source.
+NEXT_PUBLIC_API_BASE_URL = "https://api.wallhaze.com"
+
+[observability]
+enabled = true

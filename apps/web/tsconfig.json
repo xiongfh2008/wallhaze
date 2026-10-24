@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@wallhaze/contracts": ["../../packages/contracts/src/index.ts"]
+      "@wallhaze/contracts": ["./vendor/contracts/src/index.ts"]
     }
   },
   "include": [
@@ -31,5 +31,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".cloudflare", "dist", "vendor/contracts/dist"]
 }

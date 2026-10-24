@@ -17,7 +17,11 @@ import { buildOriginAllowlist } from "./security/request-guard.js";
 import type { Database } from "./db/database.js";
 import { migrate } from "./db/migrate.js";
 import { AuthService } from "./business/auth.js";
-import { MockPaymentAdapter, PaymentService } from "./business/payment.js";
+import {
+  DisabledPaymentAdapter,
+  MockPaymentAdapter,
+  PaymentService,
+} from "./business/payment.js";
 import { WaffoPaymentAdapter } from "./business/waffo.js";
 import { WaffoPancake } from "@waffo/pancake-ts";
 import { businessRoutes } from "./business/routes.js";
@@ -158,9 +162,18 @@ function createPaymentService(
       origins
     );
   }
+  if (env.PAYMENT_PROVIDER === "disabled") {
+    // Purchases closed: no adapter is wired and checkout reports unavailable
+    // (routes.ts maps checkoutAvailable off PAYMENT_PROVIDER === "waffo").
+    return new PaymentService(
+      options.database,
+      new DisabledPaymentAdapter(),
+      origins
+    );
+  }
   if (env.NODE_ENV === "production") {
     throw new Error(
-      "Invalid environment configuration — the mock payment adapter is not allowed in production; set PAYMENT_PROVIDER=waffo"
+      "Invalid environment configuration — the mock payment adapter is not allowed in production; set PAYMENT_PROVIDER=waffo or disabled"
     );
   }
   return new PaymentService(

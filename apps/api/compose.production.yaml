@@ -1,0 +1,172 @@
+# =============================================================================
+# WallHaze backend — Contabo VPS (wallhaze-app compose project)
+#
+# FINAL ARCHITECTURE (2026-10-24 revision):
+#   Frontend  wallhaze.com        -> Cloudflare Workers (vinext) — NOT on VPS
+#   Backend   api.wallhaze.com    -> host Nginx (existing) -> 127.0.0.1:4000
+#   Database  PostgreSQL          -> internal network only
+#
+# Coexistence rules on this VPS:
+#   - Existing projects `tarot`, `wallhaze` (redis) and Nginx sites
+#     api.arcunara.com / api.vidsavey.com / vidsavey.com are NEVER touched.
+#   - This stack publishes NOTHING public. The API binds 127.0.0.1:4000 for
+#     the host Nginx; postgres/worker/jobs stay internal. (Docker published
+#     ports bypass UFW, so we publish only a loopback port.)
+#   - Compose project name is fixed to `wallhaze-app` (name: below) so it can
+#     never collide with the existing `wallhaze` (redis) project.
+#
+# Ports on this host in use by others: 80/443 (Nginx), 8100 (tarot),
+# 8000 (video-downloader), 6379 (wallhaze-redis). Do not use them.
+# =============================================================================
+
+name: wallhaze-app
+
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "5"
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: apps/api/Dockerfile
+    image: wallhaze/api:latest
+    restart: unless-stopped
+    # Host Nginx proxies https://api.wallhaze.com -> 127.0.0.1:4000.
+    # Loopback-only publish: reachable from host Nginx, never from outside.
+    ports:
+      - "127.0.0.1:4000:4000"
+    env_file:
+      - /opt/wallhaze/secrets/api.env
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      HOST: 0.0.0.0
+      EMBED_WORKER: "0"
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - fetch("http://127.0.0.1:4000/health").then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 768m
+    cpus: 1.5
+    security_opt:
+      - no-new-privileges:true
+
+  worker:
+    build:
+      context: ../..
+      dockerfile: apps/api/Dockerfile.worker
+    image: wallhaze/worker:latest
+    restart: unless-stopped
+    # No ports at all — claims jobs via the internal network.
+    env_file:
+      - /opt/wallhaze/secrets/api.env
+    environment:
+      NODE_ENV: production
+      EMBED_WORKER: "0"
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "node", "-e", "process.stdout.write('ok')"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    mem_limit: 1g
+    cpus: 1.5
+    security_opt:
+      - no-new-privileges:true
+
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    # NO ports section — internal network only (5432 is never published).
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-wallhaze}
+      POSTGRES_USER: ${POSTGRES_USER:-wallhaze}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in secrets/compose.env}
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+    command:
+      - postgres
+      - -c
+      - shared_buffers=512MB
+      - -c
+      - effective_cache_size=2GB
+      - -c
+      - maintenance_work_mem=128MB
+      - -c
+      - max_connections=80
+      - -c
+      - work_mem=8MB
+      - -c
+      - log_min_duration_statement=500
+    volumes:
+      - wallhaze_pgdata:/var/lib/postgresql/data
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    mem_limit: 1536m
+    cpus: 1.5
+    security_opt:
+      - no-new-privileges:true
+
+  # Backups + retention dry-run. Talks to postgres over the internal network.
+  jobs:
+    image: alpine:3.21
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "/etc/wallhaze/crontab-runner.sh"]
+    volumes:
+      - ./jobs/crontab-runner.sh:/etc/wallhaze/crontab-runner.sh:ro
+      - wallhaze_backups:/backups
+    environment:
+      PGHOST: postgres
+      PGPORT: "5432"
+      PGDATABASE: ${POSTGRES_DB:-wallhaze}
+      PGUSER: ${POSTGRES_USER:-wallhaze}
+      PGPASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in secrets/compose.env}
+      BACKUP_ROOT: /backups
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 128m
+    cpus: 0.5
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  wallhaze_pgdata:
+    name: wallhaze_app_pgdata
+  wallhaze_backups:
+    name: wallhaze_app_backups
+
+networks:
+  wallhaze_backend:
+    name: wallhaze_app_backend
+    driver: bridge

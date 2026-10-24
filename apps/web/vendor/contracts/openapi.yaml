@@ -1,0 +1,267 @@
+openapi: 3.1.0
+info:
+  title: WallHaze API
+  version: 0.2.0
+  description: |
+    Contract for the standalone WallHaze backend (apps/api).
+
+    T04-S2 status:
+    - GET /health is implemented.
+    - POST /v1/generations is IMPLEMENTED: faithful migration of the legacy
+      `app/api/generate/route.ts` (origin guard, pause switch, content-type
+      enforcement, short-window limiter, 10 MiB strict-JSON body cap, full
+      domain validation, daily quota, global budget, concurrency slots and
+      the fal.ai provider boundary with a 120 s merged timeout).
+    - GET /v1/images/proxy is IMPLEMENTED: migration of the legacy
+      `app/api/image/route.ts` (HTTPS exact-host allowlist, guarded manual
+      redirects, 20 MiB streaming cap, magic-byte sniffing).
+    - User / credits / payment / async-job APIs are not specified yet; their
+      type placeholders live in src/placeholders.ts.
+
+    All non-2xx responses use the unified ApiErrorEnvelope. The legacy flat
+    `{ error: string }` shape is NOT part of this contract; human-readable
+    message copies are preserved verbatim from the legacy routes.
+servers:
+  - url: http://localhost:4000
+    description: Local development (apps/api default)
+tags:
+  - name: system
+  - name: generation
+  - name: images
+paths:
+  /health:
+    get:
+      tags: [system]
+      summary: Liveness / readiness probe
+      operationId: getHealth
+      responses:
+        "200":
+          description: Service is healthy.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+  /v1/generations:
+    post:
+      tags: [generation]
+      summary: Create one wallpaper generation
+      description: |
+        Sync MVP path. Guard order mirrors the legacy route exactly:
+        origin check → pause switch → content-type → short-window limiter →
+        provider-configuration gate → body validation (device → size preset →
+        aspect ratio → prompt → style → reference image → composition) →
+        daily quota → global budget → concurrency slot → upstream call with a
+        120 s timeout merged with client disconnect (no automatic retry).
+      operationId: createGeneration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerationRequest"
+      responses:
+        "200":
+          description: Generation result.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GenerationResponse"
+        "400":
+          description: Body failed validation (device/ratio/preset/prompt/style/reference/empty input).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "403":
+          description: Request origin not allowed (Origin / Sec-Fetch-Site guard).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "413":
+          description: Body exceeded the 10 MiB generation route limit, or reference image over 5 MB decoded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "415":
+          description: Content type is not application/json.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "422":
+          description: Upstream safety checker flagged the result (NSFW).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "429":
+          description: Short-window limiter, daily quota or concurrency limit triggered (Retry-After set for the first two).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "502":
+          description: Upstream (fal.ai) failure — unreachable, timeout, error status, invalid response or no image.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "503":
+          description: Generation paused, global daily budget exhausted, or provider not configured.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+  /v1/images/proxy:
+    get:
+      tags: [images]
+      summary: Same-origin proxy for whitelisted artwork hosts
+      description: |
+        Re-serves whitelisted remote images so browser downloads avoid CORS.
+        Security: HTTPS-only exact-host allowlist (no ports/userinfo),
+        guarded manual redirects (every hop re-validated against the source ∪
+        redirect allowlist), 20 MiB streaming cap, 20 s per-hop timeout and
+        magic-byte sniffing (Content-Type never trusted).
+      operationId: proxyImage
+      parameters:
+        - name: src
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Fully-qualified https URL on the exact allowlist.
+      responses:
+        "200":
+          description: Image bytes, re-served with sniffed MIME type and 1-day public caching.
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/webp:
+              schema:
+                type: string
+                format: binary
+            image/gif:
+              schema:
+                type: string
+                format: binary
+        "400":
+          description: Missing/invalid/disallowed source URL.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "413":
+          description: Image exceeds the 20 MiB proxy cap.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "415":
+          description: Upstream did not return a sniffable allowlisted image type.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+        "502":
+          description: Source unreachable (timeout, DNS, refused, bad redirect, non-OK status, empty body).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiErrorEnvelope"
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required: [status, service, version]
+      properties:
+        status:
+          type: string
+          const: ok
+        service:
+          type: string
+          const: wallhaze-api
+        version:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    DeviceId:
+      type: string
+      enum: [phone, tablet, desktop]
+    AspectRatioId:
+      type: string
+      enum: ["9:16", "3:4", "1:1", "4:3", "16:9"]
+    GenerationRequest:
+      type: object
+      required: [device]
+      properties:
+        prompt:
+          type: string
+          maxLength: 800
+          description: User prompt, trimmed server-side. Optional when a style or reference image is provided.
+        styleId:
+          type: string
+          description: A stable style id (see lib/styles.ts). Unknown ids are rejected 400.
+        device:
+          $ref: "#/components/schemas/DeviceId"
+        aspectRatio:
+          oneOf:
+            - $ref: "#/components/schemas/AspectRatioId"
+            - type: "null"
+          description: Absent/null → the device's preset ratio (legacy behavior).
+        sizePresetId:
+          type: [string, "null"]
+          description: Preset id from SIZE_PRESETS (e.g. "phone-1080x1920"); server re-resolves dimensions.
+        refImage:
+          type: string
+          description: Base64 data URI of the optional reference image (PNG/JPEG/WebP, ≤5 MB decoded, magic bytes verified).
+    GenerationResponse:
+      type: object
+      required: [imageUrl, width, height, contentType]
+      properties:
+        imageUrl:
+          type: string
+        width:
+          type: [integer, "null"]
+        height:
+          type: [integer, "null"]
+        contentType:
+          type: [string, "null"]
+    ApiErrorCode:
+      type: string
+      enum:
+        - VALIDATION_ERROR
+        - UNAUTHENTICATED
+        - FORBIDDEN
+        - NOT_FOUND
+        - CONFLICT
+        - PAYLOAD_TOO_LARGE
+        - UNSUPPORTED_MEDIA_TYPE
+        - RATE_LIMITED
+        - CONTENT_FILTERED
+        - INTERNAL_ERROR
+        - NOT_IMPLEMENTED
+        - UPSTREAM_ERROR
+        - SERVICE_UNAVAILABLE
+    ApiErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              $ref: "#/components/schemas/ApiErrorCode"
+            message:
+              type: string
+            details:
+              description: Optional structured details (e.g. validation issues).

@@ -62,7 +62,7 @@ export interface GenerationJobPlaceholder {
     | "failed"
     | "timeout"
     | "cancelled";
-  request: import("./generation").GenerationRequest;
+  request: import("./generation.js").GenerationRequest;
   /** Credits reserved while the job is in flight. */
   creditsReserved: number;
   createdAt: string;
