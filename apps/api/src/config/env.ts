@@ -55,6 +55,20 @@ export const envSchema = z.object({
   PAYMENT_MOCK_SECRET: z.string().optional(),
   /** Directory for the local private image store (unset = in-memory). */
   STORAGE_DIR: z.string().optional(),
+  /**
+   * Private-media storage driver: "local" (default; STORAGE_DIR/Memory) or
+   * "r2" (Cloudflare R2 via the S3 API — requires the R2_* set below).
+   */
+  STORAGE_DRIVER: z.enum(["local", "r2"]).optional(),
+  /** Account-level S3 endpoint: https://<account>.r2.cloudflarestorage.com */
+  R2_ENDPOINT: z.string().optional(),
+  R2_ACCESS_KEY_ID: z.string().optional(),
+  R2_SECRET_ACCESS_KEY: z.string().optional(),
+  /** Private bucket for user-generated media (never public). */
+  R2_BUCKET: z.string().optional(),
+  /** Public/verified media bucket (Gallery, Community). Unused by the adapter
+   *  itself; reserved for the public-media pipeline. */
+  R2_PUBLIC_BUCKET: z.string().optional(),
   /** Persisted per-user daily AI cost budget in micro units (unset = none). */
   USER_DAILY_COST_LIMIT_MICROS: z.coerce.number().int().positive().optional(),
   /**

@@ -1,5 +1,14 @@
 # --- Build context: repository root (wallhaze/) ---
 # Keep secrets and local state out of images.
+
+# Protected directory — never read, never sent to the build daemon.
+/wallhaze/
+
+# Deployment archives / image bundles created in the repo root
+*.tar.gz
+*.tgz
+*.tar
+
 **/node_modules
 **/.next
 **/dist

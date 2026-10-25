@@ -6,6 +6,7 @@ import { FalJobProvider } from "./business/providers.js";
 import { MockJobProvider } from "./business/providers.js";
 import { createFalProvider, createMockProvider } from "./modules/generation/fal.provider.js";
 import { LocalStorage, MemoryStorage } from "./business/storage.js";
+import { resolveStorageFromEnv } from "./business/r2-storage.js";
 import {
   isFlagEnabled,
   isVideoLiveAllowed,
@@ -56,7 +57,9 @@ async function main(): Promise<void> {
         : undefined;
   const db: Database = createPostgresDatabase(env.DATABASE_URL);
   await migrate(db);
-  const storage = env.STORAGE_DIR ? new LocalStorage(env.STORAGE_DIR) : new MemoryStorage();
+  const storage = resolveStorageFromEnv(env, () =>
+    env.STORAGE_DIR ? new LocalStorage(env.STORAGE_DIR) : new MemoryStorage()
+  );
   const workerId = `worker-${process.pid}-${randomUUID().slice(0, 8)}`;
   console.log(`[worker:${workerId}] started (poll=${env.WORKER_POLL_MS ?? 2000}ms, lease=${env.WORKER_LEASE_SECONDS ?? 300}s)`);
   const handle = startWorker(

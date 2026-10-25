@@ -1,3 +1,10 @@
+
+> **⚠️ 2026-10-24 修订（拆分域架构）**：`SITE_URL=https://wallhaze.com`（前端，
+> Cloudflare Workers）；`API_PUBLIC_URL=https://api.wallhaze.com`（本 API）；
+> `GOOGLE_OAUTH_REDIRECT_URI=https://api.wallhaze.com/v1/auth/oauth/google/callback`。
+> 完整跨域认证分析见 CROSS-ORIGIN-AUTH.md。模板文件
+> `apps/api/.env.production.example` 已按此更新。
+
 # 生产环境变量说明（Contabo VPS）
 
 > 变量名与 `apps/api/src/config/env.ts`（zod 校验，启动即失败）逐一核对。
@@ -54,13 +61,22 @@
 | `PLATFORM_DAILY_COST_LIMIT_MICROS` | 启用前✅ | 否 | 平台日成本上限（micro-USD，0=硬停） | **`0`**（启用 AI 时再设，如 10000000=$10/日） |
 | `USER_DAILY_COST_LIMIT_MICROS` | 启用前✅ | 否 | 单用户日成本上限 | `0` 同上 |
 
-### Worker / 清理
+#> R2 变量配置在 **API 与 Worker 两者**（共享同一份 secrets/api.env）。
+> Staging 验收命令见 R2-STORAGE-SETUP.md §7（`npm run r2:test`）。
+
+## Worker / 清理
 
 | 变量 | 必填 | 作用 | 首轮值 |
 |---|---|---|---|
 | `EMBED_WORKER` | ✅ | 必须为 `0`（worker 是独立容器） | `0` |
 | `WORKER_POLL_MS` / `WORKER_LEASE_SECONDS` | 否 | 轮询/租约 | 2000 / 60 |
 | `STORAGE_DIR` | 建议 | 私有媒体目录（容器内 `/app/.data/media`，挂 volume） | `/app/.data/media` |
+| `STORAGE_DRIVER` | R2 时必填 | `local`（默认）/`r2`；r2 需下列 R2_* 全套，缺一拒启 | 空=local |
+| `R2_ENDPOINT` | r2 时✅ | 账户级 S3 endpoint（`https://<account>.r2.cloudflarestorage.com`，无桶路径；region 恒 auto） | 空 |
+| `R2_ACCESS_KEY_ID` | r2 时✅ | R2 API Token Access Key ID（敏感） | 空 |
+| `R2_SECRET_ACCESS_KEY` | r2 时✅ | R2 API Token Secret（敏感） | 空 |
+| `R2_BUCKET` | r2 时✅ | 私有媒体桶（绝不公开） | 空 |
+| `R2_PUBLIC_BUCKET` | 预留 | 公开/已核实媒体桶（Gallery/Community 管线） | 空 |
 | `MEDIA_RETENTION_CLEANUP_ENABLED` | ✅ | 30 天删除总开关；**unset=全 dry-run** | **unset**（staging 演练+站长批准后才设 1） |
 
 ### 支付 / Ops

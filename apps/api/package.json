@@ -16,7 +16,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "waffo:check": "node --import tsx src/payments/waffo-setup.ts --check",
-    "waffo:setup": "node --import tsx src/payments/waffo-setup.ts"
+    "waffo:setup": "node --import tsx src/payments/waffo-setup.ts",
+    "r2:test": "tsx scripts/r2/r2-connect-test.mts"
   },
   "dependencies": {
     "@electric-sql/pglite": "0.5.11",

@@ -1,3 +1,11 @@
+
+> **⚠️ 2026-10-24 修订**：最终架构中 **web 容器与 Caddy 均不再部署到 VPS**。
+> VPS 只运行 `wallhaze-app` compose 项目（api / worker / postgres / jobs）。
+> api 通过 `127.0.0.1:4000` 由**宿主 Nginx** 反代为 https://api.wallhaze.com
+> （模板：`apps/api/nginx/api.wallhaze.com.conf`）。前端部署见
+> CLOUDFLARE-FRONTEND-DEPLOY.md。下文保留 web 镜像构建作为**回退路径**
+> （`DEPLOY_TARGET=node`），但生产不再使用。
+
 # Docker 部署（Contabo VPS 4）
 
 ## 0. 仓库事实（构建前必读）

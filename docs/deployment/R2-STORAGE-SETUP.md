@@ -1,13 +1,18 @@
 # R2 对象存储接入（Cloudflare R2）
 
-## 1. 现状与结论
+## 1. 现状与结论（2026-10-24 更新）
 
-- **代码中尚无 R2/S3 适配器**。`apps/api` 只有 `LocalStorage`（JSON+base64 文件）与
-  `MemoryStorage`，接口为 `PrivateStorage`（put/get/delete）。
-- 本轮部署准备**未实现 R2 adapter**（代码改动超出部署准备范围且需要站长先开通 R2）。
-  首次部署使用 `STORAGE_DIR=/app/.data/media` + Docker volume——功能完整但媒体存放在
-  VPS 磁盘，100 GB 容量约束见下。
-- **这是上线路径上的最大技术缺口**，实施清单见 §6。
+- **R2 adapter 已实现并通过离线测试**：`apps/api/src/business/r2-storage.ts`
+  （零新依赖：原生 fetch + SigV4，`r2-sign.ts`）实现 `PrivateStorage`
+  put/get/delete，与 Memory/LocalStorage 同一契约（含 MIME/魔数校验）。
+- 接入开关：`STORAGE_DRIVER=r2`（默认 local）；凭据不全时**拒绝启动**
+  （fail-closed）。env 变量：`R2_ENDPOINT / R2_ACCESS_KEY_ID /
+  R2_SECRET_ACCESS_KEY / R2_BUCKET`（+预留 `R2_PUBLIC_BUCKET`），**API 与
+  Worker 都要配置**（二者共享 secrets/api.env）。
+- 离线测试：`tests/r2-adapter.test.ts`（7 项：SigV4 编码/确定性、fail-closed、
+  endpoint 校验）。
+- **Staging 连接验收**（站长已备好两个桶）：见 §7 的一条命令。
+- LocalStorage 过渡仍为首次部署默认；验收通过后切 `STORAGE_DRIVER=r2`。
 
 ## 2. 站长侧：开通 R2（一次性）
 
@@ -46,17 +51,56 @@
   `packages/contracts/src/images.ts` 的 `IMAGE_PROXY_ALLOWED_HOSTS` 增加签名域名或改为
   纯预签名 URL 方案。
 
-## 6. R2 adapter 实施清单（下一轮开发任务）
+## 6. 剩余实施项（adapter 已完成后的后续）
 
-1. 新增 `apps/api/src/business/r2-storage.ts`：实现 `PrivateStorage` 接口
-   （S3 兼容 API，`@aws-sdk/client-s3` SigV4；新增依赖需站长批准）。
-2. env 增加 `R2_ACCOUNT_ID/R2_ACCESS_KEY_ID/R2_SECRET/R2_BUCKET/R2_ENDPOINT`（zod 校验，
-   production + 未配置 → fail-closed 与 IMAGE_URL_SECRET 同模式）。
-3. `storage.ts` 工厂：`STORAGE_DRIVER=r2|local`；worker 与 api 必须同驱动。
-4. 视频 Range 支持：签名 URL 直连 R2（R2 原生支持 Range），或反代 `handle /media/*`
-   反向代理到 R2（带访问校验）。
-5. 30 天清理：`media-lifecycle.ts` 的删除调用改为 adapter 透传；`delete_failed` 重试
-   语义保持；dry-run 开关逻辑不变。
-6. 隔离测试：本地 MinIO 或 rclone serve 模拟 S3；put/get/delete/Range/大文件/MIME
-   校验 + `media-lifecycle` 全套测试在 R2 驱动下重跑。
-7. 迁移脚本：把 volume 内既有 `LocalStorage` 对象逐条搬上 R2 并校验 SHA-256。
+已落地：SigV4 模块、R2Storage（put/get/delete + 校验）、env schema、
+server/worker fail-closed 接线、离线测试、验收脚本。仍待做：
+
+
+1. 视频 Range 对外路径：签名 URL 直连 R2（原生支持 Range），或 Nginx
+   `location /v1/media/` 反代 R2（带访问校验）——路由层工作。
+2. 30 天清理在 R2 驱动下的 staging 全套重跑（adapter delete 已透传，语义不变）。
+3. 迁移脚本：把 volume 内既有 LocalStorage 对象逐条搬上 R2 并校验 SHA-256。
+4. 公共媒体管线：`R2_PUBLIC_BUCKET` 的写入路径（Gallery/Community 公开文件）。
+
+## 7. Staging 连接验收（站长执行，一条命令）
+
+```bash
+cd apps/api
+# 方式 A：临时环境变量
+R2_ENDPOINT=https://<account>.r2.cloudflarestorage.com R2_ACCESS_KEY_ID=<Access Key ID> R2_SECRET_ACCESS_KEY=<Secret> npm run r2:test
+
+# 方式 B：本地凭据文件（不入 Git；.gitignore 已含 .env.r2-test）
+#   echo "R2_ENDPOINT=..." > .env.r2-test  等，然后：
+npm run r2:test
+```
+
+脚本 `scripts/r2/r2-connect-test.mts` 只碰 `deployment-test/<日期>-<随机>/`
+前缀；对两个桶各做 PUT→HEAD→GET(校验字节)→DELETE→404 复验；私有桶匿名
+访问必须 401/403（400 仅当 S3 XML 错误码属鉴权类且响应零文件字节时才算
+通过——先上传真实对象、签名 GET 作对照，再发无凭据请求）；MP4 上传后
+HEAD 元数据、Range bytes=0-99（206+精确字节）、整段下载+probe 尺寸/时长、
+单对象删除。HEAD/GET 仅对网络错误与 5xx 做最多 3 次有界重试（PUT/DELETE
+单发不重试）；网络错误按 cause 链分类为 TIMEOUT/DNS/TLS/CONN_RESET/NETWORK
+并脱敏输出；创建的对象在正常/异常/SIGINT 路径统一清理。输出脱敏报告
+（账号 ID 掩码、密钥绝不打印），任一 FAIL 退出码非 0。凭据缺失时直接
+ABORT，不伪造成功。
+
+2026-10-25 二轮实测（17/18）后定稿：私有桶 HEAD 已由有界重试修复；
+唯一余项"匿名 GET 400 InvalidArgument"经核实为 **R2 S3 API 对无签名请求
+的协议性拒绝**（签名对照组在同一 URL 上 200 成功，排除构造问题；官方
+错误码文档未覆盖此场景，属 R2 与 AWS S3 的行为差异）。验收口径（已实
+现于 `src/business/r2-errors.ts` 分类器，附 9 项离线单测）：
+
+- 目标 A（S3 API 未授权访问）：签名 GET 成功 + 匿名 GET 无 2xx、零文件
+  字节 → 通过；400+InvalidArgument 记为 "protocol-rejection-unsigned"
+  （对象未取得），并注明**不单独证明 Bucket ACL**；400+其他码 → 判
+  "构造可疑" FAIL；404 → "鉴权状态不明" FAIL。双桶（public/private）都
+  探测。
+- 目标 B（Bucket 公共访问关闭）：S3 API 探测无法证明 r2.dev/自定义域名
+  层的状态（该层与 S3 endpoint 独立，且 S3 token 无权查询）。以站长在
+  Dashboard 的确认为准：两桶 Public Development URL（r2.dev）与自定义
+  域名均未启用；应用侧私有媒体仅经签名 URL（HMAC+时效+30 天门禁）。
+- 清理完整性：cleanup 逐 key 打印删除结果并计数，另以 **LIST（仅限
+  本次 `deployment-test/<RUN>/` 前缀）验证为空**，不再以 0ms 记录代替
+  证明。

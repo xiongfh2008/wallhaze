@@ -1,3 +1,10 @@
+> **⚠️ 架构已修订（2026-10-24）**：前端不再部署到 VPS。最终架构为
+> **Cloudflare Workers（vinext）承载 wallhaze.com 前端**；本 VPS 只运行
+> `wallhaze-app` 后端栈（api/worker/postgres/jobs，经宿主 Nginx 对外提供
+> api.wallhaze.com）。本文中涉及 Caddy / web 容器的部分已废弃，以后端
+> 手册 `DOCKER-DEPLOYMENT.md`（已更新）与
+> `CLOUDFLARE-FRONTEND-DEPLOY.md` 为准。
+
 # Contabo VPS 4 — WallHaze 生产架构
 
 - 服务器：Contabo Cloud VPS 4（4 vCPU / 8 GB RAM / 100 GB SSD）

@@ -1,3 +1,8 @@
+
+> **⚠️ 2026-10-24 修订**：本手册适用于 VPS 后端（wallhaze-app）。前端回滚
+> 见 CLOUDFLARE-FRONTEND-DEPLOY.md §5（vinext Beta 回退 = 切
+> `DEPLOY_TARGET=node` 镜像部署，或 Cloudflare 上一版本 Worker 回滚）。
+
 # 回滚手册
 
 ## 0. 铁律

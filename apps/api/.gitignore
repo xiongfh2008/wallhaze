@@ -17,3 +17,5 @@ npm-debug.log*
 
 # local development data (PGlite)
 .data/
+# R2 staging acceptance credentials (operator-local, never committed)
+.env.r2-test

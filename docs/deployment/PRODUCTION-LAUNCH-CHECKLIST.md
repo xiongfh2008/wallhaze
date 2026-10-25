@@ -1,3 +1,9 @@
+
+> **⚠️ 2026-10-24 修订（拆分域架构）**：阶段 2/3 中"VPS 部署 web 容器 /
+> Caddy"步骤已废弃。前端上线流程改为 Cloudflare Workers 部署
+> （CLOUDFLARE-FRONTEND-DEPLOY.md §3）；本清单阶段 0–1、4–6 仍适用于
+> VPS 后端（compose 项目名 wallhaze-app）。
+
 # 生产上线清单（按序执行，站长操作）
 
 > A=站长，D=已由 DeepSeek 完成并验收。任何一步失败停止并回看对应文档。

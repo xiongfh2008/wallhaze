@@ -7,6 +7,7 @@ import {
   openPgliteGuarded,
 } from "./db/pglite-guard.js";
 import { LocalStorage, MemoryStorage } from "./business/storage.js";
+import { resolveStorageFromEnv } from "./business/r2-storage.js";
 import { startWorker } from "./business/worker.js";
 import { FalJobProvider, MockJobProvider } from "./business/providers.js";
 import {
@@ -93,9 +94,11 @@ async function main(): Promise<void> {
   }
 
   // One storage instance shared by the HTTP routes and the worker.
-  const storage = env.STORAGE_DIR
-    ? new LocalStorage(env.STORAGE_DIR)
-    : new MemoryStorage();
+  // STORAGE_DRIVER=r2 (fail-closed on missing credentials) wins over the
+  // local-disk fallback; see r2-storage.ts.
+  const storage = resolveStorageFromEnv(env, () =>
+    env.STORAGE_DIR ? new LocalStorage(env.STORAGE_DIR) : new MemoryStorage()
+  );
 
   let shuttingDown = false;
   let requestShutdown: ((source: string) => void) | null = null;

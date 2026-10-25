@@ -1,3 +1,10 @@
+
+> **⚠️ 2026-10-24 修订（拆分域架构）**：
+> - `wallhaze.com` → **Cloudflare Workers（vinext）**，不再 A 记录到 VPS（Worker
+>   绑定 custom domain 即可）。
+> - `api.wallhaze.com` → A 记录 `94.72.126.85`，Proxied（橙云）。
+> - 前端手册见 CLOUDFLARE-FRONTEND-DEPLOY.md；本页其余 SSL/缓存策略仍适用。
+
 # Cloudflare DNS / SSL 配置
 
 ## 1. DNS（站长在 Cloudflare 执行）
