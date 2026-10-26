@@ -7,13 +7,36 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 /**
- * /privacy (FE09): STRUCTURE ONLY — an unreleased legal working draft.
- * It is marked as pending review (ContentShell draft badge), excluded from
- * search indexes, requires no user agreement, and makes NO claims about
- * data processing, retention or company identity before legal review.
- * Launch blocker: must be reviewed and replaced with effective text.
+ * /privacy (FE09): effective Privacy Policy. Public, indexable, no sign-in
+ * required. It documents the data WallHaze actually processes — email and
+ * password accounts, Google sign-in (openid/email/profile), generations,
+ * Credits, session cookies, device-local storage — and the verified contact
+ * channel. Legal-review notes live in the delivery report, not on the page.
  */
 const PRIVACY_PATH = "/privacy";
+
+/** Section ids render in order; lists come from the *Items message arrays. */
+const PRIVACY_SECTIONS = [
+  { id: "intro", hasList: false },
+  { id: "collect", hasList: true },
+  { id: "google", hasList: true },
+  { id: "cookies", hasList: false },
+  { id: "use", hasList: true },
+  { id: "thirdParty", hasList: true },
+  { id: "retention", hasList: true },
+  { id: "security", hasList: false },
+  { id: "rights", hasList: false },
+  { id: "children", hasList: false },
+  { id: "changes", hasList: false },
+  { id: "contact", hasList: false },
+] as const;
+
+/** Message arrays arrive as unknown — narrow to a clean string list. */
+function stringList(value: unknown): string[] {
+  return Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === "string")
+    : [];
+}
 
 export async function generateMetadata({
   params,
@@ -28,7 +51,6 @@ export async function generateMetadata({
     path: PRIVACY_PATH,
     title: t("privacyTitle"),
     description: t("privacyDescription"),
-    noindex: true,
   });
 }
 
@@ -43,30 +65,29 @@ export default async function PrivacyPage({
   }
   const t = await getTranslations("privacy");
 
-  const sections = [
-    { title: t("scopeTitle"), body: t("scopeBody") },
-    { title: t("dataTitle"), body: t("dataBody") },
-    { title: t("cookiesTitle"), body: t("cookiesBody") },
-    { title: t("retentionTitle"), body: t("retentionBody") },
-    { title: t("rightsTitle"), body: t("rightsBody") },
-    { title: t("contactTitle"), body: t("contactBody") },
-  ];
-
   return (
     <div className="relative flex min-h-dvh flex-1 flex-col overflow-x-clip">
       <Header />
-      <ContentShell
-        eyebrow={t("eyebrow")}
-        title={t("title")}
-        subtitle={t("intro")}
-        draft
-      >
-        <dl className="space-y-8">
-          {sections.map((section) => (
-            <div key={section.title}>
-              <dt className="font-medium text-zinc-100">{section.title}</dt>
-              <dd className="mt-2 leading-relaxed text-zinc-400">
-                {section.body}
+      <ContentShell eyebrow={t("eyebrow")} title={t("title")} subtitle={t("intro")}>
+        <p className="text-sm text-zinc-500">{t("updated")}</p>
+        <dl className="mt-8 space-y-10">
+          {PRIVACY_SECTIONS.map(({ id, hasList }) => (
+            <div key={id}>
+              <dt className="text-lg font-semibold tracking-tight text-zinc-100">
+                {t(`${id}Title` as const)}
+              </dt>
+              <dd className="mt-3 leading-relaxed text-zinc-400">
+                <p>{t(`${id}Body` as const)}</p>
+                {hasList ? (
+                  <ul className="mt-4 list-disc space-y-3 pl-5 marker:text-violet-400/70">
+                    {stringList(t.raw(`${id}Items`)).map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+                {id === "use" ? (
+                  <p className="mt-4">{t("useNote")}</p>
+                ) : null}
               </dd>
             </div>
           ))}

@@ -25,13 +25,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/wallpapers", priority: 0.9, changeFrequency: "weekly" },
     { path: "/studio", priority: 0.8, changeFrequency: "weekly" },
     { path: "/community", priority: 0.8, changeFrequency: "weekly" },
-    // FE09 content pages. Deliberately EXCLUDED: account-private pages
-    // (/login /signup /account /credits /my-creations — noindex) and the
-    // unreleased legal drafts (/privacy /terms — noindex until effective).
+    // FE09 content pages, including the effective legal pages. Deliberately
+    // EXCLUDED: account-private pages (/login /signup /account /credits
+    // /my-creations — noindex).
     { path: "/about", priority: 0.5, changeFrequency: "monthly" },
     { path: "/faq", priority: 0.5, changeFrequency: "monthly" },
     { path: "/help", priority: 0.5, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.4, changeFrequency: "monthly" },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
     // Only cleared artwork is indexable. Pending detail pages stay reachable
     // for transparency but are noindex and deliberately excluded here.
     ...PRESET_WALLPAPERS.filter(

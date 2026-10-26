@@ -42,8 +42,8 @@ interface FooterLink {
 
 /**
  * Global footer. Content-page destinations (FAQ, About, Contact, Privacy,
- * Terms) are real pages since FE09 — legal pages remain review drafts that
- * are noindexed until effective.
+ * Terms) are real pages since FE09 — the legal pages are effective and
+ * indexable.
  */
 export default function Footer() {
   const t = useTranslations("footer");

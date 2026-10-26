@@ -7,13 +7,39 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 /**
- * /terms (FE09): STRUCTURE ONLY — an unreleased legal working draft.
- * Marked as pending review (ContentShell draft badge), excluded from search
- * indexes, not binding, requires no agreement, and states NO refund rights,
- * retention periods, jurisdiction or company entity before legal review.
- * Launch blocker: must be reviewed and replaced with effective text.
+ * /terms (FE09): effective Terms of Service. Public, indexable, no sign-in
+ * required. Governs the free gallery, per-work download permissions,
+ * community submissions, the AI Studio and Credits. Jurisdiction and
+ * operating-entity details are intentionally not claimed — see the delivery
+ * report's manual-confirmation list.
  */
 const TERMS_PATH = "/terms";
+
+/** Section ids render in order; lists come from the *Items message arrays. */
+const TERMS_SECTIONS = [
+  { id: "acceptance", hasList: false },
+  { id: "service", hasList: false },
+  { id: "account", hasList: false },
+  { id: "submissions", hasList: false },
+  { id: "ip", hasList: false },
+  { id: "downloads", hasList: false },
+  { id: "prohibited", hasList: true },
+  { id: "ai", hasList: false },
+  { id: "credits", hasList: false },
+  { id: "review", hasList: false },
+  { id: "availability", hasList: false },
+  { id: "liability", hasList: false },
+  { id: "termination", hasList: false },
+  { id: "changes", hasList: false },
+  { id: "contact", hasList: false },
+] as const;
+
+/** Message arrays arrive as unknown — narrow to a clean string list. */
+function stringList(value: unknown): string[] {
+  return Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === "string")
+    : [];
+}
 
 export async function generateMetadata({
   params,
@@ -28,7 +54,6 @@ export async function generateMetadata({
     path: TERMS_PATH,
     title: t("termsTitle"),
     description: t("termsDescription"),
-    noindex: true,
   });
 }
 
@@ -43,30 +68,26 @@ export default async function TermsPage({
   }
   const t = await getTranslations("terms");
 
-  const sections = [
-    { title: t("serviceTitle"), body: t("serviceBody") },
-    { title: t("ipTitle"), body: t("ipBody") },
-    { title: t("paymentsTitle"), body: t("paymentsBody") },
-    { title: t("aiTitle"), body: t("aiBody") },
-    { title: t("changesTitle"), body: t("changesBody") },
-    { title: t("governingTitle"), body: t("governingBody") },
-  ];
-
   return (
     <div className="relative flex min-h-dvh flex-1 flex-col overflow-x-clip">
       <Header />
-      <ContentShell
-        eyebrow={t("eyebrow")}
-        title={t("title")}
-        subtitle={t("intro")}
-        draft
-      >
-        <dl className="space-y-8">
-          {sections.map((section) => (
-            <div key={section.title}>
-              <dt className="font-medium text-zinc-100">{section.title}</dt>
-              <dd className="mt-2 leading-relaxed text-zinc-400">
-                {section.body}
+      <ContentShell eyebrow={t("eyebrow")} title={t("title")} subtitle={t("intro")}>
+        <p className="text-sm text-zinc-500">{t("updated")}</p>
+        <dl className="mt-8 space-y-10">
+          {TERMS_SECTIONS.map(({ id, hasList }) => (
+            <div key={id}>
+              <dt className="text-lg font-semibold tracking-tight text-zinc-100">
+                {t(`${id}Title` as const)}
+              </dt>
+              <dd className="mt-3 leading-relaxed text-zinc-400">
+                <p>{t(`${id}Body` as const)}</p>
+                {hasList ? (
+                  <ul className="mt-4 list-disc space-y-3 pl-5 marker:text-violet-400/70">
+                    {stringList(t.raw(`${id}Items`)).map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
               </dd>
             </div>
           ))}

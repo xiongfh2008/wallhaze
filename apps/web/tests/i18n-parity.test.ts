@@ -9,10 +9,11 @@ import { describe, expect, it } from "vitest";
  * - All seven message files must keep EXACTLY the same key set — a missing
  *   translation would render raw keys for real users.
  * - Every nav/footer destination must exist as a real page — no dead links.
- * - Account-private pages and unreleased legal drafts must carry noindex in
- *   their metadata; public content pages must not.
- * - The sitemap must include public content pages, cleared wallpaper details
- *   and published community works, and must exclude noindex pages.
+ * - Account-private pages must carry noindex in their metadata; public
+ *   content pages (including the effective legal pages) must not.
+ * - The sitemap must include public content pages, legal pages, cleared
+ *   wallpaper details and published community works, and must exclude
+ *   noindex pages.
  */
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -31,7 +32,16 @@ function readMessages(locale: string): Record<string, unknown> {
 }
 
 /** Route registry — single source of truth for this test. */
-const PUBLIC_CONTENT_ROUTES = ["/about", "/faq", "/help", "/contact", "/community"] as const;
+const PUBLIC_CONTENT_ROUTES = [
+  "/about",
+  "/faq",
+  "/help",
+  "/contact",
+  "/community",
+  // Effective legal pages: public, indexable, no sign-in required.
+  "/privacy",
+  "/terms",
+] as const;
 const PRIVATE_ROUTES = [
   "/login",
   "/signup",
@@ -41,8 +51,7 @@ const PRIVATE_ROUTES = [
   "/credits",
   "/my-creations",
 ] as const;
-const LEGAL_DRAFT_ROUTES = ["/privacy", "/terms"] as const;
-const NOINDEX_ROUTES: readonly string[] = [...PRIVATE_ROUTES, ...LEGAL_DRAFT_ROUTES];
+const NOINDEX_ROUTES: readonly string[] = [...PRIVATE_ROUTES];
 
 function pageFile(route: string): string {
   return path.join(webRoot, "app", "[locale]", ...route.split("/"), "page.tsx");
@@ -62,7 +71,7 @@ describe("i18n parity (7 locales)", () => {
   it("new FE05–FE09 namespaces exist with real copy in every locale", () => {
     for (const locale of LOCALES) {
       const messages = readMessages(locale);
-      for (const ns of ["auth", "account", "wallet", "creations", "content", "about", "faq", "help", "contact", "privacy", "terms"]) {
+      for (const ns of ["auth", "account", "wallet", "creations", "about", "faq", "help", "contact", "privacy", "terms"]) {
         expect(messages[ns], `${locale}.${ns}`).toBeTypeOf("object");
       }
     }
@@ -71,12 +80,12 @@ describe("i18n parity (7 locales)", () => {
 
 describe("route registry (no dead links)", () => {
   it("every FE05–FE09 route exists as a page file", () => {
-    for (const route of [...PUBLIC_CONTENT_ROUTES, ...PRIVATE_ROUTES, ...LEGAL_DRAFT_ROUTES]) {
+    for (const route of [...PUBLIC_CONTENT_ROUTES, ...PRIVATE_ROUTES]) {
       expect(existsSync(pageFile(route)), `missing page for ${route}`).toBe(true);
     }
   });
 
-  it("noindex: private + legal-draft pages declare it, public pages do not", () => {
+  it("noindex: private pages declare it, public pages (incl. legal) do not", () => {
     for (const route of NOINDEX_ROUTES) {
       const source = readFileSync(pageFile(route), "utf8");
       expect(source, `${route} must be noindex`).toContain("noindex: true");
@@ -89,7 +98,7 @@ describe("route registry (no dead links)", () => {
 });
 
 describe("sitemap", () => {
-  it("includes public content pages + 18 cleared wallpapers; excludes noindex pages", async () => {
+  it("includes public content pages, legal pages + 18 cleared wallpapers; excludes noindex pages", async () => {
     const { default: buildSitemap } = await import("../app/sitemap");
     const siteUrl = "https://wallhaze.com";
     const paths = buildSitemap().map((entry) =>

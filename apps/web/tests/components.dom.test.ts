@@ -184,7 +184,7 @@ describe("AuthPanel (FE05)", () => {
     expect(container.textContent).toContain("Continue with email");
   });
 
-  it("links back home, to the mode toggle and to the legal drafts", () => {
+  it("links back home, to the mode toggle and to the legal pages", () => {
     const container = renderUI(createElement(AuthPanel, { mode: "login" }));
     expect(container.querySelector('a[href="/"]')).not.toBeNull();
     expect(container.querySelector('a[href="/signup"]')).not.toBeNull();

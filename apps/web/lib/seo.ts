@@ -62,9 +62,8 @@ interface PageMetadataOptions {
   title: string;
   description: string;
   /**
-   * True for account-private pages (login, account, credits…) and
-   * not-yet-reviewed legal drafts (privacy, terms): excluded from search
-   * indexes until they carry real, reviewable content.
+   * True for account-private pages (login, account, credits…): excluded
+   * from search indexes.
    */
   noindex?: boolean;
 }
