@@ -86,7 +86,8 @@
   "trending": {
     "aria": "Wallpaper-Stilvorschauen",
     "title": "Eine Welt voller Stile",
-    "previewAlt": "Vorschau des Hintergrundbilds {label}"
+    "previewAlt": "Vorschau des Hintergrundbilds {label}",
+    "cardAria": "Stil {label} entdecken"
   },
   "gallery": {
     "eyebrow": "Hintergrundbild-Galerie",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "Der Generierungsdienst ist vorübergehend nicht verfügbar——bitte später erneut versuchen.",
     "errorGenericHttp": "Die Anfrage ist fehlgeschlagen——bitte erneut versuchen.",
     "errorInsufficientCredits": "Nicht genug Credits für diese Generierung. Lade auf der Credits-Seite auf.",
+    "errorServicePaused": "Der Generierungsdienst ist wegen Wartung pausiert——bitte später erneut versuchen.",
+    "errorGenerationDisabled": "Der Generierungsdienst ist noch nicht geöffnet——bitte später erneut nachsehen.",
     "errorTimeout": "Die Generierung braucht zu lange für eine Rückmeldung. Prüfe My Creations, bevor du es erneut versuchst.",
     "historyUnavailable": "Die Kreation war erfolgreich, aber dieser Browser konnte sie nicht im Verlauf speichern.",
     "clearStyle": "Auswahl aufheben",
@@ -386,7 +389,7 @@
     "priceLabel": "Beim Bestätigen werden {credits} Credits reserviert.",
     "reserveNotice": "Reservierte Credits werden nur bei erfolgreicher Generierung abgebucht; bei einem Fehler werden sie freigegeben.",
     "loadingNotice": "Credits werden geprüft…",
-    "unavailableNotice": "Kontodienste sind in diesem Build nicht verfügbar, daher ist die Generierung deaktiviert.",
+    "unavailableNotice": "Der Credits-Dienst ist vorübergehend nicht verfügbar——bitte später erneut versuchen.",
     "signedOutBody": "Melde dich an, um dein Guthaben zu sehen und Wallpaper zu generieren.",
     "perGeneration": "{credits} Credits pro Generierung",
     "balanceLine": "Guthaben: {credits} Credits. {price} Credits werden nur während der Generierung reserviert und bei Fehlschlag freigegeben.",
@@ -395,6 +398,13 @@
     "openCredits": "Credits öffnen",
     "inFlightTitle": "Generierung läuft",
     "inFlightBody": "{credits} Credits sind für diese Generierung reserviert und werden bei Fehlschlag freigegeben.",
+    "inFlightMockBody": "Testgenerierung läuft——es werden keine Credits abgebucht.",
+    "servicePausedTitle": "Generierung pausiert",
+    "servicePausedNotice": "Der Dienst wird gewartet und kann derzeit nicht generieren; deine Credits sind nicht betroffen. Bitte später erneut versuchen.",
+    "serviceDisabledTitle": "Generierung nicht verfügbar",
+    "serviceDisabledNotice": "Die Generierung ist in dieser Umgebung noch nicht aktiviert; echte Generierung wird nach dem Start unterstützt.",
+    "mockReadyTitle": "Testvorschau-Modus",
+    "mockReadyNotice": "Mock-Generierung aktiv: Ergebnisse sind Platzhalter, es wird kein KI-Modell aufgerufen und keine Credits werden abgebucht.",
     "signInAction": "Anmelden"
   },
   "studio": {

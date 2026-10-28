@@ -86,7 +86,8 @@
   "trending": {
     "aria": "壁纸风格预览",
     "title": "更多风格，更多灵感",
-    "previewAlt": "{label} 壁纸预览"
+    "previewAlt": "{label} 壁纸预览",
+    "cardAria": "查看{label}风格"
   },
   "gallery": {
     "eyebrow": "壁纸画廊",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "生成服务暂时不可用——请稍后重试。",
     "errorGenericHttp": "生成失败——请重试。",
     "errorInsufficientCredits": "积分不足，无法生成。请到 Credits 页面充值。",
+    "errorServicePaused": "生成服务暂停维护中，请稍后重试。",
+    "errorGenerationDisabled": "生成服务尚未开放，请稍后再来。",
     "errorTimeout": "生成耗时过长未返回结果。重试前请先查看 My Creations。",
     "historyUnavailable": "作品已生成，但此浏览器无法将其保存到历史记录。",
     "clearStyle": "取消选择",
@@ -386,7 +389,7 @@
     "priceLabel": "确认后将预占 {credits} 积分。",
     "reserveNotice": "预占的积分仅在生成成功时扣除；任务失败会释放。",
     "loadingNotice": "正在检查积分…",
-    "unavailableNotice": "此版本账户服务不可用，生成已禁用。",
+    "unavailableNotice": "积分服务暂时不可用——请稍后重试。",
     "signedOutBody": "登录后查看余额并生成壁纸。",
     "perGeneration": "每次生成 {credits} 积分",
     "balanceLine": "余额：{credits} 积分。仅在生成期间预占 {price} 积分，失败会释放。",
@@ -395,6 +398,13 @@
     "openCredits": "前往积分页",
     "inFlightTitle": "正在生成",
     "inFlightBody": "本次生成预占了 {credits} 积分，若失败将释放。",
+    "inFlightMockBody": "测试生成进行中——不会扣除 Credits。",
+    "servicePausedTitle": "生成服务暂停",
+    "servicePausedNotice": "服务正在维护，暂时无法生成；已有积分不受影响，请稍后再试。",
+    "serviceDisabledTitle": "生成服务未开放",
+    "serviceDisabledNotice": "生成功能尚未在此环境启用；开放后将支持真实生成。",
+    "mockReadyTitle": "测试预览模式",
+    "mockReadyNotice": "当前为模拟生成：结果为占位图，不调用 AI 模型，也不会扣除 Credits。",
     "signInAction": "登录"
   },
   "studio": {

@@ -764,6 +764,58 @@ export const FEATURED_WALLPAPERS: PresetWallpaper[] =
     (id) => PRESET_WALLPAPERS.find((wallpaper) => wallpaper.id === id)
   ).filter((wallpaper): wallpaper is PresetWallpaper => wallpaper !== undefined);
 
+/**
+ * Homepage "More styles, more inspiration" spotlight — explicit style IDs
+ * (never auto-derived) spanning the theme families the band should show:
+ * anime characters, aurora, nature close-ups, digital art, minimal
+ * architecture, sci-fi, dreamy fantasy and retro futurism.
+ *
+ * Every referenced style must carry a registry-gated preview image, and no
+ * two cards may share an image. Each card links to the style's cleared preset
+ * wallpaper when one exists (so the card image matches the detail page),
+ * otherwise to the studio preselected with that style.
+ */
+const STYLE_SPOTLIGHT_IDS: readonly StyleId[] = [
+  "chinese-ink",
+  "aurora-nights",
+  "macro-nature",
+  "stained-glass",
+  "architecture-minimal",
+  "low-poly",
+  "anime-fantasy",
+  "vaporwave",
+];
+
+export interface StyleSpotlightItem {
+  style: WallStyle;
+  /** Cleared preset wallpaper showcasing this style, when one exists. */
+  wallpaper: PresetWallpaper | null;
+}
+
+export const STYLE_SPOTLIGHT: StyleSpotlightItem[] = STYLE_SPOTLIGHT_IDS.map(
+  (id) => {
+    const style = WALLPAPER_STYLES.find((candidate) => candidate.id === id);
+    if (!style?.image) {
+      throw new Error(
+        `[wallpapers] Style spotlight "${id}" has no cleared preview image.`
+      );
+    }
+    // SEEDS order lists portrait presets before wide variants, so find()
+    // resolves the portrait detail page matching the 3:4 card.
+    const wallpaper =
+      PRESET_WALLPAPERS.find(
+        (candidate) =>
+          candidate.styleId === id && candidate.canPubliclyDisplay
+      ) ?? null;
+    if (wallpaper && wallpaper.image !== style.image) {
+      throw new Error(
+        `[wallpapers] Spotlight card "${id}" would mismatch its wallpaper image.`
+      );
+    }
+    return { style, wallpaper };
+  }
+);
+
 /*
  * Parked prompts (2026-10-14): these six dedicated artworks were removed
  * because the image service returns a shared "generating" placeholder for

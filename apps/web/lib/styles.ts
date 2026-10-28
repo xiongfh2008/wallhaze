@@ -1,3 +1,5 @@
+import { isStylePreviewPublic } from "@/lib/media-rights";
+
 export type StyleId =
   | "anime"
   | "cyberpunk"
@@ -85,18 +87,6 @@ export interface WallStyle {
   supportedMediaTypes?: ("image" | "video")[];
 }
 
-
-/** The only style previews with traceable CC0/self-authored evidence. */
-const PUBLIC_STYLE_IMAGE_IDS: ReadonlySet<StyleId> = new Set([
-  "starry-galaxy",
-  "mountain-lake",
-  "deep-ocean",
-  "aurora-nights",
-  "architecture-minimal",
-  "macro-nature",
-  "soft-gradient",
-  "abstract-light",
-]);
 
 const RAW_WALLPAPER_STYLES: WallStyle[] = [
   {
@@ -502,15 +492,25 @@ const RAW_WALLPAPER_STYLES: WallStyle[] = [
 ];
 
 /**
- * Public style catalogue. A style keeps its preview only when the underlying
- * file has a traceable CC0/self-authored record; unverified legacy and remote
- * previews are stripped here so no component can render a restricted URL.
+ * Public style catalogue.
+ *
+ * Every style must ship a real preview image so the selector can be used by
+ * sight alone. Previews live under /images/styles/ as either a traceable
+ * CC0/self-authored JPG (8 styles) or a project-generated WebP derivative
+ * (46 styles) — see data/media-rights.json (usage: style-preview).
+ *
+ * The rights registry is the gate: a style keeps its preview only while the
+ * corresponding asset (`style.<id>`) is verified and cleared for public
+ * display. A takedown therefore strips the preview automatically, and a new
+ * preview only needs to be registered — no code change.
  */
 export const WALLPAPER_STYLES: WallStyle[] = RAW_WALLPAPER_STYLES.map(
-  (style) =>
-    PUBLIC_STYLE_IMAGE_IDS.has(style.id)
-      ? style
-      : { ...style, image: undefined }
+  (style) => {
+    const previewPath = style.image ?? `/images/styles/${style.id}.webp`;
+    return isStylePreviewPublic(style.id)
+      ? { ...style, image: previewPath }
+      : { ...style, image: undefined };
+  }
 );
 
 /**

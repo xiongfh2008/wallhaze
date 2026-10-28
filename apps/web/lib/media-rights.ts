@@ -18,6 +18,7 @@ export type MediaReviewStatus =
 export type MediaSourceType =
   | "wikimedia-cc0"
   | "self-authored"
+  | "project-generated-ai"
   | "legacy-local-unknown"
   | "external-ai-unknown";
 

@@ -161,6 +161,18 @@ export default function LiveWallpaperStudio() {
   const requestMode =
     sourceMode === "image" ? "image_to_video" : "text_to_video";
   const videoPricing = pricing?.video;
+  // Whether the backend currently ACCEPTS generation jobs — derived from the
+  // same pricing probe. `paused` is an operator switch independent of the
+  // provider mode; ignoring it made the studio offer a paid confirmation for
+  // a service that refuses every job.
+  const videoServiceState: "available" | "paused" | "disabled" | "unknown" =
+    pricing === null
+      ? "unknown"
+      : pricing.paused === true
+        ? "paused"
+        : !videoPricing?.available
+          ? "disabled"
+          : "available";
   const modePricing = videoPricing?.modes[requestMode];
   const supportedRatios = modePricing?.aspectRatios ?? [];
   const supportedDurations = modePricing?.durations ?? [];
@@ -197,7 +209,8 @@ export default function LiveWallpaperStudio() {
     accountState === "ready" &&
     canAfford &&
     formValid &&
-    !busy,
+    !busy &&
+    videoServiceState === "available",
   );
 
   useEffect(() => {
@@ -319,22 +332,31 @@ export default function LiveWallpaperStudio() {
     return () => window.clearTimeout(timer);
   }, [status]);
 
+  // Service facts (paused / not configured) outrank personal ones: when the
+  // backend accepts no jobs, asking the visitor to sign in or top up would
+  // be a lie.
   const noticeState: CreditsNoticeState =
     status === "generating"
       ? "in-flight"
-      : accountState === "loading"
-        ? "loading"
-        : accountState === "unavailable"
-          ? "unavailable"
-          : accountState === "signed-out"
-            ? "signed-out"
-            : !videoPricing?.available || !modePricing || price === null
+      : videoServiceState === "paused"
+        ? "paused"
+        : videoServiceState === "disabled"
+          ? "service-disabled"
+          : accountState === "loading"
+            ? "loading"
+            : accountState === "unavailable"
               ? "unavailable"
-              : walletCredits === null
-                ? "unavailable"
-                : walletCredits < price
-                  ? "insufficient"
-                  : "ready";
+              : accountState === "signed-out"
+                ? "signed-out"
+                : videoServiceState === "unknown"
+                  ? "unavailable"
+                  : !modePricing || price === null
+                    ? "unavailable"
+                    : walletCredits === null
+                      ? "unavailable"
+                      : walletCredits < price
+                        ? "insufficient"
+                        : "ready";
 
   const handleFile = async (file: File | undefined) => {
     if (!file) return;
@@ -387,8 +409,24 @@ export default function LiveWallpaperStudio() {
       setStatus("error");
       return;
     }
-    if (!videoPricing?.available || !modePricing) {
+    // Service honesty first: a paused or unconfigured backend never gets a
+    // paid-review dialog — only a clear, current error.
+    if (videoServiceState === "paused") {
+      setErrorMessage(tGen("errorServicePaused"));
+      setStatus("error");
+      return;
+    }
+    if (videoServiceState === "disabled") {
       setErrorMessage(t("notConfigured"));
+      setStatus("error");
+      return;
+    }
+    if (!videoPricing?.available || !modePricing) {
+      setErrorMessage(
+        videoServiceState === "unknown"
+          ? tGen("errorServiceUnavailable")
+          : t("notConfigured"),
+      );
       setStatus("error");
       return;
     }
@@ -486,6 +524,14 @@ export default function LiveWallpaperStudio() {
       if (!outcome.ok) {
         setErrorMessage(tGen(generationErrorKey(outcome.code, outcome.reason)));
         setStatus("error");
+        // The failure released the reservation server-side — refresh so the
+        // notice shows the restored balance instead of a stale one.
+        const wallet = await creditsAdapter.getWallet();
+        if (wallet.ok) {
+          setWalletCredits(
+            Math.max(0, wallet.data.credits - (wallet.data.reserved ?? 0)),
+          );
+        }
         return;
       }
       setResult(outcome);
@@ -938,11 +984,11 @@ export default function LiveWallpaperStudio() {
               </div>
             </div>
 
-            {!videoPricing?.available ? (
+            {videoServiceState === "disabled" ? (
               <p className="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-2.5 text-xs leading-relaxed text-amber-200">
                 {t("notConfigured")}
               </p>
-            ) : videoPricing.mock ? (
+            ) : videoPricing?.mock && videoServiceState === "available" ? (
               <p className="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-2.5 text-xs leading-relaxed text-amber-200">
                 {t("mockMode")}
               </p>
@@ -953,6 +999,7 @@ export default function LiveWallpaperStudio() {
               state={noticeState}
               priceCredits={price}
               balance={walletCredits}
+              mock={videoPricing?.mock === true}
             />
 
             <button
@@ -1197,6 +1244,7 @@ export default function LiveWallpaperStudio() {
         creditsMessage={tGen("errorInsufficientCredits")}
         onConfirm={() => void submitVideo()}
         submitting={submitting}
+        mockMode={videoPricing?.mock === true}
       />
     </section>
   );

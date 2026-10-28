@@ -16,6 +16,8 @@ function InfoIcon({ className = "" }: { className?: string }) {
 export type CreditsNoticeState =
   | "loading"
   | "unavailable"
+  | "paused"
+  | "service-disabled"
   | "signed-out"
   | "ready"
   | "insufficient"
@@ -26,19 +28,27 @@ interface CreditsNoticeProps {
   priceCredits: number | null;
   balance: number | null;
   className?: string;
+  /**
+   * True when the backend runs the mock provider: the ready and in-flight
+   * copy then describes an honest test preview (no charge) instead of a
+   * real paid reservation.
+   */
+  mock?: boolean;
 }
 
 /**
- * Live credits notice. It mirrors the real auth/pricing/wallet state:
- * blocked states point at the action (sign in / top up), the ready state
- * shows the server price and balance, and an in-flight generation reports
- * the reservation instead of repeating "Credits required".
+ * Live credits notice. It mirrors the real auth/pricing/wallet/service
+ * state: blocked states point at the action (sign in / top up), service
+ * states tell the truth about a paused or unconfigured backend, the ready
+ * state shows the server price and balance, and an in-flight generation
+ * reports the reservation instead of repeating "Credits required".
  */
 export default function CreditsNotice({
   state,
   priceCredits,
   balance,
   className = "",
+  mock = false,
 }: CreditsNoticeProps) {
   const t = useTranslations("credits");
 
@@ -58,9 +68,18 @@ export default function CreditsNotice({
     body = t("loadingNotice");
   } else if (state === "unavailable") {
     body = t("unavailableNotice");
+  } else if (state === "paused") {
+    title = t("servicePausedTitle");
+    body = t("servicePausedNotice");
+  } else if (state === "service-disabled") {
+    title = t("serviceDisabledTitle");
+    body = t("serviceDisabledNotice");
   } else if (state === "signed-out") {
     body = t("signedOutBody");
     action = { href: loginHref("/studio"), label: t("signInAction") };
+  } else if (state === "ready" && mock) {
+    title = t("mockReadyTitle");
+    body = t("mockReadyNotice");
   } else if (state === "ready" && priceCredits !== null) {
     title = t("perGeneration", { credits: priceCredits });
     body = t("balanceLine", {
@@ -76,7 +95,9 @@ export default function CreditsNotice({
     action = { href: "/credits", label: t("openCredits") };
   } else if (state === "in-flight") {
     title = t("inFlightTitle");
-    body = t("inFlightBody", { credits: priceCredits ?? 0 });
+    body = mock
+      ? t("inFlightMockBody")
+      : t("inFlightBody", { credits: priceCredits ?? 0 });
   }
 
   return (

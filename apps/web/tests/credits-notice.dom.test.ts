@@ -38,10 +38,15 @@ afterEach(() => {
   container.remove();
 });
 
-function render(state: CreditsNoticeState, price: number | null, balance: number | null) {
+function render(
+  state: CreditsNoticeState,
+  price: number | null,
+  balance: number | null,
+  mock = false,
+) {
   act(() => {
     root.render(
-      createElement(CreditsNotice, { state, priceCredits: price, balance })
+      createElement(CreditsNotice, { state, priceCredits: price, balance, mock })
     );
   });
   return container.textContent ?? "";
@@ -75,5 +80,34 @@ describe("credits notice states", () => {
 
   it("stays honest when services are unavailable", () => {
     expect(render("unavailable", null, null)).toContain("unavailableNotice");
+  });
+
+  it("reports an operator pause instead of blaming the account", () => {
+    const text = render("paused", 10, 100);
+    expect(text).toContain("servicePausedTitle");
+    expect(text).toContain("servicePausedNotice");
+    // A paused service must not sell a price or ask for sign-in.
+    expect(text).not.toContain("perGeneration");
+    expect(text).not.toContain("signedOutBody");
+  });
+
+  it("reports an unconfigured generation service", () => {
+    const text = render("service-disabled", 10, null);
+    expect(text).toContain("serviceDisabledTitle");
+    expect(text).toContain("serviceDisabledNotice");
+  });
+
+  it("labels the ready state as a test preview in mock mode", () => {
+    const text = render("ready", 10, 100, true);
+    expect(text).toContain("mockReadyTitle");
+    expect(text).toContain("mockReadyNotice");
+    // Mock never claims a charge.
+    expect(text).not.toContain("perGeneration");
+  });
+
+  it("does not claim a reservation while a mock generation runs", () => {
+    const text = render("in-flight", 10, 100, true);
+    expect(text).toContain("inFlightMockBody");
+    expect(text).not.toContain("inFlightBody");
   });
 });

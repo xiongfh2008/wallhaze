@@ -86,7 +86,8 @@
   "trending": {
     "aria": "Wallpaper style previews",
     "title": "A world of styles",
-    "previewAlt": "{label} wallpaper preview"
+    "previewAlt": "{label} wallpaper preview",
+    "cardAria": "Explore the {label} style"
   },
   "gallery": {
     "eyebrow": "Wallpaper Gallery",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "The generation service is temporarily unavailable — please try again later.",
     "errorGenericHttp": "The request failed — please try again.",
     "errorInsufficientCredits": "Not enough Credits for this generation. Top up on the Credits page.",
+    "errorServicePaused": "The generation service is paused for maintenance — please try again later.",
+    "errorGenerationDisabled": "The generation service is not open yet — please check back later.",
     "errorTimeout": "The generation is taking too long to report back. Check My Creations before retrying.",
     "historyUnavailable": "The creation succeeded, but this browser could not store it in your history.",
     "clearStyle": "Clear selection",
@@ -386,7 +389,7 @@
     "priceLabel": "{credits} Credits will be reserved when you confirm.",
     "reserveNotice": "Reserved credits are charged only if generation succeeds; a failed job releases them.",
     "loadingNotice": "Checking your Credits…",
-    "unavailableNotice": "Account services are unavailable in this build, so generation is disabled.",
+    "unavailableNotice": "The credits service is temporarily unavailable — please try again later.",
     "signedOutBody": "Sign in to see your balance and generate wallpapers.",
     "perGeneration": "{credits} Credits per generation",
     "balanceLine": "Balance: {credits} Credits. {price} Credits are reserved only while a generation runs and are released if it fails.",
@@ -395,6 +398,13 @@
     "openCredits": "Open Credits",
     "inFlightTitle": "Generation in progress",
     "inFlightBody": "{credits} Credits are reserved for this generation and released if it fails.",
+    "inFlightMockBody": "Test generation in progress — no Credits will be charged.",
+    "servicePausedTitle": "Generation paused",
+    "servicePausedNotice": "The service is under maintenance and cannot generate right now; your Credits are unaffected. Please try again later.",
+    "serviceDisabledTitle": "Generation not available",
+    "serviceDisabledNotice": "Generation is not enabled in this environment yet; real generation will be supported once it opens.",
+    "mockReadyTitle": "Test preview mode",
+    "mockReadyNotice": "Mock generation is active: results are placeholders, no AI model is called and no Credits are charged.",
     "signInAction": "Sign in"
   },
   "studio": {

@@ -86,7 +86,8 @@
   "trending": {
     "aria": "壁紙スタイルのプレビュー",
     "title": "もっと多くのスタイル",
-    "previewAlt": "{label}の壁紙プレビュー"
+    "previewAlt": "{label}の壁紙プレビュー",
+    "cardAria": "{label}スタイルを見る"
   },
   "gallery": {
     "eyebrow": "壁紙ギャラリー",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "生成サービスは一時的に利用できません——後でもう一度お試しください。",
     "errorGenericHttp": "生成に失敗しました——もう一度お試しください。",
     "errorInsufficientCredits": "この生成に必要な Credits が足りません。Credits ページで追加してください。",
+    "errorServicePaused": "生成サービスはメンテナンスのため停止中です——後でもう一度お試しください。",
+    "errorGenerationDisabled": "生成サービスはまだ公開されていません——後でもう一度ご確認ください。",
     "errorTimeout": "生成結果の取得に時間がかかっています。再試行の前に My Creations を確認してください。",
     "historyUnavailable": "生成は成功しましたが、このブラウザの履歴に保存できませんでした。",
     "clearStyle": "選択を解除",
@@ -386,7 +389,7 @@
     "priceLabel": "確認時に {credits} Credits を確保します。",
     "reserveNotice": "確保した Credits は生成成功時のみ消費され、失敗時は解放されます。",
     "loadingNotice": "Credits を確認しています…",
-    "unavailableNotice": "このビルドではアカウントサービスが利用できないため、生成は無効です。",
+    "unavailableNotice": "クレジットサービスが一時的に利用できません——後でもう一度お試しください。",
     "signedOutBody": "サインインすると残高を確認して壁紙を生成できます。",
     "perGeneration": "1回の生成に {credits} Credits",
     "balanceLine": "残高：{credits} Credits。生成中のみ {price} Credits を確保し、失敗時は解放されます。",
@@ -395,6 +398,13 @@
     "openCredits": "Credits を開く",
     "inFlightTitle": "生成中",
     "inFlightBody": "この生成のために {credits} Credits を確保中です。失敗時は解放されます。",
+    "inFlightMockBody": "テスト生成を実行中——クレジットは消費されません。",
+    "servicePausedTitle": "生成サービス停止中",
+    "servicePausedNotice": "メンテナンスのため現在生成できません。所持 Credits への影響はありません。後でもう一度お試しください。",
+    "serviceDisabledTitle": "生成サービス未公開",
+    "serviceDisabledNotice": "この環境では生成機能はまだ有効化されていません。公開後に実際の生成が可能になります。",
+    "mockReadyTitle": "テストプレビューモード",
+    "mockReadyNotice": "モック生成が有効です：結果はプレースホルダーで、AI モデルは呼び出されず、クレジットも消費されません。",
     "signInAction": "サインイン"
   },
   "studio": {

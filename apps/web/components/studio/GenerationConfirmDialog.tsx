@@ -39,6 +39,12 @@ interface GenerationConfirmDialogProps {
   onConfirm?: () => void;
   /** True while the confirmed job is being created. */
   submitting?: boolean;
+  /**
+   * True when the backend runs the mock provider: the credits box then
+   * describes an honest test preview (no charge) instead of offering a
+   * real reservation.
+   */
+  mockMode?: boolean;
 }
 
 /**
@@ -47,7 +53,9 @@ interface GenerationConfirmDialogProps {
  * Shows exactly what a generation uses — prompt digest, style, device,
  * ratio, resolution — plus the credits situation. The Confirm control only
  * exists when the backend returned a real price; otherwise the dialog states
- * honestly what is unavailable and offers no submission path.
+ * honestly what is unavailable and offers no submission path. In mock mode
+ * the box says "test preview" instead of promising a charge the backend will
+ * release.
  */
 export default function GenerationConfirmDialog({
   open,
@@ -58,6 +66,7 @@ export default function GenerationConfirmDialog({
   creditsMessage = null,
   onConfirm,
   submitting = false,
+  mockMode = false,
 }: GenerationConfirmDialogProps) {
   const t = useTranslations("generator");
   // The credits copy lives in the shared `credits` namespace — the same
@@ -153,10 +162,25 @@ export default function GenerationConfirmDialog({
           ) : null}
         </dl>
 
-        {/* Credits row — a price is shown only when the backend returned
-            one; otherwise the dialog says pricing is unavailable and the
+        {/* Credits row — a real price is shown only when the backend runs a
+            live provider; mock mode describes an honest test preview; no
+            price at all means the dialog says pricing is unavailable and the
             confirm control below is absent. */}
-        {priceCredits !== null ? (
+        {priceCredits !== null && mockMode ? (
+          <div className="mt-4 rounded-xl border border-violet-400/25 bg-violet-400/5 p-3.5">
+            <p className="text-sm font-medium text-violet-200">
+              {tCredits("mockReadyTitle")}
+            </p>
+            <p className="mt-1 text-xs leading-relaxed text-violet-100/70">
+              {tCredits("mockReadyNotice")}
+            </p>
+            {!canConfirm && creditsMessage ? (
+              <p className="mt-1.5 text-xs font-medium text-amber-300">
+                {creditsMessage}
+              </p>
+            ) : null}
+          </div>
+        ) : priceCredits !== null ? (
           <div className="mt-4 rounded-xl border border-violet-400/25 bg-violet-400/5 p-3.5">
             <p className="text-sm font-medium text-violet-200">
               {tCredits("priceLabel", { credits: priceCredits })}

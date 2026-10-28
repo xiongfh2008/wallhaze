@@ -1,36 +1,31 @@
 import { describe, expect, it } from "vitest";
-import { FEATURED_WALLPAPERS, PRESET_WALLPAPERS } from "@/lib/wallpapers";
+import {
+  FEATURED_WALLPAPERS,
+  PRESET_WALLPAPERS,
+  STYLE_SPOTLIGHT,
+} from "@/lib/wallpapers";
 import {
   DEMO_SAMPLE_IMAGE,
   HERO_IMAGE,
   POPULAR_STYLES,
-  WALLPAPER_STYLES,
 } from "@/lib/styles";
 
 /**
  * Homepage content invariants:
- * - no artwork repeats between the hero/demo, marquee, featured grid and
- *   style navigation;
+ * - no artwork repeats between the hero/demo, style spotlight rail, featured
+ *   grid and style navigation;
  * - the featured grid stays at 8 cleared editorial picks;
+ * - the spotlight rail stays at 8 distinct editorial style previews whose
+ *   card image matches the linked wallpaper page;
  * - review-pending artwork has no public image URL;
  * - the old 39 entries remain review-pending and are never auto-promoted.
  */
 const imageOf = (slot: { image?: string | null } | undefined) =>
   slot?.image ?? null;
 
-const usedImages = new Set<string>(
-  [
-    ...POPULAR_STYLES.map((style) => style.image),
-    ...FEATURED_WALLPAPERS.map((wallpaper) => wallpaper.image),
-  ].filter((image): image is string => Boolean(image))
-);
-const marqueeStyles = WALLPAPER_STYLES.filter(
-  (style) => style.image && !usedImages.has(style.image)
-).slice(0, 8);
-
 const groups: Record<string, Array<string | null>> = {
   hero: [HERO_IMAGE, DEMO_SAMPLE_IMAGE],
-  marquee: marqueeStyles.map(imageOf),
+  spotlight: STYLE_SPOTLIGHT.map((item) => item.style.image ?? null),
   featured: FEATURED_WALLPAPERS.map(imageOf),
   styles: POPULAR_STYLES.map(imageOf),
 };
@@ -61,11 +56,18 @@ describe("homepage content de-duplication", () => {
     }
   });
 
-  it("selects only distinct cleared marquee previews", () => {
-    expect(marqueeStyles).toHaveLength(8);
-    for (const style of marqueeStyles) {
-      expect(style.image).toBeTruthy();
-      expect(usedImages.has(style.image as string)).toBe(false);
+  it("selects eight distinct editorial style previews with valid targets", () => {
+    expect(STYLE_SPOTLIGHT).toHaveLength(8);
+    const images = STYLE_SPOTLIGHT.map((item) => item.style.image);
+    expect(new Set(images).size).toBe(8);
+    for (const item of STYLE_SPOTLIGHT) {
+      expect(item.style.image).toBeTruthy();
+      if (item.wallpaper) {
+        // The card links to a cleared preset page showing the same artwork.
+        expect(item.wallpaper.canPubliclyDisplay).toBe(true);
+        expect(item.wallpaper.styleId).toBe(item.style.id);
+        expect(item.wallpaper.image).toBe(item.style.image);
+      }
     }
   });
 

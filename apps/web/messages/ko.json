@@ -86,7 +86,8 @@
   "trending": {
     "aria": "배경화면 스타일 미리보기",
     "title": "더 많은 스타일",
-    "previewAlt": "{label} 배경화면 미리보기"
+    "previewAlt": "{label} 배경화면 미리보기",
+    "cardAria": "{label} 스타일 살펴보기"
   },
   "gallery": {
     "eyebrow": "배경화면 갤러리",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "생성 서비스를 일시적으로 사용할 수 없습니다——잠시 후 다시 시도해 주세요.",
     "errorGenericHttp": "생성에 실패했습니다——다시 시도해 주세요.",
     "errorInsufficientCredits": "이 생성에 필요한 Credits가 부족합니다. Credits 페이지에서 충전하세요.",
+    "errorServicePaused": "생성 서비스가 점검 중입니다——잠시 후 다시 시도해 주세요.",
+    "errorGenerationDisabled": "생성 서비스가 아직 개설되지 않았습니다——나중에 다시 확인해 주세요.",
     "errorTimeout": "생성 결과를 받는 데 시간이 너무 오래 걸립니다. 다시 시도하기 전에 My Creations를 확인하세요.",
     "historyUnavailable": "생성은 성공했지만 이 브라우저의 기록에 저장하지 못했습니다.",
     "clearStyle": "선택 해제",
@@ -386,7 +389,7 @@
     "priceLabel": "확인하면 {credits} Credits가 예약됩니다.",
     "reserveNotice": "예약된 Credits는 생성 성공 시에만 차감되며, 실패하면 해제됩니다.",
     "loadingNotice": "Credits를 확인하는 중…",
-    "unavailableNotice": "이 빌드에서는 계정 서비스를 사용할 수 없어 생성이 비활성화됩니다.",
+    "unavailableNotice": "크레딧 서비스를 일시적으로 사용할 수 없습니다——잠시 후 다시 시도해 주세요.",
     "signedOutBody": "로그인하면 잔액을 확인하고 배경화면을 생성할 수 있습니다.",
     "perGeneration": "생성 1회당 {credits} Credits",
     "balanceLine": "잔액: {credits} Credits. 생성 중에만 {price} Credits가 예약되며 실패하면 해제됩니다.",
@@ -395,6 +398,13 @@
     "openCredits": "Credits 열기",
     "inFlightTitle": "생성 중",
     "inFlightBody": "이 생성에 {credits} Credits가 예약되어 있으며 실패하면 해제됩니다.",
+    "inFlightMockBody": "테스트 생성 진행 중——크레딧이 차감되지 않습니다.",
+    "servicePausedTitle": "생성 서비스 일시 중지",
+    "servicePausedNotice": "점검 중이므로 지금은 생성할 수 없습니다. 보유한 Credits는 영향을 받지 않습니다. 잠시 후 다시 시도해 주세요.",
+    "serviceDisabledTitle": "생성 서비스 미개설",
+    "serviceDisabledNotice": "이 환경에서는 생성 기능이 아직 활성화되지 않았습니다. 개설 후 실제 생성이 지원됩니다.",
+    "mockReadyTitle": "테스트 미리보기 모드",
+    "mockReadyNotice": "모의 생성이 활성화되어 있습니다: 결과는 플레이스홀더이며 AI 모델을 호출하지 않고 크레딧도 차감되지 않습니다.",
     "signInAction": "로그인"
   },
   "studio": {

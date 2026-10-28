@@ -55,10 +55,12 @@ const ext = extname(asset.path) || extname(asset.privatePath ?? "") || ".bin";
 
 function originalPublicPath() {
   if (asset.assetId.startsWith("style.")) {
-    return `/images/styles/${asset.assetId.slice("style.".length)}.jpg`;
+    // Keep the original extension: previews may be .jpg (CC0) or .webp
+    // (project-generated derivatives).
+    return `/images/styles/${asset.assetId.slice("style.".length)}${ext}`;
   }
   if (asset.assetId.startsWith("wallpaper.")) {
-    return `/images/wallpapers/${asset.assetId.slice("wallpaper.".length)}.jpg`;
+    return `/images/wallpapers/${asset.assetId.slice("wallpaper.".length)}${ext}`;
   }
   if (asset.assetId.startsWith("video.")) {
     return `/videos/live-demos/${asset.assetId.slice("video.".length)}.mp4`;

@@ -3,6 +3,12 @@
 # protected directory — never read, scan, or commit (exact rule, root only)
 /wallhaze/
 
+# private media review workspace — local-only originals, quarantined
+# derivatives and raw renders. Metadata-only audit trail lives in
+# apps/web/data/media-rights.json. Ignoring this directory does not untrack
+# already-tracked files; untracking is a separate controlled Git step.
+apps/web/private-media/
+
 # dependencies
 /node_modules
 /.pnp

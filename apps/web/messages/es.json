@@ -86,7 +86,8 @@
   "trending": {
     "aria": "Vistas previas de estilos",
     "title": "Un mundo de estilos",
-    "previewAlt": "Vista previa del fondo {label}"
+    "previewAlt": "Vista previa del fondo {label}",
+    "cardAria": "Explorar el estilo {label}"
   },
   "gallery": {
     "eyebrow": "Galería de fondos",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "El servicio de generación no está disponible temporalmente——inténtalo más tarde.",
     "errorGenericHttp": "La solicitud falló——inténtalo de nuevo.",
     "errorInsufficientCredits": "No hay suficientes Credits para esta generación. Recarga en la página de Credits.",
+    "errorServicePaused": "El servicio de generación está en pausa por mantenimiento——inténtalo más tarde.",
+    "errorGenerationDisabled": "El servicio de generación aún no está abierto——vuelve más tarde.",
     "errorTimeout": "La generación tarda demasiado en responder. Revisa My Creations antes de reintentar.",
     "historyUnavailable": "La creación se generó, pero este navegador no pudo guardarla en tu historial.",
     "clearStyle": "Quitar selección",
@@ -386,7 +389,7 @@
     "priceLabel": "Se reservarán {credits} Credits al confirmar.",
     "reserveNotice": "Los Credits reservados solo se cobran si la generación tiene éxito; si falla, se liberan.",
     "loadingNotice": "Comprobando tus Credits…",
-    "unavailableNotice": "Los servicios de cuenta no están disponibles en esta versión, así que la generación está desactivada.",
+    "unavailableNotice": "El servicio de créditos no está disponible temporalmente——inténtalo más tarde.",
     "signedOutBody": "Inicia sesión para ver tu saldo y generar fondos.",
     "perGeneration": "{credits} Credits por generación",
     "balanceLine": "Saldo: {credits} Credits. Solo se reservan {price} Credits mientras se genera y se liberan si falla.",
@@ -395,6 +398,13 @@
     "openCredits": "Abrir Credits",
     "inFlightTitle": "Generación en curso",
     "inFlightBody": "Se han reservado {credits} Credits para esta generación y se liberan si falla.",
+    "inFlightMockBody": "Generación de prueba en curso——no se cobrarán créditos.",
+    "servicePausedTitle": "Generación en pausa",
+    "servicePausedNotice": "El servicio está en mantenimiento y no puede generar ahora; tus Credits no se ven afectados. Inténtalo más tarde.",
+    "serviceDisabledTitle": "Generación no disponible",
+    "serviceDisabledNotice": "La generación aún no está habilitada en este entorno; la generación real estará disponible cuando se abra.",
+    "mockReadyTitle": "Modo de vista previa de prueba",
+    "mockReadyNotice": "Generación simulada activa: los resultados son marcadores de posición, no se llama a ningún modelo de IA y no se cobran créditos.",
     "signInAction": "Iniciar sesión"
   },
   "studio": {

@@ -86,7 +86,8 @@
   "trending": {
     "aria": "Aperçus de styles de fonds d’écran",
     "title": "Un monde de styles",
-    "previewAlt": "Aperçu du fond d’écran {label}"
+    "previewAlt": "Aperçu du fond d’écran {label}",
+    "cardAria": "Découvrir le style {label}"
   },
   "gallery": {
     "eyebrow": "Galerie de fonds d’écran",
@@ -315,6 +316,8 @@
     "errorServiceUnavailable": "Le service de génération est temporairement indisponible——réessayez plus tard.",
     "errorGenericHttp": "La requête a échoué——veuillez réessayer.",
     "errorInsufficientCredits": "Pas assez de Credits pour cette génération. Rechargez sur la page Credits.",
+    "errorServicePaused": "Le service de génération est en pause pour maintenance — réessayez plus tard.",
+    "errorGenerationDisabled": "Le service de génération n'est pas encore ouvert — revenez plus tard.",
     "errorTimeout": "La génération met trop de temps à répondre. Vérifiez My Creations avant de réessayer.",
     "historyUnavailable": "La création a réussi, mais ce navigateur n’a pas pu l’enregistrer dans votre historique.",
     "clearStyle": "Effacer la sélection",
@@ -386,7 +389,7 @@
     "priceLabel": "{credits} Credits seront réservés à la confirmation.",
     "reserveNotice": "Les Credits réservés ne sont débités qu'en cas de réussite ; en cas d'échec, ils sont libérés.",
     "loadingNotice": "Vérification de vos Credits…",
-    "unavailableNotice": "Les services de compte ne sont pas disponibles dans cette version ; la génération est désactivée.",
+    "unavailableNotice": "Le service de crédits est temporairement indisponible — réessayez plus tard.",
     "signedOutBody": "Connectez-vous pour voir votre solde et générer des fonds d’écran.",
     "perGeneration": "{credits} Credits par génération",
     "balanceLine": "Solde : {credits} Credits. {price} Credits ne sont réservés que pendant la génération et libérés en cas d’échec.",
@@ -395,6 +398,13 @@
     "openCredits": "Ouvrir Credits",
     "inFlightTitle": "Génération en cours",
     "inFlightBody": "{credits} Credits sont réservés pour cette génération et libérés en cas d’échec.",
+    "inFlightMockBody": "Génération de test en cours — aucun crédit ne sera débité.",
+    "servicePausedTitle": "Génération en pause",
+    "servicePausedNotice": "Le service est en maintenance et ne peut pas générer pour le moment ; vos Credits ne sont pas affectés. Réessayez plus tard.",
+    "serviceDisabledTitle": "Génération non disponible",
+    "serviceDisabledNotice": "La génération n'est pas encore activée dans cet environnement ; la génération réelle sera prise en charge à l'ouverture.",
+    "mockReadyTitle": "Mode aperçu de test",
+    "mockReadyNotice": "Génération simulée active : les résultats sont des espaces réservés, aucun modèle d'IA n'est appelé et aucun crédit n'est débité.",
     "signInAction": "Se connecter"
   },
   "studio": {

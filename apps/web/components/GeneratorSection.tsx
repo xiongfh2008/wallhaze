@@ -430,6 +430,13 @@ export default function GeneratorSection({
   const [generationMode, setGenerationMode] = useState<
     "mock" | "live" | "disabled" | null
   >(null);
+  // Whether the backend currently ACCEPTS generation jobs, from the same
+  // probe: paused (operator pause), disabled (no provider configured) or
+  // available (mock or live). "unknown" = the probe itself failed — fail
+  // closed, the UI never assumes a service it could not verify.
+  const [serviceState, setServiceState] = useState<
+    "available" | "paused" | "disabled" | "unknown"
+  >("unknown");
   const [accountState, setAccountState] = useState<
     "loading" | "unavailable" | "signed-out" | "ready"
   >("loading");
@@ -540,13 +547,22 @@ export default function GeneratorSection({
         setGenerationMode(
           pricing.ok ? (pricing.data.generationMode ?? null) : null,
         );
+        setServiceState(
+          pricing.ok
+            ? pricing.data.paused === true
+              ? "paused"
+              : pricing.data.generationMode === "disabled"
+                ? "disabled"
+                : "available"
+            : "unknown",
+        );
         setAccountState("signed-out");
         setGateInput({
           authAvailable: false,
-          pricingAvailable:
-            pricing.ok &&
-            pricing.data.generationMode !== "disabled" &&
-            pricing.data.paused !== true,
+          // Data fact only: the server returned a real price. Whether the
+          // backend ACCEPTS jobs (paused/disabled) is serviceState's job —
+          // mixing the two is what produced the contradictory UI.
+          pricingAvailable: pricing.ok,
           walletAvailable: false,
         });
         return;
@@ -565,6 +581,15 @@ export default function GeneratorSection({
       setGenerationMode(
         pricing.ok ? (pricing.data.generationMode ?? null) : null,
       );
+      setServiceState(
+        pricing.ok
+          ? pricing.data.paused === true
+            ? "paused"
+            : pricing.data.generationMode === "disabled"
+              ? "disabled"
+              : "available"
+          : "unknown",
+      );
       setWalletCredits(
         wallet.ok
           ? Math.max(0, wallet.data.credits - (wallet.data.reserved ?? 0))
@@ -573,11 +598,7 @@ export default function GeneratorSection({
       setAccountState("ready");
       setGateInput({
         authAvailable: true,
-        pricingAvailable:
-          pricing.ok &&
-          price !== null &&
-          pricing.data.generationMode !== "disabled" &&
-          pricing.data.paused !== true,
+        pricingAvailable: pricing.ok && price !== null,
         walletAvailable: wallet.ok,
       });
     })();
@@ -785,37 +806,49 @@ export default function GeneratorSection({
     priceCredits !== null &&
     walletCredits !== null &&
     walletCredits >= priceCredits;
+  // The backend must also ACCEPT jobs right now (mock or live, not paused).
+  const serviceAvailable = serviceState === "available";
   const creditsGate = gateInput ? resolveCreditsGate(gateInput) : null;
-  const canSubmit = Boolean(creditsGate?.canSubmit) && canAfford;
+  const canSubmit =
+    Boolean(creditsGate?.canSubmit) && canAfford && serviceAvailable;
   const creditsBlockedMessage = !canSubmit
     ? accountState === "unavailable"
       ? t("errorServiceUnavailable")
       : accountState !== "ready" || !gateInput?.authAvailable
         ? t("errorUnauthenticated")
-        : gateInput?.pricingAvailable === false
-          ? t("errorServiceUnavailable")
-          : !canAfford
-            ? t("errorInsufficientCredits")
-            : null
+        : serviceState === "paused"
+          ? t("errorServicePaused")
+          : serviceState === "disabled"
+            ? t("errorGenerationDisabled")
+            : serviceState === "unknown" || gateInput?.pricingAvailable === false
+              ? t("errorServiceUnavailable")
+              : !canAfford
+                ? t("errorInsufficientCredits")
+                : null
     : null;
   // Credits notice mirrors the real gate instead of showing a static
-  // "Credits required" line while a generation is already running.
+  // "Credits required" line while a generation is already running. Service
+  // facts (paused / not configured) outrank personal ones: when the backend
+  // accepts no jobs, asking the visitor to sign in or top up would be a lie.
   const creditsNoticeState =
     status === "generating" || submitting
       ? "in-flight"
       : accountState === "loading" || gateInput === null
         ? "loading"
-        : accountState === "unavailable"
-          ? "unavailable"
-          : accountState === "signed-out"
-            ? "signed-out"
-            : gateInput?.pricingAvailable === false
+        : serviceState === "paused"
+          ? "paused"
+          : serviceState === "disabled"
+            ? "service-disabled"
+            : accountState === "unavailable"
               ? "unavailable"
-              : priceCredits !== null &&
-                  walletCredits !== null &&
-                  walletCredits < priceCredits
-                ? "insufficient"
-                : "ready";
+              : accountState === "signed-out"
+                ? "signed-out"
+                : serviceState === "unknown" ||
+                    gateInput?.pricingAvailable === false
+                  ? "unavailable"
+                  : !canAfford
+                    ? "insufficient"
+                    : "ready";
   const previewIsResult = Boolean(resultImage);
   const previewGradient =
     selectedStyle?.gradient ?? "from-violet-600 via-purple-950 to-black";
@@ -931,10 +964,14 @@ export default function GeneratorSection({
     });
   };
 
-  // Paid submission path (R07). The dialog opens for every valid form; its
+  // Paid submission path (R07). The dialog opens for every valid form whose
+  // submission is merely PERSONALLY blocked (signed out / low balance); its
   // Confirm control appears only when the backend verified auth, pricing and
-  // the wallet. Submission creates an async job and polls it — credits are
-  // reserved and settled server-side, never by this component.
+  // the wallet. When the backend itself cannot accept jobs (paused, no
+  // provider, probe failed) the dialog never opens — offering a "reserve N
+  // credits" review for a dead service would be dishonest. Submission
+  // creates an async job and polls it — credits are reserved and settled
+  // server-side, never by this component.
   const handleGenerate = () => {
     if (status === "generating" || submitting) return;
     cancelPendingExample();
@@ -948,6 +985,23 @@ export default function GeneratorSection({
       setStatus("error");
       return;
     }
+    // Service honesty first — but only for KNOWN states. While the probe is
+    // still running (accountState "loading") the dialog stays available with
+    // its honest no-price fallback instead of a premature "unavailable".
+    const serviceBlocked =
+      accountState === "unavailable" ||
+      (accountState !== "loading" && serviceState !== "available");
+    if (serviceBlocked) {
+      setErrorMessage(
+        accountState === "unavailable" || serviceState === "unknown"
+          ? t("errorServiceUnavailable")
+          : serviceState === "paused"
+            ? t("errorServicePaused")
+            : t("errorGenerationDisabled"),
+      );
+      setStatus("error");
+      return;
+    }
     setConfirmSummary({
       prompt,
       styleLabel: selectedStyle ? tStyles(selectedStyle.id) : null,
@@ -956,6 +1010,21 @@ export default function GeneratorSection({
       presetLabel: selectedPreset ? presetLabel(selectedPreset) : null,
     });
     setConfirmDialogOpen(true);
+  };
+
+  /**
+   * Re-reads the wallet once a job reaches a terminal state. The server has
+   * by then captured (live success) or released (failure, mock) the
+   * reservation — without this the notice would show a stale balance until
+   * the next full reload.
+   */
+  const refreshWallet = async () => {
+    const wallet = await creditsAdapter.getWallet();
+    if (wallet.ok) {
+      setWalletCredits(
+        Math.max(0, wallet.data.credits - (wallet.data.reserved ?? 0)),
+      );
+    }
   };
 
   /** Confirms the reviewed request: creates the job and polls to completion. */
@@ -998,6 +1067,9 @@ export default function GeneratorSection({
           ),
         );
         setStatus("error");
+        // The failure released the reservation server-side — refresh so the
+        // notice shows the restored balance instead of a stale one.
+        void refreshWallet();
         return;
       }
       const dims = customSize
@@ -1026,6 +1098,9 @@ export default function GeneratorSection({
       setDownloadNotice(null);
       setResultIsMock(outcome.mock === true);
       setStatus("success");
+      // The job is settled — charged (live) or released (mock). Refresh so
+      // the credits notice reflects the real balance immediately.
+      void refreshWallet();
       // Cloud-backed job: the history entry stays device-local metadata only.
       // Mock placeholders are not saved as user creations.
       const saved = outcome.mock
@@ -2189,9 +2264,14 @@ export default function GeneratorSection({
                     stands between the form and the trigger. No fake balance, no
                     invented per-run price, no "free" promise. */}
               {/* Runtime mode disclosure: mock results are never presented as
-                    model-generated artwork. Hidden once the result's own mock
-                    notice is visible. */}
-              {generationMode === "mock" && status !== "success" ? (
+                    model-generated artwork. Suppressed while the backend
+                    accepts no jobs (paused / disabled) — the service notice
+                    below is then the single source of truth, and a "mock
+                    generation works" banner next to it would contradict it.
+                    Hidden once the result's own mock notice is visible. */}
+              {generationMode === "mock" &&
+              serviceState === "available" &&
+              status !== "success" ? (
                 <p className="mt-4 rounded-xl border border-amber-400/20 bg-amber-400/5 px-4 py-2.5 text-xs leading-relaxed text-amber-200">
                   {t("mockModeNotice")}
                 </p>
@@ -2202,6 +2282,7 @@ export default function GeneratorSection({
                 state={creditsNoticeState}
                 priceCredits={priceCredits}
                 balance={walletCredits}
+                mock={generationMode === "mock"}
               />
 
               <button
@@ -2709,7 +2790,9 @@ export default function GeneratorSection({
 
       {/* Generation review: parameters the request uses plus the credits
           state. Confirm appears only when the backend verified the price;
-          otherwise closing is the only action and no request can be sent. */}
+          otherwise closing is the only action and no request can be sent.
+          Mock mode swaps the reservation offer for an honest test-preview
+          note. */}
       <GenerationConfirmDialog
         open={confirmDialogOpen}
         onClose={() => {
@@ -2722,6 +2805,7 @@ export default function GeneratorSection({
         creditsMessage={creditsBlockedMessage}
         onConfirm={() => void submitGeneration()}
         submitting={submitting}
+        mockMode={generationMode === "mock"}
       />
     </section>
   );
