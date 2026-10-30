@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import type { Database } from "../db/database.js";
+import { R2RequestError, type StorageErrorCode } from "./r2-storage.js";
 import type { PrivateStorage } from "./storage.js";
 
 /** New user-generated assets are kept in cloud storage for 30 days. */
@@ -51,6 +52,22 @@ export function retentionState(
   return Number.isFinite(expires) && expires <= nowMs ? "expired" : "active";
 }
 
+/**
+ * Redacts a storage failure into a safe, fixed-vocabulary code plus the HTTP
+ * status when present. Raw exception text is NEVER stored or logged: it can
+ * carry endpoints, signatures or credential fragments.
+ */
+export function classifyStorageFailure(error: unknown): {
+  code: StorageErrorCode | "DB_ERROR";
+  status: number | null;
+} {
+  if (error instanceof R2RequestError) {
+    return { code: error.code, status: error.status };
+  }
+  // Postgres/other errors — keep only the family, never the message.
+  return { code: "DB_ERROR", status: null };
+}
+
 export interface MediaCleanupOptions {
   /** Controlled clock for tests and scheduled runs. */
   now?: Date;
@@ -70,7 +87,11 @@ export interface MediaCleanupResult {
   deleted: number;
   failed: number;
   assetIds: string[];
-  errors: Array<{ assetId: string; error: string }>;
+  errors: Array<{
+    assetId: string;
+    code: StorageErrorCode | "DB_ERROR" | "CLAIM_LOST";
+    status: number | null;
+  }>;
 }
 
 interface CandidateRow {
@@ -121,7 +142,7 @@ export async function cleanupExpiredMedia(
   let deleted = 0;
   let failed = 0;
   const assetIds: string[] = [];
-  const errors: Array<{ assetId: string; error: string }> = [];
+  const errors: MediaCleanupResult["errors"] = [];
 
   if (dryRun) {
     const rows = (
@@ -134,7 +155,7 @@ export async function cleanupExpiredMedia(
            AND delete_attempts < $2
            AND (
              storage_status='active'
-             OR (storage_status='deleting' AND updated_at < $1::timestamptz - interval '10 minutes')
+             OR (storage_status='deleting' AND (cleanup_claimed_at IS NULL OR cleanup_claimed_at < $1::timestamptz - interval '10 minutes'))
              OR (storage_status='delete_failed' AND updated_at < $1::timestamptz - interval '30 seconds')
            )
          ORDER BY expires_at
@@ -147,6 +168,7 @@ export async function cleanupExpiredMedia(
   } else {
     for (let index = 0; index < limit; index += 1) {
       const claimed = await db.transaction(async (tx) => {
+        const claimToken = randomUUID();
         const row = (
           await tx.query<CandidateRow>(
             `SELECT id,job_id,storage_key,poster_storage_key,delete_attempts,storage_status,expires_at
@@ -157,7 +179,7 @@ export async function cleanupExpiredMedia(
                AND delete_attempts < $2
                AND (
                  storage_status='active'
-                 OR (storage_status='deleting' AND updated_at < $1::timestamptz - interval '10 minutes')
+                 OR (storage_status='deleting' AND (cleanup_claimed_at IS NULL OR cleanup_claimed_at < $1::timestamptz - interval '10 minutes'))
                  OR (storage_status='delete_failed' AND updated_at < $1::timestamptz - interval '30 seconds')
                )
              ORDER BY expires_at
@@ -167,11 +189,16 @@ export async function cleanupExpiredMedia(
           )
         ).rows[0];
         if (!row) return null;
+        // Claim with an ownership token: later status updates require it, so
+        // a timed-out task can never overwrite a newer task's result.
         await tx.query(
-          "UPDATE image_assets SET storage_status='deleting',updated_at=now() WHERE id=$1",
-          [row.id]
+          `UPDATE image_assets
+           SET storage_status='deleting',cleanup_claim_token=$2,
+               cleanup_claimed_at=now(),updated_at=now()
+           WHERE id=$1`,
+          [row.id, claimToken]
         );
-        return row;
+        return { ...row, claimToken };
       });
       if (!claimed) break;
       scanned += 1;
@@ -181,27 +208,47 @@ export async function cleanupExpiredMedia(
           await storage.delete(claimed.poster_storage_key);
         }
         await storage.delete(claimed.storage_key);
-        await db.query(
+        // Ownership-guarded success update: only the task holding the claim
+        // token may mark the row deleted. A timed-out task that recovered
+        // AFTER another task finished has its token replaced and must not
+        // overwrite the newer result.
+        const success = await db.query(
           `UPDATE image_assets
            SET storage_status='deleted',deleted_at=now(),delete_attempts=delete_attempts+1,
                last_cleanup_error=NULL,updated_at=now()
-           WHERE id=$1 AND retention_policy='temporary_30d'`,
-          [claimed.id]
+           WHERE id=$1 AND retention_policy='temporary_30d' AND cleanup_claim_token=$2`,
+          [claimed.id, claimed.claimToken]
         );
-        deleted += 1;
+        if ((success.rowCount ?? 0) === 0) {
+          // Claim was taken over (or cleaned up) by a newer task: drop our
+          // result without touching the newer state.
+          errors.push({
+            assetId: claimed.id,
+            code: "CLAIM_LOST",
+            status: null,
+          });
+        } else {
+          deleted += 1;
+        }
       } catch (error) {
-        const message = (
-          error instanceof Error ? error.message : String(error)
-        ).slice(0, 200);
-        await db.query(
+        const { code, status } = classifyStorageFailure(error);
+        // Ownership-guarded failure update — same CAS as the success path.
+        const failure = await db.query(
           `UPDATE image_assets
            SET storage_status='delete_failed',delete_attempts=delete_attempts+1,
                last_cleanup_error=$2,updated_at=now()
-           WHERE id=$1 AND retention_policy='temporary_30d'`,
-          [claimed.id, message]
+           WHERE id=$1 AND retention_policy='temporary_30d' AND cleanup_claim_token=$3`,
+          [claimed.id, code, claimed.claimToken]
         );
         failed += 1;
-        errors.push({ assetId: claimed.id, error: message });
+        errors.push({ assetId: claimed.id, code, status });
+        if ((failure.rowCount ?? 0) === 0) {
+          errors.push({
+            assetId: claimed.id,
+            code: "CLAIM_LOST",
+            status: null,
+          });
+        }
         // Retry on a later cleanup pass, not immediately in this one.
         break;
       }

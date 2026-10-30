@@ -47,7 +47,14 @@ COPY --from=build /build/apps/api/dist ./dist
 COPY --from=build /build/apps/api/assets ./assets
 COPY --from=build /build/apps/api/package.json ./package.json
 COPY --from=build /build/apps/api/migrations ./migrations
+COPY --from=build /build/apps/api/config ./config
 COPY --from=build /build/apps/api/.dist-entry ./.dist-entry
+
+# ffmpeg/ffprobe: video output moderation samples frames from generated
+# MP4s before publication; a missing binary fails those jobs closed.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --system wallhaze && useradd --system --gid wallhaze wallhaze \
     && chown -R wallhaze:wallhaze /app

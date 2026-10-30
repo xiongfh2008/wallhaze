@@ -380,6 +380,39 @@ async function main() {
     return;
   }
 
+  // Pre-publish OUTPUT moderation gate (AIGC compliance stage 2 for
+  // submissions). Fail closed: no API key, a provider outage or a block
+  // verdict all refuse the publish — nothing is written to public/.
+  // The reviewer's human rights review (above) is still required; this
+  // gate is the automated media analysis on top of it.
+  console.log("[moderation] screening media before publish ...");
+  const moderationVerdict = await screenMediaFile(
+    input.mediaType === "video" ? previewSource : mediaPath,
+    input.mediaType,
+    { durationSeconds: input.mediaType === "video" ? probeMp4(mediaBytes).durationSeconds ?? null : null }
+  );
+  appendAudit({
+    at: new Date().toISOString(),
+    action: "moderation",
+    slug,
+    reviewer,
+    stage: "pre_publish",
+    service: "output_moderation",
+    result: moderationVerdict.action,
+    categories: moderationVerdict.categories,
+  });
+  if (moderationVerdict.action === "block") {
+    fail(
+      `output moderation BLOCKED this submission (categories: ${moderationVerdict.categories.join(", ") || "flagged"}) — publication refused`
+    );
+  }
+  if (moderationVerdict.action !== "allow") {
+    fail(
+      "output moderation is unavailable (missing OUTPUT_MODERATION_API_KEY, ffmpeg, or provider outage) — refusing to publish unscreened media"
+    );
+  }
+  console.log("[moderation] allow");
+
   // Validate collisions before writing anything.
   for (const asset of [previewAsset, posterAsset, downloadAsset].filter(Boolean)) {
     assert(
@@ -464,18 +497,14 @@ async function main() {
     status: "published",
   });
   mkdirSync(path.dirname(AUDIT), { recursive: true });
-  writeFileSync(
-    AUDIT,
-    `${JSON.stringify({
-      at: new Date().toISOString(),
-      action: "publish",
-      slug,
-      reviewer,
-      contactEmailStored: true,
-      licenseEvidenceReference: input.licenseEvidenceReference,
-    })}\n`,
-    { flag: "a" }
-  );
+  appendAudit({
+    at: new Date().toISOString(),
+    action: "publish",
+    slug,
+    reviewer,
+    contactEmailStored: true,
+    licenseEvidenceReference: input.licenseEvidenceReference,
+  });
 
   console.log(JSON.stringify({ ok: true, published: true, plan }, null, 2));
 }

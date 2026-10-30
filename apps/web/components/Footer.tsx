@@ -56,6 +56,7 @@ export default function Footer() {
         { label: t("exploreGallery"), href: "/wallpapers" },
         { label: t("aiStudio"), href: "/studio" },
         { label: t("community"), href: "/community" },
+        { label: t("pricing"), href: "/pricing" },
         { label: t("submitWallpaper"), href: submissionMailto() },
         { label: t("popularStyles"), href: "/#styles" },
         { label: t("howItWorks"), href: "/#how-it-works" },
@@ -74,6 +75,7 @@ export default function Footer() {
       links: [
         { label: t("privacy"), href: "/privacy" },
         { label: t("terms"), href: "/terms" },
+        { label: t("acceptableUse"), href: "/acceptable-use" },
       ],
     },
   ];

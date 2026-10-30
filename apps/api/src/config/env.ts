@@ -120,11 +120,43 @@ export const envSchema = z.object({
   /** Provider environment — selects test vs prod keys/behavior. */
   PAYMENT_ENVIRONMENT: z.enum(["test", "prod"]).default("test"),
   /** Waffo Pancake merchant id (MER_...). */
+  /**
+   * Prompt Sift screening uses the SAME merchant credentials as payments
+   * (official docs: "uses existing payment API Key"): WAFFO_MERCHANT_ID +
+   * WAFFO_PRIVATE_KEY (RSA-SHA256 request signing). Missing either means
+   * screening is not configured: live generation fails closed.
+   */
+  WAFFO_MODERATION_ENDPOINT: z.string().optional(),
+  /** Prompt Sift semantic mode: "off" | "shadow" | "enforce". Default enforce. */
+  WAFFO_MODERATION_SEMANTIC: z.enum(["off", "shadow", "enforce"]).optional(),
+  /** Total seconds a verdict=review is held and re-scanned before the job
+   *  fails (official policy: hold and retry; no query/callback API). */
+  WAFFO_MODERATION_REVIEW_MAX_WAIT_SECONDS: z.coerce.number().int().positive().max(600).optional(),
+  /** Seconds between review re-scans. Default 30. */
+  WAFFO_MODERATION_REVIEW_RETRY_INTERVAL_SECONDS: z.coerce.number().int().positive().max(300).optional(),
   WAFFO_MERCHANT_ID: z.string().optional(),
   /** Waffo store id (STO_...) used for product/webhook management. */
   WAFFO_STORE_ID: z.string().optional(),
   /** Waffo RSA private key: PEM or raw base64 (server-only). */
   WAFFO_PRIVATE_KEY: z.string().optional(),
+  /**
+   * Output moderation (AIGC stage 2) — OpenAI Moderation API
+   * (omni-moderation-latest, image-capable; video is screened frame by
+   * frame). Empty = output screening not configured: live generated media
+   * is never stored or published (fail closed). Mock output skips it.
+   */
+  OUTPUT_MODERATION_API_KEY: z.string().optional(),
+  OUTPUT_MODERATION_ENDPOINT: z.string().optional(),
+  OUTPUT_MODERATION_MODEL: z.string().optional(),
+  /** Frames sampled per generated video (1..10, default 5). */
+  OUTPUT_MODERATION_FRAMES: z.coerce.number().int().positive().max(10).optional(),
+  /** ffmpeg binary used for video frame extraction (default "ffmpeg"). */
+  FFMPEG_PATH: z.string().optional(),
+  /** ffprobe binary (default "ffprobe"). */
+  FFPROBE_PATH: z.string().optional(),
+  /** Published-gallery manifest consumed by the gallery-rescan job
+   *  (AIGC stage 3: async re-scan of publicly visible works). */
+  GALLERY_RESCAN_MANIFEST_URL: z.string().optional(),
 });
 
 export type ApiEnv = z.infer<typeof envSchema>;

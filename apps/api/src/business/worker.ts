@@ -9,6 +9,12 @@ import type { JobProvider } from "./providers.js";
 import type { VideoJobProvider } from "../modules/generation/video.providers.js";
 import { VideoProviderError } from "../modules/generation/video.providers.js";
 import {
+  PromptModerationService,
+  recordModerationLog,
+} from "./moderation.js";
+import { matchBlocklist } from "./blocklist.js";
+import type { OutputModerationService } from "./output-moderation.js";
+import {
   PROMPT_BUILDER_VERSION,
   VIDEO_PROMPT_BUILDER_VERSION,
 } from "../catalog/prompt-builder.js";
@@ -47,6 +53,19 @@ export interface WorkerDeps {
   mock?: boolean;
   /** Operator pause: claim nothing; no provider call can start. */
   paused?: boolean;
+  /**
+   * Pre-generation prompt screening (Waffo Prompt Sift). Absent => no
+   * screening configured: allowed for mock generation; LIVE jobs
+   * (generationMode "live") fail closed (MODERATION_UNAVAILABLE) instead of
+   * reaching the paid provider unscreened.
+   */
+  moderation?: PromptModerationService;
+  /**
+   * Post-generation output screening (AIGC stage 2). Absent or disabled =>
+   * LIVE generated media is never stored or published (fails closed);
+   * mock generation skips it.
+   */
+  outputModeration?: OutputModerationService;
   /**
    * Structured job diagnostics. Never receives prompts, reference images,
    * credentials or tokens — only ids, phases, sizes and error classes.
@@ -156,6 +175,97 @@ async function settleFailure(
   }
 }
 
+/**
+ * Resolves the prompt that must be screened: the composed prompt persisted
+ * at enqueue time wins (same precedence as runGenerationRequest), falling
+ * back to the raw request prompt.
+ */
+/** Live runtime = real paid providers. Everything else (mock/dev/test)
+ *  never reaches a paid provider and is exempt from screening stages. */
+function isLiveRuntime(deps: WorkerDeps): boolean {
+  return (deps.generationMode ?? "mock") === "live" && !deps.mock;
+}
+
+function resolveScreeningPrompt(request: unknown): string {
+  const req = request as {
+    _composed?: { builderVersion?: unknown; prompt?: unknown };
+    prompt?: unknown;
+  } | null;
+  const composed = req?._composed;
+  if (
+    composed &&
+    composed.builderVersion === PROMPT_BUILDER_VERSION &&
+    typeof composed.prompt === "string" &&
+    composed.prompt.length > 0
+  ) {
+    return composed.prompt;
+  }
+  return typeof req?.prompt === "string" ? req.prompt : "";
+}
+
+/**
+ * AIGC stage 2: output moderation. Runs AFTER the provider returned and
+ * BEFORE anything is persisted — unscreened or rejected bytes never touch
+ * storage, so no signed URL or public route can ever serve them. Live
+ * output that cannot be screened fails closed; mock output is skipped.
+ * A provider has already run at this point, so failures settle with
+ * providerBilled=true (credits released to the user, real cost retained).
+ */
+async function screenGeneratedImage(
+  db: Database,
+  deps: WorkerDeps,
+  claim: ClaimedJob,
+  stored: { bytes: Buffer; mime: string }
+): Promise<boolean> {
+  if (!isLiveRuntime(deps)) {
+    await recordModerationLog(db, {
+      jobId: claim.jobId,
+      userId: claim.userId,
+      stage: "post_generation",
+      service: "output_moderation",
+      action: "skipped",
+      category: null,
+      requestId: null,
+      disposition: "mock_mode",
+    });
+    return true;
+  }
+  const verdict = deps.outputModeration?.enabled
+    ? await deps.outputModeration.screenImage(stored)
+    : { action: "unavailable" as const, categories: [], status: null };
+  const published = verdict.action === "allow";
+  await recordModerationLog(db, {
+    jobId: claim.jobId,
+    userId: claim.userId,
+    stage: "post_generation",
+    service: "output_moderation",
+    action: verdict.action,
+    category: verdict.categories.length > 0 ? verdict.categories.join(",") : null,
+    requestId: null,
+    disposition: published ? "published_to_user" : "rejected_not_published",
+  });
+  if (!published) {
+    deps.log?.({
+      event: "generation.worker",
+      phase: "failed",
+      jobId: claim.jobId,
+      errorCode:
+        verdict.action === "block"
+          ? "OUTPUT_MODERATION_BLOCKED"
+          : "OUTPUT_MODERATION_UNAVAILABLE",
+    });
+    await settleFailure(
+      db,
+      claim,
+      verdict.action === "block"
+        ? "OUTPUT_MODERATION_BLOCKED"
+        : "OUTPUT_MODERATION_UNAVAILABLE",
+      true
+    );
+  }
+  return published;
+}
+
 async function executeVideoJob(
   db: Database,
   deps: WorkerDeps,
@@ -205,6 +315,66 @@ async function executeVideoJob(
     });
     await settleFailure(db, claim, errorCode, !storedInvalid);
     return true;
+  }
+
+  // AIGC stage 2 for video: sample frames from the generated MP4 and screen
+  // each frame before anything is stored. The poster is the user's own
+  // input reference image (I2V) or absent (T2V) — it is input, not output,
+  // and is not re-screened here. Unscreenable video fails closed.
+  if (isLiveRuntime(deps)) {
+    const videoVerdict = deps.outputModeration?.enabled
+      ? await deps.outputModeration.screenVideo({
+          bytes: output.video.bytes,
+          mime: output.video.mime,
+          durationSeconds: claim.durationSeconds,
+        })
+      : { action: "unavailable" as const, categories: [], status: null };
+    const published = videoVerdict.action === "allow";
+    await recordModerationLog(db, {
+      jobId: claim.jobId,
+      userId: claim.userId,
+      stage: "post_generation",
+      service: "output_moderation",
+      action: videoVerdict.action,
+      category:
+        videoVerdict.categories.length > 0
+          ? videoVerdict.categories.join(",")
+          : null,
+      requestId: null,
+      disposition: published ? "published_to_user" : "rejected_not_published",
+    });
+    if (!published) {
+      deps.log?.({
+        event: "generation.worker",
+        phase: "failed",
+        jobId: claim.jobId,
+        mediaType: "video",
+        errorCode:
+          videoVerdict.action === "block"
+            ? "OUTPUT_MODERATION_BLOCKED"
+            : "OUTPUT_MODERATION_UNAVAILABLE",
+      });
+      await settleFailure(
+        db,
+        claim,
+        videoVerdict.action === "block"
+          ? "OUTPUT_MODERATION_BLOCKED"
+          : "OUTPUT_MODERATION_UNAVAILABLE",
+        true
+      );
+      return true;
+    }
+  } else {
+    await recordModerationLog(db, {
+      jobId: claim.jobId,
+      userId: claim.userId,
+      stage: "post_generation",
+      service: "output_moderation",
+      action: "skipped",
+      category: null,
+      requestId: null,
+      disposition: "mock_mode",
+    });
   }
 
   const posterKey = output.poster ? `${claim.jobId}.poster` : null;
@@ -288,6 +458,124 @@ export async function runWorkerOnce(
     attempt: claim.attempt,
   });
 
+  // Pre-generation content screening (AIGC stage 1). Runs BEFORE any
+  // provider call and BEFORE the retry fence so a blocked job never reaches
+  // fal.ai and never looks like an upstream retry. Two layers must both
+  // allow for live generation: the Waffo Prompt Sift (official requirement)
+  // and the local blocklist (defense in depth). Mock generation skips
+  // screening entirely — it never reaches a paid provider.
+  const liveRuntime = isLiveRuntime(deps);
+  const screeningPrompt = resolveScreeningPrompt(claim.request);
+  if (liveRuntime) {
+    if (!deps.moderation?.enabled) {
+      // Live generation without screening configured: fail closed.
+      await recordModerationLog(db, {
+        jobId: claim.jobId,
+        userId: claim.userId,
+        stage: "pre_generation",
+        service: "waffo_prompt_sift",
+        action: "unavailable",
+        category: null,
+        requestId: null,
+        disposition: "credits_released",
+      });
+      deps.log?.({
+        event: "generation.worker",
+        phase: "failed",
+        jobId: claim.jobId,
+        errorCode: "MODERATION_UNAVAILABLE",
+      });
+      await settleFailure(db, claim, "MODERATION_UNAVAILABLE", false);
+      return true;
+    }
+    // Official "hold and retry" policy for verdict=review, bounded. Waffo
+    // provides NO result-query/callback endpoint, so an unresolved review
+    // cannot be awaited forever: the job fails, credits release, and the
+    // requestId is logged for a human appeal with Waffo.
+    const scan = await deps.moderation.scanWithHold(screeningPrompt);
+    await recordModerationLog(db, {
+      jobId: claim.jobId,
+      userId: claim.userId,
+      stage: "pre_generation",
+      service: "waffo_prompt_sift",
+      action: scan.action,
+      reasonCode: scan.reasonCode,
+      category: scan.categories.length > 0 ? scan.categories.join(",") : null,
+      requestId: scan.requestId,
+      disposition:
+        scan.action === "allow"
+          ? "generation_continues"
+          : "credits_released",
+    });
+    if (scan.action === "block") {
+      deps.log?.({
+        event: "generation.worker",
+        phase: "failed",
+        jobId: claim.jobId,
+        errorCode: "MODERATION_BLOCKED",
+      });
+      await settleFailure(db, claim, "MODERATION_BLOCKED", false);
+      return true;
+    }
+    if (scan.action === "review") {
+      deps.log?.({
+        event: "generation.worker",
+        phase: "failed",
+        jobId: claim.jobId,
+        errorCode: "MODERATION_PENDING",
+      });
+      await settleFailure(db, claim, "MODERATION_PENDING", false);
+      return true;
+    }
+    if (scan.action === "unavailable") {
+      deps.log?.({
+        event: "generation.worker",
+        phase: "failed",
+        jobId: claim.jobId,
+        errorCode: "MODERATION_UNAVAILABLE",
+      });
+      await settleFailure(db, claim, "MODERATION_UNAVAILABLE", false);
+      return true;
+    }
+    // Layer 2: locally maintained prohibited-term blocklist (Waffo AUP:
+    // "actively updated" wordlist). Category names only — never the prompt.
+    const blocklistHits = matchBlocklist(screeningPrompt);
+    if (blocklistHits.length > 0) {
+      await recordModerationLog(db, {
+        jobId: claim.jobId,
+        userId: claim.userId,
+        stage: "pre_generation",
+        service: "local_blocklist",
+        action: "block",
+        category: blocklistHits.join(","),
+        requestId: null,
+        disposition: "credits_released",
+      });
+      deps.log?.({
+        event: "generation.worker",
+        phase: "failed",
+        jobId: claim.jobId,
+        errorCode: "MODERATION_BLOCKED",
+        layer: "local_blocklist",
+      });
+      await settleFailure(db, claim, "MODERATION_BLOCKED", false);
+      return true;
+    }
+  } else {
+    // Mock generation: screening skipped by design (mock provider output,
+    // no Credit charge). Logged so the audit trail shows the skip.
+    await recordModerationLog(db, {
+      jobId: claim.jobId,
+      userId: claim.userId,
+      stage: "pre_generation",
+      service: "waffo_prompt_sift",
+      action: "skipped",
+      category: null,
+      requestId: null,
+      disposition: "mock_mode",
+    });
+  }
+
   // LIVE retries are unsafe: the previous attempt may already have reached
   // fal.ai and been billed. A re-claimed lease therefore fails without a
   // second provider call (credits released, possible cost retained). Mock
@@ -331,6 +619,11 @@ export async function runWorkerOnce(
     );
     return true;
   }
+
+  // Output moderation runs before ANY persistence: rejected or unscreenable
+  // bytes never reach storage, so no signed URL can exist for them.
+  const screened = await screenGeneratedImage(db, deps, claim, stored);
+  if (!screened) return true;
 
   // Storage failure: the provider may have billed us, but the user must
   // not be charged — release credits, retain the cost bound as spent.

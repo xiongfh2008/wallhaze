@@ -808,6 +808,13 @@ export default function GeneratorSection({
     walletCredits >= priceCredits;
   // The backend must also ACCEPT jobs right now (mock or live, not paused).
   const serviceAvailable = serviceState === "available";
+  // Once the probe answered and refused jobs (paused / not configured /
+  // probe failure), the trigger is disabled: the credits notice above is the
+  // single source of truth, so the paused state never produces the duplicate
+  // yellow notice + red error pair. The probe still loading keeps the button
+  // interactive — handleGenerate carries its own honest loading fallback.
+  const serviceUnavailable =
+    accountState !== "loading" && !serviceAvailable;
   const creditsGate = gateInput ? resolveCreditsGate(gateInput) : null;
   const canSubmit =
     Boolean(creditsGate?.canSubmit) && canAfford && serviceAvailable;
@@ -2288,7 +2295,7 @@ export default function GeneratorSection({
               <button
                 type="button"
                 onClick={handleGenerate}
-                disabled={busy}
+                disabled={busy || serviceUnavailable}
                 className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:brightness-100"
               >
                 {status === "generating" ? (

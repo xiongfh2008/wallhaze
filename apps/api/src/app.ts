@@ -25,6 +25,7 @@ import {
 import { WaffoPaymentAdapter } from "./business/waffo.js";
 import { WaffoPancake } from "@waffo/pancake-ts";
 import { businessRoutes } from "./business/routes.js";
+import type { OutputModerationService } from "./business/output-moderation.js";
 import type { OAuthRoutesOptions } from "./business/routes.js";
 import {
   DisabledOAuthProvider,
@@ -70,6 +71,12 @@ export interface BuildAppOptions {
    * replacement so no test can reach the real network.
    */
   upstreamFetch?: typeof fetch;
+  /**
+   * Output moderation service (tests / server wiring). When wired and
+   * enabled, reference images are screened at job creation in LIVE mode —
+   * uploads that fail (or cannot be screened) are refused at the entry.
+   */
+  outputModeration?: OutputModerationService;
   /**
    * Pino-compatible stream for asserting structured logs in tests (the
    * legacy suite asserted outcome log lines; the new suite does the same).
@@ -392,6 +399,7 @@ export async function buildApp(
       paymentProvider: env.PAYMENT_PROVIDER,
       checkoutAvailable: env.PAYMENT_PROVIDER === "waffo",
       mockMode: generationMode === "mock",
+      outputModeration: options.outputModeration,
     });
   }
 

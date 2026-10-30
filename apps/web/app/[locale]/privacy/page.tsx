@@ -23,6 +23,7 @@ const PRIVACY_SECTIONS = [
   { id: "cookies", hasList: false },
   { id: "use", hasList: true },
   { id: "thirdParty", hasList: true },
+  { id: "screening", hasList: false },
   { id: "retention", hasList: true },
   { id: "security", hasList: false },
   { id: "rights", hasList: false },

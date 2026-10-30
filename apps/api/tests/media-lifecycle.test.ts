@@ -286,4 +286,190 @@ describe("30-day media lifecycle", () => {
       })
     ).toBe("legacy");
   });
+    it("a timed-out old task cannot overwrite a newer task's result", async () => {
+    const storage = new MemoryStorage();
+    const app = await boot(storage);
+    const { userId } = await signUp(app, "claim@example.test");
+    const jobId = await generate(userId, "claim-job", storage);
+    // Expire the asset and claim it as task A would.
+    await db.query(
+      `UPDATE image_assets
+       SET expires_at=now()-interval '1 second',storage_status='deleting',
+           cleanup_claim_token='11111111-1111-1111-1111-111111111111',
+           cleanup_claimed_at=now()-interval '20 minutes'
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    // Task B re-claims the stale row with its own token.
+    await db.query(
+      `UPDATE image_assets
+       SET cleanup_claim_token='22222222-2222-2222-2222-222222222222',
+           cleanup_claimed_at=now()
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    // Task A (stale token) tries to record a failure — must NOT overwrite B.
+    await db.query(
+      `UPDATE image_assets
+       SET storage_status='delete_failed',delete_attempts=delete_attempts+1,
+           last_cleanup_error='R2_HTTP_5XX',updated_at=now()
+       WHERE job_id=$1 AND cleanup_claim_token='11111111-1111-1111-1111-111111111111'`,
+      [jobId]
+    );
+    const stale = (
+      await db.query<{ storage_status: string; last_cleanup_error: string | null }>(
+        "SELECT storage_status,last_cleanup_error FROM image_assets WHERE job_id=$1",
+        [jobId]
+      )
+    ).rows[0];
+    expect(stale.storage_status).toBe("deleting");
+    expect(stale.last_cleanup_error).toBeNull();
+    // Task B (current token) records success — succeeds.
+    await db.query(
+      `UPDATE image_assets
+       SET storage_status='deleted',deleted_at=now()
+       WHERE job_id=$1 AND cleanup_claim_token='22222222-2222-2222-2222-222222222222'`,
+      [jobId]
+    );
+    expect(
+      (await db.query<{ storage_status: string }>(
+        "SELECT storage_status FROM image_assets WHERE job_id=$1",
+        [jobId]
+      )).rows[0].storage_status
+    ).toBe("deleted");
+  });
+
+  it("reclaims stale deleting rows that have no claim token (pre-token crash)", async () => {
+    const storage = new MemoryStorage();
+    const app = await boot(storage);
+    const { userId } = await signUp(app, "nulltoken@example.test");
+    const jobId = await generate(userId, "nulltoken-job", storage);
+    await db.query(
+      `UPDATE image_assets
+       SET expires_at=now()-interval '1 second',storage_status='deleting',
+           cleanup_claim_token=NULL,cleanup_claimed_at=NULL,
+           updated_at=now()-interval '1 hour'
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    const result = await cleanupExpiredMedia(db, storage, { dryRun: false });
+    expect(result).toMatchObject({ scanned: 1, deleted: 1, failed: 0 });
+  });
+
+  it("marks rows past the retry limit as delete_failed and leaves them for manual review", async () => {
+    const storage = new MemoryStorage();
+    const app = await boot(storage);
+    const { userId } = await signUp(app, "retrylimit@example.test");
+    const jobId = await generate(userId, "retrylimit-job", storage);
+    await db.query(
+      `UPDATE image_assets
+       SET expires_at=now()-interval '1 second',delete_attempts=3,
+           last_cleanup_error='R2_HTTP_5XX'
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    const result = await cleanupExpiredMedia(db, storage, { dryRun: false });
+    expect(result.scanned).toBe(0);
+    const row = (
+      await db.query<{ delete_attempts: number; last_cleanup_error: string | null }>(
+        "SELECT delete_attempts,last_cleanup_error FROM image_assets WHERE job_id=$1",
+        [jobId]
+      )
+    ).rows[0];
+    expect(row.delete_attempts).toBe(3);
+    expect(row.last_cleanup_error).toBe("R2_HTTP_5XX");
+  });
+  it("a timed-out old task cannot overwrite a newer task's result", async () => {
+    const storage = new MemoryStorage();
+    const app = await boot(storage);
+    const { userId } = await signUp(app, "claim@example.test");
+    const jobId = await generate(userId, "claim-job", storage);
+    // Expire the asset and claim it as task A would.
+    await db.query(
+      `UPDATE image_assets
+       SET expires_at=now()-interval '1 second',storage_status='deleting',
+           cleanup_claim_token='11111111-1111-1111-1111-111111111111',
+           cleanup_claimed_at=now()-interval '20 minutes'
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    // Task B re-claims the stale row with its own token.
+    await db.query(
+      `UPDATE image_assets
+       SET cleanup_claim_token='22222222-2222-2222-2222-222222222222',
+           cleanup_claimed_at=now()
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    // Task A (stale token) tries to record a failure — must NOT overwrite B.
+    await db.query(
+      `UPDATE image_assets
+       SET storage_status='delete_failed',delete_attempts=delete_attempts+1,
+           last_cleanup_error='R2_HTTP_5XX',updated_at=now()
+       WHERE job_id=$1 AND cleanup_claim_token='11111111-1111-1111-1111-111111111111'`,
+      [jobId]
+    );
+    const stale = (
+      await db.query<{ storage_status: string; last_cleanup_error: string | null }>(
+        "SELECT storage_status,last_cleanup_error FROM image_assets WHERE job_id=$1",
+        [jobId]
+      )
+    ).rows[0];
+    expect(stale.storage_status).toBe("deleting");
+    expect(stale.last_cleanup_error).toBeNull();
+    // Task B (current token) records success — succeeds.
+    await db.query(
+      `UPDATE image_assets
+       SET storage_status='deleted',deleted_at=now()
+       WHERE job_id=$1 AND cleanup_claim_token='22222222-2222-2222-2222-222222222222'`,
+      [jobId]
+    );
+    expect(
+      (await db.query<{ storage_status: string }>(
+        "SELECT storage_status FROM image_assets WHERE job_id=$1",
+        [jobId]
+      )).rows[0].storage_status
+    ).toBe("deleted");
+  });
+
+  it("reclaims stale deleting rows that have no claim token (pre-token crash)", async () => {
+    const storage = new MemoryStorage();
+    const app = await boot(storage);
+    const { userId } = await signUp(app, "nulltoken@example.test");
+    const jobId = await generate(userId, "nulltoken-job", storage);
+    await db.query(
+      `UPDATE image_assets
+       SET expires_at=now()-interval '1 second',storage_status='deleting',
+           cleanup_claim_token=NULL,cleanup_claimed_at=NULL,
+           updated_at=now()-interval '1 hour'
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    const result = await cleanupExpiredMedia(db, storage, { dryRun: false });
+    expect(result).toMatchObject({ scanned: 1, deleted: 1, failed: 0 });
+  });
+
+  it("marks rows past the retry limit as delete_failed and leaves them for manual review", async () => {
+    const storage = new MemoryStorage();
+    const app = await boot(storage);
+    const { userId } = await signUp(app, "retrylimit@example.test");
+    const jobId = await generate(userId, "retrylimit-job", storage);
+    await db.query(
+      `UPDATE image_assets
+       SET expires_at=now()-interval '1 second',delete_attempts=3,
+           last_cleanup_error='R2_HTTP_5XX'
+       WHERE job_id=$1`,
+      [jobId]
+    );
+    const result = await cleanupExpiredMedia(db, storage, { dryRun: false });
+    expect(result.scanned).toBe(0);
+    const row = (
+      await db.query<{ delete_attempts: number; last_cleanup_error: string | null }>(
+        "SELECT delete_attempts,last_cleanup_error FROM image_assets WHERE job_id=$1",
+        [jobId]
+      )
+    ).rows[0];
+    expect(row.delete_attempts).toBe(3);
+    expect(row.last_cleanup_error).toBe("R2_HTTP_5XX");
+  });
 });

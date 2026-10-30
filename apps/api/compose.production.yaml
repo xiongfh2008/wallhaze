@@ -160,6 +160,109 @@ services:
     security_opt:
       - no-new-privileges:true
 
+  # --- Scheduled retention cleanups (privacy policy) ---------------------------
+  # Two independent, minimal entries built from the SAME api image (no extra
+  # dependencies, no docker socket, no public ports). They never touch the
+  # backup tasks above, other projects, or the existing wallhaze-redis.
+  #
+  # db-retention (hourly): auth_attempts > 24h + processed webhooks > 90d.
+  # media-retention (30 min): expired temporary_30d media via the REAL R2
+  #   adapter — dry-run unless MEDIA_RETENTION_CLEANUP_ENABLED=1 in api.env;
+  #   fails closed when STORAGE_DRIVER=r2 credentials are incomplete.
+  # gallery-rescan (daily): AIGC stage 3 — re-screens the published gallery
+  #   manifest through the output moderation service (moderation_logs rows).
+  # ALL are gated behind the `retention` compose profile: plain
+  #   `docker compose up -d` never starts them. Start explicitly with:
+  #   docker compose --profile retention up -d db-retention media-retention gallery-rescan
+
+  db-retention:
+    # Profile-gated: `docker compose --profile retention up -d` is required to
+    # start this service. Plain `docker compose up -d` leaves it stopped, so
+    # real DELETEs never run by accident. DB cleanup is a real DELETE path
+    # (no dry-run) — enabling it is a separate operator approval from the
+    # media dry-run/real switch.
+    profiles: ["retention"]
+    image: wallhaze/api:latest
+    restart: unless-stopped
+    # No ports. Single-purpose loop: run, log, sleep 1h. A failing run must
+    # not kill the loop — the next execution retries on its own.
+    entrypoint:
+      - /bin/sh
+      - -c
+      - while true; do node "$$(dirname "$$(cat .dist-entry)")/jobs/db-retention.js" || echo "[db-retention] run failed; retrying next hour"; sleep 3600; done
+    env_file:
+      - /opt/wallhaze/secrets/api.env
+    environment:
+      NODE_ENV: production
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    mem_limit: 256m
+    cpus: 0.25
+    security_opt:
+      - no-new-privileges:true
+
+  media-retention:
+    profiles: ["retention"]
+    image: wallhaze/api:latest
+    restart: unless-stopped
+    # Every 30 minutes: dry-run by default; real R2 deletions only while
+    # MEDIA_RETENTION_CLEANUP_ENABLED=1 (staging drills first).
+    entrypoint:
+      - /bin/sh
+      - -c
+      - while true; do node "$$(dirname "$$(cat .dist-entry)")/jobs/media-retention.js" || echo "[media-retention] run failed; retrying next cycle"; sleep 1800; done
+    env_file:
+      - /opt/wallhaze/secrets/api.env
+    environment:
+      NODE_ENV: production
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    mem_limit: 256m
+    cpus: 0.25
+    security_opt:
+      - no-new-privileges:true
+
+  gallery-rescan:
+    profiles: ["retention"]
+    image: wallhaze/api:latest
+    restart: unless-stopped
+    # Every 24 h: AIGC stage 3 — async re-scan of PUBLISHED gallery assets
+    # through the output moderation service. Requires OUTPUT_MODERATION_API_KEY
+    # and GALLERY_RESCAN_MANIFEST_URL in api.env; without them the run exits
+    # non-zero each cycle (visible in logs, nothing skipped silently).
+    # A block verdict records disposition=flagged_for_takedown in
+    # moderation_logs and exits 2 — takedown itself stays a HUMAN action via
+    # community:unpublish / the media-rights quarantine CLI.
+    entrypoint:
+      - /bin/sh
+      - -c
+      - while true; do node "$$(dirname "$$(cat .dist-entry)")/jobs/gallery-rescan.js" || echo "[gallery-rescan] run failed or flagged content; retrying next cycle"; sleep 86400; done
+    env_file:
+      - /opt/wallhaze/secrets/api.env
+    environment:
+      NODE_ENV: production
+    networks: [wallhaze_backend]
+    logging: *default-logging
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    mem_limit: 512m
+    cpus: 0.5
+    security_opt:
+      - no-new-privileges:true
+
 volumes:
   wallhaze_pgdata:
     name: wallhaze_app_pgdata

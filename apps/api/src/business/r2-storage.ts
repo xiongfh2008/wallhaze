@@ -7,7 +7,10 @@ import { signS3Request } from "./r2-sign.js";
  * - Path-style addressing: <endpoint>/<bucket>/<key>.
  * - Same put/get/delete contract as MemoryStorage/LocalStorage, including
  *   MIME/magic-byte validation, so the media pipeline is storage-agnostic.
- * - Keys keep the storage.ts keyCheck contract ([a-zA-Z0-9_.-]{1,160}).
+ * - Object keys are validated at THIS request boundary with the same rule
+ *   storage.ts enforces ([a-zA-Z0-9_.-]{1,160}) plus explicit rejection of
+ *   "." and ".." (which the character class alone would allow and which
+ *   would resolve outside the bucket in path-style URLs). See validateR2Key.
  * - Range reads are served by R2 natively; this adapter always fetches whole
  *   objects (media is capped by MAX_VIDEO_BYTES) — signed URL serving for
  *   browsers is a route-level concern, not storage.
@@ -15,6 +18,57 @@ import { signS3Request } from "./r2-sign.js";
 
 const REQUEST_TIMEOUT_MS = 30_000;
 const VIDEO_DOWNLOAD_TIMEOUT_MS = 120_000;
+
+/**
+ * Safe error taxonomy for scheduled-cleanup bookkeeping. Values stored in
+ * `image_assets.last_cleanup_error` / `media_cleanup_runs.details` and
+ * printed by the media-retention entry are limited to these codes (plus the
+ * offending HTTP status when present) — never raw exception text, which can
+ * carry endpoints, signatures or credential fragments.
+ */
+export type StorageErrorCode =
+  | "NETWORK_TIMEOUT"
+  | "R2_HTTP_4XX"
+  | "R2_HTTP_5XX"
+  | "R2_ACCESS_DENIED"
+  | "INVALID_STORAGE_KEY"
+  | "UNKNOWN";
+
+export class R2RequestError extends Error {
+  readonly code: StorageErrorCode;
+  readonly status: number | null;
+  constructor(code: StorageErrorCode, status: number | null = null) {
+    super(
+      status !== null
+        ? `${code} (HTTP ${status})`
+        : code
+    );
+    this.name = "R2RequestError";
+    this.code = code;
+    this.status = status;
+  }
+}
+
+/**
+ * Key validation at the R2 request boundary. Reuses the exact rule
+ * storage.ts applies (one source of truth for historical compatibility) and
+ * adds the two path-traversal shapes the character class alone would miss:
+ * the exact strings "." and "..".
+ * Returns a safe code instead of raw details; the offending key is NOT
+ * echoed back (it is caller-supplied input).
+ */
+export function validateR2Key(key: unknown): string {
+  if (typeof key !== "string" || key.length === 0 || key.length > 160) {
+    throw new R2RequestError("INVALID_STORAGE_KEY");
+  }
+  if (!/^[a-zA-Z0-9_.-]{1,160}$/.test(key)) {
+    throw new R2RequestError("INVALID_STORAGE_KEY");
+  }
+  if (key === "." || key === "..") {
+    throw new R2RequestError("INVALID_STORAGE_KEY");
+  }
+  return key;
+}
 
 // Reads (GET) are idempotent, so a transient network failure (undici
 // "fetch failed": ECONNRESET / socket reuse races) or an R2 5xx is retried a
@@ -73,7 +127,9 @@ export class R2Storage implements PrivateStorage {
   }
 
   private keyUrl(key: string): string {
-    return `${this.base}/${key}`;
+    // Boundary validation runs on EVERY request (put/get/delete) — the key
+    // comes from DB rows / callers and must never escape the bucket path.
+    return `${this.base}/${validateR2Key(key)}`;
   }
 
   private async request(
@@ -89,13 +145,36 @@ export class R2Storage implements PrivateStorage {
       accessKeyId: this.options.accessKeyId,
       secretAccessKey: this.options.secretAccessKey,
     });
-    const response = await (this.options.fetcher ?? fetch)(signed.url, {
-      method: signed.method,
-      headers: signed.headers,
-      body: init.body ?? undefined,
-      signal: AbortSignal.timeout(init.timeoutMs ?? REQUEST_TIMEOUT_MS),
-    });
+    let response: Response;
+    try {
+      response = await (this.options.fetcher ?? fetch)(signed.url, {
+        method: signed.method,
+        headers: signed.headers,
+        body: init.body ?? undefined,
+        signal: AbortSignal.timeout(init.timeoutMs ?? REQUEST_TIMEOUT_MS),
+      });
+    } catch (error) {
+      // Network layer only — undici cause chain, redacted to a safe code.
+      const description = describeR2NetworkError(error);
+      throw new R2RequestError(
+        description.startsWith("TIMEOUT") ? "NETWORK_TIMEOUT" : "UNKNOWN"
+      );
+    }
     return response;
+  }
+
+  /** Maps a non-ok R2 response to its safe error code. */
+  private static errorForStatus(status: number): R2RequestError {
+    if (status === 401 || status === 403) {
+      return new R2RequestError("R2_ACCESS_DENIED", status);
+    }
+    if (status >= 400 && status <= 499) {
+      return new R2RequestError("R2_HTTP_4XX", status);
+    }
+    if (status >= 500 && status <= 599) {
+      return new R2RequestError("R2_HTTP_5XX", status);
+    }
+    return new R2RequestError("UNKNOWN", status);
   }
 
   async put(key: string, bytes: Buffer, mime: string): Promise<void> {
@@ -110,13 +189,11 @@ export class R2Storage implements PrivateStorage {
         timeoutMs: VIDEO_DOWNLOAD_TIMEOUT_MS,
       });
     } catch (error) {
-      throw new Error(
-        `R2 put failed: ${describeR2NetworkError(error)}`
-      );
+      throw error instanceof R2RequestError
+        ? error
+        : new R2RequestError("UNKNOWN");
     }
-    if (!response.ok) {
-      throw new Error(`R2 put failed: HTTP ${response.status}`);
-    }
+    if (!response.ok) throw R2Storage.errorForStatus(response.status);
     // Drain the (empty) body so the socket is reusable.
     await response.arrayBuffer().catch(() => undefined);
   }
@@ -149,12 +226,12 @@ export class R2Storage implements PrivateStorage {
       }
     }
     if (response === null) {
-      throw new Error(
-        `R2 get failed after ${READ_ATTEMPTS} attempts: ${describeR2NetworkError(lastError)}`
-      );
+      throw lastError instanceof R2RequestError
+        ? lastError
+        : new R2RequestError("UNKNOWN");
     }
     if (response.status === 404) throw new Error("ASSET_MISSING");
-    if (!response.ok) throw new Error(`R2 get failed: HTTP ${response.status}`);
+    if (!response.ok) throw R2Storage.errorForStatus(response.status);
     const bytes = Buffer.from(await response.arrayBuffer());
     const mime = (response.headers.get("content-type") ?? "").split(";")[0].trim();
     validateMedia(bytes, mime);
@@ -166,13 +243,13 @@ export class R2Storage implements PrivateStorage {
     try {
       response = await this.request("DELETE", key);
     } catch (error) {
-      throw new Error(
-        `R2 delete failed: ${describeR2NetworkError(error)}`
-      );
+      throw error instanceof R2RequestError
+        ? error
+        : new R2RequestError("UNKNOWN");
     }
     // 204 = deleted; 404 = already gone (idempotent, same as LocalStorage).
     if (response.status !== 204 && response.status !== 404) {
-      throw new Error(`R2 delete failed: HTTP ${response.status}`);
+      throw R2Storage.errorForStatus(response.status);
     }
     await response.arrayBuffer().catch(() => undefined);
   }
@@ -197,6 +274,25 @@ export function resolveStorageFromEnv(
   fallback: () => PrivateStorage
 ): PrivateStorage {
   if (env.STORAGE_DRIVER !== "r2") return fallback();
+  return resolveR2StorageStrict(env);
+}
+
+/**
+ * Strict variant for scheduled cleanup entries: when STORAGE_DRIVER is not
+ * "r2" there is NO fallback at all — the caller decides whether a local
+ * driver is acceptable. Used by jobs/media-retention.ts so a scheduled
+ * deletion run can never silently run against the wrong storage.
+ */
+export function resolveR2StorageStrict(env: R2EnvLike): PrivateStorage {
+  if (env.STORAGE_DRIVER !== "r2") {
+    throw new Error(
+      "STORAGE_DRIVER=r2 is required for scheduled media cleanup — refusing to run against any other storage"
+    );
+  }
+  return resolveR2StorageStrictInner(env);
+}
+
+function resolveR2StorageStrictInner(env: R2EnvLike): PrivateStorage {
   const missing = (["R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET"] as const).filter(
     (name) => !env[name]
   );

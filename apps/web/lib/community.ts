@@ -5,7 +5,7 @@ import { WALLPAPER_STYLES, type StyleId } from "@/lib/styles";
 import { findTheme, type CommunityTheme } from "@/lib/community/themes";
 
 /** The only public submission channel. No form, API or upload exists. */
-export const COMMUNITY_EMAIL = "xiongfh2000@gmail.com";
+export const COMMUNITY_EMAIL = "hello@wallhaze.com";
 export const COMMUNITY_SUBMISSION_SUBJECT = "WallHaze Wallpaper Submission";
 
 /**

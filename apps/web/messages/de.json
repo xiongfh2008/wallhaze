@@ -29,7 +29,11 @@
     "termsTitle": "Nutzungsbedingungen — WallHaze",
     "termsDescription": "Die Regeln für die Nutzung von WallHaze: die Galerie, Downloads und Lizenzen, Community-Einreichungen, das AI Studio, Credits und Kontobedingungen.",
     "communityTitle": "Community-Galerie — WallHaze",
-    "communityDescription": "Entdecke statische und lebendige Wallpaper unabhängiger Kreativer — per E-Mail eingereicht und nach menschlicher Prüfung veröffentlicht."
+    "communityDescription": "Entdecke statische und lebendige Wallpaper unabhängiger Kreativer — per E-Mail eingereicht und nach menschlicher Prüfung veröffentlicht.",
+    "pricingTitle": "Preise & Credits",
+    "pricingDescription": "WallHaze-Preise auf einen Blick: einmalige Credit-Pakete ab 5 $ und Credit-Kosten pro Generierung für statische und Live-Wallpaper. Kein Abo, Credits verfallen nie.",
+    "aupTitle": "Richtlinie zur akzeptablen Nutzung",
+    "aupDescription": "Was über WallHaze erstellt und veröffentlicht werden darf: verbotene Inhaltskategorien, Prüfung vor der Generierung, Durchsetzung sowie Meldung und Einspruch."
   },
   "nav": {
     "mainAria": "Hauptnavigation",
@@ -54,7 +58,8 @@
     "creditsLoading": "Credits werden geladen",
     "creditsUnavailable": "Credits nicht verfügbar",
     "userFallback": "Dein Konto",
-    "community": "Community"
+    "community": "Community",
+    "pricing": "Preise"
   },
   "hero": {
     "eyebrow": "Wallpaper & AI Studio",
@@ -381,7 +386,12 @@
     "advancedOptional": "(optional)",
     "advancedHint": "Gerät, Seitenverhältnis, Auflösung, Inspiration und Referenzbild. Deine Werte bleiben beim Zuklappen erhalten.",
     "advancedReset": "Empfehlung wiederherstellen",
-    "retentionNotice": "Cloud-Speicher: Diese neue Kreation wird 30 Tage aufbewahrt. Lade sie vor Ablauf herunter."
+    "retentionNotice": "Cloud-Speicher: Diese neue Kreation wird 30 Tage aufbewahrt. Lade sie vor Ablauf herunter.",
+    "errorModerationBlocked": "Diese Anfrage entspricht nicht unseren Inhaltsrichtlinien und wurde nicht generiert. Es wurden keine Credits berechnet.",
+    "errorModerationPending": "Die Inhaltsprüfung konnte nicht rechtzeitig abgeschlossen werden, daher wurde nichts generiert. Es wurden keine Credits berechnet — bitte später erneut versuchen.",
+    "errorModerationUnavailable": "Die Inhaltssicherheitsprüfung ist vorübergehend nicht verfügbar, daher kann die Anfrage nicht verarbeitet werden. Es wurden keine Credits berechnet — bitte später erneut versuchen.",
+    "errorOutputBlocked": "Das generierte Ergebnis hat die Inhaltsprüfung nicht bestanden und wurde nicht veröffentlicht. Es wurden keine Credits berechnet.",
+    "errorOutputUnavailable": "Die Inhaltsprüfung ist vorübergehend nicht verfügbar, daher kann das Ergebnis nicht veröffentlicht werden. Es wurden keine Credits berechnet — bitte später erneut versuchen."
   },
   "credits": {
     "title": "Credits erforderlich",
@@ -413,7 +423,17 @@
     "eyebrow": "KI-Arbeitsbereich",
     "subtitle": "Alles, was du zum Gestalten, Generieren und Sammeln von Hintergrundbildern brauchst – Prompt schreiben, Stil wählen, Format einstellen und Lieblingsstücke speichern.",
     "backHome": "← Zurück zur Startseite",
-    "browseGallery": "Galerie durchstöbern"
+    "browseGallery": "Galerie durchstöbern",
+    "modelsTitle": "KI-Modelle & Generierung",
+    "modelsIntro": "WallHaze erzeugt Wallpaper über Drittanbieter-KI-Modelldienste auf der fal.ai-Plattform. Aktuell verwendete Modelle:",
+    "modelNameImage": "FLUX.2 [Klein] 4B",
+    "modelUseImage": "Text-zu-Bild und Bildbearbeitung — statische Wallpaper und Referenzbild-Bearbeitung.",
+    "modelNameI2v": "Wan 2.2 5B",
+    "modelUseI2v": "Bild-zu-Video — verwandelt ein hochgeladenes oder generiertes Bild in ein 5-Sekunden-Live-Wallpaper.",
+    "modelNameT2v": "Kling V3 Standard",
+    "modelUseT2v": "Text-zu-Video — erzeugt kurze Live-Wallpaper aus einer Textbeschreibung (3–5 Sekunden).",
+    "modelsNote": "Prompts werden automatisch geprüft, bevor eine Generierung startet, und jede Nutzung muss der Richtlinie zur akzeptablen Nutzung folgen. Modellverfügbarkeit und Ergebnisse können sich mit Anbieter-Updates ändern; WallHaze steht in keiner Verbindung zu den Modell-Herausgebern und nutzt die Modelle über fal.ai.",
+    "viewPricing": "Preise ansehen"
   },
   "popular": {
     "eyebrow": "Stile",
@@ -474,7 +494,9 @@
     "rights": "WallHaze. Alle Rechte vorbehalten.",
     "madeFor": "Gemacht für jeden Bildschirm.",
     "community": "Community",
-    "submitWallpaper": "Wallpaper einreichen"
+    "submitWallpaper": "Wallpaper einreichen",
+    "pricing": "Preise",
+    "acceptableUse": "Akzeptable Nutzung"
   },
   "ui": {
     "dismiss": "Schließen",
@@ -1148,7 +1170,9 @@
     "roadmapTitle": "Was kommt",
     "roadmapBody": "Konto-Anmeldung, Credit-Wallet, kostenpflichtige KI-Generierung und in der Cloud gespeicherte Kreationen sind geplant, aber nicht angebunden. Funktionen erscheinen erst, wenn ihre Backend-Dienste real sind.",
     "disclaimerTitle": "Ehrlichkeitshinweis",
-    "disclaimerBody": "Diese Seite beschreibt nur bestätigte Fähigkeiten. Unternehmensdaten, Teamgröße, Nutzerzahlen und Partner werden nicht genannt, weil nichts davon bestätigt ist."
+    "disclaimerBody": "Diese Seite beschreibt nur bestätigte Fähigkeiten. Unternehmensdaten, Teamgröße, Nutzerzahlen und Partner werden nicht genannt, weil nichts davon bestätigt ist.",
+    "aiTitle": "KI-Technologie",
+    "aiBody": "WallHaze erzeugt Bilder und Videos über Drittanbieter-KI-Modelle auf der fal.ai-Plattform: statische Wallpaper nutzen derzeit FLUX.2 [Klein] 4B, Live-Wallpaper nutzen Wan 2.2 5B (Bild-zu-Video) und Kling V3 Standard (Text-zu-Video). Prompts werden vor der Generierung automatisch geprüft, und in der Cloud gespeicherte Medien werden 30 Tage aufbewahrt."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1205,7 +1229,7 @@
     "eyebrow": "Rechtliches",
     "title": "Datenschutzerklärung",
     "intro": "Diese Erklärung erläutert, welche personenbezogenen Daten WallHaze verarbeitet, wenn Sie wallhaze.com besuchen oder seine Dienste nutzen, warum dies geschieht und welche Auswahl Sie haben.",
-    "updated": "Zuletzt aktualisiert: 26. Oktober 2026",
+    "updated": "Zuletzt aktualisiert: 30. Oktober 2026",
     "introTitle": "1. Einleitung",
     "introBody": "WallHaze („WallHaze“, „wir“, „uns“) betreibt die Website wallhaze.com und ihre API unter api.wallhaze.com — eine Wallpaper-Galerie, eine Community-Galerie mit Einreichungen von Creators und ein AI Studio zur Generierung von Wallpapers. Diese Erklärung gilt für die WallHaze-Website und ihre Dienste. Sie betrifft Besucher, registrierte Nutzer und alle, die uns kontaktieren oder per E-Mail ein Wallpaper einreichen.",
     "collectTitle": "2. Welche Informationen wir erheben",
@@ -1244,9 +1268,10 @@
       "Google — Anmelde-Authentifizierung (siehe Abschnitt 3).",
       "Cloudflare — Hosting des Website-Frontends und Speicherung von Bildern (Cloudflare R2).",
       "Ein Hosting-Anbieter — betreibt die API und die PostgreSQL-Datenbank.",
-      "KI-Modellanbieter — Wenn Sie eine Generierung anfordern, werden Ihr Prompt und Ihre Einstellungen an den KI-Generierungsdienst (fal.ai) gesendet, um das Bild oder Video zu erstellen.",
+      "KI-Modellanbieter — wenn du eine Generierung anforderst, werden dein Prompt, ein Referenzbild und deine Einstellungen über fal.ai an das ausgewählte Modell gesendet (derzeit FLUX.2 [Klein] 4B für Bilder, Wan 2.2 5B für Bild-zu-Video und Kling V3 Standard für Text-zu-Video); die erzeugten Medien kehren zu WallHaze zurück.",
       "Ein Zahlungsanbieter (Waffo) — übernimmt den Checkout, wenn Sie Credits kaufen, sofern Zahlungsdienste aktiviert sind.",
-      "Ihr E-Mail-Anbieter — Einreichungen, Meldungen und Anfragen erreichen uns per E-Mail."
+      "Ihr E-Mail-Anbieter — Einreichungen, Meldungen und Anfragen erreichen uns per E-Mail.",
+      "Inhaltssicherheitsdienste — Waffo Prompt Sift prüft Prompts, bevor eine Generierung startet, und die OpenAI Moderation API prüft erzeugte Bilder und Videos (gleichmäßige Abtastung vom ersten bis zum letzten Frame), bevor sie gespeichert oder angezeigt werden. Die automatisierte Prüfung deckt die Kategorien ab, die dieser Dienst unterstützt — insbesondere sexuelle Inhalte, grafische Gewalt und Selbsverletzung. Kategorien, die er nicht zuverlässig beurteilen kann — etwa Identitätsmissbrauch/Deepfakes und Urheberrecht — werden durch menschliche Prüfung von Meldungen und Einsprüchen behandelt. Prüfprotokolle enthalten die Auftrags-ID, die Entscheidung und — sofern gemeldet — eine Verletzungskategorie, nicht den Prompt-Text."
     ],
     "retentionTitle": "7. Datenspeicherung und Löschung",
     "retentionBody": "Wir bewahren personenbezogene Daten nur so lange auf, wie es für den Zweck ihrer Erhebung erforderlich ist:",
@@ -1269,13 +1294,15 @@
     "changesTitle": "11. Änderungen dieser Erklärung",
     "changesBody": "Wir können diese Erklärung aktualisieren, wenn sich WallHaze weiterentwickelt. Die aktuelle Version wird stets auf dieser Seite mit ihrem „Zuletzt aktualisiert“-Datum veröffentlicht. Wesentliche Änderungen werden auf der Seite angekündigt.",
     "contactTitle": "12. Kontaktinformationen",
-    "contactBody": "Für Datenschutzfragen, Auskunfts- oder Löschungsanfragen und Meldungen zu veröffentlichten Werken schreiben Sie an xiongfh2000@gmail.com — derzeit der offizielle Kontakt-Kanal von WallHaze."
+    "contactBody": "Für Datenschutzfragen, Auskunfts- oder Löschungsanfragen, Meldungen zu veröffentlichten Werken, Abrechnung und Inhalte schreiben Sie an hello@wallhaze.com — der offizielle Kontakt-Kanal von WallHaze.",
+    "screeningTitle": "Inhaltsprüfung",
+    "screeningBody": "Bevor eine Generierung an das KI-Modell gesendet wird, wird der Prompt durch einen automatisierten Dienst zur Inhaltssicherheit geprüft. Zur Prüfung markierte Anfragen werden kurzzeitig gehalten und erneut geprüft; ohne Entscheidung wird die Anfrage abgelehnt und die reservierten Credits werden freigegeben. Blockierte oder nicht prüfbare Anfragen werden nie generiert, und erzeugte Medien werden vor dem Speichern erneut geprüft. Prüfprotokolle werden zur Missbrauchsuntersuchung aufbewahrt und enthalten die Auftragskennung, die Entscheidung und, sofern gemeldet, eine Verletzungskategorie — weder den Prompt-Text noch deine Zugangsdaten. Veröffentlichte Galerienhalte werden automatisch erneut geprüft."
   },
   "terms": {
     "eyebrow": "Rechtliches",
     "title": "Nutzungsbedingungen",
     "intro": "Diese Bedingungen regeln Ihre Nutzung von wallhaze.com und der WallHaze-Dienste. Bitte lesen Sie sie, bevor Sie WallHaze nutzen.",
-    "updated": "Zuletzt aktualisiert: 26. Oktober 2026",
+    "updated": "Zuletzt aktualisiert: 30. Oktober 2026",
     "acceptanceTitle": "1. Geltung der Bedingungen",
     "acceptanceBody": "Indem Sie auf WallHaze zugreifen oder es nutzen — die Galerie durchstöbern, Wallpaper herunterladen, Werke einreichen, ein Konto erstellen oder Bilder generieren —, stimmen Sie diesen Bedingungen zu. Wenn Sie nicht einverstanden sind, nutzen Sie den Dienst bitte nicht. Sie müssen alt genug sein, um gemäß den Regeln Ihrer Region und Ihres Anmeldeanbieters ein Konto besitzen zu dürfen.",
     "serviceTitle": "2. Beschreibung der Dienste",
@@ -1296,7 +1323,15 @@
       "versuchen, Rate Limits, Sicherheitsmaßnahmen oder Zugriffsbeschränkungen zu umgehen, oder auf Daten zugreifen, die nicht Ihnen gehören;",
       "den Katalog in einer Weise zu scrapen, massenweise herunterzuladen oder weiterzuverbreiten, die die werkbezogenen Berechtigungen umgeht;",
       "den Betrieb des Dienstes zu stören oder ihm eine unzumutbare Last aufzuerlegen;",
-      "Ihre Identität oder Ihre Rechte an einem eingereichten Werk falsch darzustellen."
+      "Ihre Identität oder Ihre Rechte an einem eingereichten Werk falsch darzustellen.",
+      "pornografisches oder sexuell explizites Material (NSFW) oder intime Bilder ohne Einwilligung zu erzeugen;",
+      "extreme Gewalt, Gore oder Folter oder Inhalte, die schwere körperliche Schäden verherrlichen, zu erzeugen;",
+      "Hassrede, Diskriminierung oder Drohungen oder Inhalte, die zu Gewalt gegen geschützte Gruppen anstiften, zu erzeugen;",
+      "sexuelle Missbrauchsdarstellungen von Kindern oder Inhalte, die Minderjährige sexualisieren, zu erzeugen, anzufordern oder zu verbreiten — solche Versuche werden protokolliert und den zuständigen Behörden gemeldet;",
+      "Deepfakes oder Identitätsmissbrauch echter Personen zu erzeugen — einschließlich KI-generierter Nacktheit echter Personen oder falsch zugeschriebener Aussagen; auch mit Einwilligung der abgebildeten Person verboten, und diese Generierungsfähigkeit wird nicht angeboten;",
+      "Inhalte zu erzeugen oder zu verbreiten, die Urheberrechte, Marken, Persönlichkeitsrechte oder anderes geistiges Eigentum verletzen;",
+      "KI-Funktionen zu nutzen, um rechtswidrige Inhalte zu erstellen, oder zu versuchen, Sicherheitsprüfungen — einschließlich der automatischen Prompt-Prüfung vor der Generierung — zu umgehen, zu deaktivieren oder zu manipulieren;",
+      "Referenzfotos echter Personen ohne deren Genehmigung oder Referenzmaterial ohne die erforderlichen Rechte hochzuladen."
     ],
     "aiTitle": "8. KI-generierte Inhalte",
     "aiBody": "Generierungen werden von KI-Modelldiensten Dritter anhand des von Ihnen angegebenen Prompts und Ihrer Einstellungen erstellt. Ähnliche Prompts können ähnliche Ergebnisse liefern; wir versprechen weder, dass eine Generierung einzigartig oder frei von Ähnlichkeiten mit bestehenden Werken ist, noch erklären wir, dass KI-Ausgaben frei von Rechten Dritter sind. Sie sind für die von Ihnen eingegebenen Prompts und für die Nutzung der Ergebnisse im Einklang mit diesen Bedingungen verantwortlich. Generierte Bilder und Videos werden in Ihr Konto geliefert und gemäß der in der Datenschutzerklärung beschriebenen Speicherfrist aufbewahrt; laden Sie herunter, was Sie behalten möchten. Generierte Wallpapers sind derzeit für die persönliche Bildschirmnutzung vorgesehen; weitergehende Nutzungsrechte werden hier beschrieben, sobald und falls sie eingeführt werden.",
@@ -1313,7 +1348,9 @@
     "changesTitle": "14. Änderungen dieser Bedingungen",
     "changesBody": "Wir können diese Bedingungen aktualisieren, wenn sich WallHaze weiterentwickelt. Die aktuelle Version wird stets auf dieser Seite mit ihrem „Zuletzt aktualisiert“-Datum veröffentlicht. Die Weiternutzung von WallHaze nach Inkrafttreten einer neuen Version bedeutet, dass Sie die aktualisierten Bedingungen akzeptieren; wenn Sie sie nicht akzeptieren, stellen Sie die Nutzung des Dienstes bitte ein.",
     "contactTitle": "15. Kontaktinformationen",
-    "contactBody": "Fragen zu diesen Bedingungen, Meldungen zu Werken und Kontobelange: Schreiben Sie an xiongfh2000@gmail.com — derzeit der offizielle Kontakt-Kanal von WallHaze."
+    "contactBody": "Fragen zu diesen Bedingungen, Meldungen zu Werken und Kontobelange: Schreiben Sie an hello@wallhaze.com — der offizielle Kontakt-Kanal von WallHaze.",
+    "prohibitedAupBody": "Die verbotenen Kategorien, die Prüfung, die Durchsetzung und Einsprüche sind in der Richtlinie zur akzeptablen Nutzung ausführlich beschrieben.",
+    "prohibitedAupLink": "Richtlinie zur akzeptablen Nutzung lesen"
   },
   "liveStudio": {
     "switchAria": "Studio-Modus",
@@ -1527,5 +1564,133 @@
     "demoBanner": "Demo-Modus: simulierte Einreichungen für Seitenentwicklung und Tests. Es sind KEINE echten Nutzereinreichungen und erscheinen nie in der Produktion.",
     "demoAuthorName": "Demo-Beispiel",
     "demoDetailNote": "Simulierte Einreichung für die Seitenentwicklung — kein echter Nutzerbeitrag; wird nie in der Produktion veröffentlicht."
+  },
+  "aup": {
+    "eyebrow": "Akzeptable Nutzung",
+    "title": "Richtlinie zur akzeptablen Nutzung",
+    "intro": "Diese Richtlinie legt fest, was über WallHaze erstellt und veröffentlicht werden darf. Sie gilt für jeden Prompt, jedes Referenzbild und jedes generierte Werk und ergänzt die Nutzungsbedingungen.",
+    "standardsTitle": "Verbotene Inhalte",
+    "standardsIntro": "Die folgenden Kategorien sind in Prompts, Referenzbildern und generierten Ergebnissen verboten. Prompts werden vor der Generierung automatisch geprüft, und gemeldete Werke werden von einer Person überprüft.",
+    "categories": [
+      {
+        "name": "Pornografie / NSFW",
+        "body": "Das Erzeugen oder Verbreiten von pornografischem Material, sexuell expliziten Inhalten oder intimen Bildern ohne Einwilligung ist verboten."
+      },
+      {
+        "name": "Gewalt / Gore",
+        "body": "Extreme Gewalt, Gore, Folter und Inhalte, die schwere körperliche Schäden verherrlichen, sind verboten."
+      },
+      {
+        "name": "Hassrede",
+        "body": "Hassrede, Diskriminierung, Drohungen und Inhalte, die zu Gewalt gegen geschützte Gruppen anstiften, sind verboten."
+      },
+      {
+        "name": "Für Kinder ungeeignete Inhalte / CSAM",
+        "body": "Sexuelle Missbrauchsdarstellungen von Kindern, die Sexualisierung Minderjähriger und alle Inhalte, die Kindern schaden oder sie ausbeuten, sind verboten. Versuche werden protokolliert und den zuständigen Behörden gemeldet."
+      },
+      {
+        "name": "Deepfakes / Identitätsmissbrauch",
+        "body": "Gesichtsersetzungen echter Personen, KI-generierte Nacktheit echter Personen und fälschlich zugeschriebene Aussagen oder Handlungen echter Personen sind verboten — auch mit Einwilligung der abgebildeten Person. WallHaze bietet diese Generierungsfähigkeit nicht an."
+      },
+      {
+        "name": "Urheberrecht / Markenverletzungen",
+        "body": "Inhalte, die Urheberrechte, Marken, Persönlichkeitsrechte oder anderes geistiges Eigentum verletzen, sind verboten."
+      }
+    ],
+    "additionalTitle": "Zusätzliche Regeln",
+    "additionalItems": [
+      "KI-Funktionen nicht nutzen, um rechtswidrige Inhalte jeglicher Art zu erstellen.",
+      "Nicht versuchen, Sicherheitsprüfungen — einschließlich der automatischen Prompt-Prüfung vor der Generierung — zu umgehen, zu deaktivieren oder zu manipulieren.",
+      "Keine Referenzfotos echter Personen ohne deren Genehmigung hochladen.",
+      "Für jedes hochgeladene Referenzbild müssen die erforderlichen Rechte und Genehmigungen vorliegen."
+    ],
+    "screeningTitle": "Wie Inhalte geprüft werden",
+    "screeningBody": "Jeder Prompt wird vor dem Senden an das KI-Modell durch Waffo Prompt Sift (der von der Prüfung geforderte automatisierte Dienst zur Inhaltssicherheit) geprüft, und eine lokal gepflegte Sperrliste läuft als zweite Ebene. Blockierte — oder nicht prüfbare — Anfragen werden nie generiert. Erzeugte Bilder und Videos werden vor dem Speichern oder Anzeigen durch einen automatisierten Medienmoderationsdienst (OpenAI Moderation API) geprüft; Video wird Frame für Frame kontrolliert. Gemeldete Werke werden von einer Person überprüft, bevor Maßnahmen ergriffen werden, und veröffentlichte Galerienhalte werden automatisch erneut geprüft.",
+    "enforcementTitle": "Durchsetzung",
+    "enforcementBody": "Inhalte, die gegen diese Richtlinie verstoßen, können entfernt werden; das Konto kann eingeschränkt oder gesperrt werden. Schwere Verstöße — insbesondere solche mit Bezug zu Minderjährigen — werden den zuständigen Behörden gemeldet. Entscheidungen können per E-Mail angefochten werden.",
+    "reportTitle": "Meldungen und Einsprüche",
+    "reportBody": "Um ein Werk zu melden oder eine Entscheidung anzufechten, schreibe an hello@wallhaze.com mit dem Link zum Werk und einer kurzen Beschreibung. Meldungen werden von einer Person überprüft; eine konkrete Antwortzeit versprechen wir nicht.",
+    "termsTitle": "Verhältnis zu den Nutzungsbedingungen",
+    "termsBody": "Diese Richtlinie ergänzt die Nutzungsbedingungen; bei Abweichungen gilt die strengere Auslegung.",
+    "termsLink": "Nutzungsbedingungen lesen",
+    "updated": "Zuletzt aktualisiert: 30. Oktober 2026"
+  },
+  "pricing": {
+    "eyebrow": "Preise",
+    "title": "Preise & Credits",
+    "intro": "WallHaze nutzt einmalige Credit-Pakete — kein Abo. Credits bezahlen jede Generierung und verfallen nie.",
+    "packagesTitle": "Credit-Pakete",
+    "packagesIntro": "Alle Pakete sind einmalige Käufe in USD.",
+    "packages": [
+      {
+        "name": "Starter",
+        "credits": "100",
+        "price": "$5",
+        "note": "≈ 10 statische Wallpaper"
+      },
+      {
+        "name": "Creator",
+        "credits": "500",
+        "price": "$20",
+        "note": "≈ 50 statische Wallpaper oder eine Mischung aus statischen und Live-Wallpapern"
+      },
+      {
+        "name": "Studio",
+        "credits": "2.000",
+        "price": "$69",
+        "note": "Am besten für Live-Wallpaper und größere Mengen"
+      }
+    ],
+    "packagesNote": "Credits verfallen nie und bleiben bis zur Verwendung in deiner Wallet.",
+    "genTitle": "Generierungskosten",
+    "genIntro": "Was jede Generierung an Credits kostet (beim Start des Auftrags reserviert):",
+    "genItems": [
+      {
+        "name": "Statisches Wallpaper — Text-zu-Bild oder Referenzbild-Bearbeitung",
+        "cost": "10 Credits"
+      },
+      {
+        "name": "Live-Wallpaper — Bild-zu-Video, 5 Sekunden",
+        "cost": "40 Credits"
+      },
+      {
+        "name": "Live-Wallpaper — Text-zu-Video, 3 / 4 / 5 Sekunden",
+        "cost": "40 / 50 / 60 Credits"
+      }
+    ],
+    "genNote": "Credits werden während der Ausführung eines Auftrags gehalten und bei Fehlschlag automatisch freigegeben — eine fehlgeschlagene Generierung kostet dich nie etwas.",
+    "billingTitle": "Abrechnung",
+    "billingItems": [
+      "Einmalige Käufe in USD — kein Abo, keine wiederkehrenden Gebühren.",
+      "Credits verfallen nie.",
+      "Reservierte Credits werden bei fehlgeschlagener Generierung automatisch freigegeben.",
+      "Pakete werden nach Öffnung des Checkouts von unserem Zahlungsanbieter abgewickelt."
+    ],
+    "checkoutTitle": "Checkout öffnet bald",
+    "checkoutBody": "Käufe werden von unserem Zahlungsanbieter abgewickelt, und der Checkout-Kanal befindet sich in der abschließenden Prüfung. Kauf-Buttons bleiben deaktiviert, bis der Kanal öffnet — Generieren mit vorhandenen Credits funktioniert heute wie gewohnt.",
+    "checkoutComing": "Checkout bald verfügbar",
+    "faqTitle": "Preis-FAQ",
+    "faq": [
+      {
+        "q": "Sind Credits ein Abo?",
+        "a": "Nein. Credit-Pakete sind einmalige Käufe in USD und Credits verfallen nie."
+      },
+      {
+        "q": "Was passiert, wenn eine Generierung fehlschlägt?",
+        "a": "Die für den Auftrag reservierten Credits werden automatisch freigegeben und dein Guthaben wiederhergestellt — fehlgeschlagene Generierungen kosten nichts."
+      },
+      {
+        "q": "Wie viel kostet ein Live-Wallpaper?",
+        "a": "Bild-zu-Video (5 s) kostet 40 Credits. Text-zu-Video kostet 40 Credits für 3 Sekunden, 50 für 4 Sekunden und 60 für 5 Sekunden. Ein statisches Wallpaper kostet 10 Credits."
+      },
+      {
+        "q": "Wann kann ich Credits kaufen?",
+        "a": "Der Checkout befindet sich mit unserem Zahlungsanbieter in der abschließenden Prüfung. Kauf-Buttons bleiben bis zur Kanalöffnung deaktiviert; in der Zwischenzeit kannst du mit vorhandenen Credits generieren."
+      },
+      {
+        "q": "Ändern sich die Preise?",
+        "a": "Die Kosten auf dieser Seite spiegeln die aktuelle serverseitige Konfiguration wider. Das Studio zeigt vor jedem Auftrag immer die tatsächlichen Kosten an."
+      }
+    ]
   }
 }

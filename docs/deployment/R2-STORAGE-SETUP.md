@@ -51,10 +51,25 @@
   `packages/contracts/src/images.ts` 的 `IMAGE_PROXY_ALLOWED_HOSTS` 增加签名域名或改为
   纯预签名 URL 方案。
 
-## 6. 剩余实施项（adapter 已完成后的后续）
+## 6. 定时清理闭环（2026-10-25 已实现）
 
-已落地：SigV4 模块、R2Storage（put/get/delete + 校验）、env schema、
-server/worker fail-closed 接线、离线测试、验收脚本。仍待做：
+新增两个独立调度入口（复用 API 镜像，compose 服务 `db-retention`（每小时）
+与 `media-retention`（30 分钟））——jobs 容器与备份任务不变，无 docker
+socket、无公网端口。**两个服务均由 compose profile `retention` 门控**：
+普通 `docker compose up -d` 不会启动它们，必须显式
+`docker compose --profile retention up -d`（或单独 up 某个服务）。真实 DB
+删除（无 dry-run）与媒体 dry-run/真实删除是**两个独立审批**：DB 清理只要
+服务启动就会执行真实 DELETE；媒体删除还需 `MEDIA_RETENTION_CLEANUP_ENABLED=1`。
+
+- `src/jobs/db-retention.ts`：调 `cleanupRetention`（auth_attempts>24h、
+  processed webhooks>90d；received/failed 保留；订单/账本永不触碰）。
+- `src/jobs/media-retention.ts`：调 `cleanupExpiredMedia`，存储由
+  `resolveR2StorageStrict` 提供——**只接受 STORAGE_DRIVER=r2**，本地驱动或
+  凭据缺失直接抛错退出（fail-closed）；`MEDIA_RETENTION_CLEANUP_ENABLED`
+  决定 dry-run 与真实删除；删除顺序为"对象先删、DB 后标"，失败标
+  `delete_failed` 并重试。
+
+仍待做（生产启用前）：
 
 
 1. 视频 Range 对外路径：签名 URL 直连 R2（原生支持 Range），或 Nginx

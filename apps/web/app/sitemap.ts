@@ -32,8 +32,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/faq", priority: 0.5, changeFrequency: "monthly" },
     { path: "/help", priority: 0.5, changeFrequency: "monthly" },
     { path: "/contact", priority: 0.4, changeFrequency: "monthly" },
+    { path: "/pricing", priority: 0.6, changeFrequency: "monthly" },
     { path: "/privacy", priority: 0.3, changeFrequency: "yearly" },
     { path: "/terms", priority: 0.3, changeFrequency: "yearly" },
+    { path: "/acceptable-use", priority: 0.3, changeFrequency: "yearly" },
     // Only cleared artwork is indexable. Pending detail pages stay reachable
     // for transparency but are noindex and deliberately excluded here.
     ...PRESET_WALLPAPERS.filter(

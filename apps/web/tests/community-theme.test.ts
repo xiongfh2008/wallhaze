@@ -91,7 +91,7 @@ describe("Monthly Wallpaper Challenge configuration", () => {
 
   it("encodes the theme submission subject and full body", () => {
     const mailto = themeSubmissionMailto(activeTheme, "Dreamy Nightscapes");
-    expect(mailto.startsWith("mailto:xiongfh2000@gmail.com?")).toBe(true);
+    expect(mailto.startsWith("mailto:hello@wallhaze.com?")).toBe(true);
     expect(mailto).toContain(
       encodeURIComponent("[WallHaze Monthly Theme] Dreamy Nightscapes")
     );

@@ -29,7 +29,11 @@
     "termsTitle": "Terms of Service — WallHaze",
     "termsDescription": "The rules for using WallHaze: the gallery, downloads and licences, community submissions, the AI Studio, Credits and account terms.",
     "communityTitle": "Community Gallery — WallHaze",
-    "communityDescription": "Discover static and live wallpapers from independent creators, submitted by email and published after human review."
+    "communityDescription": "Discover static and live wallpapers from independent creators, submitted by email and published after human review.",
+    "pricingTitle": "Pricing & Credits",
+    "pricingDescription": "WallHaze pricing at a glance: one-time credit packages from $5 and per-generation credit costs for static and live wallpapers. No subscription, credits never expire.",
+    "aupTitle": "Acceptable Use Policy",
+    "aupDescription": "What may be created and published through WallHaze: prohibited content categories, pre-generation screening, enforcement, and how to report or appeal."
   },
   "nav": {
     "mainAria": "Main",
@@ -54,7 +58,8 @@
     "creditsLoading": "Loading Credits",
     "creditsUnavailable": "Credits unavailable",
     "userFallback": "Your account",
-    "community": "Community"
+    "community": "Community",
+    "pricing": "Pricing"
   },
   "hero": {
     "eyebrow": "Wallpapers & AI Studio",
@@ -381,7 +386,12 @@
     "advancedOptional": "(optional)",
     "advancedHint": "Device, aspect ratio, resolution, inspiration and reference image. Your choices are kept when this section is closed.",
     "advancedReset": "Reset to recommended",
-    "retentionNotice": "Cloud storage: this new creation is kept for 30 days. Download it before it expires."
+    "retentionNotice": "Cloud storage: this new creation is kept for 30 days. Download it before it expires.",
+    "errorModerationBlocked": "This request doesn't meet our content guidelines, so it wasn't generated. No Credits were charged.",
+    "errorModerationPending": "Content review couldn't complete for this request, so it wasn't generated. No Credits were charged — please try again later.",
+    "errorModerationUnavailable": "Content screening is temporarily unavailable, so this request can't be processed. No Credits were charged — please try again later.",
+    "errorOutputBlocked": "The generated result didn't pass content review and wasn't published. No Credits were charged.",
+    "errorOutputUnavailable": "Content review is temporarily unavailable, so the generated result can't be published. No Credits were charged — please try again later."
   },
   "credits": {
     "title": "Credits required",
@@ -413,7 +423,17 @@
     "eyebrow": "AI Workspace",
     "subtitle": "Everything you need to design, generate and collect wallpapers — prompt it, pick a style, dial in the ratio, and save what you love.",
     "backHome": "← Back to Home",
-    "browseGallery": "Browse the gallery"
+    "browseGallery": "Browse the gallery",
+    "modelsTitle": "AI models & generation",
+    "modelsIntro": "WallHaze generates wallpapers through third-party AI model services accessed via the fal.ai platform. The models currently in use:",
+    "modelNameImage": "FLUX.2 [Klein] 4B",
+    "modelUseImage": "Text-to-image and image editing — static wallpapers and reference-image edits.",
+    "modelNameI2v": "Wan 2.2 5B",
+    "modelUseI2v": "Image-to-video — turns an uploaded or generated image into a 5-second live wallpaper.",
+    "modelNameT2v": "Kling V3 Standard",
+    "modelUseT2v": "Text-to-video — creates short live wallpapers from a text description (3–5 seconds).",
+    "modelsNote": "Prompts are screened automatically before a generation starts, and all use must follow the Acceptable Use Policy. Model availability and output can change as their providers update; WallHaze is not affiliated with the model publishers and accesses the models through fal.ai.",
+    "viewPricing": "View pricing"
   },
   "popular": {
     "eyebrow": "Styles",
@@ -474,7 +494,9 @@
     "rights": "WallHaze. All rights reserved.",
     "madeFor": "Made for every screen.",
     "community": "Community",
-    "submitWallpaper": "Submit a Wallpaper"
+    "submitWallpaper": "Submit a Wallpaper",
+    "pricing": "Pricing",
+    "acceptableUse": "Acceptable Use"
   },
   "ui": {
     "dismiss": "Dismiss",
@@ -1148,7 +1170,9 @@
     "roadmapTitle": "What is coming",
     "roadmapBody": "Account sign-in, the Credits wallet, paid AI generation and cloud-saved creations are planned but not connected yet. Features appear on the site only when their backend services are real.",
     "disclaimerTitle": "Honesty note",
-    "disclaimerBody": "This page describes only confirmed capabilities. Company details, team size, user counts and partners are not stated because none have been confirmed."
+    "disclaimerBody": "This page describes only confirmed capabilities. Company details, team size, user counts and partners are not stated because none have been confirmed.",
+    "aiTitle": "AI technology",
+    "aiBody": "WallHaze generates images and videos through third-party AI models accessed via the fal.ai platform: static wallpapers currently use FLUX.2 [Klein] 4B, and live wallpapers use Wan 2.2 5B (image-to-video) and Kling V3 Standard (text-to-video). Prompts are screened automatically before generation, and generated media in cloud storage is kept for 30 days."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1205,7 +1229,7 @@
     "eyebrow": "Legal",
     "title": "Privacy Policy",
     "intro": "This policy explains what personal data WallHaze processes when you visit wallhaze.com or use its services, why, and what choices you have.",
-    "updated": "Last updated: October 26, 2026",
+    "updated": "Last updated: October 30, 2026",
     "introTitle": "1. Introduction",
     "introBody": "WallHaze (\"WallHaze\", \"we\", \"us\") operates the website wallhaze.com and its API at api.wallhaze.com — a wallpaper gallery, a community gallery of creator submissions, and an AI Studio for generating wallpapers. This policy applies to the WallHaze website and services. It covers visitors, registered users, and anyone who contacts us or submits a wallpaper by email.",
     "collectTitle": "2. Information We Collect",
@@ -1244,9 +1268,10 @@
       "Google — sign-in authentication (see section 3).",
       "Cloudflare — hosting of the website frontend and storage of images (Cloudflare R2).",
       "A hosting provider — runs the API and the PostgreSQL database.",
-      "AI model providers — when you request a generation, your prompt and settings are sent to the AI generation service (fal.ai) to create the image or video.",
+      "AI model providers — when you request a generation, your prompt, any reference image and your settings are sent through fal.ai to the selected model (currently FLUX.2 [Klein] 4B for images, Wan 2.2 5B for image-to-video and Kling V3 Standard for text-to-video); the generated media is returned to WallHaze.",
       "A payment provider (Waffo) — handles checkout if you buy Credits, where payment services are enabled.",
-      "Your email provider — submissions, reports and requests reach us by email."
+      "Your email provider — submissions, reports and requests reach us by email.",
+      "Content-safety services — Waffo Prompt Sift reviews prompts before a generation starts, and the OpenAI Moderation API screens generated images and videos (frame sampling for video) before anything is stored or shown. Screening records keep the job id, the decision and — when reported — a violation category, not the prompt text."
     ],
     "retentionTitle": "7. Data Retention and Deletion",
     "retentionBody": "We keep personal data only as long as needed for the purpose it was collected:",
@@ -1269,13 +1294,15 @@
     "changesTitle": "11. Policy Updates",
     "changesBody": "We may update this policy as WallHaze develops. The current version is always published on this page with its \"last updated\" date. Significant changes will be announced on the site.",
     "contactTitle": "12. Contact Information",
-    "contactBody": "For privacy questions, access or deletion requests, and reports about published works, email xiongfh2000@gmail.com — currently the official WallHaze contact channel."
+    "contactBody": "For privacy questions, access or deletion requests, reports about published works, billing and content matters, email hello@wallhaze.com — the official WallHaze contact channel.",
+    "screeningTitle": "Content screening",
+    "screeningBody": "Before a generation is sent to the AI model, the prompt is screened by an automated content-safety service. Requests marked for review are held and re-checked for a short window; if no verdict arrives, the request is declined and the reserved Credits are released. Blocked or unscreenable requests are never generated, and generated media is screened again before it is stored. Screening logs are kept for abuse investigation and contain the job identifier, the decision and, where reported, a violation category — not the prompt text and not your credentials. Published gallery content is re-scanned automatically."
   },
   "terms": {
     "eyebrow": "Legal",
     "title": "Terms of Service",
     "intro": "These terms govern your use of wallhaze.com and the WallHaze services. Please read them before using WallHaze.",
-    "updated": "Last updated: October 26, 2026",
+    "updated": "Last updated: October 30, 2026",
     "acceptanceTitle": "1. Acceptance of Terms",
     "acceptanceBody": "By accessing or using WallHaze — browsing the gallery, downloading wallpapers, submitting work, creating an account or generating images — you agree to these terms. If you do not agree, please do not use the service. You must be old enough to have an account under the rules of your region and of the sign-in provider you use.",
     "serviceTitle": "2. Description of Services",
@@ -1296,7 +1323,15 @@
       "attempt to bypass rate limits, security measures or access controls, or access data that is not yours;",
       "scrape, bulk-download or redistribute the catalogue in a way that circumvents the per-work permissions;",
       "interfere with the operation of the service or impose unreasonable load on it;",
-      "misrepresent your identity or the rights you hold to a submitted work."
+      "misrepresent your identity or the rights you hold to a submitted work.",
+      "generate pornographic or sexually explicit material (NSFW), or non-consensual intimate imagery;",
+      "generate extreme violence, gore or torture, or content that glorifies serious physical harm;",
+      "generate hate speech, discrimination or threats, or content inciting violence against protected groups;",
+      "generate, request or distribute child sexual abuse material or any content that sexualizes minors — such attempts are recorded and reported to the relevant authorities;",
+      "generate deepfakes or impersonations of real people — including AI-generated nudity of real people or fabricated statements attributed to them; this is prohibited even with the depicted person’s consent, and no such generation capability is offered;",
+      "generate or distribute content that infringes copyright, trademark, likeness or other intellectual-property rights;",
+      "use AI features to create unlawful content, or attempt to bypass, disable or manipulate safety screening, including the automated prompt review applied before generation;",
+      "upload reference photos of real people without their authorization, or reference material you do not have the necessary rights or permission to use."
     ],
     "aiTitle": "8. AI-Generated Content",
     "aiBody": "Generations are produced by third-party AI model services from the prompt and settings you provide. Similar prompts can produce similar results; we do not promise that a generation is unique or free of resemblance to existing works, and we do not represent that AI output is free of third-party rights. You are responsible for the prompts you enter and for using the results in line with these terms. Generated images and videos are delivered to your account and kept under the retention described in the Privacy Policy; download what you want to keep. Generated wallpapers are currently intended for personal screen use; broader usage rights will be described here if and when they are introduced.",
@@ -1313,7 +1348,9 @@
     "changesTitle": "14. Changes to These Terms",
     "changesBody": "We may update these terms as WallHaze develops. The current version is always published on this page with its \"last updated\" date. Continuing to use WallHaze after a new version takes effect means you accept the updated terms; if you do not accept them, please stop using the service.",
     "contactTitle": "15. Contact Information",
-    "contactBody": "Questions about these terms, reports about works and account matters: email xiongfh2000@gmail.com — currently the official WallHaze contact channel."
+    "contactBody": "Questions about these terms, reports about works and account matters: email hello@wallhaze.com — the official WallHaze contact channel.",
+    "prohibitedAupBody": "The prohibited categories, screening, enforcement and appeals are described in detail in the Acceptable Use Policy.",
+    "prohibitedAupLink": "Read the Acceptable Use Policy"
   },
   "liveStudio": {
     "switchAria": "Studio mode",
@@ -1527,5 +1564,133 @@
     "demoBanner": "Demo mode: simulated submissions for page development and testing. These are NOT real user submissions and never appear in production.",
     "demoAuthorName": "Demo Sample",
     "demoDetailNote": "Simulated submission for page development — not a real user contribution. Never published in production."
+  },
+  "aup": {
+    "eyebrow": "Acceptable Use",
+    "title": "Acceptable Use Policy",
+    "intro": "This policy defines what may be created and published through WallHaze. It applies to every prompt, reference image and generated work, and supplements the Terms of Service.",
+    "standardsTitle": "Prohibited content",
+    "standardsIntro": "The following categories are prohibited in prompts, reference images and generated output. Prompts are screened automatically before generation, and reported works are reviewed by a person.",
+    "categories": [
+      {
+        "name": "Pornography / NSFW",
+        "body": "Generating or distributing pornographic material, sexually explicit content, or non-consensual intimate imagery is prohibited."
+      },
+      {
+        "name": "Violence / Gore",
+        "body": "Extreme violence, gore, torture, and content that glorifies serious physical harm are prohibited."
+      },
+      {
+        "name": "Hate Speech",
+        "body": "Hate speech, discrimination, threats, and content inciting violence against protected groups are prohibited."
+      },
+      {
+        "name": "Child-Unsafe Content / CSAM",
+        "body": "Child sexual abuse material, the sexualization of minors, and any content that harms or exploits children are prohibited. Attempts are recorded and reported to the relevant authorities."
+      },
+      {
+        "name": "Deepfakes / Impersonation",
+        "body": "Face-swaps of real people, AI-generated nudity of real people, and fabricated statements or actions attributed to real people are prohibited — even with the consent of the person depicted. WallHaze does not offer a capability for these generations."
+      },
+      {
+        "name": "Copyright / Trademark Infringement",
+        "body": "Content that infringes copyrights, trademarks, likeness rights or other intellectual property is prohibited."
+      }
+    ],
+    "additionalTitle": "Additional rules",
+    "additionalItems": [
+      "Do not use AI features to create unlawful content of any kind.",
+      "Do not attempt to bypass, disable or manipulate safety screening, including the automated prompt review applied before generation.",
+      "Do not upload reference photos of real people without their authorization.",
+      "You must hold the necessary rights and permission for every reference image you upload."
+    ],
+    "screeningTitle": "How content is reviewed",
+    "screeningBody": "Every prompt is screened by Waffo Prompt Sift (the automated content-safety service required by our review) before a generation is sent to the AI model, and a locally maintained prohibited-term list runs as a second layer. Requests that are blocked — or that cannot be screened — are never generated. Generated images and videos are then screened by an automated media moderation service (OpenAI Moderation API) before anything is stored or shown; video is checked from the first to the last frame with evenly spaced samples in between. Automated screening covers the categories that service supports — notably sexual content, graphic violence and self-harm imagery. Categories it cannot reliably judge — such as impersonation/deepfakes and copyright — are handled through human review of reports and appeals. Works reported by users are reviewed by a person before any action is taken, and published gallery content is re-scanned automatically.",
+    "enforcementTitle": "Enforcement",
+    "enforcementBody": "Content that violates this policy may be removed, and the generating account may be limited or suspended. Serious violations — especially anything involving minors — are reported to the relevant authorities. Decisions can be appealed by email.",
+    "reportTitle": "Reporting and appeals",
+    "reportBody": "To report a work or appeal a decision, email hello@wallhaze.com with the work’s link and a short description. Reports are reviewed by a person; we do not promise a specific response time.",
+    "termsTitle": "Relationship to the Terms of Service",
+    "termsBody": "This policy supplements the Terms of Service; where wording differs, the stricter reading applies.",
+    "termsLink": "Read the Terms of Service",
+    "updated": "Last updated: October 30, 2026"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Pricing & Credits",
+    "intro": "WallHaze uses one-time credit packages — no subscription. Credits pay for each generation and never expire.",
+    "packagesTitle": "Credit packages",
+    "packagesIntro": "All packages are one-time purchases in USD.",
+    "packages": [
+      {
+        "name": "Starter",
+        "credits": "100",
+        "price": "$5",
+        "note": "≈ 10 static wallpapers"
+      },
+      {
+        "name": "Creator",
+        "credits": "500",
+        "price": "$20",
+        "note": "≈ 50 static wallpapers, or a mix of stills and live wallpapers"
+      },
+      {
+        "name": "Studio",
+        "credits": "2,000",
+        "price": "$69",
+        "note": "Best for live wallpapers and larger batches"
+      }
+    ],
+    "packagesNote": "Credits never expire and stay in your wallet until spent.",
+    "genTitle": "Generation costs",
+    "genIntro": "What each generation costs in Credits (reserved when the job starts):",
+    "genItems": [
+      {
+        "name": "Static wallpaper — text-to-image or reference-image edit",
+        "cost": "10 Credits"
+      },
+      {
+        "name": "Live wallpaper — image-to-video, 5 seconds",
+        "cost": "40 Credits"
+      },
+      {
+        "name": "Live wallpaper — text-to-video, 3 / 4 / 5 seconds",
+        "cost": "40 / 50 / 60 Credits"
+      }
+    ],
+    "genNote": "Credits are held while a job runs and are released automatically if the job fails — a failed generation never charges you.",
+    "billingTitle": "Billing",
+    "billingItems": [
+      "One-time purchases in USD — no subscription and no recurring charges.",
+      "Credits never expire.",
+      "Reserved credits are released automatically when a generation fails.",
+      "Packages are processed by our payment provider once checkout is open."
+    ],
+    "checkoutTitle": "Checkout is opening soon",
+    "checkoutBody": "Purchases are processed by our payment provider and the checkout channel is in its final verification. Buy buttons stay disabled until the channel opens — generating with existing credits works normally today.",
+    "checkoutComing": "Checkout opening soon",
+    "faqTitle": "Pricing FAQ",
+    "faq": [
+      {
+        "q": "Are credits a subscription?",
+        "a": "No. Credit packages are one-time purchases in USD and credits never expire."
+      },
+      {
+        "q": "What happens if a generation fails?",
+        "a": "The credits reserved for the job are released automatically and your balance is restored — failed generations cost nothing."
+      },
+      {
+        "q": "How much does a live wallpaper cost?",
+        "a": "Image-to-video (5 s) costs 40 Credits. Text-to-video costs 40 Credits for 3 seconds, 50 for 4 seconds and 60 for 5 seconds. A static wallpaper is 10 Credits."
+      },
+      {
+        "q": "When can I buy credits?",
+        "a": "Checkout is in its final verification with our payment provider. Buy buttons stay disabled until the channel opens; you can generate with existing credits in the meantime."
+      },
+      {
+        "q": "Do prices change?",
+        "a": "The costs on this page reflect the current server-side configuration. The Studio always shows the live cost of a job before you start it."
+      }
+    ]
   }
 }

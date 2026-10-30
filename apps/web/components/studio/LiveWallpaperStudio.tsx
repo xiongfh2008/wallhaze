@@ -212,6 +212,13 @@ export default function LiveWallpaperStudio() {
     !busy &&
     videoServiceState === "available",
   );
+  // Once the pricing probe answered and refused jobs (paused / disabled),
+  // the trigger is disabled and the credits notice is the single source of
+  // truth — no duplicate red error next to the yellow paused notice. A probe
+  // that never answered (pricing null: loading or failed) keeps the current
+  // error-path behavior.
+  const serviceUnavailable =
+    pricing !== null && videoServiceState !== "available";
 
   useEffect(() => {
     let cancelled = false;
@@ -1005,7 +1012,7 @@ export default function LiveWallpaperStudio() {
             <button
               type="button"
               onClick={handleGenerate}
-              disabled={busy || !formValid}
+              disabled={busy || !formValid || serviceUnavailable}
               className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-4 text-sm font-semibold shadow-xl shadow-violet-950/50 transition hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:brightness-100"
             >
               {busy ? (

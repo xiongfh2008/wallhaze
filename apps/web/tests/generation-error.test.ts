@@ -25,6 +25,23 @@ describe("generation error mapping", () => {
     expect(generationErrorKey("UPSTREAM_UNCERTAIN", "http")).toBe(
       "errorUncertain"
     );
+    // Moderation chain: blocked/pending never call the AI; output
+    // rejections mean the AI ran but nothing was published.
+    expect(generationErrorKey("MODERATION_BLOCKED", "http")).toBe(
+      "errorModerationBlocked"
+    );
+    expect(generationErrorKey("MODERATION_PENDING", "http")).toBe(
+      "errorModerationPending"
+    );
+    expect(generationErrorKey("MODERATION_UNAVAILABLE", "http")).toBe(
+      "errorModerationUnavailable"
+    );
+    expect(generationErrorKey("OUTPUT_MODERATION_BLOCKED", "http")).toBe(
+      "errorOutputBlocked"
+    );
+    expect(generationErrorKey("OUTPUT_MODERATION_UNAVAILABLE", "http")).toBe(
+      "errorOutputUnavailable"
+    );
     expect(generationErrorKey(null, "http")).toBe("generateFailed");
   });
 

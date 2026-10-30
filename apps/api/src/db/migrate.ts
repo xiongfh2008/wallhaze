@@ -14,6 +14,8 @@ const MIGRATIONS: ReadonlyArray<{ version: number; file: string }> = [
   { version: 4, file: '004_checkout_url.sql' },
   { version: 5, file: '005_media.sql' },
   { version: 6, file: '006_media_lifecycle.sql' },
+  { version: 7, file: '007_cleanup_claim.sql' },
+  { version: 8, file: '008_moderation_logs.sql' },
 ];
 
 const siblingUrl = (file: string) => new URL(`../../migrations/${file}`, import.meta.url);

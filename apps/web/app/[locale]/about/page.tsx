@@ -81,6 +81,13 @@ export default async function AboutPage({
           </div>
         </section>
 
+        <section aria-labelledby="about-ai" className="mt-10">
+          <h2 id="about-ai" className="text-lg font-semibold">
+            {t("aiTitle")}
+          </h2>
+          <p className="mt-2 leading-relaxed text-zinc-400">{t("aiBody")}</p>
+        </section>
+
         <section aria-labelledby="about-roadmap" className="mt-10">
           <h2 id="about-roadmap" className="text-lg font-semibold">
             {t("roadmapTitle")}

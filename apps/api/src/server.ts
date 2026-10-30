@@ -16,6 +16,8 @@ import {
   resolveGenerationMode,
 } from "./business/provider-mode.js";
 import { createFalProvider } from "./modules/generation/fal.provider.js";
+import { PromptModerationService } from "./business/moderation.js";
+import { OutputModerationService } from "./business/output-moderation.js";
 import {
   createLiveVideoProviders,
   createMockVideoProviders,
@@ -115,6 +117,24 @@ async function main(): Promise<void> {
   });
 
   const embedded = embeddedRequested && jobProvider !== undefined;
+  const moderation = new PromptModerationService({
+    merchantId: env.WAFFO_MERCHANT_ID ?? null,
+    privateKey: env.WAFFO_PRIVATE_KEY ?? null,
+    endpoint: env.WAFFO_MODERATION_ENDPOINT,
+    semantic: env.WAFFO_MODERATION_SEMANTIC,
+    reviewMaxWaitMs: env.WAFFO_MODERATION_REVIEW_MAX_WAIT_SECONDS
+      ? env.WAFFO_MODERATION_REVIEW_MAX_WAIT_SECONDS * 1000
+      : undefined,
+    reviewRetryDelayMs: env.WAFFO_MODERATION_REVIEW_RETRY_INTERVAL_SECONDS
+      ? env.WAFFO_MODERATION_REVIEW_RETRY_INTERVAL_SECONDS * 1000
+      : undefined,
+  });
+  const outputModeration = new OutputModerationService({
+    apiKey: env.OUTPUT_MODERATION_API_KEY ?? null,
+    endpoint: env.OUTPUT_MODERATION_ENDPOINT,
+    model: env.OUTPUT_MODERATION_MODEL,
+    frames: env.OUTPUT_MODERATION_FRAMES,
+  });
   const worker = embedded
     ? startWorker(
         database!,
@@ -122,6 +142,8 @@ async function main(): Promise<void> {
           provider: jobProvider!,
           videoProviders,
           storage,
+          moderation,
+          outputModeration,
           generationMode,
           mock: isMock,
           paused: generationPaused,

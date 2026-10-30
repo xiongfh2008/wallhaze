@@ -267,6 +267,7 @@ export default function Header({
     { label: t("explore"), href: "/wallpapers" },
     { label: t("studio"), href: "/studio" },
     { label: t("community"), href: "/community" },
+    { label: t("pricing"), href: "/pricing" },
     ...(user ? [{ label: t("myCreations"), href: "/my-creations" }] : []),
   ];
 

@@ -7,7 +7,7 @@ describe('actual PostgreSQL migrations', () => {
     const db = await createMemoryDatabase();
     try {
       await migrate(db); await migrate(db);
-      expect((await db.query('select * from schema_migrations')).rows).toHaveLength(6);
+      expect((await db.query('select * from schema_migrations')).rows).toHaveLength(8);
       await expect(db.query("insert into users(id,email,password_hash,status) values ('bad','bad','x','invalid')")).rejects.toThrow();
       await db.query("update schema_migrations set checksum='tampered'");
       await expect(migrate(db)).rejects.toThrow(/drift/);

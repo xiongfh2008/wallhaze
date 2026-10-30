@@ -210,6 +210,7 @@ describe("Header signed-out navigation", () => {
       "Explore Wallpapers",
       "AI Studio",
       "Community",
+      "Pricing",
     ]);
     expect(nav?.textContent).not.toContain("My Creations");
     expect(nav?.textContent).not.toContain("Credits");
@@ -246,6 +247,7 @@ describe("Header signed-out navigation", () => {
       "Explore Wallpapers",
       "AI Studio",
       "Community",
+      "Pricing",
     ]);
     expect(linkByText(panel as Element, "Log in")).not.toBeNull();
     expect(linkByText(panel as Element, "Create Wallpaper")).not.toBeNull();
@@ -273,6 +275,7 @@ describe("Header signed-in navigation", () => {
       "Explore Wallpapers",
       "AI Studio",
       "Community",
+      "Pricing",
       "My Creations",
     ]);
     // Backend wallet: 120 total - 20 reserved = 100 spendable.
@@ -381,7 +384,7 @@ describe("Header signed-in navigation", () => {
     expect(view.querySelector('a[aria-label^="Available Credits"]')).toBeNull();
     expect(
       navLabels(view.querySelector('nav[aria-label="Main"]') as Element)
-    ).toEqual(["Explore Wallpapers", "AI Studio", "Community"]);
+    ).toEqual(["Explore Wallpapers", "AI Studio", "Community", "Pricing"]);
     expect(linkByText(view, "Log in")).not.toBeNull();
   });
 
@@ -427,6 +430,6 @@ describe("Header signed-in navigation", () => {
     expect(linkByText(view, "Log in")).not.toBeNull();
     expect(
       navLabels(view.querySelector('nav[aria-label="Main"]') as Element)
-    ).toEqual(["Explore Wallpapers", "AI Studio", "Community"]);
+    ).toEqual(["Explore Wallpapers", "AI Studio", "Community", "Pricing"]);
   });
 });

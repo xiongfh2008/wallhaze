@@ -93,6 +93,8 @@ export interface TestAppOptions {
   env?: Record<string, string | undefined>;
   provider?: FalProvider;
   upstreamFetch?: typeof fetch;
+  /** Output moderation service (reference-image screening in live mode). */
+  outputModeration?: import("../src/business/output-moderation.js").OutputModerationService;
 }
 
 export async function buildTestApp(options: TestAppOptions = {}): Promise<{
@@ -104,6 +106,7 @@ export async function buildTestApp(options: TestAppOptions = {}): Promise<{
     env: { ...BASE_ENV, ...options.env },
     provider: options.provider,
     upstreamFetch: options.upstreamFetch,
+    outputModeration: options.outputModeration,
     loggerStream: capture.stream,
   });
   return { app, capture };

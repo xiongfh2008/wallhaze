@@ -5,6 +5,38 @@ import { runWorkerOnce } from "../src/business/worker.js";
 import { MockJobProvider } from "../src/business/providers.js";
 import { createMockVideoProviders } from "../src/modules/generation/video.providers.js";
 import { MemoryStorage } from "../src/business/storage.js";
+import { PromptModerationService } from "../src/business/moderation.js";
+import { OutputModerationService } from "../src/business/output-moderation.js";
+import { generateKeyPairSync } from "node:crypto";
+
+/** Throwaway per-test-run RSA key for the official signed scan-prompt client. */
+const TEST_PRIVATE_KEY = generateKeyPairSync("rsa", { modulusLength: 2048 })
+  .privateKey.export({ type: "pkcs8", format: "pem" })
+  .toString();
+
+/** Live-mode worker runs in these tests exercise the screening pass paths. */
+const passModeration = () =>
+  new PromptModerationService({
+    merchantId: "MER_test",
+    privateKey: TEST_PRIVATE_KEY,
+    fetcher: async () =>
+      new Response(
+        JSON.stringify({ data: { action: "allow", reasonCode: "allowed" } }),
+        { status: 200, headers: { "Content-Type": "application/json" } }
+      ),
+  });
+
+/** Output screening pass-through with a stub frame extractor (no ffmpeg). */
+const passOutputModeration = () =>
+  new OutputModerationService({
+    apiKey: "test-key",
+    frameExtractor: async () => [Buffer.alloc(8)],
+    fetcher: async () =>
+      new Response(JSON.stringify({ results: [{ flagged: false }] }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+  });
 import { credit } from "../src/business/wallet.js";
 import { claimJob } from "../src/business/jobs.js";
 
@@ -338,6 +370,8 @@ describe("video generation jobs (mock, no network)", () => {
         storage,
         generationMode: "live",
         mock: false,
+        moderation: passModeration(),
+        outputModeration: passOutputModeration(),
       },
       "live-video-worker"
     );
@@ -371,6 +405,8 @@ describe("video generation jobs (mock, no network)", () => {
         storage,
         generationMode: "live",
         mock: false,
+        moderation: passModeration(),
+        outputModeration: passOutputModeration(),
       },
       "live-video-fail"
     );
@@ -415,6 +451,8 @@ describe("video generation jobs (mock, no network)", () => {
         storage,
         generationMode: "live",
         mock: false,
+        moderation: passModeration(),
+        outputModeration: passOutputModeration(),
       },
       "alive-video"
     );

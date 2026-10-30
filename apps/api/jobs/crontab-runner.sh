@@ -5,8 +5,12 @@
 # Schedules (UTC):
 #   03:15 daily   pg_dump -> /backups/daily/ (gzip), keep 7
 #   04:15 Sunday  weekly copy, keep 4
-#   */30min       30-day retention dry-run scan (ops CLI semantics, log only)
 #   01:00 daily   backup integrity check (gzip -t) + failure log
+#
+# Retention (auth attempts / webhooks / expired media) is NOT handled here:
+# it runs as the compose services db-retention (hourly) and media-retention
+# (30 min, real R2 adapter, dry-run unless enabled) — see compose.production
+# .yaml. This container has no node and no docker socket by design.
 #
 # DANGEROUS COMMANDS ARE DELIBERATELY ABSENT: this script never runs
 #   docker compose down -v / docker volume prune / docker system prune

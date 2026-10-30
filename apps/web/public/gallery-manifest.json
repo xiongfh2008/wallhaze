@@ -1,0 +1,407 @@
+[
+  {
+    "id": "poster.aurora-veil",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/aurora-veil.jpg"
+  },
+  {
+    "id": "poster.flower-field",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/flower-field.jpg"
+  },
+  {
+    "id": "poster.forest-light",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/forest-light.jpg"
+  },
+  {
+    "id": "poster.jellyfish-glow",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/jellyfish-glow.jpg"
+  },
+  {
+    "id": "poster.neon-rain",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/neon-rain.jpg"
+  },
+  {
+    "id": "poster.night-sakura",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/night-sakura.jpg"
+  },
+  {
+    "id": "poster.star-drift",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/star-drift.jpg"
+  },
+  {
+    "id": "poster.sunset-station",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/sunset-station.jpg"
+  },
+  {
+    "id": "style.3d-art",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/3d-art.webp"
+  },
+  {
+    "id": "style.3d-cartoon",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/3d-cartoon.webp"
+  },
+  {
+    "id": "style.abstract",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/abstract.webp"
+  },
+  {
+    "id": "style.abstract-light",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/abstract-light.jpg"
+  },
+  {
+    "id": "style.analog-horror",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/analog-horror.webp"
+  },
+  {
+    "id": "style.anime",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/anime.webp"
+  },
+  {
+    "id": "style.anime-fantasy",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/anime-fantasy.webp"
+  },
+  {
+    "id": "style.architecture-minimal",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/architecture-minimal.jpg"
+  },
+  {
+    "id": "style.aurora-nights",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/aurora-nights.jpg"
+  },
+  {
+    "id": "style.botanical-illustration",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/botanical-illustration.webp"
+  },
+  {
+    "id": "style.charcoal-drawing",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/charcoal-drawing.webp"
+  },
+  {
+    "id": "style.chibi",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/chibi.webp"
+  },
+  {
+    "id": "style.chinese-ink",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/chinese-ink.webp"
+  },
+  {
+    "id": "style.cinematic",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/cinematic.webp"
+  },
+  {
+    "id": "style.clay-3d",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/clay-3d.webp"
+  },
+  {
+    "id": "style.cosmic-horror",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/cosmic-horror.webp"
+  },
+  {
+    "id": "style.cozy-anime",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/cozy-anime.webp"
+  },
+  {
+    "id": "style.cyberpunk",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/cyberpunk.webp"
+  },
+  {
+    "id": "style.dark",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/dark.webp"
+  },
+  {
+    "id": "style.dark-fantasy",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/dark-fantasy.webp"
+  },
+  {
+    "id": "style.deep-ocean",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/deep-ocean.jpg"
+  },
+  {
+    "id": "style.dreamcore",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/dreamcore.webp"
+  },
+  {
+    "id": "style.fantasy",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/fantasy.webp"
+  },
+  {
+    "id": "style.gothic-horror",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/gothic-horror.webp"
+  },
+  {
+    "id": "style.horror-anime",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/horror-anime.webp"
+  },
+  {
+    "id": "style.ink-drawing",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/ink-drawing.webp"
+  },
+  {
+    "id": "style.low-poly",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/low-poly.webp"
+  },
+  {
+    "id": "style.macro-nature",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/macro-nature.jpg"
+  },
+  {
+    "id": "style.manga",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/manga.webp"
+  },
+  {
+    "id": "style.mecha",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/mecha.webp"
+  },
+  {
+    "id": "style.minimalist",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/minimalist.webp"
+  },
+  {
+    "id": "style.mountain-lake",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/mountain-lake.jpg"
+  },
+  {
+    "id": "style.nature",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/nature.webp"
+  },
+  {
+    "id": "style.nightmare-surrealism",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/nightmare-surrealism.webp"
+  },
+  {
+    "id": "style.occult-ritual",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/occult-ritual.webp"
+  },
+  {
+    "id": "style.oil-painting",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/oil-painting.webp"
+  },
+  {
+    "id": "style.paper-cut",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/paper-cut.webp"
+  },
+  {
+    "id": "style.pencil-sketch",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/pencil-sketch.webp"
+  },
+  {
+    "id": "style.photography",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/photography.webp"
+  },
+  {
+    "id": "style.pixel-art",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/pixel-art.webp"
+  },
+  {
+    "id": "style.post-apocalyptic",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/post-apocalyptic.webp"
+  },
+  {
+    "id": "style.psychological-horror",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/psychological-horror.webp"
+  },
+  {
+    "id": "style.retro-cel",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/retro-cel.webp"
+  },
+  {
+    "id": "style.sci-fi",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/sci-fi.webp"
+  },
+  {
+    "id": "style.shonen",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/shonen.webp"
+  },
+  {
+    "id": "style.shoujo",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/shoujo.webp"
+  },
+  {
+    "id": "style.soft-gradient",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/soft-gradient.jpg"
+  },
+  {
+    "id": "style.stained-glass",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/stained-glass.webp"
+  },
+  {
+    "id": "style.starry-galaxy",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/starry-galaxy.jpg"
+  },
+  {
+    "id": "style.supernatural-horror",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/supernatural-horror.webp"
+  },
+  {
+    "id": "style.surreal",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/surreal.webp"
+  },
+  {
+    "id": "style.ukiyo-e-anime",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/ukiyo-e-anime.webp"
+  },
+  {
+    "id": "style.vaporwave",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/vaporwave.webp"
+  },
+  {
+    "id": "style.watercolor",
+    "type": "image",
+    "url": "https://wallhaze.com/images/styles/watercolor.webp"
+  },
+  {
+    "id": "video.aurora-veil",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/aurora-veil.mp4"
+  },
+  {
+    "id": "video.flower-field",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/flower-field.mp4"
+  },
+  {
+    "id": "video.forest-light",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/forest-light.mp4"
+  },
+  {
+    "id": "video.jellyfish-glow",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/jellyfish-glow.mp4"
+  },
+  {
+    "id": "video.neon-rain",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/neon-rain.mp4"
+  },
+  {
+    "id": "video.night-sakura",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/night-sakura.mp4"
+  },
+  {
+    "id": "video.star-drift",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/star-drift.mp4"
+  },
+  {
+    "id": "video.sunset-station",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/sunset-station.mp4"
+  },
+  {
+    "id": "wallpaper.aurora-veil",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/aurora-veil.jpg"
+  },
+  {
+    "id": "wallpaper.forest-rays",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/forest-rays.jpg"
+  },
+  {
+    "id": "wallpaper.hong-kong-rain",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/hong-kong-rain.jpg"
+  },
+  {
+    "id": "wallpaper.jellyfish-deep",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/jellyfish-deep.jpg"
+  },
+  {
+    "id": "wallpaper.light-ribbons-wide",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/light-ribbons-wide.jpg"
+  },
+  {
+    "id": "wallpaper.nebula-drift",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/nebula-drift.jpg"
+  },
+  {
+    "id": "wallpaper.poppy-field",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/poppy-field.jpg"
+  },
+  {
+    "id": "wallpaper.quiet-bridge",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/quiet-bridge.jpg"
+  },
+  {
+    "id": "wallpaper.sakura-dream",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/sakura-dream.jpg"
+  },
+  {
+    "id": "wallpaper.stillwater-night",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/stillwater-night.jpg"
+  },
+  {
+    "id": "wallpaper.sunset-platform",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/sunset-platform.jpg"
+  }
+]

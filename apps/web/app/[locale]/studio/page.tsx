@@ -113,6 +113,54 @@ export default async function StudioPage({
         </Suspense>
 
         <StudioExperience />
+
+        {/* Waffo review requirement: disclose the actual AI models used.
+            Rendered server-side from a static, code-verified list — the same
+            models the API adapters call (see apps/api/src/business/
+            video-pricing.ts and apps/api/src/modules/generation/). */}
+        <section
+          id="ai-models"
+          aria-labelledby="ai-models-title"
+          className="mx-auto mt-16 w-full max-w-[1320px] scroll-mt-24 px-6"
+        >
+          <h2
+            id="ai-models-title"
+            className="text-xl font-semibold tracking-tight md:text-2xl"
+          >
+            {t("modelsTitle")}
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-400">
+            {t("modelsIntro")}
+          </p>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { name: t("modelNameImage"), use: t("modelUseImage") },
+              { name: t("modelNameI2v"), use: t("modelUseI2v") },
+              { name: t("modelNameT2v"), use: t("modelUseT2v") },
+            ].map((model) => (
+              <li
+                key={model.name}
+                className="rounded-2xl border border-white/10 bg-white/[0.02] p-4"
+              >
+                <p className="text-sm font-semibold text-zinc-100">
+                  {model.name}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+                  {model.use}
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 max-w-3xl text-xs leading-relaxed text-zinc-500">
+            {t("modelsNote")}
+          </p>
+          <Link
+            href="/pricing"
+            className="mt-4 inline-flex min-h-10 items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-medium text-zinc-200 outline-none transition hover:border-white/30 hover:text-white"
+          >
+            {t("viewPricing")}
+          </Link>
+        </section>
       </main>
       <Footer />
     </div>

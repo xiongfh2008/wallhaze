@@ -5,6 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 import ContentShell from "@/components/pages/ContentShell";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { Link } from "@/i18n/navigation";
 
 /**
  * /terms (FE09): effective Terms of Service. Public, indexable, no sign-in
@@ -87,6 +88,17 @@ export default async function TermsPage({
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
+                ) : null}
+                {id === "prohibited" ? (
+                  <p className="mt-4 text-sm leading-relaxed text-zinc-400">
+                    {t("prohibitedAupBody")}{" "}
+                    <Link
+                      href="/acceptable-use"
+                      className="font-medium text-violet-300 underline-offset-4 transition hover:text-violet-200 hover:underline"
+                    >
+                      {t("prohibitedAupLink")}
+                    </Link>
+                  </p>
                 ) : null}
               </dd>
             </div>

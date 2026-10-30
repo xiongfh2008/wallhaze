@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-31",
+  "notes": "WallHaze local prohibited-term blocklist (Waffo AUP six categories). Runs as a second screening layer AFTER the Waffo Prompt Sift verdict. Update procedure: edit categories below, bump version + updatedAt, restart the API/worker processes (the blocklist is loaded per worker tick, no cache across restarts is required). Every change should be reviewed against the current Acceptable Use Policy page. Matched terms are recorded in moderation_logs (service=local_blocklist) as category names only - never the prompt text.",
+  "categories": {
+    "nsfw": [
+      "porn", "porno", "pornographic", "hentai", "nsfw", "nude", "nudes",
+      "nudity", "explicit sex", "sex scene", "erotic", "xxx", "fetish nude",
+      "naked woman", "naked man", "genital", "cumshot", "blowjob",
+      "性的裸露", "色情", "成人内容", "裸体少女", "エロ", "ヌード", "ポルノ",
+      "음란", "포르노", "나체"
+    ],
+    "csam": [
+      "child porn", "child pornography", "child sexual", "child nude",
+      "children nude", "underage nude", "underage porn", "teen nude",
+      "preteen", "loli", "shota", "jailbait", "minor sexual",
+      "儿童色情", "幼女裸", "未成年色情", "児童ポルノ", "未成年 ヌード",
+      "아동 포르노", "미성년 누드"
+    ],
+    "deepfake": [
+      "deepfake", "deep fake", "face swap", "faceswap", "nudify",
+      "undress her", "undress him", "remove her clothes", "remove his clothes",
+      "fake nude of", "celebrity nude", " Taylor Swift nude", "politician nude",
+      "ai nude of", "换脸", "ai脱衣", "一键脱衣", "顔交換", "フェイススワップ",
+      "얼굴 바꾸기", "누드 합성"
+    ],
+    "hate_violence": [
+      "kill all", "genocide", "ethnic cleansing", "gas the", "lynch the",
+      "nazi propaganda", "white power", "master race", "racial slur",
+      "terrorist beheading", "execution video", "gore scene of real",
+      "种族灭绝", "屠杀", "纳粹宣传", "人種絶滅", "대학살", "혐오 표현"
+    ],
+    "ip": [
+      "disney style of mickey", "nike logo", "coca-cola logo", "pokemon pikachu",
+      "marvel avengers", "star wars poster", "hello kitty", "super mario",
+      "皮卡丘", "米老鼠", "迪士尼公主", "ミッキーマウス", "ポケモン",
+      "디즈니", "포켓몬"
+    ]
+  }
+}

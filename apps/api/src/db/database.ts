@@ -1,16 +1,21 @@
 import { PGlite } from '@electric-sql/pglite';
 import pg from 'pg';
-export interface Sql { query<T extends Record<string, unknown> = Record<string, unknown>>(sql: string, params?: unknown[]): Promise<{rows:T[]}> }
+export interface Sql { query<T extends Record<string, unknown> = Record<string, unknown>>(sql: string, params?: unknown[]): Promise<{rows:T[];rowCount:number}> }
 export interface Database extends Sql { transaction<T>(fn:(tx:Sql)=>Promise<T>):Promise<T>; close():Promise<void> }
 
 /** Serializes access to one PGlite instance (single connection). */
 function wrapPglite(engine: PGlite): Database {
   let tail: Promise<unknown> = Promise.resolve();
   const serial = <T>(fn:()=>Promise<T>):Promise<T> => { const result=tail.then(fn); tail=result.catch(()=>{}); return result; };
-  const makeSql = (target: { query<T extends Record<string, unknown>>(sql: string, params?: unknown[]): Promise<{rows:T[]}>; exec(sql: string): Promise<unknown> }): Sql => ({
+  const makeSql = (target: {
+    query<T extends Record<string, unknown>>(sql: string, params?: unknown[]):
+      Promise<{rows:T[];rowCount?:number}>;
+    exec(sql: string): Promise<unknown>;
+  }): Sql => ({
     query: async <T extends Record<string,unknown>>(sql:string,params?:unknown[]) => {
-      if (!params && sql.includes(';')) { await target.exec(sql); return {rows:[] as T[]}; }
-      const result=await target.query<T>(sql,params); return {rows:result.rows};
+      if (!params && sql.includes(';')) { await target.exec(sql); return {rows:[] as T[],rowCount:0}; }
+      const result=await target.query<T>(sql,params);
+      return {rows:result.rows,rowCount:result.rowCount??result.rows.length};
     }
   });
   const tx = makeSql(engine);
@@ -37,6 +42,6 @@ export async function createPgliteDatabase(dir:string):Promise<Database> {
 }
 export function createPostgresDatabase(url:string):Database {
   const pool=new pg.Pool({connectionString:url});
-  const query:Sql['query']=async(sql,params)=>{const result=await pool.query(sql,params);return {rows:result.rows};};
-  return {query,transaction:async fn=>{const client=await pool.connect();try{await client.query('BEGIN'); const value=await fn({query:async(sql,params)=>{const result=await client.query(sql,params);return {rows:result.rows};}});await client.query('COMMIT');return value;}catch(error){await client.query('ROLLBACK');throw error;}finally{client.release();}},close:()=>pool.end()};
+  const query:Sql['query']=async(sql,params)=>{const result=await pool.query(sql,params);return {rows:result.rows,rowCount:result.rowCount??0};};
+  return {query,transaction:async fn=>{const client=await pool.connect();try{await client.query('BEGIN'); const value=await fn({query:async(sql,params)=>{const result=await client.query(sql,params);return {rows:result.rows,rowCount:result.rowCount??0};}});await client.query('COMMIT');return value;}catch(error){await client.query('ROLLBACK');throw error;}finally{client.release();}},close:()=>pool.end()};
 }

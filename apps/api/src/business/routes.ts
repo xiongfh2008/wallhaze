@@ -30,6 +30,8 @@ import {
   type VideoGenerationMode,
 } from "./video-pricing.js";
 import { validateImage } from "./storage.js";
+import type { OutputModerationService } from "./output-moderation.js";
+import { recordModerationLog } from "./moderation.js";
 import { isAssetAccessible, retentionState } from "./media-lifecycle.js";
 
 import {
@@ -73,6 +75,12 @@ export interface BusinessRoutesOptions {
   checkoutAvailable: boolean;
   /** Development mock generation mode (placeholder output, no charge). */
   mockMode: boolean;
+  /**
+   * Output moderation service. In LIVE mode, user-uploaded reference
+   * images are screened HERE at job creation (stage 1 input screening) —
+   * a flagged or unscreenable upload is refused before any job exists.
+   */
+  outputModeration?: OutputModerationService;
   /** True when a video adapter set is wired (pricing/jobs are enabled). */
   videoAvailable: boolean;
   /**
@@ -85,6 +93,82 @@ export interface BusinessRoutesOptions {
 
 /** Lifetime of a signed private-image URL. */
 const IMAGE_URL_TTL_SECONDS = 60 * 60;
+
+/** Minimal data-URI parser for reference-image screening. */
+function decodeDataUri(dataUri: string): { bytes: Buffer; mime: string } | null {
+  const match = /^data:([a-zA-Z0-9/+.-]+);base64,([A-Za-z0-9+/=]+)$/.exec(dataUri);
+  if (!match) return null;
+  return { mime: match[1], bytes: Buffer.from(match[2], "base64") };
+}
+
+/**
+ * Stage 1 INPUT screening for user-uploaded reference images (LIVE mode
+ * only; mock is exempt). A flagged upload is refused with CONTENT_FILTERED
+ * before any job exists; an unscreenable one (no key, provider outage)
+ * fails closed with SERVICE_UNAVAILABLE. The verdict is logged to
+ * moderation_logs under a content-hash pseudoid — never the image itself.
+ */
+async function screenReferenceImage(
+  options: BusinessRoutesOptions,
+  userId: string,
+  dataUri: string
+): Promise<void> {
+  const live = options.generationMode === "live" && !options.mockMode;
+  if (!live) return;
+  const service: OutputModerationService | undefined = options.outputModeration;
+  const decoded = decodeDataUri(dataUri);
+  if (decoded && decoded.bytes.length > 5 * 1024 * 1024) {
+    throw new AppError("PAYLOAD_TOO_LARGE", "Reference image is too large.");
+  }
+  if (!service?.enabled) {
+    // Fail closed: live uploads must not bypass screening.
+    await recordModerationLog(options.db, {
+      jobId: null,
+      userId,
+      assetId: decoded ? `refimage:${createHash("sha256").update(decoded.bytes).digest("hex").slice(0, 16)}` : "refimage:unreadable",
+      stage: "pre_generation",
+      service: "output_moderation",
+      action: "unavailable",
+      category: null,
+      requestId: null,
+      disposition: "upload_refused_screening_unconfigured",
+    });
+    throw new AppError(
+      "SERVICE_UNAVAILABLE",
+      "Content screening is not configured — reference images cannot be accepted right now."
+    );
+  }
+  if (!decoded) {
+    // validateGenerateBody already rejects malformed data URIs; this is a
+    // defensive backstop and is refused without a screening call.
+    throw new AppError("CONTENT_FILTERED", "The reference image could not be read.");
+  }
+  const verdict = await service.screenImage({ bytes: decoded.bytes, mime: decoded.mime });
+  await recordModerationLog(options.db, {
+    jobId: null,
+    userId,
+    assetId: `refimage:${createHash("sha256").update(decoded.bytes).digest("hex").slice(0, 16)}`,
+    stage: "pre_generation",
+    service: "output_moderation",
+    action: verdict.action,
+    category: verdict.categories.length > 0 ? verdict.categories.join(",") : null,
+    requestId: null,
+    disposition:
+      verdict.action === "allow" ? "upload_accepted" : "upload_refused",
+  });
+  if (verdict.action === "block") {
+    throw new AppError(
+      "CONTENT_FILTERED",
+      "The reference image doesn't meet our content guidelines."
+    );
+  }
+  if (verdict.action !== "allow") {
+    throw new AppError(
+      "SERVICE_UNAVAILABLE",
+      "Content screening is temporarily unavailable — please try again shortly."
+    );
+  }
+}
 
 function signImagePath(secret: string, jobId: string, expires: number): string {
   return createHmac("sha256", secret)
@@ -931,6 +1015,10 @@ export async function businessRoutes(
           sourceImageDataUri = `data:${stored.mime};base64,${stored.bytes.toString("base64")}`;
         }
 
+        if (sourceImageDataUri) {
+          await screenReferenceImage(options, (request as AuthenticatedRequest).user.id, sourceImageDataUri);
+        }
+
         const jobPricing = videoJobPricing(
           options.generationMode,
           validated.generationMode as VideoGenerationMode,
@@ -975,6 +1063,9 @@ export async function businessRoutes(
         price = staticPricing.creditsPerGeneration;
         costMicros = staticPricing.costBoundMicros;
         generationMode = body.refImage ? "image_edit" : "text_to_image";
+        if (typeof body.refImage === "string") {
+          await screenReferenceImage(options, (request as AuthenticatedRequest).user.id, body.refImage);
+        }
         // Persist the composed prompt with the job: a later template edit must
         // not change a generation that was already accepted and priced.
         storedRequest = {

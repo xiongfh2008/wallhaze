@@ -7,6 +7,7 @@ import {
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import {
+  R2RequestError,
   R2Storage,
   describeR2NetworkError,
   resolveStorageFromEnv,
@@ -112,7 +113,7 @@ describe("R2Storage factory (offline)", () => {
       bucket: "wallhaze-staging-private",
       fetcher,
     });
-    const stored = await storage.get("deployment-test/retry.png");
+    const stored = await storage.get("deployment-test-retry.png");
     expect(stored.bytes.equals(PNG)).toBe(true);
     expect(stored.mime).toBe("image/png");
     expect(calls).toBe(2);
@@ -135,7 +136,7 @@ describe("R2Storage factory (offline)", () => {
       bucket: "wallhaze-staging-private",
       fetcher,
     });
-    await expect(storage.get("deployment-test/5xx.png")).resolves.toMatchObject({
+    await expect(storage.get("deployment-test-5xx.png")).resolves.toMatchObject({
       mime: "image/png",
     });
     expect(calls).toBe(2);
@@ -154,7 +155,7 @@ describe("R2Storage factory (offline)", () => {
       bucket: "wallhaze-staging-private",
       fetcher,
     });
-    await expect(storage.get("deployment-test/missing.png")).rejects.toThrow(
+    await expect(storage.get("deployment-test-missing.png")).rejects.toThrow(
       /ASSET_MISSING/
     );
     expect(calls).toBe(1);
@@ -177,9 +178,9 @@ describe("R2Storage factory (offline)", () => {
       bucket: "wallhaze-staging-private",
       fetcher,
     });
-    await expect(storage.get("deployment-test/dead.png")).rejects.toThrow(
-      /R2 get failed after 3 attempts: CONN_RESET/
-    );
+    await expect(storage.get("deployment-test-dead.png")).rejects.toMatchObject({
+      code: "UNKNOWN",
+    });
     expect(calls).toBe(3);
   });
 
@@ -197,8 +198,8 @@ describe("R2Storage factory (offline)", () => {
       fetcher,
     });
     await expect(
-      storage.put("deployment-test/write.png", PNG, "image/png")
-    ).rejects.toThrow(/R2 put failed/);
+      storage.put("deployment-test-write.png", PNG, "image/png")
+    ).rejects.toMatchObject({ code: "UNKNOWN" });
     expect(calls).toBe(1);
   });
 

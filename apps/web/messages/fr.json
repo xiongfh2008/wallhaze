@@ -29,7 +29,11 @@
     "termsTitle": "Conditions d'utilisation — WallHaze",
     "termsDescription": "Les règles d’utilisation de WallHaze : la galerie, les téléchargements et licences, les soumissions communautaires, l’AI Studio, les Credits et les conditions de compte.",
     "communityTitle": "Galerie communautaire — WallHaze",
-    "communityDescription": "Découvrez des fonds statiques et animés de créateurs indépendants, proposés par e-mail et publiés après examen humain."
+    "communityDescription": "Découvrez des fonds statiques et animés de créateurs indépendants, proposés par e-mail et publiés après examen humain.",
+    "pricingTitle": "Tarifs et crédits",
+    "pricingDescription": "Les tarifs WallHaze en un coup d’œil : des forfaits de crédits uniques à partir de 5 $ et le coût en crédits par génération pour les fonds statiques et animés. Sans abonnement, les crédits n’expirent jamais.",
+    "aupTitle": "Politique d’utilisation acceptable",
+    "aupDescription": "Ce qui peut être créé et publié via WallHaze : catégories interdites, examen avant génération, application, et comment signaler ou faire appel."
   },
   "nav": {
     "mainAria": "Principal",
@@ -54,7 +58,8 @@
     "creditsLoading": "Chargement des crédits",
     "creditsUnavailable": "Crédits indisponibles",
     "userFallback": "Votre compte",
-    "community": "Communauté"
+    "community": "Communauté",
+    "pricing": "Tarifs"
   },
   "hero": {
     "eyebrow": "Fonds d écran et AI Studio",
@@ -381,7 +386,12 @@
     "advancedOptional": "(facultatif)",
     "advancedHint": "Appareil, format, résolution, inspiration et image de référence. Tes valeurs sont conservées quand tu replies.",
     "advancedReset": "Restaurer la recommandation",
-    "retentionNotice": "Stockage cloud : cette nouvelle création est conservée 30 jours. Télécharge-la avant expiration."
+    "retentionNotice": "Stockage cloud : cette nouvelle création est conservée 30 jours. Télécharge-la avant expiration.",
+    "errorModerationBlocked": "Cette demande ne respecte pas nos règles de contenu : elle n'a pas été générée. Aucun crédit n'a été débité.",
+    "errorModerationPending": "La revue de contenu n'a pas pu aboutir à temps : rien n'a été généré. Aucun crédit n'a été débité — réessayez plus tard.",
+    "errorModerationUnavailable": "Le filtrage de contenu est temporairement indisponible : la demande ne peut pas être traitée. Aucun crédit n'a été débité — réessayez plus tard.",
+    "errorOutputBlocked": "Le résultat généré n'a pas passé la revue de contenu et n'a pas été publié. Aucun crédit n'a été débité.",
+    "errorOutputUnavailable": "La revue de contenu est temporairement indisponible : le résultat ne peut pas être publié. Aucun crédit n'a été débité — réessayez plus tard."
   },
   "credits": {
     "title": "Crédits requis",
@@ -413,7 +423,17 @@
     "eyebrow": "Espace de travail’IA",
     "subtitle": "Tout ce qu’il faut pour concevoir, générer et collectionner des fonds d’écran — écrivez votre prompt, choisissez un style, ajustez le format et gardez ce que vous aimez.",
     "backHome": "← Retour à l’accueil",
-    "browseGallery": "Parcourir la galerie"
+    "browseGallery": "Parcourir la galerie",
+    "modelsTitle": "Modèles d’IA et génération",
+    "modelsIntro": "WallHaze génère des fonds via des services de modèles d’IA tiers accessibles sur la plateforme fal.ai. Les modèles actuellement utilisés :",
+    "modelNameImage": "FLUX.2 [Klein] 4B",
+    "modelUseImage": "Texte vers image et édition d’images — fonds statiques et éditions avec image de référence.",
+    "modelNameI2v": "Wan 2.2 5B",
+    "modelUseI2v": "Image vers vidéo — transforme une image téléversée ou générée en fond animé de 5 secondes.",
+    "modelNameT2v": "Kling V3 Standard",
+    "modelUseT2v": "Texte vers vidéo — crée de courts fonds animés à partir d’une description (3–5 secondes).",
+    "modelsNote": "Les prompts sont examinés automatiquement avant le lancement d’une génération, et toute utilisation doit respecter la Politique d’utilisation acceptable. La disponibilité des modèles et leurs résultats peuvent évoluer avec les mises à jour des fournisseurs ; WallHaze n’est pas affilié aux éditeurs des modèles et y accède via fal.ai.",
+    "viewPricing": "Voir les tarifs"
   },
   "popular": {
     "eyebrow": "Styles",
@@ -474,7 +494,9 @@
     "rights": "WallHaze. Tous droits réservés.",
     "madeFor": "Conçu pour chaque écran.",
     "community": "Communauté",
-    "submitWallpaper": "Proposer un fond"
+    "submitWallpaper": "Proposer un fond",
+    "pricing": "Tarifs",
+    "acceptableUse": "Utilisation acceptable"
   },
   "ui": {
     "dismiss": "Fermer",
@@ -1148,7 +1170,9 @@
     "roadmapTitle": "Ce qui arrive",
     "roadmapBody": "Connexion de compte, portefeuille de crédits, génération IA payante et créations sauvegardées dans le cloud sont prévus mais non connectés. Les fonctionnalités n'apparaissent que lorsque leurs services backend sont réels.",
     "disclaimerTitle": "Note d'honnêteté",
-    "disclaimerBody": "Cette page ne décrit que les capacités confirmées. Détails d'entreprise, taille d'équipe, nombre d'utilisateurs et partenaires ne sont pas mentionnés car rien n'a été confirmé."
+    "disclaimerBody": "Cette page ne décrit que les capacités confirmées. Détails d'entreprise, taille d'équipe, nombre d'utilisateurs et partenaires ne sont pas mentionnés car rien n'a été confirmé.",
+    "aiTitle": "Technologie d’IA",
+    "aiBody": "WallHaze génère des images et des vidéos via des modèles d’IA tiers accessibles sur la plateforme fal.ai : les fonds statiques utilisent actuellement FLUX.2 [Klein] 4B, et les fonds animés utilisent Wan 2.2 5B (image vers vidéo) et Kling V3 Standard (texte vers vidéo). Les prompts sont examinés automatiquement avant génération, et les médias générés dans le stockage cloud sont conservés 30 jours."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1205,7 +1229,7 @@
     "eyebrow": "Juridique",
     "title": "Politique de confidentialité",
     "intro": "Cette politique explique quelles données personnelles WallHaze traite lorsque vous visitez wallhaze.com ou utilisez ses services, pourquoi, et quels choix s’offrent à vous.",
-    "updated": "Dernière mise à jour : 26 octobre 2026",
+    "updated": "Dernière mise à jour : 30 octobre 2026",
     "introTitle": "1. Introduction",
     "introBody": "WallHaze (« WallHaze », « nous ») exploite le site wallhaze.com et son API à l’adresse api.wallhaze.com — une galerie de fonds d’écran, une galerie communautaire des soumissions de créateurs et un AI Studio pour générer des fonds d’écran. Cette politique s’applique au site et aux services WallHaze. Elle couvre les visiteurs, les utilisateurs inscrits et toute personne qui nous contacte ou soumet un fond d’écran par e-mail.",
     "collectTitle": "2. Informations que nous collectons",
@@ -1244,9 +1268,10 @@
       "Google — authentification de connexion (voir la section 3).",
       "Cloudflare — hébergement du frontend du site et stockage des images (Cloudflare R2).",
       "Un hébergeur — fait tourner l’API et la base de données PostgreSQL.",
-      "Fournisseurs de modèles IA — lorsque vous demandez une génération, votre prompt et vos réglages sont envoyés au service de génération IA (fal.ai) pour créer l’image ou la vidéo.",
+      "Fournisseurs de modèles d’IA — lorsque vous demandez une génération, votre prompt, l’image de référence éventuelle et vos réglages sont envoyés via fal.ai au modèle sélectionné (actuellement FLUX.2 [Klein] 4B pour les images, Wan 2.2 5B pour l’image vers vidéo et Kling V3 Standard pour le texte vers vidéo) ; les médias générés reviennent à WallHaze.",
       "Un prestataire de paiement (Waffo) — gère le paiement si vous achetez des Credits, là où les services de paiement sont activés.",
-      "Votre fournisseur d’e-mail — les soumissions, signalements et demandes nous parviennent par e-mail."
+      "Votre fournisseur d’e-mail — les soumissions, signalements et demandes nous parviennent par e-mail.",
+      "Services de sécurité du contenu — Waffo Prompt Sift examine les prompts avant le lancement d’une génération, et l’OpenAI Moderation API examine les images et vidéos générées (échantillonnage régulier de la première à la dernière image) avant stockage ou affichage. La revue automatique couvre les catégories que ce service prend en charge — notamment le contenu sexuel, la violence graphique et l’automutilation. Les catégories qu’il ne peut pas juger de manière fiable — comme l’usurpation/deepfakes et le droit d’auteur — sont traitées par une revue humaine des signalements et des appels. Les enregistrements conservent l’identifiant du travail, la décision et — si signalée — une catégorie de violation, pas le texte du prompt."
     ],
     "retentionTitle": "7. Conservation et suppression des données",
     "retentionBody": "Nous ne conservons les données personnelles que le temps nécessaire à la finalité pour laquelle elles ont été collectées :",
@@ -1269,13 +1294,15 @@
     "changesTitle": "11. Mises à jour de la politique",
     "changesBody": "Nous pouvons mettre à jour cette politique à mesure que WallHaze évolue. La version actuelle est toujours publiée sur cette page avec sa date de « dernière mise à jour ». Les changements importants seront annoncés sur le site.",
     "contactTitle": "12. Coordonnées de contact",
-    "contactBody": "Pour toute question de confidentialité, demande d’accès ou de suppression, et signalement d’œuvres publiées, écrivez à xiongfh2000@gmail.com — canal de contact officiel de WallHaze à ce jour."
+    "contactBody": "Pour toute question de confidentialité, demande d’accès ou de suppression, signalement d’œuvres publiées, facturation et contenu, écrivez à hello@wallhaze.com — le canal de contact officiel de WallHaze.",
+    "screeningTitle": "Examen du contenu",
+    "screeningBody": "Avant l’envoi d’une génération au modèle d’IA, le prompt est examiné par un service automatisé de sécurité du contenu. Les requêtes marquées pour examen sont retenues et revérifiées pendant une courte période ; sans verdict, la requête est refusée et les crédits réservés sont libérés. Les requêtes bloquées — ou impossibles à examiner — ne sont jamais générées, et les médias générés sont de nouveau examinés avant stockage. Les journaux d’examen sont conservés pour l’investigation des abus et contiennent l’identifiant du travail, la décision et, le cas échéant, une catégorie de violation — ni le texte du prompt ni vos identifiants. Le contenu publié dans la galerie est réexaminé automatiquement."
   },
   "terms": {
     "eyebrow": "Juridique",
     "title": "Conditions d’utilisation",
     "intro": "Ces conditions régissent votre utilisation de wallhaze.com et des services WallHaze. Veuillez les lire avant d’utiliser WallHaze.",
-    "updated": "Dernière mise à jour : 26 octobre 2026",
+    "updated": "Dernière mise à jour : 30 octobre 2026",
     "acceptanceTitle": "1. Acceptation des conditions",
     "acceptanceBody": "En accédant à WallHaze ou en l’utilisant — parcourir la galerie, télécharger des fonds d’écran, soumettre une œuvre, créer un compte ou générer des images — vous acceptez ces conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser le service. Vous devez être en âge de détenir un compte selon les règles de votre région et du fournisseur de connexion que vous utilisez.",
     "serviceTitle": "2. Description des services",
@@ -1296,7 +1323,15 @@
       "tenter de contourner les limitations de débit, les mesures de sécurité ou les contrôles d’accès, ou accéder à des données qui ne vous appartiennent pas ;",
       "extraire, télécharger en masse ou redistribuer le catalogue d’une manière qui contourne les autorisations propres à chaque œuvre ;",
       "perturber le fonctionnement du service ou lui imposer une charge déraisonnable ;",
-      "falsifier votre identité ou les droits que vous détenez sur une œuvre soumise."
+      "falsifier votre identité ou les droits que vous détenez sur une œuvre soumise.",
+      "générer du matériel pornographique ou sexuellement explicite (NSFW), ou des images intimes sans consentement ;",
+      "générer de la violence extrême, du gore ou de la torture, ou du contenu glorifiant des atteintes physiques graves ;",
+      "générer des propos haineux, de la discrimination ou des menaces, ou du contenu incitant à la violence contre des groupes protégés ;",
+      "générer, demander ou distribuer du matériel d’abus sexuel sur enfants ou tout contenu sexualisant des mineurs — ces tentatives sont enregistrées et signalées aux autorités compétentes ;",
+      "générer des deepfakes ou des usurpations d’identité de personnes réelles — y compris des nus générés par IA de personnes réelles ou des propos attribués à faux ; interdit même avec le consentement de la personne représentée, et cette capacité n’est pas offerte ;",
+      "générer ou distribuer du contenu portant atteinte aux droits d’auteur, marques, droits à l’image ou autre propriété intellectuelle ;",
+      "utiliser les fonctions d’IA pour créer un contenu illégal, ou tenter de contourner, désactiver ou manipuler la revue de sécurité, y compris la vérification automatique du prompt avant génération ;",
+      "téléverser des photos de référence de personnes réelles sans leur autorisation, ou du matériel de référence sans les droits et permissions nécessaires."
     ],
     "aiTitle": "8. Contenu généré par IA",
     "aiBody": "Les générations sont produites par des services tiers de modèles IA à partir du prompt et des réglages que vous fournissez. Des prompts similaires peuvent produire des résultats similaires ; nous ne promettons pas qu’une génération soit unique ou sans ressemblance avec des œuvres existantes, et nous ne garantissons pas que la sortie de l’IA soit exempte de droits de tiers. Vous êtes responsable des prompts que vous saisissez et de l’utilisation des résultats conformément à ces conditions. Les images et vidéos générées sont livrées dans votre compte et conservées selon la durée décrite dans la Politique de confidentialité ; téléchargez ce que vous voulez garder. Les fonds d’écran générés sont actuellement destinés à un usage d’écran personnel ; des droits d’usage plus larges seront décrits ici le cas échéant.",
@@ -1313,7 +1348,9 @@
     "changesTitle": "14. Modifications de ces conditions",
     "changesBody": "Nous pouvons mettre à jour ces conditions à mesure que WallHaze évolue. La version actuelle est toujours publiée sur cette page avec sa date de « dernière mise à jour ». Continuer à utiliser WallHaze après l’entrée en vigueur d’une nouvelle version vaut acceptation des conditions mises à jour ; si vous ne les acceptez pas, veuillez cesser d’utiliser le service.",
     "contactTitle": "15. Coordonnées de contact",
-    "contactBody": "Questions sur ces conditions, signalements d’œuvres et questions de compte : écrivez à xiongfh2000@gmail.com — canal de contact officiel de WallHaze à ce jour."
+    "contactBody": "Questions sur ces conditions, signalements d’œuvres et questions de compte : écrivez à hello@wallhaze.com — le canal de contact officiel de WallHaze.",
+    "prohibitedAupBody": "Les catégories interdites, l’examen, l’application et les appels sont décrits en détail dans la Politique d’utilisation acceptable.",
+    "prohibitedAupLink": "Lire la Politique d’utilisation acceptable"
   },
   "liveStudio": {
     "switchAria": "Mode du studio",
@@ -1527,5 +1564,133 @@
     "demoBanner": "Mode démo : soumissions simulées pour le développement et les tests de la page. Ce ne sont PAS de vraies soumissions d’utilisateurs et n’apparaissent jamais en production.",
     "demoAuthorName": "Échantillon de démo",
     "demoDetailNote": "Soumission simulée pour le développement de la page — pas une contribution réelle d’utilisateur ; jamais publiée en production."
+  },
+  "aup": {
+    "eyebrow": "Utilisation acceptable",
+    "title": "Politique d’utilisation acceptable",
+    "intro": "Cette politique définit ce qui peut être créé et publié via WallHaze. Elle s’applique à tout prompt, image de référence et œuvre générée, et complète les Conditions du service.",
+    "standardsTitle": "Contenu interdit",
+    "standardsIntro": "Les catégories suivantes sont interdites dans les prompts, les images de référence et les résultats générés. Les prompts sont examinés automatiquement avant génération, et les œuvres signalées sont vérifiées par une personne.",
+    "categories": [
+      {
+        "name": "Pornographie / NSFW",
+        "body": "Générer ou distribuer du matériel pornographique, du contenu sexuellement explicite ou des images intimes sans consentement est interdit."
+      },
+      {
+        "name": "Violence / Gore",
+        "body": "La violence extrême, le gore, la torture et le contenu glorifiant des atteintes physiques graves sont interdits."
+      },
+      {
+        "name": "Discours haineux",
+        "body": "Les propos haineux, la discrimination, les menaces et l’incitation à la violence contre des groupes protégés sont interdits."
+      },
+      {
+        "name": "Contenu dangereux pour les enfants / CSAM",
+        "body": "Le matériel d’abus sexuel sur enfants, la sexualisation de mineurs et tout contenu nuisant à des enfants sont interdits. Les tentatives sont enregistrées et signalées aux autorités compétentes."
+      },
+      {
+        "name": "Deepfakes / Usurpation",
+        "body": "Les substitutions de visages de personnes réelles, les nus générés par IA de personnes réelles et les propos ou actes attribués à faux à des personnes réelles sont interdits — même avec le consentement de la personne représentée. WallHaze n’offre pas cette capacité."
+      },
+      {
+        "name": "Contrefaçon de droit d’auteur / de marque",
+        "body": "Le contenu portant atteinte aux droits d’auteur, marques, droits à l’image ou autre propriété intellectuelle est interdit."
+      }
+    ],
+    "additionalTitle": "Règles supplémentaires",
+    "additionalItems": [
+      "Ne pas utiliser les fonctions d’IA pour créer un contenu illégal, quel qu’il soit.",
+      "Ne pas tenter de contourner, désactiver ou manipuler la revue de sécurité, y compris la vérification automatique du prompt avant génération.",
+      "Ne pas téléverser de photos de référence de personnes réelles sans leur autorisation.",
+      "Vous devez détenir les droits et permissions nécessaires pour chaque image de référence téléversée."
+    ],
+    "screeningTitle": "Comment le contenu est examiné",
+    "screeningBody": "Chaque prompt est examiné par Waffo Prompt Sift (le service automatisé de sécurité du contenu exigé par la revue) avant d’être envoyé au modèle d’IA, et une liste locale de termes interdits constitue une seconde couche. Les requêtes bloquées — ou qui ne peuvent pas être examinées — ne sont jamais générées. Les images et vidéos générées sont ensuite examinées par un service automatisé de modération de médias (OpenAI Moderation API) avant tout stockage ou affichage ; la vidéo est vérifiée image par image. Les œuvres signalées sont vérifiées par une personne avant toute mesure, et le contenu publié dans la galerie est réexaminé automatiquement.",
+    "enforcementTitle": "Application",
+    "enforcementBody": "Le contenu violant cette politique peut être supprimé et le compte concerné peut être limité ou suspendu. Les violations graves — notamment celles impliquant des mineurs — sont signalées aux autorités compétentes. Les décisions peuvent faire l’objet d’un appel par courriel.",
+    "reportTitle": "Signalements et appels",
+    "reportBody": "Pour signaler une œuvre ou faire appel d’une décision, écrivez à hello@wallhaze.com avec le lien de l’œuvre et une brève description. Les signalements sont vérifiés par une personne ; nous ne promettons pas de délai de réponse précis.",
+    "termsTitle": "Lien avec les Conditions du service",
+    "termsBody": "Cette politique complète les Conditions du service ; en cas de divergence, l’interprétation la plus stricte prévaut.",
+    "termsLink": "Lire les Conditions du service",
+    "updated": "Dernière mise à jour : 30 octobre 2026"
+  },
+  "pricing": {
+    "eyebrow": "Tarifs",
+    "title": "Tarifs et crédits",
+    "intro": "WallHaze utilise des forfaits de crédits uniques — sans abonnement. Les crédits paient chaque génération et n’expirent jamais.",
+    "packagesTitle": "Forfaits de crédits",
+    "packagesIntro": "Tous les forfaits sont des achats uniques en USD.",
+    "packages": [
+      {
+        "name": "Starter",
+        "credits": "100",
+        "price": "$5",
+        "note": "≈ 10 fonds statiques"
+      },
+      {
+        "name": "Creator",
+        "credits": "500",
+        "price": "$20",
+        "note": "≈ 50 fonds statiques, ou un mélange de statiques et d’animés"
+      },
+      {
+        "name": "Studio",
+        "credits": "2,000",
+        "price": "$69",
+        "note": "Idéal pour les fonds animés et les lots importants"
+      }
+    ],
+    "packagesNote": "Les crédits n’expirent jamais et restent dans votre portefeuille jusqu’à utilisation.",
+    "genTitle": "Coût par génération",
+    "genIntro": "Ce que coûte chaque génération en crédits (réservés au lancement du travail) :",
+    "genItems": [
+      {
+        "name": "Fond statique — texte vers image ou édition avec référence",
+        "cost": "10 crédits"
+      },
+      {
+        "name": "Fond animé — image vers vidéo, 5 secondes",
+        "cost": "40 crédits"
+      },
+      {
+        "name": "Fond animé — texte vers vidéo, 3 / 4 / 5 secondes",
+        "cost": "40 / 50 / 60 crédits"
+      }
+    ],
+    "genNote": "Les crédits sont retenus pendant l’exécution du travail et libérés automatiquement en cas d’échec — une génération échouée ne vous est jamais facturée.",
+    "billingTitle": "Facturation",
+    "billingItems": [
+      "Achats uniques en USD — sans abonnement ni frais récurrents.",
+      "Les crédits n’expirent jamais.",
+      "Les crédits réservés sont libérés automatiquement en cas d’échec d’une génération.",
+      "Les forfaits sont traités par notre prestataire de paiement une fois le checkout ouvert."
+    ],
+    "checkoutTitle": "Le checkout ouvre bientôt",
+    "checkoutBody": "Les achats sont traités par notre prestataire de paiement et le canal de checkout est en vérification finale. Les boutons d’achat restent désactivés jusqu’à l’ouverture du canal — générer avec les crédits existants fonctionne normalement aujourd’hui.",
+    "checkoutComing": "Checkout bientôt disponible",
+    "faqTitle": "FAQ tarifs",
+    "faq": [
+      {
+        "q": "Les crédits sont-ils un abonnement ?",
+        "a": "Non. Les forfaits de crédits sont des achats uniques en USD et les crédits n’expirent jamais."
+      },
+      {
+        "q": "Que se passe-t-il si une génération échoue ?",
+        "a": "Les crédits réservés au travail sont libérés automatiquement et votre solde est restauré — les générations échouées ne coûtent rien."
+      },
+      {
+        "q": "Combien coûte un fond animé ?",
+        "a": "Image vers vidéo (5 s) coûte 40 crédits. Texte vers vidéo coûte 40 crédits pour 3 secondes, 50 pour 4 secondes et 60 pour 5 secondes. Un fond statique coûte 10 crédits."
+      },
+      {
+        "q": "Quand puis-je acheter des crédits ?",
+        "a": "Le checkout est en vérification finale avec notre prestataire de paiement. Les boutons d’achat restent désactivés jusqu’à l’ouverture du canal ; vous pouvez générer avec les crédits existants en attendant."
+      },
+      {
+        "q": "Les prix changent-ils ?",
+        "a": "Les coûts de cette page reflètent la configuration actuelle côté serveur. Le Studio affiche toujours le coût réel d’un travail avant de le lancer."
+      }
+    ]
   }
 }
