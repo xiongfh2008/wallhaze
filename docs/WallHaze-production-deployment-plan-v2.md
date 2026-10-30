@@ -9,12 +9,13 @@
 
 | 项 | 值 |
 |---|---|
-| 文件 | `D:\Project\wallhaze-deploy\wallhaze-staging-source-20261031.tar.gz` |
-| 大小 / 文件数 | 138,147,896 字节 / 1004 文件 |
-| SHA256 | `e784dfa69fab8f007592b64113cd1346c0a76c83f8d32f83216ce26a8c101485` |
+| 文件 | `D:\Project\wallhaze-deploy\wallhaze-staging-source-20261031-v2.tar.gz` |
+| 大小 / 文件数 | 138,164,453 字节 / 1007 文件 |
+| SHA256 | `a96c0e6326154623c2309305555f81d4bffb18613670a12b2f0a4c055793f1ad` |
+| 对应提交 | `waffo-moderation-v1`（= 2b8e719；回滚点标签 `pre-waffo-moderation`） |
 | 排除 | `wallhaze/`（受保护用户媒体）、`.git`、`node_modules`、`.next`/`.vinxt`/`dist`/`.turbo`、`.data`（本地 PGlite）、`.cloudflare`、`private-media`、全部真实 `.env*`（仅保留 `*.example` 模板）、`*.tar.gz` |
 | 已验证 | 归档内 0 个禁用路径；包含全部审核链路新文件（moderation.ts / blocklist.json / output-moderation.ts / gallery-moderation.ts / gallery-rescan.ts / 008_moderation_logs.sql / pricing 页 / acceptable-use 页 / gallery-manifest.json） |
-| 旧包状态 | `wallhaze-staging-source-20261025.tar.gz` **已过期**——早于两轮整改，不可再用于构建 |
+| 旧包状态 | `20261025.tar.gz` 与 `20261031.tar.gz`（无 -v2）均已删除——早于最终修复，不可用 |
 
 上传（owner 执行）：
 ```bash
