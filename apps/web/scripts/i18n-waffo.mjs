@@ -63,92 +63,69 @@ const META = {
   },
 };
 
-const STUDIO = {
-  modelsTitle: {
-    en: "AI models & generation", zh: "AI 模型与生成", ja: "AIモデルと生成",
-    ko: "AI 모델 및 생성", es: "Modelos de IA y generación",
-    fr: "Modèles d’IA et génération", de: "KI-Modelle & Generierung",
+const STUDIO_AI = {
+  en: {
+    aiGenerationTitle: "AI-powered wallpaper creation",
+    aiGenerationBody: "Pick a wallpaper type, a style, your device and a few parameters — WallHaze's AI does the rest. Every request passes automated content screening before generation, and failed jobs never charge Credits.",
   },
-  modelsIntro: {
-    en: "WallHaze generates wallpapers through third-party AI model services accessed via the fal.ai platform. The models currently in use:",
-    zh: "WallHaze 通过 fal.ai 平台接入的第三方 AI 模型服务生成壁纸，当前使用的模型：",
-    ja: "WallHaze は fal.ai プラットフォーム経由のサードパーティ AI モデルサービスで壁紙を生成します。現在使用中のモデル：",
-    ko: "WallHaze는 fal.ai 플랫폼을 통해 서드파티 AI 모델 서비스로 배경화면을 생성합니다. 현재 사용 중인 모델:",
-    es: "WallHaze genera fondos mediante servicios de modelos de IA de terceros accesidos vía fal.ai. Los modelos actualmente en uso:",
-    fr: "WallHaze génère des fonds via des services de modèles d’IA tiers accessibles sur la plateforme fal.ai. Les modèles actuellement utilisés :",
-    de: "WallHaze erzeugt Wallpaper über Drittanbieter-KI-Modelldienste auf der fal.ai-Plattform. Aktuell verwendete Modelle:",
+  zh: {
+    aiGenerationTitle: "AI 智能壁纸创作",
+    aiGenerationBody: "选择壁纸类型、风格、设备与少量参数——剩下的交给 WallHaze 的 AI。每次生成前都会经过自动化内容安全筛查，失败的任务不扣除积分。",
   },
-  modelNameImage: {
-    en: "FLUX.2 [Klein] 4B", zh: "FLUX.2 [Klein] 4B", ja: "FLUX.2 [Klein] 4B",
-    ko: "FLUX.2 [Klein] 4B", es: "FLUX.2 [Klein] 4B", fr: "FLUX.2 [Klein] 4B",
-    de: "FLUX.2 [Klein] 4B",
+  ja: {
+    aiGenerationTitle: "AI壁紙クリエーション",
+    aiGenerationBody: "壁纸の種類・スタイル・デバイス・パラメータを選ぶだけ — あとは WallHaze の AI におまかせ。生成前に自動コンテンツ審査が行われ、失敗したジョブはクレジットを請求されません。",
   },
-  modelUseImage: {
-    en: "Text-to-image and image editing — static wallpapers and reference-image edits.",
-    zh: "文生图与图片编辑——静态壁纸与参考图编辑。",
-    ja: "テキストから画像の生成と画像編集 — 静止画壁紙と参照画像の編集。",
-    ko: "텍스트→이미지 생성과 이미지 편집 — 정적 배경화면과 참조 이미지 편집.",
-    es: "Texto a imagen y edición de imágenes — fondos estáticos y ediciones con imagen de referencia.",
-    fr: "Texte vers image et édition d’images — fonds statiques et éditions avec image de référence.",
-    de: "Text-zu-Bild und Bildbearbeitung — statische Wallpaper und Referenzbild-Bearbeitung.",
+  ko: {
+    aiGenerationTitle: "AI 배경화면创作",
+    aiGenerationBody: "배경화면 유형, 스타일, 기기, 파라미터만 선택하세요 — 나머지는 WallHaze의 AI가 처리합니다. 생성 전 자동 콘텐츠 심사가 이루어지며 실패한 작업은 크레딧을 청구하지 않습니다.",
   },
-  modelNameI2v: {
-    en: "Wan 2.2 5B", zh: "Wan 2.2 5B", ja: "Wan 2.2 5B", ko: "Wan 2.2 5B",
-    es: "Wan 2.2 5B", fr: "Wan 2.2 5B", de: "Wan 2.2 5B",
+  es: {
+    aiGenerationTitle: "Creación de fondos con IA",
+    aiGenerationBody: "Elige el tipo de fondo, el estilo, tu dispositivo y unos pocos parámetros — la IA de WallHaze hace el resto. Cada solicitud pasa por un filtrado de contenido automatizado antes de generarse, y los trabajos fallidos nunca cobran créditos.",
   },
-  modelUseI2v: {
-    en: "Image-to-video — turns an uploaded or generated image into a 5-second live wallpaper.",
-    zh: "图生视频——将上传或生成的图片转为 5 秒动态壁纸。",
-    ja: "画像から動画 — アップロードまたは生成した画像を5秒のライブ壁紙に変換。",
-    ko: "이미지→비디오 — 업로드하거나 생성한 이미지를 5초 라이브 배경화면으로 변환.",
-    es: "Imagen a vídeo — convierte una imagen subida o generada en un fondo dinámico de 5 segundos.",
-    fr: "Image vers vidéo — transforme une image téléversée ou générée en fond animé de 5 secondes.",
-    de: "Bild-zu-Video — verwandelt ein hochgeladenes oder generiertes Bild in ein 5-Sekunden-Live-Wallpaper.",
+  fr: {
+    aiGenerationTitle: "Création de fonds par IA",
+    aiGenerationBody: "Choisissez le type de fond, le style, votre appareil et quelques paramètres — l’IA de WallHaze fait le reste. Chaque demande passe par un filtrage de contenu automatisé avant génération, et les travaux échoués ne sont jamais facturés.",
   },
-  modelNameT2v: {
-    en: "Kling V3 Standard", zh: "Kling V3 Standard", ja: "Kling V3 Standard",
-    ko: "Kling V3 Standard", es: "Kling V3 Standard", fr: "Kling V3 Standard",
-    de: "Kling V3 Standard",
-  },
-  modelUseT2v: {
-    en: "Text-to-video — creates short live wallpapers from a text description (3–5 seconds).",
-    zh: "文生视频——按文字描述生成 3–5 秒的动态壁纸。",
-    ja: "テキストから動画 — 文章の説明から3〜5秒のライブ壁紙を生成。",
-    ko: "텍스트→비디오 — 텍스트 설명으로 3–5초 라이브 배경화면 생성.",
-    es: "Texto a vídeo — crea fondos dinámicos cortos a partir de una descripción (3–5 segundos).",
-    fr: "Texte vers vidéo — crée de courts fonds animés à partir d’une description (3–5 secondes).",
-    de: "Text-zu-Video — erzeugt kurze Live-Wallpaper aus einer Textbeschreibung (3–5 Sekunden).",
-  },
-  modelsNote: {
-    en: "Prompts are screened automatically before a generation starts, and all use must follow the Acceptable Use Policy. Model availability and output can change as their providers update; WallHaze is not affiliated with the model publishers and accesses the models through fal.ai.",
-    zh: "生成开始前会对提示词进行自动安全筛查，所有使用须遵守可接受使用政策。模型的可用性与输出可能随服务商更新而变化；WallHaze 与模型发布方无隶属关系，模型经 fal.ai 平台访问。",
-    ja: "生成開始前にプロンプトの自動安全審査が行われ、すべての利用は利用ポリシーに従う必要があります。モデルの可用性と出力はプロバイダーの更新により変わる場合があります。WallHaze はモデルの公開元と提携しておらず、モデルは fal.ai プラットフォーム経由で利用します。",
-    ko: "생성이 시작되기 전 프롬프트 자동 안전 심사가 이루어지며 모든 이용은 이용 정책을 따라야 합니다. 모델 가용성과 출력은 제공사 업데이트에 따라 달라질 수 있습니다. WallHaze는 모델 게시사와 제휴 관계가 없으며 모델은 fal.ai 플랫폼을 통해 이용합니다.",
-    es: "Los prompts se examinan automáticamente antes de iniciar una generación y todo uso debe cumplir la Política de uso aceptable. La disponibilidad de modelos y sus resultados pueden cambiar con las actualizaciones de sus proveedores; WallHaze no está afiliado a los editores de los modelos y accede a ellos mediante fal.ai.",
-    fr: "Les prompts sont examinés automatiquement avant le lancement d’une génération, et toute utilisation doit respecter la Politique d’utilisation acceptable. La disponibilité des modèles et leurs résultats peuvent évoluer avec les mises à jour des fournisseurs ; WallHaze n’est pas affilié aux éditeurs des modèles et y accède via fal.ai.",
-    de: "Prompts werden automatisch geprüft, bevor eine Generierung startet, und jede Nutzung muss der Richtlinie zur akzeptablen Nutzung folgen. Modellverfügbarkeit und Ergebnisse können sich mit Anbieter-Updates ändern; WallHaze steht in keiner Verbindung zu den Modell-Herausgebern und nutzt die Modelle über fal.ai.",
-  },
-  viewPricing: {
-    en: "View pricing", zh: "查看价格", ja: "料金を見る", ko: "가격 보기",
-    es: "Ver precios", fr: "Voir les tarifs", de: "Preise ansehen",
+  de: {
+    aiGenerationTitle: "KI-gestützte Wallpaper-Erstellung",
+    aiGenerationBody: "Wähle Wallpaper-Typ, Stil, Gerät und ein paar Parameter — die KI von WallHaze erledigt den Rest. Jede Anfrage durchläuft vor der Generierung eine automatisierte Inhaltsprüfung; fehlgeschlagene Aufträge kosten keine Credits.",
   },
 };
 
+
 const ABOUT_AI = {
-  aiTitle: {
-    en: "AI technology", zh: "AI 技术", ja: "AIテクノロジー", ko: "AI 기술",
-    es: "Tecnología de IA", fr: "Technologie d’IA", de: "KI-Technologie",
+  en: {
+    aiTitle: "AI-powered wallpaper creation",
+    aiBody: "WallHaze's creation tools turn a text idea and a style choice into wallpaper-ready images and short live wallpapers. Every generation passes automated content screening, and generated media in cloud storage is kept for 30 days.",
   },
-  aiBody: {
-    en: "WallHaze generates images and videos through third-party AI models accessed via the fal.ai platform: static wallpapers currently use FLUX.2 [Klein] 4B, and live wallpapers use Wan 2.2 5B (image-to-video) and Kling V3 Standard (text-to-video). Prompts are screened automatically before generation, and generated media in cloud storage is kept for 30 days.",
-    zh: "WallHaze 通过 fal.ai 平台接入的第三方 AI 模型生成图片与视频：静态壁纸目前使用 FLUX.2 [Klein] 4B，动态壁纸使用 Wan 2.2 5B（图生视频）与 Kling V3 Standard（文生视频）。生成前会对提示词进行自动安全筛查，云端生成内容保留 30 天。",
-    ja: "WallHaze は fal.ai プラットフォーム経由のサードパーティ AI モデルで画像と動画を生成します：静止画壁紙は現在 FLUX.2 [Klein] 4B、ライブ壁紙は Wan 2.2 5B（画像から動画）と Kling V3 Standard（テキストから動画）を使用します。生成前にプロンプトの自動審査が行われ、クラウド上の生成メディアは30日間保持されます。",
-    ko: "WallHaze는 fal.ai 플랫폼을 통해 서드파티 AI 모델로 이미지와 비디오를 생성합니다: 정적 배경화면은 현재 FLUX.2 [Klein] 4B, 라이브 배경화면은 Wan 2.2 5B(이미지→비디오)와 Kling V3 Standard(텍스트→비디오)를 사용합니다. 생성 전 프롬프트 자동 심사가 이루어지며 클라우드 생성물은 30일간 보관됩니다.",
-    es: "WallHaze genera imágenes y vídeos mediante modelos de IA de terceros accesidos vía fal.ai: los fondos estáticos usan actualmente FLUX.2 [Klein] 4B y los dinámicos usan Wan 2.2 5B (imagen a vídeo) y Kling V3 Standard (texto a vídeo). Los prompts se examinan automáticamente antes de generar y los medios generados en la nube se conservan 30 días.",
-    fr: "WallHaze génère des images et des vidéos via des modèles d’IA tiers accessibles sur la plateforme fal.ai : les fonds statiques utilisent actuellement FLUX.2 [Klein] 4B, et les fonds animés utilisent Wan 2.2 5B (image vers vidéo) et Kling V3 Standard (texte vers vidéo). Les prompts sont examinés automatiquement avant génération, et les médias générés dans le stockage cloud sont conservés 30 jours.",
-    de: "WallHaze erzeugt Bilder und Videos über Drittanbieter-KI-Modelle auf der fal.ai-Plattform: statische Wallpaper nutzen derzeit FLUX.2 [Klein] 4B, Live-Wallpaper nutzen Wan 2.2 5B (Bild-zu-Video) und Kling V3 Standard (Text-zu-Video). Prompts werden vor der Generierung automatisch geprüft, und in der Cloud gespeicherte Medien werden 30 Tage aufbewahrt.",
+  zh: {
+    aiTitle: "AI 智能壁纸创作",
+    aiBody: "WallHaze 的创作工具把一段文字创意与风格选择变成适合做壁纸的图片和短视频动态壁纸。每次生成都会经过自动化内容安全筛查，云端生成内容保留 30 天。",
+  },
+  ja: {
+    aiTitle: "AI壁紙クリエーション",
+    aiBody: "WallHaze の作成ツールは、文章のアイデアとスタイル選択から壁紙に適した画像や短いライブ壁紙を生み出します。各生成は自動コンテンツ安全審査を通過し、クラウド上の生成メディアは30日間保持されます。",
+  },
+  ko: {
+    aiTitle: "AI 배경화면创作",
+    aiBody: "WallHaze의创作 도구는 텍스트 아이디어와 스타일 선택을 배경화면에 적합한 이미지와 짧은 라이브 배경화면으로 바꿉니다. 모든 생성은 자동 콘텐츠 안전 심사를 거치며 클라우드 생성물은 30일간 보관됩니다.",
+  },
+  es: {
+    aiTitle: "Creación de fondos con IA",
+    aiBody: "Las herramientas de creación de WallHaze convierten una idea de texto y una elección de estilo en imágenes listas para fondo y fondos dinámicos cortos. Cada generación pasa por un filtrado de contenido automatizado y los medios generados en la nube se conservan 30 días.",
+  },
+  fr: {
+    aiTitle: "Création de fonds par IA",
+    aiBody: "Les outils de création de WallHaze transforment une idée de texte et un choix de style en images prêtes pour fond et de courts fonds animés. Chaque génération passe par un filtrage de contenu automatisé, et les médias générés dans le stockage cloud sont conservés 30 jours.",
+  },
+  de: {
+    aiTitle: "KI-gestützte Wallpaper-Erstellung",
+    aiBody: "Die Erstellungswerkzeuge von WallHaze machen aus einer Textidee und einer Stilwahl wallpaper-taugliche Bilder und kurze Live-Wallpaper. Jede Generierung durchläuft eine automatisierte Inhaltsprüfung, und in der Cloud gespeicherte Medien werden 30 Tage aufbewahrt.",
   },
 };
+
 
 // Eight additions to terms.prohibitedItems (six Waffo categories + two
 // supplementary rules). The six existing items stay untouched.
@@ -465,14 +442,15 @@ const AUP = {
 };
 
 const PRIVACY_ITEM_FAL = {
-  en: "AI model providers — when you request a generation, your prompt, any reference image and your settings are sent through fal.ai to the selected model (currently FLUX.2 [Klein] 4B for images, Wan 2.2 5B for image-to-video and Kling V3 Standard for text-to-video); the generated media is returned to WallHaze.",
-  zh: "AI 模型服务商——当你请求生成时，你的提示词、参考图与设置会经 fal.ai 发送至所选模型（当前为图片用的 FLUX.2 [Klein] 4B、图生视频用的 Wan 2.2 5B 与文生视频用的 Kling V3 Standard）；生成的媒体会返回 WallHaze。",
-  ja: "AIモデルプロバイダー — 生成をリクエストすると、プロンプト・参照画像・設定が fal.ai を経由して選択されたモデル（現在は画像用 FLUX.2 [Klein] 4B、画像から動画用 Wan 2.2 5B、テキストから動画用 Kling V3 Standard）に送信され、生成されたメディアが WallHaze に返されます。",
-  ko: "AI 모델 제공사 — 생성을 요청하면 프롬프트, 참조 이미지, 설정이 fal.ai를 통해 선택된 모델(현재 이미지용 FLUX.2 [Klein] 4B, 이미지→비디오용 Wan 2.2 5B, 텍스트→비디오용 Kling V3 Standard)로 전송되고 생성된 미디어가 WallHaze로 반환됩니다.",
-  es: "Proveedores de modelos de IA — cuando solicitas una generación, tu prompt, la imagen de referencia y tu configuración se envían a través de fal.ai al modelo seleccionado (actualmente FLUX.2 [Klein] 4B para imágenes, Wan 2.2 5B para imagen a vídeo y Kling V3 Standard para texto a vídeo); los medios generados regresan a WallHaze.",
-  fr: "Fournisseurs de modèles d’IA — lorsque vous demandez une génération, votre prompt, l’image de référence éventuelle et vos réglages sont envoyés via fal.ai au modèle sélectionné (actuellement FLUX.2 [Klein] 4B pour les images, Wan 2.2 5B pour l’image vers vidéo et Kling V3 Standard pour le texte vers vidéo) ; les médias générés reviennent à WallHaze.",
-  de: "KI-Modellanbieter — wenn du eine Generierung anforderst, werden dein Prompt, ein Referenzbild und deine Einstellungen über fal.ai an das ausgewählte Modell gesendet (derzeit FLUX.2 [Klein] 4B für Bilder, Wan 2.2 5B für Bild-zu-Video und Kling V3 Standard für Text-zu-Video); die erzeugten Medien kehren zu WallHaze zurück.",
+  en: "AI generation service (fal.ai) — when you request a generation, your prompt, any reference image and your settings are sent to the AI generation service to produce your media; the generated media is returned to WallHaze. The specific engine used per request is WallHaze's internal configuration and is not part of your data.",
+  zh: "AI 生成服务（fal.ai）——当你请求生成时，你的提示词、参考图与设置会被发送至 AI 生成服务以产出媒体；生成的媒体会返回 WallHaze。每次请求使用的具体引擎属于 WallHaze 内部配置，不属于你的数据。",
+  ja: "AI生成サービス（fal.ai）— 生成をリクエストすると、プロンプト・参照画像・設定が AI 生成サービスに送信され、メディアが生成されます。生成されたメディアは WallHaze に返されます。リクエストごとに使用されるエンジンは WallHaze の内部設定であり、利用者のデータではありません。",
+  ko: "AI 생성 서비스(fal.ai) — 생성을 요청하면 프롬프트, 참조 이미지, 설정이 AI 생성 서비스로 전송되어 미디어를 생성하고, 생성된 미디어는 WallHaze로 반환됩니다. 요청별 사용 엔진은 WallHaze의 내부 설정이며 이용자 데이터가 아닙니다.",
+  es: "Servicio de generación de IA (fal.ai) — cuando solicitas una generación, tu prompt, la imagen de referencia y tu configuración se envían al servicio de generación de IA para producir tus medios; los medios generados regresan a WallHaze. El motor concreto usado en cada solicitud es configuración interna de WallHaze y no forma parte de tus datos.",
+  fr: "Service de génération d’IA (fal.ai) — lorsque vous demandez une génération, votre prompt, l’image de référence éventuelle et vos réglages sont envoyés au service de génération d’IA pour produire vos médias ; les médias générés reviennent à WallHaze. Le moteur précis utilisé pour chaque demande est une configuration interne de WallHaze et ne fait pas partie de vos données.",
+  de: "KI-Generierungsdienst (fal.ai) — wenn du eine Generierung anforderst, werden dein Prompt, ein Referenzbild und deine Einstellungen an den KI-Generierungsdienst gesendet, um deine Medien zu erzeugen; die erzeugten Medien kehren zu WallHaze zurück. Die pro Anfrage genutzte konkrete Engine ist interne Konfiguration von WallHaze und nicht Teil deiner Daten.",
 };
+
 
 const PRIVACY_ITEM_SCREENING = {
   en: "Content-safety services — Waffo Prompt Sift reviews prompts before a generation starts, and the OpenAI Moderation API screens generated images and videos (frame sampling for video) before anything is stored or shown. Screening records keep the job id, the decision and — when reported — a violation category, not the prompt text.",
@@ -917,14 +895,28 @@ for (const loc of LOCALES) {
   j.privacy.screeningTitle = PRIVACY_SCREENING.screeningTitle[loc];
   j.privacy.screeningBody = PRIVACY_SCREENING.screeningBody[loc];
 
-  // Studio model disclosure (page already renders these keys).
-  for (const [key, value] of Object.entries(STUDIO)) {
-    j.studio[key] = value[loc];
+  // Product decision (2026-10-31): underlying model names/versions are NOT
+  // public. The Studio shows a simple AI-powered section; About is generic;
+  // Privacy keeps the required processor disclosures WITHOUT model names.
+  for (const key of [
+    "modelsTitle",
+    "modelsIntro",
+    "modelNameImage",
+    "modelUseImage",
+    "modelNameI2v",
+    "modelUseI2v",
+    "modelNameT2v",
+    "modelUseT2v",
+    "modelsNote",
+  ]) {
+    delete j.studio[key];
   }
+  j.studio.aiGenerationTitle = STUDIO_AI[loc].aiGenerationTitle;
+  j.studio.aiGenerationBody = STUDIO_AI[loc].aiGenerationBody;
 
-  // About AI blurb.
-  j.about.aiTitle = ABOUT_AI.aiTitle[loc];
-  j.about.aiBody = ABOUT_AI.aiBody[loc];
+  // About AI blurb: brand-first, no model names or provider brands.
+  j.about.aiTitle = ABOUT_AI[loc].aiTitle;
+  j.about.aiBody = ABOUT_AI[loc].aiBody;
 
   // Pricing page content (real configuration).
   j.pricing = PRICING[loc];

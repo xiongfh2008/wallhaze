@@ -56,10 +56,10 @@ describe("homepage content de-duplication", () => {
     }
   });
 
-  it("selects eight distinct editorial style previews with valid targets", () => {
-    expect(STYLE_SPOTLIGHT).toHaveLength(8);
+  it("selects twelve distinct editorial style previews with valid targets", () => {
+    expect(STYLE_SPOTLIGHT).toHaveLength(12);
     const images = STYLE_SPOTLIGHT.map((item) => item.style.image);
-    expect(new Set(images).size).toBe(8);
+    expect(new Set(images).size).toBe(12);
     for (const item of STYLE_SPOTLIGHT) {
       expect(item.style.image).toBeTruthy();
       if (item.wallpaper) {

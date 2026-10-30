@@ -124,8 +124,9 @@ describe("privacy: real data flow disclosure", () => {
       const items = msgValue(locale, "privacy.thirdPartyItems") as string[];
       const fal = items.find((item) => item.includes("fal.ai"));
       expect(fal).toBeTruthy();
-      for (const model of ["FLUX.2 [Klein] 4B", "Wan 2.2 5B", "Kling V3 Standard"]) {
-        expect(fal).toContain(model);
+      // Processor disclosure stays; model names stay out.
+      for (const model of ["FLUX", "Klein", "Wan 2.2", "Kling"]) {
+        expect(fal).not.toContain(model);
       }
       const screening = items.find((item) => item.includes("Waffo"));
       expect(screening).toBeTruthy();
@@ -201,15 +202,41 @@ describe("acceptable use policy page content", () => {
   });
 });
 
-describe("studio model disclosure", () => {
-  it("shows the real models and links to pricing", () => {
+describe("model information stays internal (product decision 2026-10-31)", () => {
+  it("no user-facing message mentions underlying model names or ids", () => {
     for (const locale of LOCALES) {
-      expect(msgValue(locale, "studio.modelNameImage")).toBe("FLUX.2 [Klein] 4B");
-      expect(msgValue(locale, "studio.modelNameI2v")).toBe("Wan 2.2 5B");
-      expect(msgValue(locale, "studio.modelNameT2v")).toBe("Kling V3 Standard");
-      const note = String(msgValue(locale, "studio.modelsNote"));
-      expect(note.toLowerCase()).toMatch(/acceptable use|可接受使用|利用ポリシー|이용 정책|uso aceptable|utilisation acceptable|akzeptablen nutzung/);
+      const raw = JSON.stringify(messages(locale));
+      for (const marker of ["FLUX", "Klein", "Wan 2.2", "Kling V3", "wan-2", "kling-v3"]) {
+        expect(raw).not.toContain(marker);
+      }
+    }
+  });
+
+  it("the Studio shows a simple AI-powered section and keeps the pricing link", () => {
+    for (const locale of LOCALES) {
+      expect(String(msgValue(locale, "studio.aiGenerationTitle")).length).toBeGreaterThan(0);
+      expect(String(msgValue(locale, "studio.aiGenerationBody")).length).toBeGreaterThan(0);
       expect(String(msgValue(locale, "studio.viewPricing")).length).toBeGreaterThan(0);
+      expect(msgValue(locale, "studio.modelsTitle")).toBeUndefined();
+    }
+  });
+
+  it("the Studio video note no longer surfaces a provider id", () => {
+    for (const locale of LOCALES) {
+      const walk = (value: unknown, path: string): void => {
+        if (typeof value === "string") {
+          if (path.endsWith("providerNote")) {
+            expect(value.toLowerCase()).not.toContain("provider");
+          }
+          return;
+        }
+        if (value && typeof value === "object") {
+          for (const [key, item] of Object.entries(value)) {
+            walk(item, `${path}.${key}`);
+          }
+        }
+      };
+      walk(messages(locale), locale);
     }
   });
 });

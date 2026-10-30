@@ -64,7 +64,7 @@ export function videoModePricing(
       costBoundMicrosByDuration: enabled ? { ...VIDEO_I2V_COST } : {},
       resolution: isMock ? "360p mock preview" : "720p",
       generateAudio: false,
-      provider: isMock ? "mock (Wan I2V capability shape)" : "wan-2.2-5b-i2v",
+      provider: isMock ? "mock-preview-engine" : "wallhaze-ai-engine",
     };
   }
   return {
@@ -74,7 +74,7 @@ export function videoModePricing(
     costBoundMicrosByDuration: enabled ? { ...VIDEO_T2V_COST } : {},
     resolution: isMock ? "360p mock preview" : "720p class (provider standard)",
     generateAudio: false,
-    provider: isMock ? "mock (Kling T2V capability shape)" : "kling-v3-standard-t2v",
+    provider: isMock ? "mock-preview-engine" : "wallhaze-ai-engine",
   };
 }
 

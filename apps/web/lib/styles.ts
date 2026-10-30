@@ -517,13 +517,16 @@ export const WALLPAPER_STYLES: WallStyle[] = RAW_WALLPAPER_STYLES.map(
  * The six styles showcased in the gallery section, picked by explicit ID so
  * appending new styles to WALLPAPER_STYLES never changes the homepage.
  */
+// Curated 2026-10-31: youth-leaning families that do NOT overlap the
+// trending band's twelve spotlight styles (the homepage de-dup guard
+// forbids the same preview appearing in adjacent sections).
 const POPULAR_STYLE_IDS: readonly StyleId[] = [
-  "anime",
-  "cyberpunk",
-  "fantasy",
-  "nature",
-  "minimalist",
-  "surreal",
+  "shoujo",
+  "mecha",
+  "cosmic-horror",
+  "low-poly",
+  "clay-3d",
+  "starry-galaxy",
 ];
 
 export const POPULAR_STYLES: WallStyle[] = POPULAR_STYLE_IDS.map((id) =>

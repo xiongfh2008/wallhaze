@@ -114,45 +114,24 @@ export default async function StudioPage({
 
         <StudioExperience />
 
-        {/* Waffo review requirement: disclose the actual AI models used.
-            Rendered server-side from a static, code-verified list — the same
-            models the API adapters call (see apps/api/src/business/
-            video-pricing.ts and apps/api/src/modules/generation/). */}
+        {/* Product decision (2026-10-31): the underlying model names/versions
+            are NOT shown to users — the Studio stays simple (type, style,
+            device, parameters). Review-tooling disclosures live in the
+            Privacy Policy and the Acceptable Use Policy. A compact pricing
+            link remains for cost transparency. */}
         <section
-          id="ai-models"
-          aria-labelledby="ai-models-title"
+          id="ai-generation"
+          aria-labelledby="ai-generation-title"
           className="mx-auto mt-16 w-full max-w-[1320px] scroll-mt-24 px-6"
         >
           <h2
-            id="ai-models-title"
+            id="ai-generation-title"
             className="text-xl font-semibold tracking-tight md:text-2xl"
           >
-            {t("modelsTitle")}
+            {t("aiGenerationTitle")}
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-400">
-            {t("modelsIntro")}
-          </p>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { name: t("modelNameImage"), use: t("modelUseImage") },
-              { name: t("modelNameI2v"), use: t("modelUseI2v") },
-              { name: t("modelNameT2v"), use: t("modelUseT2v") },
-            ].map((model) => (
-              <li
-                key={model.name}
-                className="rounded-2xl border border-white/10 bg-white/[0.02] p-4"
-              >
-                <p className="text-sm font-semibold text-zinc-100">
-                  {model.name}
-                </p>
-                <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-                  {model.use}
-                </p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 max-w-3xl text-xs leading-relaxed text-zinc-500">
-            {t("modelsNote")}
+            {t("aiGenerationBody")}
           </p>
           <Link
             href="/pricing"

@@ -1230,7 +1230,6 @@ export default function LiveWallpaperStudio() {
             </p>
             <p className="mt-2 max-w-[30rem] text-center text-xs leading-relaxed text-zinc-600">
               {t("providerNote", {
-                provider: modePricing?.provider ?? "—",
                 resolution: modePricing?.resolution ?? "—",
               })}
             </p>

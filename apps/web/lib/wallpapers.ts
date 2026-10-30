@@ -748,15 +748,18 @@ const FEATURED_WALLPAPER_IDS: readonly string[] = [
   // Only cleared CC0/self-authored artwork is featured. The previous editorial
   // picks were all review-pending, which meant their images had to disappear
   // from the public page; these picks keep the section complete without
-  // exposing restricted files.
-  "poppy-field",
-  "stillwater-night",
+  // exposing restricted files. Curated 2026-10-31 for a younger look: neon
+  // city, bright florals and light abstracts lead; calmer landscapes
+  // (quiet-bridge) rotates out. sakura-dream/nebula-drift stay out — the
+  // homepage hero owns those images (de-dup guard).
   "hong-kong-rain",
-  "forest-rays",
-  "quiet-bridge",
+  "poppy-field",
+  "light-ribbons-wide",
   "jellyfish-deep",
   "sunset-platform",
-  "light-ribbons-wide",
+  "aurora-veil",
+  "stillwater-night",
+  "forest-rays",
 ];
 
 export const FEATURED_WALLPAPERS: PresetWallpaper[] =
@@ -776,14 +779,18 @@ export const FEATURED_WALLPAPERS: PresetWallpaper[] =
  * otherwise to the studio preselected with that style.
  */
 const STYLE_SPOTLIGHT_IDS: readonly StyleId[] = [
-  "chinese-ink",
-  "aurora-nights",
-  "macro-nature",
-  "stained-glass",
-  "architecture-minimal",
-  "low-poly",
-  "anime-fantasy",
+  "anime",
+  "cyberpunk",
+  "sci-fi",
+  "dark-fantasy",
   "vaporwave",
+  "cozy-anime",
+  "cinematic",
+  "dreamcore",
+  "gothic-horror",
+  "pixel-art",
+  "ukiyo-e-anime",
+  "dark",
 ];
 
 export interface StyleSpotlightItem {
@@ -801,17 +808,17 @@ export const STYLE_SPOTLIGHT: StyleSpotlightItem[] = STYLE_SPOTLIGHT_IDS.map(
       );
     }
     // SEEDS order lists portrait presets before wide variants, so find()
-    // resolves the portrait detail page matching the 3:4 card.
+    // resolves the portrait detail page matching the 3:4 card. A preset
+    // whose art differs from the style preview is NOT attached — the card
+    // then links to the Studio preselected with that style instead (the
+    // card must never show art other than what it links to).
     const wallpaper =
       PRESET_WALLPAPERS.find(
         (candidate) =>
-          candidate.styleId === id && candidate.canPubliclyDisplay
+          candidate.styleId === id &&
+          candidate.canPubliclyDisplay &&
+          candidate.image === style.image
       ) ?? null;
-    if (wallpaper && wallpaper.image !== style.image) {
-      throw new Error(
-        `[wallpapers] Spotlight card "${id}" would mismatch its wallpaper image.`
-      );
-    }
     return { style, wallpaper };
   }
 );
