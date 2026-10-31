@@ -64,6 +64,20 @@ export async function generateMetadata({
       title: t("homeTitle"),
       description: t("homeDescription"),
     },
+    // Brand icons (2026-10-31 kit). `/favicon.ico` is left to the app-root
+    // file convention, which emits it with a content hash (`?favicon.<hash>`)
+    // — that also busts caches automatically. Every other size is declared
+    // here once; no second metadata block can override these.
+    icons: {
+      icon: [
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+        { url: "/wallhaze-icon.svg", sizes: "any", type: "image/svg+xml" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
+    manifest: "/manifest.webmanifest",
   };
 }
 

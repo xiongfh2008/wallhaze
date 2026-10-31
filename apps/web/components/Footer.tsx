@@ -91,11 +91,15 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" className="text-lg font-semibold tracking-tight">
-              Wall
-              <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-                Haze
-              </span>
+            <Link href="/" className="inline-block">
+              {/* eslint-disable-next-line @next/next/no-img-element -- static SVG brand asset */}
+              <img
+                src="/wallhaze-logo-dark.svg"
+                alt="WallHaze"
+                width={550}
+                height={142}
+                className="h-7 w-auto"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
               {t("tagline")}

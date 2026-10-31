@@ -48,6 +48,9 @@ export default function TrendingMarquee() {
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // Reading a media query is a browser fact available only after mount;
+    // there is no render-time equivalent and no cascading update follows.
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- browser fact after hydration
     setReducedMotion(media.matches);
     const onChange = (event: MediaQueryListEvent) =>
       setReducedMotion(event.matches);

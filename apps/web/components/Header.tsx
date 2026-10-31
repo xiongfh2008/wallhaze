@@ -323,12 +323,19 @@ export default function Header({
           href="/"
           aria-label="WallHaze"
           onClick={() => setMobileOpen(false)}
-          className="-ml-2 flex items-center rounded-lg px-2 py-2 text-lg font-semibold tracking-tight outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-violet-400/70 md:text-xl"
+          className="-ml-2 flex items-center rounded-lg px-2 py-2 outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-violet-400/70"
         >
-          Wall
-          <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
-            Haze
-          </span>
+          {/* Official brand mark (2026-10-31 kit). Height-driven with the
+              intrinsic 550×142 ratio, so the header height never changes and
+              the logo is never stretched. */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- static SVG brand asset; next/image adds no value for a 1.3 KB vector */}
+          <img
+            src="/wallhaze-logo-dark.svg"
+            alt="WallHaze"
+            width={550}
+            height={142}
+            className="h-7 w-auto md:h-8"
+          />
         </Link>
 
         <nav
