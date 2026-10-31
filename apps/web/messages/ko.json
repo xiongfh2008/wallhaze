@@ -903,6 +903,102 @@
     "light-ribbons-wide": {
       "title": "빛의 리본",
       "alt": "어두운 배경 위 보라, 청록, 호박색 추상 빛의 리본"
+    },
+    "mecha-girl-neon-city": {
+      "title": "기계소녀: 네온 스카이라인",
+      "alt": "기계소녀: 네온 스카이라인 — Original anime mecha girl on a rooftop above a neon megacity skyline"
+    },
+    "tokyo-neon-rain-night": {
+      "title": "도쿄 레인: 네온 나이트",
+      "alt": "도쿄 레인: 네온 나이트 — Rainy futuristic street reflecting blue and purple neon"
+    },
+    "starship-ring-planet": {
+      "title": "링 행성 항해",
+      "alt": "링 행성 항해 — Starship crossing a giant ringed planet in deep space"
+    },
+    "gothic-castle-moonlight": {
+      "title": "달빛 성채",
+      "alt": "달빛 성채 — Gothic castle on a cliff under a full moon with drifting fog"
+    },
+    "sakura-tram-station": {
+      "title": "종착역의 벚꽃",
+      "alt": "종착역의 벚꽃 — Anime tram station at dusk with drifting cherry blossoms"
+    },
+    "highway-sunset-classic-car": {
+      "title": "골든아워 질주",
+      "alt": "골든아워 질주 — Classic car driving into a huge desert sunset on an open highway"
+    },
+    "dreamcore-floating-room": {
+      "title": "구름 위의 방",
+      "alt": "구름 위의 방 — A furnished room floating on an island above an endless cloud sea"
+    },
+    "synthwave-car-sunset": {
+      "title": "그리드 노을",
+      "alt": "그리드 노을 — Retro sports car on a neon grid road toward a striped sunset"
+    },
+    "dragon-sky-citadel": {
+      "title": "잉걸룡의 비상",
+      "alt": "잉걸룡의 비상 — Ember-winged dragon circling a floating citadel above storm clouds"
+    },
+    "pixel-rainy-city": {
+      "title": "8비트 폭우",
+      "alt": "8비트 폭우 — Pixel-art rainy neon intersection with reflective pavement"
+    },
+    "abandoned-manor-dread": {
+      "title": "침묵의 저택",
+      "alt": "침묵의 저택 — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+    },
+    "hypercar-scifi-city": {
+      "title": "빛의 궤적",
+      "alt": "빛의 궤적 — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+    },
+    "mystic-girl-night-sky": {
+      "title": "별을 바라보며",
+      "alt": "별을 바라보며 — Anime girl gazing up at a towering starry night sky with a faint aurora"
+    },
+    "black-hole-voyage": {
+      "title": "사건의 지평선",
+      "alt": "사건의 지평선 — A tiny vessel beside a black hole's glowing accretion disk"
+    },
+    "neon-motorcycle-night": {
+      "title": "젖은 코너",
+      "alt": "젖은 코너 — Neon-accented motorcycle leaning through a wet downtown corner"
+    },
+    "skydeck-future-city": {
+      "title": "블루아워 전망대",
+      "alt": "블루아워 전망대 — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+    },
+    "samurai-shrine-rain": {
+      "title": "비 속의 도리이",
+      "alt": "비 속의 도리이 — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+    },
+    "starlit-glowing-ocean": {
+      "title": "두 하늘 사이",
+      "alt": "두 하늘 사이 — A small boat between a starlit sky and a bioluminescent ocean"
+    },
+    "clay-toon-cozy-world": {
+      "title": "떠다니는 마을",
+      "alt": "떠다니는 마을 — Cute 3D clay houses with glowing windows on floating grass islands"
+    },
+    "amoled-violet-halo": {
+      "title": "순수한 후광",
+      "alt": "순수한 후광 — Single glowing violet halo ring on a pure black AMOLED background"
+    },
+    "deep-sea-glow-cosmos": {
+      "title": "심해의 별자리",
+      "alt": "심해의 별자리 — Bioluminescent deep-sea creatures drifting like a galaxy"
+    },
+    "anime-bedroom-cityscape": {
+      "title": "로파이 나이트",
+      "alt": "로파이 나이트 — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+    },
+    "retro-motel-alien-sky": {
+      "title": "우주 모텔",
+      "alt": "우주 모텔 — Retro desert motel with a neon sign under an alien sky with two moons"
+    },
+    "ukiyo-anime-fusion": {
+      "title": "현대의 큰 파도",
+      "alt": "현대의 큰 파도 — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
     }
   },
   "auth": {

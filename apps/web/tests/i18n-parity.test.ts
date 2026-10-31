@@ -109,7 +109,7 @@ describe("sitemap", () => {
       expect(paths).toContain(route);
     }
     const wallpapers = paths.filter((p) => p.startsWith("/wallpapers/"));
-    expect(wallpapers).toHaveLength(18);
+    expect(wallpapers).toHaveLength(42); // 18 legacy cleared + 24 new originals
     const communityWorks = paths.filter((p) => p.startsWith("/community/"));
     // Sitemap lists real submissions only — never demo seed pages.
     expect(communityWorks).toHaveLength(0);

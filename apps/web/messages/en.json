@@ -903,6 +903,102 @@
     "light-ribbons-wide": {
       "title": "Light Ribbons",
       "alt": "Abstract ribbons of violet, cyan and amber light on a dark field"
+    },
+    "mecha-girl-neon-city": {
+      "title": "Mecha Girl: Neon Skyline",
+      "alt": "Original anime mecha girl on a rooftop above a neon megacity skyline"
+    },
+    "tokyo-neon-rain-night": {
+      "title": "Tokyo Rain: Neon Night",
+      "alt": "Rainy futuristic street reflecting blue and purple neon"
+    },
+    "starship-ring-planet": {
+      "title": "Voyage Past the Ring",
+      "alt": "Starship crossing a giant ringed planet in deep space"
+    },
+    "gothic-castle-moonlight": {
+      "title": "Moonlit Citadel",
+      "alt": "Gothic castle on a cliff under a full moon with drifting fog"
+    },
+    "sakura-tram-station": {
+      "title": "Petals at the Last Stop",
+      "alt": "Anime tram station at dusk with drifting cherry blossoms"
+    },
+    "highway-sunset-classic-car": {
+      "title": "Golden Hour Run",
+      "alt": "Classic car driving into a huge desert sunset on an open highway"
+    },
+    "dreamcore-floating-room": {
+      "title": "Room Above the Clouds",
+      "alt": "A furnished room floating on an island above an endless cloud sea"
+    },
+    "synthwave-car-sunset": {
+      "title": "Grid Sunset",
+      "alt": "Retro sports car on a neon grid road toward a striped sunset"
+    },
+    "dragon-sky-citadel": {
+      "title": "Ember Dragon's Flight",
+      "alt": "Ember-winged dragon circling a floating citadel above storm clouds"
+    },
+    "pixel-rainy-city": {
+      "title": "8-Bit Downpour",
+      "alt": "Pixel-art rainy neon intersection with reflective pavement"
+    },
+    "abandoned-manor-dread": {
+      "title": "The Silent Manor",
+      "alt": "Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+    },
+    "hypercar-scifi-city": {
+      "title": "Lightline Runner",
+      "alt": "Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+    },
+    "mystic-girl-night-sky": {
+      "title": "Stargazer",
+      "alt": "Anime girl gazing up at a towering starry night sky with a faint aurora"
+    },
+    "black-hole-voyage": {
+      "title": "Event Horizon",
+      "alt": "A tiny vessel beside a black hole's glowing accretion disk"
+    },
+    "neon-motorcycle-night": {
+      "title": "Wet Apex",
+      "alt": "Neon-accented motorcycle leaning through a wet downtown corner"
+    },
+    "skydeck-future-city": {
+      "title": "Blue Hour Deck",
+      "alt": "Visitor on a glass skydeck above a futuristic megacity at blue hour"
+    },
+    "samurai-shrine-rain": {
+      "title": "Torii in the Rain",
+      "alt": "Samurai before a red torii gate path in heavy rain with glowing lanterns"
+    },
+    "starlit-glowing-ocean": {
+      "title": "Between Two Skies",
+      "alt": "A small boat between a starlit sky and a bioluminescent ocean"
+    },
+    "clay-toon-cozy-world": {
+      "title": "Little Floating Village",
+      "alt": "Cute 3D clay houses with glowing windows on floating grass islands"
+    },
+    "amoled-violet-halo": {
+      "title": "Pure Glow",
+      "alt": "Single glowing violet halo ring on a pure black AMOLED background"
+    },
+    "deep-sea-glow-cosmos": {
+      "title": "Abyssal Constellation",
+      "alt": "Bioluminescent deep-sea creatures drifting like a galaxy"
+    },
+    "anime-bedroom-cityscape": {
+      "title": "Lo-Fi Night In",
+      "alt": "Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+    },
+    "retro-motel-alien-sky": {
+      "title": "Vacancy Beyond",
+      "alt": "Retro desert motel with a neon sign under an alien sky with two moons"
+    },
+    "ukiyo-anime-fusion": {
+      "title": "The Great Modern Wave",
+      "alt": "Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
     }
   },
   "auth": {

@@ -350,9 +350,49 @@
     "url": "https://wallhaze.com/videos/live-demos/sunset-station.mp4"
   },
   {
+    "id": "wallpaper.abandoned-manor-dread",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/abandoned-manor-dread.jpg"
+  },
+  {
+    "id": "wallpaper.amoled-violet-halo",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/amoled-violet-halo.jpg"
+  },
+  {
+    "id": "wallpaper.anime-bedroom-cityscape",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/anime-bedroom-cityscape.jpg"
+  },
+  {
     "id": "wallpaper.aurora-veil",
     "type": "image",
     "url": "https://wallhaze.com/images/wallpapers/aurora-veil.jpg"
+  },
+  {
+    "id": "wallpaper.black-hole-voyage",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/black-hole-voyage.jpg"
+  },
+  {
+    "id": "wallpaper.clay-toon-cozy-world",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/clay-toon-cozy-world.jpg"
+  },
+  {
+    "id": "wallpaper.deep-sea-glow-cosmos",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/deep-sea-glow-cosmos.jpg"
+  },
+  {
+    "id": "wallpaper.dragon-sky-citadel",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/dragon-sky-citadel.jpg"
+  },
+  {
+    "id": "wallpaper.dreamcore-floating-room",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/dreamcore-floating-room.jpg"
   },
   {
     "id": "wallpaper.forest-rays",
@@ -360,9 +400,24 @@
     "url": "https://wallhaze.com/images/wallpapers/forest-rays.jpg"
   },
   {
+    "id": "wallpaper.gothic-castle-moonlight",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/gothic-castle-moonlight.jpg"
+  },
+  {
+    "id": "wallpaper.highway-sunset-classic-car",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/highway-sunset-classic-car.jpg"
+  },
+  {
     "id": "wallpaper.hong-kong-rain",
     "type": "image",
     "url": "https://wallhaze.com/images/wallpapers/hong-kong-rain.jpg"
+  },
+  {
+    "id": "wallpaper.hypercar-scifi-city",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/hypercar-scifi-city.jpg"
   },
   {
     "id": "wallpaper.jellyfish-deep",
@@ -375,9 +430,29 @@
     "url": "https://wallhaze.com/images/wallpapers/light-ribbons-wide.jpg"
   },
   {
+    "id": "wallpaper.mecha-girl-neon-city",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/mecha-girl-neon-city.jpg"
+  },
+  {
+    "id": "wallpaper.mystic-girl-night-sky",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/mystic-girl-night-sky.jpg"
+  },
+  {
     "id": "wallpaper.nebula-drift",
     "type": "image",
     "url": "https://wallhaze.com/images/wallpapers/nebula-drift.jpg"
+  },
+  {
+    "id": "wallpaper.neon-motorcycle-night",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/neon-motorcycle-night.jpg"
+  },
+  {
+    "id": "wallpaper.pixel-rainy-city",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/pixel-rainy-city.jpg"
   },
   {
     "id": "wallpaper.poppy-field",
@@ -390,9 +465,39 @@
     "url": "https://wallhaze.com/images/wallpapers/quiet-bridge.jpg"
   },
   {
+    "id": "wallpaper.retro-motel-alien-sky",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/retro-motel-alien-sky.jpg"
+  },
+  {
     "id": "wallpaper.sakura-dream",
     "type": "image",
     "url": "https://wallhaze.com/images/wallpapers/sakura-dream.jpg"
+  },
+  {
+    "id": "wallpaper.sakura-tram-station",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/sakura-tram-station.jpg"
+  },
+  {
+    "id": "wallpaper.samurai-shrine-rain",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/samurai-shrine-rain.jpg"
+  },
+  {
+    "id": "wallpaper.skydeck-future-city",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/skydeck-future-city.jpg"
+  },
+  {
+    "id": "wallpaper.starlit-glowing-ocean",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/starlit-glowing-ocean.jpg"
+  },
+  {
+    "id": "wallpaper.starship-ring-planet",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/starship-ring-planet.jpg"
   },
   {
     "id": "wallpaper.stillwater-night",
@@ -403,5 +508,20 @@
     "id": "wallpaper.sunset-platform",
     "type": "image",
     "url": "https://wallhaze.com/images/wallpapers/sunset-platform.jpg"
+  },
+  {
+    "id": "wallpaper.synthwave-car-sunset",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/synthwave-car-sunset.jpg"
+  },
+  {
+    "id": "wallpaper.tokyo-neon-rain-night",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/tokyo-neon-rain-night.jpg"
+  },
+  {
+    "id": "wallpaper.ukiyo-anime-fusion",
+    "type": "image",
+    "url": "https://wallhaze.com/images/wallpapers/ukiyo-anime-fusion.jpg"
   }
 ]

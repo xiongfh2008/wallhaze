@@ -31,9 +31,9 @@ const groups: Record<string, Array<string | null>> = {
 };
 
 describe("homepage content de-duplication", () => {
-  it("keeps the featured grid at eight cleared editorial picks", () => {
-    expect(FEATURED_WALLPAPERS).toHaveLength(8);
-    expect(new Set(FEATURED_WALLPAPERS.map((w) => w.image)).size).toBe(8);
+  it("keeps the featured grid at twelve cleared editorial picks", () => {
+    expect(FEATURED_WALLPAPERS).toHaveLength(12);
+    expect(new Set(FEATURED_WALLPAPERS.map((w) => w.image)).size).toBe(12);
     expect(FEATURED_WALLPAPERS.every((w) => w.canPubliclyDisplay)).toBe(true);
     expect(
       FEATURED_WALLPAPERS.every((w) => w.license !== "review-pending")
@@ -72,7 +72,7 @@ describe("homepage content de-duplication", () => {
   });
 
   it("keeps legacy artwork review-pending and documents every licensed addition", () => {
-    expect(PRESET_WALLPAPERS).toHaveLength(57);
+    expect(PRESET_WALLPAPERS).toHaveLength(81); // 57 legacy + 24 owner-directed 2026-10-31 batch
     const reviewPending = PRESET_WALLPAPERS.filter(
       (w) => w.license === "review-pending"
     );
@@ -82,7 +82,7 @@ describe("homepage content de-duplication", () => {
     );
     expect(reviewPending).toHaveLength(39);
     expect(verified).toHaveLength(16);
-    expect(selfAuthored).toHaveLength(2);
+    expect(selfAuthored).toHaveLength(26); // 2 procedural + 24 AI-generated originals
     expect(verified.every((w) => Boolean(w.source))).toBe(true);
     expect(reviewPending.every((w) => w.image === null)).toBe(true);
     expect(reviewPending.every((w) => w.canPubliclyDisplay === false)).toBe(true);

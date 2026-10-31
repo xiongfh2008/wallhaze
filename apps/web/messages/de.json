@@ -903,6 +903,102 @@
     "light-ribbons-wide": {
       "title": "Lichtbänder",
       "alt": "Abstrakte violette, cyanfarbene und bernsteinfarbene Lichtbänder auf dunklem Grund"
+    },
+    "mecha-girl-neon-city": {
+      "title": "Mecha-Mädchen: Neonhorizont",
+      "alt": "Mecha-Mädchen: Neonhorizont — Original anime mecha girl on a rooftop above a neon megacity skyline"
+    },
+    "tokyo-neon-rain-night": {
+      "title": "Tokio Neonregen",
+      "alt": "Tokio Neonregen — Rainy futuristic street reflecting blue and purple neon"
+    },
+    "starship-ring-planet": {
+      "title": "Reise zum Ringplaneten",
+      "alt": "Reise zum Ringplaneten — Starship crossing a giant ringed planet in deep space"
+    },
+    "gothic-castle-moonlight": {
+      "title": "Mondlicht-Zitadelle",
+      "alt": "Mondlicht-Zitadelle — Gothic castle on a cliff under a full moon with drifting fog"
+    },
+    "sakura-tram-station": {
+      "title": "Blüten an der Endstation",
+      "alt": "Blüten an der Endstation — Anime tram station at dusk with drifting cherry blossoms"
+    },
+    "highway-sunset-classic-car": {
+      "title": "Fahrt in die goldene Stunde",
+      "alt": "Fahrt in die goldene Stunde — Classic car driving into a huge desert sunset on an open highway"
+    },
+    "dreamcore-floating-room": {
+      "title": "Zimmer über den Wolken",
+      "alt": "Zimmer über den Wolken — A furnished room floating on an island above an endless cloud sea"
+    },
+    "synthwave-car-sunset": {
+      "title": "Grid-Sonnenuntergang",
+      "alt": "Grid-Sonnenuntergang — Retro sports car on a neon grid road toward a striped sunset"
+    },
+    "dragon-sky-citadel": {
+      "title": "Flug des Glutdrachen",
+      "alt": "Flug des Glutdrachen — Ember-winged dragon circling a floating citadel above storm clouds"
+    },
+    "pixel-rainy-city": {
+      "title": "8-Bit-Platzregen",
+      "alt": "8-Bit-Platzregen — Pixel-art rainy neon intersection with reflective pavement"
+    },
+    "abandoned-manor-dread": {
+      "title": "Das stille Anwesen",
+      "alt": "Das stille Anwesen — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+    },
+    "hypercar-scifi-city": {
+      "title": "Lichtlinien-Runner",
+      "alt": "Lichtlinien-Runner — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+    },
+    "mystic-girl-night-sky": {
+      "title": "Blick zu den Sternen",
+      "alt": "Blick zu den Sternen — Anime girl gazing up at a towering starry night sky with a faint aurora"
+    },
+    "black-hole-voyage": {
+      "title": "Der Ereignishorizont",
+      "alt": "Der Ereignishorizont — A tiny vessel beside a black hole's glowing accretion disk"
+    },
+    "neon-motorcycle-night": {
+      "title": "Nasse Kurve",
+      "alt": "Nasse Kurve — Neon-accented motorcycle leaning through a wet downtown corner"
+    },
+    "skydeck-future-city": {
+      "title": "Plattform zur blauen Stunde",
+      "alt": "Plattform zur blauen Stunde — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+    },
+    "samurai-shrine-rain": {
+      "title": "Torii im Regen",
+      "alt": "Torii im Regen — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+    },
+    "starlit-glowing-ocean": {
+      "title": "Zwischen zwei Himmeln",
+      "alt": "Zwischen zwei Himmeln — A small boat between a starlit sky and a bioluminescent ocean"
+    },
+    "clay-toon-cozy-world": {
+      "title": "Schwebendes Dörfchen",
+      "alt": "Schwebendes Dörfchen — Cute 3D clay houses with glowing windows on floating grass islands"
+    },
+    "amoled-violet-halo": {
+      "title": "Reines Leuchten",
+      "alt": "Reines Leuchten — Single glowing violet halo ring on a pure black AMOLED background"
+    },
+    "deep-sea-glow-cosmos": {
+      "title": "Abgründige Konstellation",
+      "alt": "Abgründige Konstellation — Bioluminescent deep-sea creatures drifting like a galaxy"
+    },
+    "anime-bedroom-cityscape": {
+      "title": "Lo-Fi-Abend",
+      "alt": "Lo-Fi-Abend — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+    },
+    "retro-motel-alien-sky": {
+      "title": "Motel unter Alienhimmel",
+      "alt": "Motel unter Alienhimmel — Retro desert motel with a neon sign under an alien sky with two moons"
+    },
+    "ukiyo-anime-fusion": {
+      "title": "Die moderne Große Welle",
+      "alt": "Die moderne Große Welle — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
     }
   },
   "auth": {

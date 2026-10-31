@@ -903,6 +903,102 @@
     "light-ribbons-wide": {
       "title": "光之缎带",
       "alt": "深色背景上紫、青、琥珀色抽象光带"
+    },
+    "mecha-girl-neon-city": {
+      "title": "机甲少女·霓虹天际",
+      "alt": "机甲少女·霓虹天际 — Original anime mecha girl on a rooftop above a neon megacity skyline"
+    },
+    "tokyo-neon-rain-night": {
+      "title": "东京雨夜·霓虹",
+      "alt": "东京雨夜·霓虹 — Rainy futuristic street reflecting blue and purple neon"
+    },
+    "starship-ring-planet": {
+      "title": "环行星之旅",
+      "alt": "环行星之旅 — Starship crossing a giant ringed planet in deep space"
+    },
+    "gothic-castle-moonlight": {
+      "title": "月下哥特城",
+      "alt": "月下哥特城 — Gothic castle on a cliff under a full moon with drifting fog"
+    },
+    "sakura-tram-station": {
+      "title": "末班车站的樱瓣",
+      "alt": "末班车站的樱瓣 — Anime tram station at dusk with drifting cherry blossoms"
+    },
+    "highway-sunset-classic-car": {
+      "title": "黄金时刻公路",
+      "alt": "黄金时刻公路 — Classic car driving into a huge desert sunset on an open highway"
+    },
+    "dreamcore-floating-room": {
+      "title": "云上房间",
+      "alt": "云上房间 — A furnished room floating on an island above an endless cloud sea"
+    },
+    "synthwave-car-sunset": {
+      "title": "网格落日",
+      "alt": "网格落日 — Retro sports car on a neon grid road toward a striped sunset"
+    },
+    "dragon-sky-citadel": {
+      "title": "烬龙飞翔",
+      "alt": "烬龙飞翔 — Ember-winged dragon circling a floating citadel above storm clouds"
+    },
+    "pixel-rainy-city": {
+      "title": "像素暴雨",
+      "alt": "像素暴雨 — Pixel-art rainy neon intersection with reflective pavement"
+    },
+    "abandoned-manor-dread": {
+      "title": "沉默洋馆",
+      "alt": "沉默洋馆 — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+    },
+    "hypercar-scifi-city": {
+      "title": "光轨疾驰",
+      "alt": "光轨疾驰 — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+    },
+    "mystic-girl-night-sky": {
+      "title": "仰望星海",
+      "alt": "仰望星海 — Anime girl gazing up at a towering starry night sky with a faint aurora"
+    },
+    "black-hole-voyage": {
+      "title": "视界之旅",
+      "alt": "视界之旅 — A tiny vessel beside a black hole's glowing accretion disk"
+    },
+    "neon-motorcycle-night": {
+      "title": "湿地压弯",
+      "alt": "湿地压弯 — Neon-accented motorcycle leaning through a wet downtown corner"
+    },
+    "skydeck-future-city": {
+      "title": "蓝调时刻观景台",
+      "alt": "蓝调时刻观景台 — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+    },
+    "samurai-shrine-rain": {
+      "title": "雨中鸟居",
+      "alt": "雨中鸟居 — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+    },
+    "starlit-glowing-ocean": {
+      "title": "两片星空之间",
+      "alt": "两片星空之间 — A small boat between a starlit sky and a bioluminescent ocean"
+    },
+    "clay-toon-cozy-world": {
+      "title": "漂浮小村",
+      "alt": "漂浮小村 — Cute 3D clay houses with glowing windows on floating grass islands"
+    },
+    "amoled-violet-halo": {
+      "title": "纯粹光晕",
+      "alt": "纯粹光晕 — Single glowing violet halo ring on a pure black AMOLED background"
+    },
+    "deep-sea-glow-cosmos": {
+      "title": "深渊星座",
+      "alt": "深渊星座 — Bioluminescent deep-sea creatures drifting like a galaxy"
+    },
+    "anime-bedroom-cityscape": {
+      "title": "夜晚房间·城市夜景",
+      "alt": "夜晚房间·城市夜景 — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+    },
+    "retro-motel-alien-sky": {
+      "title": "星空旅馆",
+      "alt": "星空旅馆 — Retro desert motel with a neon sign under an alien sky with two moons"
+    },
+    "ukiyo-anime-fusion": {
+      "title": "现代巨浪",
+      "alt": "现代巨浪 — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
     }
   },
   "auth": {
