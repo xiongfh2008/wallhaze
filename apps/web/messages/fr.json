@@ -2,8 +2,8 @@
   "meta": {
     "homeTitle": "WallHaze — Des fonds d’écran IA pour chaque écran",
     "homeDescription": "Créez de magnifiques fonds d’écran IA conçus pour votre appareil. Explorez des styles uniques — anime, cyberpunk, fantastique et plus encore — en haute qualité pour téléphone, tablette et ordinateur.",
-    "studioTitle": "Studio — Créez des fonds d’écran IA",
-    "studioDescription": "Le studio WallHaze : décrivez votre fond d’écran, choisissez un style, sélectionnez votre appareil et son format, ajoutez une image de référence et générez des fonds d’écran IA de haute qualité pour téléphone, tablette et ordinateur.",
+    "studioTitle": "Studio — Création de fonds par IA (bientôt disponible)",
+    "studioDescription": "La création de fonds par IA de WallHaze arrive bientôt. En attendant, parcourez et téléchargez des fonds gratuits pour mobile, tablette et ordinateur.",
     "wallpapersTitle": "Galerie de fonds — Fonds gratuits",
     "wallpapersDescription": "Explorez gratuitement des fonds d’écran pour téléphone, tablette et ordinateur. Les œuvres dont la licence est vérifiée sont téléchargeables ; celles encore en cours d’examen sont en lecture seule. Chaque fond a sa page de détail.",
     "loginTitle": "Connexion — WallHaze",
@@ -65,10 +65,10 @@
     "eyebrow": "Fonds d écran et AI Studio",
     "titleLine1": "Votre écran.",
     "titleLine2": "Votre univers.",
-    "subtitle": "Parcourez des fonds d’écran gratuits pour chaque écran — ou créez le vôtre avec l’IA dans le Studio.",
+    "subtitle": "Explorez des fonds gratuits pour chaque écran — la création de fonds par IA arrive bientôt.",
     "ctaCreate": "Créer avec l’IA",
     "ctaExplore": "Explorer les fonds d’écran",
-    "footnote": "Galerie gratuite · téléchargements des œuvres vérifiées · génération IA dans Studio"
+    "footnote": "Navigation gratuite dans la galerie · téléchargements d’œuvres autorisées · création par IA bientôt disponible"
   },
   "featured": {
     "eyebrow": "À la une",
@@ -83,8 +83,8 @@
     "title": "Trois étapes vers un nouveau fond d’écran",
     "step1Title": "Parcourez la galerie",
     "step1Body": "Explorez la collection gratuite ; les œuvres dont la licence est vérifiée sont téléchargeables sans compte.",
-    "step2Title": "Créez le vôtre dans le studio",
-    "step2Body": "Décrivez votre idée, choisissez un style et un appareil, et laissez le studio IA le réaliser pour vous.",
+    "step2Title": "Créez votre fond dans le Studio (bientôt)",
+    "step2Body": "La création par IA est en cours de finalisation et n'est pas disponible actuellement. Surveillez le Studio pour l'annonce de lancement.",
     "step3Title": "Enregistrez et appliquez",
     "step3Body": "Gardez vos favoris au même endroit et profitez d’un écran qui ne ressemble qu’à vous."
   },
@@ -202,7 +202,7 @@
     "liveDemoMore": "Autres études de mouvement",
     "liveDemoAll": "Toutes les études",
     "reviewOnly": "Examen des droits en cours",
-    "liveDemoAiNote": "Fonds animés originaux de WallHaze générés par IA · silencieux · en boucle · gratuits",
+    "liveDemoAiNote": "Démos de la plateforme WallHaze — fonds animés originaux générés par IA, pas des résultats générés par les utilisateurs · silencieux · en boucle · gratuits",
     "liveDemoDesktopNote": "Les démos actuelles sont au format bureau (16:9) ; elles se lisent sur tout appareil.",
     "liveDemoCta": "Créez le vôtre dans le Studio"
   },
@@ -451,8 +451,12 @@
     "backHome": "← Retour à l’accueil",
     "browseGallery": "Parcourir la galerie",
     "viewPricing": "Voir les tarifs",
-    "aiGenerationTitle": "Création de fonds par IA",
-    "aiGenerationBody": "Choisissez le type de fond, le style, votre appareil et quelques paramètres — l’IA de WallHaze fait le reste. Chaque demande passe par un filtrage de contenu automatisé avant génération, et les travaux échoués ne sont jamais facturés."
+    "aiGenerationTitle": "Création par IA — bientôt disponible",
+    "aiGenerationBody": "Nous préparons nos fonctionnalités de création de fonds par IA. En attendant, vous pouvez parcourir et télécharger les fonds disponibles. La création par IA sera disponible après son lancement officiel.",
+    "comingTitle": "Création par IA — Bientôt disponible",
+    "comingBody": "Nous préparons notre service de création de fonds par IA. En attendant, vous pouvez explorer et télécharger les fonds disponibles. La création par IA sera disponible après son lancement officiel.",
+    "comingCta": "La création n’est pas disponible",
+    "comingEyebrow": "Création par IA"
   },
   "popular": {
     "eyebrow": "Styles",
@@ -463,15 +467,15 @@
   },
   "studioIntro": {
     "eyebrow": "AI Studio",
-    "title": "Créez. Générez. Appliquez.",
-    "body": "Le Studio est l’atelier créatif de WallHaze : décrivez ce que vous voulez voir, choisissez un style signature, réglez le ratio et la résolution exacts pour votre écran — et gardez le résultat dans votre bibliothèque personnelle.",
+    "title": "Décrivez-le. Générez-le. — Bientôt",
+    "body": "Le Studio sera l'espace créatif de WallHaze : décrivez ce que vous voulez voir, choisissez un style signature, réglez le ratio et la résolution exacts pour votre appareil — et gardez le résultat dans votre bibliothèque personnelle. La création par IA n'est pas disponible actuellement ; elle ouvrira après son lancement officiel.",
     "feature1Title": "Styles signature",
     "feature1Body": "Partez de préréglages peaufinés à la main — du cyberpunk néon à l’anime cozy — ou écrivez un prompt entièrement personnel.",
     "feature2Title": "Un ajustement exact pour votre écran",
     "feature2Body": "Téléphone, tablette ou ordinateur : choisissez un préréglage d’appareil, un ratio et une résolution — avec une taille recommandée pour votre écran actuel.",
     "feature3Title": "Photo de référence",
     "feature3Body": "Ajoutez une photo du sujet pour guider la composition et la scène ; le Studio affiche le résultat avant l’enregistrement.",
-    "cta": "Ouvrir le Studio",
+    "cta": "Aperçu du Studio",
     "visualAlt": "Aperçu d’un échantillon de fond d’écran dans un cadre de téléphone"
   },
   "why": {
@@ -489,11 +493,11 @@
   "cta": {
     "title": "Prêt à transformer votre écran ?",
     "body": "Parcourez la galerie gratuite ou ouvrez le Studio — trouvez un fond qui vous ressemble.",
-    "button": "Commencer à créer",
+    "button": "Commencer à créer (bientôt)",
     "explore": "Parcourir les fonds"
   },
   "footer": {
-    "tagline": "Des fonds d’écran IA pensés pour votre appareil — créez, explorez et appropriez-vous chaque écran.",
+    "tagline": "Des fonds faits pour votre appareil — explorez la collection, la création par IA arrive bientôt.",
     "product": "Produit",
     "exploreGallery": "Explorer la galerie",
     "aiStudio": "Studio IA",
@@ -1383,7 +1387,7 @@
     "disclaimerTitle": "Note d'honnêteté",
     "disclaimerBody": "Cette page ne décrit que les capacités confirmées. Détails d'entreprise, taille d'équipe, nombre d'utilisateurs et partenaires ne sont pas mentionnés car rien n'a été confirmé.",
     "aiTitle": "Création de fonds par IA",
-    "aiBody": "Les outils de création de WallHaze transforment une idée de texte et un choix de style en images prêtes pour fond et de courts fonds animés. Chaque génération passe par un filtrage de contenu automatisé, et les médias générés dans le stockage cloud sont conservés 30 jours."
+    "aiBody": "La création de fonds par IA est une fonctionnalité planifiée et n’est pas disponible actuellement au public. Nous préparons des outils d’IA pour des fonds statiques personnalisés et de courts fonds animés. En attendant, vous pouvez parcourir et télécharger les fonds de notre collection."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1394,17 +1398,17 @@
     "q2Q": "Comment télécharger un fond d'écran ?",
     "q2A": "Utilisez le bouton Télécharger lorsqu’il apparaît sur une carte ou une page de détail. Les œuvres encore en examen de licence sont en lecture seule ; les œuvres vérifiées sont enregistrées directement ou s’ouvrent dans un nouvel onglet si le navigateur bloque le téléchargement.",
     "q3Q": "Qu'est-ce que l'AI Studio ?",
-    "q3A": "Le Studio permet de décrire un fond d'écran avec vos mots, de choisir un style, un appareil et un ratio, et d'ajouter éventuellement une image de référence. L'envoi nécessite un compte et des Credits ; si le site n'est pas connecté à ses services, le Studio indique précisément ce qui manque au lieu de simuler une génération.",
+    "q3A": "L’AI Studio est notre fonctionnalité de création planifiée : vous décrirez un fond avec vos propres mots, choisirez un style, un appareil et un rapport d’aspect, et ajouterez éventuellement une image de référence. Elle n’est pas disponible actuellement au public — voir la question suivante.",
     "q4Q": "Que sont les crédits ?",
-    "q4A": "Les Credits sont le solde prépayé de WallHaze pour la génération IA. Les prix et soldes proviennent uniquement du backend WallHaze — rien n'est simulé ni estimé dans le navigateur.",
+    "q4A": "Les Credits seront le solde prépayé planifié de WallHaze pour la création de fonds par IA. L’achat de Credits n’est pas encore disponible — les prix affichés sont planifiés et peuvent changer avant l’ouverture des achats.",
     "q5Q": "Pourquoi la génération n'est-elle pas encore ouverte ?",
-    "q5A": "La génération réelle coûte de l'argent par requête ; elle est donc conditionnée par la connexion, un prix serveur et un solde de Credits. Si l'un de ces éléments ne peut pas être vérifié, l'envoi reste bloqué plutôt que de simuler une génération.",
+    "q5A": "La création de fonds par IA est en cours de finalisation avec nos intégrations de paiement et de sécurité du contenu. Elle s’ouvrira au public une fois tout vérifié — surveillez cette page et le Studio.",
     "q6Q": "Puis-je utiliser les fonds d'écran commercialement ?",
     "q6A": "La galerie est gratuite à parcourir. Seules les œuvres dont l’examen de licence est terminé sont téléchargeables ; un téléchargement public n’accorde pas de licence commerciale. Chaque page de détail affiche l’état actuel.",
     "q7Q": "Quelle différence entre l'historique local et les créations cloud ?",
     "q7A": "Votre historique de génération est stocké uniquement dans ce navigateur (jusqu'à 20 entrées) — sans sauvegarde, sans synchronisation, et effacer les données du navigateur le supprime. Les créations cloud entre appareils sont prévues mais pas encore disponibles.",
     "q8Q": "Ai-je besoin d'un compte ?",
-    "q8A": "Pas pour la galerie. Un compte est requis pour l'AI Studio et le portefeuille de Credits ; la connexion et l'inscription ouvrent avec les services payants."
+    "q8A": "Pas pour la galerie — parcourir et télécharger les fonds autorisés ne nécessite pas de compte. Les comptes seront requis pour la création par IA et le portefeuille de Credits lorsque ces fonctionnalités seront officiellement lancées."
   },
   "help": {
     "eyebrow": "Aide",
@@ -1414,8 +1418,8 @@
     "startBody": "Commencez dans la Galerie : filtrez par catégorie ou style, cherchez par nom ou ambiance, puis ouvrez une œuvre pour voir les détails, la licence et la disponibilité du téléchargement.",
     "downloadTitle": "Télécharger des fonds d'écran",
     "downloadBody": "Appuyez sur Télécharger lorsque le bouton est disponible sur une carte ou une page de détail. Les œuvres en examen de licence n’affichent pas de bouton de téléchargement.",
-    "studioTitle": "Utiliser le Studio",
-    "studioBody": "Décrivez votre fond d'écran, choisissez un style, puis sélectionnez l'appareil, le ratio et la taille. Vous pouvez joindre une image de référence (PNG, JPEG ou WebP jusqu'à 5 Mo). L'étape finale de soumission est actuellement désactivée — voir la FAQ pour savoir pourquoi.",
+    "studioTitle": "AI Studio — Bientôt disponible",
+    "studioBody": "Nous préparons des fonctionnalités de création de fonds par IA, notamment des fonds statiques personnalisés et de courts fonds animés. Ces fonctionnalités de création ne sont pas disponibles actuellement au public. En attendant, vous pouvez parcourir et télécharger les fonds disponibles de notre collection.",
     "troubleshootTitle": "Dépannage",
     "t1Title": "Le téléchargement n'a pas démarré",
     "t1Body": "Vérifiez la connexion et réessayez. Certains navigateurs bloquent les téléchargements programmés et ouvrent l’image dans un nouvel onglet. Sans bouton de téléchargement, l’œuvre est encore en examen.",
@@ -1507,7 +1511,9 @@
     "contactTitle": "12. Coordonnées de contact",
     "contactBody": "Pour toute question de confidentialité, demande d’accès ou de suppression, signalement d’œuvres publiées, facturation et contenu, écrivez à hello@wallhaze.com — le canal de contact officiel de WallHaze.",
     "screeningTitle": "Examen du contenu",
-    "screeningBody": "Avant l’envoi d’une génération au modèle d’IA, le prompt est examiné par un service automatisé de sécurité du contenu. Les requêtes marquées pour examen sont retenues et revérifiées pendant une courte période ; sans verdict, la requête est refusée et les crédits réservés sont libérés. Les requêtes bloquées — ou impossibles à examiner — ne sont jamais générées, et les médias générés sont de nouveau examinés avant stockage. Les journaux d’examen sont conservés pour l’investigation des abus et contiennent l’identifiant du travail, la décision et, le cas échéant, une catégorie de violation — ni le texte du prompt ni vos identifiants. Le contenu publié dans la galerie est réexaminé automatiquement."
+    "screeningBody": "Fonctionnalité planifiée : lorsque la génération de fonds par IA sera lancée, les prompts seront examinés par un service automatisé de sécurité du contenu avant tout envoi à un modèle d’IA. Les demandes bloquées — ou impossibles à examiner — ne seront pas générées. Les journaux d’examen contiendront l’identifiant du travail, la décision et, le cas échéant, une catégorie de violation — ni le texte du prompt ni vos identifiants.",
+    "plannedTitle": "Génération de fonds par IA (planifiée)",
+    "plannedBody": "La génération de fonds par IA n’est pas disponible actuellement au public. Lorsque cette fonctionnalité sera disponible, les utilisateurs pourront soumettre des prompts de texte, des images de référence et des préférences de génération. Nous fournirons des informations sur les pratiques de traitement applicables et les fournisseurs de services tiers avant le lancement. Les descriptions ci-dessous couvrent le traitement que cette fonctionnalité impliquera une fois disponible."
   },
   "terms": {
     "eyebrow": "Juridique",
@@ -1517,7 +1523,7 @@
     "acceptanceTitle": "1. Acceptation des conditions",
     "acceptanceBody": "En accédant à WallHaze ou en l’utilisant — parcourir la galerie, télécharger des fonds d’écran, soumettre une œuvre, créer un compte ou générer des images — vous acceptez ces conditions. Si vous n’êtes pas d’accord, veuillez ne pas utiliser le service. Vous devez être en âge de détenir un compte selon les règles de votre région et du fournisseur de connexion que vous utilisez.",
     "serviceTitle": "2. Description des services",
-    "serviceBody": "WallHaze est une plateforme de fonds d’écran. Elle propose une galerie sélectionnée de fonds statiques et animés pour téléphone, tablette et ordinateur, une galerie communautaire des soumissions de créateurs publiées après revue humaine, et un AI Studio où les utilisateurs inscrits génèrent des fonds d’écran à l’aide de Credits. Des fonctionnalités peuvent être ajoutées, modifiées ou abandonnées au fil du temps ; les pages du site reflètent les services actuellement disponibles.",
+    "serviceBody": "WallHaze propose actuellement l’accès à des fonds numériques sélectionnés pour la navigation et le téléchargement : une galerie de fonds statiques, des démos de fonds animés et une galerie communautaire de soumissions de créateurs publiées après vérification humaine. La création de fonds par IA, y compris la génération d’images statiques et de fonds animés courts, est une fonctionnalité planifiée et n’est pas disponible actuellement au public. La disponibilité, le prix et les conditions applicables de ces fonctionnalités seront communiqués lors de leur lancement officiel. Des fonctionnalités peuvent être ajoutées, modifiées ou interrompues ; les pages du site reflètent les services actuellement disponibles.",
     "accountTitle": "3. Création et sécurité du compte",
     "accountBody": "Certaines parties de WallHaze nécessitent un compte. Vous êtes responsable de l’exactitude de votre e-mail de connexion, de la sécurité de votre mot de passe et de vos appareils, ainsi que de toute activité sur votre compte. Signalez-nous sans tarder toute utilisation non autorisée. Ne partagez ni ne vendez votre compte, et ne créez pas de comptes pour contourner des restrictions. Nous pouvons vous demander de vérifier la propriété du compte avant de traiter les demandes.",
     "submissionsTitle": "4. Contenu soumis par les utilisateurs",
@@ -1545,9 +1551,9 @@
       "téléverser des photos de référence de personnes réelles sans leur autorisation, ou du matériel de référence sans les droits et permissions nécessaires."
     ],
     "aiTitle": "8. Contenu généré par IA",
-    "aiBody": "Les générations sont produites par des services tiers de modèles IA à partir du prompt et des réglages que vous fournissez. Des prompts similaires peuvent produire des résultats similaires ; nous ne promettons pas qu’une génération soit unique ou sans ressemblance avec des œuvres existantes, et nous ne garantissons pas que la sortie de l’IA soit exempte de droits de tiers. Vous êtes responsable des prompts que vous saisissez et de l’utilisation des résultats conformément à ces conditions. Les images et vidéos générées sont livrées dans votre compte et conservées selon la durée décrite dans la Politique de confidentialité ; téléchargez ce que vous voulez garder. Les fonds d’écran générés sont actuellement destinés à un usage d’écran personnel ; des droits d’usage plus larges seront décrits ici le cas échéant.",
+    "aiBody": "La création de fonds par IA est une fonctionnalité planifiée et n’est pas disponible actuellement au public. Lors de son lancement officiel, les générations seront produites par des services de modèles d’IA tiers à partir du prompt et des réglages que vous fournirez. Des prompts similaires peuvent produire des résultats similaires ; nous ne promettons pas qu’une génération soit unique ou exempte de ressemblances avec des œuvres existantes, et nous ne déclarons pas que le résultat de l’IA est exempt de droits de tiers. Vous serez responsable des prompts saisis et de l’utilisation des résultats conformément à ces conditions. Les médias générés seront conservés selon la rétention décrite dans la Politique de confidentialité. Des droits d’usage plus étendus seront décrits ici le cas échéant.",
     "creditsTitle": "9. Credits et services payants",
-    "creditsBody": "Les Credits constituent le solde prépayé de WallHaze pour la génération IA. Une génération réserve et consomme des Credits selon le prix affiché avant que vous ne la confirmiez. Les Credits s’obtiennent en achetant des packs — le paiement est géré par un prestataire de paiement externe et n’est proposé que là où les services de paiement sont activés pour le déploiement. Les prix des packs sont affichés au moment de l’achat. Les Credits sont liés à votre compte et ne peuvent pas être transférés entre comptes. Si un paiement n’aboutit pas à l’ajout de Credits, contactez-nous avec votre commande pour que nous puissions la vérifier. Le traitement des remboursements est indiqué au moment de l’achat une fois les services de paiement ouverts ; aucune promesse de remboursement n’est faite ici.",
+    "creditsBody": "Les Credits seront le solde prépayé planifié de WallHaze pour la création de fonds par IA. L’achat de Credits n’est pas encore disponible — les prix affichés sur ce site sont planifiés et peuvent évoluer avant l’ouverture des achats. Lors du lancement officiel, une génération réservera et consommera des Credits selon le prix affiché avant confirmation, les Credits seront liés à votre compte et non transférables, et le traitement des remboursements sera indiqué au point d’achat. Ces dispositions s’appliqueront une fois l’achat de Credits ouvert.",
     "reviewTitle": "10. Examen et retrait du contenu",
     "reviewBody": "Le contenu de la galerie et de la communauté est examiné par des humains avant publication le cas échéant. Nous pouvons modifier la fiche de, restreindre ou retirer tout contenu qui viole ces conditions, porte atteinte aux droits d’autrui ou est autrement répréhensible, et ce sans préavis. Si vous pensez qu’une œuvre porte atteinte à vos droits, écrivez-nous avec l’œuvre, le lien, le problème et les justificatifs ; nous examinons chaque signalement.",
     "availabilityTitle": "11. Disponibilité du service",
@@ -1826,7 +1832,8 @@
         "q": "Les prix changent-ils ?",
         "a": "Les coûts de cette page reflètent la configuration actuelle côté serveur. Le Studio affiche toujours le coût réel d’un travail avant de le lancer."
       }
-    ]
+    ],
+    "pricingNote": "L’achat de Credits IA n’est pas encore disponible. Les prix affichés sont planifiés pour le lancement et peuvent être mis à jour avant l’ouverture des achats."
   },
   "liveStudio": {
     "switchAria": "Mode du studio",

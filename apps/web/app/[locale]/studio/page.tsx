@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import Footer from "@/components/Footer";
-import StudioExperience from "@/components/studio/StudioExperience";
 import Header from "@/components/Header";
-import StudioStylePreselect from "@/components/StudioStylePreselect";
 
 /**
  * The /studio workspace: a dedicated creation flow for AI wallpapers.
@@ -105,40 +102,51 @@ export default async function StudioPage({
           </div>
         </section>
 
-        {/* ?style=<id> deep links (style cards, related "create similar") —
-            wrapped in Suspense as required for useSearchParams under
-            cacheComponents. */}
-        <Suspense fallback={null}>
-          <StudioStylePreselect />
-        </Suspense>
-
-        <StudioExperience />
+        {/* Waffo remediation (2026-10-31): AI creation is NOT open to the
+            public. The interactive Studio (StudioStylePreselect +
+            StudioExperience) stays in the codebase but is not rendered —
+            restore both blocks below when creation officially launches. */}
 
         {/* Product decision (2026-10-31): the underlying model names/versions
             are NOT shown to users — the Studio stays simple (type, style,
             device, parameters). Review-tooling disclosures live in the
             Privacy Policy and the Acceptable Use Policy. A compact pricing
             link remains for cost transparency. */}
+        {/* Prominent coming-soon state: no generate affordances while the
+            feature is closed. The interactive form returns with the flag. */}
         <section
-          id="ai-generation"
-          aria-labelledby="ai-generation-title"
-          className="mx-auto mt-16 w-full max-w-[1320px] scroll-mt-24 px-6"
+          id="ai-coming-soon"
+          aria-labelledby="ai-coming-soon-title"
+          className="mx-auto mt-12 w-full max-w-[1320px] scroll-mt-24 px-6"
         >
-          <h2
-            id="ai-generation-title"
-            className="text-xl font-semibold tracking-tight md:text-2xl"
-          >
-            {t("aiGenerationTitle")}
-          </h2>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-400">
-            {t("aiGenerationBody")}
-          </p>
-          <Link
-            href="/pricing"
-            className="mt-4 inline-flex min-h-10 items-center rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-medium text-zinc-200 outline-none transition hover:border-white/30 hover:text-white"
-          >
-            {t("viewPricing")}
-          </Link>
+          <div className="rounded-3xl border border-violet-400/25 bg-violet-500/[0.06] p-8 text-center md:p-14">
+            <p className="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-amber-200">
+              {t("comingEyebrow")}
+            </p>
+            <h2
+              id="ai-coming-soon-title"
+              className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl"
+            >
+              {t("comingTitle")}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-300">
+              {t("comingBody")}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <span
+                aria-disabled="true"
+                className="inline-flex min-h-11 cursor-not-allowed items-center rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-medium text-zinc-500"
+              >
+                {t("comingCta")}
+              </span>
+              <Link
+                href="/wallpapers"
+                className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 text-sm font-medium text-white shadow-lg shadow-violet-900/40 transition hover:opacity-90"
+              >
+                {t("browseGallery")}
+              </Link>
+            </div>
+          </div>
         </section>
       </main>
       <Footer />

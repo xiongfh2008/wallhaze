@@ -24,6 +24,7 @@ const PRIVACY_SECTIONS = [
   { id: "use", hasList: true },
   { id: "thirdParty", hasList: true },
   { id: "screening", hasList: false },
+  { id: "planned", hasList: false },
   { id: "retention", hasList: true },
   { id: "security", hasList: false },
   { id: "rights", hasList: false },

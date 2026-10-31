@@ -119,6 +119,9 @@ export default async function PricingPage({
                 : null}
             </div>
             <p className="mt-4 text-sm text-zinc-500">{t("packagesNote")}</p>
+            <p className="mt-2 rounded-xl border border-amber-400/25 bg-amber-400/[0.06] px-4 py-3 text-sm leading-relaxed text-amber-200">
+              {t("pricingNote")}
+            </p>
           </section>
 
           {/* Per-generation costs — mirrors pricing.ts / video-pricing.ts. */}

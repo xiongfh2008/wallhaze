@@ -2,8 +2,8 @@
   "meta": {
     "homeTitle": "WallHaze — AI Wallpapers for Every Screen",
     "homeDescription": "Create stunning AI wallpapers made for your device. Explore unique styles — anime, cyberpunk, fantasy and more — in high quality for phone, tablet and desktop.",
-    "studioTitle": "Studio — Create AI Wallpapers",
-    "studioDescription": "The WallHaze studio: describe your wallpaper, pick a style, choose your device and aspect ratio, add a reference image and generate high-quality AI wallpapers for phone, tablet and desktop.",
+    "studioTitle": "Studio — AI Wallpaper Creation (Coming Soon)",
+    "studioDescription": "WallHaze's AI wallpaper creation is coming soon. In the meantime, browse and download free wallpapers for phone, tablet and desktop.",
     "wallpapersTitle": "Wallpaper Gallery — Free Wallpapers",
     "wallpapersDescription": "Browse free wallpapers for phone, tablet and desktop. Artwork with cleared licensing is downloadable; items still under review are view-only. Every wallpaper has its own detail page.",
     "loginTitle": "Sign in — WallHaze",
@@ -65,10 +65,10 @@
     "eyebrow": "Wallpapers & AI Studio",
     "titleLine1": "Your Screen.",
     "titleLine2": "Your World.",
-    "subtitle": "Explore free wallpapers for every screen — or create a custom one with AI in the Studio.",
+    "subtitle": "Explore free wallpapers for every screen — AI-powered wallpaper creation is coming soon.",
     "ctaCreate": "Create with AI",
     "ctaExplore": "Explore Wallpapers",
-    "footnote": "Free gallery browsing · downloads for cleared artwork · AI generation in Studio"
+    "footnote": "Free gallery browsing · downloads for cleared artwork · AI creation coming soon"
   },
   "featured": {
     "eyebrow": "Featured",
@@ -83,8 +83,8 @@
     "title": "Three steps to a new wallpaper",
     "step1Title": "Browse the gallery",
     "step1Body": "Explore the free collection; artwork whose licensing is cleared can be downloaded without an account.",
-    "step2Title": "Create your own in Studio",
-    "step2Body": "Describe your idea, pick a style and device, and let the AI studio craft it for you.",
+    "step2Title": "Create your own in Studio (coming soon)",
+    "step2Body": "AI-powered creation is being finalized and is not currently available. Watch the Studio for the launch announcement.",
     "step3Title": "Save and set",
     "step3Body": "Keep your favorites in one place and enjoy a screen that feels unmistakably yours."
   },
@@ -202,7 +202,7 @@
     "liveDemoMore": "More motion studies",
     "liveDemoAll": "All motion studies",
     "reviewOnly": "Rights review in progress",
-    "liveDemoAiNote": "Original AI-generated live wallpapers by WallHaze · silent · looping · free to watch",
+    "liveDemoAiNote": "WallHaze platform demos — original AI-generated live wallpapers, not user-generated results · silent · looping · free to watch",
     "liveDemoDesktopNote": "The current demos are desktop-format (16:9); they play on any device.",
     "liveDemoCta": "Create yours in the Studio"
   },
@@ -451,8 +451,12 @@
     "backHome": "← Back to Home",
     "browseGallery": "Browse the gallery",
     "viewPricing": "View pricing",
-    "aiGenerationTitle": "AI-powered wallpaper creation",
-    "aiGenerationBody": "Pick a wallpaper type, a style, your device and a few parameters — WallHaze's AI does the rest. Every request passes automated content screening before generation, and failed jobs never charge Credits."
+    "aiGenerationTitle": "AI creation — coming soon",
+    "aiGenerationBody": "We are preparing our AI wallpaper creation features. In the meantime, you can explore and download available wallpapers. AI creation will be available after its official launch.",
+    "comingTitle": "AI Creation — Coming Soon",
+    "comingBody": "We are preparing our AI wallpaper creation features. In the meantime, you can explore and download available wallpapers. AI creation will be available after its official launch.",
+    "comingCta": "Creation currently unavailable",
+    "comingEyebrow": "AI Creation"
   },
   "popular": {
     "eyebrow": "Styles",
@@ -463,15 +467,15 @@
   },
   "studioIntro": {
     "eyebrow": "AI Studio",
-    "title": "Design it. Generate it. Set it.",
-    "body": "The Studio is WallHaze’s creative workspace: describe what you want to see, pick a signature style, dial in the exact ratio and resolution for your device — and keep the result in your personal library.",
+    "title": "Design it. Generate it. — Coming Soon",
+    "body": "The Studio will be WallHaze's creative workspace: describe what you want to see, pick a signature style, dial in the exact ratio and resolution for your device — and keep the result in your personal library. AI creation is not currently available; it opens after its official launch.",
     "feature1Title": "Signature styles",
     "feature1Body": "Start from hand-tuned presets — from neon cyberpunk to cozy anime — or write a prompt that’s entirely your own.",
     "feature2Title": "Exact fit for your screen",
     "feature2Body": "Phone, tablet or desktop: choose a device preset, an aspect ratio and a resolution — including one recommended for your current screen.",
     "feature3Title": "Reference photo",
     "feature3Body": "Attach a subject photo to guide the composition and scene; the Studio previews the result before you save it.",
-    "cta": "Open the Studio",
+    "cta": "Preview the Studio",
     "visualAlt": "Wallpaper sample preview in a phone frame"
   },
   "why": {
@@ -489,11 +493,11 @@
   "cta": {
     "title": "Ready to transform your screen?",
     "body": "Browse the free gallery or open the Studio — find a wallpaper that feels like yours.",
-    "button": "Start Creating",
+    "button": "Start Creating (soon)",
     "explore": "Explore Wallpapers"
   },
   "footer": {
-    "tagline": "AI wallpapers made for your device — create, explore and make every screen yours.",
+    "tagline": "Wallpapers made for your device — explore the collection, with AI creation coming soon.",
     "product": "Product",
     "exploreGallery": "Explore Gallery",
     "aiStudio": "AI Studio",
@@ -1383,7 +1387,7 @@
     "disclaimerTitle": "Honesty note",
     "disclaimerBody": "This page describes only confirmed capabilities. Company details, team size, user counts and partners are not stated because none have been confirmed.",
     "aiTitle": "AI-powered wallpaper creation",
-    "aiBody": "WallHaze's creation tools turn a text idea and a style choice into wallpaper-ready images and short live wallpapers. Every generation passes automated content screening, and generated media in cloud storage is kept for 30 days."
+    "aiBody": "AI wallpaper creation is a planned feature and is not currently available to the public. We are preparing AI-powered tools for personalized static wallpapers and short animated wallpapers. In the meantime, you can browse and download the wallpapers in our collection."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1394,17 +1398,17 @@
     "q2Q": "How do I download a wallpaper?",
     "q2A": "Use the Download button when it is shown on a card or detail page. Artwork still under licensing review is view-only; cleared artwork saves directly or opens in a new tab if the browser blocks the download.",
     "q3Q": "What is the AI Studio?",
-    "q3A": "The Studio is where you describe a wallpaper in your own words, pick a style, device and aspect ratio, and optionally add a reference image. Submitting requires an account and Credits; when the site is not connected to its services, the Studio says exactly what is missing instead of pretending to generate.",
+    "q3A": "The AI Studio is our planned creation feature: you will describe a wallpaper in your own words, pick a style, device and aspect ratio, and optionally add a reference image. It is not currently available to the public — see the next question.",
     "q4Q": "What are Credits?",
-    "q4A": "Credits are WallHaze's prepaid balance for AI generation. Prices and balances only ever come from the WallHaze backend — nothing is simulated or estimated in the browser.",
+    "q4A": "Credits will be WallHaze's prepaid balance for AI wallpaper creation. Credits purchases are not yet available — the pricing shown on the site is planned for launch and may change before purchasing opens.",
     "q5Q": "Why is generation not open yet?",
-    "q5A": "Real generation costs money per request, so it is gated behind sign-in, a server-side price and a Credits balance. If any of those cannot be verified, the submit path stays blocked rather than pretending to generate.",
+    "q5A": "AI-powered wallpaper creation is being finalized together with our payment and content-safety integrations. It will open to the public once everything is verified — watch this page and the Studio for the announcement.",
     "q6Q": "Can I use the wallpapers commercially?",
     "q6A": "The gallery is free to browse. Download is available only for artwork whose licensing review is complete; a public download does not grant a commercial license. Each detail page shows the current status.",
     "q7Q": "What is the difference between local history and cloud creations?",
     "q7A": "Your generation history is stored only in this browser (up to 20 entries) — it is not backed up, not synced, and clearing browser data removes it. Cloud-stored creations across devices are planned but not available yet.",
     "q8Q": "Do I need an account?",
-    "q8A": "Not for the gallery. An account is required for the AI Studio and the Credits wallet; sign-in and registration open with the paid services."
+    "q8A": "Not for the gallery — browsing and downloading cleared wallpapers needs no account. Accounts will be required for AI creation and the Credits wallet once those features officially launch."
   },
   "help": {
     "eyebrow": "Help",
@@ -1414,8 +1418,8 @@
     "startBody": "Start in the Gallery: filter by category or style, search by name or mood, and open any wallpaper for details, licensing status and download availability.",
     "downloadTitle": "Downloading wallpapers",
     "downloadBody": "Press Download when it is available on a card or detail page and the file saves to your device. Artwork under licensing review does not show a download control.",
-    "studioTitle": "Using the Studio",
-    "studioBody": "Describe your wallpaper, pick a style, then choose device, aspect ratio and size. You can attach a reference image (PNG, JPEG or WebP up to 5 MB). The final submit step is currently disabled — see the FAQ for why.",
+    "studioTitle": "AI Studio — Coming Soon",
+    "studioBody": "We are preparing AI-powered wallpaper creation features, including personalized static wallpapers and short animated wallpapers. These creation features are not currently available to the public. In the meantime, you can browse and download available wallpapers from our collection.",
     "troubleshootTitle": "Troubleshooting",
     "t1Title": "Download did not start",
     "t1Body": "Check your connection and try again. Some browsers block programmatic downloads — the image then opens in a new tab. If the download control is absent, the artwork is still under licensing review.",
@@ -1507,7 +1511,9 @@
     "contactTitle": "12. Contact Information",
     "contactBody": "For privacy questions, access or deletion requests, reports about published works, billing and content matters, email hello@wallhaze.com — the official WallHaze contact channel.",
     "screeningTitle": "Content screening",
-    "screeningBody": "Before a generation is sent to the AI model, the prompt is screened by an automated content-safety service. Requests marked for review are held and re-checked for a short window; if no verdict arrives, the request is declined and the reserved Credits are released. Blocked or unscreenable requests are never generated, and generated media is screened again before it is stored. Screening logs are kept for abuse investigation and contain the job identifier, the decision and, where reported, a violation category — not the prompt text and not your credentials. Published gallery content is re-scanned automatically."
+    "screeningBody": "Planned feature: when AI wallpaper generation launches, prompts will be screened by an automated content-safety service before any generation is sent to an AI model. Blocked or unscreenable requests will not be generated. Screening logs will contain the job identifier, the decision and, where reported, a violation category — not the prompt text and not your credentials.",
+    "plannedTitle": "AI wallpaper generation (planned)",
+    "plannedBody": "AI wallpaper generation is not currently available to the public. When this feature becomes available, users may submit text prompts, reference images, and generation preferences. We will provide information about the applicable data processing practices and third-party service providers before the feature is launched. The descriptions below cover the processing this feature will involve once it is available."
   },
   "terms": {
     "eyebrow": "Legal",
@@ -1517,7 +1523,7 @@
     "acceptanceTitle": "1. Acceptance of Terms",
     "acceptanceBody": "By accessing or using WallHaze — browsing the gallery, downloading wallpapers, submitting work, creating an account or generating images — you agree to these terms. If you do not agree, please do not use the service. You must be old enough to have an account under the rules of your region and of the sign-in provider you use.",
     "serviceTitle": "2. Description of Services",
-    "serviceBody": "WallHaze is a wallpaper platform. It offers a curated gallery of static and live wallpapers for phone, tablet and desktop, a community gallery of creator submissions published after human review, and an AI Studio where registered users generate wallpapers using Credits. Features may be added, changed or discontinued over time; the pages of the site reflect the services that are currently available.",
+    "serviceBody": "WallHaze currently provides access to curated digital wallpapers for browsing and downloading: a gallery of static wallpapers, live wallpaper demos and a community gallery of creator submissions published after human review. AI-powered wallpaper creation, including static image generation and short animated wallpaper generation, is a planned feature and is not currently available to the public. The availability, pricing, and applicable terms of these features will be communicated when they are officially launched. Features may be added, changed or discontinued over time; the pages of the site reflect the services that are currently available.",
     "accountTitle": "3. Account Registration and Security",
     "accountBody": "Parts of WallHaze require an account. You are responsible for the accuracy of your sign-in email, for keeping your password and devices secure, and for all activity under your account. Tell us as soon as you notice unauthorized use. Do not share or sell your account, and do not create accounts to circumvent restrictions. We may ask you to verify account ownership before acting on requests.",
     "submissionsTitle": "4. User-Submitted Content",
@@ -1545,9 +1551,9 @@
       "upload reference photos of real people without their authorization, or reference material you do not have the necessary rights or permission to use."
     ],
     "aiTitle": "8. AI-Generated Content",
-    "aiBody": "Generations are produced by third-party AI model services from the prompt and settings you provide. Similar prompts can produce similar results; we do not promise that a generation is unique or free of resemblance to existing works, and we do not represent that AI output is free of third-party rights. You are responsible for the prompts you enter and for using the results in line with these terms. Generated images and videos are delivered to your account and kept under the retention described in the Privacy Policy; download what you want to keep. Generated wallpapers are currently intended for personal screen use; broader usage rights will be described here if and when they are introduced.",
+    "aiBody": "AI-powered wallpaper creation is a planned feature and is not currently available to the public. When this feature officially launches, generations will be produced by third-party AI model services from the prompt and settings you provide. Similar prompts can produce similar results; we do not promise that a generation is unique or free of resemblance to existing works, and we do not represent that AI output is free of third-party rights. You will be responsible for the prompts you enter and for using the results in line with these terms. Generated media will be kept under the retention described in the Privacy Policy. Broader usage rights will be described here if and when they are introduced.",
     "creditsTitle": "9. Credits and Paid Services",
-    "creditsBody": "Credits are WallHaze's prepaid balance for AI generation. A generation reserves and consumes Credits according to the price shown before you confirm it. Credits are obtained by purchasing packages — checkout is handled by an external payment provider and opens only where payment services are enabled for the deployment. Package prices are shown at the point of purchase. Credits are tied to your account and cannot be transferred between accounts. If a payment does not result in Credits being added, contact us with your order so we can check it. Refund handling is stated at the point of purchase once payment services are open; no refund promise is made here.",
+    "creditsBody": "Credits are WallHaze's planned prepaid balance for AI wallpaper creation. Credits purchases are not yet available — the pricing shown on this site is planned for launch and may be updated before purchasing becomes available. When the feature officially launches, a generation will reserve and consume Credits according to the price shown before you confirm it, Credits will be tied to your account and cannot be transferred between accounts, and refund handling will be stated at the point of purchase. These provisions apply once Credits purchasing becomes available.",
     "reviewTitle": "10. Content Review and Removal",
     "reviewBody": "Gallery and community content is reviewed by humans before publication where applicable. We may edit the listing of, restrict, or remove any content that violates these terms, infringes the rights of others or is otherwise objectionable, and we may do so without prior notice. If you believe a work infringes your rights, email us with the work, the link, the problem and supporting evidence; we review every report.",
     "availabilityTitle": "11. Service Availability",
@@ -1826,7 +1832,8 @@
         "q": "Do prices change?",
         "a": "The costs on this page reflect the current server-side configuration. The Studio always shows the live cost of a job before you start it."
       }
-    ]
+    ],
+    "pricingNote": "AI Credits purchases are not yet available. The pricing shown is planned for launch and may be updated before purchasing becomes available."
   },
   "liveStudio": {
     "switchAria": "Studio mode",

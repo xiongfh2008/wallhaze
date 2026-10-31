@@ -2,8 +2,8 @@
   "meta": {
     "homeTitle": "WallHaze — KI-Hintergrundbilder für jeden Bildschirm",
     "homeDescription": "Erstelle beeindruckende KI-Hintergrundbilder, gemacht für dein Gerät. Entdecke einzigartige Stile – Anime, Cyberpunk, Fantasy und mehr – in hoher Qualität für Smartphone, Tablet und Desktop.",
-    "studioTitle": "Studio — KI-Hintergrundbilder erstellen",
-    "studioDescription": "Das WallHaze-Studio: Beschreibe dein Hintergrundbild, wähle einen Stil, lege Gerät und Seitenverhältnis fest, füge ein Referenzbild hinzu und generiere hochwertige KI-Hintergrundbilder für Smartphone, Tablet und Desktop.",
+    "studioTitle": "Studio — KI-Wallpaper-Erstellung (kommt bald)",
+    "studioDescription": "Die KI-Wallpaper-Erstellung von WallHaze kommt bald. In der Zwischenzeit: kostenlose Wallpaper für Handy, Tablet und Desktop ansehen und herunterladen.",
     "wallpapersTitle": "Wallpaper-Galerie — Kostenlose Wallpaper",
     "wallpapersDescription": "Durchsuche kostenlos Wallpaper für Handy, Tablet und Desktop. Artwork mit geprüfter Lizenz ist herunterladbar; noch geprüfte Inhalte sind nur ansehbar. Jedes Wallpaper hat eine Detailseite.",
     "loginTitle": "Anmelden — WallHaze",
@@ -65,10 +65,10 @@
     "eyebrow": "Wallpaper & AI Studio",
     "titleLine1": "Dein Bildschirm.",
     "titleLine2": "Deine Welt.",
-    "subtitle": "Entdecke kostenlose Wallpaper für jeden Bildschirm — oder gestalte dein eigenes mit KI im Studio.",
+    "subtitle": "Entdecke kostenlose Wallpaper für jeden Bildschirm — KI-Wallpaper-Erstellung kommt bald.",
     "ctaCreate": "Mit KI erstellen",
     "ctaExplore": "Hintergrundbilder entdecken",
-    "footnote": "Kostenlose Galerie · Downloads für geprüfte Werke · KI-Generierung im Studio"
+    "footnote": "Kostenlose Galerie · Downloads freigegebener Werke · KI-Erstellung kommt bald"
   },
   "featured": {
     "eyebrow": "Empfohlen",
@@ -83,8 +83,8 @@
     "title": "In drei Schritten zum neuen Hintergrundbild",
     "step1Title": "Galerie durchstöbern",
     "step1Body": "Durchsuche die kostenlose Sammlung; Werke mit geprüfter Lizenz sind ohne Konto herunterladbar.",
-    "step2Title": "Im Studio eigenes erstellen",
-    "step2Body": "Beschreibe deine Idee, wähle Stil und Gerät – das KI-Studio setzt sie für dich um.",
+    "step2Title": "Im Studio dein eigenes Wallpaper erstellen (kommt bald)",
+    "step2Body": "Die KI-Erstellung wird finalisiert und ist derzeit nicht verfügbar. Beachte das Studio für die Launch-Ankündigung.",
     "step3Title": "Speichern und einrichten",
     "step3Body": "Bewahre deine Favoriten an einem Ort auf und genieße einen Bildschirm, der eindeutig deins ist."
   },
@@ -202,7 +202,7 @@
     "liveDemoMore": "Weitere Bewegungsstudien",
     "liveDemoAll": "Alle Bewegungsstudien",
     "reviewOnly": "Rechteprüfung läuft",
-    "liveDemoAiNote": "WallHaze originale KI-generierte Live-Wallpaper · stumm · loopend · kostenlos",
+    "liveDemoAiNote": "WallHaze-Plattformdemos — originale KI-generierte Live-Wallpaper, keine nutzergenerierten Ergebnisse · stumm · loopend · kostenlos",
     "liveDemoDesktopNote": "Aktuelle Demos im Desktop-Format (16:9); sie laufen auf jedem Gerät.",
     "liveDemoCta": "Im Studio erstellen"
   },
@@ -451,8 +451,12 @@
     "backHome": "← Zurück zur Startseite",
     "browseGallery": "Galerie durchstöbern",
     "viewPricing": "Preise ansehen",
-    "aiGenerationTitle": "KI-gestützte Wallpaper-Erstellung",
-    "aiGenerationBody": "Wähle Wallpaper-Typ, Stil, Gerät und ein paar Parameter — die KI von WallHaze erledigt den Rest. Jede Anfrage durchläuft vor der Generierung eine automatisierte Inhaltsprüfung; fehlgeschlagene Aufträge kosten keine Credits."
+    "aiGenerationTitle": "KI-Erstellung — kommt bald",
+    "aiGenerationBody": "Wir bereiten unsere KI-Wallpaper-Erstellungsfunktionen vor. In der Zwischenzeit kannst du verfügbare Wallpaper ansehen und herunterladen. Die KI-Erstellung wird nach dem offiziellen Launch verfügbar sein.",
+    "comingTitle": "KI-Erstellung — Kommt bald",
+    "comingBody": "Wir bereiten unseren KI-Wallpaper-Erstellungsservice vor. In der Zwischenzeit kannst du verfügbare Wallpaper ansehen und herunterladen. Die KI-Erstellung wird nach dem offiziellen Launch verfügbar sein.",
+    "comingCta": "Erstellung derzeit nicht verfügbar",
+    "comingEyebrow": "KI-Erstellung"
   },
   "popular": {
     "eyebrow": "Stile",
@@ -463,15 +467,15 @@
   },
   "studioIntro": {
     "eyebrow": "AI Studio",
-    "title": "Entwerfen. Generieren. Einrichten.",
-    "body": "Das Studio ist WallHazes kreativer Arbeitsbereich: Beschreibe, was du sehen willst, wähle einen Signature-Stil, stelle Seitenverhältnis und Auflösung exakt für dein Gerät ein — und hebe das Ergebnis in deiner persönlichen Bibliothek auf.",
+    "title": "Gestalten. Generieren. — Kommt bald",
+    "body": "Das Studio wird WallHazes kreativer Arbeitsbereich sein: beschreibe, was du sehen willst, wähle einen Signature-Stil, stelle Ratio und Auflösung exakt für dein Gerät ein — und behalte das Ergebnis in deiner persönlichen Bibliothek. Die KI-Erstellung ist derzeit nicht verfügbar; sie öffnet nach dem offiziellen Launch.",
     "feature1Title": "Signature-Stile",
     "feature1Body": "Starte mit handverfeinerten Voreinstellungen — von Neon-Cyberpunk bis Cozy-Anime — oder schreibe ein Prompt, das ganz deins ist.",
     "feature2Title": "Exakt passend für dein Display",
     "feature2Body": "Telefon, Tablet oder Desktop: Wähle Gerätevoreinstellung, Seitenverhältnis und Auflösung — inklusive einer für dein aktuelles Display empfohlenen Größe.",
     "feature3Title": "Referenzfoto",
     "feature3Body": "Füge ein Motivfoto hinzu, um Komposition und Szene zu steuern; das Studio zeigt das Ergebnis vor dem Speichern.",
-    "cta": "Studio öffnen",
+    "cta": "Studio-Vorschau",
     "visualAlt": "Vorschau eines Wallpaper-Musters in einem Telefonrahmen"
   },
   "why": {
@@ -489,11 +493,11 @@
   "cta": {
     "title": "Bereit, deinen Bildschirm zu verwandeln?",
     "body": "Entdecke die kostenlose Galerie oder öffne das Studio — finde ein Wallpaper, das zu dir passt.",
-    "button": "Jetzt erstellen",
+    "button": "Jetzt starten (bald)",
     "explore": "Wallpaper entdecken"
   },
   "footer": {
-    "tagline": "KI-Hintergrundbilder für dein Gerät – erstellen, entdecken und jeden Bildschirm zu deinem machen.",
+    "tagline": "Wallpaper für dein Gerät — entdecke die Sammlung, KI-Erstellung kommt bald.",
     "product": "Produkt",
     "exploreGallery": "Galerie entdecken",
     "aiStudio": "KI-Studio",
@@ -1383,7 +1387,7 @@
     "disclaimerTitle": "Ehrlichkeitshinweis",
     "disclaimerBody": "Diese Seite beschreibt nur bestätigte Fähigkeiten. Unternehmensdaten, Teamgröße, Nutzerzahlen und Partner werden nicht genannt, weil nichts davon bestätigt ist.",
     "aiTitle": "KI-gestützte Wallpaper-Erstellung",
-    "aiBody": "Die Erstellungswerkzeuge von WallHaze machen aus einer Textidee und einer Stilwahl wallpaper-taugliche Bilder und kurze Live-Wallpaper. Jede Generierung durchläuft eine automatisierte Inhaltsprüfung, und in der Cloud gespeicherte Medien werden 30 Tage aufbewahrt."
+    "aiBody": "Die KI-Wallpaper-Erstellung ist eine geplante Funktion und derzeit nicht öffentlich verfügbar. Wir bereiten KI-Tools für personalisierte statische Wallpaper und kurze Live-Wallpaper vor. In der Zwischenzeit kannst du die Wallpaper unserer Sammlung kostenlos ansehen und herunterladen."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1394,17 +1398,17 @@
     "q2Q": "Wie lade ich ein Wallpaper herunter?",
     "q2A": "Nutze den Download-Button, wenn er auf einer Karte oder Detailseite erscheint. Werke in Lizenzprüfung sind nur ansehbar; geprüfte Werke werden direkt gespeichert oder in einem neuen Tab geöffnet, wenn der Browser den Download blockiert.",
     "q3Q": "Was ist das AI Studio?",
-    "q3A": "Im Studio beschreibst du ein Wallpaper mit eigenen Worten, wählst Stil, Gerät und Seitenverhältnis und kannst optional ein Referenzbild hinzufügen. Zum Absenden sind ein Konto und Credits nötig; ist die Seite nicht mit ihren Diensten verbunden, sagt das Studio genau, was fehlt, statt eine Generierung vorzutäuschen.",
+    "q3A": "Das AI Studio ist unsere geplante Erstellungsfunktion: Du wirst ein Wallpaper in eigenen Worten beschreiben, Stil, Gerät und Seitenverhältnis wählen und optional ein Referenzbild hinzufügen können. Es ist derzeit nicht öffentlich verfügbar — siehe die nächste Frage.",
     "q4Q": "Was sind Credits?",
-    "q4A": "Credits sind das Guthaben von WallHaze für die KI-Generierung. Preise und Guthaben kommen ausschließlich vom WallHaze-Backend — im Browser wird nichts simuliert oder geschätzt.",
+    "q4A": "Credits werden das geplante Prepaid-Guthaben von WallHaze für die KI-Wallpaper-Erstellung sein. Der Kauf von Credits ist noch nicht möglich — die gezeigten Preise sind Planpreise und können sich vor der Öffnung ändern.",
     "q5Q": "Warum ist die Generierung noch nicht geöffnet?",
-    "q5A": "Echte Generierung kostet Geld pro Anfrage und ist daher an Anmeldung, einen Serverpreis und ein Credit-Guthaben gebunden. Kann eines davon nicht verifiziert werden, bleibt das Absenden gesperrt, statt eine Generierung vorzutäuschen.",
+    "q5A": "Die KI-Wallpaper-Erstellung wird zusammen mit unseren Zahlungs- und Inhaltssicherheits-Integrationen finalisiert. Sie öffnet sich, sobald alles verifiziert ist — beachte diese Seite und das Studio.",
     "q6Q": "Darf ich die Wallpaper kommerziell nutzen?",
     "q6A": "Die Galerie ist kostenlos ansehbar. Herunterladbar sind nur Werke mit abgeschlossener Lizenzprüfung; ein öffentlicher Download gewährt keine kommerzielle Lizenz. Jede Detailseite zeigt den aktuellen Status.",
     "q7Q": "Was ist der Unterschied zwischen lokalem Verlauf und Cloud-Kreationen?",
     "q7A": "Dein Generierungsverlauf liegt nur in diesem Browser (max. 20 Einträge) — ohne Backup, ohne Synchronisierung; Browserdaten löschen entfernt ihn. Cloud-Kreationen geräteübergreifend sind geplant, aber noch nicht verfügbar.",
     "q8Q": "Brauche ich ein Konto?",
-    "q8A": "Für die Galerie nicht. Für das AI Studio und das Credits-Guthaben ist ein Konto nötig; Anmeldung und Registrierung öffnen mit den kostenpflichtigen Diensten."
+    "q8A": "Nicht für die Galerie — das Ansehen und Herunterladen freigegebener Wallpaper erfordert kein Konto. Konten werden für die KI-Erstellung und das Credits-Guthaben erforderlich sein, sobald diese Funktionen offiziell starten."
   },
   "help": {
     "eyebrow": "Hilfe",
@@ -1414,8 +1418,8 @@
     "startBody": "Beginne in der Galerie: filtere nach Kategorie oder Stil, suche nach Name oder Stimmung und öffne ein Wallpaper für Details, Lizenzstatus und Download-Verfügbarkeit.",
     "downloadTitle": "Wallpaper herunterladen",
     "downloadBody": "Drücke Download, wenn er auf einer Karte oder Detailseite verfügbar ist. Werke in Lizenzprüfung zeigen keinen Download-Button.",
-    "studioTitle": "Das Studio nutzen",
-    "studioBody": "Beschreibe dein Wallpaper, wähle einen Stil, dann Gerät, Seitenverhältnis und Größe. Du kannst ein Referenzbild anhängen (PNG, JPEG oder WebP bis 5 MB). Der finale Absenden ist derzeit deaktiviert — warum, steht in den FAQ.",
+    "studioTitle": "AI Studio — Kommt bald",
+    "studioBody": "Wir bereiten KI-Funktionen zur Wallpaper-Erstellung vor, darunter personalisierte statische Wallpaper und kurze Live-Wallpaper. Diese Erstellungsfunktionen sind derzeit nicht öffentlich verfügbar. In der Zwischenzeit kannst du die Wallpaper unserer Sammlung ansehen und herunterladen.",
     "troubleshootTitle": "Fehlerbehebung",
     "t1Title": "Download hat nicht gestartet",
     "t1Body": "Prüfe die Verbindung und versuche es erneut. Manche Browser blockieren programmatische Downloads und öffnen das Bild in einem neuen Tab. Fehlt der Download-Button, wird das Werk noch geprüft.",
@@ -1507,7 +1511,9 @@
     "contactTitle": "12. Kontaktinformationen",
     "contactBody": "Für Datenschutzfragen, Auskunfts- oder Löschungsanfragen, Meldungen zu veröffentlichten Werken, Abrechnung und Inhalte schreiben Sie an hello@wallhaze.com — der offizielle Kontakt-Kanal von WallHaze.",
     "screeningTitle": "Inhaltsprüfung",
-    "screeningBody": "Bevor eine Generierung an das KI-Modell gesendet wird, wird der Prompt durch einen automatisierten Dienst zur Inhaltssicherheit geprüft. Zur Prüfung markierte Anfragen werden kurzzeitig gehalten und erneut geprüft; ohne Entscheidung wird die Anfrage abgelehnt und die reservierten Credits werden freigegeben. Blockierte oder nicht prüfbare Anfragen werden nie generiert, und erzeugte Medien werden vor dem Speichern erneut geprüft. Prüfprotokolle werden zur Missbrauchsuntersuchung aufbewahrt und enthalten die Auftragskennung, die Entscheidung und, sofern gemeldet, eine Verletzungskategorie — weder den Prompt-Text noch deine Zugangsdaten. Veröffentlichte Galerienhalte werden automatisch erneut geprüft."
+    "screeningBody": "Geplante Funktion: Nach dem Launch der KI-Wallpaper-Generierung werden Prompts vor jeder Generierung durch einen automatisierten Dienst zur Inhaltssicherheit geprüft. Blockierte oder nicht prüfbare Anfragen werden nicht generiert. Prüfprotokolle enthalten die Auftragskennung, die Entscheidung und, sofern gemeldet, eine Verletzungskategorie — weder den Prompt-Text noch deine Zugangsdaten.",
+    "plannedTitle": "KI-Wallpaper-Generierung (geplant)",
+    "plannedBody": "Die KI-Wallpaper-Generierung ist derzeit nicht öffentlich verfügbar. Sobald diese Funktion verfügbar ist, können Nutzer Text-Prompts, Referenzbilder und Generierungseinstellungen übermitteln. Wir werden vor dem Launch über die anwendbaren Datenverarbeitungspraktiken und Drittanbieter informieren. Die folgenden Beschreibungen betreffen die Datenverarbeitung, die diese Funktion nach Verfügbarkeit umfassen wird."
   },
   "terms": {
     "eyebrow": "Rechtliches",
@@ -1517,7 +1523,7 @@
     "acceptanceTitle": "1. Geltung der Bedingungen",
     "acceptanceBody": "Indem Sie auf WallHaze zugreifen oder es nutzen — die Galerie durchstöbern, Wallpaper herunterladen, Werke einreichen, ein Konto erstellen oder Bilder generieren —, stimmen Sie diesen Bedingungen zu. Wenn Sie nicht einverstanden sind, nutzen Sie den Dienst bitte nicht. Sie müssen alt genug sein, um gemäß den Regeln Ihrer Region und Ihres Anmeldeanbieters ein Konto besitzen zu dürfen.",
     "serviceTitle": "2. Beschreibung der Dienste",
-    "serviceBody": "WallHaze ist eine Wallpaper-Plattform. Sie bietet eine kuratierte Galerie mit statischen und Live-Wallpapers für Telefon, Tablet und Desktop, eine Community-Galerie mit Einreichungen von Creators, die nach manueller Prüfung veröffentlicht werden, und ein AI Studio, in dem registrierte Nutzer mit Credits Wallpapers generieren. Funktionen können im Laufe der Zeit hinzugefügt, geändert oder eingestellt werden; die Seiten der Website spiegeln die derzeit verfügbaren Dienste wider.",
+    "serviceBody": "WallHaze bietet derzeit Zugriff auf kuratierte digitale Wallpaper zum Ansehen und Herunterladen: eine Galerie statischer Wallpaper, Live-Wallpaper-Demos und eine Community-Galerie von nach menschlicher Prüfung veröffentlichten Einsendungen. Die KI-Wallpaper-Erstellung, einschließlich statischer Bildgenerierung und kurzer Live-Wallpaper-Generierung, ist eine geplante Funktion und derzeit nicht öffentlich verfügbar. Verfügbarkeit, Preise und geltende Bedingungen dieser Funktionen werden bei ihrer offiziellen Einführung mitgeteilt. Funktionen können hinzukommen, sich ändern oder eingestellt werden; die Seiten der Website spiegeln die derzeit verfügbaren Dienste wider.",
     "accountTitle": "3. Kontoregistrierung und Sicherheit",
     "accountBody": "Teile von WallHaze erfordern ein Konto. Sie sind für die Richtigkeit Ihrer Anmelde-E-Mail, für den Schutz Ihres Passworts und Ihrer Geräte sowie für alle Aktivitäten unter Ihrem Konto verantwortlich. Melden Sie uns unbefugte Nutzung, sobald Sie sie bemerken. Teilen oder verkaufen Sie Ihr Konto nicht, und erstellen Sie keine Konten, um Beschränkungen zu umgehen. Wir können Sie bitten, die Kontoinhaberschaft zu bestätigen, bevor wir Anfragen ausführen.",
     "submissionsTitle": "4. Von Nutzern eingereichte Inhalte",
@@ -1545,9 +1551,9 @@
       "Referenzfotos echter Personen ohne deren Genehmigung oder Referenzmaterial ohne die erforderlichen Rechte hochzuladen."
     ],
     "aiTitle": "8. KI-generierte Inhalte",
-    "aiBody": "Generierungen werden von KI-Modelldiensten Dritter anhand des von Ihnen angegebenen Prompts und Ihrer Einstellungen erstellt. Ähnliche Prompts können ähnliche Ergebnisse liefern; wir versprechen weder, dass eine Generierung einzigartig oder frei von Ähnlichkeiten mit bestehenden Werken ist, noch erklären wir, dass KI-Ausgaben frei von Rechten Dritter sind. Sie sind für die von Ihnen eingegebenen Prompts und für die Nutzung der Ergebnisse im Einklang mit diesen Bedingungen verantwortlich. Generierte Bilder und Videos werden in Ihr Konto geliefert und gemäß der in der Datenschutzerklärung beschriebenen Speicherfrist aufbewahrt; laden Sie herunter, was Sie behalten möchten. Generierte Wallpapers sind derzeit für die persönliche Bildschirmnutzung vorgesehen; weitergehende Nutzungsrechte werden hier beschrieben, sobald und falls sie eingeführt werden.",
+    "aiBody": "Die KI-Wallpaper-Erstellung ist eine geplante Funktion und derzeit nicht öffentlich verfügbar. Nach ihrer offiziellen Einführung werden Generierungen von Drittanbieter-KI-Modelldiensten aus dem Prompt und den Einstellungen erzeugt, die du angibst. Ähnliche Prompts können ähnliche Ergebnisse liefern; wir garantieren weder die Einzigartigkeit einer Generierung noch deren Frei von Ähnlichkeiten mit bestehenden Werken und erklären nicht, dass KI-Ergebnisse frei von Rechten Dritter sind. Du wirst für die eingegebenen Prompts und die Nutzung der Ergebnisse gemäß diesen Bedingungen verantwortlich sein. Generierte Medien werden gemäß der in der Datenschutzerklärung beschriebenen Aufbewahrung gespeichert. Weitergehende Nutzungsrechte werden hier beschrieben, sobald sie eingeführt werden.",
     "creditsTitle": "9. Credits und kostenpflichtige Dienste",
-    "creditsBody": "Credits sind das vorausbezahlte Guthaben von WallHaze für die KI-Generierung. Eine Generierung reserviert und verbraucht Credits gemäß dem Preis, der angezeigt wird, bevor Sie sie bestätigen. Credits erhalten Sie durch den Kauf von Paketen — der Checkout wird von einem externen Zahlungsanbieter abgewickelt und nur dort geöffnet, wo Zahlungsdienste für die Bereitstellung aktiviert sind. Paketpreise werden am Kaufort angezeigt. Credits sind an Ihr Konto gebunden und können nicht zwischen Konten übertragen werden. Wenn eine Zahlung nicht dazu führt, dass Credits gutgeschrieben werden, kontaktieren Sie uns mit Ihrer Bestellung, damit wir sie prüfen können. Die Abwicklung von Rückerstattungen wird am Kaufort angegeben, sobald Zahlungsdienste geöffnet sind; hier wird keine Rückerstattungszusage gemacht.",
+    "creditsBody": "Credits sind das geplante Prepaid-Guthaben von WallHaze für die KI-Wallpaper-Erstellung. Der Kauf von Credits ist noch nicht möglich — die auf dieser Website gezeigten Preise sind Planpreise und können sich vor der Verfügbarkeit von Käufen ändern. Nach der offiziellen Einführung wird eine Generierung Credits gemäß dem vor Bestätigung angezeigten Preis reservieren und verbrauchen, Credits an dein Konto gebunden und nicht auf andere Konten übertragbar sein, und die Refund-Abwicklung wird am Kaufpunkt beschrieben. Diese Bestimmungen gelten, sobald der Credits-Kauf verfügbar ist.",
     "reviewTitle": "10. Inhaltsprüfung und Entfernung",
     "reviewBody": "Galerie- und Community-Inhalte werden, wo anwendbar, vor der Veröffentlichung von Menschen geprüft. Wir können die Eintragsdaten eines jeden Inhalts bearbeiten oder den Inhalt einschränken bzw. entfernen, wenn er gegen diese Bedingungen verstößt, die Rechte anderer verletzt oder anderweitig zu beanstanden ist, und wir können dies ohne vorherige Ankündigung tun. Wenn Sie der Ansicht sind, dass ein Werk Ihre Rechte verletzt, schreiben Sie uns mit dem Werk, dem Link, dem Problem und Belegen; wir prüfen jede Meldung.",
     "availabilityTitle": "11. Verfügbarkeit des Dienstes",
@@ -1826,7 +1832,8 @@
         "q": "Ändern sich die Preise?",
         "a": "Die Kosten auf dieser Seite spiegeln die aktuelle serverseitige Konfiguration wider. Das Studio zeigt vor jedem Auftrag immer die tatsächlichen Kosten an."
       }
-    ]
+    ],
+    "pricingNote": "Der Kauf von AI-Credits ist noch nicht möglich. Die gezeigten Preise sind Planpreise und können sich vor der Verfügbarkeit von Käufen ändern."
   },
   "liveStudio": {
     "switchAria": "Studio-Modus",
