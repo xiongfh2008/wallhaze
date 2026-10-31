@@ -133,10 +133,9 @@
     "deviceAutoHint": "現在のデバイス：{device}。対応する壁紙を先に表示します。",
     "noDeviceTitle": "このデバイス向けの壁紙はありません",
     "noDeviceBody": "このネイティブ比率の静止画壁紙はまだありません。別のデバイスを選ぶか、フィルターを解除してください。",
-    "liveDemoTitle": "動く壁紙のデモ",
-    "liveDemoBody": "CC0ライセンス写真とローカルなカメラ／パーティクルアニメーションによる5秒の無音モーション研究8本。AI生成ではなくデモです。",
-    "liveDemoBadge": "モーションデモ",
-    "liveDemoNotAi": "ライセンス写真のモーションデモ · AI生成ではありません",
+    "liveDemoTitle": "オリジナルライブ壁紙デモ",
+    "liveDemoBody": "WallHaze オリジナルの AI 生成ライブ壁紙6作品 — 洋館、桜、ネオン、メカ、宇宙、ドラゴン。すべて実際にループする動画です。",
+    "liveDemoBadge": "ライブデモ",
     "liveDemoNote": "ライセンス写真にローカルなカメラ移動と粒子／光の演出を加えたものです。AI生成ではなく、あなたの作品としてダウンロードもできません。",
     "liveDemoEmpty": "このデバイス向けのデモはありません。",
     "liveDemoSelectHint": "デモを選ぶと再生されます。通信量と動きの抑制設定に配慮し、自動再生はしません。",
@@ -172,13 +171,40 @@
       "forest-light": {
         "title": "森の光",
         "alt": "高い木々と朝霧を貫く光の筋"
+      },
+      "haunted-manor": {
+        "title": "洋館の夜",
+        "alt": "月光のゴシック洋館、青い霧が流れ、窓の灯が瞬く"
+      },
+      "sakura-night-anime": {
+        "title": "桜の夜",
+        "alt": "桜の樹の下のオリジナル少女、花びらが舞い髪が揺れる"
+      },
+      "seoul-neon-rain": {
+        "title": "ネオンの雨",
+        "alt": "雨の韓国路地、藍紫ネオンが濡れた路面に揺れる"
+      },
+      "mecha-awakening": {
+        "title": "メカ覚醒",
+        "alt": "オリジナルメカ、エネルギーコアが脈動し光が循環"
+      },
+      "interstellar-frontier": {
+        "title": "星の果て",
+        "alt": "環状惑星と宇宙ステーション、瞬く星と漂う粒子"
+      },
+      "dragon-realm": {
+        "title": "魔竜の境",
+        "alt": "古代城塞に舞うドラゴン、紫の魔法空と遠雷"
       }
     },
     "liveDemoSourceNote": "出典：{license} 写真 · ローカルモーション",
     "liveDemoFeatured": "モーションプレビュー",
     "liveDemoMore": "その他のモーション",
     "liveDemoAll": "すべてのモーション",
-    "reviewOnly": "権利確認中"
+    "reviewOnly": "権利確認中",
+    "liveDemoAiNote": "WallHaze オリジナル AI 生成ライブ壁紙 · 無音 · ループ · 視聴無料",
+    "liveDemoDesktopNote": "現在のデモはデスクトップ比率（16:9）。どの端末でも再生できます。",
+    "liveDemoCta": "Studio でつくる"
   },
   "detail": {
     "backToGallery": "ギャラリーに戻る",

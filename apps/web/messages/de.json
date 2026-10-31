@@ -133,10 +133,9 @@
     "deviceAutoHint": "Aktuelles Gerät: {device} – passende Wallpaper erscheinen zuerst.",
     "noDeviceTitle": "Keine Wallpaper für dieses Gerät",
     "noDeviceBody": "Für dieses native Format gibt es noch kein statisches Wallpaper. Wähle ein anderes Gerät oder hebe den Filter auf.",
-    "liveDemoTitle": "Bewegte Live-Wallpaper",
-    "liveDemoBody": "Acht stumme 5-Sekunden-Bewegungsstudien aus CC0-Fotos und lokaler Kamera-/Partikelanimation. Es sind Demos, keine KI-Generierungen.",
-    "liveDemoBadge": "Bewegungs-Demo",
-    "liveDemoNotAi": "Bewegungs-Demo aus lizenziertem Foto · keine KI",
+    "liveDemoTitle": "Originale Live-Wallpaper-Demos",
+    "liveDemoBody": "Sechs originale KI-generierte Live-Wallpaper — Herrenhaus, Sakura, Neon, Mecha, Weltraum und Fantasy — jedes ein echtes Loop-Video.",
+    "liveDemoBadge": "Live-Demo",
     "liveDemoNote": "Lizenziertes Quellfoto mit lokalem Kameradrift und Partikel-/Lichteffekten. Keine KI und nicht als eigene Kreation herunterladbar.",
     "liveDemoEmpty": "Keine Demo für dieses Gerät.",
     "liveDemoSelectHint": "Wähle eine Demo zum Abspielen. Die Wiedergabe startet nicht automatisch, um Datenverbrauch und die Einstellung für reduzierte Bewegung zu respektieren.",
@@ -172,13 +171,40 @@
       "forest-light": {
         "title": "Waldlicht",
         "alt": "Sonnenstrahlen durch hohe Bäume und Morgennebel"
+      },
+      "haunted-manor": {
+        "title": "Verfluchtes Herrenhaus",
+        "alt": "Gothic-Herrenhaus im Mondlicht, blaues Nebeltreiben, flackerndes Fenster"
+      },
+      "sakura-night-anime": {
+        "title": "Sakura-Nacht",
+        "alt": "Original-Anime-Mädchen unter blühenden Zweigen, fallende Blüten, wehendes Haar"
+      },
+      "seoul-neon-rain": {
+        "title": "Neon-Regen",
+        "alt": "Regnerische koreanische Gasse, blau-violettes Neon auf nassem Asphalt"
+      },
+      "mecha-awakening": {
+        "title": "Mecha-Erwachen",
+        "alt": "Original-Mecha mit pulsierendem Energiekern und zyklischen Lichtern"
+      },
+      "interstellar-frontier": {
+        "title": "Interstellare Grenze",
+        "alt": "Orbitalstation über Ringplaneten, funkelnde Sterne, treibende Partikel"
+      },
+      "dragon-realm": {
+        "title": "Drachenreich",
+        "alt": "Drachensilhouette über einer alten Zitadelle, violetter Magenhimmel"
       }
     },
     "liveDemoSourceNote": "Quelle: {license}-Foto · lokale Bewegung",
     "liveDemoFeatured": "Bewegungsvorschauen",
     "liveDemoMore": "Weitere Bewegungsstudien",
     "liveDemoAll": "Alle Bewegungsstudien",
-    "reviewOnly": "Rechteprüfung läuft"
+    "reviewOnly": "Rechteprüfung läuft",
+    "liveDemoAiNote": "WallHaze originale KI-generierte Live-Wallpaper · stumm · loopend · kostenlos",
+    "liveDemoDesktopNote": "Aktuelle Demos im Desktop-Format (16:9); sie laufen auf jedem Gerät.",
+    "liveDemoCta": "Im Studio erstellen"
   },
   "detail": {
     "backToGallery": "Zurück zur Galerie",

@@ -133,10 +133,9 @@
     "deviceAutoHint": "当前设备：{device}，匹配的壁纸会优先显示。",
     "noDeviceTitle": "该设备暂无静态壁纸",
     "noDeviceBody": "目前没有此原生比例的静态壁纸，试试其他设备或清除筛选。",
-    "liveDemoTitle": "动态壁纸效果",
-    "liveDemoBody": "八段 5 秒静音动态演示，基于 CC0 授权照片并在本地加入镜头与粒子动画。它们是演示，不是 AI 生成结果。",
+    "liveDemoTitle": "原创动态壁纸演示",
+    "liveDemoBody": "六段 WallHaze 原创 AI 生成的动态壁纸——暗夜凶宅、樱花之夜、霓虹首尔、机甲觉醒、星际边界、魔龙之境——每段都是真实循环视频。",
     "liveDemoBadge": "动态演示",
-    "liveDemoNotAi": "授权照片动态演示 · 非 AI 生成",
     "liveDemoNote": "使用授权照片，并在本地叠加镜头漂移与粒子/光效。非 AI 生成，也不能作为你的作品下载。",
     "liveDemoEmpty": "该设备暂无可用的动态演示。",
     "liveDemoSelectHint": "选择一个演示即可播放。为节省流量并尊重减少动态效果偏好，默认不自动播放。",
@@ -172,13 +171,40 @@
       "forest-light": {
         "title": "林间光束",
         "alt": "阳光穿透高树与晨雾"
+      },
+      "haunted-manor": {
+        "title": "暗夜凶宅",
+        "alt": "月光下的哥特洋馆，蓝色浓雾流动，窗户灯光轻闪"
+      },
+      "sakura-night-anime": {
+        "title": "樱花之夜",
+        "alt": "原创动漫少女立于樱花树下，花瓣缓缓飘落，发丝轻摆"
+      },
+      "seoul-neon-rain": {
+        "title": "霓虹首尔",
+        "alt": "雨夜韩国小巷，蓝紫霓虹在湿漉路面上闪烁倒影"
+      },
+      "mecha-awakening": {
+        "title": "机甲觉醒",
+        "alt": "原创机甲伫立科技都市，能量核心脉冲，灯光循环，粒子漂浮"
+      },
+      "interstellar-frontier": {
+        "title": "星际边界",
+        "alt": "轨道空间站悬于环行星之上，星光闪烁，粒子缓缓漂浮"
+      },
+      "dragon-realm": {
+        "title": "魔龙之境",
+        "alt": "巨龙剪影盘旋古代城堡上空，紫色魔法天空，远处闪电"
       }
     },
     "liveDemoSourceNote": "来源：{license} 照片 · 本地动态合成",
     "liveDemoFeatured": "动态预览",
     "liveDemoMore": "更多动态示例",
     "liveDemoAll": "全部动态示例",
-    "reviewOnly": "版权审核中"
+    "reviewOnly": "版权审核中",
+    "liveDemoAiNote": "WallHaze 原创 AI 生成动态壁纸 · 无声 · 循环播放 · 免费观看",
+    "liveDemoDesktopNote": "当前演示为桌面比例（16:9），可在任何设备上播放。",
+    "liveDemoCta": "去 Studio 创作你的"
   },
   "detail": {
     "backToGallery": "返回画廊",

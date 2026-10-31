@@ -133,10 +133,9 @@
     "deviceAutoHint": "Your current device: {device} — matching wallpapers are shown first.",
     "noDeviceTitle": "No wallpapers match this device.",
     "noDeviceBody": "No curated static wallpaper has this native format yet. Try another device or clear the filter.",
-    "liveDemoTitle": "See live wallpapers in motion",
-    "liveDemoBody": "Eight silent 5-second motion studies built from licensed CC0 photographs and local camera/particle animation. They are demos, not AI generations.",
-    "liveDemoBadge": "Motion demo",
-    "liveDemoNotAi": "Licensed-photo motion demo · not AI output",
+    "liveDemoTitle": "Original live wallpapers in motion",
+    "liveDemoBody": "Six original AI-generated live wallpapers — haunted manor, sakura night, neon rain, mecha, deep space and dark fantasy — each a real looping video.",
+    "liveDemoBadge": "Live demo",
     "liveDemoNote": "Licensed source photo with local camera drift and particle/light overlays. Not AI-generated, and not downloadable as your creation.",
     "liveDemoEmpty": "No motion demo matches this device.",
     "liveDemoSelectHint": "Select a demo to play it. Playback starts paused to respect data and motion preferences.",
@@ -172,13 +171,40 @@
       "forest-light": {
         "title": "Forest Light",
         "alt": "Sun rays breaking through tall trees and morning mist"
+      },
+      "haunted-manor": {
+        "title": "Haunted Manor",
+        "alt": "Gothic manor under moonlight with blue mist drifting and a flickering window"
+      },
+      "sakura-night-anime": {
+        "title": "Sakura Night",
+        "alt": "Original anime girl beneath blossoming branches as petals drift and her hair sways"
+      },
+      "seoul-neon-rain": {
+        "title": "Seoul Neon Rain",
+        "alt": "Rainy Korean alley with blue-violet neon reflections shimmering on wet asphalt"
+      },
+      "mecha-awakening": {
+        "title": "Mecha Awakening",
+        "alt": "Original mecha with a pulsing energy core, cycling lights and drifting particles"
+      },
+      "interstellar-frontier": {
+        "title": "Interstellar Frontier",
+        "alt": "Orbital station over a ringed planet with twinkling stars and drifting particles"
+      },
+      "dragon-realm": {
+        "title": "Dragon Realm",
+        "alt": "Dragon silhouette over an ancient citadel under a violet magic sky with distant lightning"
       }
     },
     "liveDemoSourceNote": "Source: {license} photo · local motion",
     "liveDemoFeatured": "Motion previews",
     "liveDemoMore": "More motion studies",
     "liveDemoAll": "All motion studies",
-    "reviewOnly": "Rights review in progress"
+    "reviewOnly": "Rights review in progress",
+    "liveDemoAiNote": "Original AI-generated live wallpapers by WallHaze · silent · looping · free to watch",
+    "liveDemoDesktopNote": "The current demos are desktop-format (16:9); they play on any device.",
+    "liveDemoCta": "Create yours in the Studio"
   },
   "detail": {
     "backToGallery": "Back to Gallery",

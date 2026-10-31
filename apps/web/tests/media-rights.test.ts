@@ -41,17 +41,17 @@ const audit = JSON.parse(
 describe("asset-level media rights registry", () => {
   it("classifies every inventoried asset without auto-promoting legacy files", () => {
     expect(registry.counts).toMatchObject({
-      total: 172,
-      verified: 137,
+      total: 184,
+      verified: 149,
       pending: 27,
       restricted: 8,
       rejected: 0,
       removed: 0,
     });
-    expect(MEDIA_RIGHTS).toHaveLength(172);
+    expect(MEDIA_RIGHTS).toHaveLength(184);
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(27);
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "restricted")).toHaveLength(8);
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(137);
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(149);
     // The 2026-10-28 audit revoked the 2026-10-27 promotion: the 27
     // superseded legacy previews stay pending, live outside public/ under
     // the `legacy.style.*` ids, and must record why they were demoted.

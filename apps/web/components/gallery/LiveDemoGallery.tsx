@@ -1,25 +1,162 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import WallpaperImage from "@/components/WallpaperImage";
 import WallpaperDeviceBadge from "@/components/media/WallpaperDeviceBadge";
-import LiveVideoPlayer from "@/components/studio/LiveVideoPlayer";
 import { LIVE_DEMOS, type LiveDemo } from "@/lib/live-demos";
 import {
   formatAspectRatio,
-  sortMediaForPreferredDevice,
   type DeviceCategory,
 } from "@/lib/media";
-import { detectDeviceProfile, readScreenInfo } from "@/lib/studio/device";
-import { findStyle } from "@/lib/styles";
 
 /**
- * Motion-demo gallery. One shared video player prevents multiple decoders
- * from running at once; the remaining demos are poster cards. The desktop
- * layout is one hero preview + a 2×2 showcase + a compact remaining grid;
- * mobile is one hero preview + a horizontal recommendation strip.
+ * "More live demos" (2026-10-31 redesign): six original AI-generated live
+ * wallpapers in a uniform grid — 3 per row on desktop (2 rows), 2 on
+ * tablet, 1 on mobile.
+ *
+ * Playback policy (per component contract):
+ *  - autoplay muted+loop+playsInline with a poster, only while the card is
+ *    meaningfully inside the viewport (IntersectionObserver, 40%);
+ *  - leaving the viewport pauses; mobile (coarse pointer) plays at most
+ *    ONE video at a time — starting one pauses the others;
+ *  - autoplay rejection (browser policy) or load errors degrade to the
+ *    poster with a tap-to-play retry;
+ *  - prefers-reduced-motion disables autoplay entirely (poster only);
+ *  - preload="none": nothing downloads until a video is actually played.
+ * All videos are original self-authored AI generation — no model names are
+ * shown to visitors.
+ */
+
+interface PlayingRegistry {
+  pauseAllExcept: (video: HTMLVideoElement | null) => void;
+}
+
+/** Module-level registry so only one demo video ever plays at a time. */
+const registry: PlayingRegistry = {
+  pauseAllExcept(video) {
+    document
+      .querySelectorAll<HTMLVideoElement>("video[data-live-demo]")
+      .forEach((el) => {
+        if (el !== video && !el.paused) el.pause();
+      });
+  },
+};
+
+function DemoVideoCard({ demo, index }: { demo: LiveDemo; index: number }) {
+  const t = useTranslations("gallery");
+  const tStyles = useTranslations("styleLabels");
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const containerRef = useRef<HTMLLIElement | null>(null);
+  const [failed, setFailed] = useState(false);
+  const [manuallyPaused, setManuallyPaused] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container) return;
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const tryPlay = () => {
+      if (reducedMotion || manuallyPaused) return;
+      // Mobile: never more than one demo playing at once.
+      if (window.matchMedia("(pointer: coarse)").matches) {
+        registry.pauseAllExcept(video);
+      }
+      video.play().catch(() => {
+        // Autoplay rejected by browser policy: stay on the poster.
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+            tryPlay();
+          } else if (!entry.isIntersecting) {
+            video.pause();
+          }
+        }
+      },
+      { threshold: [0, 0.4] }
+    );
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+      video.pause();
+    };
+  }, [manuallyPaused]);
+
+  const ratio = formatAspectRatio(demo.width, demo.height);
+
+  return (
+    <li ref={containerRef}>
+      <Link
+        href={`/studio?media=video&demo=${demo.id}`}
+        aria-label={t(`liveDemos.${demo.id}.title`)}
+        className="group relative block overflow-hidden rounded-2xl border border-white/10 bg-black shadow-lg shadow-black/40 outline-none transition hover:border-violet-400/40 focus-visible:ring-2 focus-visible:ring-violet-400/60"
+      >
+        <div
+          className="relative w-full overflow-hidden"
+          style={{ aspectRatio: `${demo.width} / ${demo.height}` }}
+        >
+          {failed ? null : (
+            <video
+              ref={videoRef}
+              data-live-demo={demo.id}
+              src={demo.video}
+              poster={demo.poster}
+              muted
+              loop
+              playsInline
+              preload="none"
+              tabIndex={-1}
+              onError={() => setFailed(true)}
+              className="h-full w-full object-cover"
+            />
+          )}
+          {/* Poster underlay: shown before load, on error, or under
+              reduced-motion / paused states. */}
+          <div
+            aria-hidden={!failed}
+            className={`absolute inset-0 bg-gradient-to-br from-violet-800/30 via-zinc-950 to-black ${
+              failed ? "" : "-z-10"
+            }`}
+          />
+          <span className="absolute bottom-2 left-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-medium text-white/85 backdrop-blur">
+            {t("liveDemoBadge")}
+          </span>
+          <span className="absolute bottom-2 right-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] text-white/75 backdrop-blur">
+            {Math.round(demo.durationSeconds)}s
+          </span>
+        </div>
+        <span className="block px-4 py-3">
+          <span className="block truncate text-sm font-semibold text-white">
+            {t(`liveDemos.${demo.id}.title`)}
+          </span>
+          <span className="mt-0.5 flex items-center justify-between gap-2">
+            <span className="truncate text-xs text-zinc-500">
+              {tStyles(demo.styleId)}
+            </span>
+            <span className="shrink-0 text-[11px] tabular-nums text-zinc-500">
+              {ratio} · {index + 1}/6
+            </span>
+          </span>
+        </span>
+      </Link>
+    </li>
+  );
+}
+
+/**
+ * Six original live-wallpaper demos in a uniform grid: 3 per row on
+ * desktop (2 rows), 2 per row on tablet, 1 per row on mobile. The device
+ * filter is honoured; every current demo is desktop-format, so a
+ * phone/tablet filter keeps showing the full set (they play everywhere).
  */
 export default function LiveDemoGallery({
   deviceFilter,
@@ -27,90 +164,13 @@ export default function LiveDemoGallery({
   deviceFilter: "all" | DeviceCategory;
 }) {
   const t = useTranslations("gallery");
-  const tStyles = useTranslations("styleLabels");
-  const [preferredDevice, setPreferredDevice] = useState<DeviceCategory | null>(null);
-  const [selectedId, setSelectedId] = useState("");
-  const [userSelected, setUserSelected] = useState(false);
-
-  useEffect(() => {
-    const info = readScreenInfo();
-    const profile = info ? detectDeviceProfile(info) : null;
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- browser facts after hydration
-    setPreferredDevice(profile?.device ?? null);
-  }, []);
-
-  const demos = useMemo(() => {
-    return deviceFilter === "all"
-      ? sortMediaForPreferredDevice(LIVE_DEMOS, preferredDevice)
+  const filtered =
+    deviceFilter === "all"
+      ? LIVE_DEMOS
       : LIVE_DEMOS.filter((demo) => demo.devices.includes(deviceFilter));
-  }, [deviceFilter, preferredDevice]);
-
-  const selected: LiveDemo | null =
-    (userSelected ? demos.find((demo) => demo.id === selectedId) : undefined) ??
-    demos[0] ??
-    null;
-  const grid = selected
-    ? demos.filter((demo) => demo.id !== selected.id).slice(0, 4)
-    : demos.slice(0, 4);
-  const gridIds = new Set(grid.map((demo) => demo.id));
-  const remaining = demos.filter(
-    (demo) => demo.id !== selected?.id && !gridIds.has(demo.id)
-  );
-  const ratio = selected
-    ? formatAspectRatio(selected.width, selected.height)
-    : "—";
-  const portrait = selected ? selected.height > selected.width : false;
-  const square = selected ? selected.width === selected.height : false;
-  const styleLabel = selected ? tStyles(selected.styleId) : "";
-
-  const selectDemo = (demo: LiveDemo, autoPlay = true) => {
-    setSelectedId(demo.id);
-    setUserSelected(autoPlay);
-  };
-
-  const demoThumb = (demo: LiveDemo, active: boolean, compact = false) => {
-    const style = findStyle(demo.styleId);
-    const demoRatio = formatAspectRatio(demo.width, demo.height);
-    return (
-      <button
-        type="button"
-        aria-pressed={active}
-        onClick={() => selectDemo(demo)}
-        className={`group w-full overflow-hidden rounded-xl border text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/70 ${
-          active
-            ? "border-violet-400/70 bg-violet-500/10 ring-1 ring-violet-400/40"
-            : "border-white/10 bg-white/[0.02] hover:border-white/30"
-        }`}
-      >
-        <span className={`relative block bg-black/40 ${compact ? "aspect-[16/10]" : "aspect-[16/9]"}`}>
-          <WallpaperImage
-            src={demo.poster}
-            alt={t(`liveDemos.${demo.id}.alt`)}
-            gradient={style?.gradient ?? "from-violet-700 to-black"}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-            eager={active}
-          />
-          <span className="absolute bottom-1.5 left-1.5 rounded-full bg-black/70 px-2 py-0.5 text-[10px] text-white/80 backdrop-blur">
-            {t("liveDemoBadge")}
-          </span>
-          <span className="absolute bottom-1.5 right-1.5 rounded-full bg-black/70 px-2 py-0.5 text-[10px] text-white/70 backdrop-blur">
-            {demo.durationSeconds}s
-          </span>
-        </span>
-        <span className="block px-3 py-2">
-          <span className="block truncate text-xs font-medium text-white">
-            {t(`liveDemos.${demo.id}.title`)}
-          </span>
-          <span className="mt-0.5 flex items-center justify-between gap-2">
-            <span className="truncate text-[10px] text-zinc-500">
-              {tStyles(demo.styleId)}
-            </span>
-            <span className="shrink-0 text-[10px] text-zinc-500">{demoRatio}</span>
-          </span>
-        </span>
-      </button>
-    );
-  };
+  // All current demos are desktop-format; never leave a filter tab empty.
+  const demos = filtered.length > 0 ? filtered : [...LIVE_DEMOS];
+  const fellBack = filtered.length === 0;
 
   return (
     <section aria-labelledby="live-demo-heading" className="mb-12">
@@ -129,117 +189,32 @@ export default function LiveDemoGallery({
             {t("liveDemoBody")}
           </p>
         </div>
-      </div>
-
-      {!selected ? (
-        <p className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-sm text-zinc-400">
-          {t("liveDemoEmpty")}
-        </p>
-      ) : (
-        <>
-          <div
-            className={`grid gap-4 ${
-              grid.length > 0
-                ? "lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)] lg:items-start"
-                : ""
-            }`}
-          >
-            <div className="flex min-w-0 flex-col items-center rounded-3xl border border-white/10 bg-white/[0.02] p-4 md:p-6">
-              <div
-                className={`relative w-full overflow-hidden rounded-2xl border border-white/15 bg-black ${
-                  portrait ? "max-w-[320px]" : square ? "max-w-[440px]" : ""
-                }`}
-                style={{ aspectRatio: `${selected.width} / ${selected.height}` }}
-              >
-                <LiveVideoPlayer
-                  key={selected.id}
-                  src={selected.video}
-                  poster={selected.poster}
-                  durationSeconds={selected.durationSeconds}
-                  label={t(`liveDemos.${selected.id}.alt`)}
-                  autoPlay={userSelected}
-                  fallbackGradient="from-violet-800/40 via-zinc-950 to-black"
-                />
-              </div>
-              <div className="mt-4 flex w-full max-w-[720px] flex-wrap items-start justify-between gap-2">
-                <div className="min-w-0">
-                  <h3 className="text-base font-semibold text-white">
-                    {t(`liveDemos.${selected.id}.title`)}
-                  </h3>
-                  <p className="mt-0.5 text-xs text-zinc-500">{styleLabel}</p>
-                  <p className="mt-1 text-[11px] leading-relaxed text-zinc-600">
-                    {t("liveDemoSourceNote", {
-                      license: selected.source.license.toUpperCase(),
-                    })}
-                  </p>
-                </div>
-                <WallpaperDeviceBadge
-                  devices={selected.devices}
-                  ratio={ratio}
-                  width={selected.width}
-                  height={selected.height}
-                  showDimensions
-                />
-              </div>
-              <p className="mt-3 max-w-[720px] text-xs leading-relaxed text-zinc-500">
-                {t("liveDemoNote")}
-              </p>
-            </div>
-
-            {grid.length > 0 ? (
-              <div>
-                <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-zinc-500">
-                  {t("liveDemoFeatured")}
-                </p>
-                <ul className="grid grid-cols-2 gap-2.5">
-                  {grid.map((demo) => (
-                    <li key={demo.id}>
-                      {demoThumb(demo, selected.id === demo.id, true)}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-
-          {remaining.length > 0 ? (
-            <div className="mt-5 hidden lg:block">
-              <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-zinc-500">
-                {t("liveDemoMore")}
-              </p>
-              <ul className="grid grid-cols-3 gap-2.5 xl:grid-cols-4">
-                {remaining.map((demo) => (
-                  <li key={demo.id}>
-                    {demoThumb(demo, selected.id === demo.id)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-
-          <div className="mt-5 lg:hidden">
-            <p className="mb-2 text-[11px] font-medium uppercase tracking-wide text-zinc-500">
-              {t("liveDemoAll")}
-            </p>
-            <ul className="flex snap-x snap-mandatory gap-2.5 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              {demos.map((demo) => (
-                <li key={demo.id} className="w-[58%] max-w-[230px] shrink-0 snap-start">
-                  {demoThumb(demo, selected.id === demo.id, true)}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
-
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-2">
-        <p className="text-xs text-zinc-500">{t("liveDemoNotAi")}</p>
         <Link
           href="/studio?media=video"
-          className="inline-flex text-xs font-medium text-violet-300 underline-offset-4 hover:underline"
+          className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-violet-300 transition hover:text-violet-200"
         >
-          {t("liveCta")}
+          {t("liveDemoCta")}
+          <span
+            aria-hidden
+            className="transition-transform group-hover:translate-x-0.5"
+          >
+            &rarr;
+          </span>
         </Link>
+      </div>
+
+      <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {demos.map((demo, index) => (
+          <DemoVideoCard key={demo.id} demo={demo} index={index} />
+        ))}
+      </ul>
+
+      {fellBack ? (
+        <p className="mt-3 text-xs text-zinc-500">{t("liveDemoDesktopNote")}</p>
+      ) : null}
+
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs text-zinc-500">{t("liveDemoAiNote")}</p>
       </div>
     </section>
   );

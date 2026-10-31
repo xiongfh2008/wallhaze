@@ -5,6 +5,11 @@
     "url": "https://wallhaze.com/videos/live-demos/aurora-veil.jpg"
   },
   {
+    "id": "poster.dragon-realm",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/dragon-realm.jpg"
+  },
+  {
     "id": "poster.flower-field",
     "type": "image",
     "url": "https://wallhaze.com/videos/live-demos/flower-field.jpg"
@@ -15,9 +20,24 @@
     "url": "https://wallhaze.com/videos/live-demos/forest-light.jpg"
   },
   {
+    "id": "poster.haunted-manor",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/haunted-manor.jpg"
+  },
+  {
+    "id": "poster.interstellar-frontier",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/interstellar-frontier.jpg"
+  },
+  {
     "id": "poster.jellyfish-glow",
     "type": "image",
     "url": "https://wallhaze.com/videos/live-demos/jellyfish-glow.jpg"
+  },
+  {
+    "id": "poster.mecha-awakening",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/mecha-awakening.jpg"
   },
   {
     "id": "poster.neon-rain",
@@ -28,6 +48,16 @@
     "id": "poster.night-sakura",
     "type": "image",
     "url": "https://wallhaze.com/videos/live-demos/night-sakura.jpg"
+  },
+  {
+    "id": "poster.sakura-night-anime",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/sakura-night-anime.jpg"
+  },
+  {
+    "id": "poster.seoul-neon-rain",
+    "type": "image",
+    "url": "https://wallhaze.com/videos/live-demos/seoul-neon-rain.jpg"
   },
   {
     "id": "poster.star-drift",
@@ -315,6 +345,11 @@
     "url": "https://wallhaze.com/videos/live-demos/aurora-veil.mp4"
   },
   {
+    "id": "video.dragon-realm",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/dragon-realm.mp4"
+  },
+  {
     "id": "video.flower-field",
     "type": "video",
     "url": "https://wallhaze.com/videos/live-demos/flower-field.mp4"
@@ -325,9 +360,24 @@
     "url": "https://wallhaze.com/videos/live-demos/forest-light.mp4"
   },
   {
+    "id": "video.haunted-manor",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/haunted-manor.mp4"
+  },
+  {
+    "id": "video.interstellar-frontier",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/interstellar-frontier.mp4"
+  },
+  {
     "id": "video.jellyfish-glow",
     "type": "video",
     "url": "https://wallhaze.com/videos/live-demos/jellyfish-glow.mp4"
+  },
+  {
+    "id": "video.mecha-awakening",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/mecha-awakening.mp4"
   },
   {
     "id": "video.neon-rain",
@@ -338,6 +388,16 @@
     "id": "video.night-sakura",
     "type": "video",
     "url": "https://wallhaze.com/videos/live-demos/night-sakura.mp4"
+  },
+  {
+    "id": "video.sakura-night-anime",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/sakura-night-anime.mp4"
+  },
+  {
+    "id": "video.seoul-neon-rain",
+    "type": "video",
+    "url": "https://wallhaze.com/videos/live-demos/seoul-neon-rain.mp4"
   },
   {
     "id": "video.star-drift",

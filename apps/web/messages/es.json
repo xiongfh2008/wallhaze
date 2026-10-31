@@ -133,10 +133,9 @@
     "deviceAutoHint": "Tu dispositivo actual: {device}: los fondos compatibles aparecen primero.",
     "noDeviceTitle": "No hay fondos para este dispositivo",
     "noDeviceBody": "Aún no hay fondos estáticos con este formato nativo. Prueba otro dispositivo o quita el filtro.",
-    "liveDemoTitle": "Fondos animados en movimiento",
-    "liveDemoBody": "Ocho estudios de movimiento silenciosos de 5 s creados con fotografías CC0 y animación local de cámara/partículas. Son demos, no generaciones de IA.",
-    "liveDemoBadge": "Demo de movimiento",
-    "liveDemoNotAi": "Demo de movimiento con foto licenciada · no es IA",
+    "liveDemoTitle": "Fondos dinámicos originales",
+    "liveDemoBody": "Seis fondos dinámicos originales generados por IA — mansión, sakura, neón, mecha, espacio y fantasía — cada uno un vídeo real en bucle.",
+    "liveDemoBadge": "Demostración",
     "liveDemoNote": "Foto de origen licenciada con deriva de cámara y capas de partículas/luz locales. No es IA y no se puede descargar como tu creación.",
     "liveDemoEmpty": "No hay demos para este dispositivo.",
     "liveDemoSelectHint": "Elige una demo para reproducirla. La reproducción no es automática para respetar los datos y la preferencia de movimiento reducido.",
@@ -172,13 +171,40 @@
       "forest-light": {
         "title": "Luz del Bosque",
         "alt": "Rayos de sol atravesando árboles altos y niebla"
+      },
+      "haunted-manor": {
+        "title": "Mansión embrujada",
+        "alt": "Mansión gótica a la luz de la luna con niebla azul y una ventana parpadeante"
+      },
+      "sakura-night-anime": {
+        "title": "Noche de sakura",
+        "alt": "Chica anime original bajo las ramas en flor mientras caen pétalos"
+      },
+      "seoul-neon-rain": {
+        "title": "Neón de Seúl",
+        "alt": "Callejón coreano lluvioso con reflejos azul-violeta sobre el asfalto"
+      },
+      "mecha-awakening": {
+        "title": "Mecha despierto",
+        "alt": "Mecha original con núcleo de energía pulsante y luces en ciclo"
+      },
+      "interstellar-frontier": {
+        "title": "Frontera interestelar",
+        "alt": "Estación orbital sobre un planeta anillado con estrellas titilantes"
+      },
+      "dragon-realm": {
+        "title": "Reino del dragón",
+        "alt": "Silueta de dragón sobre una ciudadela bajo un cielo violeta mágico"
       }
     },
     "liveDemoSourceNote": "Fuente: foto {license} · movimiento local",
     "liveDemoFeatured": "Vistas de movimiento",
     "liveDemoMore": "Más estudios de movimiento",
     "liveDemoAll": "Todos los estudios",
-    "reviewOnly": "Revisión de derechos en curso"
+    "reviewOnly": "Revisión de derechos en curso",
+    "liveDemoAiNote": "Fondos dinámicos originales de WallHaze generados por IA · silenciosos · en bucle · gratis",
+    "liveDemoDesktopNote": "Las demos actuales son formato escritorio (16:9); se reproducen en cualquier dispositivo.",
+    "liveDemoCta": "Crea el tuyo en el Studio"
   },
   "detail": {
     "backToGallery": "Volver a la galería",

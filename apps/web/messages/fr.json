@@ -133,10 +133,9 @@
     "deviceAutoHint": "Appareil actuel : {device} — les fonds compatibles s’affichent en premier.",
     "noDeviceTitle": "Aucun fond pour cet appareil",
     "noDeviceBody": "Aucun fond statique n’a encore ce format natif. Essaie un autre appareil ou retire le filtre.",
-    "liveDemoTitle": "Fonds animés en mouvement",
-    "liveDemoBody": "Huit études de mouvement silencieuses de 5 s, créées à partir de photos CC0 et d’une animation locale de caméra/particules. Ce sont des démos, pas des générations d’IA.",
+    "liveDemoTitle": "Fonds animés originaux",
+    "liveDemoBody": "Six fonds animés originaux générés par IA — manoir, sakura, néon, mecha, espace et fantasy — chacun une vraie vidéo en boucle.",
     "liveDemoBadge": "Démo animée",
-    "liveDemoNotAi": "Démo animée à partir de photo sous licence · pas une IA",
     "liveDemoNote": "Photo source sous licence avec dérive de caméra et effets de particules/lumière locaux. Pas d’IA, et non téléchargeable comme ta création.",
     "liveDemoEmpty": "Aucune démo pour cet appareil.",
     "liveDemoSelectHint": "Choisis une démo pour la lire. La lecture ne démarre pas automatiquement, pour respecter les données et la préférence de mouvement réduit.",
@@ -172,13 +171,40 @@
       "forest-light": {
         "title": "Lumière des bois",
         "alt": "Rayons de soleil traversant de grands arbres et la brume"
+      },
+      "haunted-manor": {
+        "title": "Manoir hanté",
+        "alt": "Manoir gothique au clair de lune, brume bleue et fenêtre vacillante"
+      },
+      "sakura-night-anime": {
+        "title": "Nuit de sakura",
+        "alt": "Fille anime originale sous les branches fleuries, pétales et cheveux au vent"
+      },
+      "seoul-neon-rain": {
+        "title": "Pluie sur Séoul",
+        "alt": "Ruelle coréenne sous la pluie, néons bleu-violet miroitant sur l'asphalte"
+      },
+      "mecha-awakening": {
+        "title": "Éveil du mecha",
+        "alt": "Mecha original avec noyau d'énergie pulsant et lumières cyclées"
+      },
+      "interstellar-frontier": {
+        "title": "Frontière interstellaire",
+        "alt": "Station orbitale sur une planète annelée, étoiles et particules"
+      },
+      "dragon-realm": {
+        "title": "Royaume du dragon",
+        "alt": "Silhouette de dragon sur une citadelle sous un ciel violet magique"
       }
     },
     "liveDemoSourceNote": "Source : photo {license} · animation locale",
     "liveDemoFeatured": "Aperçus animés",
     "liveDemoMore": "Autres études de mouvement",
     "liveDemoAll": "Toutes les études",
-    "reviewOnly": "Examen des droits en cours"
+    "reviewOnly": "Examen des droits en cours",
+    "liveDemoAiNote": "Fonds animés originaux de WallHaze générés par IA · silencieux · en boucle · gratuits",
+    "liveDemoDesktopNote": "Les démos actuelles sont au format bureau (16:9) ; elles se lisent sur tout appareil.",
+    "liveDemoCta": "Créez le vôtre dans le Studio"
   },
   "detail": {
     "backToGallery": "Retour à la galerie",

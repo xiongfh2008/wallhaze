@@ -2,22 +2,21 @@ import type { StyleId } from "@/lib/styles";
 import type { DeviceCategory } from "@/lib/media";
 
 /**
- * Eight motion demos, each a licensed CC0 photograph with locally rendered
- * camera drift and rain/petals/stars/bubbles/light overlays, encoded as a
- * real 5-second silent MP4. They are explicitly demos — not AI output — and
- * every source, author and license is recorded here and in
- * docs/codex/MEDIA-SOURCES.md.
+ * Motion demos for the explore page and the Studio's video tab.
+ * 2026-10-31: the six public demos are original AI-generated live
+ * wallpapers (see LIVE_DEMOS below); the eight retired CC0-photo demos are
+ * kept in ARCHIVED_LIVE_DEMOS for the audit trail.
  */
 export type LiveDemoLicense = "cc0" | "public-domain" | "self-authored";
 
 export interface LiveDemoSource {
   title: string;
-  pageUrl: string;
+  pageUrl: string | null;
   author: string;
   license: LiveDemoLicense;
   licenseUrl: string | null;
   productionMethod: string;
-  aiGenerated: false;
+  aiGenerated: boolean;
 }
 
 export interface LiveDemo {
@@ -27,14 +26,162 @@ export interface LiveDemo {
   poster: string;
   width: number;
   height: number;
-  durationSeconds: 5;
+  durationSeconds: number;
   devices: DeviceCategory[];
   kind: "demo";
   license: LiveDemoLicense;
   source: LiveDemoSource;
 }
 
+
+/**
+ * The six public demos — original AI-generated live wallpapers
+ * (owner-directed batch 2026-10-31). Provenance: first frame via
+ * fal-ai/flux-2/klein/4b, motion via fal-ai/wan/v2.2-5b/image-to-video
+ * (720p, silent, safety checker enabled), ffmpeg tail-into-head crossfade
+ * for a seamless wrap. Full prompts/seeds live in the internal generation
+ * record and the media-rights registry, not on the site.
+ */
 export const LIVE_DEMOS: readonly LiveDemo[] = [
+  {
+    id: "haunted-manor",
+    styleId: "gothic-horror",
+    video: "/videos/live-demos/haunted-manor.mp4",
+    poster: "/videos/live-demos/haunted-manor.jpg",
+    width: 1280,
+    height: 704,
+    durationSeconds: 4.3,
+    devices: ["desktop"],
+    kind: "demo",
+    license: "self-authored",
+    source: {
+      title: "WallHaze original — Haunted Manor",
+      pageUrl: null,
+      author: "WallHaze (self-authored)",
+      license: "self-authored",
+      licenseUrl: null,
+      productionMethod:
+        "First frame via fal-ai/flux-2/klein/4b; motion via fal-ai/wan/v2.2-5b/image-to-video (720p, silent, safety checker on); ffmpeg loop blend",
+      aiGenerated: true,
+    },
+  },
+  {
+    id: "sakura-night-anime",
+    styleId: "cozy-anime",
+    video: "/videos/live-demos/sakura-night-anime.mp4",
+    poster: "/videos/live-demos/sakura-night-anime.jpg",
+    width: 1280,
+    height: 704,
+    durationSeconds: 4.3,
+    devices: ["desktop"],
+    kind: "demo",
+    license: "self-authored",
+    source: {
+      title: "WallHaze original — Sakura Night",
+      pageUrl: null,
+      author: "WallHaze (self-authored)",
+      license: "self-authored",
+      licenseUrl: null,
+      productionMethod:
+        "First frame via fal-ai/flux-2/klein/4b; motion via fal-ai/wan/v2.2-5b/image-to-video (720p, silent, safety checker on); ffmpeg loop blend",
+      aiGenerated: true,
+    },
+  },
+  {
+    id: "seoul-neon-rain",
+    styleId: "cyberpunk",
+    video: "/videos/live-demos/seoul-neon-rain.mp4",
+    poster: "/videos/live-demos/seoul-neon-rain.jpg",
+    width: 1280,
+    height: 704,
+    durationSeconds: 4.3,
+    devices: ["desktop"],
+    kind: "demo",
+    license: "self-authored",
+    source: {
+      title: "WallHaze original — Seoul Neon Rain",
+      pageUrl: null,
+      author: "WallHaze (self-authored)",
+      license: "self-authored",
+      licenseUrl: null,
+      productionMethod:
+        "First frame via fal-ai/flux-2/klein/4b; motion via fal-ai/wan/v2.2-5b/image-to-video (720p, silent, safety checker on); ffmpeg loop blend",
+      aiGenerated: true,
+    },
+  },
+  {
+    id: "mecha-awakening",
+    styleId: "mecha",
+    video: "/videos/live-demos/mecha-awakening.mp4",
+    poster: "/videos/live-demos/mecha-awakening.jpg",
+    width: 1280,
+    height: 704,
+    durationSeconds: 4.3,
+    devices: ["desktop"],
+    kind: "demo",
+    license: "self-authored",
+    source: {
+      title: "WallHaze original — Mecha Awakening",
+      pageUrl: null,
+      author: "WallHaze (self-authored)",
+      license: "self-authored",
+      licenseUrl: null,
+      productionMethod:
+        "First frame via fal-ai/flux-2/klein/4b; motion via fal-ai/wan/v2.2-5b/image-to-video (720p, silent, safety checker on); ffmpeg loop blend",
+      aiGenerated: true,
+    },
+  },
+  {
+    id: "interstellar-frontier",
+    styleId: "sci-fi",
+    video: "/videos/live-demos/interstellar-frontier.mp4",
+    poster: "/videos/live-demos/interstellar-frontier.jpg",
+    width: 1280,
+    height: 704,
+    durationSeconds: 4.3,
+    devices: ["desktop"],
+    kind: "demo",
+    license: "self-authored",
+    source: {
+      title: "WallHaze original — Interstellar Frontier",
+      pageUrl: null,
+      author: "WallHaze (self-authored)",
+      license: "self-authored",
+      licenseUrl: null,
+      productionMethod:
+        "First frame via fal-ai/flux-2/klein/4b; motion via fal-ai/wan/v2.2-5b/image-to-video (720p, silent, safety checker on); ffmpeg loop blend",
+      aiGenerated: true,
+    },
+  },
+  {
+    id: "dragon-realm",
+    styleId: "dark-fantasy",
+    video: "/videos/live-demos/dragon-realm.mp4",
+    poster: "/videos/live-demos/dragon-realm.jpg",
+    width: 1280,
+    height: 704,
+    durationSeconds: 4.3,
+    devices: ["desktop"],
+    kind: "demo",
+    license: "self-authored",
+    source: {
+      title: "WallHaze original — Dragon Realm",
+      pageUrl: null,
+      author: "WallHaze (self-authored)",
+      license: "self-authored",
+      licenseUrl: null,
+      productionMethod:
+        "First frame via fal-ai/flux-2/klein/4b; motion via fal-ai/wan/v2.2-5b/image-to-video (720p, silent, safety checker on); ffmpeg loop blend",
+      aiGenerated: true,
+    },
+  },
+];
+
+/**
+ * Retired CC0-photo demos (2026-10-24 batch) — kept for the audit trail and
+ * their public files; no longer rendered anywhere.
+ */
+export const ARCHIVED_LIVE_DEMOS = [
   {
     id: "sakura-dream",
     styleId: "cinematic",
@@ -219,4 +366,4 @@ export const LIVE_DEMOS: readonly LiveDemo[] = [
       aiGenerated: false,
     },
   },
-];
+] satisfies readonly LiveDemo[];
