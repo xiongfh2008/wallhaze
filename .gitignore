@@ -50,3 +50,6 @@ yarn-error.log*
 next-env.d.ts
 .screenshots/
 generated-batch/
+
+generated-batch2/
+generated-live/
