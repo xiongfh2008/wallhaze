@@ -9,10 +9,10 @@
 
 | 项 | 值 |
 |---|---|
-| 文件 | `D:\Project\wallhaze-deploy\wallhaze-staging-source-20261031-v3.tar.gz` |
-| 大小 / 文件数 | 138,902,275 字节 / 1012 文件 |
-| SHA256 | `42609dda0411addaed913b2eef1848a05aecf2d4de7e9f6f570850d0be066d9f` |
-| 对应提交 | `homepage-young-v1`（= 9e81836；回滚链 `waffo-moderation-v1` → `pre-waffo-moderation`） |
+| 文件 | `D:\Project\wallhaze-deploy\wallhaze-staging-source-20261031-v4.tar.gz` |
+| 大小 / 文件数 | 146,874,661 字节（含 24 张原创壁纸） |
+| SHA256 | `85b32341558f222b9b04415a31e8fa87d69216de190d63bc25311251719a02f8` |
+| 对应提交 | `original-wallpapers-batch1`（= d461d38；回滚链 homepage-young-v1 → waffo-moderation-v1 → pre-waffo-moderation） |
 | 排除 | `wallhaze/`（受保护用户媒体）、`.git`、`node_modules`、`.next`/`.vinxt`/`dist`/`.turbo`、`.data`（本地 PGlite）、`.cloudflare`、`private-media`、全部真实 `.env*`（仅保留 `*.example` 模板）、`*.tar.gz` |
 | 已验证 | 归档内 0 个禁用路径；包含全部审核链路新文件（moderation.ts / blocklist.json / output-moderation.ts / gallery-moderation.ts / gallery-rescan.ts / 008_moderation_logs.sql / pricing 页 / acceptable-use 页 / gallery-manifest.json） |
 | 旧包状态 | `20261025.tar.gz` 与 `20261031.tar.gz`（无 -v2）均已删除——早于最终修复，不可用 |
