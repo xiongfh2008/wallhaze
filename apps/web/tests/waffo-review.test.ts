@@ -202,12 +202,53 @@ describe("acceptable use policy page content", () => {
   });
 });
 
-describe("model information stays internal (product decision 2026-10-31)", () => {
-  it("no user-facing message mentions underlying model names or ids", () => {
+describe("model disclosure is scoped to About + Terms (Waffo requirement)", () => {
+  const MODEL_MARKERS = ["FLUX", "Klein", "Wan 2.2", "Kling V3"];
+  const ALLOWED_PREFIXES = ["about.aiModel", "terms.aiModels", "privacy.thirdParty"];
+
+  it("model names appear only in the allowed disclosure namespaces", () => {
+    for (const locale of LOCALES) {
+      const scan = (value: unknown, path: string): void => {
+        if (typeof value === "string") {
+          for (const marker of MODEL_MARKERS) {
+            if (value.includes(marker)) {
+              expect(
+                ALLOWED_PREFIXES.some((prefix) => path.includes(prefix)),
+                `model name in ${path}`
+              ).toBe(true);
+            }
+          }
+          return;
+        }
+        if (value && typeof value === "object") {
+          for (const [key, item] of Object.entries(value)) {
+            scan(item, `${path}.${key}`);
+          }
+        }
+      };
+      scan(messages(locale), locale);
+    }
+  });
+
+  it("model names do NOT appear on homepage, studio, pricing, or navigation", () => {
     for (const locale of LOCALES) {
       const raw = JSON.stringify(messages(locale));
-      for (const marker of ["FLUX", "Klein", "Wan 2.2", "Kling V3", "wan-2", "kling-v3"]) {
-        expect(raw).not.toContain(marker);
+      // Strip the allowed namespaces before scanning.
+      const j = JSON.parse(raw);
+      const filtered = JSON.stringify({
+        meta: j.meta,
+        nav: j.nav,
+        hero: j.hero,
+        studioIntro: j.studioIntro,
+        howItWorks: j.howItWorks,
+        cta: j.cta,
+        pricing: j.pricing,
+        generator: j.generator,
+        footer: j.footer,
+        studio: { ...j.studio },
+      });
+      for (const marker of MODEL_MARKERS) {
+        expect(filtered).not.toContain(marker);
       }
     }
   });

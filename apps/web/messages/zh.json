@@ -1387,7 +1387,16 @@
     "disclaimerTitle": "诚实说明",
     "disclaimerBody": "本页只描述已确认的能力。公司信息、团队规模、用户数量与合作方均未表述，因为这些都未经确认。",
     "aiTitle": "AI 智能壁纸创作",
-    "aiBody": "AI 壁纸创作为计划推出功能，目前尚未向公众开放。我们正在完善个性化静态壁纸与短视频动态壁纸的 AI 创作能力。当前你可以免费浏览和下载平台提供的壁纸。"
+    "aiBody": "AI 壁纸创作为计划推出功能，目前尚未向公众开放。我们正在完善个性化静态壁纸与短视频动态壁纸的 AI 创作能力。当前你可以免费浏览和下载平台提供的壁纸。",
+    "aiModelsTitle": "AI 技术与模型透明度",
+    "aiModelsIntro": "WallHaze 计划推出的壁纸创作功能使用以下第三方 AI 模型，均通过 fal.ai 平台访问：",
+    "aiModelImage": "FLUX.2 Klein 4B",
+    "aiModelImageUse": "文生图生成与参考图编辑，用于静态壁纸。",
+    "aiModelI2v": "Wan 2.2 5B",
+    "aiModelI2vUse": "图生视频生成，用于 5 秒 720p 动态壁纸。",
+    "aiModelT2v": "Kling V3 Standard",
+    "aiModelT2vUse": "文生视频生成，用于 3–5 秒 720p 动态壁纸。",
+    "aiModelsNote": "以上模型通过 fal.ai 平台访问。WallHaze 与模型发布方无隶属关系。模型的可用性与输出可能随服务商更新而变化。AI 壁纸创作目前尚未向公众开放。"
   },
   "faq": {
     "eyebrow": "常见问题",
@@ -1567,7 +1576,9 @@
     "contactTitle": "15. 联系方式",
     "contactBody": "关于本条款的问题、作品举报与账户事宜：请发送邮件至 hello@wallhaze.com——这是 WallHaze 的官方联系渠道。",
     "prohibitedAupBody": "禁止类别、筛查机制、处置措施与申诉方式详见《可接受使用政策》。",
-    "prohibitedAupLink": "阅读可接受使用政策"
+    "prohibitedAupLink": "阅读可接受使用政策",
+    "aiModelsTitle": "9. AI 模型与服务商",
+    "aiModelsBody": "WallHaze 计划推出的 AI 壁纸创作功能使用以下第三方 AI 模型，均通过 fal.ai 平台访问：FLUX.2 Klein 4B（文生图与参考图编辑，用于静态壁纸）；Wan 2.2 5B（图生视频，用于 5 秒 720p 动态壁纸）；Kling V3 Standard（文生视频，用于 3–5 秒 720p 动态壁纸）。这些功能目前尚未向公众开放。WallHaze 与模型发布方无隶属关系。模型的可用性、输出质量与价格可能随服务商更新而变化。如模型或服务商发生变更，我们将更新本章节。"
   },
   "community": {
     "metaTitleSuffix": "社区",

@@ -26,6 +26,7 @@ const TERMS_SECTIONS = [
   { id: "downloads", hasList: false },
   { id: "prohibited", hasList: true },
   { id: "ai", hasList: false },
+  { id: "aiModels", hasList: false },
   { id: "credits", hasList: false },
   { id: "review", hasList: false },
   { id: "availability", hasList: false },

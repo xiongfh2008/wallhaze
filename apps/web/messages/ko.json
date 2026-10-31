@@ -1387,7 +1387,16 @@
     "disclaimerTitle": "정직한 안내",
     "disclaimerBody": "이 페이지는 확인된 기능만 설명합니다. 회사 정보, 팀 규모, 사용자 수, 파트너는 확인되지 않아 기재하지 않습니다.",
     "aiTitle": "AI 배경화면创作",
-    "aiBody": "AI 배경화면创作은 계획 중인 기능으로 현재 일반 공개되지 않았습니다. 개인화된 정적 배경화면과 짧은 라이브 배경화면을 위한 AI 기능을 준비하고 있습니다. 그동안 컬렉션의 배경화면을 무료로 탐색하고 다운로드할 수 있습니다."
+    "aiBody": "AI 배경화면创作은 계획 중인 기능으로 현재 일반 공개되지 않았습니다. 개인화된 정적 배경화면과 짧은 라이브 배경화면을 위한 AI 기능을 준비하고 있습니다. 그동안 컬렉션의 배경화면을 무료로 탐색하고 다운로드할 수 있습니다.",
+    "aiModelsTitle": "AI 기술 및 모델 투명성",
+    "aiModelsIntro": "WallHaze의 계획된 배경화면创作 기능은 fal.ai 플랫폼을 통해 다음 서드파티 AI 모델을 사용합니다:",
+    "aiModelImage": "FLUX.2 Klein 4B",
+    "aiModelImageUse": "텍스트→이미지 생성 및 참조 이미지 편집 (정적 배경화면).",
+    "aiModelI2v": "Wan 2.2 5B",
+    "aiModelI2vUse": "이미지→비디오 생성 (5초 720p 라이브 배경화면).",
+    "aiModelT2v": "Kling V3 Standard",
+    "aiModelT2vUse": "텍스트→비디오 생성 (3-5초 720p 라이브 배경화면).",
+    "aiModelsNote": "이 모델들은 fal.ai 플랫폼을 통해 이용됩니다. WallHaze는 모델 게시사와 제휴 관계가 없습니다. 모델 가용성과 출력은 제공사 업데이트에 따라 달라질 수 있습니다. AI 배경화면创作은 현재 일반 공개되지 않았습니다."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1567,7 +1576,9 @@
     "contactTitle": "15. 연락처",
     "contactBody": "이 약관에 대한 질문, 작품 신고, 계정 관련 사항: hello@wallhaze.com으로 이메일을 보내 주세요 — WallHaze의 공식 연락 채널입니다.",
     "prohibitedAupBody": "금지 카테고리, 심사, 집행 및 이의 신청에 대한 자세한 내용은 이용 정책을 참고하세요.",
-    "prohibitedAupLink": "이용 정책 읽기"
+    "prohibitedAupLink": "이용 정책 읽기",
+    "aiModelsTitle": "9. AI 모델 및 서비스 제공사",
+    "aiModelsBody": "WallHaze의 계획된 AI 배경화면创作 기능은 fal.ai 플랫폼을 통해 다음 서드파티 AI 모델을 사용합니다: FLUX.2 Klein 4B(텍스트→이미지 생성 및 참조 이미지 편집, 정적 배경화면); Wan 2.2 5B(이미지→비디오 생성, 5초 720p 라이브 배경화면); Kling V3 Standard(텍스트→비디오 생성, 3-5초 720p 라이브 배경화면). 이러한 기능은 현재 일반 공개되지 않았습니다. WallHaze는 모델 게시사와 제휴 관계가 없습니다. 모델 가용성, 출력 품질, 가격은 제공사 업데이트에 따라 변경될 수 있습니다. 모델이나 제공사가 변경되면 이 섹션을 업데이트합니다."
   },
   "community": {
     "metaTitleSuffix": "커뮤니티",

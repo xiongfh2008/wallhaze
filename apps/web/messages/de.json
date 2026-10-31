@@ -1387,7 +1387,16 @@
     "disclaimerTitle": "Ehrlichkeitshinweis",
     "disclaimerBody": "Diese Seite beschreibt nur bestätigte Fähigkeiten. Unternehmensdaten, Teamgröße, Nutzerzahlen und Partner werden nicht genannt, weil nichts davon bestätigt ist.",
     "aiTitle": "KI-gestützte Wallpaper-Erstellung",
-    "aiBody": "Die KI-Wallpaper-Erstellung ist eine geplante Funktion und derzeit nicht öffentlich verfügbar. Wir bereiten KI-Tools für personalisierte statische Wallpaper und kurze Live-Wallpaper vor. In der Zwischenzeit kannst du die Wallpaper unserer Sammlung kostenlos ansehen und herunterladen."
+    "aiBody": "Die KI-Wallpaper-Erstellung ist eine geplante Funktion und derzeit nicht öffentlich verfügbar. Wir bereiten KI-Tools für personalisierte statische Wallpaper und kurze Live-Wallpaper vor. In der Zwischenzeit kannst du die Wallpaper unserer Sammlung kostenlos ansehen und herunterladen.",
+    "aiModelsTitle": "KI-Technologie und Modelltransparenz",
+    "aiModelsIntro": "Die geplanten Wallpaper-Erstellungsfunktionen von WallHaze nutzen die folgenden KI-Modelle von Drittanbietern, zugänglich über die fal.ai-Plattform:",
+    "aiModelImage": "FLUX.2 Klein 4B",
+    "aiModelImageUse": "Text-zu-Bild-Generierung und Referenzbild-Bearbeitung für statische Wallpaper.",
+    "aiModelI2v": "Wan 2.2 5B",
+    "aiModelI2vUse": "Bild-zu-Video-Generierung für 5-Sekunden-Live-Wallpaper bei 720p.",
+    "aiModelT2v": "Kling V3 Standard",
+    "aiModelT2vUse": "Text-zu-Video-Generierung für 3–5 Sekunden Live-Wallpaper bei 720p.",
+    "aiModelsNote": "Diese Modelle werden über die fal.ai-Plattform genutzt. WallHaze steht in keiner Verbindung zu den Modell-Herausgebern. Verfügbarkeit und Ergebnisse können sich mit Anbieter-Updates ändern. Die KI-Wallpaper-Erstellung ist derzeit nicht öffentlich verfügbar."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1567,7 +1576,9 @@
     "contactTitle": "15. Kontaktinformationen",
     "contactBody": "Fragen zu diesen Bedingungen, Meldungen zu Werken und Kontobelange: Schreiben Sie an hello@wallhaze.com — der offizielle Kontakt-Kanal von WallHaze.",
     "prohibitedAupBody": "Die verbotenen Kategorien, die Prüfung, die Durchsetzung und Einsprüche sind in der Richtlinie zur akzeptablen Nutzung ausführlich beschrieben.",
-    "prohibitedAupLink": "Richtlinie zur akzeptablen Nutzung lesen"
+    "prohibitedAupLink": "Richtlinie zur akzeptablen Nutzung lesen",
+    "aiModelsTitle": "9. KI-Modelle und Dienstanbieter",
+    "aiModelsBody": "Die geplanten KI-Wallpaper-Erstellungsfunktionen von WallHaze nutzen die folgenden KI-Modelle von Drittanbietern, zugänglich über die fal.ai-Plattform: FLUX.2 Klein 4B für Text-zu-Bild-Generierung und Referenzbild-Bearbeitung (statische Wallpaper); Wan 2.2 5B für Bild-zu-Video-Generierung (5-Sekunden-Live-Wallpaper bei 720p); und Kling V3 Standard für Text-zu-Video-Generierung (3–5 Sekunden Live-Wallpaper bei 720p). Diese Funktionen sind derzeit nicht öffentlich verfügbar. WallHaze steht in keiner Verbindung zu den Modell-Herausgebern. Verfügbarkeit, Ausgabequalität und Preise können sich mit Anbieter-Updates ändern. Wir aktualisieren diesen Abschnitt, wenn sich Modelle oder Anbieter ändern."
   },
   "community": {
     "metaTitleSuffix": "Community",

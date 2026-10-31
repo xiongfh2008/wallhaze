@@ -1387,7 +1387,16 @@
     "disclaimerTitle": "Honesty note",
     "disclaimerBody": "This page describes only confirmed capabilities. Company details, team size, user counts and partners are not stated because none have been confirmed.",
     "aiTitle": "AI-powered wallpaper creation",
-    "aiBody": "AI wallpaper creation is a planned feature and is not currently available to the public. We are preparing AI-powered tools for personalized static wallpapers and short animated wallpapers. In the meantime, you can browse and download the wallpapers in our collection."
+    "aiBody": "AI wallpaper creation is a planned feature and is not currently available to the public. We are preparing AI-powered tools for personalized static wallpapers and short animated wallpapers. In the meantime, you can browse and download the wallpapers in our collection.",
+    "aiModelsTitle": "AI Technology and Model Transparency",
+    "aiModelsIntro": "WallHaze uses the following third-party AI models, accessed through the fal.ai platform, to power its planned wallpaper creation features:",
+    "aiModelImage": "FLUX.2 Klein 4B",
+    "aiModelImageUse": "Text-to-image generation and reference-image editing for static wallpapers.",
+    "aiModelI2v": "Wan 2.2 5B",
+    "aiModelI2vUse": "Image-to-video generation for 5-second live wallpapers at 720p.",
+    "aiModelT2v": "Kling V3 Standard",
+    "aiModelT2vUse": "Text-to-video generation for 3–5 second live wallpapers at 720p.",
+    "aiModelsNote": "These models are accessed through the fal.ai platform. WallHaze is not affiliated with the model publishers. Model availability and output can change as their providers update. AI wallpaper creation is not currently available to the public."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1567,7 +1576,9 @@
     "contactTitle": "15. Contact Information",
     "contactBody": "Questions about these terms, reports about works and account matters: email hello@wallhaze.com — the official WallHaze contact channel.",
     "prohibitedAupBody": "The prohibited categories, screening, enforcement and appeals are described in detail in the Acceptable Use Policy.",
-    "prohibitedAupLink": "Read the Acceptable Use Policy"
+    "prohibitedAupLink": "Read the Acceptable Use Policy",
+    "aiModelsTitle": "9. AI Models and Service Providers",
+    "aiModelsBody": "WallHaze's planned AI wallpaper creation features use the following third-party AI models, accessed through the fal.ai platform: FLUX.2 Klein 4B for text-to-image generation and reference-image editing (static wallpapers); Wan 2.2 5B for image-to-video generation (5-second live wallpapers at 720p); and Kling V3 Standard for text-to-video generation (3–5 second live wallpapers at 720p). These features are not currently available to the public. WallHaze is not affiliated with the model publishers. Model availability, output quality, and pricing may change as their providers update their services. We will update this section if the models or providers change."
   },
   "community": {
     "metaTitleSuffix": "Community",

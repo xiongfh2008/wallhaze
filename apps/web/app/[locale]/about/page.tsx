@@ -88,6 +88,40 @@ export default async function AboutPage({
           <p className="mt-2 leading-relaxed text-zinc-400">{t("aiBody")}</p>
         </section>
 
+        <section aria-labelledby="about-models" className="mt-10">
+          <h2 id="about-models" className="text-lg font-semibold">
+            {t("aiModelsTitle")}
+          </h2>
+          <p className="mt-2 leading-relaxed text-zinc-400">
+            {t("aiModelsIntro")}
+          </p>
+          <ul className="mt-4 space-y-3">
+            {[
+              { name: t("aiModelImage"), purpose: t("aiModelImageUse") },
+              { name: t("aiModelI2v"), purpose: t("aiModelI2vUse") },
+              { name: t("aiModelT2v"), purpose: t("aiModelT2vUse") },
+            ].map((model) => (
+              <li key={model.name} className="flex gap-3">
+                <span
+                  aria-hidden
+                  className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-violet-400"
+                />
+                <div>
+                  <span className="text-sm font-medium text-zinc-200">
+                    {model.name}
+                  </span>
+                  <span className="mt-0.5 block text-sm leading-relaxed text-zinc-500">
+                    {model.purpose}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm leading-relaxed text-zinc-500">
+            {t("aiModelsNote")}
+          </p>
+        </section>
+
         <section aria-labelledby="about-roadmap" className="mt-10">
           <h2 id="about-roadmap" className="text-lg font-semibold">
             {t("roadmapTitle")}

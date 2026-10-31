@@ -1387,7 +1387,16 @@
     "disclaimerTitle": "Note d'honnêteté",
     "disclaimerBody": "Cette page ne décrit que les capacités confirmées. Détails d'entreprise, taille d'équipe, nombre d'utilisateurs et partenaires ne sont pas mentionnés car rien n'a été confirmé.",
     "aiTitle": "Création de fonds par IA",
-    "aiBody": "La création de fonds par IA est une fonctionnalité planifiée et n’est pas disponible actuellement au public. Nous préparons des outils d’IA pour des fonds statiques personnalisés et de courts fonds animés. En attendant, vous pouvez parcourir et télécharger les fonds de notre collection."
+    "aiBody": "La création de fonds par IA est une fonctionnalité planifiée et n’est pas disponible actuellement au public. Nous préparons des outils d’IA pour des fonds statiques personnalisés et de courts fonds animés. En attendant, vous pouvez parcourir et télécharger les fonds de notre collection.",
+    "aiModelsTitle": "Technologie IA et transparence des modèles",
+    "aiModelsIntro": "Les fonctionnalités planifiées de création de fonds de WallHaze utilisent les modèles d'IA tiers suivants, accessibles via la plateforme fal.ai :",
+    "aiModelImage": "FLUX.2 Klein 4B",
+    "aiModelImageUse": "Génération de texte vers image et édition avec image de référence pour les fonds statiques.",
+    "aiModelI2v": "Wan 2.2 5B",
+    "aiModelI2vUse": "Génération d'image vers vidéo pour des fonds animés de 5 secondes en 720p.",
+    "aiModelT2v": "Kling V3 Standard",
+    "aiModelT2vUse": "Génération de texte vers vidéo pour des fonds animés de 3 à 5 secondes en 720p.",
+    "aiModelsNote": "Ces modèles sont accessibles via la plateforme fal.ai. WallHaze n'est pas affilié aux éditeurs des modèles. La disponibilité et les résultats peuvent changer selon les mises à jour de leurs fournisseurs. La création de fonds par IA n'est pas disponible actuellement au public."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -1567,7 +1576,9 @@
     "contactTitle": "15. Coordonnées de contact",
     "contactBody": "Questions sur ces conditions, signalements d’œuvres et questions de compte : écrivez à hello@wallhaze.com — le canal de contact officiel de WallHaze.",
     "prohibitedAupBody": "Les catégories interdites, l’examen, l’application et les appels sont décrits en détail dans la Politique d’utilisation acceptable.",
-    "prohibitedAupLink": "Lire la Politique d’utilisation acceptable"
+    "prohibitedAupLink": "Lire la Politique d’utilisation acceptable",
+    "aiModelsTitle": "9. Modèles d'IA et fournisseurs de services",
+    "aiModelsBody": "Les fonctionnalités planifiées de création de fonds par IA de WallHaze utilisent les modèles d'IA tiers suivants, accessibles via la plateforme fal.ai : FLUX.2 Klein 4B pour la génération de texte vers image et l'édition avec référence (fonds statiques) ; Wan 2.2 5B pour la génération d'image vers vidéo (fonds animés de 5 secondes en 720p) ; et Kling V3 Standard pour la génération de texte vers vidéo (fonds animés de 3 à 5 secondes en 720p). Ces fonctionnalités ne sont pas disponibles actuellement au public. WallHaze n'est pas affilié aux éditeurs des modèles. La disponibilité, la qualité et les prix peuvent évoluer selon les mises à jour des fournisseurs. Nous mettrons à jour cette section si les modèles ou fournisseurs changent."
   },
   "community": {
     "metaTitleSuffix": "Communauté",
