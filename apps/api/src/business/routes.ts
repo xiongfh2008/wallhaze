@@ -890,8 +890,9 @@ export async function businessRoutes(
   // Provider webhook — signature verification uses the RAW request bytes
   // captured by the app-level parser (request.rawBody), so it sees exactly
   // what the provider signed. The mock PSP signs compact JSON; a real
-  // adapter owns its own scheme over the same bytes.
-  app.post("/v1/payments/webhook", async (request) => {
+  // adapter owns its own scheme over the same bytes. The Waffo dashboard
+  // may be configured with either path — both hit the same adapter.
+  const receiveProviderWebhook = async (request: FastifyRequest) => {
     const rawBody = (request as FastifyRequest & { rawBody?: Buffer }).rawBody;
     const raw = rawBody
       ? rawBody.toString("utf8")
@@ -903,7 +904,10 @@ export async function businessRoutes(
       "";
     const result = await payments.receive(raw, signature);
     return { received: true, applied: result.applied };
-  });
+  };
+  app.post("/v1/payments/webhook", receiveProviderWebhook);
+  // Waffo-suggested alias (same handler, same signature verification).
+  app.post("/v1/webhooks/waffo", receiveProviderWebhook);
 
   // ---------- Async generation jobs ----------
   app.post(
