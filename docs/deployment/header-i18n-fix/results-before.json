@@ -1,0 +1,4510 @@
+[
+  {
+    "locale": "en",
+    "width": 1920,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Pricing\",\"b\":\"Change language\",\"ix\":30.7,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Pricing",
+          "b": "Change language",
+          "ix": 30.7,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explore Wallpapers",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Pricing",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explore Wallpapers",
+          "x": 739.9,
+          "y": 22,
+          "w": 154.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI Studio",
+          "x": 898.2,
+          "y": 22,
+          "w": 87.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 989.4,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Pricing",
+          "x": 1096.5,
+          "y": 22,
+          "w": 83.7,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Change language",
+          "x": 1149.5,
+          "y": 25,
+          "w": 109.2,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Log in",
+          "x": 1268.7,
+          "y": 22,
+          "w": 63.6,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 1342.3,
+          "y": 22,
+          "w": 153.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Pricing\",\"b\":\"Change language\",\"ix\":30.7,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Pricing",
+          "b": "Change language",
+          "ix": 30.7,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explore Wallpapers",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Pricing",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explore Wallpapers",
+          "x": 499.9,
+          "y": 22,
+          "w": 154.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI Studio",
+          "x": 658.2,
+          "y": 22,
+          "w": 87.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 749.4,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Pricing",
+          "x": 856.5,
+          "y": 22,
+          "w": 83.7,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Change language",
+          "x": 909.5,
+          "y": 25,
+          "w": 109.2,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Log in",
+          "x": 1028.7,
+          "y": 22,
+          "w": 63.6,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 1102.3,
+          "y": 22,
+          "w": 153.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Pricing\",\"b\":\"Change language\",\"ix\":30.7,\"iy\":30}]",
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Pricing",
+          "b": "Change language",
+          "ix": 30.7,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explore Wallpapers",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Pricing",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explore Wallpapers",
+          "x": 462.9,
+          "y": 22,
+          "w": 154.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI Studio",
+          "x": 621.2,
+          "y": 22,
+          "w": 87.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 712.4,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Pricing",
+          "x": 819.5,
+          "y": 22,
+          "w": 83.7,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Change language",
+          "x": 872.5,
+          "y": 25,
+          "w": 109.2,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Log in",
+          "x": 991.7,
+          "y": 22,
+          "w": 63.6,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 1065.3,
+          "y": 22,
+          "w": 153.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 1280,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Pricing\",\"b\":\"Change language\",\"ix\":30.7,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Pricing",
+          "b": "Change language",
+          "ix": 30.7,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explore Wallpapers",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Pricing",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explore Wallpapers",
+          "x": 419.9,
+          "y": 22,
+          "w": 154.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI Studio",
+          "x": 578.2,
+          "y": 22,
+          "w": 87.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 669.4,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Pricing",
+          "x": 776.5,
+          "y": 22,
+          "w": 83.7,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Change language",
+          "x": 829.5,
+          "y": 25,
+          "w": 109.2,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Log in",
+          "x": 948.7,
+          "y": 22,
+          "w": 63.6,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 1022.3,
+          "y": 22,
+          "w": 153.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 828.5,
+          "y": 18,
+          "w": 129.5,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Open menu",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 572.5,
+          "y": 18,
+          "w": 129.5,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Open menu",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: Error: locator.click: Error: strict mode violation: locator('header button[aria-controls=\"mobile-navigation\"]') resolved to 2 elements:\n    1) <button type=\"button\" aria-expanded=\"false\" aria-label=\"Menü öffnen\" aria-controls=\"mobile-navigation\" class=\"-mr-2 flex h-11 w-11 items-center justify-cente"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 198.5,
+          "y": 10,
+          "w": 129.5,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Open menu",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "en",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Create Wallpaper",
+          "x": 183.5,
+          "y": 10,
+          "w": 129.5,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Open menu",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 1920,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Precios\",\"b\":\"Cambiar idioma\",\"ix\":48,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Precios",
+          "b": "Cambiar idioma",
+          "ix": 48,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorar fondos",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Estudio de IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Comunidad",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Precios",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorar fondos",
+          "x": 736.6,
+          "y": 22,
+          "w": 131.5,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Estudio de IA",
+          "x": 872.2,
+          "y": 22,
+          "w": 113.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Comunidad",
+          "x": 989.9,
+          "y": 22,
+          "w": 102.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Precios",
+          "x": 1096.6,
+          "y": 22,
+          "w": 86.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Cambiar idioma",
+          "x": 1135.4,
+          "y": 25,
+          "w": 112.8,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Iniciar sesión",
+          "x": 1258.2,
+          "y": 22,
+          "w": 110.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 1378.3,
+          "y": 22,
+          "w": 117.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 1440,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Precios\",\"b\":\"Cambiar idioma\",\"ix\":48,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Precios",
+          "b": "Cambiar idioma",
+          "ix": 48,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorar fondos",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Estudio de IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Comunidad",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Precios",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorar fondos",
+          "x": 496.6,
+          "y": 22,
+          "w": 131.5,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Estudio de IA",
+          "x": 632.2,
+          "y": 22,
+          "w": 113.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Comunidad",
+          "x": 749.9,
+          "y": 22,
+          "w": 102.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Precios",
+          "x": 856.6,
+          "y": 22,
+          "w": 86.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Cambiar idioma",
+          "x": 895.4,
+          "y": 25,
+          "w": 112.8,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Iniciar sesión",
+          "x": 1018.2,
+          "y": 22,
+          "w": 110.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 1138.3,
+          "y": 22,
+          "w": 117.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Precios\",\"b\":\"Cambiar idioma\",\"ix\":48,\"iy\":30}]",
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Precios",
+          "b": "Cambiar idioma",
+          "ix": 48,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorar fondos",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Estudio de IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Comunidad",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Precios",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorar fondos",
+          "x": 459.6,
+          "y": 22,
+          "w": 131.5,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Estudio de IA",
+          "x": 595.2,
+          "y": 22,
+          "w": 113.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Comunidad",
+          "x": 712.9,
+          "y": 22,
+          "w": 102.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Precios",
+          "x": 819.6,
+          "y": 22,
+          "w": 86.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Cambiar idioma",
+          "x": 858.4,
+          "y": 25,
+          "w": 112.8,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Iniciar sesión",
+          "x": 981.2,
+          "y": 22,
+          "w": 110.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 1101.3,
+          "y": 22,
+          "w": 117.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 1280,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Precios\",\"b\":\"Cambiar idioma\",\"ix\":48,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Precios",
+          "b": "Cambiar idioma",
+          "ix": 48,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorar fondos",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Estudio de IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Comunidad",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Precios",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorar fondos",
+          "x": 416.6,
+          "y": 22,
+          "w": 131.5,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Estudio de IA",
+          "x": 552.2,
+          "y": 22,
+          "w": 113.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Comunidad",
+          "x": 669.9,
+          "y": 22,
+          "w": 102.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Precios",
+          "x": 776.6,
+          "y": 22,
+          "w": 86.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Cambiar idioma",
+          "x": 815.4,
+          "y": 25,
+          "w": 112.8,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Iniciar sesión",
+          "x": 938.2,
+          "y": 22,
+          "w": 110.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 1058.3,
+          "y": 22,
+          "w": 117.7,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 859.4,
+          "y": 18,
+          "w": 98.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Abrir menú",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 603.4,
+          "y": 18,
+          "w": 98.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Abrir menú",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: Error: locator.click: Error: strict mode violation: locator('header button[aria-controls=\"mobile-navigation\"]') resolved to 2 elements:\n    1) <button type=\"button\" aria-expanded=\"false\" aria-label=\"Menü öffnen\" aria-controls=\"mobile-navigation\" class=\"-mr-2 flex h-11 w-11 items-center justify-cente"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 229.4,
+          "y": 10,
+          "w": 98.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Abrir menú",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "es",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Crear fondo",
+          "x": 214.4,
+          "y": 10,
+          "w": 98.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Abrir menú",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 1920,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Tarifs\",\"b\":\"Changer de langue\",\"ix\":57.5,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Tarifs",
+          "b": "Changer de langue",
+          "ix": 57.5,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorer les fonds",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Studio IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Communauté",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Tarifs",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorer les fonds",
+          "x": 742.5,
+          "y": 22,
+          "w": 146.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Studio IA",
+          "x": 892.7,
+          "y": 22,
+          "w": 87.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Communauté",
+          "x": 984,
+          "y": 22,
+          "w": 115.8,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Tarifs",
+          "x": 1103.8,
+          "y": 22,
+          "w": 73.6,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Changer de langue",
+          "x": 1119.9,
+          "y": 25,
+          "w": 115.6,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Se connecter",
+          "x": 1245.5,
+          "y": 22,
+          "w": 111.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 1366.6,
+          "y": 22,
+          "w": 129.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 1440,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Tarifs\",\"b\":\"Changer de langue\",\"ix\":57.5,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Tarifs",
+          "b": "Changer de langue",
+          "ix": 57.5,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorer les fonds",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Studio IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Communauté",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Tarifs",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorer les fonds",
+          "x": 502.5,
+          "y": 22,
+          "w": 146.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Studio IA",
+          "x": 652.7,
+          "y": 22,
+          "w": 87.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Communauté",
+          "x": 744,
+          "y": 22,
+          "w": 115.8,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Tarifs",
+          "x": 863.8,
+          "y": 22,
+          "w": 73.6,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Changer de langue",
+          "x": 879.9,
+          "y": 25,
+          "w": 115.6,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Se connecter",
+          "x": 1005.5,
+          "y": 22,
+          "w": 111.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 1126.6,
+          "y": 22,
+          "w": 129.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Tarifs\",\"b\":\"Changer de langue\",\"ix\":57.5,\"iy\":30}]",
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Tarifs",
+          "b": "Changer de langue",
+          "ix": 57.5,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorer les fonds",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Studio IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Communauté",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Tarifs",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorer les fonds",
+          "x": 465.5,
+          "y": 22,
+          "w": 146.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Studio IA",
+          "x": 615.7,
+          "y": 22,
+          "w": 87.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Communauté",
+          "x": 707,
+          "y": 22,
+          "w": 115.8,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Tarifs",
+          "x": 826.8,
+          "y": 22,
+          "w": 73.6,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Changer de langue",
+          "x": 842.9,
+          "y": 25,
+          "w": 115.6,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Se connecter",
+          "x": 968.5,
+          "y": 22,
+          "w": 111.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 1089.6,
+          "y": 22,
+          "w": 129.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 1280,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Tarifs\",\"b\":\"Changer de langue\",\"ix\":57.5,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Tarifs",
+          "b": "Changer de langue",
+          "ix": 57.5,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Explorer les fonds",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Studio IA",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Communauté",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Tarifs",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Explorer les fonds",
+          "x": 422.5,
+          "y": 22,
+          "w": 146.2,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Studio IA",
+          "x": 572.7,
+          "y": 22,
+          "w": 87.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Communauté",
+          "x": 664,
+          "y": 22,
+          "w": 115.8,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Tarifs",
+          "x": 783.8,
+          "y": 22,
+          "w": 73.6,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Changer de langue",
+          "x": 799.9,
+          "y": 25,
+          "w": 115.6,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Se connecter",
+          "x": 925.5,
+          "y": 22,
+          "w": 111.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 1046.6,
+          "y": 22,
+          "w": 129.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 849.4,
+          "y": 18,
+          "w": 108.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Ouvrir le menu",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 593.4,
+          "y": 18,
+          "w": 108.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Ouvrir le menu",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: Error: locator.click: Error: strict mode violation: locator('header button[aria-controls=\"mobile-navigation\"]') resolved to 2 elements:\n    1) <button type=\"button\" aria-expanded=\"false\" aria-label=\"Menü öffnen\" aria-controls=\"mobile-navigation\" class=\"-mr-2 flex h-11 w-11 items-center justify-cente"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 219.4,
+          "y": 10,
+          "w": 108.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Ouvrir le menu",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "fr",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Créer un fond",
+          "x": 204.4,
+          "y": 10,
+          "w": 108.6,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Ouvrir le menu",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 1920,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Preise",
+          "b": "Sprache ändern",
+          "ix": 78.8,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Wallpaper entdecken",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "KI-Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Preise",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper entdecken",
+          "x": 734.8,
+          "y": 22,
+          "w": 167.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "KI-Studio",
+          "x": 905.9,
+          "y": 22,
+          "w": 89.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 999.3,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Preise",
+          "x": 1106.3,
+          "y": 22,
+          "w": 78.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Sprache ändern",
+          "x": 1103.8,
+          "y": 25,
+          "w": 114.9,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Anmelden",
+          "x": 1228.7,
+          "y": 22,
+          "w": 90,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 1328.7,
+          "y": 22,
+          "w": 167.3,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 1440,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Preise",
+          "b": "Sprache ändern",
+          "ix": 78.8,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Wallpaper entdecken",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "KI-Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Preise",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper entdecken",
+          "x": 494.8,
+          "y": 22,
+          "w": 167.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "KI-Studio",
+          "x": 665.9,
+          "y": 22,
+          "w": 89.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 759.3,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Preise",
+          "x": 866.3,
+          "y": 22,
+          "w": 78.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Sprache ändern",
+          "x": 863.8,
+          "y": 25,
+          "w": 114.9,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Anmelden",
+          "x": 988.7,
+          "y": 22,
+          "w": 90,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 1088.7,
+          "y": 22,
+          "w": 167.3,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]",
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Preise",
+          "b": "Sprache ändern",
+          "ix": 78.8,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Wallpaper entdecken",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "KI-Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Preise",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper entdecken",
+          "x": 457.8,
+          "y": 22,
+          "w": 167.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "KI-Studio",
+          "x": 628.9,
+          "y": 22,
+          "w": 89.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 722.3,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Preise",
+          "x": 829.3,
+          "y": 22,
+          "w": 78.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Sprache ändern",
+          "x": 826.8,
+          "y": 25,
+          "w": 114.9,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Anmelden",
+          "x": 951.7,
+          "y": 22,
+          "w": 90,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 1051.7,
+          "y": 22,
+          "w": 167.3,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 1280,
+    "pass": false,
+    "failures": [
+      "overlap: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [
+        {
+          "a": "Preise",
+          "b": "Sprache ändern",
+          "ix": 78.8,
+          "iy": 30
+        }
+      ],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "Wallpaper entdecken",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "KI-Studio",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Community",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "Preise",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper entdecken",
+          "x": 414.8,
+          "y": 22,
+          "w": 167.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "KI-Studio",
+          "x": 585.9,
+          "y": 22,
+          "w": 89.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Community",
+          "x": 679.3,
+          "y": 22,
+          "w": 103.1,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Preise",
+          "x": 786.3,
+          "y": 22,
+          "w": 78.8,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "Sprache ändern",
+          "x": 783.8,
+          "y": 25,
+          "w": 114.9,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "Anmelden",
+          "x": 908.7,
+          "y": 22,
+          "w": 90,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 1008.7,
+          "y": 22,
+          "w": 167.3,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 816.9,
+          "y": 18,
+          "w": 141.1,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Menü öffnen",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 560.9,
+          "y": 18,
+          "w": 141.1,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Menü öffnen",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: TimeoutError: locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#mobile-navigation') to be visible\u001b[22m\n"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 186.9,
+          "y": 10,
+          "w": 141.1,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Menü öffnen",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "de",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "Wallpaper erstellen",
+          "x": 171.9,
+          "y": 10,
+          "w": 141.1,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "Menü öffnen",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 1920,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "探索壁纸",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 工作室",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "社区",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "价格",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "探索壁纸",
+          "x": 807.7,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 工作室",
+          "x": 895.7,
+          "y": 22,
+          "w": 86.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "社区",
+          "x": 986.3,
+          "y": 22,
+          "w": 56,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "价格",
+          "x": 1046.3,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "切换语言",
+          "x": 1212,
+          "y": 25,
+          "w": 116,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "登录",
+          "x": 1338,
+          "y": 22,
+          "w": 52,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 1400,
+          "y": 22,
+          "w": 96,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 1440,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "探索壁纸",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 工作室",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "社区",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "价格",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "探索壁纸",
+          "x": 567.7,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 工作室",
+          "x": 655.7,
+          "y": 22,
+          "w": 86.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "社区",
+          "x": 746.3,
+          "y": 22,
+          "w": 56,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "价格",
+          "x": 806.3,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "切换语言",
+          "x": 972,
+          "y": 25,
+          "w": 116,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "登录",
+          "x": 1098,
+          "y": 22,
+          "w": 52,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 1160,
+          "y": 22,
+          "w": 96,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "探索壁纸",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 工作室",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "社区",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "价格",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "探索壁纸",
+          "x": 530.7,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 工作室",
+          "x": 618.7,
+          "y": 22,
+          "w": 86.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "社区",
+          "x": 709.3,
+          "y": 22,
+          "w": 56,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "价格",
+          "x": 769.3,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "切换语言",
+          "x": 935,
+          "y": 25,
+          "w": 116,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "登录",
+          "x": 1061,
+          "y": 22,
+          "w": 52,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 1123,
+          "y": 22,
+          "w": 96,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 1280,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "探索壁纸",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 工作室",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "社区",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "价格",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "探索壁纸",
+          "x": 487.7,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 工作室",
+          "x": 575.7,
+          "y": 22,
+          "w": 86.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "社区",
+          "x": 666.3,
+          "y": 22,
+          "w": 56,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "价格",
+          "x": 726.3,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "切换语言",
+          "x": 892,
+          "y": 25,
+          "w": 116,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "登录",
+          "x": 1018,
+          "y": 22,
+          "w": 52,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 1080,
+          "y": 22,
+          "w": 96,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 878,
+          "y": 18,
+          "w": 80,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "打开菜单",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 622,
+          "y": 18,
+          "w": 80,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "打开菜单",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: Error: locator.click: Error: strict mode violation: locator('header button[aria-controls=\"mobile-navigation\"]') resolved to 2 elements:\n    1) <button type=\"button\" aria-expanded=\"false\" aria-label=\"Menü öffnen\" aria-controls=\"mobile-navigation\" class=\"-mr-2 flex h-11 w-11 items-center justify-cente"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 248,
+          "y": 10,
+          "w": 80,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "打开菜单",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "zh",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "开始创作",
+          "x": 233,
+          "y": 10,
+          "w": 80,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "打开菜单",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 1920,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "壁紙を探す",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AIスタジオ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "コミュニティ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "料金",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を探す",
+          "x": 767.4,
+          "y": 22,
+          "w": 98,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AIスタジオ",
+          "x": 869.4,
+          "y": 22,
+          "w": 97.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "コミュニティ",
+          "x": 970.6,
+          "y": 22,
+          "w": 112,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "料金",
+          "x": 1086.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "言語を変更",
+          "x": 1182,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "ログイン",
+          "x": 1296,
+          "y": 22,
+          "w": 80,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 1386,
+          "y": 22,
+          "w": 110,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 1440,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "壁紙を探す",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AIスタジオ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "コミュニティ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "料金",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を探す",
+          "x": 527.4,
+          "y": 22,
+          "w": 98,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AIスタジオ",
+          "x": 629.4,
+          "y": 22,
+          "w": 97.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "コミュニティ",
+          "x": 730.6,
+          "y": 22,
+          "w": 112,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "料金",
+          "x": 846.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "言語を変更",
+          "x": 942,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "ログイン",
+          "x": 1056,
+          "y": 22,
+          "w": 80,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 1146,
+          "y": 22,
+          "w": 110,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "壁紙を探す",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AIスタジオ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "コミュニティ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "料金",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を探す",
+          "x": 490.4,
+          "y": 22,
+          "w": 98,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AIスタジオ",
+          "x": 592.4,
+          "y": 22,
+          "w": 97.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "コミュニティ",
+          "x": 693.6,
+          "y": 22,
+          "w": 112,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "料金",
+          "x": 809.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "言語を変更",
+          "x": 905,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "ログイン",
+          "x": 1019,
+          "y": 22,
+          "w": 80,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 1109,
+          "y": 22,
+          "w": 110,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 1280,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "壁紙を探す",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AIスタジオ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "コミュニティ",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "料金",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を探す",
+          "x": 447.4,
+          "y": 22,
+          "w": 98,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AIスタジオ",
+          "x": 549.4,
+          "y": 22,
+          "w": 97.3,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "コミュニティ",
+          "x": 650.6,
+          "y": 22,
+          "w": 112,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "料金",
+          "x": 766.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "言語を変更",
+          "x": 862,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "ログイン",
+          "x": 976,
+          "y": 22,
+          "w": 80,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 1066,
+          "y": 22,
+          "w": 110,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 866,
+          "y": 18,
+          "w": 92,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "メニューを開く",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 610,
+          "y": 18,
+          "w": 92,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "メニューを開く",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: Error: locator.click: Error: strict mode violation: locator('header button[aria-controls=\"mobile-navigation\"]') resolved to 2 elements:\n    1) <button type=\"button\" aria-expanded=\"false\" aria-label=\"Menü öffnen\" aria-controls=\"mobile-navigation\" class=\"-mr-2 flex h-11 w-11 items-center justify-cente"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 236,
+          "y": 10,
+          "w": 92,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "メニューを開く",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ja",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "壁紙を作成",
+          "x": 221,
+          "y": 10,
+          "w": 92,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "メニューを開く",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 1920,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1920,
+      "clientWidth": 1920,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "배경화면 둘러보기",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 스튜디오",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "커뮤니티",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "가격",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 416,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 둘러보기",
+          "x": 757,
+          "y": 22,
+          "w": 143.4,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 스튜디오",
+          "x": 904.4,
+          "y": 22,
+          "w": 100.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "커뮤니티",
+          "x": 1009,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "가격",
+          "x": 1097,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "언어 변경",
+          "x": 1164.6,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "로그인",
+          "x": 1278.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 1354.6,
+          "y": 22,
+          "w": 141.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 1440,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "배경화면 둘러보기",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 스튜디오",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "커뮤니티",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "가격",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 176,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 둘러보기",
+          "x": 517,
+          "y": 22,
+          "w": 143.4,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 스튜디오",
+          "x": 664.4,
+          "y": 22,
+          "w": 100.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "커뮤니티",
+          "x": 769,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "가격",
+          "x": 857,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "언어 변경",
+          "x": 924.6,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "로그인",
+          "x": 1038.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 1114.6,
+          "y": 22,
+          "w": 141.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 1366,
+    "pass": false,
+    "failures": [
+      "overlap after switch to de: [{\"a\":\"Preise\",\"b\":\"Sprache ändern\",\"ix\":78.8,\"iy\":30}]"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1366,
+      "clientWidth": 1366,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "배경화면 둘러보기",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 스튜디오",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "커뮤니티",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "가격",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 139,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 둘러보기",
+          "x": 480,
+          "y": 22,
+          "w": 143.4,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 스튜디오",
+          "x": 627.4,
+          "y": 22,
+          "w": 100.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "커뮤니티",
+          "x": 732,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "가격",
+          "x": 820,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "언어 변경",
+          "x": 887.6,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "로그인",
+          "x": 1001.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 1077.6,
+          "y": 22,
+          "w": 141.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 1280,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "logoVisible": true,
+      "desktopNavShown": true,
+      "navLinks": [
+        {
+          "text": "배경화면 둘러보기",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "AI 스튜디오",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "커뮤니티",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": false
+        },
+        {
+          "text": "가격",
+          "clipped": false,
+          "wrapped": false,
+          "offscreen": false,
+          "current": true
+        }
+      ],
+      "hamburgerVisible": false,
+      "elementCount": 8,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 96,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 둘러보기",
+          "x": 437,
+          "y": 22,
+          "w": 143.4,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "AI 스튜디오",
+          "x": 584.4,
+          "y": 22,
+          "w": 100.7,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "커뮤니티",
+          "x": 689,
+          "y": 22,
+          "w": 84,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "가격",
+          "x": 777,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "button",
+          "label": "언어 변경",
+          "x": 844.6,
+          "y": 25,
+          "w": 104,
+          "h": 30
+        },
+        {
+          "tag": "a",
+          "label": "로그인",
+          "x": 958.6,
+          "y": 22,
+          "w": 66,
+          "h": 36
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 1034.6,
+          "y": 22,
+          "w": 141.4,
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 1024,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 839.1,
+          "y": 18,
+          "w": 118.9,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "메뉴 열기",
+          "x": 964,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 768,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 16,
+          "y": 16,
+          "w": 139.9,
+          "h": 48
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 583.1,
+          "y": 18,
+          "w": 118.9,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "메뉴 열기",
+          "x": 708,
+          "y": 18,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 390,
+    "pass": false,
+    "failures": [
+      "exception: Error: locator.click: Error: strict mode violation: locator('header button[aria-controls=\"mobile-navigation\"]') resolved to 2 elements:\n    1) <button type=\"button\" aria-expanded=\"false\" aria-label=\"Menü öffnen\" aria-controls=\"mobile-navigation\" class=\"-mr-2 flex h-11 w-11 items-center justify-cente"
+    ],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 209.1,
+          "y": 10,
+          "w": 118.9,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "메뉴 열기",
+          "x": 334,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  },
+  {
+    "locale": "ko",
+    "width": 375,
+    "pass": true,
+    "failures": [],
+    "bar": {
+      "overlaps": [],
+      "pageHOverflow": false,
+      "scrollWidth": 375,
+      "clientWidth": 375,
+      "logoVisible": true,
+      "desktopNavShown": false,
+      "navLinks": [],
+      "hamburgerVisible": true,
+      "elementCount": 3,
+      "rects": [
+        {
+          "tag": "a",
+          "label": "WallHaze",
+          "x": 12,
+          "y": 10,
+          "w": 124.4,
+          "h": 44
+        },
+        {
+          "tag": "a",
+          "label": "배경화면 만들기",
+          "x": 194.1,
+          "y": 10,
+          "w": 118.9,
+          "h": 44
+        },
+        {
+          "tag": "button",
+          "label": "메뉴 열기",
+          "x": 319,
+          "y": 10,
+          "w": 44,
+          "h": 44
+        }
+      ]
+    }
+  }
+]

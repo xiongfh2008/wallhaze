@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -14,6 +20,13 @@ import {
 } from "@/lib/api/auth";
 import { creditsAdapter } from "@/lib/api/credits";
 import { loginHref } from "@/lib/auth/return-to";
+
+/**
+ * useLayoutEffect on the client (pre-paint, so a measured compact-mode
+ * switch never flashes) and a no-op on the server (no SSR warning).
+ */
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 interface HeaderProps {
   /** Keep the header aligned with the page's content container. */
@@ -141,6 +154,101 @@ export default function Header({
   const mobileButtonRef = useRef<HTMLButtonElement | null>(null);
   const mobilePanelRef = useRef<HTMLDivElement | null>(null);
   const requestRef = useRef(0);
+
+  // --- Responsive bar layout (three-section grid) ---------------------------
+  // The bar is one grid row: logo | centered nav | actions. The desktop nav
+  // is only shown when its real rendered width fits between logo and actions
+  // (label width varies per language and session state). Below the `xl`
+  // breakpoint pure CSS shows the compact bar; at `xl`+ a measurement pass
+  // downgrades to compact pre-paint when the labels would overflow.
+  const rowRef = useRef<HTMLDivElement | null>(null);
+  const logoRef = useRef<HTMLAnchorElement | null>(null);
+  const navListRef = useRef<HTMLElement | null>(null);
+  const desktopActionsRef = useRef<HTMLDivElement | null>(null);
+  const naturalRef = useRef<{
+    key: string;
+    nav: number;
+    actions: number;
+  } | null>(null);
+  const [forceCompact, setForceCompact] = useState(false);
+  const forceCompactRef = useRef(false);
+  const identityRef = useRef<string | null>(null);
+
+  const syncBarLayout = useCallback(() => {
+    const row = rowRef.current;
+    const nav = navListRef.current;
+    if (!row || !nav) return;
+
+    if (nav.offsetParent !== null) {
+      // Desktop bar on screen: cache natural widths and downgrade to compact
+      // only when the rendered labels genuinely do not fit the row.
+      const key = identityRef.current ?? "";
+      naturalRef.current = {
+        key,
+        nav: nav.scrollWidth,
+        actions: desktopActionsRef.current?.scrollWidth ?? 0,
+      };
+      const overflowing =
+        nav.scrollWidth > nav.clientWidth + 1 ||
+        row.scrollWidth > row.clientWidth + 1;
+      if (overflowing !== forceCompactRef.current) setForceCompact(overflowing);
+      return;
+    }
+
+    // Compact bar: restore the desktop bar once the cached natural widths fit
+    // again (wider window, shorter labels after a language switch, ...).
+    if (!forceCompactRef.current) return;
+    const cached = naturalRef.current;
+    if (!cached || cached.key !== identityRef.current) return;
+    const cs = window.getComputedStyle(row);
+    const contentWidth =
+      row.clientWidth -
+      (Number.parseFloat(cs.paddingLeft) + Number.parseFloat(cs.paddingRight));
+    const needed =
+      (logoRef.current?.offsetWidth ?? 0) +
+      cached.nav +
+      cached.actions +
+      24; // two 12px grid gaps around the middle column
+    if (contentWidth > 0 && needed <= contentWidth - 4) {
+      setForceCompact(false);
+    }
+  }, []);
+
+  useIsoLayoutEffect(() => {
+    forceCompactRef.current = forceCompact;
+    const key = `${locale}|${user ? "in" : "out"}`;
+    if (identityRef.current !== key) {
+      identityRef.current = key;
+      if (forceCompactRef.current) {
+        // New labels/session: re-measure from the desktop bar.
+        setForceCompact(false);
+        return; // the re-render re-runs this effect
+      }
+    }
+    syncBarLayout();
+  });
+
+  useEffect(() => {
+    const onResize = () => syncBarLayout();
+    window.addEventListener("resize", onResize, { passive: true });
+    let observer: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && rowRef.current) {
+      observer = new ResizeObserver(onResize);
+      observer.observe(rowRef.current);
+    }
+    let fontsCancelled = false;
+    document.fonts?.ready
+      .then(() => {
+        if (!fontsCancelled) onResize();
+      })
+      .catch(() => {});
+    return () => {
+      window.removeEventListener("resize", onResize);
+      observer?.disconnect();
+      fontsCancelled = true;
+    };
+  }, [syncBarLayout]);
+  // --------------------------------------------------------------------------
 
   const isStudio = pathname === "/studio" || pathname.startsWith("/studio/");
   const creditsActive = isActive(pathname, "/credits");
@@ -317,13 +425,15 @@ export default function Header({
       }`}
     >
       <div
-        className={`relative mx-auto flex h-16 w-full items-center px-5 sm:px-6 md:h-20 ${maxWidthClassName}`}
+        ref={rowRef}
+        className={`relative mx-auto grid h-16 w-full grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-3 px-5 sm:px-6 md:h-20 ${maxWidthClassName}`}
       >
         <Link
+          ref={logoRef}
           href="/"
           aria-label="WallHaze"
           onClick={() => setMobileOpen(false)}
-          className="-ml-2 flex items-center rounded-lg px-2 py-2 outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-violet-400/70"
+          className="col-start-1 row-start-1 -ml-2 flex items-center rounded-lg px-2 py-2 outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-violet-400/70"
         >
           {/* Official brand mark (2026-10-31 kit). Height-driven with the
               intrinsic 550×142 ratio, so the header height never changes and
@@ -339,7 +449,10 @@ export default function Header({
         </Link>
 
         <nav
-          className="absolute left-1/2 hidden min-w-0 -translate-x-1/2 items-center justify-center gap-1 xl:flex"
+          ref={navListRef}
+          className={`col-start-2 row-start-1 hidden min-w-0 flex-nowrap items-center justify-center gap-1 justify-self-center ${
+            forceCompact ? "" : "xl:flex"
+          }`}
           aria-label={t("mainAria")}
         >
           {navLinks.map((link) => {
@@ -349,7 +462,7 @@ export default function Header({
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`relative rounded-full px-3.5 py-2 text-sm font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-violet-400/70 ${
+                className={`relative whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-violet-400/70 ${
                   active
                     ? "bg-white/[0.08] text-white"
                     : "text-zinc-300 hover:bg-white/5 hover:text-white"
@@ -363,8 +476,11 @@ export default function Header({
         </nav>
 
         <div
+          ref={desktopActionsRef}
           data-testid="header-desktop-actions"
-          className="ml-auto hidden items-center justify-end gap-2.5 xl:flex"
+          className={`col-start-3 row-start-1 hidden items-center justify-self-end gap-2.5 ${
+            forceCompact ? "" : "xl:flex"
+          }`}
         >
           <LanguageSwitcher />
           {user ? (
@@ -402,7 +518,9 @@ export default function Header({
 
         <div
           data-testid="header-mobile-actions"
-          className="ml-auto flex items-center justify-end gap-1.5 xl:hidden"
+          className={`col-start-3 row-start-1 flex items-center justify-self-end gap-1.5 ${
+            forceCompact ? "" : "xl:hidden"
+          }`}
         >
           {user ? (
             <span className="hidden sm:inline-flex">
@@ -455,7 +573,9 @@ export default function Header({
         <div
           id="mobile-navigation"
           ref={mobilePanelRef}
-          className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-[#050308]/95 backdrop-blur-xl md:max-h-[calc(100dvh-5rem)] xl:hidden"
+          className={`max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-[#050308]/95 backdrop-blur-xl md:max-h-[calc(100dvh-5rem)] ${
+            forceCompact ? "" : "xl:hidden"
+          }`}
         >
           <div
             className={`mx-auto px-5 pb-7 pt-3 sm:px-6 ${maxWidthClassName}`}

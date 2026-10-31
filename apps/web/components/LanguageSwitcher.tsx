@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { getPathname, usePathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { LANGUAGE_SWITCH_FLAG } from "@/lib/language-bridge";
 import Dropdown from "./ui/Dropdown";
@@ -76,23 +76,26 @@ export default function LanguageSwitcher({
 }) {
   const locale = useLocale();
   const pathname = usePathname();
-  const router = useRouter();
   const tLabel = useTranslations("languageSwitcher");
 
   const switchTo = (next: (typeof routing.locales)[number]) => {
-    if (next !== locale) {
-      try {
-        window.sessionStorage.setItem(
-          LANGUAGE_SWITCH_FLAG,
-          JSON.stringify({ target: next })
-        );
-      } catch {
-        // Storage unavailable — the switch still happens, only the generator
-        // state is not carried over.
-      }
-      onSwitch?.();
-      router.replace(pathname, { locale: next });
+    if (next === locale) return;
+    try {
+      window.sessionStorage.setItem(
+        LANGUAGE_SWITCH_FLAG,
+        JSON.stringify({ target: next })
+      );
+    } catch {
+      // Storage unavailable — the switch still happens, only the generator
+      // state is not carried over.
     }
+    onSwitch?.();
+    // Full document navigation. A client-side locale swap (router.replace
+    // with a changed locale param) is known to leave a duplicated header
+    // tree committed under Next 16 + cacheComponents; a hard navigation is
+    // deterministic, hydration-safe and still carries the generator state
+    // across via the sessionStorage bridge above.
+    window.location.assign(getPathname({ href: pathname, locale: next }));
   };
 
   return (
