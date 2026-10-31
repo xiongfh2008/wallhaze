@@ -999,6 +999,102 @@
     "ukiyo-anime-fusion": {
       "title": "現代の大波",
       "alt": "現代の大波 — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
+    },
+    "b2-mecha-battleline": {
+      "title": "メカ・バトルライン",
+      "alt": "メカ・バトルライン — Original mecha squad advancing through a ruined future boulevard at dawn"
+    },
+    "b2-cyber-nightmarket": {
+      "title": "ナイトマーケットの運河",
+      "alt": "ナイトマーケットの運河 — Cyberpunk night market with lanterns reflecting in a black canal"
+    },
+    "b2-interstellar-gate": {
+      "title": "ジャンプゲート",
+      "alt": "ジャンプゲート — Titanic jump-gate opening a swirling portal above an exploration fleet"
+    },
+    "b2-dark-citadel-throne": {
+      "title": "翡翠の玉座",
+      "alt": "翡翠の玉座 — Dark citadel throne hall with moonlight shafts and drifting embers"
+    },
+    "b2-jp-aesthetic-alley": {
+      "title": "提灯の小路",
+      "alt": "提灯の小路 — Japanese alley with paper lanterns and a Mount Fuji sunset"
+    },
+    "b2-vaporwave-mall": {
+      "title": "水没のアーケード",
+      "alt": "水没のアーケード — Abandoned retro mall flooded with water under pink-cyan neon"
+    },
+    "b2-dreamcore-playground": {
+      "title": "雲の上の遊園地",
+      "alt": "雲の上の遊園地 — Impossible playground standing on clouds under three soft suns"
+    },
+    "b2-gothic-cathedral": {
+      "title": "真夜中の大聖堂",
+      "alt": "真夜中の大聖堂 — Gothic cathedral interior with glowing stained glass at midnight"
+    },
+    "b2-roadmovie-dusk": {
+      "title": "夕暮れのコンバーチブル",
+      "alt": "夕暮れのコンバーチブル — Vintage convertible on a west-coast highway at dusk"
+    },
+    "b2-samurai-standoff": {
+      "title": "竹林の侍",
+      "alt": "竹林の侍 — Original samurai standing in a bamboo grove during a lightning storm"
+    },
+    "b2-pixel-arcade-world": {
+      "title": "ピクセルの空島",
+      "alt": "ピクセルの空島 — Pixel-art floating islands connected by neon bridges"
+    },
+    "b2-race-future-circuit": {
+      "title": "反重力サーキット",
+      "alt": "反重力サーキット — Anti-gravity race cars charging through a neon circuit tunnel"
+    },
+    "b2-galaxy-river-mountain": {
+      "title": "天の川の渓谷",
+      "alt": "天の川の渓谷 — The Milky Way pouring between mountain ridges over a mirrored lake"
+    },
+    "b2-magic-forest-spirits": {
+      "title": "胞子の精霊",
+      "alt": "胞子の精霊 — Glowing spore-spirits floating between colossal mossy trunks"
+    },
+    "b2-amoled-obsidian-wave": {
+      "title": "黒曜の波",
+      "alt": "黒曜の波 — A sweep of violet-to-blue light across a near-black obsidian field"
+    },
+    "b2-anime-festival-night": {
+      "title": "夏祭りの夜",
+      "alt": "夏祭りの夜 — Anime festival street with yukata crowds and fireworks"
+    },
+    "b2-mech-pilot-gaze": {
+      "title": "パイロットと巨神",
+      "alt": "パイロットと巨神 — Original mecha pilot before her towering mechanical partner"
+    },
+    "b2-cyber-alley-cat": {
+      "title": "ネオン路地の猫",
+      "alt": "ネオン路地の猫 — Robotic cat on a crate in a flickering neon alley"
+    },
+    "b2-lofi-rain-window": {
+      "title": "雨窓のローファイ",
+      "alt": "雨窓のローファイ — Rain on a large window with a steaming mug and a sleeping cat"
+    },
+    "b2-galaxy-cliff-temple": {
+      "title": "崖の上の星詞",
+      "alt": "崖の上の星詞 — A tiny temple on a cliff beneath a river of stars"
+    },
+    "b2-magic-forest-well": {
+      "title": "光る古井戸",
+      "alt": "光る古井戸 — Ancient glowing well in an enchanted forest clearing"
+    },
+    "b2-vaporwave-bust": {
+      "title": "ネオンバイザー",
+      "alt": "ネオンバイザー — Classical plaster bust with a chrome visor in a vaporwave room"
+    },
+    "b2-dreamcore-doorfield": {
+      "title": "扉の草原",
+      "alt": "扉の草原 — Standing doors in a cloud meadow opening onto different skies"
+    },
+    "b2-magic-forest-clearing": {
+      "title": "キノコの輪",
+      "alt": "キノコの輪 — Glowing mushroom circle around an old stone bench at twilight"
     }
   },
   "auth": {

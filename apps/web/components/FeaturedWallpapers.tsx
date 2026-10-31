@@ -93,9 +93,12 @@ export function WallpaperLinkCard({
 }
 
 /**
- * Homepage "Featured Wallpapers": a fixed, hand-picked subset of the static
- * gallery (server-rendered) linking to detail pages. No fabricated trending
- * or popularity claims — selection is editorial.
+ * Homepage "Featured Wallpapers" (2026-10-31 redesign): a clean, uniform
+ * 16:9 card grid — 3 columns on desktop (max-width 1280px), 2 on tablet,
+ * 1 on mobile. Every featured piece is a desktop-ratio original; images are
+ * cropped with object-cover (never stretched), carry a light bottom scrim,
+ * a concise title + style label and a subtle hover zoom. Zero mixed-ratio
+ * holes. Server-rendered; cards link to detail pages where download lives.
  */
 export default function FeaturedWallpapers() {
   const t = useTranslations("featured");
@@ -104,7 +107,7 @@ export default function FeaturedWallpapers() {
 
   return (
     <section id="featured" className="relative py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-[1280px] px-6">
         <div className="mb-8 flex flex-col gap-5 md:mb-10 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-violet-300">
@@ -131,26 +134,53 @@ export default function FeaturedWallpapers() {
           </Link>
         </div>
 
-        {/* Mobile: a compact horizontal strip; md+ a 3/4-column grid. All
-            featured images are below the fold, so they stay lazy. */}
-        <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 lg:grid-cols-4">
-          {FEATURED_WALLPAPERS.map((wallpaper) => (
-            <div
-              key={wallpaper.id}
-              className="w-[68vw] max-w-[240px] shrink-0 snap-start md:w-auto md:max-w-none"
-            >
-              <WallpaperLinkCard
-                wallpaper={wallpaper}
-                title={tWallpapers(`${wallpaper.id}.title`)}
-                alt={tWallpapers(`${wallpaper.id}.alt`)}
-                styleLabel={tStyles(wallpaper.styleId)}
-                viewLabel={t("cardAria", {
-                  title: tWallpapers(`${wallpaper.id}.title`),
-                })}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Uniform 16:9 grid: 1 column mobile, 2 tablet, 3 desktop. Every
+            featured piece is a landscape (16:9) original, so no cell is ever
+            taller than its neighbours and the rows stay flush. Images are
+            lazy (below the fold) and cropped, never stretched. */}
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+          {FEATURED_WALLPAPERS.map((wallpaper) => {
+            const title = tWallpapers(`${wallpaper.id}.title`);
+            return (
+              <li key={wallpaper.id}>
+                <Link
+                  href={`/wallpapers/${wallpaper.id}`}
+                  aria-label={t("cardAria", { title })}
+                  className="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/40 outline-none transition hover:border-violet-400/40 focus-visible:ring-2 focus-visible:ring-violet-400/60"
+                >
+                  <div
+                    className="relative w-full overflow-hidden"
+                    style={{ aspectRatio: "16 / 9" }}
+                  >
+                    <WallpaperImage
+                      src={wallpaper.image ?? undefined}
+                      alt={tWallpapers(`${wallpaper.id}.alt`)}
+                      gradient={wallpaper.gradient}
+                      className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-4">
+                      <div className="min-w-0">
+                        <h3 className="truncate text-sm font-semibold text-white md:text-base">
+                          {title}
+                        </h3>
+                        <p className="truncate text-xs text-zinc-400">
+                          {tStyles(wallpaper.styleId)}
+                        </p>
+                      </div>
+                      <span
+                        aria-hidden
+                        className="shrink-0 text-xs font-medium text-violet-300 opacity-0 transition duration-300 group-hover:opacity-100"
+                      >
+                        &rarr;
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
         <p className="mt-4 text-xs leading-relaxed text-zinc-500">
           {t("licenseNote")}
         </p>

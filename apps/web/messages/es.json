@@ -999,6 +999,102 @@
     "ukiyo-anime-fusion": {
       "title": "La gran ola moderna",
       "alt": "La gran ola moderna — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
+    },
+    "b2-mecha-battleline": {
+      "title": "Línea mecha",
+      "alt": "Línea mecha — Original mecha squad advancing through a ruined future boulevard at dawn"
+    },
+    "b2-cyber-nightmarket": {
+      "title": "Mercado nocturno",
+      "alt": "Mercado nocturno — Cyberpunk night market with lanterns reflecting in a black canal"
+    },
+    "b2-interstellar-gate": {
+      "title": "La puerta interestelar",
+      "alt": "La puerta interestelar — Titanic jump-gate opening a swirling portal above an exploration fleet"
+    },
+    "b2-dark-citadel-throne": {
+      "title": "Trono de ascuas",
+      "alt": "Trono de ascuas — Dark citadel throne hall with moonlight shafts and drifting embers"
+    },
+    "b2-jp-aesthetic-alley": {
+      "title": "Callejón de faroles",
+      "alt": "Callejón de faroles — Japanese alley with paper lanterns and a Mount Fuji sunset"
+    },
+    "b2-vaporwave-mall": {
+      "title": "Arcada inundada",
+      "alt": "Arcada inundada — Abandoned retro mall flooded with water under pink-cyan neon"
+    },
+    "b2-dreamcore-playground": {
+      "title": "Parque en las nubes",
+      "alt": "Parque en las nubes — Impossible playground standing on clouds under three soft suns"
+    },
+    "b2-gothic-cathedral": {
+      "title": "Catedral de medianoche",
+      "alt": "Catedral de medianoche — Gothic cathedral interior with glowing stained glass at midnight"
+    },
+    "b2-roadmovie-dusk": {
+      "title": "Descapotable al anochecer",
+      "alt": "Descapotable al anochecer — Vintage convertible on a west-coast highway at dusk"
+    },
+    "b2-samurai-standoff": {
+      "title": "Samurái en la tormenta",
+      "alt": "Samurái en la tormenta — Original samurai standing in a bamboo grove during a lightning storm"
+    },
+    "b2-pixel-arcade-world": {
+      "title": "Islas de píxeles",
+      "alt": "Islas de píxeles — Pixel-art floating islands connected by neon bridges"
+    },
+    "b2-race-future-circuit": {
+      "title": "Circuito antigravedad",
+      "alt": "Circuito antigravedad — Anti-gravity race cars charging through a neon circuit tunnel"
+    },
+    "b2-galaxy-river-mountain": {
+      "title": "Río de estrellas",
+      "alt": "Río de estrellas — The Milky Way pouring between mountain ridges over a mirrored lake"
+    },
+    "b2-magic-forest-spirits": {
+      "title": "Espíritas de esporas",
+      "alt": "Espíritas de esporas — Glowing spore-spirits floating between colossal mossy trunks"
+    },
+    "b2-amoled-obsidian-wave": {
+      "title": "Ola de obsidiana",
+      "alt": "Ola de obsidiana — A sweep of violet-to-blue light across a near-black obsidian field"
+    },
+    "b2-anime-festival-night": {
+      "title": "Noche de festival",
+      "alt": "Noche de festival — Anime festival street with yukata crowds and fireworks"
+    },
+    "b2-mech-pilot-gaze": {
+      "title": "Piloto y titán",
+      "alt": "Piloto y titán — Original mecha pilot before her towering mechanical partner"
+    },
+    "b2-cyber-alley-cat": {
+      "title": "Gato del callejón",
+      "alt": "Gato del callejón — Robotic cat on a crate in a flickering neon alley"
+    },
+    "b2-lofi-rain-window": {
+      "title": "Lluvia lo-fi",
+      "alt": "Lluvia lo-fi — Rain on a large window with a steaming mug and a sleeping cat"
+    },
+    "b2-galaxy-cliff-temple": {
+      "title": "Templo en el acantilado",
+      "alt": "Templo en el acantilado — A tiny temple on a cliff beneath a river of stars"
+    },
+    "b2-magic-forest-well": {
+      "title": "El pozo luminoso",
+      "alt": "El pozo luminoso — Ancient glowing well in an enchanted forest clearing"
+    },
+    "b2-vaporwave-bust": {
+      "title": "Visor de neón",
+      "alt": "Visor de neón — Classical plaster bust with a chrome visor in a vaporwave room"
+    },
+    "b2-dreamcore-doorfield": {
+      "title": "Campo de puertas",
+      "alt": "Campo de puertas — Standing doors in a cloud meadow opening onto different skies"
+    },
+    "b2-magic-forest-clearing": {
+      "title": "Círculo de hongos",
+      "alt": "Círculo de hongos — Glowing mushroom circle around an old stone bench at twilight"
     }
   },
   "auth": {
