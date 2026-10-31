@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { STYLE_SPOTLIGHT } from "@/lib/wallpapers";
+import { webpSrcSet } from "@/lib/images";
 import WallpaperImage from "./WallpaperImage";
 
 /**
@@ -178,6 +179,9 @@ export default function TrendingMarquee() {
             src={style.image}
             alt={clone ? "" : t("previewAlt", { label })}
             gradient={style.gradient}
+            srcSet={style.image ? webpSrcSet(style.image) : undefined}
+            // Card is 46vw on phones, 224px from md up.
+            sizes="(max-width: 639px) 46vw, (max-width: 767px) 38vw, 224px"
             className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />

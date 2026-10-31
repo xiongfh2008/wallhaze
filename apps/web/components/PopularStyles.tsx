@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { POPULAR_STYLES } from "@/lib/styles";
+import { webpSrcSet } from "@/lib/images";
 import WallpaperImage from "./WallpaperImage";
 
 /**
@@ -41,6 +42,9 @@ export default function PopularStyles() {
                     src={style.image}
                     alt={t("sampleAlt", { style: tStyles(style.id) })}
                     gradient={style.gradient}
+                    srcSet={style.image ? webpSrcSet(style.image) : undefined}
+                    // 80px tile on phones, 96px from md up.
+                    sizes="(min-width: 768px) 96px, 80px"
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </span>

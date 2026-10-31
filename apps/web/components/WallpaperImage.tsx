@@ -11,6 +11,10 @@ interface WallpaperImageProps {
   eager?: boolean;
   /** Hint the browser to fetch this image first (LCP candidates only). */
   priority?: boolean;
+  /** Responsive WebP candidate list (lib/images.ts webpSrcSet). */
+  srcSet?: string;
+  /** Intrinsic display width hint for the srcSet selection. */
+  sizes?: string;
   /** Optional callback fired when the image fails to load. */
   onError?: () => void;
   /** Optional callback fired once the bitmap has loaded. */
@@ -28,6 +32,8 @@ export default function WallpaperImage({
   className = "",
   eager = false,
   priority = false,
+  srcSet,
+  sizes,
   onError,
   onLoaded,
 }: WallpaperImageProps) {
@@ -54,6 +60,8 @@ export default function WallpaperImage({
       loading={eager ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : undefined}
       decoding="async"
+      srcSet={srcSet}
+      sizes={srcSet ? sizes : undefined}
       onLoad={onLoaded}
       onError={() => {
         setFailed(true);

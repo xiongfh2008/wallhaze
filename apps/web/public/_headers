@@ -1,0 +1,6 @@
+# Cloudflare Workers Static Assets header rules.
+# Gallery artwork is content-stable (governed by data/media-rights.json);
+# filenames change when content changes, so a moderate fresh window plus a
+# long stale-while-revalidate window is safe and keeps repeat visits fast.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=2592000

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { FEATURED_WALLPAPERS, type PresetWallpaper } from "@/lib/wallpapers";
+import { webpSrcSet } from "@/lib/images";
 import WallpaperImage from "./WallpaperImage";
 import WallpaperDeviceBadge from "./media/WallpaperDeviceBadge";
 import { formatAspectRatio } from "@/lib/media";
@@ -156,6 +157,12 @@ export default function FeaturedWallpapers() {
                       src={wallpaper.image ?? undefined}
                       alt={tWallpapers(`${wallpaper.id}.alt`)}
                       gradient={wallpaper.gradient}
+                      srcSet={
+                        wallpaper.image ? webpSrcSet(wallpaper.image) : undefined
+                      }
+                      // 1 column on phones, 2 on tablet, 3 within the
+                      // max-w-[1280px] container from lg up.
+                      sizes="(max-width: 639px) calc(100vw - 3rem), (max-width: 1023px) calc(50vw - 2.5rem), calc(33vw - 2.5rem)"
                       className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />

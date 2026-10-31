@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { DEMO_SAMPLE_IMAGE } from "@/lib/styles";
+import { webpSrcSet } from "@/lib/images";
 import Button from "./ui/Button";
 import WallpaperImage from "./WallpaperImage";
 
@@ -124,6 +125,9 @@ export default function StudioIntro() {
                 src={DEMO_SAMPLE_IMAGE}
                 alt={t("visualAlt")}
                 gradient="from-violet-950 via-purple-950 to-black"
+                srcSet={webpSrcSet(DEMO_SAMPLE_IMAGE)}
+                // Phone mockup box: 260px, 300px from lg up.
+                sizes="(min-width: 1024px) 300px, 260px"
                 className="h-full w-full object-cover"
               />
             </div>

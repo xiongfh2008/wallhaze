@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { HERO_IMAGE } from "@/lib/styles";
+import { webpSrcSet } from "@/lib/images";
 import Button from "./ui/Button";
 import WallpaperImage from "./WallpaperImage";
 
@@ -7,6 +8,10 @@ import WallpaperImage from "./WallpaperImage";
  * Homepage hero. The primary CTA leads to the free gallery (browsing and
  * downloading need no account); the secondary CTA opens the AI Studio.
  * No copy promises free or unlimited AI generation.
+ *
+ * The full-bleed artwork is the page's LCP element: it renders at the
+ * viewport width, so the srcset lets phones fetch a ~45KB 640px WebP
+ * instead of the 769KB desktop original (still the <img src> fallback).
  */
 export default function Hero() {
   const t = useTranslations("hero");
@@ -20,6 +25,8 @@ export default function Hero() {
           gradient="from-violet-950 via-purple-950 to-black"
           eager
           priority
+          srcSet={webpSrcSet(HERO_IMAGE)}
+          sizes="100vw"
           className="animate-hero-zoom h-full w-full object-cover"
         />
         {/* Calm areas for text: darken left column and blend into the page below. */}
