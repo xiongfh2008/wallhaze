@@ -144,8 +144,17 @@ function findContext(haystack, needle) {
 }
 
 async function fetchPage(url) {
-  const response = await fetch(url, { redirect: "follow" });
-  return response;
+  let lastError;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      return await fetch(url, { redirect: "follow" });
+    } catch (error) {
+      // Transient local network failures must not mask real content issues.
+      lastError = error;
+      await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)));
+    }
+  }
+  throw lastError;
 }
 
 function scanBanned(url, locale, html, visible) {
