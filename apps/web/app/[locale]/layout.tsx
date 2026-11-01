@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { stripServerOnlyNamespaces } from "@/lib/client-messages";
 import { HTML_LANG, routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import "../globals.css";
@@ -97,13 +98,19 @@ export default async function LocaleLayout({
   // Enables static rendering for this request — every page below inherits it.
   setRequestLocale(locale);
 
+  // Only ship the namespaces client components use to the client; legal and
+  // metadata namespaces are consumed server-side (see lib/client-messages.ts).
+  const clientMessages = stripServerOnlyNamespaces(await getMessages({ locale }));
+
   return (
     <html
       lang={HTML_LANG[locale]}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

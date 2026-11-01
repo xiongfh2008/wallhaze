@@ -292,3 +292,197 @@ describe("public page discoverability", () => {
     }
   });
 });
+
+/**
+ * Third Waffo rejection remediation (2026-11-01):
+ *  1. Terms must carry a full Refund and Cancellation Policy aligned with
+ *     the Waffo Buyer Terms (merchant of record, 120-day refund window,
+ *     14-business-day processing) — never "all digital sales are final".
+ *  2. No public copy may describe AI Studio generation (text-to-image,
+ *     reference-image editing, image-to-video, text-to-video) as an
+ *     available service; it is planned and not currently available.
+ *  3. Section numbering in Terms must match the rendered order.
+ */
+describe("terms: refund and cancellation policy", () => {
+  it("exists as section 11 with Waffo-aligned rules in every locale", () => {
+    for (const locale of LOCALES) {
+      const title = String(msgValue(locale, "terms.refundTitle"));
+      expect(title).toMatch(/^11\./);
+      const items = msgValue(locale, "terms.refundItems") as string[];
+      expect(Array.isArray(items)).toBe(true);
+      expect(items.length).toBe(8);
+      const joined = items.join(" ");
+      // Waffo is the merchant of record; requests via Buyer Portal or email.
+      expect(joined).toContain("Waffo");
+      expect(joined).toContain(EMAIL);
+      // Refund window (120 days) and processing time (14 business days)
+      // match the current Waffo Buyer Terms.
+      expect(joined).toContain("120");
+      expect(joined).toMatch(/14/);
+      // Statutory consumer rights are not limited.
+      expect(joined).not.toMatch(/no refund|non-refundable|final sale/i);
+    }
+  });
+
+  it("terms section numbering matches the rendered order", () => {
+    const source = readFileSync(
+      path.join(webRoot, "app", "[locale]", "terms", "page.tsx"),
+      "utf8"
+    );
+    const ids = [...source.matchAll(/\{ id: "([a-zA-Z]+)", hasList/g)].map(
+      (match) => match[1]
+    );
+    expect(ids.length).toBeGreaterThanOrEqual(16);
+    for (const locale of LOCALES) {
+      let previous = 0;
+      for (const id of ids) {
+        const title = String(msgValue(locale, `terms.${id}Title`));
+        const number = Number.parseInt(title, 10);
+        expect(Number.isInteger(number)).toBe(true);
+        expect(number).toBe(previous + 1);
+        previous = number;
+      }
+    }
+  });
+});
+
+describe("AI Studio is described as planned, not available", () => {
+  /** Exact legacy phrases that claimed generation was a live service. */
+  const BANNED_PHRASES = [
+    "Create stunning AI wallpapers",
+    "Create with AI",
+    "Create Wallpaper",
+    "Create for This Theme",
+    "creating an account or generating images",
+    "when you use the AI Studio, we store",
+    "the AI Studio, Credits and orders",
+    "fal.ai) — when you request a generation",
+    "Waffo Prompt Sift reviews prompts",
+    "The Studio lets you create your own wallpaper",
+    "and make it yours",
+    "Your generation history is stored only in this browser",
+    "使用 AI 创作主题壁纸",
+    "このテーマで AI 制作",
+    "이 테마로 AI 제작",
+    "Für dieses Thema erstellen",
+    "Créer pour ce thème",
+    "Crear para este tema",
+  ];
+
+  it("no legacy present-tense generation copy remains in any locale", () => {
+    for (const locale of LOCALES) {
+      const raw = JSON.stringify(messages(locale));
+      for (const phrase of BANNED_PHRASES) {
+        expect(raw).not.toContain(phrase);
+      }
+    }
+  });
+
+  /** A coming-soon / not-available marker per locale (semantic guard). */
+  const COMING_MARKERS: Record<(typeof LOCALES)[number], RegExp> = {
+    en: /coming soon|not currently available|planned/i,
+    zh: /即将|暂未|尚未|暂不|规划中/,
+    ja: /近日|計画中|現在利用でき|まだ/,
+    ko: /곧 공개|계획 중|현재 이용|아직/,
+    es: /próximamente|pronto|planificad|no está disponible/i,
+    fr: /bientôt|prévu|pas disponible/i,
+    de: /bald|geplant|nicht verfügbar/i,
+  };
+
+  /** A purchasing-not-yet-available marker per locale. */
+  const NOT_YET_MARKERS: Record<(typeof LOCALES)[number], RegExp> = {
+    en: /not yet available|not currently available/i,
+    zh: /尚未开放|暂未开放|尚未|暂不/,
+    ja: /まだ利用できま|まだ利用できない|購入はまだ/,
+    ko: /아직 불가능|아직 제공되지|구매는 아직/,
+    es: /aún no está disponible|no está disponible/i,
+    fr: /pas encore disponible|pas disponible/i,
+    de: /noch nicht verfügbar|nicht verfügbar/i,
+  };
+
+  it("home, about, help and creations metadata carry a coming-soon marker", () => {
+    for (const locale of LOCALES) {
+      for (const key of [
+        "meta.homeDescription",
+        "meta.aboutDescription",
+        "meta.helpDescription",
+        "meta.myCreationsDescription",
+      ]) {
+        const value = String(msgValue(locale, key));
+        expect(
+          COMING_MARKERS[locale as keyof typeof COMING_MARKERS].test(value)
+        ).toBe(true);
+      }
+    }
+  });
+
+  it("credits and pricing metadata state purchasing is not yet available", () => {
+    for (const locale of LOCALES) {
+      for (const key of [
+        "meta.creditsDescription",
+        "meta.pricingDescription",
+      ]) {
+        const value = String(msgValue(locale, key));
+        expect(
+          NOT_YET_MARKERS[locale as keyof typeof NOT_YET_MARKERS].test(value)
+        ).toBe(true);
+      }
+    }
+  });
+
+  it("hero and header CTAs no longer promise creation", () => {
+    for (const locale of LOCALES) {
+      const cta = String(msgValue(locale, "hero.ctaCreate"));
+      const button = String(msgValue(locale, "nav.getStarted"));
+      for (const value of [cta, button]) {
+        expect(value).not.toMatch(/create|生成|创作|作成|만들|crear|créer|erstellen/i);
+        expect(COMING_MARKERS[locale as keyof typeof COMING_MARKERS].test(value) || /studio|プレビュー|미리|ver|découvrir|ansehen/i.test(value)).toBe(true);
+      }
+    }
+  });
+});
+
+describe("client message payload stays minimal and intact", () => {
+  it("no server-only namespace is requested by a client component", () => {
+    const libSource = readFileSync(
+      path.join(webRoot, "lib", "client-messages.ts"),
+      "utf8"
+    );
+    const serverOnly = [...libSource.matchAll(/"([a-zA-Z]+)",?\n/g)].map(
+      (match) => match[1]
+    );
+    expect(serverOnly.length).toBeGreaterThanOrEqual(8);
+
+    const clientUses: string[] = [];
+    const walk = (dir: string) => {
+      for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(full);
+        else if (/\.tsx$/.test(entry.name)) {
+          const source = readFileSync(full, "utf8");
+          for (const match of source.matchAll(
+            /useTranslations\(\s*"([a-zA-Z]+)"/g
+          )) {
+            clientUses.push(match[1]);
+          }
+        }
+      }
+    };
+    walk(path.join(webRoot, "components"));
+    for (const namespace of clientUses) {
+      expect(
+        serverOnly,
+        `namespace ${namespace} used by a client component but stripped from the provider`
+      ).not.toContain(namespace);
+    }
+  });
+
+  it("liveStudio namespace stays present in every locale (SSR/hydration)", () => {
+    for (const locale of LOCALES) {
+      const live = msgValue(locale, "liveStudio");
+      expect(live).toBeTruthy();
+      expect(typeof live).toBe("object");
+      expect(Object.keys(live as object).length).toBeGreaterThan(0);
+    }
+  });
+});

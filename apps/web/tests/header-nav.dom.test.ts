@@ -3,7 +3,7 @@
  *
  * The header must derive signed-in state from the real session probe, show a
  * backend-provided spendable balance (never a hardcoded number), expose the
- * account menu with keyboard support, and remove the Create Wallpaper CTA
+ * account menu with keyboard support, and remove the Studio CTA
  * when it would be redundant (signed in, or already on /studio).
  *
  * @vitest-environment jsdom
@@ -216,7 +216,7 @@ describe("Header signed-out navigation", () => {
     expect(nav?.textContent).not.toContain("Credits");
 
     expect(linkByText(view, "Log in")).not.toBeNull();
-    expect(linkByText(view, "Create Wallpaper")).not.toBeNull();
+    expect(linkByText(view, "Preview the Studio")).not.toBeNull();
     expect(view.querySelector('[aria-label^="Account menu"]')).toBeNull();
     expect(view.querySelector('a[aria-label^="Available Credits"]')).toBeNull();
   });
@@ -229,7 +229,7 @@ describe("Header signed-out navigation", () => {
     expect(studio?.getAttribute("aria-current")).toBe("page");
     expect(linkByText(nav as Element, "Explore Wallpapers")?.getAttribute("aria-current")).toBeNull();
     // Already in the Studio: the header must not offer a second entry.
-    expect(linkByText(view, "Create Wallpaper")).toBeNull();
+    expect(linkByText(view, "Preview the Studio")).toBeNull();
     expect(linkByText(view, "Log in")).not.toBeNull();
   });
 
@@ -250,7 +250,7 @@ describe("Header signed-out navigation", () => {
       "Pricing",
     ]);
     expect(linkByText(panel as Element, "Log in")).not.toBeNull();
-    expect(linkByText(panel as Element, "Create Wallpaper")).not.toBeNull();
+    expect(linkByText(panel as Element, "Preview the Studio")).not.toBeNull();
     expect(
       panel?.querySelector('[data-testid="language-switcher"]')
     ).not.toBeNull();
@@ -288,11 +288,11 @@ describe("Header signed-in navigation", () => {
     const desktopActions = view.querySelector(
       '[data-testid="header-desktop-actions"]'
     );
-    expect(linkByText(desktopActions as Element, "Create Wallpaper")).toBeNull();
+    expect(linkByText(desktopActions as Element, "Preview the Studio")).toBeNull();
     const mobileActions = view.querySelector(
       '[data-testid="header-mobile-actions"]'
     );
-    expect(linkByText(mobileActions as Element, "Create Wallpaper")).not.toBeNull();
+    expect(linkByText(mobileActions as Element, "Preview the Studio")).not.toBeNull();
 
     const trigger = view.querySelector<HTMLButtonElement>(
       '[aria-label^="Account menu"]'
@@ -327,7 +327,7 @@ describe("Header signed-in navigation", () => {
     expect(linkByText(nav as Element, "AI Studio")?.getAttribute("aria-current")).toBe(
       "page"
     );
-    expect(linkByText(view, "Create Wallpaper")).toBeNull();
+    expect(linkByText(view, "Preview the Studio")).toBeNull();
     expect(
       view.querySelector('[data-testid="header-desktop-actions"]')?.textContent
     ).toContain("Credits");
