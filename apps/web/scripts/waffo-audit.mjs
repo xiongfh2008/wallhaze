@@ -33,9 +33,20 @@ const REPORT =
   reportArgIndex > -1 ? process.argv[reportArgIndex + 1] : "waffo-audit-report.json";
 
 const LOCALES = ["en", "zh", "ja", "ko", "es", "fr", "de"];
-const PATHS = ["/", "/terms", "/privacy", "/faq", "/help", "/about", "/studio", "/pricing"];
+const PATHS = ["/", "/terms", "/privacy", "/faq", "/help", "/about", "/studio", "/pricing", "/contact"];
 
 const EMAIL = "hello@wallhaze.com";
+
+/** Per-locale marker for the official customer support heading on /contact. */
+const CONTACT_SUPPORT_MARKER = {
+  en: "Official Customer Support",
+  zh: "官方客服支持",
+  ja: "公式カスタマーサポート",
+  ko: "공식 고객 지원",
+  es: "Atención al cliente oficial",
+  fr: "Service client officiel",
+  de: "Offizieller Kundensupport",
+};
 
 /** Per-locale marker for the Terms refund & cancellation section. */
 const REFUND_MARKER = {
@@ -71,6 +82,16 @@ const BANNED_PHRASES = [
   "AI로 만들기",
   "Crear con IA",
   "Mit KI erstellen",
+  // Legacy "no official channel published" contact copy (Waffo round 4).
+  "No official channel published yet",
+  "No support email or ticket system has been confirmed",
+  "Official contact channels will be published here once they are available",
+  "官方渠道确认后将在此公布",
+  "公式窓口は確認後にここで公開されます",
+  "공식 채널은 확인 후 여기에 공개됩니다",
+  "Los canales oficiales se publicarán aquí cuando estén disponibles",
+  "Les canaux officiels seront publiés ici dès qu",
+  "Offizielle Kanäle werden hier veröffentlicht, sobald sie verfügbar sind",
 ];
 
 /** Per-locale "generation is open now"-style claims (visible text scan). */
@@ -248,6 +269,19 @@ function checkStudio(url, locale, visible) {
   }
 }
 
+/** /contact must state the official support email as a clickable mailto link. */
+function checkContact(url, locale, html, visible) {
+  if (!visible.includes(CONTACT_SUPPORT_MARKER[locale])) {
+    addIssue("contact-support-heading-missing", url, locale, "contact", CONTACT_SUPPORT_MARKER[locale], "(visible text)");
+  }
+  if (!visible.includes(EMAIL)) {
+    addIssue("contact-email-missing", url, locale, "contact", EMAIL, "(visible text)");
+  }
+  if (!html.includes(`mailto:${EMAIL}`)) {
+    addIssue("contact-mailto-missing", url, locale, "contact", `mailto:${EMAIL}`, "(raw html)");
+  }
+}
+
 /* ------------------------------------------------------------------ run */
 
 async function main() {
@@ -255,7 +289,7 @@ async function main() {
   console.log(`Locales: ${LOCALES.join(", ")}  Pages: ${PATHS.join(", ")}\n`);
 
   // 1. The language-prefix-less URLs Waffo reviews: no redirect expected.
-  for (const pathName of ["/terms", "/privacy"]) {
+  for (const pathName of ["/terms", "/privacy", "/contact"]) {
     const url = `${BASE}${pathName}`;
     try {
       const response = await fetchPage(url);
@@ -272,6 +306,9 @@ async function main() {
       }
       if (pathName === "/privacy" && !visible.includes("Privacy Policy")) {
         addIssue("privacy-title-missing", url, "default", "privacy", "Privacy Policy", "(visible text)");
+      }
+      if (pathName === "/contact" && (!visible.includes(EMAIL) || !visible.includes(CONTACT_SUPPORT_MARKER.en))) {
+        addIssue("contact-email-missing", url, "default", "contact", EMAIL, "(visible text)");
       }
     } catch (error) {
       addIssue("fetch-error", url, "default", "fetch", String(error).slice(0, 120), "");
@@ -297,6 +334,7 @@ async function main() {
         checkJsonLd(url, locale, html);
         if (pathName === "/terms") checkTermsRefund(url, locale, html, visible);
         if (pathName === "/studio") checkStudio(url, locale, visible);
+        if (pathName === "/contact") checkContact(url, locale, html, visible);
         if (pathName === "/pricing") checkButtons(url, locale, html, pathName);
         if (pathName === "/terms" || pathName === "/privacy" || pathName === "/help" || pathName === "/about") {
           checkButtons(url, locale, html, pathName);

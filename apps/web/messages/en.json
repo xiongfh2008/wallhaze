@@ -23,7 +23,7 @@
     "helpTitle": "Help — WallHaze",
     "helpDescription": "How to use WallHaze: browse the gallery, download cleared artwork, preview the Studio (coming soon), and troubleshoot common issues.",
     "contactTitle": "Contact — WallHaze",
-    "contactDescription": "How to reach the WallHaze team. Official contact channels will be published here once they are available.",
+    "contactDescription": "Reach the WallHaze team at hello@wallhaze.com — our official customer support email for customer service, account issues, copyright complaints, content reports, community submissions and payment or refund assistance.",
     "privacyTitle": "Privacy Policy — WallHaze",
     "privacyDescription": "How WallHaze handles personal data: accounts, Google sign-in, generated content, Credits, cookies — and how to request access or deletion.",
     "termsTitle": "Terms of Service — WallHaze",
@@ -1442,12 +1442,13 @@
     "eyebrow": "Contact",
     "title": "Contact",
     "subtitle": "How to reach the WallHaze team.",
-    "unavailableTitle": "No official channel published yet",
-    "unavailableBody": "No support email or ticket system has been confirmed, so none is listed here — we do not display addresses we cannot verify.",
     "feedbackTitle": "Product feedback",
-    "feedbackBody": "A feedback channel will be published here together with the official support contact. Until then, this page makes no promises of a reply.",
+    "feedbackBody": "Feedback and suggestions are welcome at hello@wallhaze.com — we read every message, though we cannot promise a specific reply time.",
     "socialTitle": "Social profiles",
-    "socialBody": "Official social accounts are being prepared — the footer links stay placeholders until real profiles exist."
+    "socialBody": "Official social accounts are being prepared — the footer links stay placeholders until real profiles exist.",
+    "supportTitle": "Official Customer Support",
+    "supportEmailLabel": "Email",
+    "supportBody": "This is the official customer support email address for WallHaze. You can reach us here for customer service, general business inquiries, account issues, wallpaper download support, copyright complaints, content reports, community submissions, and payment or refund assistance."
   },
   "privacy": {
     "eyebrow": "Legal",

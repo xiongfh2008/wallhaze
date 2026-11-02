@@ -87,6 +87,52 @@ describe("official contact email", () => {
   });
 });
 
+describe("contact page: official customer support channel", () => {
+  const CONTRADICTORY_PHRASES = [
+    "No official channel published yet",
+    "No support email or ticket system has been confirmed",
+    "Official contact channels will be published here once they are available",
+    "官方渠道确认后将在此公布",
+    "公式窓口は確認後にここで公開されます",
+    "공식 채널은 확인 후 여기에 공개됩니다",
+    "se publicarán aquí cuando estén disponibles",
+    "seront publiés ici dès qu",
+    "werden hier veröffentlicht, sobald sie verfügbar sind",
+  ];
+
+  it("contact namespace states the official support email in every locale", () => {
+    for (const locale of LOCALES) {
+      expect(String(msgValue(locale, "contact.supportTitle")).length).toBeGreaterThan(0);
+      expect(String(msgValue(locale, "contact.supportEmailLabel")).length).toBeGreaterThan(0);
+      // The namespace as a whole names the official email (feedback body does;
+      // the rendered page also shows it as the mailto link text).
+      expect(JSON.stringify(msgValue(locale, "contact"))).toContain(EMAIL);
+      expect(msgValue(locale, "contact.unavailableTitle")).toBeUndefined();
+      expect(msgValue(locale, "contact.unavailableBody")).toBeUndefined();
+    }
+  });
+
+  it("no contradictory contact copy remains in any message file or metadata", () => {
+    for (const locale of LOCALES) {
+      const raw = JSON.stringify(messages(locale));
+      for (const phrase of CONTRADICTORY_PHRASES) {
+        expect(raw).not.toContain(phrase);
+      }
+      // The metadata description names the official support email.
+      expect(String(msgValue(locale, "meta.contactDescription"))).toContain(EMAIL);
+    }
+  });
+
+  it("the contact page renders a clickable mailto link to the official email", () => {
+    const source = readFileSync(
+      path.join(webRoot, "app", "[locale]", "contact", "page.tsx"),
+      "utf8"
+    );
+    expect(source).toContain('SUPPORT_EMAIL = "hello@wallhaze.com"');
+    expect(source).toContain("mailto:");
+  });
+});
+
 describe("terms: six prohibited content categories", () => {
   it("prohibitedItems contains all six Waffo categories in every locale", () => {
     for (const locale of LOCALES) {

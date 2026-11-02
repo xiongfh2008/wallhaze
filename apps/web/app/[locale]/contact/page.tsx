@@ -7,11 +7,13 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 /**
- * /contact (FE09). No official support email or ticket channel has been
- * confirmed, so none is invented and NO fake submission form exists —
- * the page states exactly that. Public content page: indexable.
+ * /contact (FE09). The official support channel is the verified email
+ * address below — shown as a clickable mailto link, no invented phone
+ * or live-chat channel and NO fake submission form. Public content
+ * page: indexable.
  */
 const CONTACT_PATH = "/contact";
+const SUPPORT_EMAIL = "hello@wallhaze.com";
 
 export async function generateMetadata({
   params,
@@ -53,11 +55,20 @@ export default async function ContactPage({
           className="rounded-2xl border border-white/10 bg-white/[0.02] p-6"
         >
           <h2 id="contact-channel" className="text-lg font-semibold">
-            {t("unavailableTitle")}
+            {t("supportTitle")}
           </h2>
           <p className="mt-2 leading-relaxed text-zinc-400">
-            {t("unavailableBody")}
+            {t("supportBody")}
           </p>
+          <p className="mt-4 text-sm font-medium text-zinc-300">
+            {t("supportEmailLabel")}
+          </p>
+          <a
+            href={`mailto:${SUPPORT_EMAIL}`}
+            className="mt-1 inline-block select-all break-all rounded-lg text-xl font-semibold text-white underline decoration-white/30 underline-offset-4 transition hover:decoration-white"
+          >
+            {SUPPORT_EMAIL}
+          </a>
         </section>
 
         <section aria-labelledby="contact-feedback" className="mt-8">

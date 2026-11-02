@@ -23,7 +23,7 @@
     "helpTitle": "帮助 — WallHaze",
     "helpDescription": "如何使用 WallHaze：浏览画廊、下载已核实授权的作品、预览即将上线的 Studio，以及排查常见问题。",
     "contactTitle": "联系我们 — WallHaze",
-    "contactDescription": "联系 WallHaze 团队的方式。官方渠道确认后将在此公布。",
+    "contactDescription": "通过 hello@wallhaze.com 联系 WallHaze 团队——这是我们的官方客服邮箱，可用于客户服务、账户问题、版权投诉、内容举报、社区投稿以及支付和退款协助。",
     "privacyTitle": "隐私政策 — WallHaze",
     "privacyDescription": "WallHaze 如何处理个人数据：账户、Google 登录、生成内容、Credits、Cookie，以及如何申请访问或删除。",
     "termsTitle": "服务条款 — WallHaze",
@@ -1442,12 +1442,13 @@
     "eyebrow": "联系",
     "title": "联系我们",
     "subtitle": "联系 WallHaze 团队的方式。",
-    "unavailableTitle": "暂未公布官方渠道",
-    "unavailableBody": "尚未确认任何客服邮箱或工单系统，因此这里不列出——我们不会展示无法核实的联系方式。",
     "feedbackTitle": "产品反馈",
-    "feedbackBody": "反馈渠道将与官方客服联系方式一同公布。在此之前，本页不对回复做任何承诺。",
+    "feedbackBody": "欢迎将反馈和建议发送至 hello@wallhaze.com——我们会阅读每一封邮件，但不承诺具体的回复时间。",
     "socialTitle": "社交账号",
-    "socialBody": "官方社交账号筹备中——在真实账号建立前，页脚链接保持占位状态。"
+    "socialBody": "官方社交账号筹备中——在真实账号建立前，页脚链接保持占位状态。",
+    "supportTitle": "官方客服支持",
+    "supportEmailLabel": "邮箱",
+    "supportBody": "这是 WallHaze 的官方客服邮箱。客户服务、一般业务咨询、账户问题、壁纸下载支持、版权投诉、内容举报、社区投稿以及支付和退款协助，均可通过该邮箱与我们联系。"
   },
   "privacy": {
     "eyebrow": "法律",

@@ -23,7 +23,7 @@
     "helpTitle": "Ayuda — WallHaze",
     "helpDescription": "Cómo usar WallHaze: explorar la galería, descargar obras verificadas, ver el Studio que llega pronto y resolver problemas.",
     "contactTitle": "Contacto — WallHaze",
-    "contactDescription": "Cómo contactar con el equipo de WallHaze. Los canales oficiales se publicarán aquí cuando estén disponibles.",
+    "contactDescription": "Contacta con el equipo de WallHaze en hello@wallhaze.com: nuestro correo oficial de atención al cliente para servicio al cliente, problemas de cuenta, quejas de derechos de autor, informes de contenido, envíos a la comunidad y asistencia con pagos y reembolsos.",
     "privacyTitle": "Política de privacidad — WallHaze",
     "privacyDescription": "Cómo gestiona WallHaze los datos personales: cuentas, inicio de sesión con Google, contenido generado, Credits, cookies — y cómo solicitar el acceso o la eliminación.",
     "termsTitle": "Términos del servicio — WallHaze",
@@ -1442,12 +1442,13 @@
     "eyebrow": "Contacto",
     "title": "Contacto",
     "subtitle": "Cómo contactar con el equipo de WallHaze.",
-    "unavailableTitle": "Aún no hay canal oficial publicado",
-    "unavailableBody": "No se ha confirmado ningún correo de soporte ni sistema de tickets, así que no se muestra ninguno — no mostramos direcciones que no podemos verificar.",
     "feedbackTitle": "Comentarios sobre el producto",
-    "feedbackBody": "Un canal de comentarios se publicará aquí junto con el contacto oficial de soporte. Hasta entonces, esta página no promete respuesta.",
+    "feedbackBody": "Los comentarios y sugerencias son bienvenidos en hello@wallhaze.com: leemos cada mensaje, aunque no podemos prometer un tiempo de respuesta concreto.",
     "socialTitle": "Perfiles sociales",
-    "socialBody": "Las cuentas sociales oficiales están en preparación — los enlaces del pie siguen como marcadores hasta que existan perfiles reales."
+    "socialBody": "Las cuentas sociales oficiales están en preparación — los enlaces del pie siguen como marcadores hasta que existan perfiles reales.",
+    "supportTitle": "Atención al cliente oficial",
+    "supportEmailLabel": "Correo electrónico",
+    "supportBody": "Esta es la dirección de correo electrónico oficial de atención al cliente de WallHaze. Puedes escribirnos aquí para servicio al cliente, consultas comerciales generales, problemas con la cuenta, soporte de descarga de fondos de pantalla, quejas de derechos de autor, informes de contenido, envíos a la comunidad y asistencia con pagos y reembolsos."
   },
   "privacy": {
     "eyebrow": "Legal",

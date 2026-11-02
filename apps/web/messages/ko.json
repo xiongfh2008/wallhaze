@@ -23,7 +23,7 @@
     "helpTitle": "도움말 — WallHaze",
     "helpDescription": "WallHaze 사용법: 갤러리 둘러보기, 라이선스 확인 작품 다운로드, 곧 공개될 Studio 미리보기, 문제 해결.",
     "contactTitle": "문의 — WallHaze",
-    "contactDescription": "WallHaze 팀에 연락하는 방법. 공식 채널은 확인 후 여기에 공개됩니다.",
+    "contactDescription": "hello@wallhaze.com로 WallHaze 팀에 연락하세요. 고객 서비스, 계정 문제, 저작권 신고, 콘텐츠 제보, 커뮤니티 제출, 결제 및 환불 지원을 담당하는 공식 고객 지원 이메일입니다.",
     "privacyTitle": "개인정보 처리방침 — WallHaze",
     "privacyDescription": "WallHaze의 개인정보 처리 방식: 계정, Google 로그인, 생성 콘텐츠, Credits, 쿠키 — 그리고 열람 또는 삭제 요청 방법.",
     "termsTitle": "서비스 약관 — WallHaze",
@@ -1442,12 +1442,13 @@
     "eyebrow": "문의",
     "title": "문의하기",
     "subtitle": "WallHaze 팀에 연락하는 방법.",
-    "unavailableTitle": "공식 채널이 아직 공개되지 않았습니다",
-    "unavailableBody": "확인된 지원 이메일이나 티켓 시스템이 없어 여기에 표시하지 않습니다 — 확인할 수 없는 연락처는 표시하지 않습니다.",
     "feedbackTitle": "제품 피드백",
-    "feedbackBody": "피드백 채널은 공식 지원 연락처와 함께 공개됩니다. 그때까지 이 페이지는 회신을 약속하지 않습니다.",
+    "feedbackBody": "피드백과 제안은 hello@wallhaze.com으로 보내 주세요. 모든 메시지를 읽고 있지만 구체적인 회신 시간은 약속드리지 않습니다.",
     "socialTitle": "소셜 계정",
-    "socialBody": "공식 소셜 계정은 준비 중입니다 — 실제 계정이 생길 때까지 푸터 링크는 자리표시자로 유지됩니다."
+    "socialBody": "공식 소셜 계정은 준비 중입니다 — 실제 계정이 생길 때까지 푸터 링크는 자리표시자로 유지됩니다.",
+    "supportTitle": "공식 고객 지원",
+    "supportEmailLabel": "이메일",
+    "supportBody": "hello@wallhaze.com은 WallHaze의 공식 고객 지원 이메일 주소입니다. 고객 서비스, 일반 비즈니스 문의, 계정 문제, 월페이퍼 다운로드 지원, 저작권 신고, 콘텐츠 제보, 커뮤니티 제출, 결제 및 환불 지원 등 모든 문의를 이 이메일로 보내주시면 됩니다."
   },
   "privacy": {
     "eyebrow": "법적 고지",

@@ -23,7 +23,7 @@
     "helpTitle": "ヘルプ — WallHaze",
     "helpDescription": "WallHazeの使い方：ギャラリー閲覧、確認済み作品のダウンロード、近日公開の Studio のプレビュー、トラブルシューティング。",
     "contactTitle": "お問い合わせ — WallHaze",
-    "contactDescription": "WallHaze チームへの連絡方法。公式窓口は確認後にここで公開されます。",
+    "contactDescription": "hello@wallhaze.com から WallHaze チームにご連絡ください。カスタマーサービス、アカウントに関する問題、著作権に関する申し立て、コンテンツの通報、コミュニティへの投稿、支払いおよび返金のサポートに対応する公式カスタマーサポート用メールアドレスです。",
     "privacyTitle": "プライバシーポリシー — WallHaze",
     "privacyDescription": "WallHaze の個人データの取り扱い：アカウント、Google サインイン、生成コンテンツ、Credits、Cookie、そして開示・削除のリクエスト方法。",
     "termsTitle": "利用規約 — WallHaze",
@@ -1442,12 +1442,13 @@
     "eyebrow": "お問い合わせ",
     "title": "お問い合わせ",
     "subtitle": "WallHaze チームへの連絡方法。",
-    "unavailableTitle": "公式窓口はまだ公開されていません",
-    "unavailableBody": "確認済みのサポートメールやチケットシステムがないため、ここには記載しません——検証できない連絡先は表示しません。",
-    "feedbackTitle": "製品フィードバック",
-    "feedbackBody": "フィードバック窓口は公式サポート連絡先とともに公開します。それまでこのページは返信を約束しません。",
+    "feedbackTitle": "製品へのフィードバック",
+    "feedbackBody": "hello@wallhaze.com までフィードバックやご提案をお寄せください。すべてのメッセージを読んでいますが、具体的な返信時間はお約束できません。",
     "socialTitle": "ソーシャルアカウント",
-    "socialBody": "公式 SNS アカウントは準備中——実在するまでフッターのリンクはプレースホルダーのままです。"
+    "socialBody": "公式 SNS アカウントは準備中——実在するまでフッターのリンクはプレースホルダーのままです。",
+    "supportTitle": "公式カスタマーサポート",
+    "supportEmailLabel": "メール",
+    "supportBody": "これは WallHaze の公式カスタマーサポート用メールアドレスです。カスタマーサービス、一般的なビジネスのお問い合わせ、アカウントに関する問題、壁紙ダウンロードのサポート、著作権に関する申し立て、コンテンツの通報、コミュニティへの投稿、支払いおよび返金のサポートについて、こちらからご連絡いただけます。"
   },
   "privacy": {
     "eyebrow": "法務",

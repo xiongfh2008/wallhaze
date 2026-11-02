@@ -23,7 +23,7 @@
     "helpTitle": "Hilfe — WallHaze",
     "helpDescription": "WallHaze nutzen: Galerie durchsuchen, geprüfte Werke herunterladen, das bald verfügbare Studio ansehen und Probleme beheben.",
     "contactTitle": "Kontakt — WallHaze",
-    "contactDescription": "So erreichst du das WallHaze-Team. Offizielle Kanäle werden hier veröffentlicht, sobald sie verfügbar sind.",
+    "contactDescription": "Erreichen Sie das WallHaze-Team unter hello@wallhaze.com — unsere offizielle Kundensupport-E-Mail für Kundenservice, Kontoprobleme, Urheberrechtsbeschwerden, Inhaltsmeldungen, Community-Einreichungen sowie Hilfe bei Zahlungen und Rückerstattungen.",
     "privacyTitle": "Datenschutzerklärung — WallHaze",
     "privacyDescription": "Wie WallHaze mit personenbezogenen Daten umgeht: Konten, Google-Anmeldung, generierte Inhalte, Credits, Cookies — und wie Sie Auskunft oder Löschung beantragen.",
     "termsTitle": "Nutzungsbedingungen — WallHaze",
@@ -1442,12 +1442,13 @@
     "eyebrow": "Kontakt",
     "title": "Kontakt",
     "subtitle": "So erreichst du das WallHaze-Team.",
-    "unavailableTitle": "Noch kein offizieller Kanal veröffentlicht",
-    "unavailableBody": "Es ist keine Support-E-Mail und kein Ticket-System bestätigt, daher wird keines genannt — wir zeigen keine Adressen, die wir nicht verifizieren können.",
     "feedbackTitle": "Produkt-Feedback",
-    "feedbackBody": "Ein Feedback-Kanal wird hier zusammen mit dem offiziellen Support-Kontakt veröffentlicht. Bis dahin macht diese Seite keine Zusagen zu Antworten.",
+    "feedbackBody": "Feedback und Vorschläge sind unter hello@wallhaze.com willkommen — wir lesen jede Nachricht, können aber keine konkrete Antwortzeit versprechen.",
     "socialTitle": "Soziale Profile",
-    "socialBody": "Offizielle Social-Media-Konten sind in Vorbereitung — die Footer-Links bleiben Platzhalter, bis echte Profile existieren."
+    "socialBody": "Offizielle Social-Media-Konten sind in Vorbereitung — die Footer-Links bleiben Platzhalter, bis echte Profile existieren.",
+    "supportTitle": "Offizieller Kundensupport",
+    "supportEmailLabel": "E-Mail",
+    "supportBody": "Dies ist die offizielle Kundensupport-E-Mail-Adresse von WallHaze. Sie erreichen uns hier für Kundenservice, allgemeine geschäftliche Anfragen, Kontoprobleme, Unterstützung beim Wallpaper-Download, Urheberrechtsbeschwerden, Inhaltsmeldungen, Community-Einreichungen sowie Hilfe bei Zahlungen und Rückerstattungen."
   },
   "privacy": {
     "eyebrow": "Rechtliches",
