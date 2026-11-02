@@ -1,0 +1,36 @@
+﻿[review] base=http://127.0.0.1:3100
+[review] sitemap blocks=546 uniqueLocs=546 dup=0
+[review] staticPaths=12 (/,/about,/acceptable-use,/community,/contact,/faq,/help,/pricing,/privacy,/studio,/terms,/wallpapers) wallpaperSlugs=66 communitySlugs=0
+[review] expected universe = (12+66+0) x 7 = 546
+[review] gallery SSR slug links=0; in sitemap but not linked from gallery: 66 -> abandoned-manor-dread,abyssal-bloom,amoled-violet-halo,anime-bedroom-cityscape,aurora-veil,aurora-veil-wide,b2-amoled-obsidian-wave,b2-anime-festival-night,b2-cyber-alley-cat,b2-cyber-nightmarket,b2-dark-citadel-throne,b2-dreamcore-doorfield,b2-dreamcore-playground,b2-galaxy-cliff-temple,b2-galaxy-river-mountain,b2-gothic-cathedral,b2-interstellar-gate,b2-jp-aesthetic-alley,b2-lofi-rain-window,b2-magic-forest-clearing,b2-magic-forest-spirits,b2-magic-forest-well,b2-mech-pilot-gaze,b2-mecha-battleline,b2-pixel-arcade-world,b2-race-future-circuit,b2-roadmovie-dusk,b2-samurai-standoff,b2-vaporwave-bust,b2-vaporwave-mall,black-hole-voyage,clay-toon-cozy-world,deep-sea-glow-cosmos,dewline,dragon-sky-citadel,dreamcore-floating-room,forest-rays,galaxy-tide,gothic-castle-moonlight,highway-sunset-classic-car,hong-kong-rain,hypercar-scifi-city,jellyfish-deep,light-ribbons-wide,mecha-girl-neon-city,mystic-girl-night-sky,nebula-drift,neon-motorcycle-night,pixel-rainy-city,poppy-field,quiet-bridge,quiet-geometry,retro-motel-alien-sky,sakura-dream,sakura-tram-station,samurai-shrine-rain,skydeck-future-city,soft-horizon,starlit-glowing-ocean,starship-ring-planet,stillwater-dawn,stillwater-night,sunset-platform,synthwave-car-sunset,tokyo-neon-rain-night,ukiyo-anime-fusion
+[review] 404 probe status=404
+[review] fetching 546 URLs ...
+[review] fetched: 200=546 non200=0
+[review] soft404=0 duplicate-body-groups=0
+[review] hreflang broken=0
+[review] link targets=1610 outside-universe=1064
+[review] brokenLinks=0
+[review] BFS en: reachable=78/546 orphan=468 maxDepth=2
+[review] BFS zh: reachable=78/546 orphan=468 maxDepth=2
+[review] BFS ja: reachable=78/546 orphan=468 maxDepth=2
+[review] BFS ko: reachable=78/546 orphan=468 maxDepth=2
+[review] BFS es: reachable=78/546 orphan=468 maxDepth=2
+[review] BFS fr: reachable=78/546 orphan=468 maxDepth=2
+[review] BFS de: reachable=78/546 orphan=468 maxDepth=2
+[review] global inlink orphans=0
+[review] Organization nodes=7, on homepages=7, distinct @id on homepages=1
+[review] verifying image binaries for 462 public detail pages ...
+[review] image checks: ok=462 mismatch=0
+[review] en duplicate groups: {"title":0,"h1":0,"description":0,"intro":6}
+[review] near-duplicate normalized intro pairs=6
+[review] stuffed alts=0
+[review] sample zh: dupTitles=0 dupDescs=0
+[review] sample ja: dupTitles=0 dupDescs=0
+[review] sample ko: dupTitles=0 dupDescs=0
+[review] sample es: dupTitles=0 dupDescs=0
+[review] sample fr: dupTitles=0 dupDescs=0
+[review] sample de: dupTitles=0 dupDescs=0
+[review] waffo findings=28
+[review] sitemap alternate anomalies=0
+[review] issues total=386 (P1=28 P2=8 P3=350)
+[review] wrote D:\Project\wallhaze\apps\web\docs\seo-audit\review/review-summary.json

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates } from "@/lib/seo";
 import { PRESET_WALLPAPERS } from "@/lib/wallpapers";
 import { getCommunityWorks } from "@/lib/community";
@@ -55,12 +56,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return entries.map(({ path, priority, changeFrequency }) => ({
-    url: absoluteLocaleUrl("en", path),
-    changeFrequency,
-    priority,
-    alternates: {
-      languages: languageAlternates(path),
-    },
-  }));
+  return entries.flatMap(({ path, priority, changeFrequency }) =>
+    // One independent <url> per locale: crawlers discover every language
+    // directly from <loc> instead of only via hreflang alternates. The
+    // alternates block still lists all locales + x-default on every entry.
+    routing.locales.map((locale) => ({
+      url: absoluteLocaleUrl(locale, path),
+      changeFrequency,
+      priority,
+      alternates: {
+        languages: languageAlternates(path),
+      },
+    }))
+  );
 }

@@ -135,6 +135,7 @@ export default async function CommunityWorkPage({
   const tAll = await getTranslations();
   const t = await getTranslations("community");
   const tDetail = await getTranslations("community.detail");
+  const tMeta = await getTranslations("meta");
   const tStyles = await getTranslations("styleLabels");
   const tDevices = await getTranslations("devices");
 
@@ -164,7 +165,10 @@ export default async function CommunityWorkPage({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    // Live works are real looping videos: VideoObject is added only when the
+    // record actually is a video and carries its real duration/poster/date.
+    "@type":
+      work.mediaType === "video" ? ["CreativeWork", "VideoObject"] : "CreativeWork",
     name: title,
     description,
     url: publicUrl,
@@ -176,6 +180,35 @@ export default async function CommunityWorkPage({
       ? { thumbnailUrl: `${SITE_URL}${work.posterAsset}` }
       : { image: `${SITE_URL}${work.previewAsset}` }),
     ...(downloadAsset ? { contentUrl: `${SITE_URL}${downloadAsset}` } : {}),
+    ...(work.mediaType === "video" && work.durationSeconds
+      ? { duration: `PT${work.durationSeconds}S`, uploadDate: work.publishedAt }
+      : {}),
+  };
+
+  // Real hierarchy only: Home → Community → this work.
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: tMeta("breadcrumbHome"),
+        item: absoluteLocaleUrl(locale, "/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: tMeta("breadcrumbCommunity"),
+        item: absoluteLocaleUrl(locale, "/community"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: publicUrl,
+      },
+    ],
   };
 
   return (
@@ -438,7 +471,7 @@ export default async function CommunityWorkPage({
       <Footer />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbLd]) }}
       />
     </div>
   );

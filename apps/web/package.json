@@ -21,7 +21,8 @@
     "deploy:vinext": "vinext-cloudflare deploy",
     "community:manifest": "node scripts/community/build-gallery-manifest.mjs",
     "moderation:scan-gallery": "node scripts/community/scan-gallery-manifest.mjs",
-    "audit:waffo": "node scripts/waffo-audit.mjs"
+    "audit:waffo": "node scripts/waffo-audit.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "@vinext/cloudflare": "^1.2.0",

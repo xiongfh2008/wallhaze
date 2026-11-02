@@ -1,0 +1,2318 @@
+[
+  {
+    "sev": "P2",
+    "kind": "linked-page-missing-noindex",
+    "url": "https://wallhaze.com/studio?style=anime",
+    "detail": "245 linked non-sitemap pages without noindex"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/de/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/es/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/fr/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ja/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/ko/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/abandoned-manor-dread",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/amoled-violet-halo",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/anime-bedroom-cityscape",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-amoled-obsidian-wave",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-anime-festival-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-cyber-alley-cat",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-cyber-nightmarket",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-dark-citadel-throne",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-dreamcore-doorfield",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-dreamcore-playground",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-galaxy-cliff-temple",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-galaxy-river-mountain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-gothic-cathedral",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-interstellar-gate",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-jp-aesthetic-alley",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-lofi-rain-window",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-magic-forest-clearing",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-magic-forest-spirits",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-magic-forest-well",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-mech-pilot-gaze",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-mecha-battleline",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-pixel-arcade-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-race-future-circuit",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-roadmovie-dusk",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-samurai-standoff",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-vaporwave-bust",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/b2-vaporwave-mall",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/black-hole-voyage",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/clay-toon-cozy-world",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/deep-sea-glow-cosmos",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/dragon-sky-citadel",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/dreamcore-floating-room",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/gothic-castle-moonlight",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/highway-sunset-classic-car",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/hypercar-scifi-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/light-ribbons-wide",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/mecha-girl-neon-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/mystic-girl-night-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/neon-motorcycle-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/pixel-rainy-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/retro-motel-alien-sky",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/sakura-tram-station",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/samurai-shrine-rain",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/skydeck-future-city",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/soft-horizon",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/starlit-glowing-ocean",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/starship-ring-planet",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/synthwave-car-sunset",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/tokyo-neon-rain-night",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P3",
+    "kind": "imageobject-no-license",
+    "url": "https://wallhaze.com/zh/wallpapers/ukiyo-anime-fusion",
+    "detail": "no license field"
+  },
+  {
+    "sev": "P2",
+    "kind": "organization-fields",
+    "url": "",
+    "detail": "{\"url\":\"\",\"locale\":\"en\",\"id\":\"https://wallhaze.com/#organization\",\"name\":\"WallHaze\",\"urlField\":\"https://wallhaze.com\",\"logo\":\"https://wallhaze.com/wallhaze-icon.svg\",\"email\":\"hello@wallhaze.com\"}"
+  },
+  {
+    "sev": "P2",
+    "kind": "duplicate-intro",
+    "url": "https://wallhaze.com/ja/wallpapers/galaxy-tide",
+    "detail": "2 pages share intro: \"出典 : Carina Nebula in Hubble Palette · Dylan O'Donnell · CC0\" -> https://wallhaze.com/ja/wallpapers/galaxy-tide , https://wallhaze.com/ja/wallpapers/nebula-drift"
+  },
+  {
+    "sev": "P2",
+    "kind": "duplicate-intro",
+    "url": "https://wallhaze.com/ja/wallpapers/stillwater-dawn",
+    "detail": "2 pages share intro: \"出典 : Mountain Lake at Night · cweyant · CC0\" -> https://wallhaze.com/ja/wallpapers/stillwater-dawn , https://wallhaze.com/ja/wallpapers/stillwater-night"
+  },
+  {
+    "sev": "P2",
+    "kind": "duplicate-intro",
+    "url": "https://wallhaze.com/ko/wallpapers/galaxy-tide",
+    "detail": "2 pages share intro: \"출처 : Carina Nebula in Hubble Palette · Dylan O'Donnell · CC0\" -> https://wallhaze.com/ko/wallpapers/galaxy-tide , https://wallhaze.com/ko/wallpapers/nebula-drift"
+  },
+  {
+    "sev": "P2",
+    "kind": "duplicate-intro",
+    "url": "https://wallhaze.com/ko/wallpapers/stillwater-dawn",
+    "detail": "2 pages share intro: \"출처 : Mountain Lake at Night · cweyant · CC0\" -> https://wallhaze.com/ko/wallpapers/stillwater-dawn , https://wallhaze.com/ko/wallpapers/stillwater-night"
+  },
+  {
+    "sev": "P2",
+    "kind": "duplicate-intro",
+    "url": "https://wallhaze.com/zh/wallpapers/galaxy-tide",
+    "detail": "2 pages share intro: \"来源 : Carina Nebula in Hubble Palette · Dylan O'Donnell · CC0\" -> https://wallhaze.com/zh/wallpapers/galaxy-tide , https://wallhaze.com/zh/wallpapers/nebula-drift"
+  },
+  {
+    "sev": "P2",
+    "kind": "duplicate-intro",
+    "url": "https://wallhaze.com/zh/wallpapers/stillwater-dawn",
+    "detail": "2 pages share intro: \"来源 : Mountain Lake at Night · cweyant · CC0\" -> https://wallhaze.com/zh/wallpapers/stillwater-dawn , https://wallhaze.com/zh/wallpapers/stillwater-night"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/zh/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/ja/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/ko/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/es/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/fr/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/de/",
+    "detail": "page missing from universe/fetch"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/contact",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/terms",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/zh/terms",
+    "detail": "120-day refund marker not found in visible text"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/ja/terms",
+    "detail": "120-day refund marker not found in visible text"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/ko/terms",
+    "detail": "120-day refund marker not found in visible text"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/es/terms",
+    "detail": "120-day refund marker not found in visible text"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/fr/terms",
+    "detail": "120-day refund marker not found in visible text"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/de/terms",
+    "detail": "120-day refund marker not found in visible text"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/privacy",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/faq",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/help",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/about",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/zh/studio",
+    "detail": "studio does not declare Coming Soon"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/ja/studio",
+    "detail": "studio does not declare Coming Soon"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/ko/studio",
+    "detail": "studio does not declare Coming Soon"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/es/studio",
+    "detail": "studio does not declare Coming Soon"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/fr/studio",
+    "detail": "studio does not declare Coming Soon"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/de/studio",
+    "detail": "studio does not declare Coming Soon"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/pricing",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/acceptable-use",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  },
+  {
+    "sev": "P1",
+    "kind": "waffo-compliance",
+    "url": "https://wallhaze.com/community",
+    "detail": "\"Coming Soon\" outside /studio (visible)"
+  }
+]

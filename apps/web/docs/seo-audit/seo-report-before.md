@@ -1,0 +1,391 @@
+# WallHaze SEO audit — before
+
+- Base URL: http://127.0.0.1:3100
+- Sitemap loc entries: 78 (alternates rendered: 624)
+- Audited URL universe: 546
+- Fetched OK: 538
+- Robots.txt sitemap declared: yes
+- Issues: P1=52 P2=16 P3=57
+- Orphan indexable pages: 239
+- Broken link targets (non-200): 8 known + 0 unknown
+
+## Issues
+
+- [P2] SEO-001 en description: Description too long (176 > 165 chars) — `Explore free AI wallpapers made for your device. Unique styles — anime, cyberpunk, fantasy and more — in high quality fo` (https://wallhaze.com/)
+- [P1] SEO-002 en title: Brand name duplicated in title — `About — WallHaze | WallHaze` (https://wallhaze.com/about)
+- [P1] SEO-003 en title: Brand name duplicated in title — `Community Gallery — WallHaze | WallHaze` (https://wallhaze.com/community)
+- [P1] SEO-004 en title: Brand name duplicated in title — `Contact — WallHaze | WallHaze` (https://wallhaze.com/contact)
+- [P2] SEO-005 en description: Description too long (216 > 165 chars) — `Reach the WallHaze team at hello@wallhaze.com — our official customer support email for customer service, account issues` (https://wallhaze.com/contact)
+- [P2] SEO-006 de description: Description too long (196 > 165 chars) — `Entdecke kostenlose KI-Wallpapers, gemacht für dein Gerät. Einzigartige Stile – Anime, Cyberpunk, Fantasy und mehr – in ` (https://wallhaze.com/de)
+- [P1] SEO-007 de title: Brand name duplicated in title — `Über — WallHaze | WallHaze` (https://wallhaze.com/de/about)
+- [P1] SEO-008 de title: Brand name duplicated in title — `Community-Galerie — WallHaze | WallHaze` (https://wallhaze.com/de/community)
+- [P1] SEO-009 de title: Brand name duplicated in title — `Kontakt — WallHaze | WallHaze` (https://wallhaze.com/de/contact)
+- [P2] SEO-010 de description: Description too long (247 > 165 chars) — `Erreichen Sie das WallHaze-Team unter hello@wallhaze.com — unsere offizielle Kundensupport-E-Mail für Kundenservice, Kon` (https://wallhaze.com/de/contact)
+- [P1] SEO-011 de title: Brand name duplicated in title — `FAQ — WallHaze | WallHaze` (https://wallhaze.com/de/faq)
+- [P1] SEO-012 de title: Brand name duplicated in title — `Hilfe — WallHaze | WallHaze` (https://wallhaze.com/de/help)
+- [P2] SEO-013 de description: Description too long (209 > 165 chars) — `WallHaze-Preise auf einen Blick: geplante einmalige Credit-Pakete ab 5 $ und Credit-Kosten pro Generierung für statische` (https://wallhaze.com/de/pricing)
+- [P1] SEO-014 de title: Brand name duplicated in title — `Datenschutzerklärung — WallHaze | WallHaze` (https://wallhaze.com/de/privacy)
+- [P1] SEO-015 de title: Brand name duplicated in title — `Nutzungsbedingungen — WallHaze | WallHaze` (https://wallhaze.com/de/terms)
+- [P2] SEO-016 de description: Description too long (189 > 165 chars) — `Durchsuche kostenlos Wallpaper für Handy, Tablet und Desktop. Artwork mit geprüfter Lizenz ist herunterladbar; noch gepr` (https://wallhaze.com/de/wallpapers)
+- [P2] SEO-017 es description: Description too long (209 > 165 chars) — `Explora fondos de pantalla con IA gratuitos hechos para tu dispositivo. Estilos únicos —anime, ciberpunk, fantasía y más` (https://wallhaze.com/es)
+- [P1] SEO-018 es title: Brand name duplicated in title — `Acerca de — WallHaze | WallHaze` (https://wallhaze.com/es/about)
+- [P1] SEO-019 es title: Brand name duplicated in title — `Galería de la comunidad — WallHaze | WallHaze` (https://wallhaze.com/es/community)
+- [P1] SEO-020 es title: Brand name duplicated in title — `Contacto — WallHaze | WallHaze` (https://wallhaze.com/es/contact)
+- [P2] SEO-021 es description: Description too long (261 > 165 chars) — `Contacta con el equipo de WallHaze en hello@wallhaze.com: nuestro correo oficial de atención al cliente para servicio al` (https://wallhaze.com/es/contact)
+- [P1] SEO-022 es title: Brand name duplicated in title — `Preguntas frecuentes — WallHaze | WallHaze` (https://wallhaze.com/es/faq)
+- [P1] SEO-023 es title: Brand name duplicated in title — `Ayuda — WallHaze | WallHaze` (https://wallhaze.com/es/help)
+- [P2] SEO-024 es description: Description too long (231 > 165 chars) — `Precios de WallHaze de un vistazo: paquetes de créditos únicos planificados desde $5 y coste en créditos por generación ` (https://wallhaze.com/es/pricing)
+- [P1] SEO-025 es title: Brand name duplicated in title — `Política de privacidad — WallHaze | WallHaze` (https://wallhaze.com/es/privacy)
+- [P2] SEO-026 es description: Description too long (166 > 165 chars) — `Cómo gestiona WallHaze los datos personales: cuentas, inicio de sesión con Google, contenido generado, Credits, cookies ` (https://wallhaze.com/es/privacy)
+- [P1] SEO-027 es title: Brand name duplicated in title — `Términos del servicio — WallHaze | WallHaze` (https://wallhaze.com/es/terms)
+- [P2] SEO-028 es description: Description too long (196 > 165 chars) — `Explora gratis fondos para móvil, tablet y escritorio. Las obras con licencia verificada se pueden descargar; las que si` (https://wallhaze.com/es/wallpapers)
+- [P1] SEO-029 es status: Indexable URL does not return 200 — `0` (https://wallhaze.com/es/wallpapers/ukiyo-anime-fusion)
+- [P1] SEO-030 en status: Indexable URL does not return 200 — `0` (https://wallhaze.com/faq)
+- [P1] SEO-031 fr status: Indexable URL does not return 200 — `0` (https://wallhaze.com/fr)
+- [P1] SEO-032 fr status: Indexable URL does not return 200 — `0` (https://wallhaze.com/fr/about)
+- [P1] SEO-033 fr status: Indexable URL does not return 200 — `0` (https://wallhaze.com/fr/acceptable-use)
+- [P1] SEO-034 fr status: Indexable URL does not return 200 — `0` (https://wallhaze.com/fr/community)
+- [P1] SEO-035 fr status: Indexable URL does not return 200 — `0` (https://wallhaze.com/fr/contact)
+- [P1] SEO-036 fr status: Indexable URL does not return 200 — `0` (https://wallhaze.com/fr/faq)
+- [P1] SEO-037 fr title: Brand name duplicated in title — `Aide — WallHaze | WallHaze` (https://wallhaze.com/fr/help)
+- [P2] SEO-038 fr description: Description too long (272 > 165 chars) — `Les tarifs WallHaze en un coup d&#x27;œil : des forfaits de crédits uniques prévus à partir de 5 $ et le coût en crédits` (https://wallhaze.com/fr/pricing)
+- [P1] SEO-039 fr title: Brand name duplicated in title — `Politique de confidentialité — WallHaze | WallHaze` (https://wallhaze.com/fr/privacy)
+- [P1] SEO-040 fr title: Brand name duplicated in title — `Conditions d&#x27;utilisation — WallHaze | WallHaze` (https://wallhaze.com/fr/terms)
+- [P2] SEO-041 fr description: Description too long (169 > 165 chars) — `Les règles d’utilisation de WallHaze : la galerie, les téléchargements et licences, les soumissions communautaires, l’AI` (https://wallhaze.com/fr/terms)
+- [P2] SEO-042 fr description: Description too long (230 > 165 chars) — `Explorez gratuitement des fonds d’écran pour téléphone, tablette et ordinateur. Les œuvres dont la licence est vérifiée ` (https://wallhaze.com/fr/wallpapers)
+- [P1] SEO-043 en title: Brand name duplicated in title — `Help — WallHaze | WallHaze` (https://wallhaze.com/help)
+- [P1] SEO-044 ja title: Brand name duplicated in title — `WallHaze について | WallHaze` (https://wallhaze.com/ja/about)
+- [P1] SEO-045 ja title: Brand name duplicated in title — `コミュニティギャラリー — WallHaze | WallHaze` (https://wallhaze.com/ja/community)
+- [P1] SEO-046 ja title: Brand name duplicated in title — `お問い合わせ — WallHaze | WallHaze` (https://wallhaze.com/ja/contact)
+- [P1] SEO-047 ja title: Brand name duplicated in title — `よくある質問 — WallHaze | WallHaze` (https://wallhaze.com/ja/faq)
+- [P1] SEO-048 ja title: Brand name duplicated in title — `ヘルプ — WallHaze | WallHaze` (https://wallhaze.com/ja/help)
+- [P1] SEO-049 ja title: Brand name duplicated in title — `プライバシーポリシー — WallHaze | WallHaze` (https://wallhaze.com/ja/privacy)
+- [P1] SEO-050 ja title: Brand name duplicated in title — `利用規約 — WallHaze | WallHaze` (https://wallhaze.com/ja/terms)
+- [P1] SEO-051 ko title: Brand name duplicated in title — `소개 — WallHaze | WallHaze` (https://wallhaze.com/ko/about)
+- [P1] SEO-052 ko title: Brand name duplicated in title — `커뮤니티 갤러리 — WallHaze | WallHaze` (https://wallhaze.com/ko/community)
+- [P1] SEO-053 ko title: Brand name duplicated in title — `문의 — WallHaze | WallHaze` (https://wallhaze.com/ko/contact)
+- [P1] SEO-054 ko title: Brand name duplicated in title — `자주 묻는 질문 — WallHaze | WallHaze` (https://wallhaze.com/ko/faq)
+- [P1] SEO-055 ko title: Brand name duplicated in title — `도움말 — WallHaze | WallHaze` (https://wallhaze.com/ko/help)
+- [P1] SEO-056 ko title: Brand name duplicated in title — `개인정보 처리방침 — WallHaze | WallHaze` (https://wallhaze.com/ko/privacy)
+- [P1] SEO-057 ko title: Brand name duplicated in title — `서비스 약관 — WallHaze | WallHaze` (https://wallhaze.com/ko/terms)
+- [P2] SEO-058 en description: Description too long (207 > 165 chars) — `WallHaze pricing at a glance: planned one-time credit packages from $5 and per-generation credit costs for static and li` (https://wallhaze.com/pricing)
+- [P1] SEO-059 en title: Brand name duplicated in title — `Privacy Policy — WallHaze | WallHaze` (https://wallhaze.com/privacy)
+- [P1] SEO-060 en title: Brand name duplicated in title — `Terms of Service — WallHaze | WallHaze` (https://wallhaze.com/terms)
+- [P2] SEO-061 en description: Description too long (182 > 165 chars) — `Browse free wallpapers for phone, tablet and desktop. Artwork with cleared licensing is downloadable; items still under ` (https://wallhaze.com/wallpapers)
+- [P3] SEO-062 en description: Description short (69 < 70 chars) — `Glowing orange lion&#x27;s mane jellyfish drifting in deep blue water` (https://wallhaze.com/wallpapers/abyssal-bloom)
+- [P3] SEO-063 en description: Description short (65 < 70 chars) — `Single glowing violet halo ring on a pure black AMOLED background` (https://wallhaze.com/wallpapers/amoled-violet-halo)
+- [P3] SEO-064 en description: Description short (58 < 70 chars) — `Green and pink aurora over a snowy mountain and calm fjord` (https://wallhaze.com/wallpapers/aurora-veil)
+- [P3] SEO-065 en description: Description short (48 < 70 chars) — `Green and purple aurora above a dark pine forest` (https://wallhaze.com/wallpapers/aurora-veil-wide)
+- [P3] SEO-066 en description: Description short (66 < 70 chars) — `A sweep of violet-to-blue light across a near-black obsidian field` (https://wallhaze.com/wallpapers/b2-amoled-obsidian-wave)
+- [P3] SEO-067 en description: Description short (54 < 70 chars) — `Anime festival street with yukata crowds and fireworks` (https://wallhaze.com/wallpapers/b2-anime-festival-night)
+- [P3] SEO-068 en description: Description short (49 < 70 chars) — `Robotic cat on a crate in a flickering neon alley` (https://wallhaze.com/wallpapers/b2-cyber-alley-cat)
+- [P3] SEO-069 en description: Description short (64 < 70 chars) — `Cyberpunk night market with lanterns reflecting in a black canal` (https://wallhaze.com/wallpapers/b2-cyber-nightmarket)
+- [P3] SEO-070 en description: Description short (66 < 70 chars) — `Dark citadel throne hall with moonlight shafts and drifting embers` (https://wallhaze.com/wallpapers/b2-dark-citadel-throne)
+- [P3] SEO-071 en description: Description short (61 < 70 chars) — `Standing doors in a cloud meadow opening onto different skies` (https://wallhaze.com/wallpapers/b2-dreamcore-doorfield)
+- [P3] SEO-072 en description: Description short (62 < 70 chars) — `Impossible playground standing on clouds under three soft suns` (https://wallhaze.com/wallpapers/b2-dreamcore-playground)
+- [P3] SEO-073 en description: Description short (49 < 70 chars) — `A tiny temple on a cliff beneath a river of stars` (https://wallhaze.com/wallpapers/b2-galaxy-cliff-temple)
+- [P3] SEO-074 en description: Description short (66 < 70 chars) — `The Milky Way pouring between mountain ridges over a mirrored lake` (https://wallhaze.com/wallpapers/b2-galaxy-river-mountain)
+- [P3] SEO-075 en description: Description short (64 < 70 chars) — `Gothic cathedral interior with glowing stained glass at midnight` (https://wallhaze.com/wallpapers/b2-gothic-cathedral)
+- [P3] SEO-076 en description: Description short (58 < 70 chars) — `Japanese alley with paper lanterns and a Mount Fuji sunset` (https://wallhaze.com/wallpapers/b2-jp-aesthetic-alley)
+- [P3] SEO-077 en description: Description short (61 < 70 chars) — `Rain on a large window with a steaming mug and a sleeping cat` (https://wallhaze.com/wallpapers/b2-lofi-rain-window)
+- [P3] SEO-078 en description: Description short (61 < 70 chars) — `Glowing mushroom circle around an old stone bench at twilight` (https://wallhaze.com/wallpapers/b2-magic-forest-clearing)
+- [P3] SEO-079 en description: Description short (60 < 70 chars) — `Glowing spore-spirits floating between colossal mossy trunks` (https://wallhaze.com/wallpapers/b2-magic-forest-spirits)
+- [P3] SEO-080 en description: Description short (52 < 70 chars) — `Ancient glowing well in an enchanted forest clearing` (https://wallhaze.com/wallpapers/b2-magic-forest-well)
+- [P3] SEO-081 en description: Description short (59 < 70 chars) — `Original mecha pilot before her towering mechanical partner` (https://wallhaze.com/wallpapers/b2-mech-pilot-gaze)
+- [P3] SEO-082 en description: Description short (52 < 70 chars) — `Pixel-art floating islands connected by neon bridges` (https://wallhaze.com/wallpapers/b2-pixel-arcade-world)
+- [P3] SEO-083 en description: Description short (61 < 70 chars) — `Anti-gravity race cars charging through a neon circuit tunnel` (https://wallhaze.com/wallpapers/b2-race-future-circuit)
+- [P3] SEO-084 en description: Description short (51 < 70 chars) — `Vintage convertible on a west-coast highway at dusk` (https://wallhaze.com/wallpapers/b2-roadmovie-dusk)
+- [P3] SEO-085 en description: Description short (68 < 70 chars) — `Original samurai standing in a bamboo grove during a lightning storm` (https://wallhaze.com/wallpapers/b2-samurai-standoff)
+- [P3] SEO-086 en description: Description short (62 < 70 chars) — `Classical plaster bust with a chrome visor in a vaporwave room` (https://wallhaze.com/wallpapers/b2-vaporwave-bust)
+- [P3] SEO-087 en description: Description short (60 < 70 chars) — `Abandoned retro mall flooded with water under pink-cyan neon` (https://wallhaze.com/wallpapers/b2-vaporwave-mall)
+- [P3] SEO-088 en description: Description short (63 < 70 chars) — `A tiny vessel beside a black hole&#x27;s glowing accretion disk` (https://wallhaze.com/wallpapers/black-hole-voyage)
+- [P3] SEO-089 en description: Description short (66 < 70 chars) — `Cute 3D clay houses with glowing windows on floating grass islands` (https://wallhaze.com/wallpapers/clay-toon-cozy-world)
+- [P3] SEO-090 en description: Description short (56 < 70 chars) — `Bioluminescent deep-sea creatures drifting like a galaxy` (https://wallhaze.com/wallpapers/deep-sea-glow-cosmos)
+- [P3] SEO-091 en description: Description short (63 < 70 chars) — `Macro photograph of dew drops beading along a bright green leaf` (https://wallhaze.com/wallpapers/dewline)
+- [P3] SEO-092 en description: Description short (66 < 70 chars) — `Ember-winged dragon circling a floating citadel above storm clouds` (https://wallhaze.com/wallpapers/dragon-sky-citadel)
+- [P3] SEO-093 en description: Description short (65 < 70 chars) — `A furnished room floating on an island above an endless cloud sea` (https://wallhaze.com/wallpapers/dreamcore-floating-room)
+- [P3] SEO-094 en description: Description short (53 < 70 chars) — `Sun rays breaking through tall trees and morning mist` (https://wallhaze.com/wallpapers/forest-rays)
+- [P3] SEO-095 en description: Description short (56 < 70 chars) — `Deep blue and green nebula clouds with dense star fields` (https://wallhaze.com/wallpapers/galaxy-tide)
+- [P3] SEO-096 en description: Description short (60 < 70 chars) — `Gothic castle on a cliff under a full moon with drifting fog` (https://wallhaze.com/wallpapers/gothic-castle-moonlight)
+- [P3] SEO-097 en description: Description short (64 < 70 chars) — `Classic car driving into a huge desert sunset on an open highway` (https://wallhaze.com/wallpapers/highway-sunset-classic-car)
+- [P3] SEO-098 en description: Description short (66 < 70 chars) — `Rainy Hong Kong street glowing with red, green and blue neon signs` (https://wallhaze.com/wallpapers/hong-kong-rain)
+- [P3] SEO-099 en description: Description short (64 < 70 chars) — `Lion&#x27;s mane jellyfish trailing long tentacles in dark water` (https://wallhaze.com/wallpapers/jellyfish-deep)
+- [P3] SEO-100 en description: Description short (64 < 70 chars) — `Abstract ribbons of violet, cyan and amber light on a dark field` (https://wallhaze.com/wallpapers/light-ribbons-wide)
+- [P3] SEO-101 en description: Description short (68 < 70 chars) — `Original anime mecha girl on a rooftop above a neon megacity skyline` (https://wallhaze.com/wallpapers/mecha-girl-neon-city)
+- [P3] SEO-102 en description: Description short (68 < 70 chars) — `Wide field of blue and emerald nebula clouds and stars in deep space` (https://wallhaze.com/wallpapers/nebula-drift)
+- [P3] SEO-103 en description: Description short (62 < 70 chars) — `Neon-accented motorcycle leaning through a wet downtown corner` (https://wallhaze.com/wallpapers/neon-motorcycle-night)
+- [P3] SEO-104 en description: Description short (58 < 70 chars) — `Pixel-art rainy neon intersection with reflective pavement` (https://wallhaze.com/wallpapers/pixel-rainy-city)
+- [P3] SEO-105 en description: Description short (64 < 70 chars) — `Close-up of red poppies and white wildflowers in a summer meadow` (https://wallhaze.com/wallpapers/poppy-field)
+- [P3] SEO-106 en description: Description short (62 < 70 chars) — `Illuminated pedestrian bridge reflected in dark water at night` (https://wallhaze.com/wallpapers/quiet-bridge)
+- [P3] SEO-107 en description: Description short (69 < 70 chars) — `Retro desert motel with a neon sign under an alien sky with two moons` (https://wallhaze.com/wallpapers/retro-motel-alien-sky)
+- [P3] SEO-108 en description: Description short (44 < 70 chars) — `Pink cherry blossoms against a soft blue sky` (https://wallhaze.com/wallpapers/sakura-dream)
+- [P3] SEO-109 en description: Description short (56 < 70 chars) — `Anime tram station at dusk with drifting cherry blossoms` (https://wallhaze.com/wallpapers/sakura-tram-station)
+- [P3] SEO-110 en description: Description short (67 < 70 chars) — `Visitor on a glass skydeck above a futuristic megacity at blue hour` (https://wallhaze.com/wallpapers/skydeck-future-city)
+- [P3] SEO-111 en description: Description short (57 < 70 chars) — `Soft violet and amber gradient horizon with a gentle glow` (https://wallhaze.com/wallpapers/soft-horizon)
+- [P3] SEO-112 en description: Description short (61 < 70 chars) — `A small boat between a starlit sky and a bioluminescent ocean` (https://wallhaze.com/wallpapers/starlit-glowing-ocean)
+- [P3] SEO-113 en description: Description short (53 < 70 chars) — `Starship crossing a giant ringed planet in deep space` (https://wallhaze.com/wallpapers/starship-ring-planet)
+- [P3] SEO-114 en description: Description short (62 < 70 chars) — `Moonlit lake and forest silhouette under a deep blue night sky` (https://wallhaze.com/wallpapers/stillwater-night)
+- [P3] SEO-115 en description: Description short (53 < 70 chars) — `Empty railway platforms under a glowing orange sunset` (https://wallhaze.com/wallpapers/sunset-platform)
+- [P3] SEO-116 en description: Description short (60 < 70 chars) — `Retro sports car on a neon grid road toward a striped sunset` (https://wallhaze.com/wallpapers/synthwave-car-sunset)
+- [P3] SEO-117 en description: Description short (55 < 70 chars) — `Rainy futuristic street reflecting blue and purple neon` (https://wallhaze.com/wallpapers/tokyo-neon-rain-night)
+- [P3] SEO-118 en description: Description short (68 < 70 chars) — `Ukiyo-e woodblock wave fused with modern anime and a distant skyline` (https://wallhaze.com/wallpapers/ukiyo-anime-fusion)
+- [P1] SEO-119 zh title: Brand name duplicated in title — `关于 — WallHaze | WallHaze` (https://wallhaze.com/zh/about)
+- [P1] SEO-120 zh title: Brand name duplicated in title — `创作者社区 — WallHaze | WallHaze` (https://wallhaze.com/zh/community)
+- [P1] SEO-121 zh title: Brand name duplicated in title — `联系我们 — WallHaze | WallHaze` (https://wallhaze.com/zh/contact)
+- [P1] SEO-122 zh title: Brand name duplicated in title — `常见问题 — WallHaze | WallHaze` (https://wallhaze.com/zh/faq)
+- [P1] SEO-123 zh title: Brand name duplicated in title — `帮助 — WallHaze | WallHaze` (https://wallhaze.com/zh/help)
+- [P1] SEO-124 zh title: Brand name duplicated in title — `隐私政策 — WallHaze | WallHaze` (https://wallhaze.com/zh/privacy)
+- [P1] SEO-125 zh title: Brand name duplicated in title — `服务条款 — WallHaze | WallHaze` (https://wallhaze.com/zh/terms)
+
+## Orphan pages
+
+- https://wallhaze.com/de/help
+- https://wallhaze.com/de/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/de/wallpapers/amoled-violet-halo
+- https://wallhaze.com/de/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/de/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/de/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/de/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/de/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/de/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/de/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/de/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/de/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/de/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/de/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/de/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/de/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/de/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/de/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/de/wallpapers/black-hole-voyage
+- https://wallhaze.com/de/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/de/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/de/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/de/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/de/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/de/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/de/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/de/wallpapers/pixel-rainy-city
+- https://wallhaze.com/de/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/de/wallpapers/sakura-tram-station
+- https://wallhaze.com/de/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/de/wallpapers/skydeck-future-city
+- https://wallhaze.com/de/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/de/wallpapers/ukiyo-anime-fusion
+- https://wallhaze.com/es/help
+- https://wallhaze.com/es/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/es/wallpapers/amoled-violet-halo
+- https://wallhaze.com/es/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/es/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/es/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/es/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/es/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/es/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/es/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/es/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/es/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/es/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/es/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/es/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/es/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/es/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/es/wallpapers/black-hole-voyage
+- https://wallhaze.com/es/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/es/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/es/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/es/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/es/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/es/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/es/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/es/wallpapers/pixel-rainy-city
+- https://wallhaze.com/es/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/es/wallpapers/sakura-tram-station
+- https://wallhaze.com/es/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/es/wallpapers/skydeck-future-city
+- https://wallhaze.com/es/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/fr/help
+- https://wallhaze.com/fr/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/fr/wallpapers/amoled-violet-halo
+- https://wallhaze.com/fr/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/fr/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/fr/wallpapers/b2-anime-festival-night
+- https://wallhaze.com/fr/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/fr/wallpapers/b2-cyber-nightmarket
+- https://wallhaze.com/fr/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/fr/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/fr/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/fr/wallpapers/b2-galaxy-river-mountain
+- https://wallhaze.com/fr/wallpapers/b2-gothic-cathedral
+- https://wallhaze.com/fr/wallpapers/b2-interstellar-gate
+- https://wallhaze.com/fr/wallpapers/b2-jp-aesthetic-alley
+- https://wallhaze.com/fr/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/fr/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/fr/wallpapers/b2-magic-forest-spirits
+- https://wallhaze.com/fr/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/fr/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/fr/wallpapers/b2-mecha-battleline
+- https://wallhaze.com/fr/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/fr/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/fr/wallpapers/b2-roadmovie-dusk
+- https://wallhaze.com/fr/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/fr/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/fr/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/fr/wallpapers/black-hole-voyage
+- https://wallhaze.com/fr/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/fr/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/fr/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/fr/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/fr/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/fr/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/fr/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/fr/wallpapers/pixel-rainy-city
+- https://wallhaze.com/fr/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/fr/wallpapers/sakura-tram-station
+- https://wallhaze.com/fr/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/fr/wallpapers/skydeck-future-city
+- https://wallhaze.com/fr/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/fr/wallpapers/ukiyo-anime-fusion
+- https://wallhaze.com/help
+- https://wallhaze.com/ja/help
+- https://wallhaze.com/ja/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/ja/wallpapers/amoled-violet-halo
+- https://wallhaze.com/ja/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/ja/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/ja/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/ja/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/ja/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/ja/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/ja/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/ja/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/ja/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/ja/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/ja/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/ja/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/ja/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/ja/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/ja/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/ja/wallpapers/black-hole-voyage
+- https://wallhaze.com/ja/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/ja/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/ja/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/ja/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/ja/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/ja/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/ja/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/ja/wallpapers/pixel-rainy-city
+- https://wallhaze.com/ja/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/ja/wallpapers/sakura-tram-station
+- https://wallhaze.com/ja/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/ja/wallpapers/skydeck-future-city
+- https://wallhaze.com/ja/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/ja/wallpapers/ukiyo-anime-fusion
+- https://wallhaze.com/ko/help
+- https://wallhaze.com/ko/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/ko/wallpapers/amoled-violet-halo
+- https://wallhaze.com/ko/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/ko/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/ko/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/ko/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/ko/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/ko/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/ko/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/ko/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/ko/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/ko/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/ko/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/ko/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/ko/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/ko/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/ko/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/ko/wallpapers/black-hole-voyage
+- https://wallhaze.com/ko/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/ko/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/ko/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/ko/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/ko/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/ko/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/ko/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/ko/wallpapers/pixel-rainy-city
+- https://wallhaze.com/ko/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/ko/wallpapers/sakura-tram-station
+- https://wallhaze.com/ko/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/ko/wallpapers/skydeck-future-city
+- https://wallhaze.com/ko/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/ko/wallpapers/ukiyo-anime-fusion
+- https://wallhaze.com/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/wallpapers/amoled-violet-halo
+- https://wallhaze.com/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/wallpapers/black-hole-voyage
+- https://wallhaze.com/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/wallpapers/pixel-rainy-city
+- https://wallhaze.com/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/wallpapers/sakura-tram-station
+- https://wallhaze.com/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/wallpapers/skydeck-future-city
+- https://wallhaze.com/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/wallpapers/ukiyo-anime-fusion
+- https://wallhaze.com/zh/help
+- https://wallhaze.com/zh/wallpapers/abandoned-manor-dread
+- https://wallhaze.com/zh/wallpapers/amoled-violet-halo
+- https://wallhaze.com/zh/wallpapers/anime-bedroom-cityscape
+- https://wallhaze.com/zh/wallpapers/b2-amoled-obsidian-wave
+- https://wallhaze.com/zh/wallpapers/b2-cyber-alley-cat
+- https://wallhaze.com/zh/wallpapers/b2-dark-citadel-throne
+- https://wallhaze.com/zh/wallpapers/b2-dreamcore-doorfield
+- https://wallhaze.com/zh/wallpapers/b2-galaxy-cliff-temple
+- https://wallhaze.com/zh/wallpapers/b2-lofi-rain-window
+- https://wallhaze.com/zh/wallpapers/b2-magic-forest-clearing
+- https://wallhaze.com/zh/wallpapers/b2-magic-forest-well
+- https://wallhaze.com/zh/wallpapers/b2-mech-pilot-gaze
+- https://wallhaze.com/zh/wallpapers/b2-pixel-arcade-world
+- https://wallhaze.com/zh/wallpapers/b2-race-future-circuit
+- https://wallhaze.com/zh/wallpapers/b2-samurai-standoff
+- https://wallhaze.com/zh/wallpapers/b2-vaporwave-bust
+- https://wallhaze.com/zh/wallpapers/b2-vaporwave-mall
+- https://wallhaze.com/zh/wallpapers/black-hole-voyage
+- https://wallhaze.com/zh/wallpapers/clay-toon-cozy-world
+- https://wallhaze.com/zh/wallpapers/dragon-sky-citadel
+- https://wallhaze.com/zh/wallpapers/gothic-castle-moonlight
+- https://wallhaze.com/zh/wallpapers/highway-sunset-classic-car
+- https://wallhaze.com/zh/wallpapers/hypercar-scifi-city
+- https://wallhaze.com/zh/wallpapers/mystic-girl-night-sky
+- https://wallhaze.com/zh/wallpapers/neon-motorcycle-night
+- https://wallhaze.com/zh/wallpapers/pixel-rainy-city
+- https://wallhaze.com/zh/wallpapers/retro-motel-alien-sky
+- https://wallhaze.com/zh/wallpapers/sakura-tram-station
+- https://wallhaze.com/zh/wallpapers/samurai-shrine-rain
+- https://wallhaze.com/zh/wallpapers/skydeck-future-city
+- https://wallhaze.com/zh/wallpapers/synthwave-car-sunset
+- https://wallhaze.com/zh/wallpapers/ukiyo-anime-fusion
+
+## Broken links
+
+- https://wallhaze.com/es/wallpapers/ukiyo-anime-fusion → 0
+- https://wallhaze.com/faq → 0
+- https://wallhaze.com/fr → 0
+- https://wallhaze.com/fr/about → 0
+- https://wallhaze.com/fr/acceptable-use → 0
+- https://wallhaze.com/fr/community → 0
+- https://wallhaze.com/fr/contact → 0
+- https://wallhaze.com/fr/faq → 0

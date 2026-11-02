@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { routing } from "@/i18n/routing";
+import { HTML_LANG, routing } from "@/i18n/routing";
+import { absoluteLocaleUrl, SITE_URL } from "@/lib/seo";
 import CtaSection from "@/components/CtaSection";
 import FeaturedWallpapers from "@/components/FeaturedWallpapers";
 import Footer from "@/components/Footer";
@@ -28,9 +29,33 @@ export default async function Home({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  // Static rendering for this page's render pass — required per page under
+  // Enables static rendering for this request — required per page under
   // cacheComponents so server-side useTranslations stays prerenderable.
   setRequestLocale(locale);
+
+  // Site-wide JSON-LD, homepage only: real Organization facts only —
+  // no invented address, phone number or legal entity.
+  const organizationLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: "WallHaze",
+        url: SITE_URL,
+        logo: `${SITE_URL}/wallhaze-icon.svg`,
+        email: "hello@wallhaze.com",
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: absoluteLocaleUrl(locale, "/"),
+        name: "WallHaze",
+        inLanguage: HTML_LANG[locale],
+        publisher: { "@id": `${SITE_URL}/#organization` },
+      },
+    ],
+  };
 
   return (
     <div className="relative flex-1 overflow-x-clip">
@@ -46,6 +71,11 @@ export default async function Home({
         <CtaSection />
       </main>
       <Footer />
+      <script
+        type="application/ld+json"
+        // Static JSON from constants — no user input.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+      />
     </div>
   );
 }

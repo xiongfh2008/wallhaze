@@ -62,6 +62,7 @@ export async function generateMetadata({
   // English source strings are the fallback policy for per-wallpaper copy;
   // translations exist for every preset today and are used when present.
   const tWallpapers = await getTranslations("galleryWallpapers");
+  const tMeta = await getTranslations("meta");
   const titleKey = `${wallpaper.id}.title`;
   const altKey = `${wallpaper.id}.alt`;
   const title = tWallpapers.has(titleKey)
@@ -74,13 +75,18 @@ export async function generateMetadata({
   const seoTitle = pending
     ? `${title} — Wallpaper · License Review`
     : `${title} — Free Wallpaper`;
+  // Meta description carries the file's real, verifiable specs (pixel
+  // dimensions + download status) — never fabricated numbers.
+  const metaDescription = pending
+    ? description
+    : `${description} · ${wallpaper.width}×${wallpaper.height}px · ${tMeta("detailDownloadSuffix")}`;
 
   const path = `/wallpapers/${wallpaper.id}`;
   const image = wallpaper.image;
 
   return {
     title: seoTitle,
-    description,
+    description: metaDescription,
     // Pending artwork must not be indexed or exposed through social cards
     // while its display rights are unresolved.
     ...(pending ? { robots: { index: false, follow: false } } : {}),
@@ -94,13 +100,13 @@ export async function generateMetadata({
       url: absoluteLocaleUrl(locale, path),
       siteName: "WallHaze",
       title: seoTitle,
-      description,
+      description: metaDescription,
       ...(image ? { images: [{ url: image, alt: description }] } : {}),
     },
     twitter: {
       card: image ? "summary_large_image" : "summary",
       title: seoTitle,
-      description,
+      description: metaDescription,
       ...(image ? { images: [{ url: image, alt: description }] } : {}),
     },
   };
@@ -122,6 +128,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
   const tStyles = await getTranslations("styleLabels");
   const tGroups = await getTranslations("groupLabels");
   const t = await getTranslations("detail");
+  const tMeta = await getTranslations("meta");
 
   const titleKey = `${wallpaper.id}.title`;
   const altKey = `${wallpaper.id}.alt`;
@@ -167,9 +174,44 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
               creditText: wallpaper.source.author,
               license: wallpaper.source.licenseUrl ?? wallpaper.source.license,
             }
-          : {}),
+          : wallpaper.license === "self-authored"
+            ? {
+                // Original WallHaze artwork: the license grant lives in the
+                // site terms (Downloads and Licenses section) — a real,
+                // verifiable document URL, never a fabricated license.
+                creator: { "@type": "Organization", name: "WallHaze" },
+                license: `${SITE_URL}/terms`,
+              }
+            : {}),
       }
     : null;
+
+  // Real hierarchy only: Home → Wallpapers → this artwork.
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: tMeta("breadcrumbHome"),
+        item: absoluteLocaleUrl(locale, "/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: tMeta("breadcrumbWallpapers"),
+        item: absoluteLocaleUrl(locale, "/wallpapers"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: absoluteLocaleUrl(locale, `/wallpapers/${wallpaper.id}`),
+      },
+    ],
+  };
+  const ldNodes = [jsonLd, breadcrumbLd].filter(Boolean);
 
   return (
     <div className="relative flex-1 overflow-x-clip">
@@ -398,11 +440,11 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
         )}
       </main>
       <Footer />
-      {jsonLd ? (
+      {ldNodes.length > 0 ? (
         <script
           type="application/ld+json"
           // Static JSON derived from validated static data — no user input.
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ldNodes) }}
         />
       ) : null}
     </div>

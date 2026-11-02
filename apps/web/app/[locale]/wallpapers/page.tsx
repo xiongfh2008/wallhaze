@@ -4,6 +4,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
+import { Link } from "@/i18n/navigation";
+import { PRESET_WALLPAPERS } from "@/lib/wallpapers";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import GalleryExperience from "@/components/gallery/GalleryExperience";
@@ -63,6 +65,16 @@ export default async function WallpapersPage({
   }
   setRequestLocale(locale);
   const tGallery = await getTranslations("gallery");
+  const tMeta = await getTranslations("meta");
+  const tWallpapers = await getTranslations("galleryWallpapers");
+
+  // Server-rendered crawlable index of every publicly viewable wallpaper.
+  // The client browser above renders its list progressively (search, filters,
+  // load-more), so without this section most detail pages have no crawlable
+  // inbound link from the gallery.
+  const publicWallpapers = PRESET_WALLPAPERS.filter(
+    (wallpaper) => wallpaper.canPubliclyDisplay
+  ).sort((a, b) => a.id.localeCompare(b.id));
 
   return (
     <div className="relative flex-1 overflow-x-clip">
@@ -80,6 +92,39 @@ export default async function WallpapersPage({
           </p>
         </div>
         <GalleryExperience />
+
+        <section
+          className="mt-20 border-t border-white/10 pt-10"
+          aria-labelledby="all-wallpapers-heading"
+        >
+          <h2
+            id="all-wallpapers-heading"
+            className="text-xl font-semibold tracking-tight"
+          >
+            {tMeta("allWallpapersTitle")}
+          </h2>
+          <p className="mt-2 text-sm text-zinc-500">
+            {tMeta("allWallpapersHint")}
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {publicWallpapers.map((wallpaper) => {
+              const titleKey = `${wallpaper.id}.title`;
+              const title = tWallpapers.has(titleKey)
+                ? tWallpapers(titleKey)
+                : wallpaper.title;
+              return (
+                <li key={wallpaper.id}>
+                  <Link
+                    href={`/wallpapers/${wallpaper.id}`}
+                    className="text-zinc-400 transition hover:text-white"
+                  >
+                    {title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
       </main>
       <Footer />
     </div>
