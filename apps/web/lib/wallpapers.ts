@@ -93,6 +93,8 @@ interface PresetWallpaperSeed {
   alt: string;
   imageOverride?: string;
   license?: WallpaperLicenseStatus;
+  /** Display-only: the asset is public but download is withheld (2026-10-31). */
+  displayOnly?: boolean;
   source?: WallpaperSource;
 }
 
@@ -230,6 +232,12 @@ function resolveWallpaper(seed: PresetWallpaperSeed): PresetWallpaper {
   if (!dimensions) {
     throw new Error(`[wallpapers] Seed "${seed.id}" has no measured dimensions.`);
   }
+  // Display and download are independent decisions:
+  //   - review-pending → both false (hidden entirely)
+  //   - displayOnly: true → display yes, download no
+  //   - default (verified/self-authored) → both true
+  const canPubliclyDisplay = !pending;
+  const canOfferDownload = !pending && !seed.displayOnly;
   return {
     id: seed.id,
     title: seed.title,
@@ -239,8 +247,8 @@ function resolveWallpaper(seed: PresetWallpaperSeed): PresetWallpaper {
     alt: seed.alt,
     license,
     reviewStatus: pending ? "pending" : "verified",
-    canPubliclyDisplay: !pending,
-    canOfferDownload: !pending,
+    canPubliclyDisplay,
+    canOfferDownload,
     ...(seed.source ? { source: seed.source } : {}),
     mediaType: "image",
     width: dimensions.width,

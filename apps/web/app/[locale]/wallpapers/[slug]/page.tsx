@@ -8,7 +8,6 @@ import {
   PRESET_WALLPAPERS,
   getRelatedWallpapers,
   getWallpaperBySlug,
-  isDownloadAllowed,
   styleCategoryOf,
 } from "@/lib/wallpapers";
 import {
@@ -367,7 +366,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
               ) : null}
             </div>
 
-            {isDownloadAllowed(wallpaper.license) ? (
+            {wallpaper.canOfferDownload ? (
               <p className="mt-3 text-xs leading-relaxed text-zinc-500">
                 {t("downloadOriginalNote", {
                   width: wallpaper.width,
@@ -377,7 +376,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
             ) : null}
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              {isDownloadAllowed(wallpaper.license) && wallpaper.image ? (
+              {wallpaper.canOfferDownload && wallpaper.image ? (
                 <WallpaperDownloadButton
                   wallpaperId={wallpaper.id}
                   title={title}

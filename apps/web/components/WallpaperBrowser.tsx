@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import {
   PRESET_WALLPAPERS,
-  isDownloadAllowed,
   styleCategoryOf,
   type PresetWallpaper,
 } from "@/lib/wallpapers";
@@ -510,7 +509,7 @@ export default function WallpaperBrowser({
                         })}
                         downloading={downloadingIds.has(wallpaper.id)}
                         onDownload={
-                          isDownloadAllowed(wallpaper.license)
+                          wallpaper.canOfferDownload
                             ? () => handleDownloadGalleryWallpaper(wallpaper)
                             : undefined
                         }
