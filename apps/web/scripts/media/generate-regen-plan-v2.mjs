@@ -1,5 +1,6 @@
-// Generate the regeneration plan CSV for 39 pending wallpapers.
-// No AI calls — plan only. Run: node scripts/media/generate-regen-plan.mjs
+// Generate the regeneration plan v2 — corrected output paths, cost, and
+// dimension semantics. Read-only: no AI calls. Run from apps/web.
+//   node scripts/media/generate-regen-plan-v2.mjs
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 
@@ -7,10 +8,16 @@ const webRoot = path.resolve(import.meta.dirname, "..", "..");
 const ts = readFileSync(path.join(webRoot, "lib", "wallpapers.ts"), "utf8");
 const s = ts.indexOf("const SEEDS"), e = ts.indexOf("] satisfies", s);
 const seeds = ts.slice(s, e);
-const dimsMatch = ts.slice(
-  ts.indexOf("const IMAGE_DIMENSIONS"),
-  ts.indexOf("const STYLE_BY_ID")
-);
+
+// Parse dimensions (these are TARGET dimensions from the original concept —
+// NOT measured actuals; actuals will come from sharp post-generation)
+const dimStart = ts.indexOf("const IMAGE_DIMENSIONS");
+const dimEnd = ts.indexOf("};", dimStart);
+const dimsBlock = ts.slice(dimStart, dimEnd);
+const dims = {};
+for (const m of dimsBlock.matchAll(/"([a-z0-9-]+)": \{ width: (\d+), height: (\d+) \}/g)) {
+  dims[m[1]] = { width: Number(m[2]), height: Number(m[3]) };
+}
 
 // Parse pending seeds
 const blocks = seeds.split("\n  {").slice(1);
@@ -28,16 +35,8 @@ for (const block of blocks) {
   });
 }
 
-// Parse dimensions
-const dimStart = ts.indexOf("const IMAGE_DIMENSIONS");
-const dimEnd = ts.indexOf("};", dimStart);
-const dimsBlock = ts.slice(dimStart, dimEnd);
-const dims = {};
-for (const m of dimsBlock.matchAll(/"([a-z0-9-]+)": \{ width: (\d+), height: (\d+) \}/g)) {
-  dims[m[1]] = { width: Number(m[2]), height: Number(m[3]) };
-}
-
-// Unique English prompts matching each concept's original alt text
+// Unique English prompts matching each concept (same as v1 but with
+// the outputPath and dimension semantics corrected)
 const PROMPTS = {
   "sakura-nights": "Anime illustration of an original schoolgirl in a dark uniform standing beneath a large cherry blossom tree at night, glowing pink petals drifting in the air, soft moonlight filtering through branches, quiet suburban street with warm lamp posts in the background, indigo and rose palette, detailed background art with depth, vertical composition for phone wallpaper, no text, no logos, no watermark",
   "neon-rain": "Cyberpunk cityscape at night, a rain-soaked street reflecting dense blue and violet neon signs, towering skyscrapers with holographic advertisements, a lone figure with an umbrella walking away from the viewer, volumetric fog between buildings, cinematic wide composition, reflective wet asphalt, indigo and electric cyan palette, vertical wallpaper, no text, no readable signs, no watermark",
@@ -63,7 +62,7 @@ const PROMPTS = {
   "crimson-keep": "Gothic horror castle under a blood-red moon, twisted spires reaching toward the crimson sky, ravens perched on gargoyles, dead trees in the foreground, thick atmosphere with drifting mist, deep crimson and charcoal palette, ominous without gore, desktop wallpaper, no text, no logos, no watermark",
   "the-drifter": "Supernatural horror atmosphere, a translucent ghostly figure drifting through an abandoned asylum corridor, peeling paint and rusted doors, a single flickering fluorescent light, desaturated green-grey palette with cold blue shadows, unsettling mood without gore, cinematic composition, desktop wallpaper, no text, no logos, no watermark",
   "the-unseen": "Cosmic horror wallpaper, a colossal entity with too many eyes and tendrils barely visible behind a swirling purple nebula, tiny spaceships fleeing in the foreground, scale that defies comprehension, deep violet and black palette with bioluminescent accents, Lovecraftian atmosphere, desktop wallpaper, no text, no logos, no watermark",
-  "tape-07": "Analog horror aesthetic, a grainy VHS security camera frame showing a dimly lit institutional hallway, scan lines and chromatic aberration, a distorted figure barely visible at the far end, timestamp in the corner rendered as abstract pixel blocks, desaturated palette, desktop wallpaper, no readable text, no logos, no watermark",
+  "tape-07": "Analog horror aesthetic, a grainy VHS security camera frame showing a dimly lit institutional hallway, scan lines and chromatic aberration, a distorted figure barely visible at the far end, timestamp in the corner rendered as abstract pixel blocks, desaturated palette, desktop wallpaper, no text, no readable text, no logos, no watermark",
   "wrong-room": "Psychological horror of an endless empty room with impossible non-Euclidean angles, doorways leading to the same room, a single chair in the center, fluorescent lighting casting long shadows, desaturated beige and grey palette, liminal space aesthetic, wide composition, desktop wallpaper, no text, no logos, no watermark",
   "melting-hour": "Nightmare surrealism of a melting staircase in a crimson dreamscape, steps that flow like liquid, clock faces dissolving into the walls, deep red and purple palette with gold accents, inspired by surrealist masters, wide composition, digital painting, desktop wallpaper, no text, no logos, no watermark",
   "cursed-grove": "Dark fantasy wallpaper of cursed stone ruins in a shadowy forest, a creature with glowing amber eyes watching from between the trees, twisted roots gripping the broken walls, emerald and gold palette with deep shadows, atmospheric fantasy realism, desktop wallpaper, no gore, no text, no logos, no watermark",
@@ -80,21 +79,45 @@ const PROMPTS = {
   "sunset-cafe": "Cozy anime illustration of a countryside cafe at sunset, warm golden light spilling through large windows onto wooden tables, a cat sleeping on a windowsill, rolling hills visible outside, gentle and inviting, vertical composition, phone wallpaper, no text, no logos, no watermark",
 };
 
-const HEADER = "id,title,styleId,prompt,aspectRatio,targetResolution,estimatedCost,outputPath,evidenceStatus,reviewStatus";
+// Cost calculation based on fal.ai klein 4b actual pricing (~$0.025/image at
+// standard resolution; $0.03 is a conservative ceiling for 1536px outputs)
+const COST_PER_IMAGE = 0.03;
+const FIRST_ROUND = 39;
+const MAX_RETRIES = 30;
+const MAX_TOTAL_REQUESTS = FIRST_ROUND + MAX_RETRIES;
+const BUDGET_USD = 3.0;
+const SEED_BASE = 310000;
+
+// Output directory: private-media/incoming-regeneration/ (NOT public/)
+const OUTPUT_DIR = "private-media/incoming-regeneration";
+
+const HEADER = [
+  "id", "title", "styleId", "prompt",
+  "targetWidth", "targetHeight", "aspectRatio",
+  "seed", "estimatedCost",
+  "outputPath", "finalPublicPath",
+  "evidenceStatus", "reviewStatus",
+].join(",");
+
 const rows = [HEADER];
+let seedIdx = 0;
 
 for (const p of pending) {
   const dim = dims[p.id];
   if (!dim) { console.error("no dims for", p.id); continue; }
+  const seed = SEED_BASE + (++seedIdx);
   const ar = (dim.width / dim.height).toFixed(2);
   const prompt = PROMPTS[p.id] ?? "";
   if (!prompt) { console.error("no prompt for", p.id); continue; }
-  const res = `${dim.width}x${dim.height}`;
   rows.push([
     p.id, `"${p.title}"`, p.styleId,
     `"${prompt}"`,
-    ar, res, "$0.03",
-    `public/images/wallpapers/${p.id}.jpg`,
+    dim.width, dim.height, ar,
+    seed, `$${COST_PER_IMAGE.toFixed(2)}`,
+    // Raw generation output goes to private-media (pre-review staging);
+    // final public path only after human rights confirmation.
+    `${OUTPUT_DIR}/${p.id}.png`,
+    `(hold) public/images/wallpapers/${p.id}.jpg`,
     "pending-generation", "review-pending",
   ].join(","));
 }
@@ -103,4 +126,8 @@ mkdirSync(path.join(webRoot, "..", "..", "docs", "media-review"), { recursive: t
 const out = path.join(webRoot, "..", "..", "docs", "media-review", "regeneration-plan.csv");
 writeFileSync(out, rows.join("\n") + "\n");
 console.log("written:", out, `(${pending.length} entries)`);
-console.log("estimated total:", "$" + (pending.length * 0.03).toFixed(2));
+console.log(`cost: ${FIRST_ROUND} images x $${COST_PER_IMAGE} = $${(FIRST_ROUND * COST_PER_IMAGE).toFixed(2)}`);
+console.log(`max with retries: ${MAX_TOTAL_REQUESTS} x $${COST_PER_IMAGE} = $${(MAX_TOTAL_REQUESTS * COST_PER_IMAGE).toFixed(2)}`);
+console.log(`budget: $${BUDGET_USD}`);
+console.log(`output dir: ${OUTPUT_DIR}/ (private staging, NOT public/)`);
+console.log(`seed range: ${SEED_BASE + 1} - ${SEED_BASE + pending.length}`);
