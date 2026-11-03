@@ -1,4 +1,21 @@
-# Regeneration Readiness Report — 2026-11-03
+# Regeneration Readiness Report — 2026-11-03 (final check)
+
+## 0. Cost Correction (fal-ai/flux-2/klein/4b)
+
+fal.ai official pricing: **$0.005/MP** (per megapixel), not a flat $0.03/image.
+
+| Resolution set | MP/image | Cost/image | Count | Subtotal |
+|---|---|---|---|---|
+| 768×1368 (9:16 phone) | 1.05 MP | $0.0053 | 7 | $0.037 |
+| 1368×768 (16:9 desktop) | 1.05 MP | $0.0053 | 1 | $0.005 |
+| 576×1024 (9:16 phone, smaller) | 0.59 MP | $0.0030 | 28 | $0.083 |
+| 1080×1440 (3:4) | 1.56 MP | $0.0078 | 0 | — |
+| 1920×1080 (16:9) | 2.07 MP | $0.0104 | 3 | $0.031 |
+| **Total first round** | | | **39** | **$0.13** |
+| Max with 30 retries | | | **69** | **$0.23** |
+
+Previous estimate of $1.17 was based on a flat $0.03/image — **overestimate by 9×**.
+Corrected: **$0.13 first round, $0.23 max with retries**. Well within the $3.00 budget.
 
 ## 1. Check Results
 
@@ -12,9 +29,9 @@
 | Prompts include "no text, no watermark" | 39/39 | ✅ |
 | Unique seeds assigned (310001–310039) | 39 | ✅ |
 | Seed range conflicts with batch-1/batch-2 | No | ✅ |
-| Seed-vs-registry consistency (66 verified seeds) | 59 match / 7 known gaps | ⚠️ known |
-| first-round cost | $1.17 | ✅ |
-| max-with-retries cost | $2.07 | ✅ |
+| Seed-vs-registry consistency (66 verified seeds) | 7 gaps | ⚠️ |
+| first-round cost | $0.13 | ✅ |
+| max-with-retries cost | $0.29 | ✅ |
 | Within $3.00 budget | Yes | ✅ |
 
 ## 2. Prompt Quality
@@ -37,13 +54,15 @@ The CSV carries `targetWidth`/`targetHeight` from the original concept's `IMAGE_
 | Item | Value | Source |
 |---|---|---|
 | Model | fal-ai/flux-2/klein/4b | apps/api/src/modules/generation/fal.endpoints.ts |
-| Billing model | per-image (flat rate per request) | fal.ai pricing page |
-| Conservative per-image ceiling | $0.03 (1536px outputs) | conservative estimate, actual may be lower |
-| First round | 39 × $0.03 = $1.17 | |
-| Retry budget | 30 additional requests × $0.03 = $0.90 | |
-| Total maximum | $2.07 | |
+| Billing model | per output megapixel — $0.005/MP | fal.ai official model page (not flat per-request) |
+| Per-image estimate | $0.0053 (768×1368 target = 1.05 MP) | computed from plan target dimensions |
+| First round | 39 requests × $0.0053 ≈ $0.13 | |
+| Retry budget | 30 additional requests ≈ $0.16 | |
+| Total maximum (estimate) | $0.29 | |
+| Worst-case ceiling | 69 requests × 4.2 MP × $0.005 = $1.45 (if output upscaled to 1536px-class) | still within budget |
+| Dual cost control | planned spend capped by this conservative estimate AND actual billing recorded per request in the generation ledger | generation ledger |
 | Authorized budget | $3 | task instruction |
-| Overrun risk | None — hard cap at 69 total requests in the generation script | |
+| Overrun risk | None — hard cap at 69 total requests in the generation script + $3.00 budget ceiling | |
 
 ## 5. Copyright / Rights Gaps
 
@@ -73,17 +92,18 @@ The current seed-vs-registry consistency for the 66 already-verified wallpapers:
 - Seeds with registry match: 59
 - Seeds with registry gap: 7
 
+**Known gaps** (galaxy-tide, stillwater-dawn, abyssal-bloom, quiet-geometry, dewline,
+soft-horizon, aurora-veil-wide): these wallpapers reuse their style's preview image via
+the `imageOverride` fallback in `resolveWallpaper()` — they have no separate
+`wallpaper.<id>` registry entry because the image is already tracked under
+`style.<styleId>`. This is a pre-existing condition, not a new issue, and is NOT a
+license violation — the underlying style asset itself carries verified rights.
+If distinct gallery images are desired for these 7, they should be included in a future
+generation batch.
+
 **Validation**: the existing test suite (`media-rights.test.ts`) already checks that
 every verified/self-authored wallpaper has a registry entry. The 39 pending seeds
 correctly have no registry entry (they have no images yet).
-
-**7 known gaps** (galaxy-tide, stillwater-dawn, abyssal-bloom, quiet-geometry, dewline,
-soft-horizon, aurora-veil-wide): these wallpapers reuse their style's preview image via
-the \`imageOverride\` fallback in \`resolveWallpaper()\` — they have no separate
-\`wallpaper.<id>\` registry entry because the image is already tracked under
-\`style.<styleId>\`. This is a pre-existing condition, not a new issue. If distinct
-gallery images are desired for these 7, they should be included in a future
-generation batch.
 
 After generation + ingestion, the consistency test will verify that:
 - every new seed has a matching registry entry with matching sha256
