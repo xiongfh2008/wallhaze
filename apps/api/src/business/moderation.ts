@@ -77,9 +77,13 @@ export const SCAN_PROMPT_PATH = "/v1/actions/verification/scan-prompt";
 export const MAX_PROMPT_CHARS = 10_000;
 
 function normalizePem(value: string): string {
-  return value.includes("-----BEGIN") && !value.includes("\n")
-    ? value.replace(/\\n/g, "\n")
-    : value;
+  // Already PEM: unescape single-line \n if present.
+  if (value.includes("-----BEGIN")) {
+    return value.includes("\n") ? value : value.replace(/\\n/g, "\n");
+  }
+  // Raw base64 (the Waffo payment env format): wrap in PKCS8 PEM headers.
+  const clean = value.replace(/\s/g, "");
+  return `-----BEGIN PRIVATE KEY-----\n${clean}\n-----END PRIVATE KEY-----`;
 }
 
 export class PromptModerationService {
