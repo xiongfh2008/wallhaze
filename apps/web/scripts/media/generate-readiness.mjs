@@ -60,9 +60,21 @@ const dimsOk = rows.every(r => {
   return w > 0 && h > 0;
 });
 
-// Cost check
-const totalFirstRound = rows.length * 0.03;
-const maxWithRetries = (rows.length + 30) * 0.03;
+// Cost check — official klein 4b pricing is $0.005 per output megapixel.
+// Per-image estimate is derived from the plan's target dimensions; the batch
+// is additionally capped by a 69-request hard limit, a $3.00 budget ceiling,
+// and actual per-request billing recorded in the generation ledger.
+const COST_PER_MEGAPIXEL = 0.005;
+const perImageCost = rows.map(r => (parseInt(r.targetWidth) * parseInt(r.targetHeight)) / 1e6 * COST_PER_MEGAPIXEL);
+const maxPerImageCost = Math.max(...perImageCost);
+const totalFirstRound = perImageCost.reduce((a, b) => a + b, 0);
+const retryBudget = 30 * maxPerImageCost;
+const maxWithRetries = totalFirstRound + retryBudget;
+// Worst-case ceiling: if the endpoint returns a 1536px-class output
+// (~4.2 MP) instead of the target resolution, cost per request is still
+// bounded by output megapixels × $0.005.
+const worstCasePerRequest = 4.2 * COST_PER_MEGAPIXEL;
+const worstCaseTotal = (rows.length + 30) * worstCasePerRequest;
 
 const md = `# Regeneration Readiness Report — ${new Date().toISOString().slice(0, 10)}
 
@@ -103,13 +115,15 @@ The CSV carries \`targetWidth\`/\`targetHeight\` from the original concept's \`I
 | Item | Value | Source |
 |---|---|---|
 | Model | fal-ai/flux-2/klein/4b | apps/api/src/modules/generation/fal.endpoints.ts |
-| Billing model | per-image (flat rate per request) | fal.ai pricing page |
-| Conservative per-image ceiling | $0.03 (1536px outputs) | conservative estimate, actual may be lower |
-| First round | ${rows.length} × $0.03 = $${totalFirstRound.toFixed(2)} | |
-| Retry budget | 30 additional requests × $0.03 = $0.90 | |
-| Total maximum | $${maxWithRetries.toFixed(2)} | |
+| Billing model | per output megapixel — $0.005/MP | fal.ai official model page (not flat per-request) |
+| Per-image estimate | $${maxPerImageCost.toFixed(4)} (${rows[0].targetWidth}×${rows[0].targetHeight} target = ${((rows[0].targetWidth * rows[0].targetHeight) / 1e6).toFixed(2)} MP) | computed from plan target dimensions |
+| First round | ${rows.length} requests × $${maxPerImageCost.toFixed(4)} ≈ $${totalFirstRound.toFixed(2)} | |
+| Retry budget | 30 additional requests ≈ $${retryBudget.toFixed(2)} | |
+| Total maximum (estimate) | $${maxWithRetries.toFixed(2)} | |
+| Worst-case ceiling | 69 requests × 4.2 MP × $0.005 = $${worstCaseTotal.toFixed(2)} (if output upscaled to 1536px-class) | still within budget |
+| Dual cost control | planned spend capped by this conservative estimate AND actual billing recorded per request in the generation ledger | generation ledger |
 | Authorized budget | $${3.00} | task instruction |
-| Overrun risk | None — hard cap at ${69} total requests in the generation script | |
+| Overrun risk | None — hard cap at ${69} total requests in the generation script + $3.00 budget ceiling | |
 
 ## 5. Copyright / Rights Gaps
 
@@ -138,6 +152,15 @@ must agree — a mismatch blocks publication.
 The current seed-vs-registry consistency for the 66 already-verified wallpapers:
 - Seeds with registry match: ${seedRegistryMatches}
 - Seeds with registry gap: ${seedRegistryGaps}
+
+**Known gaps** (galaxy-tide, stillwater-dawn, abyssal-bloom, quiet-geometry, dewline,
+soft-horizon, aurora-veil-wide): these wallpapers reuse their style's preview image via
+the \`imageOverride\` fallback in \`resolveWallpaper()\` — they have no separate
+\`wallpaper.<id>\` registry entry because the image is already tracked under
+\`style.<styleId>\`. This is a pre-existing condition, not a new issue, and is NOT a
+license violation — the underlying style asset itself carries verified rights.
+If distinct gallery images are desired for these 7, they should be included in a future
+generation batch.
 
 **Validation**: the existing test suite (\`media-rights.test.ts\`) already checks that
 every verified/self-authored wallpaper has a registry entry. The 39 pending seeds

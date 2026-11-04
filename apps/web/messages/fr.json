@@ -1503,7 +1503,7 @@
       "Service de génération d'IA (fal.ai) — une fois la génération disponible : lorsque vous demanderez une génération, votre prompt, l'image de référence éventuelle et vos réglages seront envoyés au service de génération d'IA pour produire vos médias ; les médias générés reviennent à WallHaze. Le moteur précis utilisé pour chaque demande est une configuration interne de WallHaze et ne fait pas partie de vos données.",
       "Un prestataire de paiement (Waffo) — gère le paiement si vous achetez des Credits, là où les services de paiement sont activés.",
       "Votre fournisseur d’e-mail — les soumissions, signalements et demandes nous parviennent par e-mail.",
-      "Services de sécurité du contenu (prévus) — une fois la génération disponible, Waffo Prompt Sift examinera les prompts avant le lancement d'une génération, et l'OpenAI Moderation API examinera les images et vidéos générées (échantillonnage d'images pour la vidéo) avant stockage ou affichage. Les enregistrements conservent l'identifiant du travail, la décision et — si signalée — une catégorie de violation, pas le texte du prompt."
+      "Services de sécurité du contenu (prévus) — une fois la génération disponible, Waffo Prompt Sift examinera les prompts avant le lancement d'une génération, et l'un classificateur NSFW automatisé de fal.ai (imageutils/nsfw) examinera les images et vidéos générées (échantillonnage d'images pour la vidéo) avant stockage ou affichage. Les enregistrements conservent l'identifiant du travail, la décision et — si signalée — une catégorie de violation, pas le texte du prompt."
     ],
     "retentionTitle": "7. Conservation et suppression des données",
     "retentionBody": "Nous ne conservons les données personnelles que le temps nécessaire à la finalité pour laquelle elles ont été collectées :",
@@ -1777,7 +1777,7 @@
       "Vous devez détenir les droits et permissions nécessaires pour chaque image de référence téléversée."
     ],
     "screeningTitle": "Comment le contenu est examiné",
-    "screeningBody": "Chaque prompt est examiné par Waffo Prompt Sift (le service automatisé de sécurité du contenu exigé par la revue) avant d’être envoyé au modèle d’IA, et une liste locale de termes interdits constitue une seconde couche. Les requêtes bloquées — ou qui ne peuvent pas être examinées — ne sont jamais générées. Les images et vidéos générées sont ensuite examinées par un service automatisé de modération de médias (OpenAI Moderation API) avant tout stockage ou affichage ; la vidéo est vérifiée image par image. Les œuvres signalées sont vérifiées par une personne avant toute mesure, et le contenu publié dans la galerie est réexaminé automatiquement.",
+    "screeningBody": "Chaque prompt est examiné par Waffo Prompt Sift (le service automatisé de sécurité du contenu exigé par la revue) avant d’être envoyé au modèle d’IA, et une liste locale de termes interdits constitue une seconde couche. Les requêtes bloquées — ou qui ne peuvent pas être examinées — ne sont jamais générées. Les images et vidéos générées sont ensuite examinées par un service automatisé de modération de médias (le classificateur NSFW de fal.ai) avant tout stockage ou affichage ; la vidéo est vérifiée image par image. Les œuvres signalées sont vérifiées par une personne avant toute mesure, et le contenu publié dans la galerie est réexaminé automatiquement.",
     "enforcementTitle": "Application",
     "enforcementBody": "Le contenu violant cette politique peut être supprimé et le compte concerné peut être limité ou suspendu. Les violations graves — notamment celles impliquant des mineurs — sont signalées aux autorités compétentes. Les décisions peuvent faire l’objet d’un appel par courriel.",
     "reportTitle": "Signalements et appels",
@@ -1841,6 +1841,8 @@
     "checkoutTitle": "Le checkout ouvre bientôt",
     "checkoutBody": "Les achats sont traités par notre prestataire de paiement et le canal de checkout est en vérification finale. Les boutons d’achat restent désactivés jusqu’à l’ouverture du canal — générer avec les crédits existants fonctionne normalement aujourd’hui.",
     "checkoutComing": "Checkout bientôt disponible",
+    "pricingPausedCta": "Temporairement en pause",
+    "pricingClosedCta": "Bientôt disponible",
     "faqTitle": "FAQ tarifs",
     "faq": [
       {

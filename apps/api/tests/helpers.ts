@@ -1,4 +1,4 @@
-﻿import { buildApp } from "../src/app.js";
+﻿﻿﻿﻿import { buildApp } from "../src/app.js";
 import type { FalProvider } from "../src/modules/generation/fal.provider.js";
 
 /**
@@ -32,6 +32,12 @@ export const BASE_ENV: Record<string, string> = {
   PORT: "4000",
   LOG_LEVEL: "info",
   CORS_ALLOWED_ORIGINS: TEST_ORIGIN,
+  // Commercialization gates OPEN so business-logic suites exercise the paid
+  // paths; the dedicated gate truth-table suite overrides them (the shipped
+  // defaults stay closed — see tests/commercialization-gates.test.ts).
+  PURCHASES_PUBLIC_ENABLED: "1",
+  STUDIO_PUBLIC_ENABLED: "1",
+  VIDEO_PUBLIC_ENABLED: "1",
 };
 
 export interface PinoLine {

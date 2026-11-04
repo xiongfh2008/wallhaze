@@ -62,15 +62,37 @@ export interface CheckoutAdapterInput {
 export interface NormalizedWebhookEvent {
   /** Provider delivery id — the dedup key. */
   id: string;
-  kind: "paid" | "refunded" | "ignored";
+  /**
+   * "paid"/"refunded" apply automatically (only provably full amounts);
+   * "ignored" is a known event needing no action; "manual_review" is
+   * preserved verbatim for a human — never applied, never auto-retried.
+   */
+  kind: "paid" | "refunded" | "ignored" | "manual_review";
   /** Internal order id (absent for ignored events). */
   orderId?: string;
   paymentId?: string;
   /** Pre-tax amount in minor units. */
   amountMinor?: number;
   currency?: string;
+  /**
+   * Refund events only: the original payment's pre-tax figure when the
+   * provider snapshot includes one, plus its post-tax figure. They let the
+   * application PROVE a refund covers the whole order before revoking
+   * credits — a partial or ambiguous refund is never applied automatically.
+   */
+  originalSubtotalMinor?: number;
+  originalTotalMinor?: number;
+  /** Why an event could not be applied automatically (manual_review). */
+  reviewReason?: string;
   /** Original provider payload, stored for audit/replay. */
   raw?: unknown;
+}
+
+/** Result of applying one normalized event to orders/wallets. */
+interface ApplyResult {
+  applied: boolean;
+  /** Set when the event was preserved for human review instead. */
+  manualReview?: string;
 }
 
 /** What a payment provider must implement — neutral by design. */
@@ -248,7 +270,7 @@ function normalizeStoredEvent(payload: unknown): NormalizedWebhookEvent {
 async function applyNormalizedEvent(
   tx: Sql,
   event: NormalizedWebhookEvent
-): Promise<boolean> {
+): Promise<ApplyResult> {
   if (!event.orderId || event.amountMinor === undefined || !event.currency) {
     throw new AppError("VALIDATION_ERROR", "Webhook event is incomplete");
   }
@@ -259,17 +281,17 @@ async function applyNormalizedEvent(
     )
   ).rows[0];
   if (!order) throw new AppError("NOT_FOUND", "Unknown order in webhook");
-  if (
-    Number(event.amountMinor) !== Number(order.amount_minor) ||
-    event.currency !== order.currency
-  ) {
-    throw new AppError(
-      "CONFLICT",
-      "Webhook amount/currency does not match the order"
-    );
-  }
   if (event.kind === "paid") {
-    if (order.status !== "pending") return false; // already settled or superseded
+    if (
+      Number(event.amountMinor) !== Number(order.amount_minor) ||
+      event.currency !== order.currency
+    ) {
+      throw new AppError(
+        "CONFLICT",
+        "Webhook amount/currency does not match the order"
+      );
+    }
+    if (order.status !== "pending") return { applied: false }; // already settled or superseded
     await tx.query(
       "UPDATE payment_orders SET status='paid',provider_payment_id=$2,updated_at=now() WHERE id=$1 AND provider_payment_id IS NULL",
       [order.id, event.paymentId ?? null]
@@ -281,11 +303,33 @@ async function applyNormalizedEvent(
       `order:${order.id}`,
       "purchase"
     );
-    return true;
+    return { applied: true };
   }
-  // refunded
-  if (event.kind !== "refunded") return false;
-  if (order.status === "refunded") return false;
+  if (event.kind !== "refunded") return { applied: false };
+  // Refunds are auto-applied ONLY when the event proves the whole order is
+  // being refunded. A partial or ambiguous refund event is preserved for a
+  // human instead of silently revoking all credits (never guessed).
+  if (event.currency !== order.currency) {
+    return {
+      applied: false,
+      manualReview: `refund_currency_mismatch:${event.currency}`,
+    };
+  }
+  const orderMinor = Number(order.amount_minor);
+  const refundMinor = Number(event.amountMinor);
+  const coversWholeOrder =
+    refundMinor === orderMinor ||
+    (event.originalSubtotalMinor !== undefined &&
+      event.originalSubtotalMinor === orderMinor &&
+      event.originalTotalMinor !== undefined &&
+      refundMinor === event.originalTotalMinor);
+  if (!coversWholeOrder) {
+    return {
+      applied: false,
+      manualReview: `refund_amount_${refundMinor}_order_${orderMinor}`,
+    };
+  }
+  if (order.status === "refunded") return { applied: false };
   if (order.status === "paid") {
     await refund(
       tx,
@@ -299,7 +343,7 @@ async function applyNormalizedEvent(
     "UPDATE payment_orders SET status='refunded',provider_payment_id=COALESCE(provider_payment_id,$2),updated_at=now() WHERE id=$1",
     [order.id, event.paymentId ?? null]
   );
-  return order.status === "paid";
+  return { applied: order.status === "paid" };
 }
 
 /**
@@ -325,14 +369,21 @@ export async function retryReceivedEvents(
       const payload = normalizeStoredEvent(row.payload);
       await db.transaction(async (tx) => {
         const result =
-          payload.kind === "ignored"
-            ? false
+          payload.kind === "ignored" || payload.kind === "manual_review"
+            ? { applied: false }
             : await applyNormalizedEvent(tx, payload);
-        if (result) applied += 1;
+        // manual_review rows stay terminal — never replayed (only
+        // 'received' rows are selected), never applied automatically.
         await tx.query(
-          "UPDATE payment_webhook_events SET status='processed',processed_at=now(),error=NULL WHERE provider=$1 AND event_id=$2",
-          [provider, row.event_id]
+          "UPDATE payment_webhook_events SET status=$3,processed_at=now(),error=$4 WHERE provider=$1 AND event_id=$2",
+          [
+            provider,
+            row.event_id,
+            result.manualReview ? "manual_review" : "processed",
+            result.manualReview ?? null,
+          ]
         );
+        if (result.applied) applied += 1;
       });
     } catch (error) {
       await db.query(
@@ -467,23 +518,20 @@ export class PaymentService {
       return { orderId: existing.id, checkoutUrl: session.checkoutUrl };
     }
 
+    // The order becomes durable BEFORE any external call. If the provider
+    // checkout succeeds but our bookkeeping fails, or the checkout response
+    // is lost, the same idempotency key resumes THIS exact order (never a
+    // second external session), and a webhook arriving before the hosted
+    // session exists can be applied instead of bouncing as unknown-order.
     const orderId = randomUUID();
-    const session = await this.adapter.createCheckout({
-      ...baseInput,
-      orderId,
-      successUrl: withOrderParam(request.successUrl, orderId),
-    });
     try {
       await this.db.query(
-        'INSERT INTO payment_orders(id,user_id,package_id,provider,provider_checkout_id,provider_checkout_url,provider_checkout_expires_at,amount_minor,currency,credits,idempotency_key) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)',
+        'INSERT INTO payment_orders(id,user_id,package_id,provider,provider_checkout_id,provider_checkout_url,provider_checkout_expires_at,amount_minor,currency,credits,idempotency_key) VALUES($1,$2,$3,$4,NULL,NULL,NULL,$5,$6,$7,$8)',
         [
           orderId,
           userId,
           request.packageId,
           this.adapter.provider,
-          session.providerCheckoutId,
-          session.checkoutUrl,
-          session.expiresAt ?? null,
           Number(pkg.price_minor),
           pkg.currency,
           Number(pkg.credits),
@@ -496,17 +544,23 @@ export class PaymentService {
         error !== null &&
         (error as { code?: string }).code === '23505'
       ) {
+        // Concurrent checkout with the same user+key lost the insert race:
+        // reuse the winning order — never create a second provider checkout.
         const raced = (
           await this.db.query<{
             id: string;
+            status: string;
             provider_checkout_url: string | null;
             provider_checkout_expires_at: Date | string | null;
           }>(
-            'SELECT id,provider_checkout_url,provider_checkout_expires_at FROM payment_orders WHERE user_id=$1 AND idempotency_key=$2',
+            'SELECT id,status,provider_checkout_url,provider_checkout_expires_at FROM payment_orders WHERE user_id=$1 AND idempotency_key=$2',
             [userId, idempotencyKey]
           )
         ).rows[0];
         if (raced) {
+          if (raced.status !== 'pending') {
+            throw new AppError('CONFLICT', `This order is already ${raced.status}`);
+          }
           const racedExpiry = raced.provider_checkout_expires_at
             ? new Date(raced.provider_checkout_expires_at).getTime()
             : 0;
@@ -527,6 +581,15 @@ export class PaymentService {
       }
       throw error;
     }
+    const session = await this.adapter.createCheckout({
+      ...baseInput,
+      orderId,
+      successUrl: withOrderParam(request.successUrl, orderId),
+    });
+    await this.db.query(
+      'UPDATE payment_orders SET provider_checkout_id=$2,provider_checkout_url=$3,provider_checkout_expires_at=$4,updated_at=now() WHERE id=$1',
+      [orderId, session.providerCheckoutId, session.checkoutUrl, session.expiresAt ?? null]
+    );
     return { orderId, checkoutUrl: session.checkoutUrl };
   }
 
@@ -538,7 +601,7 @@ export class PaymentService {
   async receive(
     raw: string,
     signature: string
-  ): Promise<{ applied: boolean }> {
+  ): Promise<{ applied: boolean; needsReview: boolean }> {
     if (typeof raw !== "string") {
       throw new AppError("FORBIDDEN", "Invalid webhook signature");
     }
@@ -556,15 +619,24 @@ export class PaymentService {
             [this.adapter.provider, event.id]
           )
         ).rows[0];
-        if (prior?.status === "processed") return { applied: false };
+        if (prior?.status === "processed") return { applied: false, needsReview: false };
       }
-      const applied =
-        event.kind === "ignored" ? false : await applyNormalizedEvent(tx, event);
+      const result =
+        event.kind === "ignored" || event.kind === "manual_review"
+          ? { applied: false, manualReview: event.reviewReason ?? (event.kind === "manual_review" ? "manual_review" : undefined) }
+          : await applyNormalizedEvent(tx, event);
+      // manual_review: the row keeps the full raw payload and a reason, and
+      // stays terminal — a human decides; no automatic money movement.
       await tx.query(
-        "UPDATE payment_webhook_events SET status='processed',processed_at=now(),error=NULL WHERE provider=$1 AND event_id=$2",
-        [this.adapter.provider, event.id]
+        "UPDATE payment_webhook_events SET status=$3,processed_at=now(),error=$4 WHERE provider=$1 AND event_id=$2",
+        [
+          this.adapter.provider,
+          event.id,
+          result.manualReview ? "manual_review" : "processed",
+          result.manualReview ?? null,
+        ]
       );
-      return { applied };
+      return { applied: result.applied, needsReview: Boolean(result.manualReview) };
     });
   }
 
@@ -606,12 +678,19 @@ export class PaymentService {
         );
         if (inserted.rows.length === 0) return false;
         const result =
-          event.kind === "ignored" ? false : await applyNormalizedEvent(tx, event);
+          event.kind === "ignored" || event.kind === "manual_review"
+            ? { applied: false, manualReview: event.reviewReason ?? (event.kind === "manual_review" ? "manual_review" : undefined) }
+            : await applyNormalizedEvent(tx, event);
         await tx.query(
-          "UPDATE payment_webhook_events SET status='processed',processed_at=now(),error=NULL WHERE provider=$1 AND event_id=$2",
-          [this.adapter.provider, event.id]
+          "UPDATE payment_webhook_events SET status=$3,processed_at=now(),error=$4 WHERE provider=$1 AND event_id=$2",
+          [
+            this.adapter.provider,
+            event.id,
+            result.manualReview ? "manual_review" : "processed",
+            result.manualReview ?? null,
+          ]
         );
-        return result;
+        return result.applied;
       });
     }
     return { order: await this.getOrder(userId, orderId), applied };

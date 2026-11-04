@@ -239,9 +239,11 @@ For all 39: image file, registry entry, source URL, license type, generation pro
 See section E above.
 
 ### 9. Regeneration cost estimate
-- 39 wallpapers × 1 request each (klein 4b) at ~$0.03/request = **~$1.20**
-- Plus 6 vertical (mobile) variants if needed: +$0.18
-- Total: **~$1.40** (well under the $3/batch budget)
+- klein 4b bills per output megapixel at **$0.005/MP** (official fal.ai pricing — not a flat per-request rate).
+- 39 wallpapers × 1 request each at the planned 768×1368 target (≈1.05 MP) ≈ **~$0.21**
+- Plus 6 vertical (mobile) variants if needed: +~$0.03
+- Total estimate: **~$0.25** (well under the $3/batch budget; even a worst-case 1536px-class output of ≈4.2 MP keeps 69 requests at ≈$1.45)
+- Dual cost control: the $3.00 budget ceiling and 69-request hard cap bound total spend, and actual billing is recorded per request in the generation ledger.
 
 ### 10. SEO / Sitemap / Content uniqueness impact
 - Promoting 39 wallpapers would add 39 detail pages to the sitemap (currently 42 cleared).

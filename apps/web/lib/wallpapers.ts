@@ -1134,6 +1134,16 @@ const SEEDS = [
 
 export const PRESET_WALLPAPERS: PresetWallpaper[] = SEEDS.map(resolveWallpaper);
 
+/**
+ * The only list the public gallery may render: every entry is both flagged
+ * for public display and backed by a resolvable cleared image. review-pending
+ * entries stay in PRESET_WALLPAPERS for the audit trail/detail pages but are
+ * invisible to the gallery, filters, counts, search and related picks.
+ */
+export const PUBLIC_WALLPAPERS: PresetWallpaper[] = PRESET_WALLPAPERS.filter(
+  (wallpaper) => wallpaper.canPubliclyDisplay && wallpaper.image !== null
+);
+
 /* ---- Lookup helpers (single source for list + detail pages) ---- */
 
 /** Map of style id → style family, shared by the list filters and related picks. */
@@ -1173,7 +1183,9 @@ export function getRelatedWallpapers(
   if (!current) return [];
   const category = styleCategoryOf(current.styleId);
   if (!category) return [];
-  return PRESET_WALLPAPERS.filter(
+  // Related picks come from the public list only — a review-pending preset
+  // must never surface as a recommendation card.
+  return PUBLIC_WALLPAPERS.filter(
     (wallpaper) =>
       wallpaper.id !== slug &&
       styleCategoryOf(wallpaper.styleId) === category
@@ -1200,7 +1212,7 @@ const FEATURED_WALLPAPER_IDS: readonly string[] = [
 
 export const FEATURED_WALLPAPERS: PresetWallpaper[] =
   FEATURED_WALLPAPER_IDS.map(
-    (id) => PRESET_WALLPAPERS.find((wallpaper) => wallpaper.id === id)
+    (id) => PUBLIC_WALLPAPERS.find((wallpaper) => wallpaper.id === id)
   ).filter((wallpaper): wallpaper is PresetWallpaper => wallpaper !== undefined);
 
 /**

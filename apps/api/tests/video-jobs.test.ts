@@ -69,6 +69,8 @@ describe("video generation jobs (mock, no network)", () => {
       env: {
         CORS_ALLOWED_ORIGINS: "https://web.example",
         PAYMENT_MOCK_SECRET: SECRET,
+        STUDIO_PUBLIC_ENABLED: "1",
+        VIDEO_PUBLIC_ENABLED: "1",
       },
       database: db,
       paymentSecret: SECRET,

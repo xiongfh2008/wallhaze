@@ -1503,7 +1503,7 @@
       "AI generation service (fal.ai) — once generation becomes available: when you request a generation, your prompt, any reference image and your settings will be sent to the AI generation service to produce your media; the generated media is returned to WallHaze. The specific engine used per request is WallHaze's internal configuration and is not part of your data.",
       "A payment provider (Waffo) — handles checkout if you buy Credits, where payment services are enabled.",
       "Your email provider — submissions, reports and requests reach us by email.",
-      "Content-safety services (planned) — once generation is available, Waffo Prompt Sift will review prompts before a generation starts, and the OpenAI Moderation API will screen generated images and videos (frame sampling for video) before anything is stored or shown. Screening records keep the job id, the decision and — when reported — a violation category, not the prompt text."
+      "Content-safety services (planned) — once generation is available, Waffo Prompt Sift will review prompts before a generation starts, and the an automated NSFW classifier (fal.ai imageutils/nsfw) will screen generated images and videos (frame sampling for video) before anything is stored or shown. Screening records keep the job id, the decision and — when reported — a violation category, not the prompt text."
     ],
     "retentionTitle": "7. Data Retention and Deletion",
     "retentionBody": "We keep personal data only as long as needed for the purpose it was collected:",
@@ -1777,7 +1777,7 @@
       "You must hold the necessary rights and permission for every reference image you upload."
     ],
     "screeningTitle": "How content is reviewed",
-    "screeningBody": "Every prompt is screened by Waffo Prompt Sift (the automated content-safety service required by our review) before a generation is sent to the AI model, and a locally maintained prohibited-term list runs as a second layer. Requests that are blocked — or that cannot be screened — are never generated. Generated images and videos are then screened by an automated media moderation service (OpenAI Moderation API) before anything is stored or shown; video is checked from the first to the last frame with evenly spaced samples in between. Automated screening covers the categories that service supports — notably sexual content, graphic violence and self-harm imagery. Categories it cannot reliably judge — such as impersonation/deepfakes and copyright — are handled through human review of reports and appeals. Works reported by users are reviewed by a person before any action is taken, and published gallery content is re-scanned automatically.",
+    "screeningBody": "Every prompt is screened by Waffo Prompt Sift (the automated content-safety service required by our review) before a generation is sent to the AI model, and a locally maintained prohibited-term list runs as a second layer. Requests that are blocked — or that cannot be screened — are never generated. Generated images and videos are then screened by an automated NSFW classifier (fal.ai imageutils/nsfw) before anything is stored or shown; video is checked from the first to the last frame with evenly spaced samples in between, and any frame that cannot be screened blocks the whole video. Automated screening judges adult sexual content (an NSFW probability). Categories it cannot reliably judge — such as graphic violence, self-harm, impersonation/deepfakes and copyright — are covered upstream by prompt screening and handled through human review of reports and appeals. Works reported by users are reviewed by a person before any action is taken, and published gallery content is re-scanned automatically.",
     "enforcementTitle": "Enforcement",
     "enforcementBody": "Content that violates this policy may be removed, and the generating account may be limited or suspended. Serious violations — especially anything involving minors — are reported to the relevant authorities. Decisions can be appealed by email.",
     "reportTitle": "Reporting and appeals",
@@ -1841,6 +1841,8 @@
     "checkoutTitle": "Checkout is opening soon",
     "checkoutBody": "Purchases are processed by our payment provider and the checkout channel is in its final verification. Buy buttons stay disabled until the channel opens — generating with existing credits works normally today.",
     "checkoutComing": "Checkout opening soon",
+    "pricingPausedCta": "Temporarily paused",
+    "pricingClosedCta": "Coming soon",
     "faqTitle": "Pricing FAQ",
     "faq": [
       {

@@ -30,7 +30,7 @@ import {
   type VideoGenerationMode,
 } from "./video-pricing.js";
 import { validateImage } from "./storage.js";
-import type { OutputModerationService } from "./output-moderation.js";
+import type { OutputScreeningService } from "./output-moderation.js";
 import { recordModerationLog } from "./moderation.js";
 import { isAssetAccessible, retentionState } from "./media-lifecycle.js";
 
@@ -73,6 +73,14 @@ export interface BusinessRoutesOptions {
   paymentProvider: string;
   /** True only when a real, redirectable checkout provider is configured. */
   checkoutAvailable: boolean;
+  /** Business gate: users may START new credit purchases (default closed). */
+  purchasesPublic: boolean;
+  /** Operator pause for NEW checkouts only; webhooks/refunds/sync stay live. */
+  purchasesPaused: boolean;
+  /** Business gate: users may START new generation jobs (default closed). */
+  studioPublic: boolean;
+  /** Business gate: PAID video jobs, on top of studioPublic (default closed). */
+  videoPublic: boolean;
   /** Development mock generation mode (placeholder output, no charge). */
   mockMode: boolean;
   /**
@@ -80,7 +88,7 @@ export interface BusinessRoutesOptions {
    * images are screened HERE at job creation (stage 1 input screening) —
    * a flagged or unscreenable upload is refused before any job exists.
    */
-  outputModeration?: OutputModerationService;
+  outputModeration?: OutputScreeningService;
   /** True when a video adapter set is wired (pricing/jobs are enabled). */
   videoAvailable: boolean;
   /**
@@ -115,7 +123,7 @@ async function screenReferenceImage(
 ): Promise<void> {
   const live = options.generationMode === "live" && !options.mockMode;
   if (!live) return;
-  const service: OutputModerationService | undefined = options.outputModeration;
+  const service: OutputScreeningService | undefined = options.outputModeration;
   const decoded = decodeDataUri(dataUri);
   if (decoded && decoded.bytes.length > 5 * 1024 * 1024) {
     throw new AppError("PAYLOAD_TOO_LARGE", "Reference image is too large.");
@@ -811,6 +819,12 @@ export async function businessRoutes(
     checkoutAvailable: options.checkoutAvailable,
     generationMode: options.generationMode,
     paused: options.generationPaused,
+    // Commercialization state — the web app renders from this, never from
+    // a hard-coded flag. Fail-closed: an unreadable state means closed.
+    purchasesPublic: options.purchasesPublic,
+    purchasesPaused: options.purchasesPaused,
+    studioPublic: options.studioPublic,
+    videoPublic: options.studioPublic && options.videoPublic,
     video: videoPricing(
       options.videoAvailable ? options.generationMode : "disabled"
     ),
@@ -838,6 +852,16 @@ export async function businessRoutes(
 
   // ---------- Payments / orders ----------
   app.post("/v1/payments/checkout", requireUser, async (request) => {
+    // Business gate FIRST: a configured PSP (checkoutAvailable) is not an
+    // open store. Server-side final interception — the client cannot bypass.
+    if (!options.purchasesPublic || options.purchasesPaused) {
+      throw new AppError(
+        "SERVICE_UNAVAILABLE",
+        options.purchasesPaused
+          ? "Credit purchases are temporarily paused. Please try again later."
+          : "Credit purchases are not open yet."
+      );
+    }
     const key = request.headers["idempotency-key"];
     if (typeof key !== "string" || key.length === 0) {
       throw new AppError("VALIDATION_ERROR", "Idempotency-Key header is required");
@@ -903,7 +927,13 @@ export async function businessRoutes(
       (request.headers["x-mock-signature"] as string | undefined) ??
       "";
     const result = await payments.receive(raw, signature);
-    return { received: true, applied: result.applied };
+    // `needsReview` surfaces the manual_review terminal state (partial or
+    // unrecognized events are preserved verbatim, never auto-applied).
+    return {
+      received: true,
+      applied: result.applied,
+      needsReview: result.needsReview,
+    };
   };
   app.post("/v1/payments/webhook", receiveProviderWebhook);
   // Waffo-suggested alias (same handler, same signature verification).
@@ -924,6 +954,15 @@ export async function businessRoutes(
         throw new AppError(
           "SERVICE_UNAVAILABLE",
           "Image generation is paused by the server. Please try again later."
+        );
+      }
+      // Business gate FIRST (default closed): the async jobs endpoint is the
+      // only paid generation path, so the open state is enforced here, not
+      // in the UI. Studio open alone does NOT open paid video.
+      if (!options.studioPublic) {
+        throw new AppError(
+          "SERVICE_UNAVAILABLE",
+          "AI generation is not open yet."
         );
       }
       const key = request.headers["idempotency-key"];
@@ -956,6 +995,14 @@ export async function businessRoutes(
       let sourceCreationId: string | null = null;
 
       if (isVideo) {
+        // Video has an INDEPENDENT business gate: opening images must never
+        // silently enable paid video traffic (task requirement I).
+        if (!options.videoPublic) {
+          throw new AppError(
+            "SERVICE_UNAVAILABLE",
+            "Live wallpaper (video) generation is not open yet."
+          );
+        }
         if (!options.videoAvailable) {
           throw new AppError(
             "SERVICE_UNAVAILABLE",

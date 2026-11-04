@@ -79,9 +79,12 @@ const PROMPTS = {
   "sunset-cafe": "Cozy anime illustration of a countryside cafe at sunset, warm golden light spilling through large windows onto wooden tables, a cat sleeping on a windowsill, rolling hills visible outside, gentle and inviting, vertical composition, phone wallpaper, no text, no logos, no watermark",
 };
 
-// Cost calculation based on fal.ai klein 4b actual pricing (~$0.025/image at
-// standard resolution; $0.03 is a conservative ceiling for 1536px outputs)
-const COST_PER_IMAGE = 0.03;
+// Cost calculation based on fal.ai klein 4b official pricing: $0.005 per
+// OUTPUT megapixel (fal.ai model page). Per-image estimate = target width ×
+// height / 1e6 × $0.005. Cost is additionally controlled by two hard limits:
+// a 69-request cap and a $3.00 batch budget, plus actual billing records
+// logged per request in the generation ledger.
+const COST_PER_MEGAPIXEL = 0.005;
 const FIRST_ROUND = 39;
 const MAX_RETRIES = 30;
 const MAX_TOTAL_REQUESTS = FIRST_ROUND + MAX_RETRIES;
@@ -107,13 +110,14 @@ for (const p of pending) {
   if (!dim) { console.error("no dims for", p.id); continue; }
   const seed = SEED_BASE + (++seedIdx);
   const ar = (dim.width / dim.height).toFixed(2);
+  const estCost = ((dim.width * dim.height) / 1e6 * COST_PER_MEGAPIXEL).toFixed(4);
   const prompt = PROMPTS[p.id] ?? "";
   if (!prompt) { console.error("no prompt for", p.id); continue; }
   rows.push([
     p.id, `"${p.title}"`, p.styleId,
     `"${prompt}"`,
     dim.width, dim.height, ar,
-    seed, `$${COST_PER_IMAGE.toFixed(2)}`,
+    seed, `$${estCost}`,
     // Raw generation output goes to private-media (pre-review staging);
     // final public path only after human rights confirmation.
     `${OUTPUT_DIR}/${p.id}.png`,
@@ -126,8 +130,9 @@ mkdirSync(path.join(webRoot, "..", "..", "docs", "media-review"), { recursive: t
 const out = path.join(webRoot, "..", "..", "docs", "media-review", "regeneration-plan.csv");
 writeFileSync(out, rows.join("\n") + "\n");
 console.log("written:", out, `(${pending.length} entries)`);
-console.log(`cost: ${FIRST_ROUND} images x $${COST_PER_IMAGE} = $${(FIRST_ROUND * COST_PER_IMAGE).toFixed(2)}`);
-console.log(`max with retries: ${MAX_TOTAL_REQUESTS} x $${COST_PER_IMAGE} = $${(MAX_TOTAL_REQUESTS * COST_PER_IMAGE).toFixed(2)}`);
+console.log(`pricing: $${COST_PER_MEGAPIXEL}/MP (official); per-image at 768x1368 = $${((768 * 1368) / 1e6 * COST_PER_MEGAPIXEL).toFixed(4)}`);
+console.log(`first round: ${FIRST_ROUND} requests, est. $${(FIRST_ROUND * (768 * 1368) / 1e6 * COST_PER_MEGAPIXEL).toFixed(2)}`);
+console.log(`max with retries: ${MAX_TOTAL_REQUESTS} requests, est. $${(MAX_TOTAL_REQUESTS * (768 * 1368) / 1e6 * COST_PER_MEGAPIXEL).toFixed(2)} (hard request cap + $${BUDGET_USD} budget cap)`);
 console.log(`budget: $${BUDGET_USD}`);
 console.log(`output dir: ${OUTPUT_DIR}/ (private staging, NOT public/)`);
 console.log(`seed range: ${SEED_BASE + 1} - ${SEED_BASE + pending.length}`);

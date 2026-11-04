@@ -76,20 +76,57 @@ describe('Waffo adapter', () => {
     expect(adapter.parseWebhook(payload, signedHeader(payload))).toMatchObject({ kind: 'paid', orderId: 'meta-order' });
   });
 
-  it('maps refund.succeeded from the original payment subtotal', () => {
+  it('maps refund.succeeded to the event OWN refunded figure plus the original payment snapshot', () => {
     const adapter = new WaffoPaymentAdapter(fakeClient(), 'test');
     const payload = event(
       { eventType: 'refund.succeeded' },
       { originalPayment: { total: '5.45', subtotal: '5.00', taxAmount: '0.45' }, refundedAmount: '5.45' }
     );
+    // amountMinor = what THIS event refunded (5.45 → 545, post-tax);
+    // original* figures let the application prove a FULL refund
+    // (originalSubtotal 500 === order 500 && refund 545 === originalTotal 545)
+    // before revoking credits. A partial refund can never masquerade as full.
     expect(adapter.parseWebhook(payload, signedHeader(payload))).toMatchObject({
-      kind: 'refunded', orderId: 'internal-order-1', amountMinor: 500,
+      kind: 'refunded', orderId: 'internal-order-1', amountMinor: 545,
+      originalSubtotalMinor: 500, originalTotalMinor: 545,
     });
   });
 
-  it('acknowledges unrelated events without touching money', () => {
+  it('keeps refund figures absent when the provider snapshot omits them', () => {
+    const adapter = new WaffoPaymentAdapter(fakeClient(), 'test');
+    const payload = event({ eventType: 'refund.succeeded' }, { refundedAmount: '2.00', originalPayment: undefined });
+    expect(adapter.parseWebhook(payload, signedHeader(payload))).toMatchObject({
+      kind: 'refunded', amountMinor: 200,
+    });
+    const parsed = adapter.parseWebhook(payload, signedHeader(payload));
+    expect(parsed.originalSubtotalMinor).toBeUndefined();
+    expect(parsed.originalTotalMinor).toBeUndefined();
+  });
+
+  it('preserves subscription events for manual review (not auto-ignored)', () => {
     const adapter = new WaffoPaymentAdapter(fakeClient(), 'test');
     const payload = event({ eventType: 'subscription.activated' });
+    expect(adapter.parseWebhook(payload, signedHeader(payload))).toMatchObject({
+      kind: 'manual_review',
+      reviewReason: 'unhandled_event_type:subscription.activated',
+    });
+  });
+
+  it('preserves unknown event types (e.g. dispute/chargeback) for manual review without guessing', () => {
+    const adapter = new WaffoPaymentAdapter(fakeClient(), 'test');
+    const payload = event({ eventType: 'chargeback.opened' });
+    const parsed = adapter.parseWebhook(payload, signedHeader(payload));
+    expect(parsed).toMatchObject({
+      kind: 'manual_review',
+      reviewReason: 'unhandled_event_type:chargeback.opened',
+    });
+    // The raw provider payload is kept verbatim for the human review path.
+    expect((parsed.raw as { eventType: string }).eventType).toBe('chargeback.opened');
+  });
+
+  it('acknowledges refund.failed without touching money', () => {
+    const adapter = new WaffoPaymentAdapter(fakeClient(), 'test');
+    const payload = event({ eventType: 'refund.failed' });
     expect(adapter.parseWebhook(payload, signedHeader(payload))).toMatchObject({ kind: 'ignored' });
   });
 

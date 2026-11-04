@@ -1,4 +1,4 @@
-﻿/**
+﻿﻿﻿﻿/**
  * GEN suite — T04-S2 port of the legacy T03-B1 matrix GEN-01..GEN-28 for the
  * Fastify generation API (POST /v1/generations).
  *
@@ -888,24 +888,36 @@ describe("GEN 6x — limiter integration through the real pipeline", () => {
 });
 
 describe("GEN 7x — network guard self-verification", () => {
-  it("GEN-28: with NO injected fetch, an outbound attempt is blocked by the deny-all guard, recorded as unexpected, and the route maps it to 502 — proving the guard actually intercepts", async () => {
-    // Real provider (explicit live opt-in + FAL_KEY) but NO upstreamFetch →
-    // the provider falls back to globalThis.fetch, which setup.ts replaced
-    // with the deny-all recorder. The route must translate the guard
-    // rejection into 502.
+  it("GEN-28: the legacy route refuses live (paid) mode with 503, and with NO injected fetch the real provider is blocked by the deny-all guard, recorded as unexpected — proving the guard actually intercepts", async () => {
+    // Commercialization: a live provider configured on the legacy FREE sync
+    // route must 503 at the gate — paid generation may only run through the
+    // authenticated, credit-metered async jobs endpoint.
     const { app } = await buildTestApp({
       env: { FAL_KEY: DUMMY_KEY, FAL_LIVE_ENABLED: "1" },
     });
     const res = await postGeneration(app, legalBody());
-    expect(res.statusCode).toBe(502);
-    expect(res.json().error.message).toBe(
-      "Could not reach the image service. Please try again."
-    );
+    expect(res.statusCode).toBe(503);
+    await app.close();
+
+    // Guard self-verification, now against the provider boundary directly
+    // (the live route path above is closed by design): real provider with
+    // the (replaced) global fetch injected → setup.ts's deny-all recorder
+    // must intercept the outbound call and record the URL.
+    const liveProvider = createFalProvider({
+      falKey: DUMMY_KEY,
+      fetchImpl: globalThis.fetch,
+    });
+    await expect(
+      liveProvider.generate({
+        endpoint: FAL_ENDPOINT,
+        payload: {},
+        signal: new AbortController().signal,
+      })
+    ).rejects.toThrow(/upstream/);
     expect(networkGuard.unexpectedCalls).toContain(FAL_ENDPOINT);
     expect(networkGuard.active).toBe(true);
     // Consume the intentional hit so the global afterEach gate stays clean.
     networkGuard.clear();
-    await app.close();
   });
 });
 

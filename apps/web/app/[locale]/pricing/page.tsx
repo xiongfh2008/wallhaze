@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import CheckoutButton from "@/components/pricing/CheckoutButton";
 
 /**
  * /pricing (Waffo review): the public pricing page. Mirrors the real
@@ -11,9 +12,12 @@ import Header from "@/components/Header";
  * video-pricing.ts, migrations/002_packages.sql):
  * - one-time packages: starter 100/$5, creator 500/$20, studio 2000/$69 USD;
  * - image generation 10 credits; I2V 5s 40; T2V 3/4/5s 40/50/60.
- * Checkout availability is decided by the backend (PAYMENT_PROVIDER), so the
- * buy buttons are static, disabled, and honestly labelled — no fake
- * purchase flow. Public, indexable, no sign-in required.
+ * The buy buttons are status-driven: the CheckoutButton client component
+ * probes the backend pricing endpoint and enables checkout navigation only
+ * while `purchasesPublic && !purchasesPaused`. Every other state (closed,
+ * paused, probe failure, no API configured) stays disabled with the honest
+ * reason — no fake purchase flow. Price data still comes from this server
+ * component; public, indexable, no sign-in required.
  */
 const PRICING_PATH = "/pricing";
 
@@ -43,6 +47,9 @@ export default async function PricingPage({
     setRequestLocale(locale);
   }
   const t = await getTranslations("pricing");
+  // The enabled CTA reuses the wallet namespace's existing buy label — the
+  // button navigates to /credits, where packages are actually purchased.
+  const tWallet = await getTranslations("wallet");
   const packages = t.raw("packages") as Array<{
     name: unknown;
     credits: unknown;
@@ -105,15 +112,15 @@ export default async function PricingPage({
                       <p className="mt-3 text-sm leading-relaxed text-zinc-500">
                         {typeof pkg.note === "string" ? pkg.note : ""}
                       </p>
-                      {/* Honest checkout state: the payment provider channel
-                          is not open yet, so the button is disabled. */}
-                      <button
-                        type="button"
-                        disabled
-                        className="mt-6 inline-flex min-h-10 w-full cursor-not-allowed items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4 text-sm font-medium text-zinc-400"
-                      >
-                        {t("checkoutComing")}
-                      </button>
+                      {/* Status-driven checkout state: enabled → navigate to
+                          /credits; otherwise disabled with the honest reason
+                          (paused / not open yet / probe failure). */}
+                      <CheckoutButton
+                        buyLabel={tWallet("checkoutButton")}
+                        pausedLabel={t("pricingPausedCta")}
+                        closedLabel={t("pricingClosedCta")}
+                        loadingLabel={t("checkoutComing")}
+                      />
                     </div>
                   ))
                 : null}

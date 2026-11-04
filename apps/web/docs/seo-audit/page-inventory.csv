@@ -1,4 +1,4 @@
-﻿URL,locale,pageType,indexable,title,description,h1,canonical,contentSource,status
+﻿﻿URL,locale,pageType,indexable,title,description,h1,canonical,contentSource,status
 "https://wallhaze.com/","en","homepage","true","WallHaze — AI Wallpapers for Every Screen","Explore free AI wallpapers for phone, tablet and desktop — anime, cyberpunk, fantasy and more. AI creation is coming soon.","Your Screen. Your World.","https://wallhaze.com","components/Hero + messages","200"
 "https://wallhaze.com/about","en","about","true","About | WallHaze","What WallHaze is today: a free AI wallpaper gallery in seven languages, with a Studio for creating your own wallpapers coming soon.","About WallHaze","https://wallhaze.com/about","messages/*.json","200"
 "https://wallhaze.com/acceptable-use","en","acceptable-use","true","Acceptable Use Policy | WallHaze","What may be created and published through WallHaze: prohibited content categories, pre-generation screening, enforcement, and how to report or appeal.","Acceptable Use Policy","https://wallhaze.com/acceptable-use","messages/*.json","200"

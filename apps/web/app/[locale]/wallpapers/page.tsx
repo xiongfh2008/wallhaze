@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import { Link } from "@/i18n/navigation";
-import { PRESET_WALLPAPERS } from "@/lib/wallpapers";
+import { PUBLIC_WALLPAPERS } from "@/lib/wallpapers";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import GalleryExperience from "@/components/gallery/GalleryExperience";
@@ -72,9 +72,9 @@ export default async function WallpapersPage({
   // The client browser above renders its list progressively (search, filters,
   // load-more), so without this section most detail pages have no crawlable
   // inbound link from the gallery.
-  const publicWallpapers = PRESET_WALLPAPERS.filter(
-    (wallpaper) => wallpaper.canPubliclyDisplay
-  ).sort((a, b) => a.id.localeCompare(b.id));
+  const publicWallpapers = PUBLIC_WALLPAPERS.sort((a, b) =>
+    a.id.localeCompare(b.id)
+  );
 
   return (
     <div className="relative flex-1 overflow-x-clip">

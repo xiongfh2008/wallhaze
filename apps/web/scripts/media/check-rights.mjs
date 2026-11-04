@@ -64,12 +64,25 @@ const registeredPublic = new Set(
     .filter((asset) => asset.publiclyAccessible)
     .map((asset) => asset.path)
 );
+// build-derivatives.mjs writes <base>-<WIDTH>.webp next to a registered
+// original; those responsive variants are covered by the original's rights
+// and are not separate registry entries.
+const isRegisteredDerivative = (publicPath) => {
+  const m = publicPath.match(/^(\/images\/(?:styles|wallpapers)\/.+)-(\d+)\.webp$/);
+  if (!m) return false;
+  const dir = m[1].replace(/\/[^/]+$/, "");
+  const base = m[1].replace(/.*\//, "");
+  for (const ext of [".jpg", ".jpeg", ".png", ".webp"]) {
+    if (registeredPublic.has(`${dir}/${base}${ext}`)) return true;
+  }
+  return false;
+};
 for (const dir of ["styles", "wallpapers"]) {
   const absolute = join(ROOT, "public", "images", dir);
   const isImage = (f) => f.endsWith(".jpg") || f.endsWith(".webp");
   for (const name of readdirSync(absolute).filter(isImage)) {
     const publicPath = `/images/${dir}/${name}`;
-    if (!registeredPublic.has(publicPath)) {
+    if (!registeredPublic.has(publicPath) && !isRegisteredDerivative(publicPath)) {
       errors.push(`unregistered public image: ${publicPath}`);
     }
   }

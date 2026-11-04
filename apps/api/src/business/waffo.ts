@@ -73,18 +73,43 @@ function paidMinor(event: WebhookEvent, currency: string): number {
   return toMinorUnits(display, currency);
 }
 
-/** Pre-tax amount for a refund event. */
-function refundedMinor(event: WebhookEvent, currency: string): number {
+/**
+ * Refund figures for a refund event, per the SDK contract (NOT guessed):
+ * - `refundedAmount` is the amount actually refunded BY THIS EVENT (falls
+ *   back to the deprecated event-level `amount` when the channel reported
+ *   none) — the event's own figure;
+ * - `originalPayment.subtotal`/`total` (and the charged figure) describe the
+ *   payment being refunded, so the application can PROVE a full refund
+ *   before revoking credits. Absent snapshots stay absent — never zero-filled.
+ */
+function refundMinors(
+  event: WebhookEvent,
+  currency: string
+): {
+  refundMinor: number;
+  originalSubtotalMinor?: number;
+  originalTotalMinor?: number;
+} {
   const data = event.data;
-  const display =
-    data.originalPayment?.subtotal ??
-    data.originalPayment?.total ??
-    data.refundedAmount ??
-    data.amount;
-  if (typeof display !== "string") {
-    throw new AppError("VALIDATION_ERROR", "Refund event has no amount");
+  const refundDisplay = data.refundedAmount ?? data.amount;
+  if (typeof refundDisplay !== "string") {
+    throw new AppError("VALIDATION_ERROR", "Refund event has no refunded amount");
   }
-  return toMinorUnits(display, currency);
+  const refundMinor = toMinorUnits(refundDisplay, currency);
+  const originalSubtotal =
+    data.originalPayment?.subtotal ?? data.originalPayment?.total;
+  const originalTotal = data.originalPayment?.total ?? data.originalChargedAmount;
+  return {
+    refundMinor,
+    originalSubtotalMinor:
+      typeof originalSubtotal === "string"
+        ? toMinorUnits(originalSubtotal, currency)
+        : undefined,
+    originalTotalMinor:
+      typeof originalTotal === "string"
+        ? toMinorUnits(originalTotal, currency)
+        : undefined,
+  };
 }
 
 /**
@@ -178,6 +203,7 @@ export class WaffoPaymentAdapter implements PaymentAdapter {
 
     if (event.eventType === "refund.succeeded") {
       const orderId = this.internalOrderId(event);
+      const minors = refundMinors(event, event.data.currency);
       return {
         id: event.id,
         kind: "refunded",
@@ -186,15 +212,30 @@ export class WaffoPaymentAdapter implements PaymentAdapter {
           event.data.paymentId ??
           event.data.refundTicketMerchantExternalId ??
           event.data.orderId,
-        amountMinor: refundedMinor(event, event.data.currency),
+        amountMinor: minors.refundMinor,
+        originalSubtotalMinor: minors.originalSubtotalMinor,
+        originalTotalMinor: minors.originalTotalMinor,
         currency: event.data.currency,
         raw: event,
       };
     }
 
-    // Other events (subscriptions, failed refunds, etc.) are recorded and
-    // acknowledged without touching money.
-    return { id: event.id, kind: "ignored", raw: event };
+    if (event.eventType === "refund.failed") {
+      // Known and final: the refund attempt failed, so no money moved and
+      // nothing is owed. Recorded (payload below) and acknowledged.
+      return { id: event.id, kind: "ignored", raw: event };
+    }
+
+    // Everything else — subscriptions (this store sells one-time credit
+    // packages only) and ANY unrecognized type (e.g. a future dispute/
+    // chargeback event) — is preserved verbatim and flagged for a human.
+    // Meanings are never guessed and no money path runs automatically.
+    return {
+      id: event.id,
+      kind: "manual_review",
+      reviewReason: `unhandled_event_type:${event.eventType}`,
+      raw: event,
+    };
   }
 
   /**

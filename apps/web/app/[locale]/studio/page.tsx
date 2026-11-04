@@ -1,3 +1,4 @@
+import { Suspense, type ReactNode } from "react";
 import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -6,6 +7,9 @@ import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import StudioGate from "@/components/studio/StudioGate";
+import StudioExperience from "@/components/studio/StudioExperience";
+import StudioStylePreselect from "@/components/StudioStylePreselect";
 
 /**
  * The /studio workspace: a dedicated creation flow for AI wallpapers.
@@ -13,6 +17,13 @@ import Header from "@/components/Header";
  * metadata) — all generation state, requests, ratio config, My Library and
  * downloads come from the shared GeneratorSection client component, so the
  * homepage and /studio can never drift apart.
+ *
+ * Whether the interactive experience renders at all is decided by the
+ * backend, not by this file: StudioGate probes the pricing endpoint and
+ * renders the experience only when `studioPublic` is true. Until then (and
+ * whenever the probe fails or no API is configured) the closed Coming Soon
+ * state below is shown — fail-closed, with the copy owned by this server
+ * component so the i18n keys stay single-sourced.
  */
 
 /** Prefix-free canonical path per locale (mirrors localePrefix: "as-needed"). */
@@ -61,6 +72,53 @@ export default async function StudioPage({
   }
   const t = await getTranslations("studio");
 
+  // Closed state (Waffo remediation, 2026-10-31): AI creation is NOT open to
+  // the public. Rendered as-is while the StudioGate probe is loading, and
+  // whenever the backend reports studioPublic=false, is unreachable or is
+  // not configured — never a generate affordance while the feature is closed.
+  const comingSoon: ReactNode = (
+    <section
+      id="ai-coming-soon"
+      aria-labelledby="ai-coming-soon-title"
+      className="mx-auto mt-12 w-full max-w-[1320px] scroll-mt-24 px-6"
+    >
+      <div className="rounded-3xl border border-violet-400/25 bg-violet-500/[0.06] p-8 text-center md:p-14">
+        <p className="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-amber-200">
+          {t("comingEyebrow")}
+        </p>
+        <h2
+          id="ai-coming-soon-title"
+          className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl"
+        >
+          {t("comingTitle")}
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-300">
+          {t("comingBody")}
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <span
+            aria-disabled="true"
+            className="inline-flex min-h-11 cursor-not-allowed items-center rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-medium text-zinc-500"
+          >
+            {t("comingCta")}
+          </span>
+          <Link
+            href="/wallpapers"
+            className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 text-sm font-medium text-white shadow-lg shadow-violet-900/40 transition hover:opacity-90"
+          >
+            {t("browseGallery")}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+
+  // Product decision (2026-10-31): the underlying model names/versions are
+  // NOT shown to users — the Studio stays simple (type, style, device,
+  // parameters). Review-tooling disclosures live in the Privacy Policy and
+  // the Acceptable Use Policy. A compact pricing link remains for cost
+  // transparency.
+
   return (
     <div className="relative flex-1 overflow-x-clip">
       <Header maxWidthClassName="max-w-[1320px]" />
@@ -102,52 +160,16 @@ export default async function StudioPage({
           </div>
         </section>
 
-        {/* Waffo remediation (2026-10-31): AI creation is NOT open to the
-            public. The interactive Studio (StudioStylePreselect +
-            StudioExperience) stays in the codebase but is not rendered —
-            restore both blocks below when creation officially launches. */}
-
-        {/* Product decision (2026-10-31): the underlying model names/versions
-            are NOT shown to users — the Studio stays simple (type, style,
-            device, parameters). Review-tooling disclosures live in the
-            Privacy Policy and the Acceptable Use Policy. A compact pricing
-            link remains for cost transparency. */}
-        {/* Prominent coming-soon state: no generate affordances while the
-            feature is closed. The interactive form returns with the flag. */}
-        <section
-          id="ai-coming-soon"
-          aria-labelledby="ai-coming-soon-title"
-          className="mx-auto mt-12 w-full max-w-[1320px] scroll-mt-24 px-6"
-        >
-          <div className="rounded-3xl border border-violet-400/25 bg-violet-500/[0.06] p-8 text-center md:p-14">
-            <p className="inline-flex rounded-full border border-amber-400/30 bg-amber-400/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-amber-200">
-              {t("comingEyebrow")}
-            </p>
-            <h2
-              id="ai-coming-soon-title"
-              className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl"
-            >
-              {t("comingTitle")}
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-300">
-              {t("comingBody")}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <span
-                aria-disabled="true"
-                className="inline-flex min-h-11 cursor-not-allowed items-center rounded-full border border-white/10 bg-white/[0.04] px-6 text-sm font-medium text-zinc-500"
-              >
-                {t("comingCta")}
-              </span>
-              <Link
-                href="/wallpapers"
-                className="inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 px-6 text-sm font-medium text-white shadow-lg shadow-violet-900/40 transition hover:opacity-90"
-              >
-                {t("browseGallery")}
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* Status-driven gate (2026-11-03): the interactive Studio
+            (StudioStylePreselect + StudioExperience) renders only when the
+            backend proves studioPublic=true; every other state — closed flag,
+            probe failure, no API configured — shows the closed block above. */}
+        <StudioGate fallback={comingSoon}>
+          <Suspense fallback={null}>
+            <StudioStylePreselect />
+          </Suspense>
+          <StudioExperience />
+        </StudioGate>
       </main>
       <Footer />
     </div>

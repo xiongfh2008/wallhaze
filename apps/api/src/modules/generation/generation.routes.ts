@@ -1,4 +1,4 @@
-﻿import type { FastifyInstance, FastifyRequest } from "fastify";
+﻿﻿﻿﻿import type { FastifyInstance, FastifyRequest } from "fastify";
 import type { GenerationResponse } from "@wallhaze/contracts";
 import { AppError } from "../../errors/app-error.js";
 import { checkShortWindow } from "../../security/rate-limit.js";
@@ -7,6 +7,7 @@ import {
   getClientKey,
 } from "../../security/request-guard.js";
 import type { ApiEnv } from "../../config/env.js";
+import { resolveGenerationMode } from "../../business/provider-mode.js";
 import { validateGenerateBody } from "./generation.validators.js";
 import type {
   GenerationService,
@@ -124,6 +125,18 @@ export async function generationRoutes(
         throw new AppError(
           "SERVICE_UNAVAILABLE",
           "Image generation is paused by the server. Please try again later."
+        );
+      }
+
+      // 2b) Commercialization guard: this synchronous route is the legacy
+      //     FREE path (no auth, no credits). In live (paid) mode generation
+      //     must only ever run through the authenticated, credit-metered
+      //     async jobs endpoint — never here.
+      if (resolveGenerationMode(options.env) === "live") {
+        logOutcome("rejected:legacy-live", 503);
+        throw new AppError(
+          "SERVICE_UNAVAILABLE",
+          "AI generation is not available on this endpoint."
         );
       }
 

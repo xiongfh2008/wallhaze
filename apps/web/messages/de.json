@@ -1503,7 +1503,7 @@
       "KI-Generierungsdienst (fal.ai) — sobald die Generierung verfügbar ist: Wenn du eine Generierung anforderst, werden dein Prompt, ein Referenzbild und deine Einstellungen an den KI-Generierungsdienst gesendet, um deine Medien zu erzeugen; die erzeugten Medien kehren zu WallHaze zurück. Die pro Anfrage genutzte konkrete Engine ist interne Konfiguration von WallHaze und nicht Teil deiner Daten.",
       "Ein Zahlungsanbieter (Waffo) — übernimmt den Checkout, wenn Sie Credits kaufen, sofern Zahlungsdienste aktiviert sind.",
       "Ihr E-Mail-Anbieter — Einreichungen, Meldungen und Anfragen erreichen uns per E-Mail.",
-      "Inhaltssicherheitsdienste (geplant) — sobald die Generierung verfügbar ist, prüft Waffo Prompt Sift Prompts, bevor eine Generierung startet, und die OpenAI Moderation API prüft erzeugte Bilder und Videos (Frame-Sampling bei Videos), bevor sie gespeichert oder angezeigt werden. Prüfprotokolle enthalten die Auftrags-ID, die Entscheidung und — sofern gemeldet — eine Verletzungskategorie, nicht den Prompt-Text."
+      "Inhaltssicherheitsdienste (geplant) — sobald die Generierung verfügbar ist, prüft Waffo Prompt Sift Prompts, bevor eine Generierung startet, und die ein automatisierter NSFW-Klassifikator von fal.ai (imageutils/nsfw) prüft erzeugte Bilder und Videos (Frame-Sampling bei Videos), bevor sie gespeichert oder angezeigt werden. Prüfprotokolle enthalten die Auftrags-ID, die Entscheidung und — sofern gemeldet — eine Verletzungskategorie, nicht den Prompt-Text."
     ],
     "retentionTitle": "7. Datenspeicherung und Löschung",
     "retentionBody": "Wir bewahren personenbezogene Daten nur so lange auf, wie es für den Zweck ihrer Erhebung erforderlich ist:",
@@ -1777,7 +1777,7 @@
       "Für jedes hochgeladene Referenzbild müssen die erforderlichen Rechte und Genehmigungen vorliegen."
     ],
     "screeningTitle": "Wie Inhalte geprüft werden",
-    "screeningBody": "Jeder Prompt wird vor dem Senden an das KI-Modell durch Waffo Prompt Sift (der von der Prüfung geforderte automatisierte Dienst zur Inhaltssicherheit) geprüft, und eine lokal gepflegte Sperrliste läuft als zweite Ebene. Blockierte — oder nicht prüfbare — Anfragen werden nie generiert. Erzeugte Bilder und Videos werden vor dem Speichern oder Anzeigen durch einen automatisierten Medienmoderationsdienst (OpenAI Moderation API) geprüft; Video wird Frame für Frame kontrolliert. Gemeldete Werke werden von einer Person überprüft, bevor Maßnahmen ergriffen werden, und veröffentlichte Galerienhalte werden automatisch erneut geprüft.",
+    "screeningBody": "Jeder Prompt wird vor dem Senden an das KI-Modell durch Waffo Prompt Sift (der von der Prüfung geforderte automatisierte Dienst zur Inhaltssicherheit) geprüft, und eine lokal gepflegte Sperrliste läuft als zweite Ebene. Blockierte — oder nicht prüfbare — Anfragen werden nie generiert. Erzeugte Bilder und Videos werden vor dem Speichern oder Anzeigen durch einen automatisierten Medienmoderationsdienst (der NSFW-Klassifikator von fal.ai) geprüft; Video wird Frame für Frame kontrolliert. Gemeldete Werke werden von einer Person überprüft, bevor Maßnahmen ergriffen werden, und veröffentlichte Galerienhalte werden automatisch erneut geprüft.",
     "enforcementTitle": "Durchsetzung",
     "enforcementBody": "Inhalte, die gegen diese Richtlinie verstoßen, können entfernt werden; das Konto kann eingeschränkt oder gesperrt werden. Schwere Verstöße — insbesondere solche mit Bezug zu Minderjährigen — werden den zuständigen Behörden gemeldet. Entscheidungen können per E-Mail angefochten werden.",
     "reportTitle": "Meldungen und Einsprüche",
@@ -1841,6 +1841,8 @@
     "checkoutTitle": "Checkout öffnet bald",
     "checkoutBody": "Käufe werden von unserem Zahlungsanbieter abgewickelt, und der Checkout-Kanal befindet sich in der abschließenden Prüfung. Kauf-Buttons bleiben deaktiviert, bis der Kanal öffnet — Generieren mit vorhandenen Credits funktioniert heute wie gewohnt.",
     "checkoutComing": "Checkout bald verfügbar",
+    "pricingPausedCta": "Vorübergehend pausiert",
+    "pricingClosedCta": "Demnächst verfügbar",
     "faqTitle": "Preis-FAQ",
     "faq": [
       {

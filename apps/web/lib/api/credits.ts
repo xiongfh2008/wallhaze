@@ -53,8 +53,58 @@ export interface CreditsPricing {
   generationMode?: "mock" | "live" | "disabled";
   /** Operator pause: submissions are refused by the backend. */
   paused?: boolean;
+  /**
+   * Commercial gates (fail-closed): a missing field or a failed probe means
+   * "closed" — the UI never invents an open state the backend did not prove.
+   */
+  /** Checkout channel is open to the public. */
+  purchasesPublic?: boolean;
+  /** Operator pause on the checkout channel (channel exists, sales paused). */
+  purchasesPaused?: boolean;
+  /** AI Studio (image generation) is open to the public. */
+  studioPublic?: boolean;
+  /** Video generation is open (backend composes studioPublic && video flag). */
+  videoPublic?: boolean;
   /** Video capability + pricing matrix from the backend. */
   video?: VideoPricing;
+}
+
+/** Fail-closed commercial gates derived from a pricing probe. */
+export interface CommercialGates {
+  /** Checkout is purchasable right now (public AND not paused). */
+  purchasesOpen: boolean;
+  /** Operator paused the checkout channel. */
+  purchasesPaused: boolean;
+  /** AI Studio generation is open to the public. */
+  studioOpen: boolean;
+  /** Video generation is open (backend already composes studio && video). */
+  videoOpen: boolean;
+}
+
+const COMMERCIAL_GATES_CLOSED: CommercialGates = {
+  purchasesOpen: false,
+  purchasesPaused: false,
+  studioOpen: false,
+  videoOpen: false,
+};
+
+/**
+ * Derives the commercial gates from a pricing probe. Any failure (no API
+ * base URL, network error, non-2xx) yields the all-closed state — callers
+ * never branch on probe success themselves.
+ */
+export function resolveCommercialGates(
+  result: ApiResult<CreditsPricing> | null,
+): CommercialGates {
+  if (!result || !result.ok) return COMMERCIAL_GATES_CLOSED;
+  return {
+    purchasesOpen:
+      result.data.purchasesPublic === true &&
+      result.data.purchasesPaused !== true,
+    purchasesPaused: result.data.purchasesPaused === true,
+    studioOpen: result.data.studioPublic === true,
+    videoOpen: result.data.videoPublic === true,
+  };
 }
 
 /** Proposed checkout initiation request. */

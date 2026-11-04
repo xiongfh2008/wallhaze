@@ -1,0 +1,419 @@
+{
+  "base": "https://wallhaze.com",
+  "generatedAt": "2026-11-03T15:16:56.405Z",
+  "totals": {
+    "issues": 0,
+    "notes": 68
+  },
+  "issues": [],
+  "notes": [
+    {
+      "url": "https://wallhaze.com/terms",
+      "locale": "default",
+      "field": "final-url",
+      "value": "https://wallhaze.com/terms"
+    },
+    {
+      "url": "https://wallhaze.com/privacy",
+      "locale": "default",
+      "field": "final-url",
+      "value": "https://wallhaze.com/privacy"
+    },
+    {
+      "url": "https://wallhaze.com/contact",
+      "locale": "default",
+      "field": "final-url",
+      "value": "https://wallhaze.com/contact"
+    },
+    {
+      "url": "https://wallhaze.com/",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/terms",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/terms",
+      "locale": "en",
+      "field": "generation-term-count",
+      "value": "text-to-video:2 text-to-image:2"
+    },
+    {
+      "url": "https://wallhaze.com/privacy",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/faq",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/help",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/about",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/studio",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/pricing",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/pricing",
+      "locale": "en",
+      "field": "generation-term-count",
+      "value": "text-to-video:3 text-to-image:3"
+    },
+    {
+      "url": "https://wallhaze.com/contact",
+      "locale": "en",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/terms",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/privacy",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/faq",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/help",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/about",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/studio",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/pricing",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/zh/contact",
+      "locale": "zh",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/terms",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/privacy",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/faq",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/help",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/about",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/studio",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/pricing",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ja/contact",
+      "locale": "ja",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/terms",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/privacy",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/faq",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/help",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/about",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/studio",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/pricing",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/ko/contact",
+      "locale": "ko",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/terms",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/privacy",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/faq",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/help",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/about",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/studio",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/pricing",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/es/contact",
+      "locale": "es",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/terms",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/privacy",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/faq",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/help",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/about",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/studio",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/pricing",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/fr/contact",
+      "locale": "fr",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/terms",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/privacy",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/faq",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/help",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/about",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/studio",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/pricing",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    },
+    {
+      "url": "https://wallhaze.com/de/contact",
+      "locale": "de",
+      "field": "status",
+      "value": "200"
+    }
+  ]
+}

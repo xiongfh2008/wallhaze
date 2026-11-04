@@ -827,6 +827,8 @@ describe("reference-image input screening (LIVE job creation)", () => {
     CORS_ALLOWED_ORIGINS: TEST_ORIGIN,
     FAL_KEY: "test-key",
     FAL_LIVE_ENABLED: "1",
+    STUDIO_PUBLIC_ENABLED: "1",
+    VIDEO_PUBLIC_ENABLED: "1",
   };
 
   it("a flagged reference image is refused before any job exists", async () => {
@@ -902,7 +904,7 @@ describe("reference-image input screening (LIVE job creation)", () => {
   it("mock mode accepts reference images without any screening call", async () => {
     let calls = 0;
     const { app } = await buildApp({
-      env: { CORS_ALLOWED_ORIGINS: TEST_ORIGIN, FAL_MOCK: "1" },
+      env: { CORS_ALLOWED_ORIGINS: TEST_ORIGIN, FAL_MOCK: "1", STUDIO_PUBLIC_ENABLED: "1" },
       database: db,
       storage: new MemoryStorage(),
       outputModeration: new OutputModerationService({

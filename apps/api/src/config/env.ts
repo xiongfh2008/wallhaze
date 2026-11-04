@@ -27,6 +27,23 @@ export const envSchema = z.object({
   TRUST_PROXY: z.string().optional(),
   /** "1"/"true" pauses generation with 503 (operators' pause switch). */
   GENERATION_PAUSED: z.string().optional(),
+  /**
+   * Commercialization business gates — independent of the underlying
+   * service switches above. All default CLOSED: a configured PSP or AI key
+   * never opens purchasing or generation on its own. The API routes enforce
+   * these server-side (final interception); the web app only renders state.
+   */
+  /** "1" allows users to START new credit purchases. */
+  PURCHASES_PUBLIC_ENABLED: z.string().optional(),
+  /** "1" allows users to START new generation jobs (AI Studio). */
+  STUDIO_PUBLIC_ENABLED: z.string().optional(),
+  /** "1" allows PAID video jobs on top of STUDIO_PUBLIC_ENABLED. */
+  VIDEO_PUBLIC_ENABLED: z.string().optional(),
+  /**
+   * "1" temporarily refuses NEW checkouts only. Webhooks, refunds, sync,
+   * order queries and credit grants for already-paid orders stay live.
+   */
+  PURCHASES_PAUSED: z.string().optional(),
   /** Global JSON body limit in bytes. */
   BODY_LIMIT_BYTES: z.coerce.number().int().positive().default(1_048_576),
   /** fal.ai key — server-only, never logged, never sent to any client. */
@@ -117,6 +134,13 @@ export const envSchema = z.object({
    *    boots, checkout reports unavailable, and no payment adapter is wired.
    */
   PAYMENT_PROVIDER: z.enum(["mock", "waffo", "disabled"]).default("mock"),
+  /**
+   * LOCAL/E2E ONLY: exposes checkoutAvailable=true while PAYMENT_PROVIDER=mock
+   * so the browser purchase flow can be exercised end to end. Production can
+   * never reach this path — PAYMENT_PROVIDER=mock refuses to boot when
+   * NODE_ENV=production. NEVER set this in a deployed environment.
+   */
+  MOCK_CHECKOUT_PUBLIC: z.string().optional(),
   /** Provider environment — selects test vs prod keys/behavior. */
   PAYMENT_ENVIRONMENT: z.enum(["test", "prod"]).default("test"),
   /** Waffo Pancake merchant id (MER_...). */
@@ -147,6 +171,11 @@ export const envSchema = z.object({
    */
   OUTPUT_MODERATION_API_KEY: z.string().optional(),
   OUTPUT_MODERATION_ENDPOINT: z.string().optional(),
+  /**
+   * fal NSFW output-screening block threshold (0..1, default 0.5). Only used
+   * when OUTPUT_MODERATION_API_KEY is absent (fal backend is the default).
+   */
+  FAL_NSFW_THRESHOLD: z.string().optional(),
   OUTPUT_MODERATION_MODEL: z.string().optional(),
   /** Frames sampled per generated video (1..10, default 5). */
   OUTPUT_MODERATION_FRAMES: z.coerce.number().int().positive().max(10).optional(),

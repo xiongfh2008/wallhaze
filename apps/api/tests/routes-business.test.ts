@@ -28,6 +28,9 @@ describe('business HTTP surface', () => {
       env: {
         CORS_ALLOWED_ORIGINS: 'https://web.example',
         PAYMENT_MOCK_SECRET: SECRET,
+        PURCHASES_PUBLIC_ENABLED: '1',
+        STUDIO_PUBLIC_ENABLED: '1',
+        VIDEO_PUBLIC_ENABLED: '1',
         ...env,
       },
       database: db,

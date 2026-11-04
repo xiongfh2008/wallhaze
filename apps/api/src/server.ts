@@ -17,7 +17,7 @@ import {
 } from "./business/provider-mode.js";
 import { createFalProvider } from "./modules/generation/fal.provider.js";
 import { PromptModerationService } from "./business/moderation.js";
-import { OutputModerationService } from "./business/output-moderation.js";
+import { resolveOutputModerationFromEnv } from "./business/fal-nsfw-moderation.js";
 import {
   createLiveVideoProviders,
   createMockVideoProviders,
@@ -129,12 +129,10 @@ async function main(): Promise<void> {
       ? env.WAFFO_MODERATION_REVIEW_RETRY_INTERVAL_SECONDS * 1000
       : undefined,
   });
-  const outputModeration = new OutputModerationService({
-    apiKey: env.OUTPUT_MODERATION_API_KEY ?? null,
-    endpoint: env.OUTPUT_MODERATION_ENDPOINT,
-    model: env.OUTPUT_MODERATION_MODEL,
-    frames: env.OUTPUT_MODERATION_FRAMES,
-  });
+  // Output screening backend: OpenAI (legacy, when its key is set) or the
+  // default fal NSFW backend reusing FAL_KEY; undefined → live output fails
+  // closed (never stored/published). See fal-nsfw-moderation.ts.
+  const outputModeration = resolveOutputModerationFromEnv(env);
   const worker = embedded
     ? startWorker(
         database!,

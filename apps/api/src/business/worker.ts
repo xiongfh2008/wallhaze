@@ -13,7 +13,7 @@ import {
   recordModerationLog,
 } from "./moderation.js";
 import { matchBlocklist } from "./blocklist.js";
-import type { OutputModerationService } from "./output-moderation.js";
+import type { OutputScreeningService } from "./output-moderation.js";
 import {
   PROMPT_BUILDER_VERSION,
   VIDEO_PROMPT_BUILDER_VERSION,
@@ -65,7 +65,7 @@ export interface WorkerDeps {
    * LIVE generated media is never stored or published (fails closed);
    * mock generation skips it.
    */
-  outputModeration?: OutputModerationService;
+  outputModeration?: OutputScreeningService;
   /**
    * Structured job diagnostics. Never receives prompts, reference images,
    * credentials or tokens — only ids, phases, sizes and error classes.

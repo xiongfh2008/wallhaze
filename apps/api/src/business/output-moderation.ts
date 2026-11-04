@@ -44,6 +44,22 @@ export interface OutputVerdict {
   status: number | null;
 }
 
+/**
+ * Backend-neutral output screening surface consumed by the worker and the
+ * routes. OutputModerationService (OpenAI) and FalNsfwModerationService
+ * (fal-ai/imageutils/nsfw) both satisfy it structurally — swapping backends
+ * never touches money or storage code.
+ */
+export interface OutputScreeningService {
+  readonly enabled: boolean;
+  screenImage(input: { bytes: Buffer; mime: string }): Promise<OutputVerdict>;
+  screenVideo(input: {
+    bytes: Buffer;
+    mime: string;
+    durationSeconds: number | null;
+  }): Promise<OutputVerdict>;
+}
+
 export interface OutputModerationOptions {
   apiKey: string | null;
   endpoint?: string;

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import {
-  PRESET_WALLPAPERS,
+  PUBLIC_WALLPAPERS,
   styleCategoryOf,
   type PresetWallpaper,
 } from "@/lib/wallpapers";
@@ -59,7 +59,7 @@ const PAGE_SIZE = 60;
 const CATEGORY_IDS: readonly CategoryFilter[] = [
   "all",
   ...STYLE_GROUPS.map((group) => group.id as CategoryFilter).filter((id) =>
-    PRESET_WALLPAPERS.some(
+    PUBLIC_WALLPAPERS.some(
       (wallpaper) => styleCategoryOf(wallpaper.styleId) === id
     )
   ),
@@ -70,7 +70,7 @@ function styleOptionsForCategory(category: StyleCategory): WallStyle[] {
   return WALLPAPER_STYLES.filter(
     (style) =>
       style.category === category &&
-      PRESET_WALLPAPERS.some((wallpaper) => wallpaper.styleId === style.id)
+      PUBLIC_WALLPAPERS.some((wallpaper) => wallpaper.styleId === style.id)
   );
 }
 
@@ -157,7 +157,7 @@ export default function WallpaperBrowser({
 
   const visibleWallpapers = useMemo(() => {
     const trimmed = query.trim().toLowerCase();
-    let list = PRESET_WALLPAPERS.filter((wallpaper) => {
+    let list = PUBLIC_WALLPAPERS.filter((wallpaper) => {
       if (
         activeCategory !== "all" &&
         styleCategoryOf(wallpaper.styleId) !== activeCategory
@@ -372,8 +372,8 @@ export default function WallpaperBrowser({
           const active = activeCategory === id;
           const count =
             id === "all"
-              ? PRESET_WALLPAPERS.length
-              : PRESET_WALLPAPERS.filter(
+              ? PUBLIC_WALLPAPERS.length
+              : PUBLIC_WALLPAPERS.filter(
                   (wallpaper) => styleCategoryOf(wallpaper.styleId) === id
                 ).length;
           return (
@@ -547,7 +547,10 @@ export default function WallpaperBrowser({
             total={visibleWallpapers.length}
             labels={{
               loadMore: tPagination("loadMore"),
-              showing: tPagination("showing"),
+              showing: tPagination("showing", {
+                shown: shownWallpapers.length,
+                total: visibleWallpapers.length,
+              }),
               end: tPagination("end"),
             }}
             onLoadMore={() => setVisibleCount((count) => count + PAGE_SIZE)}

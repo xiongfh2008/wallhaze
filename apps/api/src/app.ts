@@ -1,4 +1,4 @@
-﻿import Fastify, { type FastifyInstance, type FastifyRequest } from "fastify";
+﻿﻿﻿﻿import Fastify, { type FastifyInstance, type FastifyRequest } from "fastify";
 import { randomUUID } from "node:crypto";
 import { corsOriginList, loadEnv, type ApiEnv } from "./config/env.js";
 import { AppError } from "./errors/app-error.js";
@@ -25,7 +25,7 @@ import {
 import { WaffoPaymentAdapter } from "./business/waffo.js";
 import { WaffoPancake } from "@waffo/pancake-ts";
 import { businessRoutes } from "./business/routes.js";
-import type { OutputModerationService } from "./business/output-moderation.js";
+import type { OutputScreeningService } from "./business/output-moderation.js";
 import type { OAuthRoutesOptions } from "./business/routes.js";
 import {
   DisabledOAuthProvider,
@@ -76,7 +76,7 @@ export interface BuildAppOptions {
    * enabled, reference images are screened at job creation in LIVE mode —
    * uploads that fail (or cannot be screened) are refused at the entry.
    */
-  outputModeration?: OutputModerationService;
+  outputModeration?: OutputScreeningService;
   /**
    * Pino-compatible stream for asserting structured logs in tests (the
    * legacy suite asserted outcome log lines; the new suite does the same).
@@ -280,6 +280,12 @@ export async function buildApp(
     (options.provider ? "live" : resolveGenerationMode(env));
   const generationPaused =
     options.generationPaused ?? isFlagEnabled(env.GENERATION_PAUSED);
+  // Commercialization business gates (server-side final interception).
+  // Defaults CLOSED; see docs/launch/01-system-inventory.md §3.
+  const purchasesPublic = isFlagEnabled(env.PURCHASES_PUBLIC_ENABLED);
+  const purchasesPaused = isFlagEnabled(env.PURCHASES_PAUSED);
+  const studioPublic = isFlagEnabled(env.STUDIO_PUBLIC_ENABLED);
+  const videoPublic = isFlagEnabled(env.VIDEO_PUBLIC_ENABLED);
 
   const app = Fastify({
     bodyLimit: env.BODY_LIMIT_BYTES,
@@ -329,6 +335,14 @@ export async function buildApp(
   });
 
   const provider = selectProvider(env, options);
+
+  // A mock generation provider must never be presented as real (paid)
+  // generation in production — refuse to boot instead of serving mock work.
+  if (env.NODE_ENV === "production" && isFlagEnabled(env.FAL_MOCK)) {
+    throw new Error(
+      "Invalid environment configuration — FAL_MOCK is not allowed in production"
+    );
+  }
 
   // Applied DIRECTLY on the root instance (NOT via app.register): Fastify
   // encapsulates setErrorHandler/addHook per plugin, so a sibling plugin's
@@ -397,7 +411,17 @@ export async function buildApp(
       imageSigningSecret:
         env.IMAGE_URL_SECRET ?? options.paymentSecret ?? "dev-only-image-secret",
       paymentProvider: env.PAYMENT_PROVIDER,
-      checkoutAvailable: env.PAYMENT_PROVIDER === "waffo",
+      // Waffo is the only production cashier. The mock opt-in below is a
+      // LOCAL/E2E affordance: PAYMENT_PROVIDER=mock cannot boot in
+      // production (guard above), so this path is unreachable there.
+      checkoutAvailable:
+        env.PAYMENT_PROVIDER === "waffo" ||
+        (env.PAYMENT_PROVIDER === "mock" &&
+          isFlagEnabled(env.MOCK_CHECKOUT_PUBLIC)),
+      purchasesPublic,
+      purchasesPaused,
+      studioPublic,
+      videoPublic,
       mockMode: generationMode === "mock",
       outputModeration: options.outputModeration,
     });

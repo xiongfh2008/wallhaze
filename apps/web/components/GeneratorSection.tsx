@@ -72,7 +72,7 @@ import {
   PROMPT_MAX_LENGTH,
   type GenerationRequest,
 } from "@wallhaze/contracts";
-import { apiRequest } from "@/lib/api/client";
+import { apiRequest, type ApiResult } from "@/lib/api/client";
 import { authAdapter } from "@/lib/api/auth";
 import { creditsAdapter } from "@/lib/api/credits";
 import { createAsyncJobExecutor } from "@/lib/studio/executor";
@@ -352,6 +352,30 @@ function notifyHistoryChanged(): void {
   historyListeners.forEach((listener) => listener());
 }
 
+/**
+ * Maps the pricing probe to the submit-gate service state. Besides the
+ * operator pause and the runtime generation mode this honors the commercial
+ * gate: only a pricing answer with studioPublic=true counts as available —
+ * a missing field, an explicit false or a failed probe keeps the Studio
+ * closed (fail-closed; the submit entry then shows the existing "not
+ * available" service branch).
+ */
+function deriveServiceState(pricing: ApiResult<{
+  generationMode?: "mock" | "live" | "disabled";
+  paused?: boolean;
+  studioPublic?: boolean;
+}>): "available" | "paused" | "disabled" | "unknown" {
+  if (!pricing.ok) return "unknown";
+  if (pricing.data.paused === true) return "paused";
+  if (
+    pricing.data.generationMode === "disabled" ||
+    pricing.data.studioPublic !== true
+  ) {
+    return "disabled";
+  }
+  return "available";
+}
+
 export default function GeneratorSection({
   variant = "home",
 }: {
@@ -431,9 +455,10 @@ export default function GeneratorSection({
     "mock" | "live" | "disabled" | null
   >(null);
   // Whether the backend currently ACCEPTS generation jobs, from the same
-  // probe: paused (operator pause), disabled (no provider configured) or
-  // available (mock or live). "unknown" = the probe itself failed — fail
-  // closed, the UI never assumes a service it could not verify.
+  // probe: paused (operator pause), disabled (no provider configured or the
+  // commercial studioPublic gate is closed) or available (mock or live).
+  // "unknown" = the probe itself failed — fail closed, the UI never assumes
+  // a service it could not verify.
   const [serviceState, setServiceState] = useState<
     "available" | "paused" | "disabled" | "unknown"
   >("unknown");
@@ -541,21 +566,14 @@ export default function GeneratorSection({
           creditsPerGeneration: number;
           generationMode?: "mock" | "live" | "disabled";
           paused?: boolean;
+          studioPublic?: boolean;
         }>("/v1/credits/pricing");
         if (cancelled) return;
         setPriceCredits(pricing.ok ? pricing.data.creditsPerGeneration : null);
         setGenerationMode(
           pricing.ok ? (pricing.data.generationMode ?? null) : null,
         );
-        setServiceState(
-          pricing.ok
-            ? pricing.data.paused === true
-              ? "paused"
-              : pricing.data.generationMode === "disabled"
-                ? "disabled"
-                : "available"
-            : "unknown",
-        );
+        setServiceState(deriveServiceState(pricing));
         setAccountState("signed-out");
         setGateInput({
           authAvailable: false,
@@ -572,6 +590,7 @@ export default function GeneratorSection({
           creditsPerGeneration: number;
           generationMode?: "mock" | "live" | "disabled";
           paused?: boolean;
+          studioPublic?: boolean;
         }>("/v1/credits/pricing"),
         creditsAdapter.getWallet(),
       ]);
@@ -581,15 +600,7 @@ export default function GeneratorSection({
       setGenerationMode(
         pricing.ok ? (pricing.data.generationMode ?? null) : null,
       );
-      setServiceState(
-        pricing.ok
-          ? pricing.data.paused === true
-            ? "paused"
-            : pricing.data.generationMode === "disabled"
-              ? "disabled"
-              : "available"
-          : "unknown",
-      );
+      setServiceState(deriveServiceState(pricing));
       setWalletCredits(
         wallet.ok
           ? Math.max(0, wallet.data.credits - (wallet.data.reserved ?? 0))
