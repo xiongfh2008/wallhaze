@@ -151,7 +151,11 @@ async function screenReferenceImage(
     // defensive backstop and is refused without a screening call.
     throw new AppError("CONTENT_FILTERED", "The reference image could not be read.");
   }
-  const verdict = await service.screenImage({ bytes: decoded.bytes, mime: decoded.mime });
+  const verdict = await service.screenImage({
+    bytes: decoded.bytes,
+    mime: decoded.mime,
+    jobId: `refimage:${createHash("sha256").update(decoded.bytes).digest("hex").slice(0, 16)}`,
+  });
   await recordModerationLog(options.db, {
     jobId: null,
     userId,

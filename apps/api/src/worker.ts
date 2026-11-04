@@ -7,7 +7,7 @@ import { MockJobProvider } from "./business/providers.js";
 import { createFalProvider, createMockProvider } from "./modules/generation/fal.provider.js";
 import { LocalStorage, MemoryStorage } from "./business/storage.js";
 import { PromptModerationService } from "./business/moderation.js";
-import { OutputModerationService } from "./business/output-moderation.js";
+import { resolveOutputModerationFromEnv } from "./business/fal-nsfw-moderation.js";
 import { resolveStorageFromEnv } from "./business/r2-storage.js";
 import {
   isFlagEnabled,
@@ -74,12 +74,14 @@ async function main(): Promise<void> {
       ? env.WAFFO_MODERATION_REVIEW_RETRY_INTERVAL_SECONDS * 1000
       : undefined,
   });
-  const outputModeration = new OutputModerationService({
-    apiKey: env.OUTPUT_MODERATION_API_KEY ?? null,
-    endpoint: env.OUTPUT_MODERATION_ENDPOINT,
-    model: env.OUTPUT_MODERATION_MODEL,
-    frames: env.OUTPUT_MODERATION_FRAMES,
-  });
+  // Output screening backend — MUST match the API process: fal NSFW default
+  // (reuses FAL_KEY) with the OpenAI backend as the optional legacy choice.
+  // The hard-coded OpenAI construction here is exactly what produced the
+  // OUTPUT_MODERATION_UNAVAILABLE incident: with no OpenAI key the service
+  // reported enabled=false and generated media was never screened at all.
+  const outputModeration = resolveOutputModerationFromEnv(env, (event) =>
+    console.log(JSON.stringify(event))
+  );
   const workerId = `worker-${process.pid}-${randomUUID().slice(0, 8)}`;
   console.log(`[worker:${workerId}] started (poll=${env.WORKER_POLL_MS ?? 2000}ms, lease=${env.WORKER_LEASE_SECONDS ?? 300}s)`);
   const handle = startWorker(

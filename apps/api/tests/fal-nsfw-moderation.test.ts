@@ -122,6 +122,150 @@ describe("FalNsfwModerationService (unit)", () => {
     ).toMatchObject({ action: "unavailable" });
   });
 
+  it("passes compact JPEG/PNG/WebP through WITHOUT conversion", async () => {
+    let seenBody = "";
+    let converterRan = false;
+    const jpeg = Buffer.alloc(1024, 0x7f); // 1 KB compact JPEG stub
+    const service = new FalNsfwModerationService({
+      falKey: "k",
+      reviewImageConverter: async () => {
+        converterRan = true;
+        return { bytes: Buffer.from("converted"), mime: "image/jpeg" };
+      },
+      fetcher: async (_url, init) => {
+        seenBody = String(init?.body);
+        return new Response(JSON.stringify({ nsfw_probability: 0.01 }), { status: 200 });
+      },
+    });
+    expect(await service.screenImage({ bytes: jpeg, mime: "image/jpeg" })).toMatchObject({ action: "allow" });
+    expect(converterRan).toBe(false);
+    expect(seenBody).toContain("data:image/jpeg;base64,");
+  });
+
+  it("converts large generated PNGs to a compact JPEG review copy and keeps the original untouched", async () => {
+    const bigPng = Buffer.concat([PNG_HEADER, Buffer.alloc(700 * 1024, 0x11)]); // > passthrough threshold
+    let seenBody = "";
+    let convertedInput: { size: number; mime: string } | null = null;
+    const service = new FalNsfwModerationService({
+      falKey: "k",
+      reviewImageConverter: async (bytes, mime, maxEdge) => {
+        convertedInput = { size: bytes.length, mime };
+        expect(maxEdge).toBe(1280);
+        return { bytes: Buffer.alloc(64 * 1024, 0x22), mime: "image/jpeg" };
+      },
+      fetcher: async (_url, init) => {
+        seenBody = String(init?.body);
+        return new Response(JSON.stringify({ nsfw_probability: 0.01 }), { status: 200 });
+      },
+      log: (e) => (logEvents.push(e), undefined),
+    });
+    const logEvents: import("../src/business/fal-nsfw-moderation.js").FalNsfwLogEvent[] = [];
+    expect(await service.screenImage({ bytes: bigPng, mime: "image/png", jobId: "job-1" }))
+      .toMatchObject({ action: "allow" });
+    // The review copy — NOT the original — was transmitted.
+    expect(convertedInput).toMatchObject({ size: bigPng.length, mime: "image/png" });
+    expect(seenBody).toContain("data:image/jpeg;base64,");
+    expect(seenBody.length).toBeLessThan(200 * 1024); // compact request
+    // Sanitized diagnostics: sizes/status/latency present, secrets absent.
+    const log = logEvents[0];
+    expect(log).toMatchObject({
+      event: "output_moderation.request",
+      backend: "fal_nsfw",
+      jobId: "job-1",
+      bytes: bigPng.length,
+      reviewBytes: 64 * 1024,
+      reviewMime: "image/jpeg",
+      converted: true,
+      httpStatus: 200,
+      errorCategory: "none",
+    });
+    const serialized = JSON.stringify(log);
+    expect(serialized).not.toContain("base64");
+    expect(serialized).not.toContain("falKey");
+  });
+
+  it("fails closed WITHOUT a doomed request when a large image cannot be converted", async () => {
+    let fetchCalls = 0;
+    const service = new FalNsfwModerationService({
+      falKey: "k",
+      reviewImageConverter: async () => {
+        throw new Error("ffmpeg exploded");
+      },
+      fetcher: async () => {
+        fetchCalls += 1;
+        return new Response(JSON.stringify({ nsfw_probability: 0.01 }), { status: 200 });
+      },
+      log: (e) => (logEvents.push(e), undefined),
+    });
+    const logEvents: import("../src/business/fal-nsfw-moderation.js").FalNsfwLogEvent[] = [];
+    const big = Buffer.concat([PNG_HEADER, Buffer.alloc(700 * 1024)]);
+    expect(await service.screenImage({ bytes: big, mime: "image/png" }))
+      .toMatchObject({ action: "unavailable" });
+    expect(fetchCalls).toBe(0); // no doomed network call
+    expect(logEvents[0]).toMatchObject({ errorCategory: "conversion_failed" });
+  });
+
+  it("normalizes unsupported MIME types through the converter", async () => {
+    const tiff = Buffer.alloc(1024); // compact but NOT in the compact-mime set
+    let seenBody = "";
+    const service = new FalNsfwModerationService({
+      falKey: "k",
+      reviewImageConverter: async (bytes, mime) => {
+        expect(mime).toBe("image/tiff");
+        expect(bytes.length).toBe(tiff.length);
+        return { bytes: Buffer.alloc(32 * 1024), mime: "image/jpeg" };
+      },
+      fetcher: async (_url, init) => {
+        seenBody = String(init?.body);
+        return new Response(JSON.stringify({ nsfw_probability: 0.02 }), { status: 200 });
+      },
+    });
+    expect(await service.screenImage({ bytes: tiff, mime: "image/tiff" })).toMatchObject({ action: "allow" });
+    expect(seenBody).toContain("data:image/jpeg;base64,");
+  });
+
+  it("maps documented fal HTTP failures (413/422/429/503) to fail-closed with the status logged", async () => {
+    for (const status of [413, 422, 429, 503]) {
+      const logEvents: import("../src/business/fal-nsfw-moderation.js").FalNsfwLogEvent[] = [];
+      const service = new FalNsfwModerationService({
+        falKey: "k",
+        fetcher: async () => new Response("too large / rejected", { status }),
+        log: (e) => (logEvents.push(e), undefined),
+      });
+      expect(await service.screenImage({ bytes: PNG_BYTES, mime: "image/png" }))
+        .toMatchObject({ action: "unavailable", status });
+      expect(logEvents[0]).toMatchObject({ httpStatus: status, errorCategory: "http_error" });
+    }
+  });
+
+  it("classifies transport timeouts separately from other transport errors", async () => {
+    const timeout = new FalNsfwModerationService({
+      falKey: "k",
+      fetcher: async () => {
+        const e = new Error("The operation was aborted due to timeout");
+        e.name = "TimeoutError";
+        throw e;
+      },
+      log: (e) => (logEvents.push(e), undefined),
+    });
+    const logEvents: import("../src/business/fal-nsfw-moderation.js").FalNsfwLogEvent[] = [];
+    expect(await timeout.screenImage({ bytes: PNG_BYTES, mime: "image/png" }))
+      .toMatchObject({ action: "unavailable" });
+    expect(logEvents[0]).toMatchObject({ httpStatus: null, errorCategory: "transport_timeout" });
+
+    const logEvents2: import("../src/business/fal-nsfw-moderation.js").FalNsfwLogEvent[] = [];
+    const reset = new FalNsfwModerationService({
+      falKey: "k",
+      fetcher: async () => {
+        throw new Error("ECONNRESET");
+      },
+      log: (e) => (logEvents2.push(e), undefined),
+    });
+    expect(await reset.screenImage({ bytes: PNG_BYTES, mime: "image/png" }))
+      .toMatchObject({ action: "unavailable" });
+    expect(logEvents2[0]).toMatchObject({ errorCategory: "transport_error" });
+  });
+
   it("screens video frame by frame; any blocked frame blocks; extraction failure fails closed", async () => {
     // 1 of 3 frames flagged → whole video blocked.
     let call = 0;
@@ -452,6 +596,48 @@ describe("four-mode live pipeline behind fal NSFW screening", () => {
     expect(
       (await db.query("SELECT count(*)::int AS n FROM image_assets WHERE job_id=$1", [badJob.json().jobId])).rows[0].n
     ).toBe(0);
+  });
+
+  it("large generated PNG: review copy screens, ORIGINAL bytes are stored, credits captured exactly once", async () => {
+    const original = Buffer.concat([PNG_HEADER, Buffer.alloc(600 * 1024, 0x5a)]);
+    const conversions: number[] = [];
+    current = new FalNsfwModerationService({
+      falKey: "k",
+      reviewImageConverter: async (bytes, mime, maxEdge) => {
+        conversions.push(bytes.length);
+        expect(mime).toBe("image/png");
+        expect(maxEdge).toBe(1280);
+        return { bytes: Buffer.alloc(48 * 1024, 0x33), mime: "image/jpeg" };
+      },
+      fetcher: async () => new Response(JSON.stringify({ nsfw_probability: 0.01 }), { status: 200 }),
+    });
+    const bigProvider: import("../src/business/providers.js").JobProvider = {
+      async generate() {
+        return { bytes: original, mime: "image/png" };
+      },
+    };
+    const job = await createImage("nsfw-bigpng");
+    expect(job.statusCode).toBe(202);
+    await runWorkerOnce(db, { ...workerDeps(), provider: bigProvider }, "nsfw-worker");
+    const view = (
+      await app.inject({ method: "GET", url: `/v1/generations/jobs/${job.json().jobId}`, headers: auth })
+    ).json();
+    expect(view.status).toBe("succeeded");
+    expect(view.imageUrl).toBeTruthy();
+    // The stored/delivered asset is the ORIGINAL full-size PNG, not the review copy.
+    const asset = (
+      await db.query("SELECT mime,size_bytes FROM image_assets WHERE job_id=$1", [job.json().jobId])
+    ).rows[0];
+    expect(asset.mime).toBe("image/png");
+    expect(Number(asset.size_bytes)).toBe(original.length);
+    expect(conversions).toEqual([original.length]); // reviewed via the compact copy
+    // Credits captured exactly once.
+    const captures = await db.query(
+      "SELECT count(*)::int AS n FROM credit_ledger WHERE reason='generation.captured' AND idempotency_key=$1",
+      [`capture:${job.json().jobId}`]
+    );
+    expect(captures.rows[0].n).toBe(1);
+    expect((await wallet()).credits).toBe(190);
   });
 
   it("moderation logs record the fal screening decisions", async () => {

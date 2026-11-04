@@ -38,6 +38,10 @@ COPY --from=build /build/apps/api/dist ./dist
 COPY --from=build /build/apps/api/assets ./assets
 COPY --from=build /build/apps/api/package.json ./package.json
 COPY --from=build /build/apps/api/migrations ./migrations
+# The local blocklist (config/blocklist.json) is REQUIRED in the worker:
+# the pre-generation blocklist gate throws "config/blocklist.json not
+# found" without it, failing every live job with an unclassified error.
+COPY --from=build /build/apps/api/config ./config
 COPY --from=build /build/apps/api/.dist-entry ./.dist-entry
 
 # ffmpeg/ffprobe: video output moderation samples frames from generated

@@ -52,11 +52,13 @@ export interface OutputVerdict {
  */
 export interface OutputScreeningService {
   readonly enabled: boolean;
-  screenImage(input: { bytes: Buffer; mime: string }): Promise<OutputVerdict>;
+  /** jobId is log-correlation only — never stored with the verdict. */
+  screenImage(input: { bytes: Buffer; mime: string; jobId?: string }): Promise<OutputVerdict>;
   screenVideo(input: {
     bytes: Buffer;
     mime: string;
     durationSeconds: number | null;
+    jobId?: string;
   }): Promise<OutputVerdict>;
 }
 
@@ -157,8 +159,12 @@ export class OutputModerationService {
     }
   }
 
-  /** Screens one generated image (or poster frame). */
-  async screenImage(input: { bytes: Buffer; mime: string }): Promise<OutputVerdict> {
+  /** Screens one generated image (or poster frame). jobId: log correlation. */
+  async screenImage(input: {
+    bytes: Buffer;
+    mime: string;
+    jobId?: string;
+  }): Promise<OutputVerdict> {
     return this.moderateImage(input.bytes, input.mime);
   }
 
@@ -171,6 +177,7 @@ export class OutputModerationService {
     bytes: Buffer;
     mime: string;
     durationSeconds: number | null;
+    jobId?: string;
   }): Promise<OutputVerdict> {
     if (!this.enabled) {
       return { action: "unavailable", categories: [], status: null };

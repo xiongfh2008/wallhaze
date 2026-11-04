@@ -132,7 +132,11 @@ async function main(): Promise<void> {
   // Output screening backend: OpenAI (legacy, when its key is set) or the
   // default fal NSFW backend reusing FAL_KEY; undefined → live output fails
   // closed (never stored/published). See fal-nsfw-moderation.ts.
-  const outputModeration = resolveOutputModerationFromEnv(env);
+  const outputModeration = resolveOutputModerationFromEnv(env, (event) =>
+    // Sanitized screening diagnostics (no bytes/keys/prompts) — one JSON line
+    // per fal NSFW attempt so incidents show the real HTTP status/latency.
+    app.log.info(event)
+  );
   const worker = embedded
     ? startWorker(
         database!,

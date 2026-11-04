@@ -231,7 +231,7 @@ async function screenGeneratedImage(
     return true;
   }
   const verdict = deps.outputModeration?.enabled
-    ? await deps.outputModeration.screenImage(stored)
+    ? await deps.outputModeration.screenImage({ ...stored, jobId: claim.jobId })
     : { action: "unavailable" as const, categories: [], status: null };
   const published = verdict.action === "allow";
   await recordModerationLog(db, {
@@ -327,6 +327,7 @@ async function executeVideoJob(
           bytes: output.video.bytes,
           mime: output.video.mime,
           durationSeconds: claim.durationSeconds,
+          jobId: claim.jobId,
         })
       : { action: "unavailable" as const, categories: [], status: null };
     const published = videoVerdict.action === "allow";
