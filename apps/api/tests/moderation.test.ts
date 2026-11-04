@@ -877,10 +877,17 @@ describe("reference-image input screening (LIVE job creation)", () => {
 
   it("live reference uploads fail closed when screening is not configured", async () => {
     const { app } = await buildApp({
-      env: liveEnv,
+      // No outputModeration wired AND no FAL_KEY: with FAL_KEY present the
+      // app now auto-resolves the default fal NSFW backend from env, which
+      // would make screening "configured" (that case is covered by the
+      // network-guard). Strip the key to model a genuinely unconfigured
+      // deployment and pin generationMode="live" explicitly — otherwise the
+      // missing key would drop the mode out of "live" and skip screening
+      // entirely. Live reference uploads must still fail closed.
+      env: { ...liveEnv, FAL_KEY: undefined },
+      generationMode: "live",
       database: db,
       storage: new MemoryStorage(),
-      // No outputModeration wired.
     });
     cleanup = () => app.close();
     const { cookie } = await signUp(app);

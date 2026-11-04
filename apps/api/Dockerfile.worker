@@ -40,6 +40,14 @@ COPY --from=build /build/apps/api/package.json ./package.json
 COPY --from=build /build/apps/api/migrations ./migrations
 COPY --from=build /build/apps/api/.dist-entry ./.dist-entry
 
+# ffmpeg/ffprobe: video output moderation samples frames from generated
+# MP4s before publication; a missing binary fails those jobs closed
+# ("unavailable" → the video is never stored). MUST stay in the image so
+# every future deploy keeps the binaries (no runtime-only installs).
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
 RUN groupadd --system wallhaze && useradd --system --gid wallhaze wallhaze \
     && chown -R wallhaze:wallhaze /app
 USER wallhaze

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿import Fastify, { type FastifyInstance, type FastifyRequest } from "fastify";
+﻿﻿﻿﻿﻿﻿import Fastify, { type FastifyInstance, type FastifyRequest } from "fastify";
 import { randomUUID } from "node:crypto";
 import { corsOriginList, loadEnv, type ApiEnv } from "./config/env.js";
 import { AppError } from "./errors/app-error.js";
@@ -26,6 +26,7 @@ import { WaffoPaymentAdapter } from "./business/waffo.js";
 import { WaffoPancake } from "@waffo/pancake-ts";
 import { businessRoutes } from "./business/routes.js";
 import type { OutputScreeningService } from "./business/output-moderation.js";
+import { resolveOutputModerationFromEnv } from "./business/fal-nsfw-moderation.js";
 import type { OAuthRoutesOptions } from "./business/routes.js";
 import {
   DisabledOAuthProvider,
@@ -423,7 +424,14 @@ export async function buildApp(
       studioPublic,
       videoPublic,
       mockMode: generationMode === "mock",
-      outputModeration: options.outputModeration,
+      // Reference-image INPUT screening (live mode) runs INSIDE the API
+      // process, so the backend must be resolved here too — the standalone
+      // production worker's instance is a separate process. Explicit
+      // injection (tests) wins; otherwise resolve from env (OpenAI key or
+      // the default fal NSFW backend reusing FAL_KEY); undefined → live
+      // reference uploads fail closed (never accepted).
+      outputModeration:
+        options.outputModeration ?? resolveOutputModerationFromEnv(env),
     });
   }
 
