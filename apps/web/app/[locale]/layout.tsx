@@ -26,6 +26,21 @@ export function generateStaticParams() {
 const HOME_PATH = "/";
 
 /**
+ * Microsoft Clarity analytics. Loaded ONLY when NEXT_PUBLIC_CLARITY_ID is
+ * set at build time — local dev and tests stay analytics-free. The raw
+ * <script> goes into a manual <head> so it ships as static SSR HTML
+ * (framework-free, no next/script dependency). The ID is validated against
+ * Clarity's alphanumeric format before being interpolated into the snippet.
+ */
+const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+const CLARITY_ENABLED = !!CLARITY_ID && /^[a-z0-9]+$/i.test(CLARITY_ID);
+const CLARITY_SNIPPET =
+  '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};' +
+  't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;' +
+  'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})' +
+  `(window, document, "clarity", "script", "${CLARITY_ID ?? ""}");`;
+
+/**
  * Root layout for every language segment. Owns <html lang>, the global
  * fonts/stylesheet and the per-locale document metadata (title, description,
  * canonical, hreflang alternates). The header/footer stay mounted per page,
@@ -107,6 +122,13 @@ export default async function LocaleLayout({
       lang={HTML_LANG[locale]}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {CLARITY_ENABLED ? (
+          <script dangerouslySetInnerHTML={{ __html: CLARITY_SNIPPET }} />
+        ) : null}
+        {/* Yandex Webmaster site verification (renders on every locale root) */}
+        <meta name="yandex-verification" content="472aa98fe628d2fe" />
+      </head>
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={clientMessages}>
           {children}
