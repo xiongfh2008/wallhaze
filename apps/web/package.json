@@ -18,7 +18,7 @@
     "dev:vinext": "vite dev --port 3001",
     "build:vinext": "node scripts/verify-api-base.mjs && vite build",
     "start:vinext": "vite preview",
-    "deploy:vinext": "vinext-cloudflare deploy",
+    "deploy:vinext": "node scripts/verify-api-base.mjs && vinext-cloudflare deploy",
     "community:manifest": "node scripts/community/build-gallery-manifest.mjs",
     "moderation:scan-gallery": "node scripts/community/scan-gallery-manifest.mjs",
     "audit:waffo": "node scripts/waffo-audit.mjs",

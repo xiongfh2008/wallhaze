@@ -21,6 +21,9 @@ yarn-error.log*
 # env files — real environment files are never committed
 .env*
 !.env.example
+# tracked on purpose: NO secrets (public API base URL only); the Cloudflare
+# Git build needs it because the local .env.production.local is gitignored
+!.env.production
 
 # typescript
 *.tsbuildinfo
@@ -29,6 +32,5 @@ next-env.d.ts
 .vinext/
 .cloudflare/
 .env.cloudflare
-.env.production
 .env*.local
 generated-live/
