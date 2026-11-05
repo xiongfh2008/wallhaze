@@ -1,2 +1,1 @@
 ﻿"issueId","severity","url","locale","field","currentValue","problem","recommendedFix","sourceFile"
-"SEO-001","P1","https://wallhaze.com/de/community","de","status","500","Indexable URL does not return 200","Fix route or remove from sitemap",""

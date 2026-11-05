@@ -78,7 +78,7 @@ export default async function TermsPage({
         <p className="text-sm text-zinc-500">{t("updated")}</p>
         <dl className="mt-8 space-y-10">
           {TERMS_SECTIONS.map(({ id, hasList }) => (
-            <div key={id}>
+            <div key={id} id={id}>
               <dt className="text-lg font-semibold tracking-tight text-zinc-100">
                 {t(`${id}Title` as const)}
               </dt>

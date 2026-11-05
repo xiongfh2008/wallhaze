@@ -24,6 +24,7 @@ import WallpaperImage from "@/components/WallpaperImage";
 import WallpaperDeviceBadge from "@/components/media/WallpaperDeviceBadge";
 import WallpaperDevicePreview from "@/components/media/WallpaperDevicePreview";
 import { formatAspectRatio } from "@/lib/media";
+import { MEDIA_RIGHTS } from "@/lib/media-rights";
 
 /**
  * /wallpapers/[slug] — static detail page for one preset wallpaper.
@@ -156,6 +157,48 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
 
   // JSON-LD ImageObject is emitted only for a cleared, publicly displayable
   // image. Pending pages must not leak a contentUrl to crawlers.
+  //
+  // Recommended-field policy (Search Console ImageObject recommendations),
+  // derived ONLY from the rights evidence shown on this page:
+  //  - creditText: the real author / attribution the license box displays;
+  //  - license: a real license URL (CC0 deed) or the site terms section that
+  //    defines the license grant — never a bare license NAME (schema.org
+  //    license expects a document URL);
+  //  - copyrightNotice: only where the rights record supports it — CC0 works
+  //    state the real author's public-domain dedication (never "© WallHaze"),
+  //    originals state the project's own copyright backed by the registry's
+  //    self-authored evidence;
+  //  - acquireLicensePage: the Terms "Wallpaper Downloads and Permitted Use"
+  //    section — a real, existing page describing how use rights are granted
+  //    (free personal use / CC0 terms); never a fabricated purchase flow.
+  const termsLicenseUrl = `${SITE_URL}/terms#downloads`;
+  /**
+   * copyrightNotice for original artwork, driven by the asset-rights registry:
+   *  - human-authored (aiGenerated=false) → a real © WallHaze notice;
+   *  - AI-generated → NO © claim (WallHaze does not assert copyright over
+   *    model output) — an honest attribution + the license document instead;
+   *  - no/unknown record → the notice is omitted entirely (conservative:
+   *    never fill a rights statement without evidence).
+   */
+  const originalCopyrightNotice = (
+    imagePath: string | null
+  ): { copyrightNotice?: string } => {
+    const record = MEDIA_RIGHTS.find((asset) => asset.path === imagePath);
+    if (!record || record.aiGenerated === "unknown") return {};
+    if (record.aiGenerated === true) {
+      return {
+        copyrightNotice:
+          "Original AI-generated artwork by WallHaze — no copyright claim asserted; licensed per the WallHaze Terms",
+      };
+    }
+    return {
+      copyrightNotice:
+        "© WallHaze — self-authored artwork, licensed per the WallHaze Terms",
+    };
+  };
+  const isCc0Source =
+    wallpaper.source?.licenseUrl?.includes("creativecommons.org") ||
+    wallpaper.source?.license.toUpperCase().includes("CC0");
   const jsonLd = wallpaper.image
     ? {
         "@context": "https://schema.org",
@@ -168,18 +211,32 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
         url: absoluteLocaleUrl(locale, `/wallpapers/${wallpaper.id}`),
         width: { "@type": "QuantitativeValue", value: wallpaper.width, unitCode: "E37" },
         height: { "@type": "QuantitativeValue", value: wallpaper.height, unitCode: "E37" },
+        acquireLicensePage: termsLicenseUrl,
         ...(wallpaper.source
           ? {
               creditText: wallpaper.source.author,
-              license: wallpaper.source.licenseUrl ?? wallpaper.source.license,
+              // Google's image-license metadata recommends `creator`; the
+              // registry's audited author IS the real creator — authorship
+              // attribution, never a copyright claim.
+              creator: { "@type": "Person", name: wallpaper.source.author },
+              license: wallpaper.source.licenseUrl ?? termsLicenseUrl,
+              ...(isCc0Source
+                ? {
+                    // Real author evidence from the audited source record —
+                    // the dedication statement, never a WallHaze © claim.
+                    copyrightNotice: `${wallpaper.source.author} dedicated this work to the public domain under ${wallpaper.source.license}`,
+                  }
+                : {}),
             }
           : wallpaper.license === "self-authored"
             ? {
                 // Original WallHaze artwork: the license grant lives in the
-                // site terms (Downloads and Licenses section) — a real,
+                // site terms (Downloads and Permitted Use section) — a real,
                 // verifiable document URL, never a fabricated license.
                 creator: { "@type": "Organization", name: "WallHaze" },
-                license: `${SITE_URL}/terms`,
+                creditText: "WallHaze",
+                ...originalCopyrightNotice(wallpaper.image),
+                license: termsLicenseUrl,
               }
             : {}),
       }
@@ -350,6 +407,26 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                   {t("licenseNotice")}
                 </p>
               )}
+              {wallpaper.license === "self-authored" &&
+                (() => {
+                  // Mirrors ImageObject copyrightNotice: © only where the
+                  // registry supports it (human-authored); AI originals show
+                  // the no-claim attribution instead; unknown shows nothing.
+                  const record = MEDIA_RIGHTS.find(
+                    (asset) => asset.path === wallpaper.image
+                  );
+                  const label =
+                    !record || record.aiGenerated === "unknown"
+                      ? null
+                      : record.aiGenerated === true
+                        ? "AI-generated original — no copyright claim asserted"
+                        : "© WallHaze";
+                  return label ? (
+                    <p className="mt-2 text-xs leading-relaxed text-zinc-400">
+                      {label}
+                    </p>
+                  ) : null;
+                })()}
               {wallpaper.source ? (
                 <p className="mt-2 text-xs leading-relaxed text-zinc-400">
                   {t("sourceLabel")}:{" "}
