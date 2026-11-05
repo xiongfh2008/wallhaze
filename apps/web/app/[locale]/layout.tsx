@@ -94,6 +94,11 @@ export async function generateMetadata({
       apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     },
     manifest: "/manifest.webmanifest",
+    // Search-engine ownership verifications (Next metadata API renders them
+    // as <meta name="..."> tags inside <head>).
+    verification: {
+      yandex: "472aa98fe628d2fe",
+    },
   };
 }
 
@@ -122,14 +127,17 @@ export default async function LocaleLayout({
       lang={HTML_LANG[locale]}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
+      {/*
+        No manual <head>: vinext emits metadata-managed tags there. A manual
+        <head> on the default-locale root path pushed layout metadata into a
+        late restore segment in production (S:0) — raw crawlers lost the
+        title. Clarity therefore loads from the top of <body>: async and
+        analytics-only, position is inconsequential for it.
+      */}
+      <body className="min-h-full flex flex-col">
         {CLARITY_ENABLED ? (
           <script dangerouslySetInnerHTML={{ __html: CLARITY_SNIPPET }} />
         ) : null}
-        {/* Yandex Webmaster site verification (renders on every locale root) */}
-        <meta name="yandex-verification" content="472aa98fe628d2fe" />
-      </head>
-      <body className="min-h-full flex flex-col">
         <NextIntlClientProvider messages={clientMessages}>
           {children}
         </NextIntlClientProvider>
