@@ -4,3 +4,11 @@
 # long stale-while-revalidate window is safe and keeps repeat visits fast.
 /images/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=2592000
+
+# Build artifacts carry content hashes in their filenames (a new deploy gets
+# new URLs), so they are safe to cache forever — same policy `next start`
+# applies to /_next/static. Without this rule the worker's default
+# "max-age=0, must-revalidate" forces repeat visitors to revalidate every
+# JS/CSS chunk on every visit.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

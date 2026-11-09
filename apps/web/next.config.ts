@@ -68,6 +68,16 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  // Metadata must land in the initial <head>, never in a late RSC restore
+  // segment. Next.js streams generateMetadata output for regular browsers
+  // (React hoists it into <head> during hydration) and only blocks on it for
+  // "HTML limited" crawlers. The Cloudflare/vinext HTML cache is UA-blind,
+  // so whichever variant renders first is served to everyone — production
+  // "/" shipped title/description/canonical inside a hidden S:0 segment,
+  // which Lighthouse reports as "no meta description". Treating every UA as
+  // HTML-limited forces blocking metadata for all clients; the cost is a
+  // few ms of params + bundled message JSON before the first byte.
+  htmlLimitedBots: /.*/,
 };
 
 export default nextConfig;

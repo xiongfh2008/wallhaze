@@ -169,6 +169,7 @@ export default function TrendingMarquee() {
         href={href}
         aria-label={t("cardAria", { label })}
         tabIndex={clone ? -1 : undefined}
+        prefetch={false}
         className="group relative block w-[46vw] max-w-[224px] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/40 outline-none transition hover:border-violet-400/40 focus-visible:ring-2 focus-visible:ring-violet-400/60 sm:w-[38vw] md:w-[224px]"
       >
         <div
@@ -186,9 +187,11 @@ export default function TrendingMarquee() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-3.5">
-            <h3 className="truncate text-sm font-semibold text-white">
+            {/* Not a heading: this decorative rail sits above the first h2,
+                and a heading here breaks the document outline (h1 -> h3). */}
+            <p className="truncate text-sm font-semibold text-white">
               {label}
-            </h3>
+            </p>
             <span
               aria-hidden
               className="shrink-0 text-xs font-medium text-violet-300 opacity-0 transition duration-300 group-hover:opacity-100"

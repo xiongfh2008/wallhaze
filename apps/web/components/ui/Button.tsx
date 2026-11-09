@@ -52,6 +52,8 @@ interface ButtonAsLinkProps extends CommonButtonProps {
   /** Internal destination — rendered through the locale-aware next-intl Link. */
   href: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
+  /** Set false to skip RSC prefetching (heavy targets hurt the LCP window). */
+  prefetch?: boolean;
 }
 
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
@@ -73,13 +75,14 @@ export default function Button({
   const classes = `${BASE_CLASSES} ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`;
 
   if (rest.href !== undefined) {
-    const { href, onClick, "aria-label": ariaLabel } = rest;
+    const { href, onClick, "aria-label": ariaLabel, prefetch } = rest;
     return (
       <Link
         href={href}
         onClick={onClick}
         aria-label={ariaLabel}
         aria-busy={loading || undefined}
+        prefetch={prefetch}
         className={classes}
       >
         {loading ? <Spinner className="h-4 w-4" /> : null}

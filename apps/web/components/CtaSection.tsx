@@ -20,10 +20,10 @@ export default function CtaSection() {
               {t("body")}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button href="/studio" size="lg">
+              <Button href="/studio" size="lg" prefetch={false}>
                 {t("button")}
               </Button>
-              <Button href="/wallpapers" variant="secondary" size="lg">
+              <Button href="/wallpapers" variant="secondary" size="lg" prefetch={false}>
                 {t("explore")}
               </Button>
             </div>

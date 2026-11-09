@@ -123,6 +123,7 @@ export default function FeaturedWallpapers() {
           </div>
           <Link
             href="/wallpapers"
+            prefetch={false}
             className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-medium text-violet-300 transition hover:text-violet-200"
           >
             {t("viewAll")}
@@ -146,7 +147,6 @@ export default function FeaturedWallpapers() {
               <li key={wallpaper.id}>
                 <Link
                   href={`/wallpapers/${wallpaper.id}`}
-                  aria-label={t("cardAria", { title })}
                   className="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-black/40 outline-none transition hover:border-violet-400/40 focus-visible:ring-2 focus-visible:ring-violet-400/60"
                 >
                   <div
@@ -188,7 +188,7 @@ export default function FeaturedWallpapers() {
             );
           })}
         </ul>
-        <p className="mt-4 text-xs leading-relaxed text-zinc-500">
+        <p className="mt-4 text-xs leading-relaxed text-zinc-400">
           {t("licenseNote")}
         </p>
       </div>

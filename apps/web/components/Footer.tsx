@@ -102,7 +102,7 @@ export default function Footer() {
                 className="h-7 w-auto"
               />
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-400">
               {t("tagline")}
             </p>
             <div className="mt-6 flex gap-3">
@@ -158,7 +158,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-zinc-600 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-zinc-400 md:flex-row">
           <p>
             © <FooterYear /> {t("rights")}
           </p>

@@ -58,6 +58,16 @@ function CheckIcon({ className = "" }: { className?: string }) {
 }
 
 /**
+ * Persist the locale cookie exactly like next-intl's own navigation does.
+ * This switcher bypasses those APIs with a hard navigation, and a stale
+ * NEXT_LOCALE cookie makes the middleware redirect the default-locale path
+ * ("/") straight back to the previous prefixed locale.
+ */
+function persistLocaleCookie(next: string) {
+  document.cookie = `NEXT_LOCALE=${next};path=/;sameSite=lax;`;
+}
+
+/**
  * Compact locale dropdown built on the shared Dropdown primitive: a globe +
  * current-language trigger that opens a vertical menu of every supported
  * language (natural self-names, no flags). Left-anchored so it stays inside
@@ -80,6 +90,7 @@ export default function LanguageSwitcher({
 
   const switchTo = (next: (typeof routing.locales)[number]) => {
     if (next === locale) return;
+    persistLocaleCookie(next);
     try {
       window.sessionStorage.setItem(
         LANGUAGE_SWITCH_FLAG,

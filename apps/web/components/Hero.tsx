@@ -65,10 +65,10 @@ export default function Hero() {
           className="animate-fade-up mt-8 flex flex-wrap items-center gap-4"
           style={{ animationDelay: "500ms" }}
         >
-          <Button href="/wallpapers" size="lg">
+          <Button href="/wallpapers" size="lg" prefetch={false}>
             {t("ctaExplore")}
           </Button>
-          <Button href="/studio" variant="secondary" size="lg">
+          <Button href="/studio" variant="secondary" size="lg" prefetch={false}>
             {t("ctaCreate")}
           </Button>
         </div>

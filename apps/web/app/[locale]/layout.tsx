@@ -28,16 +28,20 @@ const HOME_PATH = "/";
 /**
  * Microsoft Clarity analytics. Loaded ONLY when NEXT_PUBLIC_CLARITY_ID is
  * set at build time — local dev and tests stay analytics-free. The raw
- * <script> goes into a manual <head> so it ships as static SSR HTML
- * (framework-free, no next/script dependency). The ID is validated against
- * Clarity's alphanumeric format before being interpolated into the snippet.
+ * <script> ships as static SSR HTML (framework-free, no next/script
+ * dependency). The ID is validated against Clarity's alphanumeric format
+ * before being interpolated into the snippet. The snippet registers the
+ * window.clarity queue immediately but only injects the loader script on
+ * window "load": clarity.js costs ~0.5s of main-thread eval, which must not
+ * sit inside the LCP window.
  */
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 const CLARITY_ENABLED = !!CLARITY_ID && /^[a-z0-9]+$/i.test(CLARITY_ID);
 const CLARITY_SNIPPET =
   '(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};' +
-  't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;' +
-  'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})' +
+  'function b(){t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;' +
+  'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)}' +
+  'if(l.readyState==="complete"){b()}else{c.addEventListener("load",b)}})' +
   `(window, document, "clarity", "script", "${CLARITY_ID ?? ""}");`;
 
 /**

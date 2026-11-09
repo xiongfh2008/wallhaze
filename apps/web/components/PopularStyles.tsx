@@ -35,6 +35,7 @@ export default function PopularStyles() {
             <li key={style.id}>
               <Link
                 href={`/studio?style=${style.id}`}
+                prefetch={false}
                 className="group flex min-h-[104px] items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-3 text-left outline-none transition hover:border-violet-400/40 hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-violet-400/60"
               >
                 <span className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl md:h-24 md:w-24">
