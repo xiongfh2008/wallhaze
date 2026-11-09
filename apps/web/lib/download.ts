@@ -8,9 +8,17 @@
  * proxy (apps/api, `/v1/images/proxy`) — the browser then fetches through
  * the API origin and the download works without any CORS round-trip.
  * When fetching still fails (proxy not configured, network error,
- * non-whitelisted host) the helper falls back to opening the ORIGINAL URL
- * in a new tab and reports exactly what happened — "opened" must never be
- * presented to the user as "downloaded".
+ * non-whitelisted host, CORS allowlist mismatch) the helper falls back to
+ * opening the ORIGINAL URL in a new tab and reports exactly what happened —
+ * "opened" must never be presented to the user as "downloaded".
+ *
+ * API-served signed media (`/v1/creations/:id/image|video` on the API
+ * origin) gets one extra safety net: its routes accept `download=1`, which
+ * switches the response to `Content-Disposition: attachment`. When the blob
+ * fetch fails for those URLs (e.g. the web origin is not exactly on the
+ * API's CORS allowlist — 127.0.0.1 vs localhost), a hidden-iframe navigation
+ * with `download=1` still produces a real download because navigation is not
+ * subject to CORS. Only non-API URLs ever end up "opened" in a viewer tab.
  *
  * T04-S1 note: the web app no longer owns an /api/image route. Proxying is
  * only active when NEXT_PUBLIC_API_BASE_URL points at a backend that
@@ -61,6 +69,66 @@ export function timestampedBaseName(
 // with existing imports.
 import { toProxiedImageUrl } from "./api/images";
 export { toProxiedImageUrl };
+import { resolveApiBaseUrl } from "./api/client";
+
+/**
+ * True when the URL is served by the standalone API origin (signed private
+ * media such as `/v1/creations/:id/image`). Those routes accept a
+ * `download=1` query that switches the response to
+ * `Content-Disposition: attachment` — a plain navigation then downloads the
+ * file with NO dependence on the API's CORS allowlist.
+ */
+function isApiMediaUrl(url: string): boolean {
+  const base = resolveApiBaseUrl();
+  if (!base) return false;
+  try {
+    return new URL(url).origin === new URL(base).origin;
+  } catch {
+    return false;
+  }
+}
+
+/** Adds `download=1` to an API media URL (no-op when already present). */
+function withDownloadParam(url: string): string {
+  try {
+    const parsed = new URL(url);
+    if (parsed.searchParams.has("download")) return url;
+    parsed.searchParams.set("download", "1");
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
+/**
+ * Attachment download via a hidden iframe: navigation semantics that are not
+ * subject to CORS, without leaving the page. The API answers with
+ * `Content-Disposition: attachment`, so the browser saves the file; an error
+ * body (e.g. an expired signature) loads invisibly inside the frame instead
+ * of replacing the app. `allow-downloads` keeps the download working while
+ * every other sandboxed capability stays disabled.
+ */
+function iframeDownload(url: string): void {
+  const frame = document.createElement("iframe");
+  frame.hidden = true;
+  // setAttribute (not the sandbox DOMTokenList): works uniformly across
+  // browsers and jsdom. allow-downloads keeps the download working while
+  // every other sandboxed capability stays disabled.
+  frame.setAttribute("sandbox", "allow-downloads");
+  frame.setAttribute("aria-hidden", "true");
+  frame.src = url;
+  document.body.appendChild(frame);
+  // The frame is only a download trigger; once the fetch settles (download
+  // started or error page loaded) it can go. Generous delay so slow signed
+  // media responses are not cut off.
+  setTimeout(() => {
+    try {
+      frame.remove();
+    } catch {
+      // Already detached — cleanup only.
+    }
+  }, 60_000);
+}
 
 interface DownloadImageOptions {
   /** Remote image URL. Only used for fetching — never as a file name. */
@@ -84,6 +152,10 @@ export async function downloadImage({
   baseName,
   fallbackMime,
 }: DownloadImageOptions): Promise<DownloadResult> {
+  // Remember whether this is API-served signed media: if the blob fetch
+  // below fails, an iframe navigation with download=1 still downloads it
+  // (CORS-free) instead of falling back to an inline viewer tab.
+  const apiMedia = isApiMediaUrl(url);
   try {
     // Whitelisted remote URLs are re-served through the API's proxy when
     // configured; any other URL passes through unchanged. Either way a
@@ -113,11 +185,26 @@ export async function downloadImage({
     }, 1_000);
     return "downloaded";
   } catch {
-    // HTTP error, network failure or a CORS-blocked fetch (e.g. TypeError:
-    // "Failed to fetch") — fall back to opening the original image. Direct
-    // navigation is not subject to the same CORS policy as fetch. The
-    // fallback itself is guarded so this function NEVER rejects: a popup
-    // error must not become an unhandled promise rejection.
+    // HTTP error (e.g. an expired signature), network failure or a
+    // CORS-blocked fetch (TypeError: "Failed to fetch" — the web origin is
+    // not exactly on the API's CORS allowlist, e.g. 127.0.0.1 vs localhost).
+    if (apiMedia) {
+      // API media routes turn `download=1` into Content-Disposition:
+      // attachment, so a hidden-iframe navigation downloads the file no
+      // matter what the CORS allowlist says. Top-level navigation would
+      // work too, but an error response would replace the app with its
+      // JSON body — the iframe swallows that invisibly instead.
+      try {
+        iframeDownload(withDownloadParam(url));
+        return "downloaded";
+      } catch {
+        return "failed";
+      }
+    }
+    // Non-API URL (e.g. a remote gallery host): direct navigation is not
+    // subject to the same CORS policy as fetch, so opening the image is the
+    // honest last resort. The fallback itself is guarded so this function
+    // NEVER rejects: a popup error must not become an unhandled rejection.
     try {
       // "noopener" is NOT passed: per the HTML spec that combination always
       // returns null, which made every fallback look like a failure. The
