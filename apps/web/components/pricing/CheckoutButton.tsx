@@ -9,12 +9,13 @@ import {
 } from "@/lib/api/credits";
 
 /**
- * One shared pricing probe for every buy button on the page: the package
- * cards mount simultaneously, so they must not fire one identical request
- * each. The promise latches the first call for the lifetime of the page.
+ * One shared pricing probe for every commercial-status consumer on the page
+ * (buy buttons and the checkout status notice): the package cards mount
+ * simultaneously, so they must not fire one identical request each. The
+ * promise latches the first call for the lifetime of the page.
  */
 let gatesProbe: Promise<CommercialGates> | null = null;
-function probeCommercialGates(): Promise<CommercialGates> {
+export function probeCommercialGates(): Promise<CommercialGates> {
   gatesProbe ??= creditsAdapter
     .getPricing()
     .then((result) => resolveCommercialGates(result));
@@ -28,7 +29,7 @@ interface CheckoutButtonProps {
   pausedLabel: string;
   /** Channel not open yet / probe failed — resolved from pricing.pricingClosedCta. */
   closedLabel: string;
-  /** Probe still in flight — resolved from pricing.checkoutComing. */
+  /** Probe still in flight — resolved from pricing.checkoutChecking. */
   loadingLabel: string;
 }
 

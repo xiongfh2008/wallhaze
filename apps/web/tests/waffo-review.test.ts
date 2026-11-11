@@ -212,10 +212,27 @@ describe("pricing page content matches the real configuration", () => {
     expect(costs.some((c) => c.cost === "40 / 50 / 60 Credits")).toBe(true);
   });
 
-  it("keeps the honest checkout state and no-subscription billing", () => {
+  it("keeps the status-driven checkout copy and no-subscription billing", () => {
     for (const locale of LOCALES) {
-      expect(String(msgValue(locale, "pricing.checkoutComing")).length).toBeGreaterThan(0);
-      expect(String(msgValue(locale, "pricing.checkoutBody")).length).toBeGreaterThan(0);
+      // Open / paused / closed / in-flight states all carry copy; the stale
+      // "coming soon" keys are gone.
+      for (const key of [
+        "checkoutOpenTitle",
+        "checkoutOpenBody",
+        "checkoutPausedTitle",
+        "checkoutPausedBody",
+        "checkoutClosedTitle",
+        "checkoutClosedBody",
+        "checkoutChecking",
+        "pricingPausedCta",
+        "pricingClosedCta",
+      ]) {
+        expect(String(msgValue(locale, `pricing.${key}`)).length).toBeGreaterThan(0);
+      }
+      expect(msgValue(locale, "pricing.pricingNote")).toBeUndefined();
+      expect(msgValue(locale, "pricing.checkoutTitle")).toBeUndefined();
+      expect(msgValue(locale, "pricing.checkoutBody")).toBeUndefined();
+      expect(msgValue(locale, "pricing.checkoutComing")).toBeUndefined();
       const billing = msgValue(locale, "pricing.billingItems") as string[];
       expect(billing.length).toBeGreaterThanOrEqual(4);
     }
@@ -344,9 +361,10 @@ describe("public page discoverability", () => {
  *  1. Terms must carry a full Refund and Cancellation Policy aligned with
  *     the Waffo Buyer Terms (merchant of record, 120-day refund window,
  *     14-business-day processing) — never "all digital sales are final".
- *  2. No public copy may describe AI Studio generation (text-to-image,
- *     reference-image editing, image-to-video, text-to-video) as an
- *     available service; it is planned and not currently available.
+ *  2. Launch status (2026-11-11): AI Studio generation and Credits purchasing
+ *     are LIVE — no public copy may describe them as "coming soon",
+ *     "planned" or "not yet available". Fail-closed states keep honest
+ *     conditional copy (paused / probe failed / disabled builds).
  *  3. Section numbering in Terms must match the rendered order.
  */
 describe("terms: refund and cancellation policy", () => {
@@ -392,21 +410,15 @@ describe("terms: refund and cancellation policy", () => {
   });
 });
 
-describe("AI Studio is described as planned, not available", () => {
-  /** Exact legacy phrases that claimed generation was a live service. */
+describe("AI Studio and Credits are described as live services", () => {
+  /** Legacy marketing/tone phrases that must never return. */
   const BANNED_PHRASES = [
     "Create stunning AI wallpapers",
     "Create with AI",
     "Create Wallpaper",
     "Create for This Theme",
     "creating an account or generating images",
-    "when you use the AI Studio, we store",
-    "the AI Studio, Credits and orders",
-    "fal.ai) — when you request a generation",
-    "Waffo Prompt Sift reviews prompts",
-    "The Studio lets you create your own wallpaper",
     "and make it yours",
-    "Your generation history is stored only in this browser",
     "使用 AI 创作主题壁纸",
     "このテーマで AI 制作",
     "이 테마로 AI 제작",
@@ -424,65 +436,112 @@ describe("AI Studio is described as planned, not available", () => {
     }
   });
 
-  /** A coming-soon / not-available marker per locale (semantic guard). */
+  /** A coming-soon / planned marker per locale (semantic guard). */
   const COMING_MARKERS: Record<(typeof LOCALES)[number], RegExp> = {
     en: /coming soon|not currently available|planned/i,
     zh: /即将|暂未|尚未|暂不|规划中/,
-    ja: /近日|計画中|現在利用でき|まだ/,
-    ko: /곧 공개|계획 중|현재 이용|아직/,
-    es: /próximamente|pronto|planificad|no está disponible/i,
-    fr: /bientôt|prévu|pas disponible/i,
-    de: /bald|geplant|nicht verfügbar/i,
+    ja: /近日|計画中|まだ利用でき|準備中/,
+    ko: /곧 공개|계획 중|아직 이용|준비 중/,
+    es: /próximamente|pronto|planificad/i,
+    fr: /bientôt|prévu|planifi/i,
+    de: /bald|geplant|demnächst/i,
   };
 
   /** A purchasing-not-yet-available marker per locale. */
   const NOT_YET_MARKERS: Record<(typeof LOCALES)[number], RegExp> = {
-    en: /not yet available|not currently available/i,
-    zh: /尚未开放|暂未开放|尚未|暂不/,
-    ja: /まだ利用できま|まだ利用できない|購入はまだ/,
-    ko: /아직 불가능|아직 제공되지|구매는 아직/,
-    es: /aún no está disponible|no está disponible/i,
-    fr: /pas encore disponible|pas disponible/i,
-    de: /noch nicht verfügbar|nicht verfügbar/i,
+    en: /not yet available|not currently available|not yet open/i,
+    zh: /尚未开放|暂未开放|购买尚未|计划价格/,
+    ja: /まだ利用できま|まだ利用できない|購入はまだ|計画価格/,
+    ko: /아직 불가능|아직 제공되지|구매는 아직|계획 가격/,
+    es: /aún no está disponible|aún no está abierta|planificado/i,
+    fr: /pas encore disponible|lancement prévu|prix prévu/i,
+    de: /noch nicht verfügbar|Kaufen noch nicht|Planpreis/i,
   };
 
-  it("home, about, help and creations metadata carry a coming-soon marker", () => {
+  /**
+   * Launch-state surfaces: these keys describe generation, accounts or
+   * purchasing as live, so they must carry no coming-soon / planned marker.
+   */
+  const LIVE_KEYS = [
+    "meta.homeDescription",
+    "meta.studioTitle",
+    "meta.studioDescription",
+    "meta.loginDescription",
+    "meta.signupDescription",
+    "meta.accountDescription",
+    "meta.creditsDescription",
+    "meta.myCreationsDescription",
+    "meta.aboutDescription",
+    "meta.helpDescription",
+    "meta.pricingDescription",
+    "hero.subtitle",
+    "hero.footnote",
+    "howItWorks.step2Title",
+    "howItWorks.step2Body",
+    "studio.subtitle",
+    "studio.aiGenerationTitle",
+    "studio.aiGenerationBody",
+    "studioIntro.title",
+    "studioIntro.body",
+    "cta.button",
+    "footer.tagline",
+    "about.intro",
+    "about.whatBody",
+    "about.capStudioBody",
+    "about.roadmapBody",
+    "about.aiBody",
+    "about.aiModelsIntro",
+    "about.aiModelsNote",
+    "faq.q3A",
+    "faq.q4A",
+    "faq.q5A",
+    "faq.q7A",
+    "faq.q8A",
+    "help.studioTitle",
+    "help.studioBody",
+    "terms.serviceBody",
+    "terms.creditsBody",
+    "terms.refundBody",
+    "privacy.screeningBody",
+    "privacy.plannedBody",
+  ];
+
+  it("live-surface copy carries no coming-soon marker in any locale", () => {
     for (const locale of LOCALES) {
-      for (const key of [
-        "meta.homeDescription",
-        "meta.aboutDescription",
-        "meta.helpDescription",
-        "meta.myCreationsDescription",
-      ]) {
+      for (const key of LIVE_KEYS) {
         const value = String(msgValue(locale, key));
+        expect(value.length, `${locale}:${key} is empty`).toBeGreaterThan(0);
         expect(
-          COMING_MARKERS[locale as keyof typeof COMING_MARKERS].test(value)
-        ).toBe(true);
+          COMING_MARKERS[locale as keyof typeof COMING_MARKERS].test(value),
+          `${locale}:${key} still reads as coming soon: ${value}`
+        ).toBe(false);
       }
     }
   });
 
-  it("credits and pricing metadata state purchasing is not yet available", () => {
+  it("credits and pricing metadata state purchasing is open", () => {
     for (const locale of LOCALES) {
       for (const key of [
         "meta.creditsDescription",
         "meta.pricingDescription",
+        "terms.creditsBody",
+        "terms.refundBody",
       ]) {
         const value = String(msgValue(locale, key));
         expect(
-          NOT_YET_MARKERS[locale as keyof typeof NOT_YET_MARKERS].test(value)
-        ).toBe(true);
+          NOT_YET_MARKERS[locale as keyof typeof NOT_YET_MARKERS].test(value),
+          `${locale}:${key} still reads as not yet available: ${value}`
+        ).toBe(false);
       }
     }
   });
 
-  it("hero and header CTAs no longer promise creation", () => {
+  it("hero and header CTAs stay launch-accurate", () => {
     for (const locale of LOCALES) {
-      const cta = String(msgValue(locale, "hero.ctaCreate"));
-      const button = String(msgValue(locale, "nav.getStarted"));
-      for (const value of [cta, button]) {
-        expect(value).not.toMatch(/create|生成|创作|作成|만들|crear|créer|erstellen/i);
-        expect(COMING_MARKERS[locale as keyof typeof COMING_MARKERS].test(value) || /studio|プレビュー|미리|ver|découvrir|ansehen/i.test(value)).toBe(true);
+      for (const key of ["hero.ctaCreate", "nav.getStarted"]) {
+        const value = String(msgValue(locale, key));
+        expect(value.length).toBeGreaterThan(0);
+        expect(COMING_MARKERS[locale as keyof typeof COMING_MARKERS].test(value)).toBe(false);
       }
     }
   });

@@ -5,6 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import CheckoutButton from "@/components/pricing/CheckoutButton";
+import CheckoutStatusNotice from "@/components/pricing/CheckoutStatusNotice";
 
 /**
  * /pricing (Waffo review): the public pricing page. Mirrors the real
@@ -119,16 +120,13 @@ export default async function PricingPage({
                         buyLabel={tWallet("checkoutButton")}
                         pausedLabel={t("pricingPausedCta")}
                         closedLabel={t("pricingClosedCta")}
-                        loadingLabel={t("checkoutComing")}
+                        loadingLabel={t("checkoutChecking")}
                       />
                     </div>
                   ))
                 : null}
             </div>
             <p className="mt-4 text-sm text-zinc-500">{t("packagesNote")}</p>
-            <p className="mt-2 rounded-xl border border-amber-400/25 bg-amber-400/[0.06] px-4 py-3 text-sm leading-relaxed text-amber-200">
-              {t("pricingNote")}
-            </p>
           </section>
 
           {/* Per-generation costs — mirrors pricing.ts / video-pricing.ts. */}
@@ -188,21 +186,18 @@ export default async function PricingPage({
             </ul>
           </section>
 
-          {/* Checkout status notice. */}
-          <section
-            aria-labelledby="pricing-checkout"
-            className="mt-12 scroll-mt-28 rounded-2xl border border-violet-400/20 bg-violet-500/[0.06] p-6"
-          >
-            <h2
-              id="pricing-checkout"
-              className="text-lg font-semibold text-zinc-100"
-            >
-              {t("checkoutTitle")}
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              {t("checkoutBody")}
-            </p>
-          </section>
+          {/* Checkout status notice — shares the same pricing probe as the
+              buy buttons, so notice and buttons can never disagree. Renders
+              nothing until the probe answers; open shows positive copy,
+              paused/closed show the accurate fail-closed reason. */}
+          <CheckoutStatusNotice
+            openTitle={t("checkoutOpenTitle")}
+            openBody={t("checkoutOpenBody")}
+            pausedTitle={t("checkoutPausedTitle")}
+            pausedBody={t("checkoutPausedBody")}
+            closedTitle={t("checkoutClosedTitle")}
+            closedBody={t("checkoutClosedBody")}
+          />
 
           {/* FAQ */}
           <section
