@@ -1,0 +1,2219 @@
+{
+ "probedAt": "2026-11-12T15:11:36.637Z",
+ "details": [
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/wallpapers/sakura-dream",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/sakura-dream",
+    "title": "Sakura Dream — Free Wallpaper | WallHaze",
+    "h1": "Sakura Dream",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/macro-nature.jpg",
+      "srcset": null,
+      "alt": "Macro photograph of dew drops beading along a bright green leaf",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/sakura-dream.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "indah nur indaheart",
+      "creator": "indah nur indaheart",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "indah nur indaheart dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154044
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/sakura-dream",
+    "title": "Sakura Dream — Free Wallpaper | WallHaze",
+    "h1": "Sakura Dream",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/macro-nature.jpg",
+      "srcset": null,
+      "alt": "Macro photograph of dew drops beading along a bright green leaf",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/sakura-dream.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "indah nur indaheart",
+      "creator": "indah nur indaheart",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "indah nur indaheart dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154044
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/wallpapers/galaxy-tide",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/galaxy-tide",
+    "title": "Galaxy Tide — Free Wallpaper | WallHaze",
+    "h1": "Galaxy Tide",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Deep blue and green nebula clouds with dense star fields",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Deep blue and green nebula clouds with dense star fields",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Moonlit mountain lake with mirrored reflections and a dark forest ridge",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "Glowing orange lion&#x27;s mane jellyfish drifting in deep blue water",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Green and pink aurora over a snowy mountain and calm fjord",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/starry-galaxy.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Dylan O'Donnell",
+      "creator": "Dylan O'Donnell",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Dylan O'Donnell dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154088
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/galaxy-tide",
+    "title": "Galaxy Tide — Free Wallpaper | WallHaze",
+    "h1": "Galaxy Tide",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Deep blue and green nebula clouds with dense star fields",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Deep blue and green nebula clouds with dense star fields",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Moonlit mountain lake with mirrored reflections and a dark forest ridge",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "Glowing orange lion&#x27;s mane jellyfish drifting in deep blue water",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Green and pink aurora over a snowy mountain and calm fjord",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/starry-galaxy.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Dylan O'Donnell",
+      "creator": "Dylan O'Donnell",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Dylan O'Donnell dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154088
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/wallpapers/quiet-geometry",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/quiet-geometry",
+    "title": "Quiet Geometry — Free Wallpaper | WallHaze",
+    "h1": "Quiet Geometry",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/macro-nature.jpg",
+      "srcset": null,
+      "alt": "Macro photograph of dew drops beading along a bright green leaf",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/architecture-minimal.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Breather",
+      "creator": "Breather",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Breather dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154645
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/quiet-geometry",
+    "title": "Quiet Geometry — Free Wallpaper | WallHaze",
+    "h1": "Quiet Geometry",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/macro-nature.jpg",
+      "srcset": null,
+      "alt": "Macro photograph of dew drops beading along a bright green leaf",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/architecture-minimal.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Breather",
+      "creator": "Breather",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Breather dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154645
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/wallpapers/aurora-veil",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/aurora-veil",
+    "title": "Aurora Veil — Free Wallpaper | WallHaze",
+    "h1": "Aurora Veil",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Green and pink aurora over a snowy mountain and calm fjord",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Green and pink aurora over a snowy mountain and calm fjord",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Deep blue and green nebula clouds with dense star fields",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Moonlit mountain lake with mirrored reflections and a dark forest ridge",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "Glowing orange lion&#x27;s mane jellyfish drifting in deep blue water",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/aurora-nights.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Johannes Groll",
+      "creator": "Johannes Groll",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Johannes Groll dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154055
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/aurora-veil",
+    "title": "Aurora Veil — Free Wallpaper | WallHaze",
+    "h1": "Aurora Veil",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Green and pink aurora over a snowy mountain and calm fjord",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Green and pink aurora over a snowy mountain and calm fjord",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Deep blue and green nebula clouds with dense star fields",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Moonlit mountain lake with mirrored reflections and a dark forest ridge",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "Glowing orange lion&#x27;s mane jellyfish drifting in deep blue water",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/aurora-nights.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Johannes Groll",
+      "creator": "Johannes Groll",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Johannes Groll dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154055
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/wallpapers/poppy-field",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/poppy-field",
+    "title": "Poppy Field — Free Wallpaper | WallHaze",
+    "h1": "Poppy Field",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/macro-nature.jpg",
+      "srcset": null,
+      "alt": "Macro photograph of dew drops beading along a bright green leaf",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/poppy-field.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Gerda Arendt",
+      "creator": "Gerda Arendt",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Gerda Arendt dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154202
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/poppy-field",
+    "title": "Poppy Field — Free Wallpaper | WallHaze",
+    "h1": "Poppy Field",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/poppy-field.jpg",
+      "srcset": null,
+      "alt": "Close-up of red poppies and white wildflowers in a summer meadow",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/sakura-dream.jpg",
+      "srcset": null,
+      "alt": "Pink cherry blossoms against a soft blue sky",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/architecture-minimal.jpg",
+      "srcset": null,
+      "alt": "Minimal white interior with a black lamp, glass desk and architecture books",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/macro-nature.jpg",
+      "srcset": null,
+      "alt": "Macro photograph of dew drops beading along a bright green leaf",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/poppy-field.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Gerda Arendt",
+      "creator": "Gerda Arendt",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Gerda Arendt dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154202
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+    "title": "Rainy Day Lo-Fi — Free Wallpaper | WallHaze",
+    "h1": "Rainy Day Lo-Fi",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/b2-lofi-rain-window.jpg",
+      "srcset": null,
+      "alt": "Rain on a large window with a steaming mug and a sleeping cat",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/b2-lofi-rain-window.jpg",
+      "srcset": null,
+      "alt": "Rain on a large window with a steaming mug and a sleeping cat",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/mecha-girl-neon-city.jpg",
+      "srcset": null,
+      "alt": "Original anime mecha girl on a rooftop above a neon megacity skyline",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/sakura-tram-station.jpg",
+      "srcset": null,
+      "alt": "Anime tram station at dusk with drifting cherry blossoms",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/mystic-girl-night-sky.jpg",
+      "srcset": null,
+      "alt": "Anime girl gazing up at a towering starry night sky with a faint aurora",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/b2-lofi-rain-window.jpg",
+      "license": "https://wallhaze.com/terms#downloads",
+      "creditText": "WallHaze",
+      "creator": "WallHaze",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Original AI-generated artwork by WallHaze — no copyright claim asserted; licensed per the WallHaze Terms",
+      "width": 864,
+      "height": 1536
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154552
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+    "title": "Rainy Day Lo-Fi — Free Wallpaper | WallHaze",
+    "h1": "Rainy Day Lo-Fi",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/b2-lofi-rain-window.jpg",
+      "srcset": null,
+      "alt": "Rain on a large window with a steaming mug and a sleeping cat",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/b2-lofi-rain-window.jpg",
+      "srcset": null,
+      "alt": "Rain on a large window with a steaming mug and a sleeping cat",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/mecha-girl-neon-city.jpg",
+      "srcset": null,
+      "alt": "Original anime mecha girl on a rooftop above a neon megacity skyline",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/sakura-tram-station.jpg",
+      "srcset": null,
+      "alt": "Anime tram station at dusk with drifting cherry blossoms",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/mystic-girl-night-sky.jpg",
+      "srcset": null,
+      "alt": "Anime girl gazing up at a towering starry night sky with a faint aurora",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/b2-lofi-rain-window.jpg",
+      "license": "https://wallhaze.com/terms#downloads",
+      "creditText": "WallHaze",
+      "creator": "WallHaze",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Original AI-generated artwork by WallHaze — no copyright claim asserted; licensed per the WallHaze Terms",
+      "width": 864,
+      "height": 1536
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 154552
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+    "title": "Piloto y titán — Free Wallpaper | WallHaze",
+    "h1": "Piloto y titán",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/b2-mech-pilot-gaze.jpg",
+      "srcset": null,
+      "alt": "Piloto y titán — Original mecha pilot before her towering mechanical partner",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/b2-mech-pilot-gaze.jpg",
+      "srcset": null,
+      "alt": "Piloto y titán — Original mecha pilot before her towering mechanical partner",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/mecha-girl-neon-city.jpg",
+      "srcset": null,
+      "alt": "Chica mecha: horizonte de neón — Original anime mecha girl on a rooftop above a neon megacity skyline",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/sakura-tram-station.jpg",
+      "srcset": null,
+      "alt": "Pétalos en la última parada — Anime tram station at dusk with drifting cherry blossoms",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/mystic-girl-night-sky.jpg",
+      "srcset": null,
+      "alt": "Mirando las estrellas — Anime girl gazing up at a towering starry night sky with a faint aurora",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/b2-mech-pilot-gaze.jpg",
+      "license": "https://wallhaze.com/terms#downloads",
+      "creditText": "WallHaze",
+      "creator": "WallHaze",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Original AI-generated artwork by WallHaze — no copyright claim asserted; licensed per the WallHaze Terms",
+      "width": 864,
+      "height": 1536
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 160842
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+    "title": "Piloto y titán — Free Wallpaper | WallHaze",
+    "h1": "Piloto y titán",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/b2-mech-pilot-gaze.jpg",
+      "srcset": null,
+      "alt": "Piloto y titán — Original mecha pilot before her towering mechanical partner",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/b2-mech-pilot-gaze.jpg",
+      "srcset": null,
+      "alt": "Piloto y titán — Original mecha pilot before her towering mechanical partner",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/mecha-girl-neon-city.jpg",
+      "srcset": null,
+      "alt": "Chica mecha: horizonte de neón — Original anime mecha girl on a rooftop above a neon megacity skyline",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/sakura-tram-station.jpg",
+      "srcset": null,
+      "alt": "Pétalos en la última parada — Anime tram station at dusk with drifting cherry blossoms",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/mystic-girl-night-sky.jpg",
+      "srcset": null,
+      "alt": "Mirando las estrellas — Anime girl gazing up at a towering starry night sky with a faint aurora",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/b2-mech-pilot-gaze.jpg",
+      "license": "https://wallhaze.com/terms#downloads",
+      "creditText": "WallHaze",
+      "creator": "WallHaze",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Original AI-generated artwork by WallHaze — no copyright claim asserted; licensed per the WallHaze Terms",
+      "width": 864,
+      "height": 1536
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 160842
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/zh/wallpapers/stillwater-night",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/zh/wallpapers/stillwater-night",
+    "title": "静水之夜 — Free Wallpaper | WallHaze",
+    "h1": "静水之夜",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/stillwater-night.jpg",
+      "srcset": null,
+      "alt": "深蓝夜空下的月光湖面与森林剪影",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/stillwater-night.jpg",
+      "srcset": null,
+      "alt": "深蓝夜空下的月光湖面与森林剪影",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "深蓝与绿色星云和密集星场",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "月光下的山湖倒影与幽暗林脊",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "深蓝海水中漂浮的橙色狮鬃水母",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/stillwater-night.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "cweyant",
+      "creator": "cweyant",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "cweyant dedicated this work to the public domain under CC0",
+      "width": 1920,
+      "height": 1080
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 124756
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/zh/wallpapers/stillwater-night",
+    "title": "静水之夜 — Free Wallpaper | WallHaze",
+    "h1": "静水之夜",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/stillwater-night.jpg",
+      "srcset": null,
+      "alt": "深蓝夜空下的月光湖面与森林剪影",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/stillwater-night.jpg",
+      "srcset": null,
+      "alt": "深蓝夜空下的月光湖面与森林剪影",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "深蓝与绿色星云和密集星场",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "月光下的山湖倒影与幽暗林脊",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "深蓝海水中漂浮的橙色狮鬃水母",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/stillwater-night.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "cweyant",
+      "creator": "cweyant",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "cweyant dedicated this work to the public domain under CC0",
+      "width": 1920,
+      "height": 1080
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 124756
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/ja/wallpapers/hong-kong-rain",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/ja/wallpapers/hong-kong-rain",
+    "title": "ネオン街 — Free Wallpaper | WallHaze",
+    "h1": "ネオン街",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "赤、緑、青のネオンが輝く雨の香港の街",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "赤、緑、青のネオンが輝く雨の香港の街",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/light-ribbons-wide.jpg",
+      "srcset": null,
+      "alt": "暗い背景に浮かぶ紫、シアン、琥珀色の抽象光",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/tokyo-neon-rain-night.jpg",
+      "srcset": null,
+      "alt": "東京レイン・ネオンナイト — Rainy futuristic street reflecting blue and purple neon",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starship-ring-planet.jpg",
+      "srcset": null,
+      "alt": "リングの惑星へ — Starship crossing a giant ringed planet in deep space",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/hong-kong-rain.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Wilfredor",
+      "creator": "Wilfredor",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Wilfredor dedicated this work to the public domain under CC0",
+      "width": 1920,
+      "height": 1080
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 132174
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/ja/wallpapers/hong-kong-rain",
+    "title": "ネオン街 — Free Wallpaper | WallHaze",
+    "h1": "ネオン街",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "赤、緑、青のネオンが輝く雨の香港の街",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "赤、緑、青のネオンが輝く雨の香港の街",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/light-ribbons-wide.jpg",
+      "srcset": null,
+      "alt": "暗い背景に浮かぶ紫、シアン、琥珀色の抽象光",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/tokyo-neon-rain-night.jpg",
+      "srcset": null,
+      "alt": "東京レイン・ネオンナイト — Rainy futuristic street reflecting blue and purple neon",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starship-ring-planet.jpg",
+      "srcset": null,
+      "alt": "リングの惑星へ — Starship crossing a giant ringed planet in deep space",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/hong-kong-rain.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Wilfredor",
+      "creator": "Wilfredor",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Wilfredor dedicated this work to the public domain under CC0",
+      "width": 1920,
+      "height": 1080
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 132174
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/fr/wallpapers/stillwater-dawn",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/fr/wallpapers/stillwater-dawn",
+    "title": "Aube Immobile — Free Wallpaper | WallHaze",
+    "h1": "Aube Immobile",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Lac de montagne au clair de lune et crête forestière sombre",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Lac de montagne au clair de lune et crête forestière sombre",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Nébuleuse bleu profond et verte avec de denses champs d’étoiles",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "Méduse crinière de lion orange flottant dans une eau bleu profond",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Aurore verte et rose au-dessus d’une montagne enneigée et d’un fjord calme",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/mountain-lake.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "cweyant",
+      "creator": "cweyant",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "cweyant dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 162309
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/fr/wallpapers/stillwater-dawn",
+    "title": "Aube Immobile — Free Wallpaper | WallHaze",
+    "h1": "Aube Immobile",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Lac de montagne au clair de lune et crête forestière sombre",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "Lac de montagne au clair de lune et crête forestière sombre",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "Nébuleuse bleu profond et verte avec de denses champs d’étoiles",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "Méduse crinière de lion orange flottant dans une eau bleu profond",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/aurora-nights.jpg",
+      "srcset": null,
+      "alt": "Aurore verte et rose au-dessus d’une montagne enneigée et d’un fjord calme",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/mountain-lake.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "cweyant",
+      "creator": "cweyant",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "cweyant dedicated this work to the public domain under CC0",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 162309
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/ko/wallpapers/forest-rays",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/ko/wallpapers/forest-rays",
+    "title": "숲의 성당 — Free Wallpaper | WallHaze",
+    "h1": "숲의 성당",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/forest-rays.jpg",
+      "srcset": null,
+      "alt": "높은 나무와 아침 안개를 뚫는 빛줄기",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/forest-rays.jpg",
+      "srcset": null,
+      "alt": "높은 나무와 아침 안개를 뚫는 빛줄기",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "깊은 파란색과 초록색 성운, 촘촘한 별밭",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "달빛 아래 산속 호수와 어두운 숲 능선",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "깊은 바다에 떠 있는 주황색 사자갈기 해파리",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/forest-rays.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Kristine Weilert",
+      "creator": "Kristine Weilert",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Kristine Weilert dedicated this work to the public domain under CC0",
+      "width": 1920,
+      "height": 1080
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 132904
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/ko/wallpapers/forest-rays",
+    "title": "숲의 성당 — Free Wallpaper | WallHaze",
+    "h1": "숲의 성당",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/forest-rays.jpg",
+      "srcset": null,
+      "alt": "높은 나무와 아침 안개를 뚫는 빛줄기",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/forest-rays.jpg",
+      "srcset": null,
+      "alt": "높은 나무와 아침 안개를 뚫는 빛줄기",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/starry-galaxy.jpg",
+      "srcset": null,
+      "alt": "깊은 파란색과 초록색 성운, 촘촘한 별밭",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/mountain-lake.jpg",
+      "srcset": null,
+      "alt": "달빛 아래 산속 호수와 어두운 숲 능선",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/styles/deep-ocean.jpg",
+      "srcset": null,
+      "alt": "깊은 바다에 떠 있는 주황색 사자갈기 해파리",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/wallpapers/forest-rays.jpg",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "creditText": "Kristine Weilert",
+      "creator": "Kristine Weilert",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "Kristine Weilert dedicated this work to the public domain under CC0",
+      "width": 1920,
+      "height": 1080
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 132904
+   }
+  },
+  {
+   "group": "licensed",
+   "url": "https://wallhaze.com/de/wallpapers/soft-horizon",
+   "browser": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/de/wallpapers/soft-horizon",
+    "title": "Sanfter Horizont — Free Wallpaper | WallHaze",
+    "h1": "Sanfter Horizont",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/soft-gradient.jpg",
+      "srcset": null,
+      "alt": "Weicher violett-amberfarbener Verlaufshorizont mit sanftem Leuchten",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/soft-gradient.jpg",
+      "srcset": null,
+      "alt": "Weicher violett-amberfarbener Verlaufshorizont mit sanftem Leuchten",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/dreamcore-floating-room.jpg",
+      "srcset": null,
+      "alt": "Zimmer über den Wolken — A furnished room floating on an island above an endless cloud sea",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starlit-glowing-ocean.jpg",
+      "srcset": null,
+      "alt": "Zwischen zwei Himmeln — A small boat between a starlit sky and a bioluminescent ocean",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/deep-sea-glow-cosmos.jpg",
+      "srcset": null,
+      "alt": "Abgründige Konstellation — Bioluminescent deep-sea creatures drifting like a galaxy",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/soft-gradient.jpg",
+      "license": "https://wallhaze.com/terms#downloads",
+      "creditText": "WallHaze",
+      "creator": "WallHaze",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "© WallHaze — self-authored artwork, licensed per the WallHaze Terms",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 161760
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": null,
+    "canonical": "https://wallhaze.com/de/wallpapers/soft-horizon",
+    "title": "Sanfter Horizont — Free Wallpaper | WallHaze",
+    "h1": "Sanfter Horizont",
+    "imgCount": 12,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/styles/soft-gradient.jpg",
+      "srcset": null,
+      "alt": "Weicher violett-amberfarbener Verlaufshorizont mit sanftem Leuchten",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/styles/soft-gradient.jpg",
+      "srcset": null,
+      "alt": "Weicher violett-amberfarbener Verlaufshorizont mit sanftem Leuchten",
+      "width": null,
+      "height": null,
+      "loading": "eager"
+     },
+     {
+      "src": "/images/wallpapers/dreamcore-floating-room.jpg",
+      "srcset": null,
+      "alt": "Zimmer über den Wolken — A furnished room floating on an island above an endless cloud sea",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starlit-glowing-ocean.jpg",
+      "srcset": null,
+      "alt": "Zwischen zwei Himmeln — A small boat between a starlit sky and a bioluminescent ocean",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/deep-sea-glow-cosmos.jpg",
+      "srcset": null,
+      "alt": "Abgründige Konstellation — Bioluminescent deep-sea creatures drifting like a galaxy",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [
+     {
+      "contentUrl": "https://wallhaze.com/images/styles/soft-gradient.jpg",
+      "license": "https://wallhaze.com/terms#downloads",
+      "creditText": "WallHaze",
+      "creator": "WallHaze",
+      "acquireLicensePage": "https://wallhaze.com/terms#downloads",
+      "copyrightNotice": "© WallHaze — self-authored artwork, licensed per the WallHaze Terms",
+      "width": 1080,
+      "height": 1440
+     }
+    ],
+    "ldCount": 1,
+    "htmlLength": 161760
+   }
+  },
+  {
+   "group": "pending",
+   "url": "https://wallhaze.com/ja/wallpapers/last-train",
+   "browser": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "canonical": "https://wallhaze.com/ja/wallpapers/last-train",
+    "title": "終電 — Wallpaper · License Review | WallHaze",
+    "h1": "終電",
+    "imgCount": 10,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/mecha-girl-neon-city.jpg",
+      "srcset": null,
+      "alt": "メカ少女・ネオンの空 — Original anime mecha girl on a rooftop above a neon megacity skyline",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/sakura-tram-station.jpg",
+      "srcset": null,
+      "alt": "終着駅の桜 — Anime tram station at dusk with drifting cherry blossoms",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/mystic-girl-night-sky.jpg",
+      "srcset": null,
+      "alt": "星を仰ぐ — Anime girl gazing up at a towering starry night sky with a faint aurora",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/samurai-shrine-rain.jpg",
+      "srcset": null,
+      "alt": "雨の鳥居 — Samurai before a red torii gate path in heavy rain with glowing lanterns",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/anime-bedroom-cityscape.jpg",
+      "srcset": null,
+      "alt": "ローファイナイト — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [],
+    "ldCount": 1,
+    "htmlLength": 125998
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "canonical": "https://wallhaze.com/ja/wallpapers/last-train",
+    "title": "終電 — Wallpaper · License Review | WallHaze",
+    "h1": "終電",
+    "imgCount": 10,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/mecha-girl-neon-city.jpg",
+      "srcset": null,
+      "alt": "メカ少女・ネオンの空 — Original anime mecha girl on a rooftop above a neon megacity skyline",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/sakura-tram-station.jpg",
+      "srcset": null,
+      "alt": "終着駅の桜 — Anime tram station at dusk with drifting cherry blossoms",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/mystic-girl-night-sky.jpg",
+      "srcset": null,
+      "alt": "星を仰ぐ — Anime girl gazing up at a towering starry night sky with a faint aurora",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/samurai-shrine-rain.jpg",
+      "srcset": null,
+      "alt": "雨の鳥居 — Samurai before a red torii gate path in heavy rain with glowing lanterns",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/anime-bedroom-cityscape.jpg",
+      "srcset": null,
+      "alt": "ローファイナイト — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [],
+    "ldCount": 1,
+    "htmlLength": 125998
+   }
+  },
+  {
+   "group": "pending",
+   "url": "https://wallhaze.com/zh/wallpapers/neon-rain",
+   "browser": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "canonical": "https://wallhaze.com/zh/wallpapers/neon-rain",
+    "title": "霓虹雨夜 — Wallpaper · License Review | WallHaze",
+    "h1": "霓虹雨夜",
+    "imgCount": 10,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "雨中的香港街道，红绿蓝霓虹灯闪烁",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/light-ribbons-wide.jpg",
+      "srcset": null,
+      "alt": "深色背景上紫、青、琥珀色抽象光带",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/tokyo-neon-rain-night.jpg",
+      "srcset": null,
+      "alt": "东京雨夜·霓虹 — Rainy futuristic street reflecting blue and purple neon",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starship-ring-planet.jpg",
+      "srcset": null,
+      "alt": "环行星之旅 — Starship crossing a giant ringed planet in deep space",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/synthwave-car-sunset.jpg",
+      "srcset": null,
+      "alt": "网格落日 — Retro sports car on a neon grid road toward a striped sunset",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [],
+    "ldCount": 1,
+    "htmlLength": 119318
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "canonical": "https://wallhaze.com/zh/wallpapers/neon-rain",
+    "title": "霓虹雨夜 — Wallpaper · License Review | WallHaze",
+    "h1": "霓虹雨夜",
+    "imgCount": 10,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "雨中的香港街道，红绿蓝霓虹灯闪烁",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/light-ribbons-wide.jpg",
+      "srcset": null,
+      "alt": "深色背景上紫、青、琥珀色抽象光带",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/tokyo-neon-rain-night.jpg",
+      "srcset": null,
+      "alt": "东京雨夜·霓虹 — Rainy futuristic street reflecting blue and purple neon",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starship-ring-planet.jpg",
+      "srcset": null,
+      "alt": "环行星之旅 — Starship crossing a giant ringed planet in deep space",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/synthwave-car-sunset.jpg",
+      "srcset": null,
+      "alt": "网格落日 — Retro sports car on a neon grid road toward a striped sunset",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [],
+    "ldCount": 1,
+    "htmlLength": 119318
+   }
+  },
+  {
+   "group": "pending",
+   "url": "https://wallhaze.com/wallpapers/ring-station",
+   "browser": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "canonical": "https://wallhaze.com/wallpapers/ring-station",
+    "title": "Ring Station — Wallpaper · License Review | WallHaze",
+    "h1": "Ring Station",
+    "imgCount": 10,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "Rainy Hong Kong street glowing with red, green and blue neon signs",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/light-ribbons-wide.jpg",
+      "srcset": null,
+      "alt": "Abstract ribbons of violet, cyan and amber light on a dark field",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/tokyo-neon-rain-night.jpg",
+      "srcset": null,
+      "alt": "Rainy futuristic street reflecting blue and purple neon",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starship-ring-planet.jpg",
+      "srcset": null,
+      "alt": "Starship crossing a giant ringed planet in deep space",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/synthwave-car-sunset.jpg",
+      "srcset": null,
+      "alt": "Retro sports car on a neon grid road toward a striped sunset",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [],
+    "ldCount": 1,
+    "htmlLength": 148184
+   },
+   "googlebot": {
+    "status": 200,
+    "robots": "noindex, nofollow",
+    "canonical": "https://wallhaze.com/wallpapers/ring-station",
+    "title": "Ring Station — Wallpaper · License Review | WallHaze",
+    "h1": "Ring Station",
+    "imgCount": 10,
+    "imgs": [
+     {
+      "src": "/wallhaze-logo-dark.svg",
+      "srcset": null,
+      "alt": "WallHaze",
+      "width": "550",
+      "height": "142",
+      "loading": null
+     },
+     {
+      "src": "/images/wallpapers/hong-kong-rain.jpg",
+      "srcset": null,
+      "alt": "Rainy Hong Kong street glowing with red, green and blue neon signs",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/light-ribbons-wide.jpg",
+      "srcset": null,
+      "alt": "Abstract ribbons of violet, cyan and amber light on a dark field",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/tokyo-neon-rain-night.jpg",
+      "srcset": null,
+      "alt": "Rainy futuristic street reflecting blue and purple neon",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/starship-ring-planet.jpg",
+      "srcset": null,
+      "alt": "Starship crossing a giant ringed planet in deep space",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     },
+     {
+      "src": "/images/wallpapers/synthwave-car-sunset.jpg",
+      "srcset": null,
+      "alt": "Retro sports car on a neon grid road toward a striped sunset",
+      "width": null,
+      "height": null,
+      "loading": "lazy"
+     }
+    ],
+    "imageObjects": [],
+    "ldCount": 1,
+    "htmlLength": 148184
+   }
+  }
+ ],
+ "imageAssets": [
+  {
+   "url": "https://wallhaze.com/images/wallpapers/sakura-dream.jpg",
+   "browser": {
+    "status": 200,
+    "contentType": "image/jpeg",
+    "cacheControl": "public, max-age=86400, stale-while-revalidate=2592000",
+    "cfCacheStatus": "HIT"
+   },
+   "googlebotImage": {
+    "status": 200,
+    "contentType": "image/jpeg"
+   }
+  },
+  {
+   "url": "https://wallhaze.com/images/wallpapers/poppy-field.jpg",
+   "browser": {
+    "status": 200,
+    "contentType": "image/jpeg",
+    "cacheControl": "public, max-age=86400, stale-while-revalidate=2592000",
+    "cfCacheStatus": "HIT"
+   },
+   "googlebotImage": {
+    "status": 200,
+    "contentType": "image/jpeg"
+   }
+  },
+  {
+   "url": "https://wallhaze.com/images/wallpapers/nebula-drift.jpg",
+   "browser": {
+    "status": 200,
+    "contentType": "image/jpeg",
+    "cacheControl": "public, max-age=86400, stale-while-revalidate=2592000",
+    "cfCacheStatus": "HIT"
+   },
+   "googlebotImage": {
+    "status": 200,
+    "contentType": "image/jpeg"
+   }
+  },
+  {
+   "url": "https://wallhaze.com/images/wallpapers/b2-lofi-rain-window.jpg",
+   "browser": {
+    "status": 200,
+    "contentType": "image/jpeg",
+    "cacheControl": "public, max-age=86400, stale-while-revalidate=2592000",
+    "cfCacheStatus": "HIT"
+   },
+   "googlebotImage": {
+    "status": 200,
+    "contentType": "image/jpeg"
+   }
+  }
+ ],
+ "sitemapImageCheck": {
+  "status": 200,
+  "hasImageNs": false,
+  "imageTagCount": 0,
+  "urlCount": 0
+ }
+}

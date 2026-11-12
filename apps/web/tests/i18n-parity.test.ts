@@ -101,7 +101,8 @@ describe("sitemap", () => {
   it("includes public content pages, legal pages + 18 cleared wallpapers; excludes noindex pages", async () => {
     const { default: buildSitemap } = await import("../app/sitemap");
     const siteUrl = "https://wallhaze.com";
-    const paths = buildSitemap().map((entry) =>
+    const entries = buildSitemap();
+    const paths = entries.map((entry) =>
       entry.url.startsWith(siteUrl) ? entry.url.slice(siteUrl.length) : entry.url
     );
 
@@ -117,5 +118,36 @@ describe("sitemap", () => {
     for (const route of NOINDEX_ROUTES) {
       expect(paths, `${route} must not be in the sitemap`).not.toContain(route);
     }
+  });
+
+  it("attaches exactly one absolute image node to every cleared wallpaper URL, and to nothing else", async () => {
+    const { default: buildSitemap } = await import("../app/sitemap");
+    const { PUBLIC_WALLPAPERS } = await import("../lib/wallpapers");
+    const entries = buildSitemap();
+
+    const withImages = entries.filter((e) => e.images?.length);
+    // One image node per locale variant of every cleared detail page (66 × 7).
+    expect(withImages).toHaveLength(PUBLIC_WALLPAPERS.length * 7);
+    expect(withImages.every((e) => e.images!.length === 1)).toBe(true);
+
+    const wallpaperUrls = new Set(
+      PUBLIC_WALLPAPERS.flatMap((w) => [
+        `https://wallhaze.com/wallpapers/${w.id}`,
+        ...["zh", "ja", "ko", "es", "fr", "de"].map(
+          (l) => `https://wallhaze.com/${l}/wallpapers/${w.id}`
+        ),
+      ])
+    );
+    for (const entry of withImages) {
+      expect(wallpaperUrls.has(entry.url), `${entry.url} must be a wallpaper detail URL`).toBe(true);
+      const [image] = entry.images!;
+      expect(image.startsWith("https://wallhaze.com/images/"), image).toBe(true);
+      const slug = entry.url.replace(/.*\/wallpapers\//, "");
+      const wallpaper = PUBLIC_WALLPAPERS.find((w) => w.id === slug);
+      expect(image, slug).toBe(`https://wallhaze.com${wallpaper!.image}`);
+    }
+    // Non-detail URLs (home, gallery, legal, studio…) carry no image nodes.
+    const nonWallpaper = entries.filter((e) => !e.url.includes("/wallpapers/"));
+    expect(nonWallpaper.every((e) => !e.images?.length)).toBe(true);
   });
 });

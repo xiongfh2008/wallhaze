@@ -1,0 +1,2318 @@
+{
+  "robotsTxt": {
+    "status": 200,
+    "headers": {
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "cf-ray": "a595e981c85c55c7-LAX",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-type": "text/plain",
+      "date": "Thu, 12 Nov 2026 13:34:05 GMT",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2BL4euwGcZG7xckQx%2BXrroMM7Bg3CIY8YnFUYV6HLI%2FLGMOCJ5udUKYEYL36eENugMlnycRjbiwJSAYBcWfY2FsmKI%2FDrnIKGSE2sFE8iRcxSTwHpMYWCqGmI66zGGdc%3D\"}]}",
+      "server": "cloudflare",
+      "transfer-encoding": "chunked",
+      "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+      "x-nextjs-cache": "HIT",
+      "x-vinext-cache": "HIT"
+    },
+    "body": "User-Agent: *\nAllow: /\n\nSitemap: https://wallhaze.com/sitemap.xml\n"
+  },
+  "sitemapIndex": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/sitemap.xml",
+    "headers": {
+      "alt-svc": "h3=\":443\"; ma=86400",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "cf-ray": "a595e98ace5755c7-LAX",
+      "connection": "keep-alive",
+      "content-encoding": "br",
+      "content-type": "application/xml",
+      "date": "Thu, 12 Nov 2026 13:34:06 GMT",
+      "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+      "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ycgkzB4aEEO1qsltpFoZfThUvwvlghJKHJxeyryAUYnJ6w%2FsxtHbOM7FgwH%2B55fY8zzhMdanHAtUlz4xkUFwFxZRgp9yaBGCeCd7wWc1gBvjCUZN1TKmlEkRIaWAyWY%3D\"}]}",
+      "server": "cloudflare",
+      "transfer-encoding": "chunked",
+      "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+      "x-nextjs-cache": "HIT",
+      "x-vinext-cache": "HIT"
+    },
+    "bodyStart": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n<url>\n<loc>https://wallhaze.com</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en\" href=\"https://wallhaze.com\" />\n<xhtml:link rel=\"alternate\" hreflang=\"zh\" href=\"https://wallhaze.com/zh\" />\n<xhtml:link rel=\"alternate\" hreflang=\"ja\" href=\"https://wallhaze.com/ja\" />\n<xhtml:link rel=\"alternate\" hreflang=\"ko\" href=\"https://wallhaze.com/ko\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es\" href=\"https://wallhaze.com/es\" />\n<xhtml:link rel=\"alternate\" hreflang=\"fr\" href=\"https://wallhaze.com/fr\" />\n<xhtml:link rel=\"alternate\" hreflang=\"de\" href=\"https://wallhaze.com/de\" />\n<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://wallhaze.com\" />\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://wallhaze.com/zh</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en\" href=\"https://wallhaze.com\" />\n<xhtml:link rel=\"alternate\" hreflang=\"zh\" href=\"https://wallhaze.com/zh\" />\n<xhtml:link rel=\"alternate\" hreflang=\"ja\" href=\"https://wallhaze.com/ja\" />\n<xhtml:link rel=\"alternate\" hreflang=\"ko\" href=\"https://wallhaze.com/ko\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es\" href=\"https://wallhaze.com/es\" />\n<xhtml:link rel=\"alternate\" hreflang=\"fr\" href=\"https://wallhaze.com/fr\" />\n<xhtml:link rel=\"alternate\" hreflang=\"de\" href=\"https://wallhaze.com/de\" />\n<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://wallhaze.com\" />\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://wallhaze.com/ja</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en\" href=\"https://wallhaze.com\" />\n<xhtml:link rel=\"alternate\" hreflang=\"zh\" href=\"https://wallhaze.com/zh\" />\n<xhtml:link rel=\"alternate\" hreflang=\"ja\" href=\"https://wallhaze.com/ja\" />\n<xhtml:link rel=\"alternate\" hreflang=\"ko\" href=\"https://wallhaze.com/ko\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es\" href=\"https://wallhaze.com/es\" />\n<xhtml:link rel=\"a"
+  },
+  "sitemapUrlCount": 546,
+  "sitemapSample": [
+    "https://wallhaze.com",
+    "https://wallhaze.com/zh",
+    "https://wallhaze.com/ja",
+    "https://wallhaze.com/ko",
+    "https://wallhaze.com/es",
+    "https://wallhaze.com/fr",
+    "https://wallhaze.com/de",
+    "https://wallhaze.com/wallpapers",
+    "https://wallhaze.com/zh/wallpapers",
+    "https://wallhaze.com/ja/wallpapers",
+    "https://wallhaze.com/ko/wallpapers",
+    "https://wallhaze.com/es/wallpapers"
+  ],
+  "samples": [
+    "https://wallhaze.com/zh",
+    "https://wallhaze.com/ja",
+    "https://wallhaze.com/ko",
+    "https://wallhaze.com/es",
+    "https://wallhaze.com/fr",
+    "https://wallhaze.com/de",
+    "https://wallhaze.com/pricing",
+    "https://wallhaze.com/about",
+    "https://wallhaze.com/wallpapers/sakura-dream"
+  ],
+  "probes": [
+    {
+      "url": "https://wallhaze.com/zh",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/zh",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10541,
+          "title": "WallHaze — 适配每一块屏幕的 AI 壁纸",
+          "description": "探索为你的设备准备的免费 AI 壁纸。动漫、赛博朋克、奇幻等独特风格，为手机、平板和桌面提供高质量壁纸。还可以在 AI Studio 中创作专属壁纸。",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/zh\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 212379,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3059,
+          "descPos": 3133,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/zh",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10541,
+          "title": "WallHaze — 适配每一块屏幕的 AI 壁纸",
+          "description": "探索为你的设备准备的免费 AI 壁纸。动漫、赛博朋克、奇幻等独特风格，为手机、平板和桌面提供高质量壁纸。还可以在 AI Studio 中创作专属壁纸。",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/zh\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 212379,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3059,
+          "descPos": 3133,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/zh",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10541,
+          "title": "WallHaze — 适配每一块屏幕的 AI 壁纸",
+          "description": "探索为你的设备准备的免费 AI 壁纸。动漫、赛博朋克、奇幻等独特风格，为手机、平板和桌面提供高质量壁纸。还可以在 AI Studio 中创作专属壁纸。",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/zh\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 212379,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3059,
+          "descPos": 3133,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/ja",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/ja",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10646,
+          "title": "WallHaze — あらゆる画面のためのAI壁紙",
+          "description": "お使いのデバイスに合わせた無料の AI 壁紙を探索。アニメ、サイバーパンク、ファンタジーなど、ユニークなスタイルをスマホ・タブレット・デスクトップ向けに高品質で提供します。AI Studio で自分の壁紙を作成できます。",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/ja\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 219737,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3130,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/ja",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10646,
+          "title": "WallHaze — あらゆる画面のためのAI壁紙",
+          "description": "お使いのデバイスに合わせた無料の AI 壁紙を探索。アニメ、サイバーパンク、ファンタジーなど、ユニークなスタイルをスマホ・タブレット・デスクトップ向けに高品質で提供します。AI Studio で自分の壁紙を作成できます。",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/ja\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 219737,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3130,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/ja",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10646,
+          "title": "WallHaze — あらゆる画面のためのAI壁紙",
+          "description": "お使いのデバイスに合わせた無料の AI 壁紙を探索。アニメ、サイバーパンク、ファンタジーなど、ユニークなスタイルをスマホ・タブレット・デスクトップ向けに高品質で提供します。AI Studio で自分の壁紙を作成できます。",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/ja\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 219737,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3130,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/ko",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/ko",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10682,
+          "title": "WallHaze — 모든 화면을 위한 AI 배경화면",
+          "description": "사용 중인 기기에 딱 맞는 무료 AI 배경화면을 탐색하세요. 애니메이션, 사이버펑크, 판타지 등 독특한 스타일을 폰·태블릿·데스크톱용으로 고화질로 제공합니다. AI Studio에서 나만의 배경화면을 만들어 보세요.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/ko\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 221805,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3133,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/ko",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10682,
+          "title": "WallHaze — 모든 화면을 위한 AI 배경화면",
+          "description": "사용 중인 기기에 딱 맞는 무료 AI 배경화면을 탐색하세요. 애니메이션, 사이버펑크, 판타지 등 독특한 스타일을 폰·태블릿·데스크톱용으로 고화질로 제공합니다. AI Studio에서 나만의 배경화면을 만들어 보세요.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/ko\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 221805,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3133,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/ko",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10682,
+          "title": "WallHaze — 모든 화면을 위한 AI 배경화면",
+          "description": "사용 중인 기기에 딱 맞는 무료 AI 배경화면을 탐색하세요. 애니메이션, 사이버펑크, 판타지 등 독특한 스타일을 폰·태블릿·데스크톱용으로 고화질로 제공합니다. AI Studio에서 나만의 배경화면을 만들어 보세요.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/ko\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 221805,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3133,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/es",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/es",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "no-store, must-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10769,
+          "title": "WallHaze — Fondos de IA para cada pantalla",
+          "description": "Explora fondos de IA gratuitos para teléfono, tableta y escritorio — anime, ciberpunk, fantasía y más. Crea los tuyos en el AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/es\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 251796,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3147,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/es",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10769,
+          "title": "WallHaze — Fondos de IA para cada pantalla",
+          "description": "Explora fondos de IA gratuitos para teléfono, tableta y escritorio — anime, ciberpunk, fantasía y más. Crea los tuyos en el AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/es\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 251796,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3147,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/es",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10769,
+          "title": "WallHaze — Fondos de IA para cada pantalla",
+          "description": "Explora fondos de IA gratuitos para teléfono, tableta y escritorio — anime, ciberpunk, fantasía y más. Crea los tuyos en el AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/es\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 251796,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3147,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/fr",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/fr",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10847,
+          "title": "WallHaze — Des fonds d’écran IA pour chaque écran",
+          "description": "Explorez des fonds d’écran IA gratuits pour téléphone, tablette et ordinateur — anime, cyberpunk, fantastique et plus. Créez les vôtres dans l’AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/fr\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 254731,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3154,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/fr",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10847,
+          "title": "WallHaze — Des fonds d’écran IA pour chaque écran",
+          "description": "Explorez des fonds d’écran IA gratuits pour téléphone, tablette et ordinateur — anime, cyberpunk, fantastique et plus. Créez les vôtres dans l’AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/fr\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 254731,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3154,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/fr",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10847,
+          "title": "WallHaze — Des fonds d’écran IA pour chaque écran",
+          "description": "Explorez des fonds d’écran IA gratuits pour téléphone, tablette et ordinateur — anime, cyberpunk, fantastique et plus. Créez les vôtres dans l’AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/fr\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 254731,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3154,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/de",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/de",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10826,
+          "title": "WallHaze — KI-Hintergrundbilder für jeden Bildschirm",
+          "description": "Entdecke kostenlose KI-Wallpapers für Smartphone, Tablet und Desktop – Anime, Cyberpunk, Fantasy und mehr. Erstelle deine eigenen im AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/de\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 253239,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3157,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/de",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10826,
+          "title": "WallHaze — KI-Hintergrundbilder für jeden Bildschirm",
+          "description": "Entdecke kostenlose KI-Wallpapers für Smartphone, Tablet und Desktop – Anime, Cyberpunk, Fantasy und mehr. Erstelle deine eigenen im AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/de\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 253239,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3157,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/de",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10826,
+          "title": "WallHaze — KI-Hintergrundbilder für jeden Bildschirm",
+          "description": "Entdecke kostenlose KI-Wallpapers für Smartphone, Tablet und Desktop – Anime, Cyberpunk, Fantasy und mehr. Erstelle deine eigenen im AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/de\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 253239,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 3056,
+          "descPos": 3157,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/pricing",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/pricing",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10052,
+          "title": "Pricing &amp; Credits | WallHaze",
+          "description": "One-time credit packages from $5 and per-generation costs for static and live wallpapers. No subscription — credits never expire.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/pricing\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/pricing\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/pricing\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/pricing\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/pricing\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/pricing\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/pricing\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/pricing\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/pricing\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 135499,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2308,
+          "descPos": 2389,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/pricing",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10052,
+          "title": "Pricing &amp; Credits | WallHaze",
+          "description": "One-time credit packages from $5 and per-generation costs for static and live wallpapers. No subscription — credits never expire.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/pricing\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/pricing\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/pricing\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/pricing\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/pricing\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/pricing\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/pricing\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/pricing\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/pricing\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 135499,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2308,
+          "descPos": 2389,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/pricing",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10052,
+          "title": "Pricing &amp; Credits | WallHaze",
+          "description": "One-time credit packages from $5 and per-generation costs for static and live wallpapers. No subscription — credits never expire.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/pricing\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/pricing\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/pricing\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/pricing\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/pricing\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/pricing\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/pricing\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/pricing\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/pricing\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 135499,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2308,
+          "descPos": 2389,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/about",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/about",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 9951,
+          "title": "About | WallHaze",
+          "description": "What WallHaze offers today: a free AI wallpaper gallery in seven languages and an AI Studio for creating your own wallpapers.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/about\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/about\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/about\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/about\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/about\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/about\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/about\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/about\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/about\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 123525,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2269,
+          "descPos": 2334,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/about",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 9951,
+          "title": "About | WallHaze",
+          "description": "What WallHaze offers today: a free AI wallpaper gallery in seven languages and an AI Studio for creating your own wallpapers.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/about\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/about\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/about\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/about\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/about\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/about\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/about\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/about\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/about\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 123525,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2269,
+          "descPos": 2334,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/about",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 9951,
+          "title": "About | WallHaze",
+          "description": "What WallHaze offers today: a free AI wallpaper gallery in seven languages and an AI Studio for creating your own wallpapers.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/about\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/about\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/about\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/about\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/about\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/about\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/about\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/about\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/about\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 123525,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2269,
+          "descPos": 2334,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/wallpapers/sakura-dream",
+      "bust": false,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/wallpapers/sakura-dream",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10940,
+          "title": "Sakura Dream — Free Wallpaper | WallHaze",
+          "description": "Pink cherry blossoms against a soft blue sky · 1080×1440px · Free to download",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 154044,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2818,
+          "descPos": 2907,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/wallpapers/sakura-dream",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10940,
+          "title": "Sakura Dream — Free Wallpaper | WallHaze",
+          "description": "Pink cherry blossoms against a soft blue sky · 1080×1440px · Free to download",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 154044,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2818,
+          "descPos": 2907,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/wallpapers/sakura-dream",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 10940,
+          "title": "Sakura Dream — Free Wallpaper | WallHaze",
+          "description": "Pink cherry blossoms against a soft blue sky · 1080×1440px · Free to download",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/wallpapers/sakura-dream\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/wallpapers/sakura-dream\"/>"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 154044,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2818,
+          "descPos": 2907,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    }
+  ],
+  "cacheVariants": [
+    {
+      "url": "https://wallhaze.com/",
+      "bust": true,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/?ghcache=diag1794490481190",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 8573,
+          "title": "WallHaze — AI Wallpapers for Every Screen",
+          "description": "Explore free AI wallpapers for phone, tablet and desktop — anime, cyberpunk, fantasy and more. Create your own in the AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com\">"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com\" hreflang=\"en\">"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/zh\" hreflang=\"zh\">"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/ja\" hreflang=\"ja\">"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/ko\" hreflang=\"ko\">"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/es\" hreflang=\"es\">"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/fr\" hreflang=\"fr\">"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/de\" hreflang=\"de\">"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com\" hreflang=\"x-default\">"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 246594,
+          "s0Present": true,
+          "s0BeforeTitle": true,
+          "titlePos": 100651,
+          "descPos": 100741,
+          "titleInHead": false,
+          "descInHead": false
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/?ghcache=diag1794490481190",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 8573,
+          "title": "WallHaze — AI Wallpapers for Every Screen",
+          "description": "Explore free AI wallpapers for phone, tablet and desktop — anime, cyberpunk, fantasy and more. Create your own in the AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com\">"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com\" hreflang=\"en\">"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/zh\" hreflang=\"zh\">"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/ja\" hreflang=\"ja\">"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/ko\" hreflang=\"ko\">"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/es\" hreflang=\"es\">"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/fr\" hreflang=\"fr\">"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/de\" hreflang=\"de\">"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com\" hreflang=\"x-default\">"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 246594,
+          "s0Present": true,
+          "s0BeforeTitle": true,
+          "titlePos": 100651,
+          "descPos": 100741,
+          "titleInHead": false,
+          "descInHead": false
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/?ghcache=diag1794490481190",
+        "redirects": [],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": "s-maxage=31536000, stale-while-revalidate",
+          "cf-cache-status": null,
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Interception-Id, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode, X-Vinext-Rsc-State-Fingerprint",
+          "age": null
+        },
+        "head": {
+          "headLength": 8573,
+          "title": "WallHaze — AI Wallpapers for Every Screen",
+          "description": "Explore free AI wallpapers for phone, tablet and desktop — anime, cyberpunk, fantasy and more. Create your own in the AI Studio.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com\">"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com\" hreflang=\"en\">"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/zh\" hreflang=\"zh\">"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/ja\" hreflang=\"ja\">"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/ko\" hreflang=\"ko\">"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/es\" hreflang=\"es\">"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/fr\" hreflang=\"fr\">"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com/de\" hreflang=\"de\">"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" href=\"https://wallhaze.com\" hreflang=\"x-default\">"
+            }
+          ],
+          "ldjsonBlocks": 2,
+          "htmlLength": 246594,
+          "s0Present": true,
+          "s0BeforeTitle": true,
+          "titlePos": 100651,
+          "descPos": 100741,
+          "titleInHead": false,
+          "descInHead": false
+        }
+      }
+    },
+    {
+      "url": "https://wallhaze.com/en/pricing",
+      "bust": true,
+      "browser": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/pricing?ghcache=diag1794490484413",
+        "redirects": [
+          "307 -> /pricing?ghcache=diag1794490484413"
+        ],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": null,
+          "cf-cache-status": null,
+          "content-type": null,
+          "vary": null,
+          "age": null
+        },
+        "head": {
+          "headLength": 10052,
+          "title": "Pricing &amp; Credits | WallHaze",
+          "description": "One-time credit packages from $5 and per-generation costs for static and live wallpapers. No subscription — credits never expire.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/pricing\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/pricing\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/pricing\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/pricing\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/pricing\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/pricing\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/pricing\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/pricing\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/pricing\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 135499,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2308,
+          "descPos": 2389,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "googlebot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/pricing?ghcache=diag1794490484413",
+        "redirects": [
+          "307 -> /pricing?ghcache=diag1794490484413"
+        ],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": null,
+          "cf-cache-status": null,
+          "content-type": null,
+          "vary": null,
+          "age": null
+        },
+        "head": {
+          "headLength": 10052,
+          "title": "Pricing &amp; Credits | WallHaze",
+          "description": "One-time credit packages from $5 and per-generation costs for static and live wallpapers. No subscription — credits never expire.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/pricing\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/pricing\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/pricing\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/pricing\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/pricing\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/pricing\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/pricing\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/pricing\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/pricing\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 135499,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2308,
+          "descPos": 2389,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      },
+      "bingbot": {
+        "status": 200,
+        "finalUrl": "https://wallhaze.com/pricing?ghcache=diag1794490484413",
+        "redirects": [
+          "307 -> /pricing?ghcache=diag1794490484413"
+        ],
+        "headers": {
+          "x-robots-tag": null,
+          "cache-control": null,
+          "cf-cache-status": null,
+          "content-type": null,
+          "vary": null,
+          "age": null
+        },
+        "head": {
+          "headLength": 10052,
+          "title": "Pricing &amp; Credits | WallHaze",
+          "description": "One-time credit packages from $5 and per-generation costs for static and live wallpapers. No subscription — credits never expire.",
+          "robotsMeta": null,
+          "canonicalTags": [
+            "<link rel=\"canonical\" href=\"https://wallhaze.com/pricing\"/>"
+          ],
+          "canonicalCount": 1,
+          "hreflangCount": 8,
+          "hreflangs": [
+            {
+              "hreflang": "en",
+              "tag": "<link rel=\"alternate\" hrefLang=\"en\" href=\"https://wallhaze.com/pricing\"/>"
+            },
+            {
+              "hreflang": "zh",
+              "tag": "<link rel=\"alternate\" hrefLang=\"zh\" href=\"https://wallhaze.com/zh/pricing\"/>"
+            },
+            {
+              "hreflang": "ja",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ja\" href=\"https://wallhaze.com/ja/pricing\"/>"
+            },
+            {
+              "hreflang": "ko",
+              "tag": "<link rel=\"alternate\" hrefLang=\"ko\" href=\"https://wallhaze.com/ko/pricing\"/>"
+            },
+            {
+              "hreflang": "es",
+              "tag": "<link rel=\"alternate\" hrefLang=\"es\" href=\"https://wallhaze.com/es/pricing\"/>"
+            },
+            {
+              "hreflang": "fr",
+              "tag": "<link rel=\"alternate\" hrefLang=\"fr\" href=\"https://wallhaze.com/fr/pricing\"/>"
+            },
+            {
+              "hreflang": "de",
+              "tag": "<link rel=\"alternate\" hrefLang=\"de\" href=\"https://wallhaze.com/de/pricing\"/>"
+            },
+            {
+              "hreflang": "x-default",
+              "tag": "<link rel=\"alternate\" hrefLang=\"x-default\" href=\"https://wallhaze.com/pricing\"/>"
+            }
+          ],
+          "ldjsonBlocks": 0,
+          "htmlLength": 135499,
+          "s0Present": false,
+          "s0BeforeTitle": null,
+          "titlePos": 2308,
+          "descPos": 2389,
+          "titleInHead": true,
+          "descInHead": true
+        }
+      }
+    }
+  ],
+  "originVariants": {
+    "https://www.wallhaze.com/en/pricing": {
+      "finalUrl": "https://wallhaze.com/pricing",
+      "status": 200,
+      "redirects": [
+        "301 -> https://wallhaze.com/en/pricing",
+        "307 -> /pricing"
+      ]
+    },
+    "http://wallhaze.com/en/pricing": {
+      "finalUrl": "http://wallhaze.com/pricing",
+      "status": 200,
+      "redirects": [
+        "307 -> /pricing"
+      ]
+    }
+  }
+}

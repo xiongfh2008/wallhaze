@@ -1,8 +1,17 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
-import { absoluteLocaleUrl, languageAlternates } from "@/lib/seo";
-import { PRESET_WALLPAPERS } from "@/lib/wallpapers";
+import { SITE_URL, absoluteLocaleUrl, languageAlternates } from "@/lib/seo";
+import { PUBLIC_WALLPAPERS } from "@/lib/wallpapers";
 import { getCommunityWorks } from "@/lib/community";
+
+/**
+ * Absolute image URL for a sitemap image node. Wallpaper images are stored as
+ * site-local paths ("/images/…"); an absolute https URL is passed through
+ * unchanged so a future cross-domain override can't be double-prefixed.
+ */
+function absoluteImageUrl(image: string): string {
+  return image.startsWith("https://") ? image : `${SITE_URL}${image}`;
+}
 
 /**
  * Metadata Route for /sitemap.xml.
@@ -21,7 +30,13 @@ import { getCommunityWorks } from "@/lib/community";
  * guarantee any search ranking.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entries: Array<{ path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }> = [
+  const entries: Array<{
+    path: string;
+    priority: number;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+    /** Site-local artwork path for cleared wallpaper details; absent elsewhere. */
+    image?: string | null;
+  }> = [
     { path: "/", priority: 1, changeFrequency: "weekly" },
     { path: "/wallpapers", priority: 0.9, changeFrequency: "weekly" },
     { path: "/studio", priority: 0.8, changeFrequency: "weekly" },
@@ -39,12 +54,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/acceptable-use", priority: 0.3, changeFrequency: "yearly" },
     // Only cleared artwork is indexable. Pending detail pages stay reachable
     // for transparency but are noindex and deliberately excluded here.
-    ...PRESET_WALLPAPERS.filter(
-      (wallpaper) => wallpaper.canPubliclyDisplay
-    ).map((wallpaper) => ({
+    // Each cleared detail URL carries its publicly displayed artwork as an
+    // image:image/image:loc node (same artwork on every locale variant).
+    ...PUBLIC_WALLPAPERS.map((wallpaper) => ({
       path: `/wallpapers/${wallpaper.id}`,
       priority: 0.6,
       changeFrequency: "monthly" as const,
+      image: wallpaper.image,
     })),
     // Community work pages only include explicitly published + displayable
     // records; platform samples and human-reviewed submissions share this
@@ -56,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return entries.flatMap(({ path, priority, changeFrequency }) =>
+  return entries.flatMap(({ path, priority, changeFrequency, image }) =>
     // One independent <url> per locale: crawlers discover every language
     // directly from <loc> instead of only via hreflang alternates. The
     // alternates block still lists all locales + x-default on every entry.
@@ -64,6 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: absoluteLocaleUrl(locale, path),
       changeFrequency,
       priority,
+      ...(image ? { images: [absoluteImageUrl(image)] } : {}),
       alternates: {
         languages: languageAlternates(path),
       },

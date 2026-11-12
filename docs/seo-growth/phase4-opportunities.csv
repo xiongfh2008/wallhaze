@@ -1,0 +1,9 @@
+建议ID,优先级,机会/建议,类型,目标URL或候选路由,来源依据,GSC数据支持,审计证据路径,预计影响,实施成本,风险与回退,验收标准,执行前置条件
+P1-1,P1,sitemap.xml 为66个公开壁纸详情loc增加<image:image>节点（image:loc/title/license）,可直接优化现有页面（需授权改app/sitemap.ts）,https://wallhaze.com/sitemap.xml（wallpapers/* 66 loc）,实测sitemap无任何image元素（imageNs:false,imageTags:0,loc:546）,无（技术性机会非查询驱动）,phase4-probes.json#sitemapImageCheck,Google Images发现速度提升（中）,低（~30行；复用lib/seo与wallpapers公开清单）,低；仅增元素不改URL；回退即移除节点；部署后用GSC站点地图重新提交验证,image:image出现且仅限66个canPubliclyDisplay详情；pending作品不出现；7语言loc不变,需要代码修改授权（本轮只读）
+P3-1,P3,壁纸详情页<img>补width/height属性防CLS,可直接优化现有页面,详情页（66个可索引详情）,实测img width/height为null（phase4-probes.json#details）,无,phase4-probes.json#details[0].imgs,小（CLS/体验）,低,无风险；属性不影响索引,HTML img带真实尺寸属性且渲染不变,需要代码修改授权
+P3-2,P3,壁纸原图响应式交付（srcset/现代格式）,可直接优化现有页面,详情页图片资源,实测无srcset、原图直出,无,phase4-probes.json#imageAssets,小（带宽/性能）,中,中；缓存行为变更需双UA回归（防S:0复发）,各设备加载合适尺寸；CF缓存命中不回退,需方案评审
+P2-1,P2,提供GSC Performance导出（Web+Image 28天）完成语言/查询机会分析,待数据,全站,任务D要求,待用户提供导出,无,定位真实查询需求（分析基础）,低,无,GSC导出到位且拆分品牌/非品牌+语言+国家,用户提供Performance CSV
+P2-2,P2,设备集合页试点：/wallpapers/phone（21件竖版已审作品）,需业务/内容确认的新页面,候选https://wallhaze.com/wallpapers/phone（含7语言）,库存：phone(portrait)21件全可下载可索引；现有设备筛选仅客户端不可链接（GalleryExperience.tsx useState）,无——标注为假设；待P2-1的GSC查询验证,phase4-inventory.csv（device列）,中（若意图成立）,中,薄内容/与列表页重复；退出方案：410或回退列表页；canonical自指+全量hreflang；仅收verified/self-authored,试点后28天GSC曝光/点击有正向信号且不蚕食/wallpapers,GSC查询证据≥真实设备意图样本+业务确认
+P2-3,P2,风格集合页试点（cyberpunk/dreamcore二选一）,需业务/内容确认的新页面,候选/wallpapers/cyberpunk或/wallpapers/dreamcore（当前5件/8件）,库存：dreamcore 8件为最大风格集合；多数风格仅2-5件,无——标注为假设；cyberpunk待补库到≥8件后评估,phase4-inventory.csv（styleId列）,中,中+补库成本,同上；作品<6件不建页,GSC查询证据+作品数达标+业务确认,补库完成+GSC证据
+P4-1,明确不做,解除39件review-pending作品noindex,禁止,39个pending详情页,前三阶段确认设计性noindex（版权审查未过）,——,phase4-inventory.csv（license列）,负风险（版权暴露）,—,—,——,不可执行
+P4-2,明确不做,统一canonical到英文/强制参数页独立索引,禁止,全站,违反Google重复URL合并指南与现有设计,——,phase4-audit.md§3.2,负,—,—,——,不可执行

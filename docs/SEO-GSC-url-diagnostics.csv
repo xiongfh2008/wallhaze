@@ -1,0 +1,21 @@
+URL,GSC原因,是否在Sitemap,预期可索引,HTTP状态,HTML robots,X-Robots-Tag,声明canonical,Google选择canonical(如果有),hreflang检查,问题证据,诊断分类,建议处理,是否已修复
+https://wallhaze.com/robots.txt,,N/A(A),N/A,200(browser UA),N/A,无,N/A,N/A,N/A,"Allow:/ + Sitemap声明; content-type text/plain",A 正常排除,无需处理,否(无需)
+https://wallhaze.com/sitemap.xml,,N/A(A),N/A,200,N/A,无,N/A,N/A,"单文件urlset; 546 loc; 每条含7语言+x-default双向闭合",A 正常排除,无需处理,否(无需)
+https://wallhaze.com/,noindex?备用页?重定向?(未确认),是,是,200(browser/googlebot/bingbot一致),"meta robots无",无,"https://wallhaze.com(自指,1条)",待GSC提供,8条含x-default正确,"S:0流式标记存在但title/description均在head内; 缓存变体正常",D 尚不能判断(总览页无独立GSC原因),等待GSC URL明细,否
+https://wallhaze.com/zh,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/zh(自指),待GSC提供,8条正确,N/A(全部字段健康),D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/ja,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/ja(自指),待GSC提供,8条正确,N/A(全部字段健康),D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/ko,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/ko(自指),待GSC提供,8条正确,N/A(全部字段健康),D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/es,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/es(自指),待GSC提供,8条正确,"曾观测一次瞬态no-store缓存变体,复测4次均恢复s-maxage",B/P3 仅监控,若GSC noindex明细含/es再复查,否
+https://wallhaze.com/fr,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/fr(自指),待GSC提供,8条正确,N/A(全部字段健康),D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/de,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/de(自指),待GSC提供,8条正确,N/A(全部字段健康),D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/pricing,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/pricing(自指),待GSC提供,8条正确,"head完整; 无ld+json(P3观察项,非索引问题)",D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/about,(未确认),是,是,200×3UA一致,无noindex,无,https://wallhaze.com/about(自指),待GSC提供,8条正确,N/A(全部字段健康),D 尚不能判断,等待GSC URL明细,否
+https://wallhaze.com/wallpapers/sakura-dream,(未确认),是,是,200×3UA一致,无noindex,无,自指,待GSC提供,8条正确,"Cache-Control: private,no-cache,no-store(B3); 内容在原始HTML可见; 2个ld+json",B 已确认(P2缓存效率,非索引问题),评估详情页缓存策略(需授权); 不影响收录可能性,D 否
+https://wallhaze.com/wallpapers/aurora-veil,(未确认),是,是,200,无noindex,无,自指,待GSC提供,未深查,Cache-Control: private,no-cache,no-store(B3同上),B 已确认(P2),同上,D 否
+https://wallhaze.com/?ghcache=diag…,(未确认),否(带参,不入sitemap),是,200×3UA一致,无noindex,无,https://wallhaze.com,待GSC提供,8条正确,"S:0标记存在但title/desc/canonical/hreflang完整在head; 未复现历史S:0元数据缺失故障",A 正常排除,无需处理,否(无需)
+https://www.wallhaze.com/en/pricing,(未确认),否(/en/*前缀不在sitemap),否(重定向链),301→307,无,无,N/A,待GSC提供,N/A,"www→301→apex/en/pricing→307→/pricing; 307为临时重定向(B2)",B 已确认(P2),如代码可控改308/301(需授权),D 否
+http://wallhaze.com/en/pricing,(未确认),否,否(应重定向),307链,无,无,N/A,待GSC提供,N/A,"http未升级https; http://wallhaze.com/ 与 /pricing 直接200无301(B1) — P1",B 已确认(P1),Cloudflare Zone开启Always Use HTTPS(配置级),D 否(待人工配置)
+http://wallhaze.com/,noindex?重定向?(未确认),否,否(应重定向),200(未升级),无,无,N/A,待GSC提供,N/A,同B1: http直接200; canonical mitigations存在(页面canonical指向https),B 已确认(P1),同B1,否
+http://www.wallhaze.com/,重定向?(未确认),否,否,301→https://wallhaze.com/,无,无,N/A,待GSC提供,N/A,www+http组合正确301升级,A 正常排除,无需处理,否(无需)
+https://wallhaze.com/login,(noindex类),否(设计排除),否(设计),未单独抓取,noindex: true(代码+测试保护),未检出,"自指(lib/seo.ts)",待GSC提供,有(代码层),7条私密路由×7语言=49个设计性noindex变体, A 正常排除,保持noindex,否(无需)
+https://wallhaze.com/signup /account /account/settings /account/orders /credits /my-creations,(noindex类),否(设计排除),否(设计),未单独抓取,noindex: true,未检出,自指,待GSC提供,有(代码层),同上; i18n-parity测试保护,A 正常排除,保持noindex,否(无需)

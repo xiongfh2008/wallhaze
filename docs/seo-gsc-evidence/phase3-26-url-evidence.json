@@ -1,0 +1,844 @@
+{
+ "probedAt": "2026-11-12T14:43:24.253Z",
+ "sitemapUrlCount": 546,
+ "licenses17": {
+  "b2-mech-pilot-gaze": "self-authored",
+  "galaxy-tide": "verified",
+  "sunset-platform": "verified",
+  "synthwave-car-sunset": "self-authored",
+  "b2-vaporwave-mall": "self-authored",
+  "quiet-bridge": "verified",
+  "aurora-veil-wide": "verified",
+  "dragon-sky-citadel": "self-authored",
+  "b2-race-future-circuit": "self-authored",
+  "retro-motel-alien-sky": "self-authored",
+  "sakura-dream": "verified",
+  "b2-lofi-rain-window": "self-authored",
+  "b2-vaporwave-bust": "self-authored",
+  "b2-interstellar-gate": "self-authored",
+  "quiet-geometry": "verified",
+  "last-train": "review-pending(default)",
+  "soft-horizon": "self-authored"
+ },
+ "gscChart": {
+  "discovered": {
+   "2026-11-06": 334,
+   "2026-11-07": 15,
+   "2026-11-08": 15,
+   "2026-11-09": 15
+  },
+  "crawled": {
+   "2026-11-06": 37,
+   "2026-11-07": 11,
+   "2026-11-08": 11,
+   "2026-11-09": 11
+  },
+  "note": "图表止于11-09；逐URL抓取日期至11-11；1970-01-01为未抓取占位"
+ },
+ "internalLinkAudit": {
+  "method": "next-intl Link 渲染纯 <a href>（components/FeaturedWallpapers.tsx L40-43、Footer.tsx）；语言页脚含 /wallpapers 与 /about 语言感知链接；实测锚点数：/ja/wallpapers=159、/ko/about=26、sakura-dream=37、studio=27",
+  "crawlable": true
+ },
+ "items": [
+  {
+   "url": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/es/wallpapers/b2-mech-pilot-gaze",
+     "hreflangCount": 8,
+     "title": "Piloto y titán — Free Wallpaper | WallHaze",
+     "description": "Piloto y titán — Original mecha pilot before her towering mechanical partner · 864×1536px · Descarga gratuita",
+     "h1": "Piloto y titán",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 160842
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/es/wallpapers/galaxy-tide",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/es/wallpapers/galaxy-tide",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/es/wallpapers/galaxy-tide",
+     "hreflangCount": 8,
+     "title": "Marea Galáctica — Free Wallpaper | WallHaze",
+     "description": "Nebulosa azul y verde con densos campos de estrellas · 1080×1440px · Descarga gratuita",
+     "h1": "Marea Galáctica",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 159713
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/es/wallpapers/sunset-platform",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/es/wallpapers/sunset-platform",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/es/wallpapers/sunset-platform",
+     "hreflangCount": 8,
+     "title": "Andén al Atardecer — Free Wallpaper | WallHaze",
+     "description": "Andenes de tren vacíos bajo un atardecer naranja · 1920×1080px · Descarga gratuita",
+     "h1": "Andén al Atardecer",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 160086
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/es/wallpapers/synthwave-car-sunset",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/es/wallpapers/synthwave-car-sunset",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/es/wallpapers/synthwave-car-sunset",
+     "hreflangCount": 8,
+     "title": "Atardecer de rejilla — Free Wallpaper | WallHaze",
+     "description": "Atardecer de rejilla — Retro sports car on a neon grid road toward a striped sunset · 864×1536px · Descarga gratuita",
+     "h1": "Atardecer de rejilla",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 160773
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/fr/wallpapers/b2-vaporwave-mall",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/fr/wallpapers/b2-vaporwave-mall",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/fr/wallpapers/b2-vaporwave-mall",
+     "hreflangCount": 8,
+     "title": "Arcade inondée — Free Wallpaper | WallHaze",
+     "description": "Arcade inondée — Abandoned retro mall flooded with water under pink-cyan neon · 1536×864px · Téléchargement gratuit",
+     "h1": "Arcade inondée",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 162993
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/fr/wallpapers/quiet-bridge",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/fr/wallpapers/quiet-bridge",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/fr/wallpapers/quiet-bridge",
+     "hreflangCount": 8,
+     "title": "Pont Calme — Free Wallpaper | WallHaze",
+     "description": "Passerelle éclairée se reflétant dans l’eau sombre la nuit · 1920×1080px · Téléchargement gratuit",
+     "h1": "Pont Calme",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 162575
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/ja/wallpapers",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ja/wallpapers",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ja/wallpapers",
+     "hreflangCount": 8,
+     "title": "壁紙ギャラリー — 無料壁紙 | WallHaze",
+     "description": "スマートフォン、タブレット、PC向けの壁紙を無料で閲覧。ライセンス確認済みの作品はダウンロード可能、確認中の作品は閲覧のみです。各壁紙に詳細ページがあります。",
+     "h1": "すぐに使える壁紙を探す",
+     "anchorCount": 159,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 329819
+    }
+   },
+   "googlebot": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ja/wallpapers",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ja/wallpapers",
+     "hreflangCount": 8,
+     "title": "壁紙ギャラリー — 無料壁紙 | WallHaze",
+     "description": "スマートフォン、タブレット、PC向けの壁紙を無料で閲覧。ライセンス確認済みの作品はダウンロード可能、確認中の作品は閲覧のみです。各壁紙に詳細ページがあります。",
+     "h1": "すぐに使える壁紙を探す",
+     "anchorCount": 159,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 329819
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/ko/about",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ko/about",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "no-store, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ko/about",
+     "hreflangCount": 8,
+     "title": "사이트 소개 | WallHaze",
+     "description": "지금의 WallHaze: 7개 언어를 지원하는 무료 AI 배경화면 갤러리와 나만의 배경화면을 만드는 AI Studio.",
+     "h1": "WallHaze 소개",
+     "anchorCount": 26,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 101949
+    }
+   },
+   "googlebot": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ko/about",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ko/about",
+     "hreflangCount": 8,
+     "title": "사이트 소개 | WallHaze",
+     "description": "지금의 WallHaze: 7개 언어를 지원하는 무료 AI 배경화면 갤러리와 나만의 배경화면을 만드는 AI Studio.",
+     "h1": "WallHaze 소개",
+     "anchorCount": 26,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 101949
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/ko/wallpapers/aurora-veil-wide",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ko/wallpapers/aurora-veil-wide",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ko/wallpapers/aurora-veil-wide",
+     "hreflangCount": 8,
+     "title": "오로라 장막 와이드 — Free Wallpaper | WallHaze",
+     "description": "어두운 소나무 숲 위의 초록과 보라 오로라 · 1920×1080px · 무료 다운로드 가능",
+     "h1": "오로라 장막 와이드",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 132926
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/ko/wallpapers/dragon-sky-citadel",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ko/wallpapers/dragon-sky-citadel",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ko/wallpapers/dragon-sky-citadel",
+     "hreflangCount": 8,
+     "title": "잉걸룡의 비상 — Free Wallpaper | WallHaze",
+     "description": "잉걸룡의 비상 — Ember-winged dragon circling a floating citadel above storm clouds · 1536×864px · 무료 다운로드 가능",
+     "h1": "잉걸룡의 비상",
+     "anchorCount": 32,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 121884
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/b2-mech-pilot-gaze",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/b2-mech-pilot-gaze",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/b2-mech-pilot-gaze",
+     "hreflangCount": 8,
+     "title": "Pilot and Titan — Free Wallpaper | WallHaze",
+     "description": "Original mecha pilot before her towering mechanical partner · 864×1536px · Free to download",
+     "h1": "Pilot and Titan",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154448
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/b2-race-future-circuit",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/b2-race-future-circuit",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/b2-race-future-circuit",
+     "hreflangCount": 8,
+     "title": "Antigrav Circuit — Free Wallpaper | WallHaze",
+     "description": "Anti-gravity race cars charging through a neon circuit tunnel · 1536×864px · Free to download",
+     "h1": "Antigrav Circuit",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154401
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/b2-vaporwave-mall",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/b2-vaporwave-mall",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/b2-vaporwave-mall",
+     "hreflangCount": 8,
+     "title": "Flooded Arcade — Free Wallpaper | WallHaze",
+     "description": "Abandoned retro mall flooded with water under pink-cyan neon · 1536×864px · Free to download",
+     "h1": "Flooded Arcade",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154149
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/retro-motel-alien-sky",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/retro-motel-alien-sky",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/retro-motel-alien-sky",
+     "hreflangCount": 8,
+     "title": "Vacancy Beyond — Free Wallpaper | WallHaze",
+     "description": "Retro desert motel with a neon sign under an alien sky with two moons · 1536×864px · Free to download",
+     "h1": "Vacancy Beyond",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154511
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/sakura-dream",
+   "gscReason": "已发现 - 尚未编入索引",
+   "gscDate": "1970-01-01",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/sakura-dream",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/sakura-dream",
+     "hreflangCount": 8,
+     "title": "Sakura Dream — Free Wallpaper | WallHaze",
+     "description": "Pink cherry blossoms against a soft blue sky · 1080×1440px · Free to download",
+     "h1": "Sakura Dream",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154044
+    }
+   },
+   "googlebot": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/sakura-dream",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/sakura-dream",
+     "hreflangCount": 8,
+     "title": "Sakura Dream — Free Wallpaper | WallHaze",
+     "description": "Pink cherry blossoms against a soft blue sky · 1080×1440px · Free to download",
+     "h1": "Sakura Dream",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154044
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-11",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+     "hreflangCount": 8,
+     "title": "Rainy Day Lo-Fi — Free Wallpaper | WallHaze",
+     "description": "Rain on a large window with a steaming mug and a sleeping cat · 864×1536px · Free to download",
+     "h1": "Rainy Day Lo-Fi",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154552
+    }
+   },
+   "googlebot": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/b2-lofi-rain-window",
+     "hreflangCount": 8,
+     "title": "Rainy Day Lo-Fi — Free Wallpaper | WallHaze",
+     "description": "Rain on a large window with a steaming mug and a sleeping cat · 864×1536px · Free to download",
+     "h1": "Rainy Day Lo-Fi",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154552
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/b2-vaporwave-bust",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-11",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/b2-vaporwave-bust",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/b2-vaporwave-bust",
+     "hreflangCount": 8,
+     "title": "Neon Visor — Free Wallpaper | WallHaze",
+     "description": "Classical plaster bust with a chrome visor in a vaporwave room · 864×1536px · Free to download",
+     "h1": "Neon Visor",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154159
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/ja/wallpapers/b2-interstellar-gate",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ja/wallpapers/b2-interstellar-gate",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ja/wallpapers/b2-interstellar-gate",
+     "hreflangCount": 8,
+     "title": "ジャンプゲート — Free Wallpaper | WallHaze",
+     "description": "ジャンプゲート — Titanic jump-gate opening a swirling portal above an exploration fleet · 1536×864px · 無料でダウンロード可能",
+     "h1": "ジャンプゲート",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 133385
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/de/studio?style=low-poly",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": false,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/de/studio?style=low-poly",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/de/studio",
+     "hreflangCount": 8,
+     "title": "Studio — KI-Wallpapers erstellen | WallHaze",
+     "description": "Erstelle KI-Wallpapers mit WallHaze: beschreibe, was du sehen willst, wähle einen Stil und generiere statische und Live-Wallpapers für deine Geräte.",
+     "h1": "WallHaze Studio",
+     "anchorCount": 27,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 125501
+    }
+   },
+   "googlebot": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/de/studio?style=low-poly",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/de/studio",
+     "hreflangCount": 8,
+     "title": "Studio — KI-Wallpapers erstellen | WallHaze",
+     "description": "Erstelle KI-Wallpapers mit WallHaze: beschreibe, was du sehen willst, wähle einen Stil und generiere statische und Live-Wallpapers für deine Geräte.",
+     "h1": "WallHaze Studio",
+     "anchorCount": 27,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 125501
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/de/wallpapers/quiet-geometry",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/de/wallpapers/quiet-geometry",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/de/wallpapers/quiet-geometry",
+     "hreflangCount": 8,
+     "title": "Stille Geometrie — Free Wallpaper | WallHaze",
+     "description": "Minimalistisches weißes Interieur mit schwarzer Lampe, Glastisch und Architekturbüchern · 1080×1440px · Kostenlos herunterladbar",
+     "h1": "Stille Geometrie",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 162418
+    }
+   }
+  },
+  {
+   "url": "http://wallhaze.com/ko/studio?style=cozy-anime",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": false,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ko/studio?style=cozy-anime",
+    "redirectChain": [
+     "301 -> https://wallhaze.com/ko/studio?style=cozy-anime"
+    ],
+    "xRobotsTag": null,
+    "cacheControl": null,
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/ko/studio",
+     "hreflangCount": 8,
+     "title": "Studio — AI 배경화면 창작 | WallHaze",
+     "description": "WallHaze로 AI 배경화면을 만들어 보세요: 보고 싶은 장면을 묘사하고 스타일을 고르면, 사용 중인 기기에 맞는 정적·라이브 배경화면을 생성합니다.",
+     "h1": "WallHaze 스튜디오",
+     "anchorCount": 27,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 98368
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/studio?media=video&demo=mecha-awakening",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": false,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/studio?media=video&demo=mecha-awakening",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/studio",
+     "hreflangCount": 8,
+     "title": "Studio — Create AI Wallpapers | WallHaze",
+     "description": "Create AI wallpapers with WallHaze: describe what you want to see, pick a style, and generate static and live wallpapers for your devices.",
+     "h1": "WallHaze Studio",
+     "anchorCount": 27,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 118344
+    }
+   },
+   "googlebot": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/studio?media=video&demo=mecha-awakening",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "s-maxage=31536000, stale-while-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/studio",
+     "hreflangCount": 8,
+     "title": "Studio — Create AI Wallpapers | WallHaze",
+     "description": "Create AI wallpapers with WallHaze: describe what you want to see, pick a style, and generate static and live wallpapers for your devices.",
+     "h1": "WallHaze Studio",
+     "anchorCount": 27,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 118344
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/wallpapers/sunset-platform",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/wallpapers/sunset-platform",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/wallpapers/sunset-platform",
+     "hreflangCount": 8,
+     "title": "Sunset Platform — Free Wallpaper | WallHaze",
+     "description": "Empty railway platforms under a glowing orange sunset · 1920×1080px · Free to download",
+     "h1": "Sunset Platform",
+     "anchorCount": 37,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 154173
+    }
+   }
+  },
+  {
+   "url": "http://wallhaze.com/studio?style=dark",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": false,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/studio?style=dark",
+    "redirectChain": [
+     "301 -> https://wallhaze.com/studio?style=dark"
+    ],
+    "xRobotsTag": null,
+    "cacheControl": null,
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/studio",
+     "hreflangCount": 8,
+     "title": "Studio — Create AI Wallpapers | WallHaze",
+     "description": "Create AI wallpapers with WallHaze: describe what you want to see, pick a style, and generate static and live wallpapers for your devices.",
+     "h1": "WallHaze Studio",
+     "anchorCount": 27,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 118344
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/ja/wallpapers/last-train",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-10",
+   "sitemap": false,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/ja/wallpapers/last-train",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": "noindex, nofollow",
+     "canonical": "https://wallhaze.com/ja/wallpapers/last-train",
+     "hreflangCount": 8,
+     "title": "終電 — Wallpaper · License Review | WallHaze",
+     "description": "夕暮れの列車に乗る少女、レトロなセルシェーディングの90年代風アニメ壁紙",
+     "h1": "終電",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 125998
+    }
+   }
+  },
+  {
+   "url": "https://wallhaze.com/de/wallpapers/soft-horizon",
+   "gscReason": "已抓取 - 尚未编入索引",
+   "gscDate": "2026-11-09",
+   "sitemap": true,
+   "browser": {
+    "status": 200,
+    "finalUrl": "https://wallhaze.com/de/wallpapers/soft-horizon",
+    "redirectChain": [],
+    "xRobotsTag": null,
+    "cacheControl": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "cfCacheStatus": null,
+    "head": {
+     "robotsMeta": null,
+     "canonical": "https://wallhaze.com/de/wallpapers/soft-horizon",
+     "hreflangCount": 8,
+     "title": "Sanfter Horizont — Free Wallpaper | WallHaze",
+     "description": "Weicher violett-amberfarbener Verlaufshorizont mit sanftem Leuchten · 1080×1440px · Kostenlos herunterladbar",
+     "h1": "Sanfter Horizont",
+     "anchorCount": 36,
+     "s0Present": false,
+     "s0BeforeTitle": null,
+     "htmlLength": 161760
+    }
+   }
+  }
+ ]
+}
