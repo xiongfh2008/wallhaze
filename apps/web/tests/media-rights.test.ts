@@ -41,15 +41,15 @@ const audit = JSON.parse(
 describe("asset-level media rights registry", () => {
   it("classifies every inventoried asset without auto-promoting legacy files", () => {
     expect(registry.counts).toMatchObject({
-      total: 186,
+      total: 206,
       verified: 151,
-      pending: 27,
+      pending: 47,
       restricted: 8,
       rejected: 0,
       removed: 0,
     });
-    expect(MEDIA_RIGHTS).toHaveLength(186); // +2 user-uploaded AI wallpapers (promoted 2026-11-14 by owner directive)
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(27); // 27 legacy styles (the 2 incoming wallpapers were promoted by owner directive)
+    expect(MEDIA_RIGHTS).toHaveLength(206); // +2 promoted user uploads + 20 regenerated incoming (2026-11-14)
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(47); // 27 legacy styles + 20 regenerated incoming (batch 2)
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "restricted")).toHaveLength(8);
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(151);
     // The 2026-10-28 audit revoked the 2026-10-27 promotion: the 27
@@ -77,11 +77,24 @@ describe("asset-level media rights registry", () => {
           asset.assetId
         ).toBe(true);
       } else if (asset.assetId.startsWith("incoming.wallpaper.")) {
-        expect(asset.privatePath, asset.assetId).toContain("incoming-review");
+        // Two quarantine layouts exist: user uploads (incoming-review/) and
+        // project-generated regenerations (incoming-regeneration/). Both are
+        // outside public/ — that is the invariant that matters.
+        expect(
+          /incoming-(review|regeneration)/.test(asset.privatePath ?? ""),
+          asset.assetId
+        ).toBe(true);
         expect(asset.sha256, asset.assetId).toBeTruthy();
         expect(asset.usage, asset.assetId).toBe("wallpaper-incoming");
-        expect(asset.notes, asset.assetId).toMatch(/provider/i);
-        expect(asset.sourceType, asset.assetId).toBe("external-ai-unknown");
+        expect(asset.notes, asset.assetId).toMatch(/pending|review/i);
+        if (asset.privatePath?.includes("incoming-review")) {
+          // User uploads: provider evidence still missing.
+          expect(asset.sourceType, asset.assetId).toBe("external-ai-unknown");
+        } else {
+          // Regenerated originals: provable in-project provenance.
+          expect(asset.sourceType, asset.assetId).toBe("project-generated-ai");
+          expect(asset.provider, asset.assetId).toBe("fal-ai/flux-2/klein/4b");
+        }
       } else {
         throw new Error(`unclassified pending asset: ${asset.assetId}`);
       }
