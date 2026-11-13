@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "Cercle de champignons",
       "alt": "Cercle de champignons — Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "Chiot haut en couleur",
+      "alt": "Un petit chien blanc et duveteux bondit joyeusement au milieu de coups de pinceau bleus, orange, roses et jaunes"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "Portrait de chiot ensoleillé",
+      "alt": "Un petit chien blanc et duveteux tire légèrement la langue, entouré de touches jaunes, roses et turquoise"
     }
   },
   "auth": {

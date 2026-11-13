@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "蘑菇环",
       "alt": "蘑菇环 — Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "缤纷跃动的小狗",
+      "alt": "蓬松的白色小狗开心地跃向前方，背景是蓝色、橙色、粉色与黄色的鲜艳笔触"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "阳光小狗肖像",
+      "alt": "一只眼睛明亮、微微吐舌的蓬松白色小狗，周围是金黄、粉红和青绿的彩色笔触"
     }
   },
   "auth": {

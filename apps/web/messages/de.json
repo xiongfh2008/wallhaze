@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "Pilzring",
       "alt": "Pilzring — Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "Farbenfroher Welpe",
+      "alt": "Ein flauschiger weißer Welpe springt fröhlich vor leuchtenden blauen, orangefarbenen, rosa und gelben Pinselstrichen"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "Sonniges Welpenporträt",
+      "alt": "Ein flauschiger weißer Hund mit leicht herausgestreckter Zunge vor goldgelben, rosa und türkisfarbenen Pinselstrichen"
     }
   },
   "auth": {

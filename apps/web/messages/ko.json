@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "버섯의 원",
       "alt": "버섯의 원 — Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "컬러풀 강아지",
+      "alt": "하얗고 복슬복슬한 강아지가 신나게 뛰어오르고, 파랑·주황·분홍·노랑 붓터치가 배경을 채우는 일러스트"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "햇살 속 강아지 초상",
+      "alt": "혀를 살짝 내민 하얀 복슬강아지의 초상으로, 황금빛 노랑과 분홍, 청록색 붓터치가 어우러진 그림"
     }
   },
   "auth": {

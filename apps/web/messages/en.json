@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "Mushroom Circle",
       "alt": "Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "Color Burst Puppy",
+      "alt": "A cheerful fluffy white puppy jumping forward against vibrant blue, orange, pink and yellow brushstrokes"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "Sunshine Puppy Portrait",
+      "alt": "A fluffy white puppy portrait with bright eyes and a playful expression, surrounded by golden yellow, pink and turquoise brushstrokes"
     }
   },
   "auth": {

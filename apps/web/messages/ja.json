@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "キノコの輪",
       "alt": "キノコの輪 — Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "カラフルな子犬",
+      "alt": "白くふわふわの子犬が元気に飛び跳ねる、青・オレンジ・ピンク・黄色の筆致が鮮やかなイラスト"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "陽だまりの子犬",
+      "alt": "ふわふわの白い子犬が舌を少し出して見つめる、黄色・ピンク・ターコイズの筆致が印象的なイラスト"
     }
   },
   "auth": {

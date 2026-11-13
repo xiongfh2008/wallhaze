@@ -56,7 +56,7 @@ describe("actual media dimensions", () => {
   });
 
   it("keeps every preset's declared metadata consistent with its pixels", () => {
-    expect(PRESET_WALLPAPERS).toHaveLength(105); // 57 legacy + 48 originals (2 batches)
+    expect(PRESET_WALLPAPERS).toHaveLength(107); // 57 legacy + 48 originals + 2 user-uploaded AI (review-pending)
     for (const wallpaper of PRESET_WALLPAPERS) {
       expect(wallpaper.width, wallpaper.id).toBeGreaterThan(0);
       expect(wallpaper.height, wallpaper.id).toBeGreaterThan(0);

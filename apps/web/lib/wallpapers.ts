@@ -204,6 +204,8 @@ const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "b2-vaporwave-bust": { width: 864, height: 1536 },
   "b2-dreamcore-doorfield": { width: 1536, height: 1152 },
   "b2-magic-forest-clearing": { width: 1536, height: 1152 },
+  "color-burst-puppy": { width: 928, height: 1232 },
+  "sunshine-puppy-portrait": { width: 928, height: 1232 },
 };
 
 const STYLE_BY_ID = new Map<StyleId, WallStyle>(
@@ -1130,6 +1132,24 @@ const SEEDS = [
     alt: "Glowing mushroom circle around an old stone bench at twilight",
     license: "self-authored",
   },
+  {
+    // User-uploaded AI-generated wallpaper (2026-11-14 import; provider and
+    // output terms not provided) — review-pending by the standard mechanism:
+    // no image, noindex, no download until a human reviewer records the
+    // provider terms (registry: incoming.wallpaper.color-burst-puppy).
+    id: "color-burst-puppy",
+    title: "Color Burst Puppy",
+    styleId: "oil-painting",
+    alt: "A cheerful fluffy white puppy jumping forward against vibrant blue, orange, pink and yellow brushstrokes",
+  },
+  {
+    // User-uploaded AI-generated wallpaper — same review-pending isolation as
+    // above (registry: incoming.wallpaper.sunshine-puppy-portrait).
+    id: "sunshine-puppy-portrait",
+    title: "Sunshine Puppy Portrait",
+    styleId: "oil-painting",
+    alt: "A fluffy white puppy portrait with bright eyes and a playful expression, surrounded by golden yellow, pink and turquoise brushstrokes",
+  },
 ] satisfies readonly PresetWallpaperSeed[];
 
 export const PRESET_WALLPAPERS: PresetWallpaper[] = SEEDS.map(resolveWallpaper);
@@ -1208,6 +1228,7 @@ const FEATURED_WALLPAPER_IDS: readonly string[] = [
   "b2-gothic-cathedral",
   "b2-anime-festival-night",
   "b2-roadmovie-dusk",
+
 ];
 
 export const FEATURED_WALLPAPERS: PresetWallpaper[] =

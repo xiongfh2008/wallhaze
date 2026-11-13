@@ -1132,6 +1132,14 @@
     "b2-magic-forest-clearing": {
       "title": "Círculo de hongos",
       "alt": "Círculo de hongos — Glowing mushroom circle around an old stone bench at twilight"
+    },
+    "color-burst-puppy": {
+      "title": "Cachorro entre colores",
+      "alt": "Un cachorro blanco y esponjoso salta alegremente sobre pinceladas azules, naranjas, rosas y amarillas"
+    },
+    "sunshine-puppy-portrait": {
+      "title": "Retrato de un cachorro soleado",
+      "alt": "Un perrito blanco y esponjoso saca un poco la lengua entre pinceladas doradas, rosas y turquesas"
     }
   },
   "auth": {
