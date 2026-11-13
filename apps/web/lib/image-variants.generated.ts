@@ -239,6 +239,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 1536
   },
+  "/images/wallpapers/color-burst-puppy.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 928
+  },
   "/images/wallpapers/deep-sea-glow-cosmos.jpg": {
     "widths": [
       640,
@@ -444,6 +450,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1920
     ],
     "natural": 1920
+  },
+  "/images/wallpapers/sunshine-puppy-portrait.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 928
   },
   "/images/wallpapers/synthwave-car-sunset.jpg": {
     "widths": [

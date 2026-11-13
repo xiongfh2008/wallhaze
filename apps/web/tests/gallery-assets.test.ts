@@ -69,7 +69,7 @@ describe("new tablet/desktop gallery content", () => {
   });
 
   it("never offers a download for review-pending artwork", () => {
-    expect(PRESET_WALLPAPERS.filter((item) => item.license === "review-pending")).toHaveLength(41);
+    expect(PRESET_WALLPAPERS.filter((item) => item.license === "review-pending")).toHaveLength(39);
     for (const item of PRESET_WALLPAPERS) {
       expect(isDownloadAllowed(item.license), item.id).toBe(item.license !== "review-pending");
     }

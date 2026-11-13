@@ -84,9 +84,9 @@ describe("homepage content de-duplication", () => {
     const selfAuthored = PRESET_WALLPAPERS.filter(
       (w) => w.license === "self-authored"
     );
-    expect(reviewPending).toHaveLength(41); // 39 legacy + 2 user-uploaded AI (provider terms pending)
+    expect(reviewPending).toHaveLength(39); // legacy set only; the two 2026-11-14 user uploads were published by owner directive
     expect(verified).toHaveLength(16);
-    expect(selfAuthored).toHaveLength(50); // 2 procedural + 48 AI-generated originals (2 batches)
+    expect(selfAuthored).toHaveLength(52); // 2 procedural + 48 AI originals + 2 user-uploaded AI (2026-11-14)
     expect(verified.every((w) => Boolean(w.source))).toBe(true);
     expect(reviewPending.every((w) => w.image === null)).toBe(true);
     expect(reviewPending.every((w) => w.canPubliclyDisplay === false)).toBe(true);

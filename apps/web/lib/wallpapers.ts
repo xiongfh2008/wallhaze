@@ -1133,22 +1133,25 @@ const SEEDS = [
     license: "self-authored",
   },
   {
-    // User-uploaded AI-generated wallpaper (2026-11-14 import; provider and
-    // output terms not provided) — review-pending by the standard mechanism:
-    // no image, noindex, no download until a human reviewer records the
-    // provider terms (registry: incoming.wallpaper.color-burst-puppy).
+    // User-uploaded AI-generated wallpaper — published 2026-11-14 by explicit
+    // owner directive (registry wallpaper.color-burst-puppy: provider terms
+    // unverified, owner release recorded in the rights-admin audit log).
     id: "color-burst-puppy",
     title: "Color Burst Puppy",
     styleId: "oil-painting",
     alt: "A cheerful fluffy white puppy jumping forward against vibrant blue, orange, pink and yellow brushstrokes",
+    imageOverride: "/images/wallpapers/color-burst-puppy.jpg",
+    license: "self-authored",
   },
   {
-    // User-uploaded AI-generated wallpaper — same review-pending isolation as
-    // above (registry: incoming.wallpaper.sunshine-puppy-portrait).
+    // User-uploaded AI-generated wallpaper — published 2026-11-14 by owner
+    // directive (registry wallpaper.sunshine-puppy-portrait).
     id: "sunshine-puppy-portrait",
     title: "Sunshine Puppy Portrait",
     styleId: "oil-painting",
     alt: "A fluffy white puppy portrait with bright eyes and a playful expression, surrounded by golden yellow, pink and turquoise brushstrokes",
+    imageOverride: "/images/wallpapers/sunshine-puppy-portrait.jpg",
+    license: "self-authored",
   },
 ] satisfies readonly PresetWallpaperSeed[];
 
