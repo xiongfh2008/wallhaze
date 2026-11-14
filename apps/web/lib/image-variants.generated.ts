@@ -34,6 +34,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 864
   },
+  "/images/wallpapers/astral-drift.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
+  },
   "/images/wallpapers/aurora-veil.jpg": {
     "widths": [
       640,
@@ -269,6 +275,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 1536
   },
+  "/images/wallpapers/floating-isles.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
+  },
   "/images/wallpapers/forest-rays.jpg": {
     "widths": [
       640,
@@ -337,11 +349,25 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 1536
   },
+  "/images/wallpapers/mirror-desert.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
+  },
   "/images/wallpapers/mystic-girl-night-sky.jpg": {
     "widths": [
       640
     ],
     "natural": 864
+  },
+  "/images/wallpapers/nebula-city.jpg": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "natural": 1376
   },
   "/images/wallpapers/nebula-drift.jpg": {
     "widths": [
@@ -359,6 +385,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1280
     ],
     "natural": 1536
+  },
+  "/images/wallpapers/neon-rain.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
   },
   "/images/wallpapers/pixel-rainy-city.jpg": {
     "widths": [
@@ -398,6 +430,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       960
     ],
     "natural": 1080
+  },
+  "/images/wallpapers/sakura-nights.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
   },
   "/images/wallpapers/sakura-tram-station.jpg": {
     "widths": [
@@ -471,6 +509,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 1536
   },
+  "/images/wallpapers/twilight-peaks.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
+  },
   "/images/wallpapers/ukiyo-anime-fusion.jpg": {
     "widths": [
       640,
@@ -478,6 +522,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1280
     ],
     "natural": 1536
+  },
+  "/images/wallpapers/violet-orb.jpg": {
+    "widths": [
+      640
+    ],
+    "natural": 768
   },
   "/images/styles/3d-art.webp": {
     "widths": [

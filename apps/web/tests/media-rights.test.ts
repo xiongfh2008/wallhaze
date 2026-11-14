@@ -42,16 +42,16 @@ describe("asset-level media rights registry", () => {
   it("classifies every inventoried asset without auto-promoting legacy files", () => {
     expect(registry.counts).toMatchObject({
       total: 206,
-      verified: 151,
-      pending: 47,
+      verified: 171,
+      pending: 27,
       restricted: 8,
       rejected: 0,
       removed: 0,
     });
-    expect(MEDIA_RIGHTS).toHaveLength(206); // +2 promoted user uploads + 20 regenerated incoming (2026-11-14)
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(47); // 27 legacy styles + 20 regenerated incoming (batch 2)
+    expect(MEDIA_RIGHTS).toHaveLength(206); // includes 20 batch-2 regen wallpapers promoted 2026-11-14
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(27); // 27 legacy styles (batch-2 + user uploads promoted by owner directive)
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "restricted")).toHaveLength(8);
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(151);
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(171);
     // The 2026-10-28 audit revoked the 2026-10-27 promotion: the 27
     // superseded legacy previews stay pending, live outside public/ under
     // the `legacy.style.*` ids, and must record why they were demoted.
@@ -207,11 +207,11 @@ describe("asset-level media rights registry", () => {
     expect(new Set(images).size).toBe(images.length);
   });
 
-  it("keeps 39 pending wallpapers image-free and 18 cleared wallpapers public", () => {
+  it("keeps 19 pending wallpapers image-free and 18 legacy cleared wallpapers public", () => {
     const pending = PRESET_WALLPAPERS.filter((w) => w.license === "review-pending");
     const cleared = PRESET_WALLPAPERS.filter((w) => w.license !== "review-pending");
-    expect(pending).toHaveLength(39);
-    expect(cleared).toHaveLength(68); // 18 legacy + 48 originals + 2 user-uploaded AI
+    expect(pending).toHaveLength(19);
+    expect(cleared).toHaveLength(88); // 18 legacy + 48 originals + 2 user uploads + 20 batch-2 regen
     for (const wallpaper of pending) {
       expect(wallpaper.image, wallpaper.id).toBeNull();
       expect(wallpaper.canPubliclyDisplay, wallpaper.id).toBe(false);
