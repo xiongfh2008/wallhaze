@@ -1,10 +1,10 @@
 # WallHaze V2.0 媒体资产清单
 
-- 生成时间：2026-10-27T17:23:05.358Z
+- 生成时间：2026-11-13T17:57:18.250Z
 - 机器可读源：`apps/web/data/media-rights.json`
 - 复核基准日：2026-10-24
-- 资产总数：**124**
-- verified：**89**；pending：**27**；restricted：**8**；rejected：**0**；removed：**0**
+- 资产总数：**174**
+- verified：**137**；pending：**29**；restricted：**8**；rejected：**0**；removed：**0**
 
 > 规则：只有 `canPubliclyDisplay=true` 且位于 `public/` 的文件会被 Next.js 直接提供。pending/restricted 文件已移出 `public/`，原始 URL 返回 404。没有文件被删除；映射与哈希在 `private-media/review-pending/manifest.json`。
 
@@ -18,6 +18,8 @@
 | `frame.night-sakura` | live-demo-source-frame | `/videos/live-demos/night-sakura-frame.jpg` | CC0 | verified | yes | yes | yes | 14f002483f9a |
 | `frame.star-drift` | live-demo-source-frame | `/videos/live-demos/star-drift-frame.jpg` | CC0 | verified | yes | yes | yes | b4990019bc48 |
 | `frame.sunset-station` | live-demo-source-frame | `/videos/live-demos/sunset-station-frame.jpg` | CC0 | verified | yes | yes | yes | 4daef26c4534 |
+| `incoming.wallpaper.color-burst-puppy` | wallpaper-incoming | `private-media/incoming-review/color-burst-puppy.jpg` | unknown | pending | no | no | no | ffd8ffe00010 |
+| `incoming.wallpaper.sunshine-puppy-portrait` | wallpaper-incoming | `private-media/incoming-review/sunshine-puppy-portrait.jpg` | unknown | pending | no | no | no | ffd8ffe00010 |
 | `legacy.style.3d-art` | style-preview | `private-media/review-pending/styles/3d-art.webp` | unknown | pending | no | no | no | 50b2e9c3186e |
 | `legacy.style.abstract` | style-preview | `private-media/review-pending/styles/abstract.webp` | unknown | pending | no | no | no | 10f63602f54e |
 | `legacy.style.analog-horror` | style-preview | `private-media/review-pending/styles/analog-horror.webp` | unknown | pending | no | no | no | 105f5a8bbf73 |
@@ -123,17 +125,65 @@
 | `video.night-sakura` | live-demo-video | `/videos/live-demos/night-sakura.mp4` | CC0 | verified | yes | yes | yes | 31e905ff6010 |
 | `video.star-drift` | live-demo-video | `/videos/live-demos/star-drift.mp4` | CC0 | verified | yes | yes | yes | e5f1eaee9a0c |
 | `video.sunset-station` | live-demo-video | `/videos/live-demos/sunset-station.mp4` | CC0 | verified | yes | yes | yes | e9f508d1f4b8 |
+| `wallpaper.abandoned-manor-dread` | gallery-wallpaper | `/images/wallpapers/abandoned-manor-dread.jpg` | unknown | verified | yes | yes | yes | 364b9f9d538e |
+| `wallpaper.amoled-violet-halo` | gallery-wallpaper | `/images/wallpapers/amoled-violet-halo.jpg` | unknown | verified | yes | yes | yes | 77286907e176 |
+| `wallpaper.anime-bedroom-cityscape` | gallery-wallpaper | `/images/wallpapers/anime-bedroom-cityscape.jpg` | unknown | verified | yes | yes | yes | 6e520b3d3250 |
 | `wallpaper.aurora-veil` | gallery-wallpaper | `/images/wallpapers/aurora-veil.jpg` | CC0 | verified | yes | yes | yes | 944c1e37e18b |
+| `wallpaper.b2-amoled-obsidian-wave` | gallery-wallpaper | `/images/wallpapers/b2-amoled-obsidian-wave.jpg` | unknown | verified | yes | yes | yes | 9a40fab195a8 |
+| `wallpaper.b2-anime-festival-night` | gallery-wallpaper | `/images/wallpapers/b2-anime-festival-night.jpg` | unknown | verified | yes | yes | yes | 3d9c6d8fc586 |
+| `wallpaper.b2-cyber-alley-cat` | gallery-wallpaper | `/images/wallpapers/b2-cyber-alley-cat.jpg` | unknown | verified | yes | yes | yes | 8316fad7c82b |
+| `wallpaper.b2-cyber-nightmarket` | gallery-wallpaper | `/images/wallpapers/b2-cyber-nightmarket.jpg` | unknown | verified | yes | yes | yes | 9c5f71ef029f |
+| `wallpaper.b2-dark-citadel-throne` | gallery-wallpaper | `/images/wallpapers/b2-dark-citadel-throne.jpg` | unknown | verified | yes | yes | yes | 110856f91c1a |
+| `wallpaper.b2-dreamcore-doorfield` | gallery-wallpaper | `/images/wallpapers/b2-dreamcore-doorfield.jpg` | unknown | verified | yes | yes | yes | ef0d3a3cb86e |
+| `wallpaper.b2-dreamcore-playground` | gallery-wallpaper | `/images/wallpapers/b2-dreamcore-playground.jpg` | unknown | verified | yes | yes | yes | c31845517cf8 |
+| `wallpaper.b2-galaxy-cliff-temple` | gallery-wallpaper | `/images/wallpapers/b2-galaxy-cliff-temple.jpg` | unknown | verified | yes | yes | yes | 555c6be83ce4 |
+| `wallpaper.b2-galaxy-river-mountain` | gallery-wallpaper | `/images/wallpapers/b2-galaxy-river-mountain.jpg` | unknown | verified | yes | yes | yes | 0929367a2694 |
+| `wallpaper.b2-gothic-cathedral` | gallery-wallpaper | `/images/wallpapers/b2-gothic-cathedral.jpg` | unknown | verified | yes | yes | yes | 59b41d087fbd |
+| `wallpaper.b2-interstellar-gate` | gallery-wallpaper | `/images/wallpapers/b2-interstellar-gate.jpg` | unknown | verified | yes | yes | yes | cb9531b24f29 |
+| `wallpaper.b2-jp-aesthetic-alley` | gallery-wallpaper | `/images/wallpapers/b2-jp-aesthetic-alley.jpg` | unknown | verified | yes | yes | yes | 23fe9abcc09e |
+| `wallpaper.b2-lofi-rain-window` | gallery-wallpaper | `/images/wallpapers/b2-lofi-rain-window.jpg` | unknown | verified | yes | yes | yes | 1eab5a39c95a |
+| `wallpaper.b2-magic-forest-clearing` | gallery-wallpaper | `/images/wallpapers/b2-magic-forest-clearing.jpg` | unknown | verified | yes | yes | yes | 447c5aff6865 |
+| `wallpaper.b2-magic-forest-spirits` | gallery-wallpaper | `/images/wallpapers/b2-magic-forest-spirits.jpg` | unknown | verified | yes | yes | yes | 07cc1800a400 |
+| `wallpaper.b2-magic-forest-well` | gallery-wallpaper | `/images/wallpapers/b2-magic-forest-well.jpg` | unknown | verified | yes | yes | yes | e759ea1e55ec |
+| `wallpaper.b2-mech-pilot-gaze` | gallery-wallpaper | `/images/wallpapers/b2-mech-pilot-gaze.jpg` | unknown | verified | yes | yes | yes | bd23773f1463 |
+| `wallpaper.b2-mecha-battleline` | gallery-wallpaper | `/images/wallpapers/b2-mecha-battleline.jpg` | unknown | verified | yes | yes | yes | b722762c7c49 |
+| `wallpaper.b2-pixel-arcade-world` | gallery-wallpaper | `/images/wallpapers/b2-pixel-arcade-world.jpg` | unknown | verified | yes | yes | yes | e0502ded492e |
+| `wallpaper.b2-race-future-circuit` | gallery-wallpaper | `/images/wallpapers/b2-race-future-circuit.jpg` | unknown | verified | yes | yes | yes | 25767d90ded3 |
+| `wallpaper.b2-roadmovie-dusk` | gallery-wallpaper | `/images/wallpapers/b2-roadmovie-dusk.jpg` | unknown | verified | yes | yes | yes | bdd926fb1712 |
+| `wallpaper.b2-samurai-standoff` | gallery-wallpaper | `/images/wallpapers/b2-samurai-standoff.jpg` | unknown | verified | yes | yes | yes | 690f99cff4f2 |
+| `wallpaper.b2-vaporwave-bust` | gallery-wallpaper | `/images/wallpapers/b2-vaporwave-bust.jpg` | unknown | verified | yes | yes | yes | 709008c8e616 |
+| `wallpaper.b2-vaporwave-mall` | gallery-wallpaper | `/images/wallpapers/b2-vaporwave-mall.jpg` | unknown | verified | yes | yes | yes | 24d473f0145c |
+| `wallpaper.black-hole-voyage` | gallery-wallpaper | `/images/wallpapers/black-hole-voyage.jpg` | unknown | verified | yes | yes | yes | 3d7b8088ddd1 |
+| `wallpaper.clay-toon-cozy-world` | gallery-wallpaper | `/images/wallpapers/clay-toon-cozy-world.jpg` | unknown | verified | yes | yes | yes | ac2d480df419 |
+| `wallpaper.deep-sea-glow-cosmos` | gallery-wallpaper | `/images/wallpapers/deep-sea-glow-cosmos.jpg` | unknown | verified | yes | yes | yes | 8e7f0b23172c |
+| `wallpaper.dragon-sky-citadel` | gallery-wallpaper | `/images/wallpapers/dragon-sky-citadel.jpg` | unknown | verified | yes | yes | yes | 36367dd67a2b |
+| `wallpaper.dreamcore-floating-room` | gallery-wallpaper | `/images/wallpapers/dreamcore-floating-room.jpg` | unknown | verified | yes | yes | yes | 74824e11cb99 |
 | `wallpaper.forest-rays` | gallery-wallpaper | `/images/wallpapers/forest-rays.jpg` | CC0 | verified | yes | yes | yes | 8590f35bdc07 |
+| `wallpaper.gothic-castle-moonlight` | gallery-wallpaper | `/images/wallpapers/gothic-castle-moonlight.jpg` | unknown | verified | yes | yes | yes | 20d130b2d0ea |
+| `wallpaper.highway-sunset-classic-car` | gallery-wallpaper | `/images/wallpapers/highway-sunset-classic-car.jpg` | unknown | verified | yes | yes | yes | 8a5c64f2d114 |
 | `wallpaper.hong-kong-rain` | gallery-wallpaper | `/images/wallpapers/hong-kong-rain.jpg` | CC0 | verified | yes | yes | yes | 2cf79a85c6f6 |
+| `wallpaper.hypercar-scifi-city` | gallery-wallpaper | `/images/wallpapers/hypercar-scifi-city.jpg` | unknown | verified | yes | yes | yes | 1a7ea2ea2861 |
 | `wallpaper.jellyfish-deep` | gallery-wallpaper | `/images/wallpapers/jellyfish-deep.jpg` | CC0 | verified | yes | yes | yes | 8741441cc831 |
 | `wallpaper.light-ribbons-wide` | gallery-wallpaper | `/images/wallpapers/light-ribbons-wide.jpg` | self-authored | verified | yes | yes | yes | b1b94c797531 |
+| `wallpaper.mecha-girl-neon-city` | gallery-wallpaper | `/images/wallpapers/mecha-girl-neon-city.jpg` | unknown | verified | yes | yes | yes | 765879388da7 |
+| `wallpaper.mystic-girl-night-sky` | gallery-wallpaper | `/images/wallpapers/mystic-girl-night-sky.jpg` | unknown | verified | yes | yes | yes | 903d7a29c92c |
 | `wallpaper.nebula-drift` | gallery-wallpaper | `/images/wallpapers/nebula-drift.jpg` | CC0 | verified | yes | yes | yes | 722a7b62bf25 |
+| `wallpaper.neon-motorcycle-night` | gallery-wallpaper | `/images/wallpapers/neon-motorcycle-night.jpg` | unknown | verified | yes | yes | yes | 80582587e3b9 |
+| `wallpaper.pixel-rainy-city` | gallery-wallpaper | `/images/wallpapers/pixel-rainy-city.jpg` | unknown | verified | yes | yes | yes | f9af604b8c87 |
 | `wallpaper.poppy-field` | gallery-wallpaper | `/images/wallpapers/poppy-field.jpg` | CC0 | verified | yes | yes | yes | f1a7f404e436 |
 | `wallpaper.quiet-bridge` | gallery-wallpaper | `/images/wallpapers/quiet-bridge.jpg` | CC0 | verified | yes | yes | yes | fc73295fc41e |
+| `wallpaper.retro-motel-alien-sky` | gallery-wallpaper | `/images/wallpapers/retro-motel-alien-sky.jpg` | unknown | verified | yes | yes | yes | 94b99c9e3b95 |
 | `wallpaper.sakura-dream` | gallery-wallpaper | `/images/wallpapers/sakura-dream.jpg` | CC0 | verified | yes | yes | yes | 0a4f188192e3 |
+| `wallpaper.sakura-tram-station` | gallery-wallpaper | `/images/wallpapers/sakura-tram-station.jpg` | unknown | verified | yes | yes | yes | 250dfd13e903 |
+| `wallpaper.samurai-shrine-rain` | gallery-wallpaper | `/images/wallpapers/samurai-shrine-rain.jpg` | unknown | verified | yes | yes | yes | 974dfcbe40a9 |
+| `wallpaper.skydeck-future-city` | gallery-wallpaper | `/images/wallpapers/skydeck-future-city.jpg` | unknown | verified | yes | yes | yes | d325132716a9 |
+| `wallpaper.starlit-glowing-ocean` | gallery-wallpaper | `/images/wallpapers/starlit-glowing-ocean.jpg` | unknown | verified | yes | yes | yes | cc281515cd3d |
+| `wallpaper.starship-ring-planet` | gallery-wallpaper | `/images/wallpapers/starship-ring-planet.jpg` | unknown | verified | yes | yes | yes | c8ea48d4d310 |
 | `wallpaper.stillwater-night` | gallery-wallpaper | `/images/wallpapers/stillwater-night.jpg` | CC0 | verified | yes | yes | yes | f8560978ffbc |
 | `wallpaper.sunset-platform` | gallery-wallpaper | `/images/wallpapers/sunset-platform.jpg` | CC0 | verified | yes | yes | yes | 38ffb106a78f |
+| `wallpaper.synthwave-car-sunset` | gallery-wallpaper | `/images/wallpapers/synthwave-car-sunset.jpg` | unknown | verified | yes | yes | yes | 74430e1ec51f |
+| `wallpaper.tokyo-neon-rain-night` | gallery-wallpaper | `/images/wallpapers/tokyo-neon-rain-night.jpg` | unknown | verified | yes | yes | yes | 75bce8d6555d |
+| `wallpaper.ukiyo-anime-fusion` | gallery-wallpaper | `/images/wallpapers/ukiyo-anime-fusion.jpg` | unknown | verified | yes | yes | yes | 6b2059a63028 |
 
 ## 来源分类
 
