@@ -61,10 +61,15 @@ for (const [dir, { widths, quality, sourcePattern }] of Object.entries(PLAN)) {
         from: `${meta.width}x${meta.height}`,
       });
     }
-    MANIFEST[`/images/${dir}/${entry}`] = {
-      widths: available,
-      natural: meta.width,
-    };
+    // Sources narrower than every planned width (e.g. a 576px phone
+    // original vs a 640px plan) get NO manifest entry: the original itself
+    // is the only candidate and lib/images.ts falls back to it.
+    if (available.length > 0) {
+      MANIFEST[`/images/${dir}/${entry}`] = {
+        widths: available,
+        natural: meta.width,
+      };
+    }
   }
 }
 
