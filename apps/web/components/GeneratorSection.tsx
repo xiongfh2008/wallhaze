@@ -889,14 +889,15 @@ export default function GeneratorSection({
     ? tWallpaperTitles(`${createSimilar.wallpaperId}.title`)
     : null;
 
-  // Supplement budget: the API caps the sent prompt at PROMPT_MAX_LENGTH
-  // BEFORE composition (a longer prompt is a hard 400), so the internal
-  // template leaves exactly this much room for the user's own words. The
+  // Supplement budget: the API caps the SENT prompt at PROMPT_MAX_LENGTH
+  // BEFORE composition (a longer prompt is a hard 400). The Create similar
+  // composition joins template and supplement with a "\n\n" separator, so
+  // the real budget for the user's own words is 800 - template - 2. The
   // supplement is never silently truncated — over-budget text is blocked
-  // with an explicit "shorten it" message instead, and the internal
-  // template itself is never cut.
+  // with an explicit "shorten it" message, and the internal template itself
+  // is never cut.
   const supplementLimit = createSimilar
-    ? PROMPT_MAX_LENGTH - createSimilar.internalPrompt.length
+    ? PROMPT_MAX_LENGTH - createSimilar.internalPrompt.length - 2
     : null;
   const supplementOverLimit =
     supplementLimit !== null && prompt.trim().length > supplementLimit;

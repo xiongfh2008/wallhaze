@@ -29,13 +29,16 @@ describe("create-similar prompt length budget", () => {
       expect(ids.size).toBe(variants.length);
       for (const variant of variants) {
         expect(variant.prompt.trim().length).toBeGreaterThan(100);
-        // Templates stay within the curated 350-450 band — never truncated,
-        // always leaving >= 350 characters for the user's own supplement.
+        // Templates stay within the curated 350-450 band — never truncated.
         expect(variant.prompt.length).toBeLessThanOrEqual(TEMPLATE_MAX_LENGTH);
         expect(variant.prompt.length).toBeGreaterThanOrEqual(350);
-        // Worst case: max supplement (800 - template) + composition
-        // overhead must stay under the server's 1600 final-prompt ceiling —
-        // so a compliant client can never trigger PROMPT_TOO_LONG.
+        // The UI joins template + supplement with a "\n\n" separator under
+        // the 800-char sent-prompt cap, so the real supplement budget is
+        // 800 - template - 2 — must stay >= 350 for every variant.
+        expect(800 - variant.prompt.length - 2).toBeGreaterThanOrEqual(350);
+        // Worst case: max supplement + composition overhead must stay under
+        // the server's 1600 final-prompt ceiling — a compliant client can
+        // never trigger PROMPT_TOO_LONG.
         expect(PROMPT_MAX_LENGTH + COMPOSITION_OVERHEAD_BOUND).toBeLessThan(
           1600
         );
