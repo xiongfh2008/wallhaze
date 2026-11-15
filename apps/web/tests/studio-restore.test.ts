@@ -15,6 +15,9 @@ describe("create-similar prompt length budget", () => {
   // "Scene: <x>." wrapper + the longest device guidance (~175) + frame
   // guidance (~45) + the reference-image guidance (~480), rounded up.
   const COMPOSITION_OVERHEAD_BOUND = 750;
+  // Curated template ceiling: keeps at least 350 characters of supplement
+  // budget under the 800-char sent-prompt cap.
+  const TEMPLATE_MAX_LENGTH = 450;
 
   it("every whitelisted variant leaves supplement room and fits the final 1600 budget", () => {
     const wallpapers = Object.keys(CREATE_SIMILAR_VARIANTS);
@@ -26,9 +29,10 @@ describe("create-similar prompt length budget", () => {
       expect(ids.size).toBe(variants.length);
       for (const variant of variants) {
         expect(variant.prompt.trim().length).toBeGreaterThan(100);
-        // The internal template is never truncated and always leaves a
-        // non-negative supplement budget under the 800 sent-prompt cap.
-        expect(variant.prompt.length).toBeLessThanOrEqual(PROMPT_MAX_LENGTH);
+        // Templates stay within the curated 350-450 band — never truncated,
+        // always leaving >= 350 characters for the user's own supplement.
+        expect(variant.prompt.length).toBeLessThanOrEqual(TEMPLATE_MAX_LENGTH);
+        expect(variant.prompt.length).toBeGreaterThanOrEqual(350);
         // Worst case: max supplement (800 - template) + composition
         // overhead must stay under the server's 1600 final-prompt ceiling —
         // so a compliant client can never trigger PROMPT_TOO_LONG.

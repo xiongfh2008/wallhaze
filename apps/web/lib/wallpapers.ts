@@ -1374,19 +1374,19 @@ export const CREATE_SIMILAR_VARIANTS: Record<
       id: "faithful",
       label: "Bright street-style sketch",
       prompt:
-        "Expressive mixed-media ink sketch of a joyful young woman laughing with her head tilted back, oversized round sunglasses with teal and golden reflections, bright yellow hoodie, chunky headphones around her neck, loose windblown dark hair, bold irregular black pen lines, layered colored-pencil marks and energetic tiny orange and cyan paint splashes, warm off-white paper background, low-angle close-up, spontaneous editorial illustration, original character, sharp face and hands, vertical phone wallpaper, no words, logos or watermark.",
+        "Expressive mixed-media ink sketch of a laughing young woman with her head tilted back, oversized round sunglasses with teal and golden reflections, bright yellow hoodie, chunky headphones around her neck, windblown dark hair. Bold irregular black pen lines, colored-pencil shading, tiny orange and cyan paint splashes on warm off-white paper. Low-angle close-up, original character, vertical 9:16 wallpaper, no text or watermark.",
     },
     {
       id: "variation",
       label: "Playful color remix",
       prompt:
-        "Original upbeat editorial portrait of a laughing young woman with tousled hair, coral-orange jacket and retro turquoise sunglasses, colorful on-ear headphones, lively scratchy ink contours, rough pencil hatching, broad golden brush patches and small electric-blue splatters, cream sketchbook paper, expressive off-center composition with airy space above, bold modern mixed-media illustration, vertical 9:16 wallpaper, natural face, no text, no signature, no watermark.",
+        "Original upbeat mixed-media portrait of a laughing young woman with tousled hair, coral-orange jacket, retro turquoise sunglasses, colorful on-ear headphones. Lively scratchy ink contours, rough pencil hatching, broad golden brush patches and small electric-blue splatters on cream sketchbook paper, off-center composition with airy space above. Vertical 9:16 wallpaper, natural face, no text or watermark.",
     },
     {
       id: "minimal",
       label: "Clean poster sketch",
       prompt:
-        "Minimal expressive portrait illustration of a smiling young woman wearing large headphones, mirrored cobalt glasses and a bright saffron jacket, spontaneous black ink loops and fine crosshatching over ivory paper, restrained turquoise and vermilion accent strokes, confident asymmetrical poster composition, strong character expression, sophisticated fashion-editorial sketch aesthetic, original design, vertical 9:16 phone wallpaper, no typography, no logo, no watermark.",
+        "Minimal expressive portrait of a smiling young woman wearing large headphones, mirrored cobalt glasses and a bright saffron jacket. Spontaneous black ink loops and fine crosshatching over ivory paper, restrained turquoise and vermilion accent strokes, confident asymmetrical poster composition. Original design, vertical 9:16 phone wallpaper, no text or watermark.",
     },
   ],
   "seaside-daydream-boy": [
@@ -1394,19 +1394,19 @@ export const CREATE_SIMILAR_VARIANTS: Record<
       id: "faithful",
       label: "Bright coast and lighthouse",
       prompt:
-        "Original hand-drawn anime background illustration of a teenage traveler sitting on a grassy seaside bluff with an orange rucksack, gazing up at towering sunlit cumulus clouds over a dazzling turquoise ocean, a small red-and-white lighthouse on a distant headland, seagulls circling, breezy summer atmosphere, expressive fine ink contours with textured watercolor-like paint strokes, clean blue-and-white palette, cinematic panoramic 16:9 desktop wallpaper, no writing, no logos, no watermark.",
+        "Hand-drawn anime background of a teenage traveler sitting on a grassy seaside bluff with an orange rucksack, gazing at towering sunlit cumulus clouds over a turquoise ocean, a small red-and-white lighthouse on a distant headland, seagulls circling. Fine ink contours with textured watercolor-like strokes, breezy summer palette, airy panoramic 16:9 desktop wallpaper, no text or watermark.",
     },
     {
       id: "variation",
       label: "Golden-hour coastal pause",
       prompt:
-        "Wide original anime scenic illustration of a young traveler taking a break on a rocky seaside lookout, canvas backpack beside them, glowing late-afternoon sun on the sea, distant lighthouse and gulls over the bay, windblown grass, strong airy composition, gestural hand-drawn ink lines mixed with warm textured paint, subtle nostalgic road-trip mood, panoramic 16:9 desktop wallpaper, no text, no watermark.",
+        "Wide anime scenic illustration of a young traveler resting on a rocky seaside lookout, canvas backpack beside them, glowing late-afternoon sun on the sea, distant lighthouse and gulls, windblown grass. Gestural hand-drawn ink lines mixed with warm textured paint, nostalgic golden-hour mood, strong airy composition, panoramic 16:9 desktop wallpaper, no text or watermark.",
     },
     {
       id: "minimal",
       label: "Clouds over the ocean",
       prompt:
-        "Expansive illustrated summer seascape viewed from a quiet grassy cliff, one small person seated at the far right with a bright orange backpack, huge sculpted white clouds against saturated cerulean sky, blue ocean and a tiny lighthouse in the distance, delicate scratchy pen outlines and painterly brush texture, large open negative space for desktop icons, original refined anime environmental art, widescreen 16:9 wallpaper, no words or watermark.",
+        "Expansive illustrated summer seascape from a quiet grassy cliff: one small figure seated at the far right with a bright orange backpack, huge sculpted white clouds against saturated cerulean sky, a tiny lighthouse in the distance. Delicate pen outlines and painterly brush texture, large open negative space for desktop icons, widescreen 16:9 wallpaper, no words or watermark.",
     },
   ],
   "adventure-goggles-cat": [
@@ -1414,19 +1414,19 @@ export const CREATE_SIMILAR_VARIANTS: Record<
       id: "faithful",
       label: "Cheerful aviator cat",
       prompt:
-        "Expressive mixed-media ink illustration of a fluffy tabby cat with its chin tilted proudly upward, vintage aviator goggles with vivid sky-blue lenses resting on its forehead, long bright red scarf flowing across the chest, loose scratchy black pen contours, fine whiskers, energetic orange and cobalt paint flecks on warm ivory sketch paper, endearing confident expression, close-up upward perspective, original animal character, vertical 3:4 tablet wallpaper, no text, signature or watermark.",
+        "Expressive mixed-media ink illustration of a fluffy tabby cat with its chin tilted proudly upward, vintage aviator goggles with sky-blue lenses on its forehead, a long bright red scarf across its chest. Loose scratchy black pen contours, fine whiskers, energetic orange and cobalt paint flecks on warm ivory sketch paper, close-up upward perspective, original character, vertical 3:4 tablet wallpaper, no text or watermark.",
     },
     {
       id: "variation",
       label: "Orange explorer kitten",
       prompt:
-        "Original playful editorial sketch of an adventurous ginger kitten wearing brass-rimmed blue goggles and a teal scarf, looking into a gust of wind, unruly fur sketched with bold black ink loops, warm yellow and red brush accents, sparse electric-blue paint splashes, clean off-white paper backdrop, strong character silhouette, spontaneous handmade illustration style, vertical 3:4 tablet wallpaper, no writing, logo or watermark.",
+        "Playful sketch of an adventurous ginger kitten wearing brass-rimmed blue goggles and a teal scarf, looking into a gust of wind, unruly fur sketched in bold black ink loops. Warm yellow and red brush accents, sparse electric-blue paint splashes on clean off-white paper, strong character silhouette, spontaneous handmade illustration style, vertical 3:4 tablet wallpaper, no text or watermark.",
     },
     {
       id: "minimal",
       label: "Graphic adventure-cat portrait",
       prompt:
-        "Minimal high-energy black ink and colored-pencil portrait of a charming black-and-white cat in oversized vintage blue-lens aviator goggles and a scarlet neckerchief, whimsical upward-looking pose, textured hatched fur, raw gestural marks, tiny red and golden paint drops, spacious cream background, lively modern poster illustration, original design, vertical 3:4 tablet wallpaper, no typography or watermark.",
+        "Minimal black-ink and colored-pencil portrait of a charming black-and-white cat in oversized blue-lens aviator goggles and a scarlet neckerchief, whimsical upward-looking pose. Textured hatched fur, raw gestural marks, tiny red and golden paint drops, spacious cream background, lively modern poster composition, vertical 3:4 tablet wallpaper, no text or watermark.",
     },
   ],
   "spinning-into-sunshine": [
@@ -1434,19 +1434,19 @@ export const CREATE_SIMILAR_VARIANTS: Record<
       id: "faithful",
       label: "Same sketch energy",
       prompt:
-        "An original joyful anime-inspired hand-drawn illustration on warm ivory textured sketchbook paper. A smiling short-haired young woman spins with both arms stretched wide, loose white T-shirt, flowing sky-blue midi skirt, teal sneakers and a playful multicolor crossbody satchel. Brown bob hair fluttering in motion, expressive loose black ink contours, delicate pencil hatching, subtle watercolor washes, scattered tiny confetti dots in yellow, pink and teal. Full body visible, crisp character design, natural fingers and feet, airy negative space, no readable text or logos. Vertical 3:4 composition, gentle paper grain, uplifting candid energy.",
+        "Joyful anime-inspired sketch on warm ivory paper: a smiling short-haired young woman spins with both arms stretched wide, loose white T-shirt, flowing sky-blue skirt, teal sneakers and a small multicolor satchel, bob hair fluttering. Expressive loose black ink contours, delicate pencil hatching, subtle watercolor washes, tiny yellow, pink and teal confetti dots. Full body visible, airy negative space, vertical 3:4 wallpaper, no text or logos.",
     },
     {
       id: "remix",
       label: "Bright color remix",
       prompt:
-        "Create an original cheerful sketchbook anime fashion illustration of a young woman dancing with arms outstretched. Give her a soft coral jacket over a cream top, a bright turquoise pleated skirt, colorful canvas sneakers and a small yellow-and-green shoulder bag. Loose windswept bob hair, big friendly smile, dynamic asymmetrical pose, energetic black pen strokes, pale peach watercolor shadows and playful orange, blue and pink ink flecks. Warm off-white handmade paper texture, expressive imperfect hand-drawn linework, full figure safely inside the frame, no typography. Vertical 3:4 composition, bright but controlled palette.",
+        "Cheerful sketchbook anime fashion illustration of a young woman dancing with arms outstretched: soft coral jacket over a cream top, bright turquoise pleated skirt, colorful canvas sneakers, small yellow-and-green shoulder bag, windswept bob hair. Energetic black pen strokes, pale peach watercolor shadows, playful orange, blue and pink ink flecks on warm off-white paper, dynamic asymmetrical pose, vertical 3:4 wallpaper, no text.",
     },
     {
       id: "minimal",
       label: "Airy ink poster",
       prompt:
-        "Minimal refined anime sketch on lightly textured cream paper: a happy short-haired young woman in a white oversized top and graceful blue skirt taking a carefree dancing turn, one colorful satchel as a small focal accent. Elegant thin black pen lines, selective soft sky-blue watercolor in the fabric, only a handful of tiny yellow and turquoise confetti strokes, lots of breathing room around the complete figure. Keep her face warm and expressive, hands anatomically coherent, both shoes visible. Gallery-quality hand-drawn look, quiet playful mood, no words, badges, signatures or borders. Vertical 3:4 wallpaper.",
+        "Minimal refined anime sketch on lightly textured cream paper: a happy short-haired young woman in a white oversized top and graceful blue skirt takes a carefree dancing turn, one colorful satchel as a small focal accent. Elegant thin black pen lines, selective soft sky-blue watercolor in the fabric, a few tiny confetti strokes, lots of breathing room around the complete figure, vertical 3:4 wallpaper, no text or borders.",
     },
   ],
   "room-for-a-happy-dance": [
@@ -1454,19 +1454,19 @@ export const CREATE_SIMILAR_VARIANTS: Record<
       id: "faithful",
       label: "Desktop negative space",
       prompt:
-        "An original widescreen anime sketchbook wallpaper on warm ivory textured paper, carefully composed with a very large clean negative-space area across the LEFT 50 percent for desktop icons. On the RIGHT, a joyful short-haired young woman dances lightly in a loose white T-shirt and flowing sky-blue skirt, cheerful brown bob, green-strap yellow-orange patchwork crossbody bag and blue sneakers. Expressive spontaneous black ink strokes, soft watercolor fills, tiny floating yellow, orange and blue flecks, playful motion lines, bright open smile. Full figure visible, no accidental white border or separate edge stripe; the blank left area is intentional and continuous paper texture. 16:9 panoramic layout, no text or logos.",
+        "Widescreen anime sketchbook wallpaper on warm ivory paper with a very large clean negative space across the LEFT half for desktop icons. On the right, a joyful short-haired young woman dances lightly in a white T-shirt, sky-blue skirt and small yellow crossbody bag. Spontaneous black ink strokes, soft watercolor fills, tiny color flecks, full figure visible; the blank left area is intentional continuous paper texture, 16:9, no text or logos.",
     },
     {
       id: "remix",
       label: "Wide pastel motion",
       prompt:
-        "Wide original illustrated desktop wallpaper, textured ivory sketchbook paper with generous open LEFT-side space and a lively dancing girl positioned in the RIGHT third. She wears a pale mint cardigan, periwinkle skirt, coral-and-gold messenger bag and canvas shoes, hair blown sideways. Rough lively pen contours, layered translucent sky-blue and peach watercolor strokes and sparse colored confetti sweep gently from her movement without filling the left icon area. Full body remains safely in frame, natural lively expression, bright pastel editorial art direction. Deliberate asymmetrical composition, 16:9, no typography or borders.",
+        "Wide illustrated desktop wallpaper on textured ivory sketchbook paper with generous open LEFT-side space and a lively dancing girl in the right third: pale mint cardigan, periwinkle skirt, coral-and-gold messenger bag, hair blown sideways. Rough lively pen contours, translucent sky-blue and peach watercolor sweeps that never fill the icon area, bright pastel palette, deliberate asymmetrical 16:9 composition, no text or borders.",
     },
     {
       id: "minimal",
       label: "Calm desktop edition",
       prompt:
-        "Elegant minimalist anime line-art desktop wallpaper on a single uninterrupted sheet of warm cream paper. Preserve the LEFT two-thirds as soft, subtle blank paper texture, with just a few faint colored dots. In the RIGHT third, a small full-body smiling young woman makes a light dancing step wearing a white shirt, airy blue skirt and compact tri-color shoulder bag. Fine charcoal pen outlines, tiny gold accents, delicate watercolor shadows, restrained visual noise and plenty of negative space for desktop icons. Panoramic 16:9 framing; do not add a white frame or empty stripe, no text or signatures.",
+        "Minimalist anime line-art desktop wallpaper on one uninterrupted sheet of warm cream paper: keep the LEFT two-thirds as soft blank paper texture with a few faint colored dots, and in the right third a small full-body smiling young woman makes a light dancing step in a white shirt and airy blue skirt. Fine charcoal pen outlines, tiny gold accents, delicate watercolor shadows, 16:9 framing with no added border, no text or signatures.",
     },
   ],
   "one-bright-step": [
@@ -1474,19 +1474,19 @@ export const CREATE_SIMILAR_VARIANTS: Record<
       id: "faithful",
       label: "Joyful walking sketch",
       prompt:
-        "Original high-quality vertical anime sketchbook illustration of a happy young woman taking a confident step toward the viewer, friendly expressive face, airy chestnut bob, loose white cotton T-shirt, flowing cornflower-blue midi skirt, turquoise canvas sneakers and bright yellow-orange-green crossbody bag. Both arms slightly open in a carefree motion, natural five-finger hands, coherent legs and footwear, full-body figure centered with comfortable space above the head and below the shoes. Lively fine black ink lines with imperfect pencil hatching, gentle watercolor fills and a few tiny colored confetti flecks on warm cream textured paper. Fresh uplifting mood, vertical 9:16 wallpaper, no text or logos.",
+        "Vertical anime sketchbook illustration of a happy young woman taking a confident step toward the viewer: friendly face, chestnut bob, loose white T-shirt, flowing cornflower-blue midi skirt, turquoise sneakers, color-block crossbody bag. Lively fine black ink lines with pencil hatching, soft watercolor fills, tiny confetti flecks on warm cream paper, full body with comfortable margins, coherent hands and feet, 9:16 wallpaper, no text or logos.",
     },
     {
       id: "remix",
       label: "Spring breeze remix",
       prompt:
-        "A bright original hand-drawn anime character sketch of a smiling short-haired girl taking a playful forward step in a spring breeze. Change her outfit to a pale lavender sweater, soft aqua pleated skirt and white high-top sneakers, with a compact yellow-and-coral shoulder bag. Wind-blown chestnut bob, a welcoming open-arm gesture, naturally formed fingers and feet, confident balanced body motion. Spontaneous black pen marks, soft watercolor washes, scattered coral and sky-blue paint dots on subtly fibrous ivory paper, cheerful modern illustration. Full body visible with extra breathing room top and bottom, vertical 9:16, no typography.",
+        "Bright hand-drawn anime character sketch of a smiling short-haired girl stepping forward in a spring breeze: pale lavender sweater, soft aqua pleated skirt, white high-top sneakers, compact yellow-and-coral shoulder bag, wind-blown chestnut bob, welcoming open-arm gesture. Spontaneous black pen marks, soft watercolor washes, scattered coral and sky-blue paint dots on ivory paper, full body visible with breathing room, 9:16, no text.",
     },
     {
       id: "minimal",
       label: "Soft notebook sketch",
       prompt:
-        "Minimal delicate anime fashion sketch on warm off-white textured notebook paper. A charming short-haired young woman steps forward smiling, wearing a relaxed white blouse and simple flowing blue skirt, little green-strapped color-block satchel and blue sneakers. Thin expressive black fountain-pen lines, restrained pale blue watercolor in the skirt, a few buttery yellow accent dots, no unnecessary scenery or clutter. Keep the full silhouette in frame, especially hair and shoes, coherent hands and eyes, ample quiet margins that belong to the continuous paper background. Portrait 9:16 phone wallpaper, original artwork, no text, no signature, no border.",
+        "Minimal anime fashion sketch on warm off-white notebook paper: a charming short-haired young woman steps forward smiling in a relaxed white blouse and simple flowing blue skirt, a small color-block satchel and blue sneakers. Thin black fountain-pen lines, restrained pale blue watercolor in the skirt, a few yellow accent dots, ample quiet margins that belong to the paper, coherent hands and eyes, 9:16 phone wallpaper, no text or border.",
     },
   ],
 
