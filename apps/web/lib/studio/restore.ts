@@ -21,6 +21,12 @@ export interface StudioRestoreRequest {
   device: "phone" | "tablet" | "desktop" | null;
   ratio: AspectRatioId | null;
   presetId: string | null;
+  /**
+   * "Create similar" handoff: a SAME-ORIGIN public wallpaper path used as
+   * the reference image. Strictly a site-internal path — the generator
+   * fetches it client-side and converts it to the reference data URI.
+   */
+  ref: string | null;
 }
 
 /** Validates every incoming query parameter; unknown values degrade to null. */
@@ -51,19 +57,33 @@ export function parseStudioRestore(
   const preset = findSizePreset(searchParams.get("preset"));
   const presetId = preset ? preset.id : null;
 
+  // Reference image: ONLY site-internal wallpaper paths are accepted, so a
+  // hand-edited URL can never make the Studio fetch arbitrary origins.
+  const rawRef = searchParams.get("ref");
+  const ref =
+    typeof rawRef === "string" && rawRef.startsWith("/images/wallpapers/")
+      ? rawRef
+      : null;
+
   return {
     prompt,
     styleId: resolveStylePreselect(searchParams.get("style")),
     device,
     ratio,
     presetId,
+    ref,
   };
 }
 
 /** True when at least one restorable parameter is present. */
 export function hasRestore(request: StudioRestoreRequest): boolean {
   return Boolean(
-    request.prompt || request.styleId || request.device || request.ratio || request.presetId
+    request.prompt ||
+      request.styleId ||
+      request.device ||
+      request.ratio ||
+      request.presetId ||
+      request.ref
   );
 }
 
@@ -74,6 +94,8 @@ export function buildStudioRestoreHref(entry: {
   device: string;
   ratio?: string | null;
   sizePresetId?: string | null;
+  /** Same-origin public wallpaper path used as the reference image. */
+  ref?: string | null;
 }): string {
   const params = new URLSearchParams();
   const prompt = entry.prompt.trim();
@@ -93,6 +115,13 @@ export function buildStudioRestoreHref(entry: {
   }
   if (entry.sizePresetId && findSizePreset(entry.sizePresetId)) {
     params.set("preset", entry.sizePresetId);
+  }
+  if (
+    entry.ref &&
+    entry.ref.startsWith("/images/wallpapers/") &&
+    entry.ref.length <= 200
+  ) {
+    params.set("ref", entry.ref);
   }
   const query = params.toString();
   return query ? `/studio?${query}` : "/studio";

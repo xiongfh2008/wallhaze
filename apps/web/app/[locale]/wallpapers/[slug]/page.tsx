@@ -19,6 +19,9 @@ import {
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WallpaperDownloadButton from "@/components/WallpaperDownloadButton";
+import { CREATE_SIMILAR_PROMPTS } from "@/lib/wallpapers";
+import { buildStudioRestoreHref } from "@/lib/studio/restore";
+import { ASPECT_RATIOS } from "@/lib/sizes";
 import { WallpaperLinkCard } from "@/components/FeaturedWallpapers";
 import WallpaperImage from "@/components/WallpaperImage";
 import WallpaperDeviceBadge from "@/components/media/WallpaperDeviceBadge";
@@ -172,6 +175,32 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
   //    section — a real, existing page describing how use rights are granted
   //    (free personal use / CC0 terms); never a fabricated purchase flow.
   const termsLicenseUrl = `${SITE_URL}/terms#downloads`;
+
+  // "Create similar" Studio handoff: style continuation with the wallpaper
+  // as the REFERENCE image and a curated, editable prompt — never an exact
+  // replica claim. Only public wallpapers get the handoff.
+  const closestRatioId = (w: number, h: number): string | null => {
+    const value = w / h;
+    let best: string | null = null;
+    let bestDelta = Number.POSITIVE_INFINITY;
+    for (const option of ASPECT_RATIOS) {
+      const delta = Math.abs(option.value - value);
+      if (delta < bestDelta) {
+        bestDelta = delta;
+        best = option.id;
+      }
+    }
+    return best;
+  };
+  const createSimilarHref = wallpaper.image
+    ? buildStudioRestoreHref({
+        prompt: CREATE_SIMILAR_PROMPTS[wallpaper.id] ?? "",
+        styleId: wallpaper.styleId,
+        device: wallpaper.nativeDevices[0] ?? "phone",
+        ratio: closestRatioId(wallpaper.width, wallpaper.height),
+        ref: wallpaper.image,
+      })
+    : null;
   /**
    * copyrightNotice for original artwork, driven by the asset-rights registry:
    *  - human-authored (aiGenerated=false) → a real © WallHaze notice;
@@ -465,7 +494,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                 </p>
               )}
               <Link
-                href={`/studio?style=${wallpaper.styleId}`}
+                href={createSimilarHref ?? `/studio?style=${wallpaper.styleId}`}
                 className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-zinc-100 backdrop-blur transition hover:border-white/35 hover:bg-white/10"
               >
                 {t("createSimilar")}

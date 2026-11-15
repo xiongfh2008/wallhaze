@@ -18,6 +18,7 @@ describe("studio restore parameters", () => {
       device: "phone",
       ratio: "9:16",
       presetId: "phone-1080x1920",
+      ref: null, // "create similar" ref travels as a separate param
     });
     expect(hasRestore(request)).toBe(true);
   });
@@ -67,5 +68,43 @@ describe("studio restore parameters", () => {
       sizePresetId: null,
     });
     expect(mismatch).toBe("/studio?device=phone");
+  });
+});
+
+describe("create-similar reference handoff", () => {
+  it("accepts a same-origin /images/wallpapers/ reference path", () => {
+    const request = parseStudioRestore(
+      params("style=shoujo&ref=%2Fimages%2Fwallpapers%2Fsunny-headphones-smile.jpg")
+    );
+    expect(request.ref).toBe("/images/wallpapers/sunny-headphones-smile.jpg");
+    expect(request.styleId).toBe("shoujo");
+    expect(hasRestore(request)).toBe(true);
+  });
+
+  it("drops arbitrary external ref URLs (same-origin only)", () => {
+    const request = parseStudioRestore(
+      params("ref=https%3A%2F%2Fevil.example%2Fspy.jpg")
+    );
+    expect(request.ref).toBeNull();
+    expect(hasRestore(request)).toBe(false);
+  });
+
+  it("drops non-wallpaper internal paths", () => {
+    const request = parseStudioRestore(params("ref=%2Fadmin%2Fsecret"));
+    expect(request.ref).toBeNull();
+  });
+
+  it("builds a create-similar studio href with prompt, style and ref", () => {
+    const href = buildStudioRestoreHref({
+      prompt: "vibrant expressive sketch illustration of a joyful young woman",
+      styleId: "shoujo",
+      device: "phone",
+      ratio: "9:16",
+      ref: "/images/wallpapers/sunny-headphones-smile.jpg",
+    });
+    expect(href).toContain("/studio?");
+    expect(href).toContain("prompt=");
+    expect(href).toContain("style=shoujo");
+    expect(href).toContain("ref=%2Fimages%2Fwallpapers%2Fsunny-headphones-smile.jpg");
   });
 });

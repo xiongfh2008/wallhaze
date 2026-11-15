@@ -206,6 +206,9 @@ const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "b2-magic-forest-clearing": { width: 1536, height: 1152 },
   "color-burst-puppy": { width: 928, height: 1232 },
   "sunshine-puppy-portrait": { width: 928, height: 1232 },
+  "sunny-headphones-smile": { width: 1440, height: 2560 },
+  "seaside-daydream-boy": { width: 3840, height: 2160 },
+  "adventure-goggles-cat": { width: 2048, height: 2732 },
 };
 
 const STYLE_BY_ID = new Map<StyleId, WallStyle>(
@@ -1193,6 +1196,37 @@ const SEEDS = [
     imageOverride: "/images/wallpapers/sunshine-puppy-portrait.jpg",
     license: "self-authored",
   },
+  {
+    // User-provided AI-generated wallpaper — published 2026-11-15 by owner
+    // directive (registry wallpaper.sunny-headphones-smile; provider terms
+    // unverified — owner release recorded in licenseEvidence).
+    id: "sunny-headphones-smile",
+    title: "Sunny Headphones Smile",
+    styleId: "shoujo",
+    alt: "A joyful young woman laughing in a bright yellow hoodie and headphones, wearing blue-and-yellow mirrored sunglasses, sketch lines and colorful paint splashes",
+    imageOverride: "/images/wallpapers/sunny-headphones-smile.jpg",
+    license: "self-authored",
+  },
+  {
+    // User-provided AI-generated wallpaper — published 2026-11-15 by owner
+    // directive (registry wallpaper.seaside-daydream-boy).
+    id: "seaside-daydream-boy",
+    title: "Seaside Daydream Boy",
+    styleId: "anime",
+    alt: "A relaxed boy sitting on a seaside cliff gazing at the ocean, lighthouse on the cliffs, seagulls overhead, crisp clouds and vivid coastal colors in clean anime illustration",
+    imageOverride: "/images/wallpapers/seaside-daydream-boy.jpg",
+    license: "self-authored",
+  },
+  {
+    // User-provided AI-generated wallpaper — published 2026-11-15 by owner
+    // directive (registry wallpaper.adventure-goggles-cat).
+    id: "adventure-goggles-cat",
+    title: "Adventure Goggles Cat",
+    styleId: "manga",
+    alt: "A content fluffy cat wearing vintage goggles and a red scarf, expressive sketch strokes with colorful paint splashes, cheerful and adventurous",
+    imageOverride: "/images/wallpapers/adventure-goggles-cat.jpg",
+    license: "self-authored",
+  },
 ] satisfies readonly PresetWallpaperSeed[];
 
 export const PRESET_WALLPAPERS: PresetWallpaper[] = SEEDS.map(resolveWallpaper);
@@ -1259,6 +1293,20 @@ export function getRelatedWallpapers(
  * Curated homepage selection — explicit IDs (never auto-derived) spanning
  * every style family, hand-picked for visual variety.
  */
+/**
+ * Curated "Create similar" prompt templates (style continuation, never an
+ * exact replica). Keyed by slug; the detail page links to the Studio with
+ * this prompt prefilled alongside the wallpaper as the reference image.
+ */
+export const CREATE_SIMILAR_PROMPTS: Record<string, string> = {
+  "sunny-headphones-smile":
+    "vibrant expressive sketch illustration of a joyful young woman with oversized reflective sunglasses, bright yellow hoodie and headphones, dynamic ink lines, colorful paint splashes, energetic mood, clean background, premium wallpaper quality",
+  "seaside-daydream-boy":
+    "clean anime scenic illustration of a relaxed boy sitting on a seaside cliff under a bright blue sky, lighthouse in the distance, ocean breeze, travel mood, crisp clouds, vivid coastal colors, premium wallpaper quality",
+  "adventure-goggles-cat":
+    "cute expressive sketch illustration of a fluffy cat wearing vintage goggles and a red scarf, dynamic ink strokes, colorful paint splashes, adventurous and cheerful mood, clean background, premium wallpaper quality",
+};
+
 const FEATURED_WALLPAPER_IDS: readonly string[] = [
   // 2026-10-31 batch 2 (owner-directed): exactly nine landscape originals for
   // the uniform 16:9 three-column grid — nine themes, no mixed ratios.

@@ -20,6 +20,15 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 1536
   },
+  "/images/wallpapers/adventure-goggles-cat.jpg": {
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "natural": 2048
+  },
   "/images/wallpapers/amoled-violet-halo.jpg": {
     "widths": [
       640,
@@ -449,6 +458,15 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 864
   },
+  "/images/wallpapers/seaside-daydream-boy.jpg": {
+    "widths": [
+      640,
+      960,
+      1280,
+      1920
+    ],
+    "natural": 3840
+  },
   "/images/wallpapers/skydeck-future-city.jpg": {
     "widths": [
       640,
@@ -479,6 +497,14 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1920
     ],
     "natural": 1920
+  },
+  "/images/wallpapers/sunny-headphones-smile.jpg": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "natural": 1440
   },
   "/images/wallpapers/sunset-platform.jpg": {
     "widths": [

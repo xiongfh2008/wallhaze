@@ -1140,6 +1140,18 @@
     "sunshine-puppy-portrait": {
       "title": "Portrait de chiot ensoleillé",
       "alt": "Un petit chien blanc et duveteux tire légèrement la langue, entouré de touches jaunes, roses et turquoise"
+    },
+    "sunny-headphones-smile": {
+      "title": "Sourire et casque audio",
+      "alt": "Une jeune femme rit, sweats et casque audio jaunes, lunettes miroir bleu-jaune, traits de croquis et éclaboussures"
+    },
+    "seaside-daydream-boy": {
+      "title": "Rêveries au bord de mer",
+      "alt": "Un garçon assis sur une falaise contemple la mer, un phare au loin, nuages nets et couleurs côtelères vives"
+    },
+    "adventure-goggles-cat": {
+      "title": "Chat aux goggles",
+      "alt": "Gros plan d'un chat avec goggles vintage et écharpe rouge, traits de croquis et éclaboussures colorées"
     }
   },
   "auth": {

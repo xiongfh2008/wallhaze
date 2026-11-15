@@ -76,7 +76,7 @@ describe("homepage content de-duplication", () => {
   });
 
   it("keeps legacy artwork review-pending and documents every licensed addition", () => {
-    expect(PRESET_WALLPAPERS).toHaveLength(107); // 57 legacy + 24 batch1 + 24 batch2 + 2 user-uploaded AI (review-pending)
+    expect(PRESET_WALLPAPERS).toHaveLength(110); // 57 legacy + 48 originals + 2 puppies + 3 user-provided (create-similar)
     const reviewPending = PRESET_WALLPAPERS.filter(
       (w) => w.license === "review-pending"
     );
@@ -86,7 +86,7 @@ describe("homepage content de-duplication", () => {
     );
     expect(reviewPending).toHaveLength(19); // legacy set minus the 20 published by the 2026-11-14 owner directive
     expect(verified).toHaveLength(16);
-    expect(selfAuthored).toHaveLength(72); // 2 procedural + 48 AI originals + 2 user uploads + 20 batch-2 regen
+    expect(selfAuthored).toHaveLength(75); // + 3 user-provided create-similar wallpapers
     expect(verified.every((w) => Boolean(w.source))).toBe(true);
     expect(reviewPending.every((w) => w.image === null)).toBe(true);
     expect(reviewPending.every((w) => w.canPubliclyDisplay === false)).toBe(true);

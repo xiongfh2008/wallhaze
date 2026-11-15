@@ -677,6 +677,24 @@ export default function GeneratorSection({
       const request = (event as CustomEvent<StudioRestoreRequest>).detail;
       if (!request) return;
       if (request.prompt) setPrompt(request.prompt);
+      // "Create similar" reference image: same-origin public wallpaper path
+      // -> fetched client-side -> data URI for the image-edit pipeline.
+      if (request.ref) {
+        const refUrl = request.ref;
+        const refName = refUrl.split("/").pop() ?? "reference.jpg";
+        fetch(refUrl)
+          .then((res) => (res.ok ? res.blob() : Promise.reject(new Error(String(res.status)))))
+          .then((blob) => {
+            const reader = new FileReader();
+            reader.onload = () =>
+              setRefImage({ name: refName, url: String(reader.result) });
+            reader.readAsDataURL(blob);
+          })
+          .catch(() => {
+            // A missing reference degrades to text-to-image — never blocks
+            // the prefilled prompt/style from being used.
+          });
+      }
       if (request.device) setDevice(request.device);
       if (request.ratio) {
         setRatio(request.ratio);
