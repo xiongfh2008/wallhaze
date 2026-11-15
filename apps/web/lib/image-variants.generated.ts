@@ -401,6 +401,12 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
     ],
     "natural": 768
   },
+  "/images/wallpapers/one-bright-step.png": {
+    "widths": [
+      640
+    ],
+    "natural": 941
+  },
   "/images/wallpapers/pixel-rainy-city.jpg": {
     "widths": [
       640,
@@ -432,6 +438,14 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1280
     ],
     "natural": 1536
+  },
+  "/images/wallpapers/room-for-a-happy-dance.png": {
+    "widths": [
+      640,
+      960,
+      1280
+    ],
+    "natural": 1672
   },
   "/images/wallpapers/sakura-dream.jpg": {
     "widths": [
@@ -474,6 +488,13 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1280
     ],
     "natural": 1536
+  },
+  "/images/wallpapers/spinning-into-sunshine.png": {
+    "widths": [
+      640,
+      960
+    ],
+    "natural": 1086
   },
   "/images/wallpapers/starlit-glowing-ocean.jpg": {
     "widths": [

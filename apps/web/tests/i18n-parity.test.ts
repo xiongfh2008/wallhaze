@@ -98,7 +98,7 @@ describe("route registry (no dead links)", () => {
 });
 
 describe("sitemap", () => {
-  it("includes public content pages, legal pages + 91 cleared wallpapers; excludes noindex pages", async () => {
+  it("includes public content pages, legal pages + 94 cleared wallpapers; excludes noindex pages", async () => {
     const { default: buildSitemap } = await import("../app/sitemap");
     const siteUrl = "https://wallhaze.com";
     const entries = buildSitemap();
@@ -110,7 +110,7 @@ describe("sitemap", () => {
       expect(paths).toContain(route);
     }
     const wallpapers = paths.filter((p) => p.startsWith("/wallpapers/"));
-    expect(wallpapers).toHaveLength(91); // + 3 user-provided create-similar wallpapers
+    expect(wallpapers).toHaveLength(94); // + 3 paper-sunshine wallpapers (2026-11-15 owner release)
     const communityWorks = paths.filter((p) => p.startsWith("/community/"));
     // Sitemap lists real submissions only — never demo seed pages.
     expect(communityWorks).toHaveLength(0);

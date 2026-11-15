@@ -42,16 +42,16 @@ describe("asset-level media rights registry", () => {
   it("classifies every inventoried asset without auto-promoting legacy files", () => {
     expect(registry.counts).toMatchObject({
       total: 212,
-      verified: 174,
-      pending: 30,
+      verified: 177,
+      pending: 27,
       restricted: 8,
       rejected: 0,
       removed: 0,
     });
-    expect(MEDIA_RIGHTS).toHaveLength(212); // +3 paper-sunshine incoming (2026-11-15, review-pending)
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(30); // +3 paper-sunshine incoming // 27 legacy styles (batch-2 + user uploads promoted by owner directive)
+    expect(MEDIA_RIGHTS).toHaveLength(212); // +3 paper-sunshine incoming (2026-11-15) — promoted by owner release
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(27); // 27 legacy styles (batch-2 + user uploads promoted by owner directive)
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "restricted")).toHaveLength(8);
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(174);
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(177);
     // The 2026-10-28 audit revoked the 2026-10-27 promotion: the 27
     // superseded legacy previews stay pending, live outside public/ under
     // the `legacy.style.*` ids, and must record why they were demoted.
@@ -98,6 +98,52 @@ describe("asset-level media rights registry", () => {
       } else {
         throw new Error(`unclassified pending asset: ${asset.assetId}`);
       }
+    }
+  });
+
+  it("keeps the promoted paper-sunshine records verified with provable publication evidence", () => {
+    // The 2026-11-15 owner release promoted three quarantined user uploads
+    // via rights-admin.mjs restore: original PNG bytes published as-is at
+    // the gallery slug, provider identified from source-file metadata,
+    // free download enabled. No conflicting wallpaper.* duplicate exists.
+    const PROMOTED = [
+      "incoming.wallpaper.spinning-into-sunshine",
+      "incoming.wallpaper.room-for-a-happy-dance",
+      "incoming.wallpaper.one-bright-step",
+    ];
+    for (const id of PROMOTED) {
+      const asset = MEDIA_RIGHTS.find((a) => a.assetId === id);
+      expect(asset, id).toBeDefined();
+      expect(asset!.reviewStatus, id).toBe("verified");
+      expect(asset!.publiclyAccessible, id).toBe(true);
+      expect(asset!.canPubliclyDisplay, id).toBe(true);
+      expect(asset!.canOfferDownload, id).toBe(true);
+      expect(asset!.privatePath, id).toBeNull();
+      expect(asset!.path, id).toBe(
+        `/images/wallpapers/${id.slice("incoming.wallpaper.".length)}.png`
+      );
+      expect(asset!.sourceType, id).toBe("user-ai-generated");
+      expect(asset!.provider, id).toContain("ChatGPT");
+      expect(asset!.licenseEvidence ?? "", id).toMatch(/owner directive/i);
+      expect(asset!.reviewedBy ?? "", id).toMatch(/owner/i);
+    }
+    // Exactly one public record per slug — the .png publication must not
+    // collide with a wallpaper.* record for the same artwork.
+    for (const slug of [
+      "spinning-into-sunshine",
+      "room-for-a-happy-dance",
+      "one-bright-step",
+    ]) {
+      const publicRecords = MEDIA_RIGHTS.filter(
+        (a) => a.publiclyAccessible && a.path === `/images/wallpapers/${slug}.png`
+      );
+      expect(publicRecords, slug).toHaveLength(1);
+      expect(
+        MEDIA_RIGHTS.some(
+          (a) => a.assetId === `wallpaper.${slug}` && a.publiclyAccessible
+        ),
+        slug
+      ).toBe(false);
     }
   });
 
@@ -207,11 +253,11 @@ describe("asset-level media rights registry", () => {
     expect(new Set(images).size).toBe(images.length);
   });
 
-  it("keeps 22 pending wallpapers image-free and 18 legacy + 73 cleared wallpapers public", () => {
+  it("keeps 19 pending wallpapers image-free and 94 cleared wallpapers public", () => {
     const pending = PRESET_WALLPAPERS.filter((w) => w.license === "review-pending");
     const cleared = PRESET_WALLPAPERS.filter((w) => w.license !== "review-pending");
-    expect(pending).toHaveLength(22);
-    expect(cleared).toHaveLength(91); // 18 legacy + 48 originals + 2 puppies + 20 batch-2 + 3 create-similar
+    expect(pending).toHaveLength(19);
+    expect(cleared).toHaveLength(94); // 18 legacy + 48 originals + 2 puppies + 20 batch-2 + 3 create-similar + 3 paper-sunshine
     for (const wallpaper of pending) {
       expect(wallpaper.image, wallpaper.id).toBeNull();
       expect(wallpaper.canPubliclyDisplay, wallpaper.id).toBe(false);

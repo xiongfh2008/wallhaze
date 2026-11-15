@@ -62,6 +62,12 @@ function originalPublicPath() {
   if (asset.assetId.startsWith("wallpaper.")) {
     return `/images/wallpapers/${asset.assetId.slice("wallpaper.".length)}${ext}`;
   }
+  if (asset.assetId.startsWith("incoming.wallpaper.")) {
+    // Quarantined user uploads awaiting review publish under the same
+    // slug they will use in the gallery, keeping the original extension
+    // (usually .png — the reviewed original bytes, never re-encoded).
+    return `/images/wallpapers/${asset.assetId.slice("incoming.wallpaper.".length)}${ext}`;
+  }
   if (asset.assetId.startsWith("video.")) {
     return `/videos/live-demos/${asset.assetId.slice("video.".length)}.mp4`;
   }

@@ -76,7 +76,7 @@ describe("homepage content de-duplication", () => {
   });
 
   it("keeps legacy artwork review-pending and documents every licensed addition", () => {
-    expect(PRESET_WALLPAPERS).toHaveLength(113); // + 3 paper-sunshine batch (2026-11-15, review-pending)
+    expect(PRESET_WALLPAPERS).toHaveLength(113); // + 3 paper-sunshine batch (2026-11-15, published by owner release)
     const reviewPending = PRESET_WALLPAPERS.filter(
       (w) => w.license === "review-pending"
     );
@@ -84,9 +84,9 @@ describe("homepage content de-duplication", () => {
     const selfAuthored = PRESET_WALLPAPERS.filter(
       (w) => w.license === "self-authored"
     );
-    expect(reviewPending).toHaveLength(22); // + 3 paper-sunshine batch (2026-11-15, review-pending)
+    expect(reviewPending).toHaveLength(19); // - 3 paper-sunshine wallpapers promoted by owner release (2026-11-15)
     expect(verified).toHaveLength(16);
-    expect(selfAuthored).toHaveLength(75); // + 3 user-provided create-similar wallpapers
+    expect(selfAuthored).toHaveLength(78); // + 3 paper-sunshine wallpapers (owner release)
     expect(verified.every((w) => Boolean(w.source))).toBe(true);
     expect(reviewPending.every((w) => w.image === null)).toBe(true);
     expect(reviewPending.every((w) => w.canPubliclyDisplay === false)).toBe(true);

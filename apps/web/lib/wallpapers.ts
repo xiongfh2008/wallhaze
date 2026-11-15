@@ -1232,13 +1232,17 @@ const SEEDS = [
   },
   {
     // "Paper Sunshine Dance" batch (2026-11-15 user-provided AI uploads,
-    // package wallhaze-paper-sunshine-3-wallpapers.json; provider not
-    // formalized) — review-pending by the standard mechanism: no image,
-    // noindex, no download, no sitemap until rights evidence is recorded.
+    // package wallhaze-paper-sunshine-3-wallpapers.json) — published
+    // 2026-11-15 by owner directive (registry incoming.wallpaper.*
+    // records: user-ai-generated, ChatGPT per source-file metadata,
+    // owner release recorded in licenseEvidence). Original PNGs are the
+    // download assets, byte-identical to the reviewed uploads.
     id: "spinning-into-sunshine",
     title: "Spinning Into Sunshine",
     styleId: "anime",
     alt: "Smiling anime girl with short brown hair twirls in a flowing blue skirt and white T-shirt, carrying a colorful crossbody bag on cream sketchbook paper",
+    imageOverride: "/images/wallpapers/spinning-into-sunshine.png",
+    license: "self-authored",
   },
   {
     // Desktop wide-format companion piece: the left-side negative space is
@@ -1247,12 +1251,16 @@ const SEEDS = [
     title: "Room for a Happy Dance",
     styleId: "anime",
     alt: "A smiling anime girl dancing on the right side of a wide cream sketchbook canvas, with a blue skirt, colorful satchel and generous blank space on the left",
+    imageOverride: "/images/wallpapers/room-for-a-happy-dance.png",
+    license: "self-authored",
   },
   {
     id: "one-bright-step",
     title: "One Bright Step",
     styleId: "anime",
     alt: "A cheerful short-haired anime girl steps forward in a white T-shirt, flowing blue skirt and sneakers, with a colorful crossbody bag on cream paper",
+    imageOverride: "/images/wallpapers/one-bright-step.png",
+    license: "self-authored",
   },
 ] satisfies readonly PresetWallpaperSeed[];
 

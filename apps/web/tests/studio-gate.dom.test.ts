@@ -61,7 +61,7 @@ async function renderGate(
   vi.spyOn(creditsAdapter, "getPricing").mockResolvedValue(result);
   await act(async () => {
     root.render(
-      createElement(StudioGate, { children: open, fallback: closed })
+      createElement(StudioGate, { fallback: closed }, open)
     );
   });
 }

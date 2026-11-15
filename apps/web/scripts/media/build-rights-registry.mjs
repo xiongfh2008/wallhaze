@@ -461,6 +461,16 @@ if (!hasPrivateStyleDir) {
   }
 }
 
+// Hand-reviewed user uploads (`incoming.wallpaper.*`) are not derived from
+// any manifest — their publication decision lives only in the registry,
+// recorded via rights-admin.mjs (restore/takedown) + the promote script.
+// Carry them over verbatim so a registry rebuild never silently demotes a
+// reviewed publication back to pending. (Assets published as .png also
+// never enter the .jpg scan below, so no conflicting duplicate can arise.)
+for (const prev of EXISTING_REGISTRY?.assets ?? []) {
+  if (prev.assetId.startsWith("incoming.wallpaper.")) assets.push(prev);
+}
+
 // 11 wallpaper files.
 for (const name of readdirSync(join(ROOT, "public", "images", "wallpapers"))
   .filter((f) => f.endsWith(".jpg"))
