@@ -105,8 +105,13 @@ export default function LanguageSwitcher({
     // with a changed locale param) is known to leave a duplicated header
     // tree committed under Next 16 + cacheComponents; a hard navigation is
     // deterministic, hydration-safe and still carries the generator state
-    // across via the sessionStorage bridge above.
-    window.location.assign(getPathname({ href: pathname, locale: next }));
+    // across via the sessionStorage bridge above. The query string is
+    // preserved so structured handoffs (e.g. /studio?wallpaper=…&variant=…)
+    // survive a language switch and re-restore their context from the URL.
+    const search = window.location.search;
+    window.location.assign(
+      getPathname({ href: pathname, locale: next }) + search
+    );
   };
 
   return (

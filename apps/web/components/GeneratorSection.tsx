@@ -247,6 +247,21 @@ interface RefImage {
   url: string;
 }
 
+/**
+ * Active "Create similar" context (structured wallpaper+variant handoff).
+ * The internal template lives ONLY here — never in the editable prompt
+ * state, never in the URL, never rendered back into any input the user
+ * can edit. It is merged with the user's supplement at submission time.
+ */
+interface CreateSimilarContext {
+  wallpaperId: string;
+  variantId: string;
+  /** Internal template from the CREATE_SIMILAR_VARIANTS whitelist. */
+  internalPrompt: string;
+  /** Same-origin reference path, for the reference-artwork panel thumbnail. */
+  refPath: string | null;
+}
+
 interface GeneratedImage {
   url: string;
   width: number | null;
@@ -296,6 +311,16 @@ const PRESET_LABEL_KEYS: Record<string, string> = {
   "desktop-1600x1200": "landscapeClassic",
   "desktop-1440x1080": "landscapeCompact",
   "desktop-1024x1024": "square",
+};
+
+/** Maps a Create similar variant id to its localized type label. Unknown
+ *  ids fall back to the raw id — the curated English label stays a
+ *  detail-page concern and is never shown inside the Studio. */
+const VARIANT_TYPE_LABEL_KEYS: Record<string, string> = {
+  faithful: "variantFaithful",
+  remix: "variantRemix",
+  minimal: "variantMinimal",
+  variation: "variantVariation",
 };
 
 /** Shape handed across a language switch via the sessionStorage bridge. */
@@ -395,6 +420,7 @@ export default function GeneratorSection({
   const tDevices = useTranslations("devices");
   const tStyles = useTranslations("styleLabels");
   const tPresets = useTranslations("sizePresetLabels");
+  const tWallpaperTitles = useTranslations("galleryWallpapers");
   const [styleId, setStyleId] = useState<WallStyle["id"] | null>(
     isStudio ? STUDIO_DEFAULT_STYLE_ID : null
   );
@@ -427,6 +453,11 @@ export default function GeneratorSection({
   const [pendingBase, setPendingBase] = useState("");
   const [promptNotice, setPromptNotice] = useState<string | null>(null);
   const [prompt, setPrompt] = useState("");
+  // "Create similar" context from the structured handoff — non-null only
+  // when both ids resolved through the whitelist. Holds the internal
+  // template; the editable prompt state stays the user's own supplement.
+  const [createSimilar, setCreateSimilar] =
+    useState<CreateSimilarContext | null>(null);
   const [refImage, setRefImage] = useState<RefImage | null>(null);
   const [refError, setRefError] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -676,6 +707,21 @@ export default function GeneratorSection({
     const onRestore = (event: Event) => {
       const request = (event as CustomEvent<StudioRestoreRequest>).detail;
       if (!request) return;
+      // Structured "Create similar" handoff: the internal template is
+      // parked in dedicated state — the editable prompt stays empty (the
+      // user's supplement), so the system prompt never surfaces in the
+      // textarea. The template already describes the full style, so the
+      // Studio's default Anime style must never stack on top (77b47dd rule
+      // extended to the whole Create similar mode).
+      if (request.createSimilar) {
+        setCreateSimilar({
+          wallpaperId: request.createSimilar.wallpaperId,
+          variantId: request.createSimilar.variantId,
+          internalPrompt: request.createSimilar.prompt,
+          refPath: request.ref,
+        });
+        setStyleId(null);
+      }
       if (request.prompt) setPrompt(request.prompt);
       // "Create similar" reference image: same-origin public wallpaper path
       // -> fetched client-side -> data URI for the image-edit pipeline.
@@ -831,6 +877,44 @@ export default function GeneratorSection({
         : GENERAL_PROMPT_EXAMPLES
       : [1, 2, 3, 4].map((n) => t(`inspiration${n}` as never));
   const selectedPreset = presetId ? findSizePreset(presetId) : null;
+
+  /* ---- Create similar mode (structured wallpaper+variant handoff) ---- */
+
+  const createSimilarVariantLabel = createSimilar
+    ? VARIANT_TYPE_LABEL_KEYS[createSimilar.variantId]
+      ? t(VARIANT_TYPE_LABEL_KEYS[createSimilar.variantId] as never)
+      : createSimilar.variantId
+    : null;
+  const createSimilarTitle = createSimilar
+    ? tWallpaperTitles(`${createSimilar.wallpaperId}.title`)
+    : null;
+
+  // Supplement budget: the API caps the sent prompt at PROMPT_MAX_LENGTH
+  // BEFORE composition (a longer prompt is a hard 400), so the internal
+  // template leaves exactly this much room for the user's own words. The
+  // supplement is never silently truncated — over-budget text is blocked
+  // with an explicit "shorten it" message instead, and the internal
+  // template itself is never cut.
+  const supplementLimit = createSimilar
+    ? PROMPT_MAX_LENGTH - createSimilar.internalPrompt.length
+    : null;
+  const supplementOverLimit =
+    supplementLimit !== null && prompt.trim().length > supplementLimit;
+
+  /**
+   * The prompt actually sent: internal template + optional supplement for
+   * Create similar, the plain edited prompt otherwise. The supplement can
+   * extend the template but never replace or delete it, and an empty
+   * supplement still generates from the template alone.
+   */
+  const composePrompt = (): string => {
+    if (!createSimilar) return prompt;
+    const supplement = prompt.trim();
+    return supplement
+      ? `${createSimilar.internalPrompt}\n\n${supplement}`
+      : createSimilar.internalPrompt;
+  };
+
   // Screen info arrives only after mount; the recommendation is derived
   // from the currently selected target device. It is display-only — the
   // user applies it explicitly, so updates never override manual choices.
@@ -1018,7 +1102,17 @@ export default function GeneratorSection({
   const handleGenerate = () => {
     if (status === "generating" || submitting) return;
     cancelPendingExample();
-    const validation = validatePromptPair(prompt, styleId);
+    // Create similar: an over-budget supplement is refused with an explicit
+    // shorten message — never silently truncated, and the failure must not
+    // be misread as an empty-prompt case (the internal template always
+    // counts as content).
+    if (supplementOverLimit) {
+      setErrorMessage(t("supplementTooLong", { limit: supplementLimit }));
+      setStatus("error");
+      return;
+    }
+    const composedPrompt = composePrompt();
+    const validation = validatePromptPair(composedPrompt, styleId);
     if (!validation.ok) {
       setErrorMessage(
         validation.code === "too-long"
@@ -1046,7 +1140,12 @@ export default function GeneratorSection({
       return;
     }
     setConfirmSummary({
-      prompt,
+      // Create similar: the internal template is system-owned — the digest
+      // shows the user's own supplement, or an applied-style line when the
+      // supplement is empty. The template text itself is never revealed.
+      prompt: createSimilar
+        ? prompt.trim() || t("confirmCreateSimilarDigest")
+        : prompt,
       styleLabel: selectedStyle ? tStyles(selectedStyle.id) : null,
       deviceLabel: selectedDeviceLabel,
       selection: { device, ratio, presetId },
@@ -1084,9 +1183,13 @@ export default function GeneratorSection({
     setErrorMessage(null);
     setStatus("generating");
     setResultInfo(null);
+    // The request text: internal template + supplement for Create similar,
+    // the plain edited prompt otherwise. Recorded as-is so history and the
+    // result meta describe the prompt that actually produced the image.
+    const composedPrompt = composePrompt();
     try {
       const request: GenerationRequest = buildGenerationRequest({
-        prompt,
+        prompt: composedPrompt,
         styleId,
         device,
         ratio,
@@ -1135,7 +1238,7 @@ export default function GeneratorSection({
           : selectedPreset
             ? `${selectedPreset.width} × ${selectedPreset.height}`
             : null,
-        prompt,
+        prompt: composedPrompt,
       });
       setPreviewImageFailed(false);
       setDownloadNotice(null);
@@ -1149,7 +1252,7 @@ export default function GeneratorSection({
       const saved = outcome.mock
         ? null
         : addGenerationHistory({
-            prompt,
+            prompt: composedPrompt,
             styleId,
             device,
             ratio,
@@ -1552,12 +1655,15 @@ export default function GeneratorSection({
 
   // Picks an inspiration example. An empty prompt is filled directly; an
   // existing prompt is never touched until the user confirms. Selecting an
-  // example never triggers a generation.
+  // example never triggers a generation. In Create similar mode the cap is
+  // the supplement budget, so a picked example can never push the combined
+  // prompt past the API limit unnoticed.
   const handleExamplePick = (text: string) => {
     if (busy) return;
     setPromptNotice(null);
+    const limit = supplementLimit ?? PROMPT_MAX_LENGTH;
     if (prompt.trim() === "") {
-      setPrompt(text.slice(0, PROMPT_MAX_LENGTH));
+      setPrompt(text.slice(0, limit));
       setPendingExample(null);
       return;
     }
@@ -1567,7 +1673,7 @@ export default function GeneratorSection({
 
   const applyExampleReplace = () => {
     if (!pendingExample) return;
-    setPrompt(pendingExample.slice(0, PROMPT_MAX_LENGTH));
+    setPrompt(pendingExample.slice(0, supplementLimit ?? PROMPT_MAX_LENGTH));
     cancelPendingExample();
   };
 
@@ -1576,9 +1682,10 @@ export default function GeneratorSection({
   // that would exceed the limit is refused without touching the prompt.
   const applyExampleAppend = () => {
     if (!pendingExample) return;
+    const limit = supplementLimit ?? PROMPT_MAX_LENGTH;
     const combined = `${prompt}\n\n${pendingExample}`;
-    if (combined.length > PROMPT_MAX_LENGTH) {
-      setPromptNotice(t("appendExceedsLimit", { limit: PROMPT_MAX_LENGTH }));
+    if (combined.length > limit) {
+      setPromptNotice(t("appendExceedsLimit", { limit }));
       return;
     }
     setPrompt(combined);
@@ -1674,13 +1781,40 @@ export default function GeneratorSection({
             </div>
 
             {/* Primary flow step 3: the description is optional. With the
-                Studio's default style, an empty prompt is valid. */}
+                Studio's default style, an empty prompt is valid. In Create
+                similar mode the internal template is applied automatically —
+                this textarea only collects the user's own supplement. */}
             <div className="order-2 mt-8">
+              {createSimilar ? (
+                <div className="mb-4 flex items-center gap-3 rounded-xl border border-violet-400/20 bg-violet-500/[0.06] p-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- same-origin static asset, fixed size */}
+                  <img
+                    src={
+                      createSimilar.refPath ??
+                      `/images/wallpapers/${createSimilar.wallpaperId}.png`
+                    }
+                    alt={createSimilarTitle ?? createSimilar.wallpaperId}
+                    className="h-14 w-14 shrink-0 rounded-lg border border-white/10 object-cover"
+                    loading="lazy"
+                  />
+                  <div className="min-w-0">
+                    <p className="text-xs font-medium uppercase tracking-wide text-violet-300">
+                      {t("createSimilarPanelTitle")}
+                    </p>
+                    <p className="mt-0.5 truncate text-sm font-medium text-zinc-100">
+                      {createSimilarTitle}
+                    </p>
+                    <p className="mt-0.5 text-xs text-zinc-400">
+                      {createSimilarVariantLabel} · {tDevices(device)} · {ratio}
+                    </p>
+                  </div>
+                </div>
+              ) : null}
               <label
                 htmlFor="wallpaper-prompt"
                 className="mb-3 block text-sm font-medium text-zinc-300"
               >
-                {t("promptLabel")}{" "}
+                {createSimilar ? t("supplementLabel") : t("promptLabel")}{" "}
                 <span className="font-normal text-zinc-500">
                   {t("optional")}
                 </span>
@@ -1692,24 +1826,33 @@ export default function GeneratorSection({
                 maxLength={PROMPT_MAX_LENGTH}
                 readOnly={busy}
                 onChange={(event) => setPrompt(event.target.value)}
-                placeholder={t("promptPlaceholder")}
+                placeholder={
+                  createSimilar ? t("supplementPlaceholder") : t("promptPlaceholder")
+                }
                 className={`w-full resize-none rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 ${
                   busy ? "cursor-not-allowed opacity-70" : ""
                 }`}
               />
               <p
                 className={`mt-1.5 text-right text-xs ${
+                  (createSimilar ? supplementOverLimit : false) ||
                   prompt.length > PROMPT_MAX_LENGTH
                     ? "font-medium text-red-400"
                     : "text-zinc-600"
                 }`}
                 aria-live="polite"
               >
-                {prompt.length} / {PROMPT_MAX_LENGTH}
+                {/* Create similar counts only the user's own supplement
+                    against its budget — the internal template has no counter. */}
+                {createSimilar && supplementLimit !== null
+                  ? `${prompt.length} / ${supplementLimit}`
+                  : `${prompt.length} / ${PROMPT_MAX_LENGTH}`}
               </p>
               {isStudio ? (
                 <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
-                  {t("autoSceneHint")}
+                  {createSimilar
+                    ? t("createSimilarHint")
+                    : t("autoSceneHint")}
                 </p>
               ) : null}
             </div>

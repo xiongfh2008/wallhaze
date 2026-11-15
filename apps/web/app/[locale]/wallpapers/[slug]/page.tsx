@@ -20,7 +20,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WallpaperDownloadButton from "@/components/WallpaperDownloadButton";
 import { CREATE_SIMILAR_VARIANTS } from "@/lib/wallpapers";
-import { buildStudioRestoreHref } from "@/lib/studio/restore";
+import { buildCreateSimilarHref } from "@/lib/studio/restore";
 import { ASPECT_RATIOS } from "@/lib/sizes";
 import { WallpaperLinkCard } from "@/components/FeaturedWallpapers";
 import WallpaperImage from "@/components/WallpaperImage";
@@ -182,8 +182,11 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
   const termsLicenseUrl = `${SITE_URL}/terms#downloads`;
 
   // "Create similar" Studio handoff: style continuation with the wallpaper
-  // as the REFERENCE image and a curated, editable prompt — never an exact
-  // replica claim. Only public wallpapers get the handoff.
+  // as the REFERENCE image. The handoff is STRUCTURED — wallpaper slug,
+  // variant id, device, ratio and the reference path. The internal prompt
+  // template never travels in the URL; the Studio resolves it from the
+  // CREATE_SIMILAR_VARIANTS whitelist by the ids alone. Only public
+  // wallpapers get the handoff.
   const closestRatioId = (w: number, h: number): string | null => {
     const value = w / h;
     let best: string | null = null;
@@ -197,17 +200,12 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
     }
     return best;
   };
-  // Style preselect only for artworks whose style actually matches the
-  // render (seaside = cozy-anime). The two expressive-ink pieces have no
-  // matching style card — prompt-only handoff instead of forcing one.
-  const handoffStyleId =
-    wallpaper.id === "seaside-daydream-boy" ? wallpaper.styleId : null;
   const variants = CREATE_SIMILAR_VARIANTS[wallpaper.id];
-  const buildVariantHref = (prompt: string) =>
+  const buildVariantHref = (variantId: string) =>
     wallpaper.image
-      ? buildStudioRestoreHref({
-          prompt,
-          styleId: handoffStyleId,
+      ? buildCreateSimilarHref({
+          wallpaperId: wallpaper.id,
+          variantId,
           device: wallpaper.nativeDevices[0] ?? "phone",
           ratio: closestRatioId(wallpaper.width, wallpaper.height),
           // The wallpaper itself rides along as the reference image: the
@@ -216,7 +214,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
           ref: wallpaper.image,
         })
       : null;
-  const faithfulHref = variants ? buildVariantHref(variants[0].prompt) : null;
+  const faithfulHref = variants ? buildVariantHref(variants[0].id) : null;
   /**
    * copyrightNotice for original artwork, driven by the asset-rights registry:
    *  - human-authored (aiGenerated=false) → a real © WallHaze notice;
@@ -524,7 +522,7 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                   {t("createSimilarVariants")}
                 </span>
                 {variants.slice(1).map((variant) => {
-                  const href = buildVariantHref(variant.prompt);
+                  const href = buildVariantHref(variant.id);
                   return href ? (
                     <Link
                       key={variant.id}

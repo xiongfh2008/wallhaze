@@ -1347,6 +1347,24 @@ export interface CreateSimilarVariant {
   prompt: string;
 }
 
+/**
+ * Whitelist resolver for the structured "Create similar" Studio handoff.
+ * Only a known slug + variant id pair returns its internal template; any
+ * other combination returns null, so the Studio can never start a
+ * generation from unknown or hand-edited text. The prompt itself stays
+ * inside this module — it never travels in the URL and is never rendered
+ * into an editable input.
+ */
+export function resolveCreateSimilarVariant(
+  slug: string | null | undefined,
+  variantId: string | null | undefined
+): CreateSimilarVariant | null {
+  if (!slug || !variantId) return null;
+  const variants = CREATE_SIMILAR_VARIANTS[slug];
+  if (!variants) return null;
+  return variants.find((variant) => variant.id === variantId) ?? null;
+}
+
 export const CREATE_SIMILAR_VARIANTS: Record<
   string,
   readonly CreateSimilarVariant[]
