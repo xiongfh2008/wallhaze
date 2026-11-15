@@ -207,7 +207,7 @@ const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "color-burst-puppy": { width: 928, height: 1232 },
   "sunshine-puppy-portrait": { width: 928, height: 1232 },
   "sunny-headphones-smile": { width: 1440, height: 2560 },
-  "seaside-daydream-boy": { width: 3840, height: 2160 },
+  "seaside-daydream-boy": { width: 3708, height: 2086 },
   "adventure-goggles-cat": { width: 2048, height: 2732 },
 };
 

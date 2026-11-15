@@ -465,7 +465,7 @@ export const IMAGE_VARIANTS: Record<string, ImageVariantEntry> = {
       1280,
       1920
     ],
-    "natural": 3840
+    "natural": 3708
   },
   "/images/wallpapers/skydeck-future-city.jpg": {
     "widths": [

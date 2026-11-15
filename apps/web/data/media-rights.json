@@ -6620,8 +6620,8 @@
       "path": "/images/wallpapers/seaside-daydream-boy.jpg",
       "privatePath": null,
       "mime": "image/jpeg",
-      "bytes": 1253010,
-      "sha256": "32daea3ff9a4ca3280b6276189b169fdac3aa4fa55e70ce94e8803a69bb3e4d4",
+      "bytes": 1379655,
+      "sha256": "8f9043b7c58751d27ea9090c250a3a24014a68856948c0ca4a80e5c9f463f73f",
       "usage": "wallpaper",
       "sourceType": "external-ai-unknown",
       "sourceUrl": null,
@@ -6647,7 +6647,9 @@
       "parentAssetIds": [],
       "reviewedAt": "2026-11-15",
       "reviewedBy": "owner (chat directive 2026-11-15)",
-      "notes": "User-provided AI-generated wallpaper (seed seaside-daydream-boy, 3840x2160); published by owner directive with the provider-terms caveat recorded. Download enabled."
+      "notes": "User-provided AI-generated wallpaper (seed seaside-daydream-boy, 3840x2160); published by owner directive with the provider-terms caveat recorded. Download enabled. 2026-11-15: removed a 132px white strip on the left edge (upload artifact) and trimmed 37px vertically to maintain 16:9; original upload preserved at private-media/incoming-review/seaside-daydream-boy.png. Published asset re-encoded; registry hash updated.",
+      "width": 3708,
+      "height": 2086
     },
     {
       "assetId": "wallpaper.skydeck-future-city",
