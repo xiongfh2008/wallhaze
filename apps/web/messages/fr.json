@@ -1156,6 +1156,21 @@
       "title": "Chat aventurier à lunettes",
       "alt": "Un chat tigré duveteux lève la tête, avec des lunettes d’aviateur aux verres bleus et une écharpe rouge, dessiné à l’encre vive.",
       "description": "Un petit explorateur prêt à partir. Lunettes bleues, écharpe rouge et traits de plume spontanés donnent du caractère à votre"
+    },
+    "spinning-into-sunshine": {
+      "title": "Un tourbillon de soleil",
+      "alt": "Une jeune fille aux cheveux bruns courts tourne en souriant, bras ouverts, avec un tee-shirt blanc, une jupe bleue et un sac multicolore.",
+      "description": "Une illustration façon carnet de croquis, légère et joyeuse, avec un papier crème texturé, des traits d’encre libres et des éclats colorés."
+    },
+    "room-for-a-happy-dance": {
+      "title": "De l’espace pour danser",
+      "alt": "Une jeune fille souriante danse à droite d’un grand fond papier crème, en jupe bleue et avec un sac coloré, laissant une large zone vide à gauche.",
+      "description": "Un fond d’écran horizontal aéré : une silhouette dessinée à l’encre sur la droite et une belle étendue de papier texturé à gauche."
+    },
+    "one-bright-step": {
+      "title": "Un pas vers la lumière",
+      "alt": "Une jeune fille souriante aux cheveux bruns courts avance en tee-shirt blanc, jupe bleue et baskets, avec un sac bandoulière multicolore.",
+      "description": "Une illustration verticale pleine d’élan, avec cheveux au vent, traits d’encre spontanés et petites touches de couleur sur papier crème."
     }
   },
   "auth": {

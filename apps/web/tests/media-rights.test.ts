@@ -41,15 +41,15 @@ const audit = JSON.parse(
 describe("asset-level media rights registry", () => {
   it("classifies every inventoried asset without auto-promoting legacy files", () => {
     expect(registry.counts).toMatchObject({
-      total: 209,
+      total: 212,
       verified: 174,
-      pending: 27,
+      pending: 30,
       restricted: 8,
       rejected: 0,
       removed: 0,
     });
-    expect(MEDIA_RIGHTS).toHaveLength(209); // +3 user-provided create-similar wallpapers (2026-11-15)
-    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(27); // 27 legacy styles (batch-2 + user uploads promoted by owner directive)
+    expect(MEDIA_RIGHTS).toHaveLength(212); // +3 paper-sunshine incoming (2026-11-15, review-pending)
+    expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "pending")).toHaveLength(30); // +3 paper-sunshine incoming // 27 legacy styles (batch-2 + user uploads promoted by owner directive)
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "restricted")).toHaveLength(8);
     expect(MEDIA_RIGHTS.filter((a) => a.reviewStatus === "verified")).toHaveLength(174);
     // The 2026-10-28 audit revoked the 2026-10-27 promotion: the 27
@@ -207,11 +207,11 @@ describe("asset-level media rights registry", () => {
     expect(new Set(images).size).toBe(images.length);
   });
 
-  it("keeps 19 pending wallpapers image-free and 18 legacy + 73 cleared wallpapers public", () => {
+  it("keeps 22 pending wallpapers image-free and 18 legacy + 73 cleared wallpapers public", () => {
     const pending = PRESET_WALLPAPERS.filter((w) => w.license === "review-pending");
     const cleared = PRESET_WALLPAPERS.filter((w) => w.license !== "review-pending");
-    expect(pending).toHaveLength(19);
-    expect(cleared).toHaveLength(91); // + 3 user-provided create-similar wallpapers
+    expect(pending).toHaveLength(22);
+    expect(cleared).toHaveLength(91); // 18 legacy + 48 originals + 2 puppies + 20 batch-2 + 3 create-similar
     for (const wallpaper of pending) {
       expect(wallpaper.image, wallpaper.id).toBeNull();
       expect(wallpaper.canPubliclyDisplay, wallpaper.id).toBe(false);

@@ -209,6 +209,9 @@ const IMAGE_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "sunny-headphones-smile": { width: 1440, height: 2560 },
   "seaside-daydream-boy": { width: 3708, height: 2086 },
   "adventure-goggles-cat": { width: 2048, height: 2732 },
+  "spinning-into-sunshine": { width: 1086, height: 1448 },
+  "room-for-a-happy-dance": { width: 1672, height: 941 },
+  "one-bright-step": { width: 941, height: 1672 },
 };
 
 const STYLE_BY_ID = new Map<StyleId, WallStyle>(
@@ -1227,6 +1230,30 @@ const SEEDS = [
     imageOverride: "/images/wallpapers/adventure-goggles-cat.jpg",
     license: "self-authored",
   },
+  {
+    // "Paper Sunshine Dance" batch (2026-11-15 user-provided AI uploads,
+    // package wallhaze-paper-sunshine-3-wallpapers.json; provider not
+    // formalized) — review-pending by the standard mechanism: no image,
+    // noindex, no download, no sitemap until rights evidence is recorded.
+    id: "spinning-into-sunshine",
+    title: "Spinning Into Sunshine",
+    styleId: "anime",
+    alt: "Smiling anime girl with short brown hair twirls in a flowing blue skirt and white T-shirt, carrying a colorful crossbody bag on cream sketchbook paper",
+  },
+  {
+    // Desktop wide-format companion piece: the left-side negative space is
+    // intentional composition for desktop icons — never auto-cropped.
+    id: "room-for-a-happy-dance",
+    title: "Room for a Happy Dance",
+    styleId: "anime",
+    alt: "A smiling anime girl dancing on the right side of a wide cream sketchbook canvas, with a blue skirt, colorful satchel and generous blank space on the left",
+  },
+  {
+    id: "one-bright-step",
+    title: "One Bright Step",
+    styleId: "anime",
+    alt: "A cheerful short-haired anime girl steps forward in a white T-shirt, flowing blue skirt and sneakers, with a colorful crossbody bag on cream paper",
+  },
 ] satisfies readonly PresetWallpaperSeed[];
 
 export const PRESET_WALLPAPERS: PresetWallpaper[] = SEEDS.map(resolveWallpaper);
@@ -1306,7 +1333,8 @@ export function getRelatedWallpapers(
  * URL: the visitor can attach the wallpaper manually in the Studio).
  */
 export interface CreateSimilarVariant {
-  id: "faithful" | "variation" | "minimal";
+  /** Package-defined variant key (faithful / remix / minimal / ...). */
+  id: string;
   label: string;
   prompt: string;
 }
@@ -1375,6 +1403,67 @@ export const CREATE_SIMILAR_VARIANTS: Record<
         "Minimal high-energy black ink and colored-pencil portrait of a charming black-and-white cat in oversized vintage blue-lens aviator goggles and a scarlet neckerchief, whimsical upward-looking pose, textured hatched fur, raw gestural marks, tiny red and golden paint drops, spacious cream background, lively modern poster illustration, original design, vertical 3:4 tablet wallpaper, no typography or watermark.",
     },
   ],
+  "spinning-into-sunshine": [
+    {
+      id: "faithful",
+      label: "Same sketch energy",
+      prompt:
+        "An original joyful anime-inspired hand-drawn illustration on warm ivory textured sketchbook paper. A smiling short-haired young woman spins with both arms stretched wide, loose white T-shirt, flowing sky-blue midi skirt, teal sneakers and a playful multicolor crossbody satchel. Brown bob hair fluttering in motion, expressive loose black ink contours, delicate pencil hatching, subtle watercolor washes, scattered tiny confetti dots in yellow, pink and teal. Full body visible, crisp character design, natural fingers and feet, airy negative space, no readable text or logos. Vertical 3:4 composition, gentle paper grain, uplifting candid energy.",
+    },
+    {
+      id: "remix",
+      label: "Bright color remix",
+      prompt:
+        "Create an original cheerful sketchbook anime fashion illustration of a young woman dancing with arms outstretched. Give her a soft coral jacket over a cream top, a bright turquoise pleated skirt, colorful canvas sneakers and a small yellow-and-green shoulder bag. Loose windswept bob hair, big friendly smile, dynamic asymmetrical pose, energetic black pen strokes, pale peach watercolor shadows and playful orange, blue and pink ink flecks. Warm off-white handmade paper texture, expressive imperfect hand-drawn linework, full figure safely inside the frame, no typography. Vertical 3:4 composition, bright but controlled palette.",
+    },
+    {
+      id: "minimal",
+      label: "Airy ink poster",
+      prompt:
+        "Minimal refined anime sketch on lightly textured cream paper: a happy short-haired young woman in a white oversized top and graceful blue skirt taking a carefree dancing turn, one colorful satchel as a small focal accent. Elegant thin black pen lines, selective soft sky-blue watercolor in the fabric, only a handful of tiny yellow and turquoise confetti strokes, lots of breathing room around the complete figure. Keep her face warm and expressive, hands anatomically coherent, both shoes visible. Gallery-quality hand-drawn look, quiet playful mood, no words, badges, signatures or borders. Vertical 3:4 wallpaper.",
+    },
+  ],
+  "room-for-a-happy-dance": [
+    {
+      id: "faithful",
+      label: "Desktop negative space",
+      prompt:
+        "An original widescreen anime sketchbook wallpaper on warm ivory textured paper, carefully composed with a very large clean negative-space area across the LEFT 50 percent for desktop icons. On the RIGHT, a joyful short-haired young woman dances lightly in a loose white T-shirt and flowing sky-blue skirt, cheerful brown bob, green-strap yellow-orange patchwork crossbody bag and blue sneakers. Expressive spontaneous black ink strokes, soft watercolor fills, tiny floating yellow, orange and blue flecks, playful motion lines, bright open smile. Full figure visible, no accidental white border or separate edge stripe; the blank left area is intentional and continuous paper texture. 16:9 panoramic layout, no text or logos.",
+    },
+    {
+      id: "remix",
+      label: "Wide pastel motion",
+      prompt:
+        "Wide original illustrated desktop wallpaper, textured ivory sketchbook paper with generous open LEFT-side space and a lively dancing girl positioned in the RIGHT third. She wears a pale mint cardigan, periwinkle skirt, coral-and-gold messenger bag and canvas shoes, hair blown sideways. Rough lively pen contours, layered translucent sky-blue and peach watercolor strokes and sparse colored confetti sweep gently from her movement without filling the left icon area. Full body remains safely in frame, natural lively expression, bright pastel editorial art direction. Deliberate asymmetrical composition, 16:9, no typography or borders.",
+    },
+    {
+      id: "minimal",
+      label: "Calm desktop edition",
+      prompt:
+        "Elegant minimalist anime line-art desktop wallpaper on a single uninterrupted sheet of warm cream paper. Preserve the LEFT two-thirds as soft, subtle blank paper texture, with just a few faint colored dots. In the RIGHT third, a small full-body smiling young woman makes a light dancing step wearing a white shirt, airy blue skirt and compact tri-color shoulder bag. Fine charcoal pen outlines, tiny gold accents, delicate watercolor shadows, restrained visual noise and plenty of negative space for desktop icons. Panoramic 16:9 framing; do not add a white frame or empty stripe, no text or signatures.",
+    },
+  ],
+  "one-bright-step": [
+    {
+      id: "faithful",
+      label: "Joyful walking sketch",
+      prompt:
+        "Original high-quality vertical anime sketchbook illustration of a happy young woman taking a confident step toward the viewer, friendly expressive face, airy chestnut bob, loose white cotton T-shirt, flowing cornflower-blue midi skirt, turquoise canvas sneakers and bright yellow-orange-green crossbody bag. Both arms slightly open in a carefree motion, natural five-finger hands, coherent legs and footwear, full-body figure centered with comfortable space above the head and below the shoes. Lively fine black ink lines with imperfect pencil hatching, gentle watercolor fills and a few tiny colored confetti flecks on warm cream textured paper. Fresh uplifting mood, vertical 9:16 wallpaper, no text or logos.",
+    },
+    {
+      id: "remix",
+      label: "Spring breeze remix",
+      prompt:
+        "A bright original hand-drawn anime character sketch of a smiling short-haired girl taking a playful forward step in a spring breeze. Change her outfit to a pale lavender sweater, soft aqua pleated skirt and white high-top sneakers, with a compact yellow-and-coral shoulder bag. Wind-blown chestnut bob, a welcoming open-arm gesture, naturally formed fingers and feet, confident balanced body motion. Spontaneous black pen marks, soft watercolor washes, scattered coral and sky-blue paint dots on subtly fibrous ivory paper, cheerful modern illustration. Full body visible with extra breathing room top and bottom, vertical 9:16, no typography.",
+    },
+    {
+      id: "minimal",
+      label: "Soft notebook sketch",
+      prompt:
+        "Minimal delicate anime fashion sketch on warm off-white textured notebook paper. A charming short-haired young woman steps forward smiling, wearing a relaxed white blouse and simple flowing blue skirt, little green-strapped color-block satchel and blue sneakers. Thin expressive black fountain-pen lines, restrained pale blue watercolor in the skirt, a few buttery yellow accent dots, no unnecessary scenery or clutter. Keep the full silhouette in frame, especially hair and shoes, coherent hands and eyes, ample quiet margins that belong to the continuous paper background. Portrait 9:16 phone wallpaper, original artwork, no text, no signature, no border.",
+    },
+  ],
+
 };
 
 const FEATURED_WALLPAPER_IDS: readonly string[] = [
