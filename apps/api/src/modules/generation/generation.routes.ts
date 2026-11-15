@@ -200,13 +200,9 @@ export async function generationRoutes(
       const validation = validateGenerateBody(request.body);
       if (!validation.ok) {
         logOutcome(validation.logOutcome, validation.status);
-        const code =
-          validation.status === 413
-            ? "PAYLOAD_TOO_LARGE"
-            : validation.status === 500
-              ? "INTERNAL_ERROR"
-              : "VALIDATION_ERROR";
-        throw new AppError(code, validation.message);
+        // The validation result carries the stable client-facing code
+        // (PROMPT_TOO_LONG vs VALIDATION_ERROR vs PAYLOAD_TOO_LARGE).
+        throw new AppError(validation.code, validation.message);
       }
 
       // 6) Quota → budget → concurrency → upstream (the service owns this

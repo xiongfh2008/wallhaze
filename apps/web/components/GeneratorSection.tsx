@@ -694,6 +694,13 @@ export default function GeneratorSection({
             // A missing reference degrades to text-to-image — never blocks
             // the prefilled prompt/style from being used.
           });
+        // A reference-image handoff prompt is self-contained (the wallpaper
+        // prompts already describe the full style) and the server composes
+        // prompt + device guidance + reference rules into ONE prompt with a
+        // hard length budget. A style template riding on top overflows that
+        // budget and fails validation, so the Studio's default style is
+        // dropped here — an explicit handoff style (none today) still wins.
+        setStyleId(request.styleId);
       }
       if (request.device) setDevice(request.device);
       if (request.ratio) {

@@ -42,6 +42,11 @@ describe("generation error mapping", () => {
     expect(generationErrorKey("OUTPUT_MODERATION_UNAVAILABLE", "http")).toBe(
       "errorOutputUnavailable"
     );
+    // A composed-prompt overflow is actionable (shorten it) — never the
+    // generic "retry" copy that would fail again verbatim.
+    expect(generationErrorKey("PROMPT_TOO_LONG", "http")).toBe(
+      "errorPromptTooLong"
+    );
     expect(generationErrorKey(null, "http")).toBe("generateFailed");
   });
 

@@ -424,7 +424,8 @@
     "errorModerationPending": "Content review couldn't complete for this request, so it wasn't generated. No Credits were charged — please try again later.",
     "errorModerationUnavailable": "Content screening is temporarily unavailable, so this request can't be processed. No Credits were charged — please try again later.",
     "errorOutputBlocked": "The generated result didn't pass content review and wasn't published. No Credits were charged.",
-    "errorOutputUnavailable": "Content review is temporarily unavailable, so the generated result can't be published. No Credits were charged — please try again later."
+    "errorOutputUnavailable": "Content review is temporarily unavailable, so the generated result can't be published. No Credits were charged — please try again later.",
+    "errorPromptTooLong": "Your combined prompt is too long for one generation — shorten the description or remove the selected style, then try again. No Credits were charged."
   },
   "credits": {
     "title": "Credits required",

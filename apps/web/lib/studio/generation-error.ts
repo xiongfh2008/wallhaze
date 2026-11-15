@@ -22,6 +22,7 @@ export type GenerationErrorKey =
   | "errorModerationUnavailable"
   | "errorOutputBlocked"
   | "errorOutputUnavailable"
+  | "errorPromptTooLong"
   | "generateFailed";
 
 export function generationErrorKey(
@@ -31,6 +32,11 @@ export function generationErrorKey(
   switch (code) {
     case "STORAGE_FAILED":
       return "errorStorageFailed";
+    case "PROMPT_TOO_LONG":
+      // The composed prompt exceeded the server budget — retrying verbatim
+      // will fail again. The user must shorten the description (or drop the
+      // style), so this must never fall through to the generic "retry" copy.
+      return "errorPromptTooLong";
     case "UPSTREAM_TIMEOUT":
       return "errorTimeout";
     case "UPSTREAM_ERROR":

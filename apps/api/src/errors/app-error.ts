@@ -3,6 +3,7 @@ import type { ApiErrorCode, ApiErrorEnvelope } from "@wallhaze/contracts";
 /** Default HTTP status per stable error code. */
 export const STATUS_BY_CODE: Record<ApiErrorCode, number> = {
   VALIDATION_ERROR: 400,
+  PROMPT_TOO_LONG: 400,
   UNAUTHENTICATED: 401,
   FORBIDDEN: 403,
   NOT_FOUND: 404,

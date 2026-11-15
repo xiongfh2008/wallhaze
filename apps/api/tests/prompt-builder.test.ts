@@ -109,6 +109,31 @@ describe('validator integration', () => {
     expect(result.value.builderVersion).toBe(PROMPT_BUILDER_VERSION);
     expect(result.value.negativePrompt).toBeTruthy();
   });
+
+  it('surfaces a composed-prompt overflow as PROMPT_TOO_LONG, not VALIDATION_ERROR', () => {
+    // Reproduction of the production "Create similar" failure: a full
+    // wallpaper prompt + the Studio's default style + the reference-image
+    // guidance composes beyond MAX_FINAL_PROMPT_LENGTH (1600).
+    const pngHeader = Buffer.from('89504e470d0a1a0a00', 'hex').toString('base64');
+    const result = validateGenerateBody({
+      device: 'desktop',
+      prompt: 'x'.repeat(800),
+      styleId: 'anime',
+      aspectRatio: '16:9',
+      refImage: `data:image/png;base64,${pngHeader}`,
+    });
+    expect(result.ok).toBe(false);
+    if (result.ok) return;
+    expect(result.status).toBe(400);
+    expect(result.code).toBe('PROMPT_TOO_LONG');
+  });
+
+  it('keeps ordinary validation failures on VALIDATION_ERROR', () => {
+    const result = validateGenerateBody({ device: 'toaster', prompt: 'x' });
+    expect(result.ok).toBe(false);
+    if (result.ok) return;
+    expect(result.code).toBe('VALIDATION_ERROR');
+  });
 });
 
 describe('worker prompt reproducibility', () => {

@@ -9,6 +9,7 @@
   type SizePreset,
 } from "../../catalog/sizes.js";
 import { findStyle, type WallStyle } from "../../catalog/styles.js";
+import type { ApiErrorCode } from "@wallhaze/contracts";
 import {
   buildGenerationPrompt,
   PromptBuildError,
@@ -68,7 +69,16 @@ export interface ValidatedGeneration {
 
 export type ValidationResult =
   | { ok: true; value: ValidatedGeneration }
-  | { ok: false; status: 400 | 413 | 500; message: string; logOutcome: string };
+  | {
+      ok: false;
+      status: 400 | 413 | 500;
+      /** Stable client-facing error code — PROMPT_TOO_LONG is distinguishable
+       *  from a generic validation failure so the UI can tell the user what
+       *  to change instead of offering a futile "retry". */
+      code: ApiErrorCode;
+      message: string;
+      logOutcome: string;
+    };
 
 /**
  * Magic-byte check: the decoded file header must match the MIME type
@@ -125,6 +135,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message: "Choose a device: phone, tablet or desktop.",
       logOutcome: "rejected:validation:device",
     };
@@ -141,6 +152,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "Enter both a width and a height for a custom size.",
         logOutcome: "rejected:validation:custom-size-incomplete",
       };
@@ -158,6 +170,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message,
         logOutcome: `rejected:validation:custom-size-${check.reason}`,
       };
@@ -166,6 +179,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "Choose either a size preset or a custom size, not both.",
         logOutcome: "rejected:validation:custom-size-preset",
       };
@@ -184,6 +198,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "That size preset is not available. Please pick another one.",
         logOutcome: "rejected:validation:preset",
       };
@@ -192,6 +207,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "That size preset is not available for this device.",
         logOutcome: "rejected:validation:preset-device",
       };
@@ -202,6 +218,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "That size preset is outside the supported size range.",
         logOutcome: "rejected:validation:preset-dimensions",
       };
@@ -216,6 +233,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message:
         "That aspect ratio is not available. Please pick another one.",
       logOutcome: "rejected:validation:ratio",
@@ -226,6 +244,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message: `The ${ratio} ratio is not available for this device.`,
       logOutcome: "rejected:validation:ratio-device",
     };
@@ -236,6 +255,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message:
         "The selected size preset does not match the selected aspect ratio.",
       logOutcome: "rejected:validation:ratio-preset",
@@ -258,6 +278,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "The custom size does not match the selected aspect ratio.",
         logOutcome: "rejected:validation:custom-size-ratio",
       };
@@ -277,6 +298,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 500,
+      code: "INTERNAL_ERROR",
       message: "Could not resolve an image size. Please try again.",
       logOutcome: "rejected:validation:image-size",
     };
@@ -289,6 +311,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message: `Your prompt is too long — please keep it under ${PROMPT_MAX_LENGTH} characters.`,
       logOutcome: "rejected:validation:prompt-length",
     };
@@ -301,6 +324,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message: "That style is not available. Please pick another one.",
       logOutcome: "rejected:validation:style-disabled",
     };
@@ -309,6 +333,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
     return {
       ok: false,
       status: 400,
+      code: "VALIDATION_ERROR",
       message: "That style is not available. Please pick another one.",
       logOutcome: "rejected:validation:style",
     };
@@ -323,6 +348,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "Unsupported image format — use PNG, JPEG or WebP.",
         logOutcome: "rejected:validation:ref-mime",
       };
@@ -332,6 +358,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message: "That reference image could not be read. Please re-upload it.",
         logOutcome: "rejected:validation:ref-format",
       };
@@ -341,6 +368,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 413,
+        code: "PAYLOAD_TOO_LARGE",
         message: "Reference image is too large — please keep it under 5 MB.",
         logOutcome: "rejected:validation:ref-size",
       };
@@ -352,6 +380,7 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        code: "VALIDATION_ERROR",
         message:
           "The reference image is invalid or its format does not match the declared type.",
         logOutcome: "rejected:validation:ref-magic",
@@ -378,6 +407,11 @@ export function validateGenerateBody(body: unknown): ValidationResult {
       return {
         ok: false,
         status: 400,
+        // A composed-prompt overflow is NOT a futile "retry" case: the user
+        // must shorten the description (or drop the style) — surface the
+        // distinction in the stable code instead of a generic validation
+        // failure that the UI would map to "please retry".
+        code: error.code === "too-long" ? "PROMPT_TOO_LONG" : "VALIDATION_ERROR",
         message: error.message,
         logOutcome: `rejected:validation:prompt-${error.code}`,
       };

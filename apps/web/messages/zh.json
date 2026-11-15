@@ -424,7 +424,8 @@
     "errorModerationPending": "该请求的内容审核未能按时完成，未进行生成。未扣除积分——请稍后重试。",
     "errorModerationUnavailable": "内容筛查服务暂时不可用，无法处理该请求。未扣除积分——请稍后重试。",
     "errorOutputBlocked": "生成结果未通过内容审核，未予发布。未扣除积分。",
-    "errorOutputUnavailable": "内容审核服务暂时不可用，生成结果无法发布。未扣除积分——请稍后重试。"
+    "errorOutputUnavailable": "内容审核服务暂时不可用，生成结果无法发布。未扣除积分——请稍后重试。",
+    "errorPromptTooLong": "组合提示词超出单次生成上限——请缩短描述或取消所选风格后重试。本次未扣除积分。"
   },
   "credits": {
     "title": "需要积分",

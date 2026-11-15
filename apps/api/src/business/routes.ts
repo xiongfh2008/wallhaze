@@ -1109,10 +1109,7 @@ export async function businessRoutes(
       } else {
         const validation = validateGenerateBody(body);
         if (!validation.ok) {
-          throw new AppError(
-            validation.status === 413 ? "PAYLOAD_TOO_LARGE" : "VALIDATION_ERROR",
-            validation.message
-          );
+          throw new AppError(validation.code, validation.message);
         }
         const staticPricing = generationPricing();
         price = staticPricing.creditsPerGeneration;

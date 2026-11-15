@@ -8,6 +8,7 @@
  */
 export const API_ERROR_CODES = [
     "VALIDATION_ERROR",
+    "PROMPT_TOO_LONG",
     "UNAUTHENTICATED",
     "FORBIDDEN",
     "NOT_FOUND",

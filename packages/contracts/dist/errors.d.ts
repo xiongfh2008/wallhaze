@@ -6,7 +6,7 @@
  * `{ error: string }` — that shape is NOT part of the new contract; the
  * standalone API always returns the structured envelope below.
  */
-export declare const API_ERROR_CODES: readonly ["VALIDATION_ERROR", "UNAUTHENTICATED", "FORBIDDEN", "NOT_FOUND", "CONFLICT", "PAYLOAD_TOO_LARGE", "UNSUPPORTED_MEDIA_TYPE", "RATE_LIMITED", "CONTENT_FILTERED", "INTERNAL_ERROR", "NOT_IMPLEMENTED", "UPSTREAM_ERROR", "SERVICE_UNAVAILABLE"];
+export declare const API_ERROR_CODES: readonly ["VALIDATION_ERROR", "PROMPT_TOO_LONG", "UNAUTHENTICATED", "FORBIDDEN", "NOT_FOUND", "CONFLICT", "PAYLOAD_TOO_LARGE", "UNSUPPORTED_MEDIA_TYPE", "RATE_LIMITED", "CONTENT_FILTERED", "INTERNAL_ERROR", "NOT_IMPLEMENTED", "UPSTREAM_ERROR", "SERVICE_UNAVAILABLE"];
 export type ApiErrorCode = (typeof API_ERROR_CODES)[number];
 export interface ApiErrorEnvelope {
     error: {

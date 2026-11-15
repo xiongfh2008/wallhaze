@@ -60,9 +60,11 @@ async function renderGate(
 ) {
   vi.spyOn(creditsAdapter, "getPricing").mockResolvedValue(result);
   await act(async () => {
-    root.render(
-      createElement(StudioGate, { fallback: closed }, open)
-    );
+    // React 19's createElement types require `children` inside props when
+    // the component declares it (the third-argument overload does not
+    // satisfy it), so the children prop is intentional here.
+    // eslint-disable-next-line react/no-children-prop
+    root.render(createElement(StudioGate, { fallback: closed, children: open }));
   });
 }
 

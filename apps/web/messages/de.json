@@ -424,7 +424,8 @@
     "errorModerationPending": "Die Inhaltsprüfung konnte nicht rechtzeitig abgeschlossen werden, daher wurde nichts generiert. Es wurden keine Credits berechnet — bitte später erneut versuchen.",
     "errorModerationUnavailable": "Die Inhaltssicherheitsprüfung ist vorübergehend nicht verfügbar, daher kann die Anfrage nicht verarbeitet werden. Es wurden keine Credits berechnet — bitte später erneut versuchen.",
     "errorOutputBlocked": "Das generierte Ergebnis hat die Inhaltsprüfung nicht bestanden und wurde nicht veröffentlicht. Es wurden keine Credits berechnet.",
-    "errorOutputUnavailable": "Die Inhaltsprüfung ist vorübergehend nicht verfügbar, daher kann das Ergebnis nicht veröffentlicht werden. Es wurden keine Credits berechnet — bitte später erneut versuchen."
+    "errorOutputUnavailable": "Die Inhaltsprüfung ist vorübergehend nicht verfügbar, daher kann das Ergebnis nicht veröffentlicht werden. Es wurden keine Credits berechnet — bitte später erneut versuchen.",
+    "errorPromptTooLong": "Der kombinierte Prompt ist zu lang für eine Generierung — kürze die Beschreibung oder entferne den ausgewählten Stil und versuche es erneut. Es wurden keine Credits abgebucht."
   },
   "credits": {
     "title": "Credits erforderlich",

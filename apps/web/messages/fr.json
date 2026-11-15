@@ -424,7 +424,8 @@
     "errorModerationPending": "La revue de contenu n'a pas pu aboutir à temps : rien n'a été généré. Aucun crédit n'a été débité — réessayez plus tard.",
     "errorModerationUnavailable": "Le filtrage de contenu est temporairement indisponible : la demande ne peut pas être traitée. Aucun crédit n'a été débité — réessayez plus tard.",
     "errorOutputBlocked": "Le résultat généré n'a pas passé la revue de contenu et n'a pas été publié. Aucun crédit n'a été débité.",
-    "errorOutputUnavailable": "La revue de contenu est temporairement indisponible : le résultat ne peut pas être publié. Aucun crédit n'a été débité — réessayez plus tard."
+    "errorOutputUnavailable": "La revue de contenu est temporairement indisponible : le résultat ne peut pas être publié. Aucun crédit n'a été débité — réessayez plus tard.",
+    "errorPromptTooLong": "Le prompt combiné est trop long pour une génération — raccourcissez la description ou retirez le style sélectionné, puis réessayez. Aucun crédit n’a été débité."
   },
   "credits": {
     "title": "Crédits requis",

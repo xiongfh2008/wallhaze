@@ -10,6 +10,7 @@
 import { ASPECT_RATIOS, type AspectRatioId } from "@/lib/sizes";
 import { isHistoryDevice, isRatioAllowedForDevice } from "@/lib/sizes";
 import { findSizePreset } from "@/lib/sizes";
+import type { StyleId } from "@/lib/styles";
 import { STUDIO_PROMPT_MAX_LENGTH, resolveStylePreselect } from "./form";
 
 /** Dispatched by StudioStylePreselect once the params are parsed. */
@@ -17,7 +18,8 @@ export const STUDIO_RESTORE_EVENT = "wallhaze:studio:restore";
 
 export interface StudioRestoreRequest {
   prompt: string | null;
-  styleId: string | null;
+  /** Already resolved through the style catalogue — null means "no style". */
+  styleId: StyleId | null;
   device: "phone" | "tablet" | "desktop" | null;
   ratio: AspectRatioId | null;
   presetId: string | null;

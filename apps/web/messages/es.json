@@ -424,7 +424,8 @@
     "errorModerationPending": "La revisión de contenido no pudo completarse a tiempo, así que no se generó. No se cobraron créditos — inténtalo de nuevo más tarde.",
     "errorModerationUnavailable": "El filtrado de contenido no está disponible temporalmente, así que no se puede procesar la solicitud. No se cobraron créditos — inténtalo de nuevo más tarde.",
     "errorOutputBlocked": "El resultado generado no pasó la revisión de contenido y no se publicó. No se cobraron créditos.",
-    "errorOutputUnavailable": "La revisión de contenido no está disponible temporalmente, así que el resultado no puede publicarse. No se cobraron créditos — inténtalo de nuevo más tarde."
+    "errorOutputUnavailable": "La revisión de contenido no está disponible temporalmente, así que el resultado no puede publicarse. No se cobraron créditos — inténtalo de nuevo más tarde.",
+    "errorPromptTooLong": "El prompt combinado es demasiado largo para una generación — acorta la descripción o quita el estilo seleccionado e inténtalo de nuevo. No se cobraron créditos."
   },
   "credits": {
     "title": "Se requieren créditos",
