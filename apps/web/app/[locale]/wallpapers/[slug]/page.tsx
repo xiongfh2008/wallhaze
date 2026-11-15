@@ -210,6 +210,10 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
           styleId: handoffStyleId,
           device: wallpaper.nativeDevices[0] ?? "phone",
           ratio: closestRatioId(wallpaper.width, wallpaper.height),
+          // The wallpaper itself rides along as the reference image: the
+          // studio restores it into the subject-photo slot (image-edit
+          // pipeline), so visitors can iterate on this exact artwork.
+          ref: wallpaper.image,
         })
       : null;
   const faithfulHref = variants ? buildVariantHref(variants[0].prompt) : null;
