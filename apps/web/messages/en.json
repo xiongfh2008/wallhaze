@@ -239,7 +239,8 @@
     "selfAuthored": "Original WallHaze artwork",
     "downloadRestricted": "Download unavailable while this artwork's license is under review.",
     "imageRestricted": "This artwork is withheld from public display while its rights are under review.",
-    "imageRestrictedShort": "Rights review"
+    "imageRestrictedShort": "Rights review",
+    "createSimilarVariants": "More style directions:"
   },
   "generator": {
     "homeEyebrow": "AI Generator",
@@ -1143,15 +1144,18 @@
     },
     "sunny-headphones-smile": {
       "title": "Sunny Headphones Smile",
-      "alt": "A joyful young woman in a yellow hoodie and headphones, laughing with mirrored blue-yellow sunglasses, sketch lines and paint"
+      "alt": "A laughing girl in yellow headphones and hoodie, with round blue and golden sunglasses, drawn in energetic black ink strokes.",
+      "description": "A big smile, sunny yellow and a burst of blue. This expressive sketch-style wallpaper brings playful energy to your phone screen."
     },
     "seaside-daydream-boy": {
       "title": "Seaside Daydream Boy",
-      "alt": "A relaxed boy on a seaside cliff gazing at the ocean, a lighthouse behind him, crisp clouds and vivid coastal colors"
+      "alt": "A boy with an orange backpack sits on a grassy seaside cliff beneath towering white clouds, with gulls and a lighthouse nearby.",
+      "description": "A quiet pause above a brilliant blue sea. Hand-drawn lines, towering summer clouds and a little lighthouse give this wide wallpaper"
     },
     "adventure-goggles-cat": {
       "title": "Adventure Goggles Cat",
-      "alt": "A content fluffy cat with vintage goggles and a red scarf, sketch strokes and colorful paint splashes"
+      "alt": "A fluffy tabby cat tilts its head upward wearing blue-lensed aviator goggles and a bright red scarf, rendered with lively ink lines.",
+      "description": "A tiny explorer with big plans. Blue aviator lenses, a bright red scarf and playful pen strokes make this cat illustration stand"
     }
   },
   "auth": {

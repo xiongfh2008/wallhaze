@@ -239,7 +239,8 @@
     "selfAuthored": "Œuvre originale WallHaze",
     "downloadRestricted": "Téléchargement indisponible pendant la vérification de la licence de cette œuvre.",
     "imageRestricted": "Cette œuvre n’est pas affichée publiquement pendant l’examen de ses droits.",
-    "imageRestrictedShort": "Examen des droits"
+    "imageRestrictedShort": "Examen des droits",
+    "createSimilarVariants": "Autres directions de style :"
   },
   "generator": {
     "homeEyebrow": "Générateur IA",
@@ -1142,16 +1143,19 @@
       "alt": "Un petit chien blanc et duveteux tire légèrement la langue, entouré de touches jaunes, roses et turquoise"
     },
     "sunny-headphones-smile": {
-      "title": "Sourire et casque audio",
-      "alt": "Une jeune femme rit, sweats et casque audio jaunes, lunettes miroir bleu-jaune, traits de croquis et éclaboussures"
+      "title": "Sourire et casque jaune",
+      "alt": "Une jeune femme rit avec un sweat et un casque jaunes, des lunettes rondes bleues et dorées et des traits d’encre dynamiques.",
+      "description": "Du jaune éclatant, du bleu vif et un sourire contagieux. Un fond d’écran dessiné avec énergie pour votre téléphone."
     },
     "seaside-daydream-boy": {
-      "title": "Rêveries au bord de mer",
-      "alt": "Un garçon assis sur une falaise contemple la mer, un phare au loin, nuages nets et couleurs côtelères vives"
+      "title": "Rêverie au bord de la mer",
+      "alt": "Un garçon avec un sac orange se repose sur une falaise face à la mer, sous de grands nuages blancs, près des mouettes et d’un phare.",
+      "description": "Une pause face à la mer bleue, aux nuages d’été et à un phare lointain. Un fond d’écran panoramique au charme d’animation."
     },
     "adventure-goggles-cat": {
-      "title": "Chat aux goggles",
-      "alt": "Gros plan d'un chat avec goggles vintage et écharpe rouge, traits de croquis et éclaboussures colorées"
+      "title": "Chat aventurier à lunettes",
+      "alt": "Un chat tigré duveteux lève la tête, avec des lunettes d’aviateur aux verres bleus et une écharpe rouge, dessiné à l’encre vive.",
+      "description": "Un petit explorateur prêt à partir. Lunettes bleues, écharpe rouge et traits de plume spontanés donnent du caractère à votre"
     }
   },
   "auth": {

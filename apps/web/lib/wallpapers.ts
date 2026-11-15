@@ -1203,7 +1203,7 @@ const SEEDS = [
     id: "sunny-headphones-smile",
     title: "Sunny Headphones Smile",
     styleId: "shoujo",
-    alt: "A joyful young woman laughing in a bright yellow hoodie and headphones, wearing blue-and-yellow mirrored sunglasses, sketch lines and colorful paint splashes",
+    alt: "A laughing girl in yellow headphones and hoodie, with round blue and golden sunglasses, drawn in energetic black ink strokes.",
     imageOverride: "/images/wallpapers/sunny-headphones-smile.jpg",
     license: "self-authored",
   },
@@ -1212,8 +1212,8 @@ const SEEDS = [
     // directive (registry wallpaper.seaside-daydream-boy).
     id: "seaside-daydream-boy",
     title: "Seaside Daydream Boy",
-    styleId: "anime",
-    alt: "A relaxed boy sitting on a seaside cliff gazing at the ocean, lighthouse on the cliffs, seagulls overhead, crisp clouds and vivid coastal colors in clean anime illustration",
+    styleId: "cozy-anime",
+    alt: "A boy with an orange backpack sits on a grassy seaside cliff beneath towering white clouds, with gulls and a lighthouse nearby.",
     imageOverride: "/images/wallpapers/seaside-daydream-boy.jpg",
     license: "self-authored",
   },
@@ -1223,7 +1223,7 @@ const SEEDS = [
     id: "adventure-goggles-cat",
     title: "Adventure Goggles Cat",
     styleId: "manga",
-    alt: "A content fluffy cat wearing vintage goggles and a red scarf, expressive sketch strokes with colorful paint splashes, cheerful and adventurous",
+    alt: "A fluffy tabby cat tilts its head upward wearing blue-lensed aviator goggles and a bright red scarf, rendered with lively ink lines.",
     imageOverride: "/images/wallpapers/adventure-goggles-cat.jpg",
     license: "self-authored",
   },
@@ -1298,13 +1298,83 @@ export function getRelatedWallpapers(
  * exact replica). Keyed by slug; the detail page links to the Studio with
  * this prompt prefilled alongside the wallpaper as the reference image.
  */
-export const CREATE_SIMILAR_PROMPTS: Record<string, string> = {
-  "sunny-headphones-smile":
-    "vibrant expressive sketch illustration of a joyful young woman with oversized reflective sunglasses, bright yellow hoodie and headphones, dynamic ink lines, colorful paint splashes, energetic mood, clean background, premium wallpaper quality",
-  "seaside-daydream-boy":
-    "clean anime scenic illustration of a relaxed boy sitting on a seaside cliff under a bright blue sky, lighthouse in the distance, ocean breeze, travel mood, crisp clouds, vivid coastal colors, premium wallpaper quality",
-  "adventure-goggles-cat":
-    "cute expressive sketch illustration of a fluffy cat wearing vintage goggles and a red scarf, dynamic ink strokes, colorful paint splashes, adventurous and cheerful mood, clean background, premium wallpaper quality",
+/**
+ * "Create similar" prompt variants per slug (style continuation, never an
+ * exact replica). Three curated directions per artwork; the detail page
+ * offers all three and hands the chosen one to the Studio via the
+ * studio-restore contract (prompt/style/device/ratio — no reference-image
+ * URL: the visitor can attach the wallpaper manually in the Studio).
+ */
+export interface CreateSimilarVariant {
+  id: "faithful" | "variation" | "minimal";
+  label: string;
+  prompt: string;
+}
+
+export const CREATE_SIMILAR_VARIANTS: Record<
+  string,
+  readonly CreateSimilarVariant[]
+> = {
+  "sunny-headphones-smile": [
+    {
+      id: "faithful",
+      label: "Bright street-style sketch",
+      prompt:
+        "Expressive mixed-media ink sketch of a joyful young woman laughing with her head tilted back, oversized round sunglasses with teal and golden reflections, bright yellow hoodie, chunky headphones around her neck, loose windblown dark hair, bold irregular black pen lines, layered colored-pencil marks and energetic tiny orange and cyan paint splashes, warm off-white paper background, low-angle close-up, spontaneous editorial illustration, original character, sharp face and hands, vertical phone wallpaper, no words, logos or watermark.",
+    },
+    {
+      id: "variation",
+      label: "Playful color remix",
+      prompt:
+        "Original upbeat editorial portrait of a laughing young woman with tousled hair, coral-orange jacket and retro turquoise sunglasses, colorful on-ear headphones, lively scratchy ink contours, rough pencil hatching, broad golden brush patches and small electric-blue splatters, cream sketchbook paper, expressive off-center composition with airy space above, bold modern mixed-media illustration, vertical 9:16 wallpaper, natural face, no text, no signature, no watermark.",
+    },
+    {
+      id: "minimal",
+      label: "Clean poster sketch",
+      prompt:
+        "Minimal expressive portrait illustration of a smiling young woman wearing large headphones, mirrored cobalt glasses and a bright saffron jacket, spontaneous black ink loops and fine crosshatching over ivory paper, restrained turquoise and vermilion accent strokes, confident asymmetrical poster composition, strong character expression, sophisticated fashion-editorial sketch aesthetic, original design, vertical 9:16 phone wallpaper, no typography, no logo, no watermark.",
+    },
+  ],
+  "seaside-daydream-boy": [
+    {
+      id: "faithful",
+      label: "Bright coast and lighthouse",
+      prompt:
+        "Original hand-drawn anime background illustration of a teenage traveler sitting on a grassy seaside bluff with an orange rucksack, gazing up at towering sunlit cumulus clouds over a dazzling turquoise ocean, a small red-and-white lighthouse on a distant headland, seagulls circling, breezy summer atmosphere, expressive fine ink contours with textured watercolor-like paint strokes, clean blue-and-white palette, cinematic panoramic 16:9 desktop wallpaper, no writing, no logos, no watermark.",
+    },
+    {
+      id: "variation",
+      label: "Golden-hour coastal pause",
+      prompt:
+        "Wide original anime scenic illustration of a young traveler taking a break on a rocky seaside lookout, canvas backpack beside them, glowing late-afternoon sun on the sea, distant lighthouse and gulls over the bay, windblown grass, strong airy composition, gestural hand-drawn ink lines mixed with warm textured paint, subtle nostalgic road-trip mood, panoramic 16:9 desktop wallpaper, no text, no watermark.",
+    },
+    {
+      id: "minimal",
+      label: "Clouds over the ocean",
+      prompt:
+        "Expansive illustrated summer seascape viewed from a quiet grassy cliff, one small person seated at the far right with a bright orange backpack, huge sculpted white clouds against saturated cerulean sky, blue ocean and a tiny lighthouse in the distance, delicate scratchy pen outlines and painterly brush texture, large open negative space for desktop icons, original refined anime environmental art, widescreen 16:9 wallpaper, no words or watermark.",
+    },
+  ],
+  "adventure-goggles-cat": [
+    {
+      id: "faithful",
+      label: "Cheerful aviator cat",
+      prompt:
+        "Expressive mixed-media ink illustration of a fluffy tabby cat with its chin tilted proudly upward, vintage aviator goggles with vivid sky-blue lenses resting on its forehead, long bright red scarf flowing across the chest, loose scratchy black pen contours, fine whiskers, energetic orange and cobalt paint flecks on warm ivory sketch paper, endearing confident expression, close-up upward perspective, original animal character, vertical 3:4 tablet wallpaper, no text, signature or watermark.",
+    },
+    {
+      id: "variation",
+      label: "Orange explorer kitten",
+      prompt:
+        "Original playful editorial sketch of an adventurous ginger kitten wearing brass-rimmed blue goggles and a teal scarf, looking into a gust of wind, unruly fur sketched with bold black ink loops, warm yellow and red brush accents, sparse electric-blue paint splashes, clean off-white paper backdrop, strong character silhouette, spontaneous handmade illustration style, vertical 3:4 tablet wallpaper, no writing, logo or watermark.",
+    },
+    {
+      id: "minimal",
+      label: "Graphic adventure-cat portrait",
+      prompt:
+        "Minimal high-energy black ink and colored-pencil portrait of a charming black-and-white cat in oversized vintage blue-lens aviator goggles and a scarlet neckerchief, whimsical upward-looking pose, textured hatched fur, raw gestural marks, tiny red and golden paint drops, spacious cream background, lively modern poster illustration, original design, vertical 3:4 tablet wallpaper, no typography or watermark.",
+    },
+  ],
 };
 
 const FEATURED_WALLPAPER_IDS: readonly string[] = [

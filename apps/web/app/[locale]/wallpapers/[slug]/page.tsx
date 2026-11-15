@@ -19,7 +19,7 @@ import {
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WallpaperDownloadButton from "@/components/WallpaperDownloadButton";
-import { CREATE_SIMILAR_PROMPTS } from "@/lib/wallpapers";
+import { CREATE_SIMILAR_VARIANTS } from "@/lib/wallpapers";
 import { buildStudioRestoreHref } from "@/lib/studio/restore";
 import { ASPECT_RATIOS } from "@/lib/sizes";
 import { WallpaperLinkCard } from "@/components/FeaturedWallpapers";
@@ -68,12 +68,17 @@ export async function generateMetadata({
   const tMeta = await getTranslations("meta");
   const titleKey = `${wallpaper.id}.title`;
   const altKey = `${wallpaper.id}.alt`;
+  const descKey = `${wallpaper.id}.description`;
   const title = tWallpapers.has(titleKey)
     ? tWallpapers(titleKey)
     : wallpaper.title;
-  const description = tWallpapers.has(altKey)
-    ? tWallpapers(altKey)
-    : wallpaper.alt;
+  // Description carries its own localized marketing copy when a registry
+  // package provides it; the alt stays the image description otherwise.
+  const description = tWallpapers.has(descKey)
+    ? tWallpapers(descKey)
+    : tWallpapers.has(altKey)
+      ? tWallpapers(altKey)
+      : wallpaper.alt;
   const pending = !wallpaper.canPubliclyDisplay;
   const seoTitle = pending
     ? `${title} — Wallpaper · License Review`
@@ -192,15 +197,22 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
     }
     return best;
   };
-  const createSimilarHref = wallpaper.image
-    ? buildStudioRestoreHref({
-        prompt: CREATE_SIMILAR_PROMPTS[wallpaper.id] ?? "",
-        styleId: wallpaper.styleId,
-        device: wallpaper.nativeDevices[0] ?? "phone",
-        ratio: closestRatioId(wallpaper.width, wallpaper.height),
-        ref: wallpaper.image,
-      })
-    : null;
+  // Style preselect only for artworks whose style actually matches the
+  // render (seaside = cozy-anime). The two expressive-ink pieces have no
+  // matching style card — prompt-only handoff instead of forcing one.
+  const handoffStyleId =
+    wallpaper.id === "seaside-daydream-boy" ? wallpaper.styleId : null;
+  const variants = CREATE_SIMILAR_VARIANTS[wallpaper.id];
+  const buildVariantHref = (prompt: string) =>
+    wallpaper.image
+      ? buildStudioRestoreHref({
+          prompt,
+          styleId: handoffStyleId,
+          device: wallpaper.nativeDevices[0] ?? "phone",
+          ratio: closestRatioId(wallpaper.width, wallpaper.height),
+        })
+      : null;
+  const faithfulHref = variants ? buildVariantHref(variants[0].prompt) : null;
   /**
    * copyrightNotice for original artwork, driven by the asset-rights registry:
    *  - human-authored (aiGenerated=false) → a real © WallHaze notice;
@@ -493,13 +505,34 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                   {t("downloadRestricted")}
                 </p>
               )}
-              <Link
-                href={createSimilarHref ?? `/studio?style=${wallpaper.styleId}`}
-                className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-zinc-100 backdrop-blur transition hover:border-white/35 hover:bg-white/10"
-              >
-                {t("createSimilar")}
-              </Link>
+              {faithfulHref ? (
+                <Link
+                  href={faithfulHref}
+                  className="rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-medium text-zinc-100 backdrop-blur transition hover:border-white/35 hover:bg-white/10"
+                >
+                  {t("createSimilar")}
+                </Link>
+              ) : null}
             </div>
+            {variants && variants.length > 1 && wallpaper.image ? (
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <span className="text-xs font-medium text-zinc-400">
+                  {t("createSimilarVariants")}
+                </span>
+                {variants.slice(1).map((variant) => {
+                  const href = buildVariantHref(variant.prompt);
+                  return href ? (
+                    <Link
+                      key={variant.id}
+                      href={href}
+                      className="rounded-full border border-white/15 bg-white/[0.03] px-3 py-1 text-xs font-medium text-zinc-300 transition hover:border-white/30 hover:text-white"
+                    >
+                      {variant.label}
+                    </Link>
+                  ) : null;
+                })}
+              </div>
+            ) : null}
           </div>
         </div>
 

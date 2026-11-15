@@ -239,7 +239,8 @@
     "selfAuthored": "Eigenes WallHaze-Artwork",
     "downloadRestricted": "Download nicht verfügbar, solange die Lizenz dieses Artworks geprüft wird.",
     "imageRestricted": "Dieses Werk wird während der Rechteprüfung nicht öffentlich angezeigt.",
-    "imageRestrictedShort": "Rechteprüfung"
+    "imageRestrictedShort": "Rechteprüfung",
+    "createSimilarVariants": "Weitere Stilrichtungen:"
   },
   "generator": {
     "homeEyebrow": "KI-Generator",
@@ -1142,16 +1143,19 @@
       "alt": "Ein flauschiger weißer Hund mit leicht herausgestreckter Zunge vor goldgelben, rosa und türkisfarbenen Pinselstrichen"
     },
     "sunny-headphones-smile": {
-      "title": "Sonniger Kopfhörer-Smile",
-      "alt": "Eine junge Frau lacht in gelbem Hoodie und Kopfhörern, blau-gelbe Sonnenbrille, Skizzenlinien und Farbspritzer"
+      "title": "Sonniges Lächeln mit Kopfhörern",
+      "alt": "Ein lachendes Mädchen mit gelbem Hoodie, Kopfhörern und runder blau-goldener Sonnenbrille, gezeichnet mit lebhaften Tuschestrichen.",
+      "description": "Leuchtendes Gelb, kräftiges Blau und ein ansteckendes Lächeln. Eine lebendige Skizze als fröhliches Handy-Hintergrundbild."
     },
     "seaside-daydream-boy": {
-      "title": "Träumen am Meer",
-      "alt": "Ein entspannter Junge sitzt auf einer Klippe und blickt aufs Meer, Leuchtturm dahinter, klare Wolken, lebendige Küstenfarben"
+      "title": "Tagtraum am Meer",
+      "alt": "Ein Junge mit orangefarbenem Rucksack sitzt auf einer Klippe am Meer, unter großen weißen Wolken, mit Möwen und einem Leuchtturm.",
+      "description": "Eine ruhige Pause über dem blauen Meer, mit Sommerwolken und einem fernen Leuchtturm. Ein luftiges Anime-Panorama für den"
     },
     "adventure-goggles-cat": {
-      "title": "Katze mit Fliegerbrille",
-      "alt": "Nahaufnahme einer Katze mit Fliegerbrille und rotem Schal, Skizzenstriche und Farbspritzer"
+      "title": "Abenteuerkatze mit Fliegerbrille",
+      "alt": "Eine flauschige getigerte Katze blickt nach oben, mit blau verglaster Fliegerbrille und rotem Schal, gezeichnet in lebhaften Tuschestrichen.",
+      "description": "Ein kleiner Entdecker mit großen Plänen. Blaue Fliegerbrille, roter Schal und lockere Tuschestriche bringen Schwung auf"
     }
   },
   "auth": {

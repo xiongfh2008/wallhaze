@@ -239,7 +239,8 @@
     "selfAuthored": "Obra original de WallHaze",
     "downloadRestricted": "La descarga no está disponible mientras se revisa la licencia de esta obra.",
     "imageRestricted": "Esta obra no se muestra públicamente mientras se revisan sus derechos.",
-    "imageRestrictedShort": "Revisión de derechos"
+    "imageRestrictedShort": "Revisión de derechos",
+    "createSimilarVariants": "Más direcciones de estilo:"
   },
   "generator": {
     "homeEyebrow": "Generador con IA",
@@ -1143,15 +1144,18 @@
     },
     "sunny-headphones-smile": {
       "title": "Sonrisa con auriculares",
-      "alt": "Una joven ríe con sudadera y auriculares amarillos, gafas de sol azul y amarillo, líneas de boceto y salpicaduras"
+      "alt": "Una chica sonríe con sudadera y auriculares amarillos, gafas redondas azules y doradas y trazos de tinta enérgicos.",
+      "description": "Amarillo brillante, azul intenso y una sonrisa enorme. Un fondo de estilo boceto lleno de energía para el móvil."
     },
     "seaside-daydream-boy": {
-      "title": "Chico junto al mar",
-      "alt": "Un chico relajado en un acantilado mira el mar, un faro al fondo, nubes limpias y colores costeros vivos"
+      "title": "Soñando junto al mar",
+      "alt": "Un chico con mochila naranja descansa en un acantilado junto al mar, bajo grandes nubes blancas, con gaviotas y un faro.",
+      "description": "Un descanso frente al mar azul, entre nubes de verano y un faro lejano. Un fondo panorámico de aire anime y brisa costera."
     },
     "adventure-goggles-cat": {
-      "title": "Gato aventurero",
-      "alt": "Primer plano de un gato con gafas de aviador y bufanda roja, trazos de boceto y salpicaduras de color"
+      "title": "Gato aventurero con gafas",
+      "alt": "Un gato atigrado y esponjoso alza la cabeza con gafas de aviador azules y un pañuelo rojo, dibujado con trazos de tinta expresivos.",
+      "description": "Un pequeño explorador con grandes planes. Las gafas azules, el pañuelo rojo y los trazos juguetones destacan en la pantalla de tu"
     }
   },
   "auth": {
