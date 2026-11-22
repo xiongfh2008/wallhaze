@@ -1,11 +1,11 @@
 {
   "meta": {
-    "homeTitle": "WallHaze — 모든 화면을 위한 AI 배경화면",
-    "homeDescription": "사용 중인 기기에 딱 맞는 무료 AI 배경화면을 탐색하세요. 애니메이션, 사이버펑크, 판타지 등 독특한 스타일을 폰·태블릿·데스크톱용으로 고화질로 제공합니다. AI Studio에서 나만의 배경화면을 만들어 보세요.",
-    "studioTitle": "Studio — AI 배경화면 창작",
-    "studioDescription": "WallHaze로 AI 배경화면을 만들어 보세요: 보고 싶은 장면을 묘사하고 스타일을 고르면, 사용 중인 기기에 맞는 정적·라이브 배경화면을 생성합니다.",
-    "wallpapersTitle": "배경화면 갤러리 — 무료 배경화면",
-    "wallpapersDescription": "휴대폰, 태블릿, 데스크톱용 배경화면을 무료로 둘러보세요. 라이선스가 확인된 작품은 다운로드할 수 있고, 검토 중인 작품은 보기만 가능합니다. 모든 배경화면에는 상세 페이지가 있습니다.",
+    "homeTitle": "WallHaze — 무료 배경화면 & AI 배경화면 생성기",
+    "homeDescription": "애니메이션, 사이버펑크, 드림코어 등 감성 폰 배경화면과 PC 배경화면을 무료로 탐색하고, AI 스튜디오에서 나만의 커스텀 배경화면을 만들어 보세요.",
+    "studioTitle": "AI 배경화면 생성기 — 나만의 배경화면 만들기",
+    "studioDescription": "텍스트로 묘사하고 스타일과 비율을 골라 AI 배경화면을 생성하세요. 기존 작품을 참고한 Create similar 생성도 가능합니다. Credits 결제 방식.",
+    "wallpapersTitle": "무료 배경화면 갤러리 — 폰·태블릿·PC",
+    "wallpapersDescription": "애니 배경화면, 사이버펑크, 드림코어, 자연 풍경 등 무료 HD 배경화면을 폰·태블릿·PC용으로 탐색하세요. 심사 완료 작품은 무료 다운로드가 가능하고 AI 스튜디오에서 같은 느낌의 배경화면을 만들 수 있습니다.",
     "loginTitle": "로그인",
     "loginDescription": "WallHaze에 로그인하여 계정, Credits, 작품을 관리하세요.",
     "signupTitle": "계정 만들기",
@@ -39,7 +39,8 @@
     "detailDownloadSuffix": "무료 다운로드 가능",
     "breadcrumbHome": "홈",
     "breadcrumbWallpapers": "배경화면",
-    "breadcrumbCommunity": "커뮤니티"
+    "breadcrumbCommunity": "커뮤니티",
+    "detailTitleSuffix": "무료 배경화면"
   },
   "nav": {
     "mainAria": "메인 내비게이션",
@@ -955,195 +956,195 @@
     },
     "mecha-girl-neon-city": {
       "title": "기계소녀: 네온 스카이라인",
-      "alt": "기계소녀: 네온 스카이라인 — Original anime mecha girl on a rooftop above a neon megacity skyline"
+      "alt": "네온이 번쩍이는 거대 도시 스카이라인 위 옥상에 선 오리지널 메카 소녀"
     },
     "tokyo-neon-rain-night": {
       "title": "도쿄 레인: 네온 나이트",
-      "alt": "도쿄 레인: 네온 나이트 — Rainy futuristic street reflecting blue and purple neon"
+      "alt": "파란색과 보라색 네온을 반사하는 빗속의 미래형 거리"
     },
     "starship-ring-planet": {
       "title": "링 행성 항해",
-      "alt": "링 행성 항해 — Starship crossing a giant ringed planet in deep space"
+      "alt": "심우주에서 거대한 고리 행성을 가로지르는 우주선"
     },
     "gothic-castle-moonlight": {
       "title": "달빛 성채",
-      "alt": "달빛 성채 — Gothic castle on a cliff under a full moon with drifting fog"
+      "alt": "보름달 아래 안개가 흐르는 절벽 위 고딕 성"
     },
     "sakura-tram-station": {
       "title": "종착역의 벚꽃",
-      "alt": "종착역의 벚꽃 — Anime tram station at dusk with drifting cherry blossoms"
+      "alt": "해 질 녘 트램 정류장에 흩날리는 벚꽃잎"
     },
     "highway-sunset-classic-car": {
       "title": "골든아워 질주",
-      "alt": "골든아워 질주 — Classic car driving into a huge desert sunset on an open highway"
+      "alt": "탁 트인 고속도로를 달려 사막의 거대한 노을로 향하는 클래식카"
     },
     "dreamcore-floating-room": {
       "title": "구름 위의 방",
-      "alt": "구름 위의 방 — A furnished room floating on an island above an endless cloud sea"
+      "alt": "끝없는 구름 바다 위 섬에 떠 있는 가구가 갖춰진 방"
     },
     "synthwave-car-sunset": {
       "title": "그리드 노을",
-      "alt": "그리드 노을 — Retro sports car on a neon grid road toward a striped sunset"
+      "alt": "네온 그리드 도로를 줄무늬 노을을 향해 달리는 레트로 스포츠카"
     },
     "dragon-sky-citadel": {
       "title": "잉걸룡의 비상",
-      "alt": "잉걸룡의 비상 — Ember-winged dragon circling a floating citadel above storm clouds"
+      "alt": "폭풍 구름 위 떠 있는 성을 맴도는 불씨 날개의 용"
     },
     "pixel-rainy-city": {
       "title": "8비트 폭우",
-      "alt": "8비트 폭우 — Pixel-art rainy neon intersection with reflective pavement"
+      "alt": "픽셀 아트로 표현된 빗속 네온 교차로와 반사되는 노면"
     },
     "abandoned-manor-dread": {
       "title": "침묵의 저택",
-      "alt": "침묵의 저택 — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+      "alt": "해 질 녘 안개 속 버려진 빅토리아 저택, 희미한 촛불이 비치는 창문"
     },
     "hypercar-scifi-city": {
       "title": "빛의 궤적",
-      "alt": "빛의 궤적 — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+      "alt": "빛나는 라이트 라인을 그리며 SF 도시를 질주하는 미래형 하이퍼카"
     },
     "mystic-girl-night-sky": {
       "title": "별을 바라보며",
-      "alt": "별을 바라보며 — Anime girl gazing up at a towering starry night sky with a faint aurora"
+      "alt": "희미한 오로라가 떠 있는 별가득한 밤하늘을 올려다보는 애니 소녀"
     },
     "black-hole-voyage": {
       "title": "사건의 지평선",
-      "alt": "사건의 지평선 — A tiny vessel beside a black hole's glowing accretion disk"
+      "alt": "블랙홀의 빛나는 강착 원반 곁에 떠 있는 작은 탐사선"
     },
     "neon-motorcycle-night": {
       "title": "젖은 코너",
-      "alt": "젖은 코너 — Neon-accented motorcycle leaning through a wet downtown corner"
+      "alt": "젖은 도심 코너를 기울며 질주하는 네온 액센트의 오토바이"
     },
     "skydeck-future-city": {
       "title": "블루아워 전망대",
-      "alt": "블루아워 전망대 — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+      "alt": "블루아워, 유리 스카이데크에서 미래형 메가시티를 내려다보는 방문객"
     },
     "samurai-shrine-rain": {
       "title": "비 속의 도리이",
-      "alt": "비 속의 도리이 — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+      "alt": "거센 비 속 붉은 도리이 참길 앞에 선 사무라이, 등불이 은은히 빛난다"
     },
     "starlit-glowing-ocean": {
       "title": "두 하늘 사이",
-      "alt": "두 하늘 사이 — A small boat between a starlit sky and a bioluminescent ocean"
+      "alt": "별빛 하늘과 생체발광 바다 사이에 떠 있는 작은 배"
     },
     "clay-toon-cozy-world": {
       "title": "떠다니는 마을",
-      "alt": "떠다니는 마을 — Cute 3D clay houses with glowing windows on floating grass islands"
+      "alt": "떠 있는 풀섬 위 창문이 따뜻하게 빛나는 귀여운 3D 클레이 집들"
     },
     "amoled-violet-halo": {
       "title": "순수한 후광",
-      "alt": "순수한 후광 — Single glowing violet halo ring on a pure black AMOLED background"
+      "alt": "순 블랙 AMOLED 배경 위 빛나는 보라색 헤일로 링 하나"
     },
     "deep-sea-glow-cosmos": {
       "title": "심해의 별자리",
-      "alt": "심해의 별자리 — Bioluminescent deep-sea creatures drifting like a galaxy"
+      "alt": "은하처럼 떠다니는 심해의 생체발광 생물들"
     },
     "anime-bedroom-cityscape": {
       "title": "로파이 나이트",
-      "alt": "로파이 나이트 — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+      "alt": "따뜻한 램프와 창밖 빛나는 도시 야경이 어우러진 아늑한 애니 침실"
     },
     "retro-motel-alien-sky": {
       "title": "우주 모텔",
-      "alt": "우주 모텔 — Retro desert motel with a neon sign under an alien sky with two moons"
+      "alt": "두 개의 달이 뜬 이계 하늘 아래 네온 간판이 빛나는 레트로 사막 모텔"
     },
     "ukiyo-anime-fusion": {
       "title": "현대의 큰 파도",
-      "alt": "현대의 큰 파도 — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
+      "alt": "우키요에 판화 파도가 현대 애니메이션과 융합하고 멀리 스카이라인이 보인다"
     },
     "b2-mecha-battleline": {
       "title": "메카 배틀라인",
-      "alt": "메카 배틀라인 — Original mecha squad advancing through a ruined future boulevard at dawn"
+      "alt": "새벽의 폐허가 된 미래 대로를 전진하는 오리지널 메카 스쿼드"
     },
     "b2-cyber-nightmarket": {
       "title": "야시장 운하",
-      "alt": "야시장 운하 — Cyberpunk night market with lanterns reflecting in a black canal"
+      "alt": "검은 운하에 등불이 비치는 사이버펑크 야시장"
     },
     "b2-interstellar-gate": {
       "title": "점프 게이트",
-      "alt": "점프 게이트 — Titanic jump-gate opening a swirling portal above an exploration fleet"
+      "alt": "탐사 함대 상공에 소용돌이치는 포털을 여는 거대한 점프 게이트"
     },
     "b2-dark-citadel-throne": {
       "title": "잉걸불의 왕좌",
-      "alt": "잉걸불의 왕좌 — Dark citadel throne hall with moonlight shafts and drifting embers"
+      "alt": "달빛이 쏟아지는 어둠의 성채 옥좌 홀, 불씨가 떠다닌다"
     },
     "b2-jp-aesthetic-alley": {
       "title": "등불 골목",
-      "alt": "등불 골목 — Japanese alley with paper lanterns and a Mount Fuji sunset"
+      "alt": "종이 등불이 매달린 일본 골목, 먼 곳 후지산의 노을"
     },
     "b2-vaporwave-mall": {
       "title": "침수된 아케이드",
-      "alt": "침수된 아케이드 — Abandoned retro mall flooded with water under pink-cyan neon"
+      "alt": "핑크와 시안 네온 아래 물에 잠긴 폐업한 레트로 쇼핑몰"
     },
     "b2-dreamcore-playground": {
       "title": "구름 위의 놀이터",
-      "alt": "구름 위의 놀이터 — Impossible playground standing on clouds under three soft suns"
+      "alt": "세 개의 부드러운 태양 아래 구름 위에 선 기묘한 놀이터"
     },
     "b2-gothic-cathedral": {
       "title": "한밤의 대성당",
-      "alt": "한밤의 대성당 — Gothic cathedral interior with glowing stained glass at midnight"
+      "alt": "자정의 고딕 대성당 내부, 스테인드글라스가 빛난다"
     },
     "b2-roadmovie-dusk": {
       "title": "황혼의 컨버터블",
-      "alt": "황혼의 컨버터블 — Vintage convertible on a west-coast highway at dusk"
+      "alt": "해 질 녘 서코스트 하이웨이를 달리는 빈티지 컨버터블"
     },
     "b2-samurai-standoff": {
       "title": "대나무 숲의 무사",
-      "alt": "대나무 숲의 무사 — Original samurai standing in a bamboo grove during a lightning storm"
+      "alt": "뇌우 속 대나무 숲에 선 오리지널 사무라이"
     },
     "b2-pixel-arcade-world": {
       "title": "픽셀 스카이랜드",
-      "alt": "픽셀 스카이랜드 — Pixel-art floating islands connected by neon bridges"
+      "alt": "네온 다리로 연결된 픽셀 아트 부유 섬들"
     },
     "b2-race-future-circuit": {
       "title": "반중력 서킷",
-      "alt": "반중력 서킷 — Anti-gravity race cars charging through a neon circuit tunnel"
+      "alt": "네온 서킷 터널을 질주하는 반중력 레이스카"
     },
     "b2-galaxy-river-mountain": {
       "title": "은하수 계곡",
-      "alt": "은하수 계곡 — The Milky Way pouring between mountain ridges over a mirrored lake"
+      "alt": "산맥 사이로 쏟아지는 은하수, 거울 같은 호수에 비친다"
     },
     "b2-magic-forest-spirits": {
       "title": "포자의 정령",
-      "alt": "포자의 정령 — Glowing spore-spirits floating between colossal mossy trunks"
+      "alt": "이끼 낀 거대한 나무줄기 사이를 떠다니는 빛나는 포자 정령들"
     },
     "b2-amoled-obsidian-wave": {
       "title": "흑요석의 파도",
-      "alt": "흑요석의 파도 — A sweep of violet-to-blue light across a near-black obsidian field"
+      "alt": "거의 검은 흑요석 화면을 가로지르는 보라색에서 파란색으로 이어지는 빛의 물결"
     },
     "b2-anime-festival-night": {
       "title": "축제의 밤",
-      "alt": "축제의 밤 — Anime festival street with yukata crowds and fireworks"
+      "alt": "유카타를 입은 인파와 불꽃놀이가 어우러진 애니 축제 거리"
     },
     "b2-mech-pilot-gaze": {
       "title": "파일럿과 거신",
-      "alt": "파일럿과 거신 — Original mecha pilot before her towering mechanical partner"
+      "alt": "우뚝 솟은 기체 파트너를 올려다보는 오리지널 메카 파일럿"
     },
     "b2-cyber-alley-cat": {
       "title": "네온 골목 고양이",
-      "alt": "네온 골목 고양이 — Robotic cat on a crate in a flickering neon alley"
+      "alt": "깜빡이는 네온 골목 상자 위 로봇 고양이"
     },
     "b2-lofi-rain-window": {
       "title": "비 오는 창가",
-      "alt": "비 오는 창가 — Rain on a large window with a steaming mug and a sleeping cat"
+      "alt": "큰 창문에 내리는 빗줄기, 김이 오르는 머그컵과 잠든 고양이"
     },
     "b2-galaxy-cliff-temple": {
       "title": "절벽 위의 별사",
-      "alt": "절벽 위의 별사 — A tiny temple on a cliff beneath a river of stars"
+      "alt": "별의 강 아래 절벽 위 작은 사원"
     },
     "b2-magic-forest-well": {
       "title": "빛나는 우물",
-      "alt": "빛나는 우물 — Ancient glowing well in an enchanted forest clearing"
+      "alt": "마법의 숲 공터에 빛을 내는 오래된 우물"
     },
     "b2-vaporwave-bust": {
       "title": "네온 바이저",
-      "alt": "네온 바이저 — Classical plaster bust with a chrome visor in a vaporwave room"
+      "alt": "베이퍼웨이브 방 안 크롬 바이저를 쓴 고전 석고 흉상"
     },
     "b2-dreamcore-doorfield": {
       "title": "문의 들판",
-      "alt": "문의 들판 — Standing doors in a cloud meadow opening onto different skies"
+      "alt": "구름 초원에 서 있는 문들, 각기 다른 하늘로 열린다"
     },
     "b2-magic-forest-clearing": {
       "title": "버섯의 원",
-      "alt": "버섯의 원 — Glowing mushroom circle around an old stone bench at twilight"
+      "alt": "해 질 녘 오래된 돌 벤치를 둘러싼 빛나는 버섯 고리"
     },
     "color-burst-puppy": {
       "title": "컬러풀 강아지",
@@ -1996,5 +1997,20 @@
     "sourceMissingSummary": "움직일 이미지를 선택하세요.",
     "sourceChosenSummary": "선택한 원본 이미지: {name}",
     "recommendationReset": "추천 설정으로 복원했습니다."
+  },
+  "collections": {
+    "browseLabel": "추천 컬렉션",
+    "dreamcore": {
+      "metaTitle": "드림코어 배경화면 — 무료 초현실 감성 배경화면 모음",
+      "title": "드림코어 배경화면",
+      "intro": "몽환적인 파스텔 하늘, 떠 있는 방, 빛나는 들판——폰·태블릿·PC용 무료 드림코어 배경화면 모음집입니다. 원본을 다운로드하거나 AI 스튜디오에서 같은 분위기의 배경화면을 만들어 보세요.",
+      "metaDescription": "무료 드림코어 배경화면 추천 컬렉션: 초현실 파스텔 하늘, 부유하는 방, 빛나는 들판을 폰·태블릿·PC용으로 모았습니다. 원본 무료 다운로드와 AI 스튜디오에서의 같은 분위기 생성을 지원합니다."
+    },
+    "anime": {
+      "metaTitle": "애니 배경화면 — 무료 폰·PC 애니메이션 배경화면",
+      "title": "애니 배경화면",
+      "intro": "아늑한 일상, 메카, 우키요에 융합, 스케치북 캐릭터——폰·태블릿·PC용 무료 애니 배경화면 모음집입니다. 원본을 다운로드하거나 AI 스튜디오에서 같은 스타일을 만들어 보세요.",
+      "metaDescription": "무료 애니 배경화면 추천 컬렉션: 아늑한 일상, 메카, 우키요에 융합, 스케치북 캐릭터를 폰·태블릿·PC용으로 모았습니다. 원본 무료 다운로드와 AI 스튜디오에서의 같은 스타일 생성을 지원합니다."
+    }
   }
 }

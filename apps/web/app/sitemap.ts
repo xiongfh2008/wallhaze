@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { SITE_URL, absoluteLocaleUrl, languageAlternates } from "@/lib/seo";
 import { PUBLIC_WALLPAPERS } from "@/lib/wallpapers";
+import { WALLPAPER_COLLECTIONS } from "@/lib/collections";
 import { getCommunityWorks } from "@/lib/community";
 
 /**
@@ -39,6 +40,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }> = [
     { path: "/", priority: 1, changeFrequency: "weekly" },
     { path: "/wallpapers", priority: 0.9, changeFrequency: "weekly" },
+    // Curated thematic collections (Dreamcore, Anime) — only slugs defined
+    // in lib/collections.ts; membership comes from the cleared public list.
+    ...WALLPAPER_COLLECTIONS.map((collection) => ({
+      path: `/wallpapers/collections/${collection.slug}`,
+      priority: 0.7,
+      changeFrequency: "weekly" as const,
+    })),
     { path: "/studio", priority: 0.8, changeFrequency: "weekly" },
     { path: "/community", priority: 0.8, changeFrequency: "weekly" },
     // FE09 content pages, including the effective legal pages. Deliberately

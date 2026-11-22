@@ -1,11 +1,11 @@
 {
   "meta": {
-    "homeTitle": "WallHaze — Des fonds d’écran IA pour chaque écran",
-    "homeDescription": "Explorez des fonds d’écran IA gratuits pour téléphone, tablette et ordinateur — anime, cyberpunk, fantastique et plus. Créez les vôtres dans l’AI Studio.",
-    "studioTitle": "Studio — Créez des fonds d’écran IA",
-    "studioDescription": "Créez des fonds d’écran IA avec WallHaze : décrivez ce que vous voulez voir, choisissez un style, et générez des fonds statiques et animés pour vos appareils.",
-    "wallpapersTitle": "Galerie de fonds — Fonds gratuits",
-    "wallpapersDescription": "Explorez gratuitement des fonds pour téléphone, tablette et ordinateur. Les œuvres à licence vérifiée sont téléchargeables ; les autres en lecture seule.",
+    "homeTitle": "WallHaze — Fonds d'écran esthétiques gratuits & studio IA",
+    "homeDescription": "Explorez des fonds d'écran gratuits pour téléphone, tablette et PC : anime, cyberpunk, dreamcore et plus. Créez les vôtres avec l'IA dans le Studio.",
+    "studioTitle": "Générateur de fond d'écran IA — Studio",
+    "studioDescription": "Décrivez ce que vous voulez voir, choisissez un style et générez des fonds statiques et animés avec IA. Créez aussi des fonds similaires. Facturation en Credits.",
+    "wallpapersTitle": "Fonds d'écran gratuits pour tous vos écrans",
+    "wallpapersDescription": "Parcourez des fonds anime, cyberpunk, dreamcore et nature en HD pour téléphone, tablette et PC. Les œuvres validées se téléchargent gratuitement.",
     "loginTitle": "Connexion",
     "loginDescription": "Connectez-vous à WallHaze pour gérer votre compte, vos Credits et vos créations.",
     "signupTitle": "Créer un compte",
@@ -39,7 +39,8 @@
     "detailDownloadSuffix": "Téléchargement gratuit",
     "breadcrumbHome": "Accueil",
     "breadcrumbWallpapers": "Fonds d'écran",
-    "breadcrumbCommunity": "Communauté"
+    "breadcrumbCommunity": "Communauté",
+    "detailTitleSuffix": "Fond d'écran"
   },
   "nav": {
     "mainAria": "Principal",
@@ -955,195 +956,195 @@
     },
     "mecha-girl-neon-city": {
       "title": "Fille méca : horizon néon",
-      "alt": "Fille méca : horizon néon — Original anime mecha girl on a rooftop above a neon megacity skyline"
+      "alt": "Fille mecha anime originale sur un toit surplombant les néons d'une mégapole"
     },
     "tokyo-neon-rain-night": {
       "title": "Tokyo sous la pluie",
-      "alt": "Tokyo sous la pluie — Rainy futuristic street reflecting blue and purple neon"
+      "alt": "Rue futuriste sous la pluie reflétant des néons bleus et violets"
     },
     "starship-ring-planet": {
       "title": "Voyage vers la planète à anneaux",
-      "alt": "Voyage vers la planète à anneaux — Starship crossing a giant ringed planet in deep space"
+      "alt": "Vaisseau spatial traversant une planète géante aux anneaux dans l'espace lointain"
     },
     "gothic-castle-moonlight": {
       "title": "Citadelle au clair de lune",
-      "alt": "Citadelle au clair de lune — Gothic castle on a cliff under a full moon with drifting fog"
+      "alt": "Château gothique sur une falaise sous une pleine lune avec brouillard dérivant"
     },
     "sakura-tram-station": {
       "title": "Pétales au terminus",
-      "alt": "Pétales au terminus — Anime tram station at dusk with drifting cherry blossoms"
+      "alt": "Station de tramway anime au crépuscule avec pétales de cerisier flottants"
     },
     "highway-sunset-classic-car": {
       "title": "Route au coucher du soleil",
-      "alt": "Route au coucher du soleil — Classic car driving into a huge desert sunset on an open highway"
+      "alt": "Voiture classique roulant vers un immense coucher de soleil désertique sur une route ouverte"
     },
     "dreamcore-floating-room": {
       "title": "Chambre au-dessus des nuages",
-      "alt": "Chambre au-dessus des nuages — A furnished room floating on an island above an endless cloud sea"
+      "alt": "Une pièce meublée flottant sur une île au-dessus d'une mer de nuages infinie"
     },
     "synthwave-car-sunset": {
       "title": "Coucher de soleil sur la grille",
-      "alt": "Coucher de soleil sur la grille — Retro sports car on a neon grid road toward a striped sunset"
+      "alt": "Voiture de sport rétro sur une route en grille néon vers un coucher de soleil rayé"
     },
     "dragon-sky-citadel": {
       "title": "Le vol du dragon de braise",
-      "alt": "Le vol du dragon de braise — Ember-winged dragon circling a floating citadel above storm clouds"
+      "alt": "Dragon aux ailes de braise tournant autour d'une citadelle flottante au-dessus de nuages d'orage"
     },
     "pixel-rainy-city": {
       "title": "Déluge 8 bits",
-      "alt": "Déluge 8 bits — Pixel-art rainy neon intersection with reflective pavement"
+      "alt": "Carrefour néon pluvieux en pixel art avec chaussée réfléchissante"
     },
     "abandoned-manor-dread": {
       "title": "Le manoir silencieux",
-      "alt": "Le manoir silencieux — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+      "alt": "Manoir victorien abandonné au crépuscule avec brume et une fenêtre faiblement éclairée à la bougie"
     },
     "hypercar-scifi-city": {
       "title": "Coureur de lumière",
-      "alt": "Coureur de lumière — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+      "alt": "Hypercar futuriste aux lignes lumineuses filant dans une ville de science-fiction"
     },
     "mystic-girl-night-sky": {
       "title": "Ciel étoilé",
-      "alt": "Ciel étoilé — Anime girl gazing up at a towering starry night sky with a faint aurora"
+      "alt": "Fille anime contemplant un ciel étoilé avec une faible aurore"
     },
     "black-hole-voyage": {
       "title": "L’horizon des événements",
-      "alt": "L’horizon des événements — A tiny vessel beside a black hole's glowing accretion disk"
+      "alt": "Un petit vaisseau près du disque d'accrétion brillant d'un trou noir"
     },
     "neon-motorcycle-night": {
       "title": "Corde mouillée",
-      "alt": "Corde mouillée — Neon-accented motorcycle leaning through a wet downtown corner"
+      "alt": "Moto aux accents néon se penchant dans un virage mouillé du centre-ville"
     },
     "skydeck-future-city": {
       "title": "Terrasse à l’heure bleue",
-      "alt": "Terrasse à l’heure bleue — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+      "alt": "Visiteur sur une plateforme vitrée surplombant une mégapole futuriste à l'heure bleue"
     },
     "samurai-shrine-rain": {
       "title": "Un torii sous la pluie",
-      "alt": "Un torii sous la pluie — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+      "alt": "Samouraï devant un chemin de portails torii rouges sous une forte pluie avec lanternes lumineuses"
     },
     "starlit-glowing-ocean": {
       "title": "Entre deux ciels",
-      "alt": "Entre deux ciels — A small boat between a starlit sky and a bioluminescent ocean"
+      "alt": "Une petite barque entre un ciel étoilé et un océan bioluminescent"
     },
     "clay-toon-cozy-world": {
       "title": "Village flottant",
-      "alt": "Village flottant — Cute 3D clay houses with glowing windows on floating grass islands"
+      "alt": "Mignonnes maisons en argile 3D aux fenêtres lumineuses sur des îles d'herbe flottantes"
     },
     "amoled-violet-halo": {
       "title": "Halo pur",
-      "alt": "Halo pur — Single glowing violet halo ring on a pure black AMOLED background"
+      "alt": "Un unique anneau halo violet lumineux sur un fond noir pur AMOLED"
     },
     "deep-sea-glow-cosmos": {
       "title": "Constellation des abysses",
-      "alt": "Constellation des abysses — Bioluminescent deep-sea creatures drifting like a galaxy"
+      "alt": "Créatures bioluminescentes des profondeurs dérivant comme une galaxie"
     },
     "anime-bedroom-cityscape": {
       "title": "Nuit lo-fi",
-      "alt": "Nuit lo-fi — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+      "alt": "Chambre anime douillette avec une lampe chaleureuse et un paysage urbain nocturne lumineux"
     },
     "retro-motel-alien-sky": {
       "title": "Motel interstellaire",
-      "alt": "Motel interstellaire — Retro desert motel with a neon sign under an alien sky with two moons"
+      "alt": "Motel désertique rétro avec un enseigne néon sous un ciel extraterrestre à deux lunes"
     },
     "ukiyo-anime-fusion": {
       "title": "La grande vague moderne",
-      "alt": "La grande vague moderne — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
+      "alt": "Vague d'estampe ukiyo-e fusionnée avec l'anime moderne et une skyline lointaine"
     },
     "b2-mecha-battleline": {
       "title": "Ligne mecha",
-      "alt": "Ligne mecha — Original mecha squad advancing through a ruined future boulevard at dawn"
+      "alt": "Escadron de mechas original avançant dans un boulevard futur en ruines à l'aube"
     },
     "b2-cyber-nightmarket": {
       "title": "Canal nocturne",
-      "alt": "Canal nocturne — Cyberpunk night market with lanterns reflecting in a black canal"
+      "alt": "Marché nocturne cyberpunk avec lanternes se reflétant dans un canal noir"
     },
     "b2-interstellar-gate": {
       "title": "La porte stellaire",
-      "alt": "La porte stellaire — Titanic jump-gate opening a swirling portal above an exploration fleet"
+      "alt": "Portail de saut titanesque ouvrant un vortex au-dessus d'une flotte d'exploration"
     },
     "b2-dark-citadel-throne": {
       "title": "Trône de braises",
-      "alt": "Trône de braises — Dark citadel throne hall with moonlight shafts and drifting embers"
+      "alt": "Salle du trône d'une citadelle sombre avec rais de lune et braises flottantes"
     },
     "b2-jp-aesthetic-alley": {
       "title": "Ruelle aux lanternes",
-      "alt": "Ruelle aux lanternes — Japanese alley with paper lanterns and a Mount Fuji sunset"
+      "alt": "Ruelle japonaise avec lanternes en papier et coucher de soleil sur le mont Fuji"
     },
     "b2-vaporwave-mall": {
       "title": "Arcade inondée",
-      "alt": "Arcade inondée — Abandoned retro mall flooded with water under pink-cyan neon"
+      "alt": "Centre commercial rétro abandonné et inondé sous des néons roses et cyan"
     },
     "b2-dreamcore-playground": {
       "title": "Aire de jeu céleste",
-      "alt": "Aire de jeu céleste — Impossible playground standing on clouds under three soft suns"
+      "alt": "Aire de jeux impossible dressée sur les nuages sous trois soleils doux"
     },
     "b2-gothic-cathedral": {
       "title": "Cathédrale de minuit",
-      "alt": "Cathédrale de minuit — Gothic cathedral interior with glowing stained glass at midnight"
+      "alt": "Intérieur de cathédrale gothique avec vitraux lumineux à minuit"
     },
     "b2-roadmovie-dusk": {
       "title": "Cabriolet au crépuscule",
-      "alt": "Cabriolet au crépuscule — Vintage convertible on a west-coast highway at dusk"
+      "alt": "Cabriolet vintage sur une autoroute de la côte ouest au crépuscule"
     },
     "b2-samurai-standoff": {
       "title": "Samouraï dans la tempête",
-      "alt": "Samouraï dans la tempête — Original samurai standing in a bamboo grove during a lightning storm"
+      "alt": "Samouraï original debout dans une bambouseraie pendant un orage"
     },
     "b2-pixel-arcade-world": {
       "title": "Îles de pixels",
-      "alt": "Îles de pixels — Pixel-art floating islands connected by neon bridges"
+      "alt": "Îles flottantes en pixel art reliées par des ponts de néon"
     },
     "b2-race-future-circuit": {
       "title": "Circuit antigrav",
-      "alt": "Circuit antigrav — Anti-gravity race cars charging through a neon circuit tunnel"
+      "alt": "Voitures de course antigravité fonçant dans un tunnel de circuit néon"
     },
     "b2-galaxy-river-mountain": {
       "title": "Rivière d'étoiles",
-      "alt": "Rivière d'étoiles — The Milky Way pouring between mountain ridges over a mirrored lake"
+      "alt": "La Voie lactée se déversant entre des crêtes montagneuses au-dessus d'un lac miroir"
     },
     "b2-magic-forest-spirits": {
       "title": "Esprits de spores",
-      "alt": "Esprits de spores — Glowing spore-spirits floating between colossal mossy trunks"
+      "alt": "Esprits de spores lumineux flottant entre des troncs colossaux moussus"
     },
     "b2-amoled-obsidian-wave": {
       "title": "Vague d'obsidienne",
-      "alt": "Vague d'obsidienne — A sweep of violet-to-blue light across a near-black obsidian field"
+      "alt": "Un balayage de lumière du violet au bleu sur un champ d'obsidienne presque noir"
     },
     "b2-anime-festival-night": {
       "title": "Nuit de festival",
-      "alt": "Nuit de festival — Anime festival street with yukata crowds and fireworks"
+      "alt": "Rue de festival anime avec foules en yukata et feux d'artifice"
     },
     "b2-mech-pilot-gaze": {
       "title": "Pilote et titan",
-      "alt": "Pilote et titan — Original mecha pilot before her towering mechanical partner"
+      "alt": "Pilote de mecha originale devant son imposant partenaire mécanique"
     },
     "b2-cyber-alley-cat": {
       "title": "Chat de la ruelle",
-      "alt": "Chat de la ruelle — Robotic cat on a crate in a flickering neon alley"
+      "alt": "Chat robotique sur une caisse dans une ruelle de néon vacillant"
     },
     "b2-lofi-rain-window": {
       "title": "Pluie lo-fi",
-      "alt": "Pluie lo-fi — Rain on a large window with a steaming mug and a sleeping cat"
+      "alt": "Pluie sur une grande fenêtre avec une tasse fumante et un chat endormi"
     },
     "b2-galaxy-cliff-temple": {
       "title": "Temple sur la falaise",
-      "alt": "Temple sur la falaise — A tiny temple on a cliff beneath a river of stars"
+      "alt": "Un petit temple sur une falaise sous une rivière d'étoiles"
     },
     "b2-magic-forest-well": {
       "title": "Le puits lumineux",
-      "alt": "Le puits lumineux — Ancient glowing well in an enchanted forest clearing"
+      "alt": "Ancien puits lumineux dans une clairière de forêt enchantée"
     },
     "b2-vaporwave-bust": {
       "title": "Visière néon",
-      "alt": "Visière néon — Classical plaster bust with a chrome visor in a vaporwave room"
+      "alt": "Buste en plâtre classique avec une visière chromée dans une pièce vaporwave"
     },
     "b2-dreamcore-doorfield": {
       "title": "Champ de portes",
-      "alt": "Champ de portes — Standing doors in a cloud meadow opening onto different skies"
+      "alt": "Portes dressées dans une prairie de nuages s'ouvrant sur des ciels différents"
     },
     "b2-magic-forest-clearing": {
       "title": "Cercle de champignons",
-      "alt": "Cercle de champignons — Glowing mushroom circle around an old stone bench at twilight"
+      "alt": "Cercle de champignons lumineux autour d'un vieux banc de pierre au crépuscule"
     },
     "color-burst-puppy": {
       "title": "Chiot haut en couleur",
@@ -1996,5 +1997,20 @@
     "sourceMissingSummary": "Choisis une image à animer.",
     "sourceChosenSummary": "Image source choisie : {name}",
     "recommendationReset": "Réglages recommandés restaurés."
+  },
+  "collections": {
+    "browseLabel": "Collections à la une",
+    "dreamcore": {
+      "metaTitle": "Fonds dreamcore — Décors surréalistes gratuits",
+      "title": "Fonds d'écran dreamcore",
+      "intro": "Ciels pastel éthérés, pièces impossibles et champs lumineux : une sélection de fonds d'écran dreamcore gratuits pour téléphone, tablette et PC. Téléchargez les originaux ou créez une scène similaire dans le Studio IA.",
+      "metaDescription": "Fonds dreamcore gratuits : ciels pastel surréalistes, pièces flottantes et champs lumineux pour téléphone, tablette et PC. Téléchargez ou créez une scène similaire."
+    },
+    "anime": {
+      "metaTitle": "Fonds anime — Fonds gratuits téléphone et PC",
+      "title": "Fonds d'écran anime",
+      "intro": "Scènes cosy, mechas, fusions ukiyo-e et personnages croqués — une sélection de fonds d'écran anime gratuits pour téléphone, tablette et PC. Téléchargez les originaux ou créez un style similaire dans le Studio IA.",
+      "metaDescription": "Fonds anime gratuits : scènes cosy, mechas, fusions ukiyo-e et personnages croqués pour téléphone, tablette et PC. Téléchargez ou créez un style similaire."
+    }
   }
 }

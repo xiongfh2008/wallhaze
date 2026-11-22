@@ -1,11 +1,11 @@
 {
   "meta": {
-    "homeTitle": "WallHaze — 适配每一块屏幕的 AI 壁纸",
-    "homeDescription": "探索为你的设备准备的免费 AI 壁纸。动漫、赛博朋克、奇幻等独特风格，为手机、平板和桌面提供高质量壁纸。还可以在 AI Studio 中创作专属壁纸。",
-    "studioTitle": "Studio — AI 壁纸创作",
-    "studioDescription": "用 WallHaze 创作 AI 壁纸：描述你想看到的画面，选择风格，为你的设备生成静态与动态壁纸。",
-    "wallpapersTitle": "壁纸画廊 — 免费壁纸",
-    "wallpapersDescription": "免费浏览手机、平板和电脑壁纸。授权已核实的作品可下载；仍在审核中的作品仅可浏览。每张壁纸都有独立详情页。",
+    "homeTitle": "WallHaze — 免费高清壁纸与 AI 壁纸生成器",
+    "homeDescription": "浏览适合手机、平板和电脑的免费动漫、赛博朋克、梦核风格高清壁纸，也可以在 AI Studio 中生成专属的自定义 AI 壁纸。",
+    "studioTitle": "AI 壁纸生成器 — 自定义手机与电脑壁纸",
+    "studioDescription": "输入文字描述、选择画风与设备比例，用 AI 生成静态与动态壁纸；还可以参考已有作品生成同风格壁纸。使用 Credits 计费。",
+    "wallpapersTitle": "免费高清壁纸 — 手机、平板与电脑壁纸下载",
+    "wallpapersDescription": "浏览免费动漫壁纸、赛博朋克、梦核、自然风景等高清壁纸，适配手机、平板与电脑。已审核作品支持免费下载，也可以在 AI Studio 中一键生成同风格壁纸。",
     "loginTitle": "登录",
     "loginDescription": "登录 WallHaze，管理你的账户、Credits 与作品。",
     "signupTitle": "创建账户",
@@ -39,7 +39,8 @@
     "detailDownloadSuffix": "可免费下载",
     "breadcrumbHome": "首页",
     "breadcrumbWallpapers": "壁纸",
-    "breadcrumbCommunity": "社区"
+    "breadcrumbCommunity": "社区",
+    "detailTitleSuffix": "免费壁纸"
   },
   "nav": {
     "mainAria": "主导航",
@@ -955,195 +956,195 @@
     },
     "mecha-girl-neon-city": {
       "title": "机甲少女·霓虹天际",
-      "alt": "机甲少女·霓虹天际 — Original anime mecha girl on a rooftop above a neon megacity skyline"
+      "alt": "原创机甲少女站在屋顶上，背后是霓虹闪烁的巨型城市天际线"
     },
     "tokyo-neon-rain-night": {
       "title": "东京雨夜·霓虹",
-      "alt": "东京雨夜·霓虹 — Rainy futuristic street reflecting blue and purple neon"
+      "alt": "雨夜的未来感街道倒映着蓝色与紫色的霓虹"
     },
     "starship-ring-planet": {
       "title": "环行星之旅",
-      "alt": "环行星之旅 — Starship crossing a giant ringed planet in deep space"
+      "alt": "星际飞船掠过深空中一颗巨大的带环行星"
     },
     "gothic-castle-moonlight": {
       "title": "月下哥特城",
-      "alt": "月下哥特城 — Gothic castle on a cliff under a full moon with drifting fog"
+      "alt": "满月之下悬崖上的哥特式城堡，薄雾缭绕"
     },
     "sakura-tram-station": {
       "title": "末班车站的樱瓣",
-      "alt": "末班车站的樱瓣 — Anime tram station at dusk with drifting cherry blossoms"
+      "alt": "黄昏时分的有轨电车站，樱花花瓣随风飘落"
     },
     "highway-sunset-classic-car": {
       "title": "黄金时刻公路",
-      "alt": "黄金时刻公路 — Classic car driving into a huge desert sunset on an open highway"
+      "alt": "一辆经典老爷车行驶在空旷公路上，驶向沙漠尽头的巨大落日"
     },
     "dreamcore-floating-room": {
       "title": "云上房间",
-      "alt": "云上房间 — A furnished room floating on an island above an endless cloud sea"
+      "alt": "一间布置温馨的房间悬浮在云海之上的小岛上"
     },
     "synthwave-car-sunset": {
       "title": "网格落日",
-      "alt": "网格落日 — Retro sports car on a neon grid road toward a striped sunset"
+      "alt": "复古跑车行驶在霓虹网格公路上，驶向条纹状的落日"
     },
     "dragon-sky-citadel": {
       "title": "烬龙飞翔",
-      "alt": "烬龙飞翔 — Ember-winged dragon circling a floating citadel above storm clouds"
+      "alt": "火焰之翼的巨龙盘旋在暴风云上方的浮空堡垒周围"
     },
     "pixel-rainy-city": {
       "title": "像素暴雨",
-      "alt": "像素暴雨 — Pixel-art rainy neon intersection with reflective pavement"
+      "alt": "像素风格的雨夜霓虹路口，路面泛着反光"
     },
     "abandoned-manor-dread": {
       "title": "沉默洋馆",
-      "alt": "沉默洋馆 — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+      "alt": "黄昏中被遗弃的维多利亚庄园，薄雾弥漫，一扇窗户透出微弱烛光"
     },
     "hypercar-scifi-city": {
       "title": "光轨疾驰",
-      "alt": "光轨疾驰 — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+      "alt": "未来感超级跑车拖着发光的光轨飞驰穿过科幻城市"
     },
     "mystic-girl-night-sky": {
       "title": "仰望星海",
-      "alt": "仰望星海 — Anime girl gazing up at a towering starry night sky with a faint aurora"
+      "alt": "动漫少女仰望缀满繁星的璀璨夜空，天边泛着淡淡的极光"
     },
     "black-hole-voyage": {
       "title": "视界之旅",
-      "alt": "视界之旅 — A tiny vessel beside a black hole's glowing accretion disk"
+      "alt": "微小的飞船漂浮在黑洞炽热吸积盘旁"
     },
     "neon-motorcycle-night": {
       "title": "湿地压弯",
-      "alt": "湿地压弯 — Neon-accented motorcycle leaning through a wet downtown corner"
+      "alt": "摩托车倾斜压弯划过湿漉漉的城市街角，霓虹光影闪烁"
     },
     "skydeck-future-city": {
       "title": "蓝调时刻观景台",
-      "alt": "蓝调时刻观景台 — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+      "alt": "蓝调时刻，游客站在玻璃观景台上俯瞰未来的巨型都市"
     },
     "samurai-shrine-rain": {
       "title": "雨中鸟居",
-      "alt": "雨中鸟居 — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+      "alt": "大雨滂沱中，武士伫立在红色鸟居参道前，灯笼散发暖光"
     },
     "starlit-glowing-ocean": {
       "title": "两片星空之间",
-      "alt": "两片星空之间 — A small boat between a starlit sky and a bioluminescent ocean"
+      "alt": "一叶小舟漂浮在星空与发光的荧光海之间"
     },
     "clay-toon-cozy-world": {
       "title": "漂浮小村",
-      "alt": "漂浮小村 — Cute 3D clay houses with glowing windows on floating grass islands"
+      "alt": "草地浮岛上可爱3D黏土小屋的窗户透出温暖灯光"
     },
     "amoled-violet-halo": {
       "title": "纯粹光晕",
-      "alt": "纯粹光晕 — Single glowing violet halo ring on a pure black AMOLED background"
+      "alt": "纯黑 AMOLED 背景上一枚发光的紫色光环"
     },
     "deep-sea-glow-cosmos": {
       "title": "深渊星座",
-      "alt": "深渊星座 — Bioluminescent deep-sea creatures drifting like a galaxy"
+      "alt": "深海发光生物如星系般缓缓漂游"
     },
     "anime-bedroom-cityscape": {
       "title": "夜晚房间·城市夜景",
-      "alt": "夜晚房间·城市夜景 — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+      "alt": "温馨的动漫卧室，暖色台灯亮着，窗外是灯火璀璨的城市夜景"
     },
     "retro-motel-alien-sky": {
       "title": "星空旅馆",
-      "alt": "星空旅馆 — Retro desert motel with a neon sign under an alien sky with two moons"
+      "alt": "复古沙漠汽车旅馆亮着霓虹招牌，天空悬着两轮月亮"
     },
     "ukiyo-anime-fusion": {
       "title": "现代巨浪",
-      "alt": "现代巨浪 — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
+      "alt": "浮世绘木版海浪与现代动漫风格融合，远处是城市天际线"
     },
     "b2-mecha-battleline": {
       "title": "机甲战线",
-      "alt": "机甲战线 — Original mecha squad advancing through a ruined future boulevard at dawn"
+      "alt": "破晓时分，原创机甲小队推进在废墟中的未来大道上"
     },
     "b2-cyber-nightmarket": {
       "title": "夜市运河",
-      "alt": "夜市运河 — Cyberpunk night market with lanterns reflecting in a black canal"
+      "alt": "赛博朋克夜市的灯笼倒映在漆黑的运河水面"
     },
     "b2-interstellar-gate": {
       "title": "星际之门",
-      "alt": "星际之门 — Titanic jump-gate opening a swirling portal above an exploration fleet"
+      "alt": "巨型星际跃迁门在探索舰队上空开启旋转的传送门"
     },
     "b2-dark-citadel-throne": {
       "title": "余烬王座",
-      "alt": "余烬王座 — Dark citadel throne hall with moonlight shafts and drifting embers"
+      "alt": "黑暗城堡的王座大厅，月光斜照，余烬飘浮"
     },
     "b2-jp-aesthetic-alley": {
       "title": "灯笼小巷",
-      "alt": "灯笼小巷 — Japanese alley with paper lanterns and a Mount Fuji sunset"
+      "alt": "挂满纸灯笼的日式小巷，远处富士山沐浴在夕阳中"
     },
     "b2-vaporwave-mall": {
       "title": "淹没的商场",
-      "alt": "淹没的商场 — Abandoned retro mall flooded with water under pink-cyan neon"
+      "alt": "被水淹没的废弃复古商场，粉青霓虹交相辉映"
     },
     "b2-dreamcore-playground": {
       "title": "云端游乐场",
-      "alt": "云端游乐场 — Impossible playground standing on clouds under three soft suns"
+      "alt": "三轮柔光太阳下的云朵之上，矗立着一座超现实的游乐场"
     },
     "b2-gothic-cathedral": {
       "title": "午夜大教堂",
-      "alt": "午夜大教堂 — Gothic cathedral interior with glowing stained glass at midnight"
+      "alt": "午夜的哥特式大教堂内部，彩绘玻璃流光溢彩"
     },
     "b2-roadmovie-dusk": {
       "title": "黄昏敞篷车",
-      "alt": "黄昏敞篷车 — Vintage convertible on a west-coast highway at dusk"
+      "alt": "黄昏中的西海岸公路上行驶着一辆复古敞篷车"
     },
     "b2-samurai-standoff": {
       "title": "竹林武士",
-      "alt": "竹林武士 — Original samurai standing in a bamboo grove during a lightning storm"
+      "alt": "雷雨交加的竹林中伫立着一位原创武士"
     },
     "b2-pixel-arcade-world": {
       "title": "像素浮空群岛",
-      "alt": "像素浮空群岛 — Pixel-art floating islands connected by neon bridges"
+      "alt": "像素风格的浮空岛群由霓虹桥梁相连"
     },
     "b2-race-future-circuit": {
       "title": "反重力赛道",
-      "alt": "反重力赛道 — Anti-gravity race cars charging through a neon circuit tunnel"
+      "alt": "反重力赛车在霓虹赛道隧道中飞驰竞速"
     },
     "b2-galaxy-river-mountain": {
       "title": "星河山涧",
-      "alt": "星河山涧 — The Milky Way pouring between mountain ridges over a mirrored lake"
+      "alt": "银河倾泻于山脊之间，倒映在如镜的湖面"
     },
     "b2-magic-forest-spirits": {
       "title": "孢之精灵",
-      "alt": "孢之精灵 — Glowing spore-spirits floating between colossal mossy trunks"
+      "alt": "发光的孢子精灵漂浮在长满青苔的巨树之间"
     },
     "b2-amoled-obsidian-wave": {
       "title": "黑曜之波",
-      "alt": "黑曜之波 — A sweep of violet-to-blue light across a near-black obsidian field"
+      "alt": "近乎纯黑的黑曜石画面上扫过一道紫蓝渐变光带"
     },
     "b2-anime-festival-night": {
       "title": "祭典之夜",
-      "alt": "祭典之夜 — Anime festival street with yukata crowds and fireworks"
+      "alt": "动漫祭典街道上浴衣人群熙攘，烟花绽放夜空"
     },
     "b2-mech-pilot-gaze": {
       "title": "驾驶员与巨神",
-      "alt": "驾驶员与巨神 — Original mecha pilot before her towering mechanical partner"
+      "alt": "原创机甲驾驶员仰望她高耸的机甲伙伴"
     },
     "b2-cyber-alley-cat": {
       "title": "霓虹巷猫",
-      "alt": "霓虹巷猫 — Robotic cat on a crate in a flickering neon alley"
+      "alt": "霓虹闪烁的小巷里，机械猫蹲坐在木箱上"
     },
     "b2-lofi-rain-window": {
       "title": "雨天微 Loft",
-      "alt": "雨天微 Loft — Rain on a large window with a steaming mug and a sleeping cat"
+      "alt": "大窗外的雨滴滑落，热气腾腾的马克杯旁睡猫安眠"
     },
     "b2-galaxy-cliff-temple": {
       "title": "崖畔星祠",
-      "alt": "崖畔星祠 — A tiny temple on a cliff beneath a river of stars"
+      "alt": "星河之下悬崖上的一座小小神社"
     },
     "b2-magic-forest-well": {
       "title": "发光古井",
-      "alt": "发光古井 — Ancient glowing well in an enchanted forest clearing"
+      "alt": "魔法森林空地上一口散发微光的古老水井"
     },
     "b2-vaporwave-bust": {
       "title": "霓虹面甲",
-      "alt": "霓虹面甲 — Classical plaster bust with a chrome visor in a vaporwave room"
+      "alt": "蒸汽波风格房间里佩戴镀铬面罩的古典石膏像"
     },
     "b2-dreamcore-doorfield": {
       "title": "众门之野",
-      "alt": "众门之野 — Standing doors in a cloud meadow opening onto different skies"
+      "alt": "云端草地上矗立着一扇扇门，每扇门都通向不同的天空"
     },
     "b2-magic-forest-clearing": {
       "title": "蘑菇环",
-      "alt": "蘑菇环 — Glowing mushroom circle around an old stone bench at twilight"
+      "alt": "暮色中发着光的蘑菇环围绕一张古老石凳"
     },
     "color-burst-puppy": {
       "title": "缤纷跃动的小狗",
@@ -1996,5 +1997,20 @@
     "sourceMissingSummary": "选择一张图片来制作动态效果。",
     "sourceChosenSummary": "已选择源图片：{name}",
     "recommendationReset": "推荐设置已恢复。"
+  },
+  "collections": {
+    "browseLabel": "精选合集",
+    "dreamcore": {
+      "metaTitle": "梦核壁纸 — 免费超现实梦境手机电脑壁纸",
+      "title": "梦核壁纸",
+      "intro": "柔和的粉彩天空、悬浮的房间与发光的原野——精选免费梦核风格壁纸，适配手机、平板与电脑。下载原图，或在 AI Studio 中生成同风格作品。",
+      "metaDescription": "精选免费梦核壁纸合集：超现实粉彩天空、悬浮房间与发光原野，适配手机、平板与电脑。可免费下载原图，或在 AI Studio 中生成同风格场景。"
+    },
+    "anime": {
+      "metaTitle": "动漫壁纸 — 免费手机电脑动漫背景图",
+      "title": "动漫壁纸",
+      "intro": "治愈日常、机甲、浮世绘融合与手绘角色——精选免费动漫风格壁纸，适配手机、平板与电脑。下载原图，或在 AI Studio 中生成同款风格。",
+      "metaDescription": "精选免费动漫壁纸合集：治愈日常、机甲、浮世绘融合与手绘角色，适配手机、平板与电脑。可免费下载原图，或在 AI Studio 中生成同风格作品。"
+    }
   }
 }

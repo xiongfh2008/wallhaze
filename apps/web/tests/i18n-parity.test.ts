@@ -109,8 +109,16 @@ describe("sitemap", () => {
     for (const route of PUBLIC_CONTENT_ROUTES) {
       expect(paths).toContain(route);
     }
-    const wallpapers = paths.filter((p) => p.startsWith("/wallpapers/"));
+    // Detail pages only — /wallpapers/collections/* curated pages are a
+    // separate route type and are asserted below.
+    const wallpapers = paths.filter(
+      (p) => p.startsWith("/wallpapers/") && !p.startsWith("/wallpapers/collections/")
+    );
     expect(wallpapers).toHaveLength(94); // + 3 paper-sunshine wallpapers (2026-11-15 owner release)
+    // Curated collections: exactly the slugs defined in lib/collections.ts.
+    const { WALLPAPER_COLLECTIONS } = await import("../lib/collections");
+    const collectionPaths = paths.filter((p) => p.startsWith("/wallpapers/collections/"));
+    expect(collectionPaths).toHaveLength(WALLPAPER_COLLECTIONS.length);
     const communityWorks = paths.filter((p) => p.startsWith("/community/"));
     // Sitemap lists real submissions only — never demo seed pages.
     expect(communityWorks).toHaveLength(0);

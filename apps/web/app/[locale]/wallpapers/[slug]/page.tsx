@@ -80,9 +80,12 @@ export async function generateMetadata({
       ? tWallpapers(altKey)
       : wallpaper.alt;
   const pending = !wallpaper.canPubliclyDisplay;
+  // Localized per-locale title suffix (meta.detailTitleSuffix) — the suffix
+  // used to be hardcoded English, producing mixed-language <title> tags on
+  // the six non-English locales.
   const seoTitle = pending
     ? `${title} — Wallpaper · License Review`
-    : `${title} — Free Wallpaper`;
+    : `${title} — ${tMeta("detailTitleSuffix")}`;
   // Meta description carries the file's real, verifiable specs (pixel
   // dimensions + download status) — never fabricated numbers.
   const metaDescription = pending
@@ -352,6 +355,11 @@ export default async function WallpaperDetailPage({ params }: DetailPageProps) {
                   src={wallpaper.image}
                   alt={description}
                   gradient={wallpaper.gradient}
+                  // Real intrinsic dimensions from the file — lets browsers
+                  // reserve the exact layout box (CLS) and gives image
+                  // crawlers the display size alongside the ImageObject data.
+                  width={wallpaper.width}
+                  height={wallpaper.height}
                   eager
                   priority
                   className="relative h-full w-full object-contain"

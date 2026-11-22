@@ -1,11 +1,11 @@
 {
   "meta": {
-    "homeTitle": "WallHaze — AI Wallpapers for Every Screen",
-    "homeDescription": "Explore free AI wallpapers for phone, tablet and desktop — anime, cyberpunk, fantasy and more. Create your own in the AI Studio.",
-    "studioTitle": "Studio — Create AI Wallpapers",
-    "studioDescription": "Create AI wallpapers with WallHaze: describe what you want to see, pick a style, and generate static and live wallpapers for your devices.",
-    "wallpapersTitle": "Wallpaper Gallery — Free Wallpapers",
-    "wallpapersDescription": "Browse free wallpapers for phone, tablet and desktop. Artwork with cleared licensing is downloadable; items under review are view-only.",
+    "homeTitle": "Free Aesthetic Wallpapers & AI Wallpaper Studio — WallHaze",
+    "homeDescription": "Browse free aesthetic wallpapers for phone, tablet and desktop — anime, cyberpunk, dreamcore and more. Or create your own custom AI wallpapers in the Studio.",
+    "studioTitle": "AI Wallpaper Generator — Create Custom Wallpapers",
+    "studioDescription": "Generate custom AI wallpapers from a text prompt: pick a style, set your device ratio, or create similar wallpapers from a reference image. Billed with Credits.",
+    "wallpapersTitle": "Free Aesthetic Wallpapers for Phone, Tablet & Desktop",
+    "wallpapersDescription": "Browse free HD wallpapers for phone, tablet and desktop — anime, cyberpunk, dreamcore, nature and more. Download cleared artwork or create similar ones with AI.",
     "loginTitle": "Sign in",
     "loginDescription": "Sign in to WallHaze to manage your account, Credits and creations.",
     "signupTitle": "Create an account",
@@ -39,7 +39,8 @@
     "detailDownloadSuffix": "Free to download",
     "breadcrumbHome": "Home",
     "breadcrumbWallpapers": "Wallpapers",
-    "breadcrumbCommunity": "Community"
+    "breadcrumbCommunity": "Community",
+    "detailTitleSuffix": "Free Wallpaper"
   },
   "nav": {
     "mainAria": "Main",
@@ -1996,5 +1997,20 @@
     "sourceMissingSummary": "Choose a source image to animate.",
     "sourceChosenSummary": "Source image ready: {name}",
     "recommendationReset": "Recommended settings restored."
+  },
+  "collections": {
+    "browseLabel": "Curated collections",
+    "dreamcore": {
+      "metaTitle": "Dreamcore Wallpapers — Free Surreal Backgrounds",
+      "title": "Dreamcore Wallpapers",
+      "intro": "Ethereal pastel skies, impossible rooms and glowing fields — a curated set of free dreamcore wallpapers for phone, tablet and desktop. Download the originals, or open one in the AI Studio and create a similar scene.",
+      "metaDescription": "Free dreamcore wallpapers: surreal pastel skies, floating rooms and glowing fields for phone, tablet and desktop. Download originals or create similar scenes."
+    },
+    "anime": {
+      "metaTitle": "Anime Wallpapers — Free Phone & Desktop Backgrounds",
+      "title": "Anime Wallpapers",
+      "intro": "Cozy scenes, mecha, ukiyo-e fusions and sketchbook characters — a curated set of free anime wallpapers for phone, tablet and desktop. Download the originals, or create a similar style in the AI Studio.",
+      "metaDescription": "Free anime wallpapers: cozy scenes, mecha, ukiyo-e fusions and sketchbook characters for phone, tablet and desktop. Download originals or create similar with AI."
+    }
   }
 }

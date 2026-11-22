@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import { absoluteLocaleUrl, languageAlternates, OG_LOCALE } from "@/lib/seo";
 import { Link } from "@/i18n/navigation";
 import { PUBLIC_WALLPAPERS } from "@/lib/wallpapers";
+import { WALLPAPER_COLLECTIONS } from "@/lib/collections";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import GalleryExperience from "@/components/gallery/GalleryExperience";
@@ -67,6 +68,7 @@ export default async function WallpapersPage({
   const tGallery = await getTranslations("gallery");
   const tMeta = await getTranslations("meta");
   const tWallpapers = await getTranslations("galleryWallpapers");
+  const tCollections = await getTranslations("collections");
 
   // Server-rendered crawlable index of every publicly viewable wallpaper.
   // The client browser above renders its list progressively (search, filters,
@@ -90,6 +92,24 @@ export default async function WallpapersPage({
           <p className="mt-4 leading-relaxed text-zinc-400">
             {tGallery("pageSubtitle")}
           </p>
+          {/* Curated thematic collections — a handful of data-driven
+              landing pages over the same public list (see lib/collections.ts). */}
+          {WALLPAPER_COLLECTIONS.length > 0 ? (
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+              <span className="text-zinc-500">{tCollections("browseLabel")}</span>
+              {WALLPAPER_COLLECTIONS.map((collection) => (
+                <Link
+                  key={collection.slug}
+                  href={`/wallpapers/collections/${collection.slug}`}
+                  className="text-violet-300 transition hover:text-violet-200"
+                >
+                  {tCollections.has(`${collection.slug}.title`)
+                    ? tCollections(`${collection.slug}.title`)
+                    : collection.slug}
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
         <GalleryExperience />
 

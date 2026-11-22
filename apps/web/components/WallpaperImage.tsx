@@ -15,6 +15,10 @@ interface WallpaperImageProps {
   srcSet?: string;
   /** Intrinsic display width hint for the srcSet selection. */
   sizes?: string;
+  /** Intrinsic pixel width of the artwork (reserves the layout box, aids CLS). */
+  width?: number;
+  /** Intrinsic pixel height of the artwork (reserves the layout box, aids CLS). */
+  height?: number;
   /** Optional callback fired when the image fails to load. */
   onError?: () => void;
   /** Optional callback fired once the bitmap has loaded. */
@@ -34,6 +38,8 @@ export default function WallpaperImage({
   priority = false,
   srcSet,
   sizes,
+  width,
+  height,
   onError,
   onLoaded,
 }: WallpaperImageProps) {
@@ -91,6 +97,8 @@ export default function WallpaperImage({
       ref={attachRef}
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       // The gradient doubles as an in-loading backdrop: until the bitmap is
       // decoded the box shows the style gradient instead of raw black.
       className={`bg-gradient-to-br ${gradient} ${className}`}

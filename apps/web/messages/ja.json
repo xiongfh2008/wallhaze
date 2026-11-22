@@ -1,11 +1,11 @@
 {
   "meta": {
-    "homeTitle": "WallHaze — あらゆる画面のためのAI壁紙",
-    "homeDescription": "お使いのデバイスに合わせた無料の AI 壁紙を探索。アニメ、サイバーパンク、ファンタジーなど、ユニークなスタイルをスマホ・タブレット・デスクトップ向けに高品質で提供します。AI Studio で自分の壁紙を作成できます。",
-    "studioTitle": "Studio — AI壁紙制作",
-    "studioDescription": "WallHaze で AI 壁紙を作成：見たいものを描写し、スタイルを選ぶと、お使いのデバイス向けの静止画・ライブ壁紙を生成できます。",
-    "wallpapersTitle": "壁紙ギャラリー — 無料壁紙",
-    "wallpapersDescription": "スマートフォン、タブレット、PC向けの壁紙を無料で閲覧。ライセンス確認済みの作品はダウンロード可能、確認中の作品は閲覧のみです。各壁紙に詳細ページがあります。",
+    "homeTitle": "WallHaze — 無料スマホ壁紙・AI壁紙生成",
+    "homeDescription": "アニメ、サイバーパンク、ドリームコアなどの無料スマホ壁紙・PC壁紙を探してダウンロード。AIスタジオでオリジナルのカスタム壁紙も生成できます。",
+    "studioTitle": "AI壁紙ジェネレーター — オリジナル壁紙を作成",
+    "studioDescription": "文章で描写して好きなスタイルと比率を選び、AIで静的・ライブ壁紙を生成。既存の壁紙を参考にした「Create similar」にも対応。Credits制。",
+    "wallpapersTitle": "無料壁紙ギャラリー — スマホ・タブレット・PC対応",
+    "wallpapersDescription": "アニメ壁紙、サイバーパンク、ドリームコア、風景などの無料HD壁紙をスマホ・タブレット・PC向けに取り揃え。審査済み作品は無料でダウンロードでき、AIスタジオで似た壁紙を生成できます。",
     "loginTitle": "ログイン",
     "loginDescription": "WallHaze にログインしてアカウント・Credits・作品を管理します。",
     "signupTitle": "アカウント作成",
@@ -39,7 +39,8 @@
     "detailDownloadSuffix": "無料でダウンロード可能",
     "breadcrumbHome": "ホーム",
     "breadcrumbWallpapers": "壁紙",
-    "breadcrumbCommunity": "コミュニティ"
+    "breadcrumbCommunity": "コミュニティ",
+    "detailTitleSuffix": "無料壁紙"
   },
   "nav": {
     "mainAria": "メインナビゲーション",
@@ -955,195 +956,195 @@
     },
     "mecha-girl-neon-city": {
       "title": "メカ少女・ネオンの空",
-      "alt": "メカ少女・ネオンの空 — Original anime mecha girl on a rooftop above a neon megacity skyline"
+      "alt": "ネオン輝く巨大都市のスカイラインを見下ろす屋上に立つ、オリジナルのメカ少女"
     },
     "tokyo-neon-rain-night": {
       "title": "東京レイン・ネオンナイト",
-      "alt": "東京レイン・ネオンナイト — Rainy futuristic street reflecting blue and purple neon"
+      "alt": "青と紫のネオンを映す雨の未来的な街路"
     },
     "starship-ring-planet": {
       "title": "リングの惑星へ",
-      "alt": "リングの惑星へ — Starship crossing a giant ringed planet in deep space"
+      "alt": "深宇宙で巨大な環のある惑星を横切る星間船"
     },
     "gothic-castle-moonlight": {
       "title": "月光のゴシック城",
-      "alt": "月光のゴシック城 — Gothic castle on a cliff under a full moon with drifting fog"
+      "alt": "満月の下、霧が漂う崖の上のゴシック城"
     },
     "sakura-tram-station": {
       "title": "終着駅の桜",
-      "alt": "終着駅の桜 — Anime tram station at dusk with drifting cherry blossoms"
+      "alt": "夕暮れの路面電車の駅に舞い散る桜の花びら"
     },
     "highway-sunset-classic-car": {
       "title": "黄金時間のドライブ",
-      "alt": "黄金時間のドライブ — Classic car driving into a huge desert sunset on an open highway"
+      "alt": "空ひろがるハイウェイを巨大な砂漠の夕日に向かって走るクラシックカー"
     },
     "dreamcore-floating-room": {
       "title": "雲の上の部屋",
-      "alt": "雲の上の部屋 — A furnished room floating on an island above an endless cloud sea"
+      "alt": "果てしない雲の海の上、浮かぶ島に置かれた家具のある部屋"
     },
     "synthwave-car-sunset": {
       "title": "グリッドの夕焼け",
-      "alt": "グリッドの夕焼け — Retro sports car on a neon grid road toward a striped sunset"
+      "alt": "ネオングリッドの道をストライプの夕日に向かって走るレトロなスポーツカー"
     },
     "dragon-sky-citadel": {
       "title": "烈竜の飛翔",
-      "alt": "烈竜の飛翔 — Ember-winged dragon circling a floating citadel above storm clouds"
+      "alt": "嵐の雲の上に浮かぶ天空城を旋回する、燃えさしの翼を持つドラゴン"
     },
     "pixel-rainy-city": {
       "title": "8ビットの大雨",
-      "alt": "8ビットの大雨 — Pixel-art rainy neon intersection with reflective pavement"
+      "alt": "雨に濡れて光を反射する路面の、ピクセルアートのネオン交差点"
     },
     "abandoned-manor-dread": {
       "title": "沈黙の洋館",
-      "alt": "沈黙の洋館 — Abandoned Victorian manor at dusk with mist and a faint candlelit window"
+      "alt": "薄暮、霧に包まれた廃屋のビクトリア様式の館と、僅かに灯る蝋燭の窓"
     },
     "hypercar-scifi-city": {
       "title": "ライトラインの疾走",
-      "alt": "ライトラインの疾走 — Futuristic hypercar with glowing light lines speeding through a sci-fi city"
+      "alt": "光るライトラインを引いてSF都市を疾走する未来的なハイパーカー"
     },
     "mystic-girl-night-sky": {
       "title": "星を仰ぐ",
-      "alt": "星を仰ぐ — Anime girl gazing up at a towering starry night sky with a faint aurora"
+      "alt": "かすかなオーロラが揺れる満天の星空を見上げるアニメの少女"
     },
     "black-hole-voyage": {
       "title": "事象の地平線",
-      "alt": "事象の地平線 — A tiny vessel beside a black hole's glowing accretion disk"
+      "alt": "ブラックホールの光り輝く降着円盤のほとりに浮かぶ小さな探査船"
     },
     "neon-motorcycle-night": {
       "title": "ウェットなコーナー",
-      "alt": "ウェットなコーナー — Neon-accented motorcycle leaning through a wet downtown corner"
+      "alt": "濡れたダウンタウンのコーナーを傾いて駆け抜ける、ネオンアクセントのバイク"
     },
     "skydeck-future-city": {
       "title": "ブルーアワーのデッキ",
-      "alt": "ブルーアワーのデッキ — Visitor on a glass skydeck above a futuristic megacity at blue hour"
+      "alt": "ブルーアワー、ガラスのスカイデッキから未来的なメガシティを見下ろす訪問者"
     },
     "samurai-shrine-rain": {
       "title": "雨の鳥居",
-      "alt": "雨の鳥居 — Samurai before a red torii gate path in heavy rain with glowing lanterns"
+      "alt": "激しい雨の赤い鳥居の参道前に立つ侍、灯籠がほのかに光る"
     },
     "starlit-glowing-ocean": {
       "title": "二つの空のあいだ",
-      "alt": "二つの空のあいだ — A small boat between a starlit sky and a bioluminescent ocean"
+      "alt": "星空と生物発光の海の間に浮かぶ小さな舟"
     },
     "clay-toon-cozy-world": {
       "title": "ふわふわの村",
-      "alt": "ふわふわの村 — Cute 3D clay houses with glowing windows on floating grass islands"
+      "alt": "浮かぶ草の島に並ぶ、窓がぽっと光るかわいい3Dクレイの家々"
     },
     "amoled-violet-halo": {
       "title": "ピュアグロー",
-      "alt": "ピュアグロー — Single glowing violet halo ring on a pure black AMOLED background"
+      "alt": "純黒のAMOLED背景に浮かぶひとつの輝くバイオレットのハロリング"
     },
     "deep-sea-glow-cosmos": {
       "title": "深海の星座",
-      "alt": "深海の星座 — Bioluminescent deep-sea creatures drifting like a galaxy"
+      "alt": "銀河のように漂う深海の生物発光生物たち"
     },
     "anime-bedroom-cityscape": {
       "title": "ローファイナイト",
-      "alt": "ローファイナイト — Cozy anime bedroom with a warm lamp and a glowing city nightscape outside"
+      "alt": "暖かなランプと窓の外に広がる輝く夜景、くつろぎのアニメの寝室"
     },
     "retro-motel-alien-sky": {
       "title": "宇宙モーテル",
-      "alt": "宇宙モーテル — Retro desert motel with a neon sign under an alien sky with two moons"
+      "alt": "二つの月が浮かぶ異星の空の下、ネオンサインが光るレトロな砂漠のモーテル"
     },
     "ukiyo-anime-fusion": {
       "title": "現代の大波",
-      "alt": "現代の大波 — Ukiyo-e woodblock wave fused with modern anime and a distant skyline"
+      "alt": "浮世絵の木版画の波が現代アニメと融合し、遠くにスカイライン"
     },
     "b2-mecha-battleline": {
       "title": "メカ・バトルライン",
-      "alt": "メカ・バトルライン — Original mecha squad advancing through a ruined future boulevard at dawn"
+      "alt": "夜明けの廃墟と化した未来の大通りを進むオリジナルのメカ部隊"
     },
     "b2-cyber-nightmarket": {
       "title": "ナイトマーケットの運河",
-      "alt": "ナイトマーケットの運河 — Cyberpunk night market with lanterns reflecting in a black canal"
+      "alt": "黒い運河に提灯が映り込むサイバーパンクの夜市"
     },
     "b2-interstellar-gate": {
       "title": "ジャンプゲート",
-      "alt": "ジャンプゲート — Titanic jump-gate opening a swirling portal above an exploration fleet"
+      "alt": "探査艦隊の上空で渦巻くポータルを開く巨大なジャンプゲート"
     },
     "b2-dark-citadel-throne": {
       "title": "翡翠の玉座",
-      "alt": "翡翠の玉座 — Dark citadel throne hall with moonlight shafts and drifting embers"
+      "alt": "月光の差し込む闇の城塞玉座の間、燃えさしが漂う"
     },
     "b2-jp-aesthetic-alley": {
       "title": "提灯の小路",
-      "alt": "提灯の小路 — Japanese alley with paper lanterns and a Mount Fuji sunset"
+      "alt": "紙提灯の吊るされた日本の路地、遠くに夕日の富士山"
     },
     "b2-vaporwave-mall": {
       "title": "水没のアーケード",
-      "alt": "水没のアーケード — Abandoned retro mall flooded with water under pink-cyan neon"
+      "alt": "ピンクとシアンのネオンに照らされ、水に沈む廃墟のレトロなショッピングモール"
     },
     "b2-dreamcore-playground": {
       "title": "雲の上の遊園地",
-      "alt": "雲の上の遊園地 — Impossible playground standing on clouds under three soft suns"
+      "alt": "三つの柔らかな太陽の下、雲の上に立つ不条理な遊び場"
     },
     "b2-gothic-cathedral": {
       "title": "真夜中の大聖堂",
-      "alt": "真夜中の大聖堂 — Gothic cathedral interior with glowing stained glass at midnight"
+      "alt": "真夜中のゴシック大聖堂の内部、ステンドグラスが光り輝く"
     },
     "b2-roadmovie-dusk": {
       "title": "夕暮れのコンバーチブル",
-      "alt": "夕暮れのコンバーチブル — Vintage convertible on a west-coast highway at dusk"
+      "alt": "薄暮の西海岸ハイウェイを走るヴィンテージのオープンカー"
     },
     "b2-samurai-standoff": {
       "title": "竹林の侍",
-      "alt": "竹林の侍 — Original samurai standing in a bamboo grove during a lightning storm"
+      "alt": "雷雨の竹林に立つオリジナルの侍"
     },
     "b2-pixel-arcade-world": {
       "title": "ピクセルの空島",
-      "alt": "ピクセルの空島 — Pixel-art floating islands connected by neon bridges"
+      "alt": "ネオンの橋でつながれたピクセルアートの浮遊島々"
     },
     "b2-race-future-circuit": {
       "title": "反重力サーキット",
-      "alt": "反重力サーキット — Anti-gravity race cars charging through a neon circuit tunnel"
+      "alt": "ネオンのサーキットトンネルを駆け抜ける反重力レースカー"
     },
     "b2-galaxy-river-mountain": {
       "title": "天の川の渓谷",
-      "alt": "天の川の渓谷 — The Milky Way pouring between mountain ridges over a mirrored lake"
+      "alt": "山稜の間に流れ落ちる天の川、鏡のような湖に映る"
     },
     "b2-magic-forest-spirits": {
       "title": "胞子の精霊",
-      "alt": "胞子の精霊 — Glowing spore-spirits floating between colossal mossy trunks"
+      "alt": "巨大な苔むした幹の間を漂う光る胞子の精霊"
     },
     "b2-amoled-obsidian-wave": {
       "title": "黒曜の波",
-      "alt": "黒曜の波 — A sweep of violet-to-blue light across a near-black obsidian field"
+      "alt": "漆黒に近いオブシディアンの画面を流れるバイオレットからブルーへの光の帯"
     },
     "b2-anime-festival-night": {
       "title": "夏祭りの夜",
-      "alt": "夏祭りの夜 — Anime festival street with yukata crowds and fireworks"
+      "alt": "浴衣の人だかりと花火、アニメの祭りの賑わい"
     },
     "b2-mech-pilot-gaze": {
       "title": "パイロットと巨神",
-      "alt": "パイロットと巨神 — Original mecha pilot before her towering mechanical partner"
+      "alt": "背のそびえるメカのパートナーを見上げるオリジナルのメカパイロット"
     },
     "b2-cyber-alley-cat": {
       "title": "ネオン路地の猫",
-      "alt": "ネオン路地の猫 — Robotic cat on a crate in a flickering neon alley"
+      "alt": "明滅するネオン路地の木箱の上に座るロボット猫"
     },
     "b2-lofi-rain-window": {
       "title": "雨窓のローファイ",
-      "alt": "雨窓のローファイ — Rain on a large window with a steaming mug and a sleeping cat"
+      "alt": "大きな窓に降る雨、湯気の立つマグと眠る猫"
     },
     "b2-galaxy-cliff-temple": {
       "title": "崖の上の星詞",
-      "alt": "崖の上の星詞 — A tiny temple on a cliff beneath a river of stars"
+      "alt": "星の川の下、崖の上の小さな神殿"
     },
     "b2-magic-forest-well": {
       "title": "光る古井戸",
-      "alt": "光る古井戸 — Ancient glowing well in an enchanted forest clearing"
+      "alt": "魔法の森の空き地にある、ほのかに光る古い井戸"
     },
     "b2-vaporwave-bust": {
       "title": "ネオンバイザー",
-      "alt": "ネオンバイザー — Classical plaster bust with a chrome visor in a vaporwave room"
+      "alt": "ヴェイパーウェイの部屋に置かれた、クロームのバイザーを付けた古典的な石膏像"
     },
     "b2-dreamcore-doorfield": {
       "title": "扉の草原",
-      "alt": "扉の草原 — Standing doors in a cloud meadow opening onto different skies"
+      "alt": "雲の草原に立つ扉々、それぞれが異なる空へと開いている"
     },
     "b2-magic-forest-clearing": {
       "title": "キノコの輪",
-      "alt": "キノコの輪 — Glowing mushroom circle around an old stone bench at twilight"
+      "alt": "薄暮、古い石のベンチを囲んで光るキノコの輪"
     },
     "color-burst-puppy": {
       "title": "カラフルな子犬",
@@ -1996,5 +1997,20 @@
     "sourceMissingSummary": "動かす画像を選択してください。",
     "sourceChosenSummary": "選択中の元画像：{name}",
     "recommendationReset": "推奨設定に戻しました。"
+  },
+  "collections": {
+    "browseLabel": "特集コレクション",
+    "dreamcore": {
+      "metaTitle": "ドリームコア壁紙 — 無料のシュールなスマホ・PC壁紙",
+      "title": "ドリームコア壁紙",
+      "intro": "幻想的なパステルの空、浮かぶ部屋、光る原野——スマホ・タブレット・PC向けの無料ドリームコア壁紙を厳選。元画像をダウンロードして、AIスタジオで似たシーンを生成することもできます。",
+      "metaDescription": "無料ドリームコア壁紙の特集コレクション：シュールなパステル空、浮遊する部屋、光る原野をスマホ・タブレット・PC向けに厳選。元画像を無料でダウンロードし、AIスタジオで似たシーンを生成できます。"
+    },
+    "anime": {
+      "metaTitle": "アニメ壁紙 — 無料のスマホ・PC用アニメ背景",
+      "title": "アニメ壁紙",
+      "intro": "日常のひとコマ、メカ、浮世絵フュージョン、スケッチブック風キャラクター——スマホ・タブレット・PC向けの無料アニメ壁紙を厳選。元画像をダウンロードして、AIスタジオで同じ雰囲気の壁紙を生成することもできます。",
+      "metaDescription": "無料アニメ壁紙の特集コレクション：日常のひとコマ、メカ、浮世絵フュージョン、スケッチブック風キャラクターをスマホ・タブレット・PC向けに厳選。元画像を無料でダウンロードし、AIスタジオで同スタイルを生成できます。"
+    }
   }
 }
