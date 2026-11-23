@@ -40,6 +40,14 @@ export const WALLPAPER_COLLECTIONS: readonly WallpaperCollection[] = [
     slug: "anime",
     styleFamilies: ["anime"],
   },
+  {
+    // 10 public sci-fi pieces (nebula city, ring station, black hole voyage,
+    // galaxy river mountains…). Third collection — cleared the >= 8 public
+    // works threshold at the 2026-11-23 audit (note: cyberpunk only has 6
+    // public pieces and stays a gallery filter, not a collection).
+    slug: "sci-fi",
+    styleIds: ["sci-fi"],
+  },
 ];
 
 /** Collection lookup by URL slug. */

@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { FEATURED_WALLPAPERS, type PresetWallpaper } from "@/lib/wallpapers";
+import { WALLPAPER_COLLECTIONS } from "@/lib/collections";
 import { webpSrcSet } from "@/lib/images";
 import WallpaperImage from "./WallpaperImage";
 import WallpaperDeviceBadge from "./media/WallpaperDeviceBadge";
@@ -103,6 +104,7 @@ export function WallpaperLinkCard({
  */
 export default function FeaturedWallpapers() {
   const t = useTranslations("featured");
+  const tCollections = useTranslations("collections");
   const tWallpapers = useTranslations("galleryWallpapers");
   const tStyles = useTranslations("styleLabels");
 
@@ -120,6 +122,24 @@ export default function FeaturedWallpapers() {
             <p className="mt-3 text-base leading-relaxed text-zinc-400">
               {t("subtitle")}
             </p>
+            {/* Curated collections — the same data-driven landing pages the
+                gallery links to, so the homepage also passes internal link
+                weight to them (crawlable <a href> in server HTML). */}
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+              <span className="text-zinc-500">{tCollections("browseLabel")}</span>
+              {WALLPAPER_COLLECTIONS.map((collection) => (
+                <Link
+                  key={collection.slug}
+                  href={`/wallpapers/collections/${collection.slug}`}
+                  prefetch={false}
+                  className="text-violet-300 transition hover:text-violet-200"
+                >
+                  {tCollections.has(`${collection.slug}.title`)
+                    ? tCollections(`${collection.slug}.title`)
+                    : collection.slug}
+                </Link>
+              ))}
+            </div>
           </div>
           <Link
             href="/wallpapers"

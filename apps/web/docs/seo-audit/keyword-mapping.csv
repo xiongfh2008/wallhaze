@@ -31,6 +31,14 @@ KI Hintergrundbilder,de,Find AI wallpaper tool,Core,P0,/de/studio,Studio,已覆�
 Anime Hintergrundbilder,de,Find anime style,Core,P1,/de/wallpapers/collections/anime,Collection,缺失→新增,19 public works,新增合集页 de 文案,已完成
 KI Wallpaper erstellen,de,Find AI wallpaper tool,Core,P1,/de/studio,Studio,已覆盖,内容匹配,meta 文案本地化重写,已完成
 Hintergrundbilder fürs Handy,de,Browse phone wallpapers,Core,P1,/de/wallpapers,Gallery,已覆盖,内容匹配,meta 文案本地化重写,已完成
+sci-fi wallpapers,en,Browse sci-fi style,Core,P1,/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works 达标 (第二轮实测; phase4 曾列为缺口),新增合集页 en 文案,已完成
+科幻壁纸,zh,Browse sci-fi style,Core,P1,/zh/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works,新增合集页 zh 文案,已完成
+SF壁紙,ja,Browse sci-fi style,Core,P1,/ja/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works,新增合集页 ja 文案,已完成
+SF 배경화면,ko,Browse sci-fi style,Core,P1,/ko/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works,新增合集页 ko 文案,已完成
+fondos de ciencia ficción,es,Browse sci-fi style,Core,P1,/es/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works,新增合集页 es 文案,已完成
+fonds science-fiction,fr,Browse sci-fi style,Core,P1,/fr/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works,新增合集页 fr 文案,已完成
+Sci-Fi Wallpaper,de,Browse sci-fi style,Core,P1,/de/wallpapers/collections/sci-fi,Collection,缺失→新增 (第二轮),10 public works,新增合集页 de 文案,已完成
+cyberpunk wallpapers,en,Browse cyberpunk style,Potential,P2,(无独立页面),Collection,缺失 (第二轮实测公开仅 6 张),修正上一轮"12 张"误计; 不达 ≥8 门槛,不建页; 保留图库筛选,待验证
 dreamcore field of doors wallpaper,en,Find specific artwork,Long-tail,P1,/wallpapers/b2-dreamcore-doorfield,Detail,已覆盖 (alt 重写),内容匹配 (9 doors in cloud meadow),alt/meta description 六语补译,已完成
 surreal dreamcore meadow wallpaper,en,Find specific artwork,Long-tail,P2,/wallpapers/b2-dreamcore-doorfield,Detail,已覆盖,内容匹配,同上,已完成
 anime girl dancing wallpaper,en,Find specific artwork,Long-tail,P1,/wallpapers/spinning-into-sunshine,Detail,已覆盖 (alt 重写),内容匹配,alt 六语补译,已完成

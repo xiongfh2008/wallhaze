@@ -2,6 +2,9 @@
 
 范围：`apps/web`。未触碰图片授权规则、Credits、生成流程、支付与任何未审核素材权限。未 push、未部署。
 
+> **第二轮重审计增量（同日晚间，用户要求重跑整轮审计+实施）见文末「第二轮」章节。**
+> 第二轮修正了本报告 E.3 中的一处数据错误（cyberpunk 作品数），以第二轮实测为准。
+
 ## A. 审计结果（本轮起点）
 
 代码/索引基础已在 2026-11-12 诊断（[SEO-GSC-diagnosis.md](../../../docs/SEO-GSC-diagnosis.md)）确认健康：robots/sitemap/canonical/hreflang/head metadata/双 UA 一致性全部正常，无公开页误 noindex。本轮审计新增发现：
@@ -85,8 +88,44 @@
 
 1. **部署后 7 天在 GSC 请求重新抓取**：2 个合集页 + 756 sitemap 全量（本轮新增 14 个合集 loc）。
 2. **28 天后导出 GSC 查询报告**：核对 ko（드림코어）与 de/ja 信号是否扩散到新合集页与补译后的详情页；将 keyword-mapping.csv 的 Evidence 列从"内容匹配/假设"升级为真实曝光数据。
-3. **优先补充的主题方向**（现有风格族下自然扩展，非新页）：anime family（19 张，最接近下一门槛的是 cozy-anime 子主题）、dreamcore（9 张）、cyberpunk（12 张，可作为第 3 个合集候选）。
+3. **优先补充的主题方向**（现有风格族下自然扩展，非新页）：anime family（19 张，最接近下一门槛的是 cozy-anime 子主题）、dreamcore（9 张）、cyberpunk（~~12 张，可作为第 3 个合集候选~~ **第二轮实测仅 6 张，不建页，见下方修正**）。
 4. **AMOLED 合集页暂缓**：需 ≥8 张真 AMOLED 作品（当前 dark 族仅 2–3 张）；新增作品过审后重评。
 5. **Google Images 重点**：观察补译后的 288 页是否提升非英语 Image 曝光（此前 8 次曝光集中在 3 个 b2 slug）；主图 width/height 生效后复查 CLS。
 6. **转化**：详情页 Create similar 入口已存在（5 张 paper-sunshine 批次带 3 变体）；建议下一轮为 dreamcore/anime 合集成员补充 CREATE_SIMILAR_VARIANTS，并在部署后设计 download_click / create_similar_click 埋点（phase4 #6，需授权）。
 7. **运维项（非代码）**：Cloudflare Zone 开启 Always Use HTTPS（B1）；GSC 导出 noindex 142 的 URL 明细以关闭 D 类归因。
+
+---
+
+## 第二轮：重审计 + 增量实施（2026-11-23 晚间，commit 0a074a7 之后）
+
+### F. 重审计结论
+
+| 检查 | 方式 | 结果 |
+|---|---|---|
+| 生产 HTML 七语言抽样（详情/合集/sitemap/robots/首页/Studio/图片资源/品牌重复） | 后台代理 curl 实测 7 组 | **全部 PASS**；唯一 NOTE = 首页原始 HTML 无 `/wallpapers/collections/*` 内链 |
+| 素材台账逐风格实测 | tsx 脚本读 `PUBLIC_WALLPAPERS`（94 张公开） | cyberpunk **6 张**（修正 E.3 的"12 张"误计）、sci-fi **10 张**、dreamcore 9、anime family 19、vaporwave 4、dark 3、horror family 5 |
+| 集合页门槛复核 | 对照 lib/collections.ts ≥8 张规则 | **cyberpunk 不建页**（6 张）；**sci-fi 达标建页**（10 张，phase4 §3.1 曾列为"无集合页"缺口） |
+| dev server 500 问题 | 本轮复现 | `next dev` 全站 500（generateStaticParams JSON 解析错），**为既有 dev 环境问题，与本轮改动无关**（未改动页面同样 500）；本轮审计改用 `vite preview`（4173，workerd）对 build 产物审计，与上一轮口径一致 |
+
+### G. 第二轮实施清单
+
+| # | 变更 | 文件 | 理由 |
+|---|---|---|---|
+| 1 | 新增第 3 个合集 `sci-fi`（10 张公开作品，styleId 直配） | `lib/collections.ts` | 达 ≥8 张门槛 + phase4 缺口证据；sitemap/合集入口行/hreflang 随注册表自动生效（+7 loc） |
+| 2 | sci-fi 合集七语言文案（title/intro/metaTitle/metaDescription，自然搜索表达非直译） | `messages/{en,zh,ja,ko,es,fr,de}.json` | 合集页 H1/meta/可见文案；文案长度经 seo:audit 校验（首轮 3 P2 + 1 P3 超长已即时收敛） |
+| 3 | 首页 Featured Wallpapers 区块新增「精选合集」入口行（3 条内链，锚文本 = 合集标题，prefetch=false） | `components/FeaturedWallpapers.tsx` | 修复生产审计唯一 NOTE：首页 → 合集内链权重传递；复用 collections 命名空间，零新增 i18n 键 |
+| 4 | keyword-mapping.csv 新增 sci-fi ×7 行 + cyberpunk「不建页」行；keyword-strategy.md 新增第二轮章节 | `docs/seo-audit/*` | 数据修正留痕（cyberpunk 12→6） |
+
+**未做（维持约束）**：cyberpunk/AMOLED/liminal 等不达标主题不建页；合集成员 CREATE_SIMILAR_VARIANTS 补充（需逐图撰写 3 套 Prompt 变体，涉及素材内容创作，需单独授权）；未改 slug（无 301 需求）；未触碰 media-rights / Credits / 生成流程。
+
+### H. 第二轮测试结果（全部通过）
+
+| 检查 | 结果 |
+|---|---|
+| typecheck | ✅ 0 errors |
+| eslint | ✅ 0 errors（28 warnings 全部既有） |
+| vitest | ✅ 44 files / 339 tests（i18n 七语言键位 parity 含 sci-fi 新块） |
+| rights:check | ✅ pending 27 / restricted 8 / integrity=checked（素材权限未动） |
+| build:vinext | ✅ Build complete |
+| seo:audit（base=http://localhost:4173，label=sci-fi-round） | ✅ 763 loc（+7 = sci-fi ×7 语言）；**P1=0 P2=0 P3=0 orphans=0 brokenKnown=0** |
+| 生产审计（7 组 curl 实测） | ✅ 全 PASS，唯一 NOTE（首页合集内链缺失）已在本轮修复 |

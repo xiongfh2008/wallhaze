@@ -1,9 +1,9 @@
 # WallHaze SEO audit — audit
 
-- Base URL: http://127.0.0.1:3100
-- Sitemap loc entries: 721 (alternates rendered: 5768)
-- Audited URL universe: 721
-- Fetched OK: 721
+- Base URL: http://localhost:4173
+- Sitemap loc entries: 763 (alternates rendered: 6104)
+- Audited URL universe: 763
+- Fetched OK: 763
 - Robots.txt sitemap declared: yes
 - Issues: P1=0 P2=0 P3=0
 - Orphan indexable pages: 0
